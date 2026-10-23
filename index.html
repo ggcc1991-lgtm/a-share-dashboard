@@ -51,7 +51,6 @@
   </main>
 
   <footer class="app-footer">RESEARCH ONLY · NOT INVESTMENT ADVICE · GC DATA</footer>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script src="assets/shell.js"></script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
@@ -81,14 +80,64 @@
     }
 
 
-    let _scoreChart = null;
+    let _scoreSparkPts = null;
     function disposeScoreChart() {
-      if (_scoreChart) { try { _scoreChart.dispose(); } catch (_) {} _scoreChart = null; }
+      if (window.__scoreSparkResize) {
+        window.removeEventListener("resize", window.__scoreSparkResize);
+        window.__scoreSparkResize = null;
+      }
+      _scoreSparkPts = null;
+      const el = document.getElementById("scoreSpark");
+      if (el) el.innerHTML = "";
+    }
+    function renderScoreSparkSvg(el, pts) {
+      const W = Math.max(280, Math.floor(el.clientWidth || 600));
+      const H = Math.max(96, Math.floor(el.clientHeight || 128));
+      const padL = 28, padR = 8, padT = 8, padB = 18;
+      const plotW = W - padL - padR, plotH = H - padT - padB;
+      const yMin = 0, yMax = 12;
+      const n = pts.length;
+      const xAt = (i) => padL + (n <= 1 ? plotW / 2 : (i / (n - 1)) * plotW);
+      const yAt = (v) => padT + plotH * (1 - (Math.max(yMin, Math.min(yMax, +v)) - yMin) / (yMax - yMin));
+      const refs = [0, 5, 8, 12];
+      const grid = refs.map((v) => {
+        const y = yAt(v);
+        return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#1a1a1a" stroke-width="1"/>` +
+          `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" fill="#787878" font-size="9" font-family="ui-monospace,monospace">${v}</text>`;
+      }).join("");
+      const linePts = pts.map((p, i) => `${xAt(i).toFixed(2)},${yAt(p.v).toFixed(2)}`).join(" ");
+      const areaPts = `${xAt(0).toFixed(2)},${(padT + plotH).toFixed(2)} ${linePts} ${xAt(n - 1).toFixed(2)},${(padT + plotH).toFixed(2)}`;
+      const labelIdx = (() => {
+        if (n <= 1) return [0];
+        const want = Math.min(5, n);
+        const out = [];
+        for (let k = 0; k < want; k++) out.push(Math.round(k * (n - 1) / (want - 1)));
+        return [...new Set(out)];
+      })();
+      const labels = labelIdx.map((i) => {
+        const d = String(pts[i].d).slice(5);
+        return `<text x="${xAt(i).toFixed(2)}" y="${H - 4}" text-anchor="middle" fill="#787878" font-size="9" font-family="ui-monospace,monospace">${d}</text>`;
+      }).join("");
+      const last = pts[n - 1];
+      const tip = last ? ` title="${last.d}  红线 ${last.v}/12"` : "";
+      el.innerHTML =
+        `<svg class="bb-spark-svg" viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="近30天信号变化"${tip}>` +
+        `<rect x="0" y="0" width="${W}" height="${H}" fill="transparent"/>` +
+        grid +
+        `<polygon points="${areaPts}" fill="rgba(255,160,40,0.08)" stroke="none"/>` +
+        `<polyline points="${linePts}" fill="none" stroke="#FFA028" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>` +
+        labels +
+        `</svg>`;
     }
     async function initScoreSpark() {
       const el = document.getElementById("scoreSpark");
-      if (!el || typeof echarts === "undefined") return;
+      if (!el) return;
       disposeScoreChart();
+      // Force box size before measuring — avoids 0×0 SVG after innerHTML replace
+      el.style.display = "block";
+      el.style.width = "100%";
+      el.style.minHeight = "96px";
+      if (!el.style.height) el.style.height = "128px";
       let hist = null;
       try { hist = await loadJSON("data/history.json"); } catch (_) {}
       const series = Array.isArray(hist?.score) ? hist.score : [];
@@ -99,67 +148,14 @@
         el.innerHTML = `<div class="bb-spark-empty">待抄底写入 history.score</div>`;
         return;
       }
-      _scoreChart = echarts.init(el, null, { renderer: "canvas" });
-      const dates = pts.map((x) => x.d);
-      const vals = pts.map((x) => +x.v);
-      _scoreChart.setOption({
-        backgroundColor: "transparent",
-        grid: { left: 28, right: 8, top: 8, bottom: 18, containLabel: false },
-        xAxis: {
-          type: "category",
-          data: dates,
-          boundaryGap: false,
-          axisLine: { lineStyle: { color: "#2b2b2b" } },
-          axisTick: { show: false },
-          axisLabel: {
-            color: "#787878",
-            fontSize: 9,
-            interval: Math.max(0, Math.floor(dates.length / 5) - 1),
-            formatter: (d) => String(d).slice(5),
-          },
-          splitLine: { show: false },
-        },
-        yAxis: {
-          type: "value",
-          min: 0,
-          max: 12,
-          interval: 1,
-          axisLine: { show: false },
-          axisTick: { show: false },
-          axisLabel: {
-            color: "#787878",
-            fontSize: 9,
-            formatter: (v) => ([0, 5, 8, 9, 12].includes(v) ? String(v) : ""),
-          },
-          splitLine: {
-            show: true,
-            lineStyle: { color: "#1a1a1a", type: "solid", width: 1 },
-          },
-        },
-        tooltip: {
-          trigger: "axis",
-          backgroundColor: "#0a0a0a",
-          borderColor: "#2b2b2b",
-          textStyle: { color: "#e8e8e8", fontSize: 11 },
-          formatter: (params) => {
-            const p = params?.[0];
-            if (!p) return "";
-            return `${p.axisValue}<br/>红线 <b style="color:#FFA028">${p.data}</b>/12`;
-          },
-        },
-        series: [{
-          type: "line",
-          data: vals,
-          showSymbol: false,
-          symbol: "circle",
-          symbolSize: 3,
-          lineStyle: { color: "#FFA028", width: 1.5 },
-          itemStyle: { color: "#FFA028" },
-          areaStyle: { color: "rgba(255,160,40,0.08)" },
-        }],
-      });
-      const onResize = () => { if (_scoreChart) _scoreChart.resize(); };
-      window.removeEventListener("resize", window.__scoreSparkResize);
+      _scoreSparkPts = pts;
+      const draw = () => {
+        const node = document.getElementById("scoreSpark");
+        if (_scoreSparkPts && node) renderScoreSparkSvg(node, _scoreSparkPts);
+      };
+      draw();
+      requestAnimationFrame(draw);
+      const onResize = () => draw();
       window.__scoreSparkResize = onResize;
       window.addEventListener("resize", onResize);
     }

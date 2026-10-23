@@ -492,6 +492,13 @@ table.data tr:hover td { background: #1c1c1c; }
 .bb-spark-chart {
   width: 100%;
   height: 128px;
+  min-height: 96px;
+  box-sizing: border-box;
+}
+.bb-spark-chart .bb-spark-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .bb-spark-empty {
   height: 128px;
@@ -501,4 +508,179 @@ table.data tr:hover td { background: #1c1c1c; }
   font-size: 11px;
   color: var(--mu-2);
   letter-spacing: 0.04em;
+}
+
+/* —— Mobile ≤719px (phone-first fixes; desktop ≥720 unchanged) —— */
+.table-scroll,
+.tbl,
+.tbl-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.chart,
+.bb-spark-chart {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 719px) {
+  /* prevent page-level horizontal blowout; nested .table-scroll still scrolls */
+  body { overflow-x: clip; }
+  .wrap {
+    padding: 10px 10px 40px;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .app-footer { padding-left: 10px; padding-right: 10px; }
+
+  /* Top bar: brand row + horizontally scrollable nav; short title; hide clock */
+  .app-header .inner {
+    height: auto;
+    min-height: 40px;
+    flex-wrap: wrap;
+    padding: 0;
+    align-items: stretch;
+  }
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 40px;
+    padding: 0 10px;
+    margin-right: 0;
+    border-right: 0;
+  }
+  .brand h1 {
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+  .brand h1::after {
+    content: "GC监控";
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0.01em;
+    color: var(--tx);
+  }
+  .brand h1 span { display: none; }
+  .nav {
+    flex: 1 1 100%;
+    order: 3;
+    height: 36px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-top: 1px solid var(--bd);
+    gap: 0;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a {
+    flex: 0 0 auto;
+    padding: 0 12px;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .header-meta {
+    display: none;
+  }
+
+  .bb-strip .inner {
+    padding: 6px 10px;
+    gap: 14px;
+  }
+
+  /* Overview cols: force single stack below 720 */
+  .bb-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-width: 0;
+  }
+  .bb-cols > * { min-width: 0; max-width: 100%; }
+
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+
+  /* Titles / long ETF notes */
+  .page-title {
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.35;
+  }
+  .page-title .title-note {
+    display: block;
+    margin: 4px 0 0;
+    margin-left: 0;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--mu);
+  }
+  .page-sub { font-size: 11px; }
+  .etf-intro { font-size: 11px; max-width: none; }
+
+  /* Feed tools / search full width */
+  .tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tools .search,
+  .search {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  /* Charts: full width, slightly shorter */
+  .chart { height: 240px; }
+  .chart.sm { height: 200px; }
+  .bb-spark-chart,
+  .bb-spark-empty { height: 96px; }
+  .bb-spark { padding: 4px 6px 2px; }
+
+  /* Dense indicator rows: tighter val/st columns */
+  .bb-ind,
+  .bb-score,
+  .bb-list,
+  .panel,
+  .card,
+  .sec-box {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .bb-ind-hd,
+  .bb-ind-row {
+    grid-template-columns: 12px minmax(0, 1fr) 56px 36px;
+    gap: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .bb-ind-top .ratio { font-size: 18px; }
+  .bb-ind-top { padding: 8px; gap: 6px 8px; }
+
+  .bb-score-head .big { font-size: 28px; }
+  .bb-score-meta { min-width: 0; }
+
+  /* Tables: allow horizontal scroll without blowing the page */
+  table.data,
+  .bb-dense {
+    min-width: 0;
+  }
+  .bb-dense .vl { font-size: 10px; }
+
+  .stat-value { font-size: 18px; }
+  .headline-list a {
+    grid-template-columns: 52px 1fr;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .bb-sec h2 { font-size: 12px; }
+  .bb-sec .more { font-size: 10px; }
 }
