@@ -13,18 +13,19 @@ Bloomberg 终端风格的静态站：总览 + ETF + 信息流 + 抄底红线 + �
   etf/index.html
   feed/index.html
   bottom/index.html
-  policy/index.html        # 政策产业
+  policy/index.html        # 政策产业观察 v1 密排桌面
+  policy/snapshot.json     # schema policy-industry-observe-v1（/policy/ 唯一数据源）
+  policy/README.md
   data/
     etf.json               # 来自 etf 追踪 data.json
     feed.json              # 聚合订阅增量（当前为字段样例）
     bottom.json            # 抄底 latest 快照
-    policy.json            # 政策产业观察条目
 ```
 
 ## 主题令牌
 
 - 背景 `--bg: #000000` / 表面 `#0a0a0a` / 边框 `#2b2b2b`
-- 终端 chrome `--bb` / `--accent` / `--cy`：`#ff6400`（只用于导航、分区标题、按钮，不表示涨跌）
+- 终端 chrome `--bb` / `--accent` / `--cy`：`#ffa028`（只用于导航、分区标题、按钮，不表示涨跌）
 - 涨红 `--pos: #ef5350` / 跌绿 `--neg: #26a69a`（A股语义，不改成西方绿涨）
 - 直角 `--r: 0` · 密表 · 总览为三列（抄底红线 7/12 头 + 12 行指标 / 最新要闻 / 政策产业 + ETF）加顶部行情条
 - `/bottom/` 在共用主题之外再链 `assets/bottom-skin.css`
@@ -36,7 +37,7 @@ Bloomberg 终端风格的静态站：总览 + ETF + 信息流 + 抄底红线 + �
 | ETF | `data/etf.json` | 字段保持 `etfs/dates/series/futures/baseline` |
 | 信息流 | `data/feed.json` | `{ updated, items:[{source,sourceName,title,url,publishedAt,summary}] }` |
 | 抄底 | `data/bottom.json` | `{ triggered_count, total, indicators[], generated_at }` |
-| 政策产业 | `data/policy.json` | `{ updated, source, items:[{title,url,publishedAt,summary,sector,tags,level}] }` |
+| 政策产业 | `policy/snapshot.json` | schema `policy-industry-observe-v1`。`/policy/` 只读该文件。总览第三列只用 `brief` 做短预告，不读 `data/policy.json` |
 
 本地预览：`python3 -m http.server 8080`（需 http，勿用 file://）
 

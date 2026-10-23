@@ -3,41 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>政策产业 · GC的数据监控中心</title>
+  <title>政策产业观察 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
   <style>
-    .pol-row {
-      display: grid;
-      grid-template-columns: 88px 64px 1fr 120px;
-      gap: 8px;
-      align-items: baseline;
-      padding: 6px 8px;
-      border-bottom: 1px solid #1a1a1a;
-      font-size: 12px;
-      text-decoration: none;
-      color: inherit;
+    .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border:var(--hair); }
+    .grid3 > div { border-right:var(--hair); min-width:0; }
+    .grid3 > div:last-child { border-right:none; }
+    @media (max-width:980px){
+      .grid3{ grid-template-columns:1fr; }
+      .grid3 > div { border-right:none; border-bottom:var(--hair); }
+      .grid3 > div:last-child { border-bottom:none; }
     }
-    .pol-row:hover { background: #0f0f0f; }
-    .pol-row .t { color: #e8e8e8; font-weight: 600; }
-    .pol-row .sum { color: #787878; font-size: 11px; margin-top: 2px; }
-    .pol-row .sec { color: var(--bb); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
-    .pol-row .lv { color: #a0a0a0; font-size: 11px; }
-    .pol-row .tm { color: #666; font-variant-numeric: tabular-nums; font-size: 11px; text-align: right; }
-    @media (max-width: 720px) {
-      .pol-row { grid-template-columns: 72px 1fr; }
-      .pol-row .lv, .pol-row .tm { display: none; }
+    .heat-row, .dyn-row, .mat-row, .rt-row {
+      display:grid; gap:6px; align-items:baseline;
+      padding:4px 8px; border-bottom:1px solid #1a1a1a; font-size:12px;
+      text-decoration:none; color:inherit;
     }
-    .pol-hd {
-      display: grid;
-      grid-template-columns: 88px 64px 1fr 120px;
-      gap: 8px;
-      padding: 4px 8px;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #666;
-      border-bottom: 1px solid #333;
+    .heat-row { grid-template-columns: 26px 1fr 64px 48px; }
+    .dyn-row { grid-template-columns: 88px 1fr 56px 56px; }
+    .mat-row { grid-template-columns: 96px 1fr 120px; }
+    .rt-row { grid-template-columns: 1fr 72px 56px 48px; }
+    .heat-row:hover, .dyn-row:hover, .mat-row:hover, .rt-row:hover { background:#0f0f0f; }
+    .nm { color:#e8e8e8; font-weight:600; }
+    .mu { color:#787878; font-size:11px; }
+    .bb { color:var(--bb); }
+    .mono { font-variant-numeric: tabular-nums; font-family: var(--mono), ui-monospace, monospace; }
+    .sec-hd {
+      font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#666;
+      border-bottom:1px solid #333; padding:5px 8px; background:#050505;
     }
+    .brief-box { border:var(--hair); padding:10px 12px; margin-bottom:12px; background:var(--bg-2); }
+    .brief-box h3 { margin:0 0 6px; color:var(--bb); font-size:14px; font-weight:700; }
+    .hl { list-style:none; margin:8px 0 0; padding:0; }
+    .hl li {
+      font-size:12px; color:#c8c8c8; line-height:1.45;
+      padding:6px 0; border-top:1px solid #1a1a1a;
+    }
+    .hl .ht { color:var(--bb); font-weight:650; margin-right:6px; }
+    .hl .hx { color:#a8a8a8; }
+    .filt {
+      display:flex; flex-wrap:wrap; gap:4px; margin:0 0 8px; align-items:center;
+    }
+    .filt button {
+      background:#0a0a0a; color:var(--mu); border:1px solid #2b2b2b;
+      font:inherit; font-size:11px; padding:3px 10px; cursor:pointer;
+      letter-spacing:.02em;
+    }
+    .filt button:hover { color:var(--bb); border-color:#4a2a10; }
+    .filt button.on { color:#000; background:var(--bb); border-color:var(--bb); font-weight:700; }
+    .filt .cnt { color:var(--mu-2); font-size:11px; margin-left:6px; font-family:var(--mono); }
+    .rt-sum {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+      gap:0; border:var(--hair); margin-bottom:8px;
+    }
+    .rt-sum .c {
+      padding:8px 10px; border-right:var(--hair); background:var(--bg-2);
+    }
+    .rt-sum .c:last-child { border-right:none; }
+    .rt-sum .k { font-size:10px; color:var(--mu); letter-spacing:.06em; text-transform:uppercase; }
+    .rt-sum .v { font-size:16px; font-weight:700; color:var(--bb); font-family:var(--mono); margin-top:2px; }
+    .tbl-wrap { overflow-x:auto; border:var(--hair); }
+    table.sec {
+      width:100%; border-collapse:collapse; font-size:12px;
+      font-family:var(--mono); font-variant-numeric:tabular-nums;
+    }
+    table.sec th, table.sec td {
+      padding:4px 8px; border-bottom:1px solid #1a1a1a; text-align:right; white-space:nowrap;
+    }
+    table.sec th:first-child, table.sec td:first-child,
+    table.sec th:nth-child(2), table.sec td:nth-child(2) { text-align:left; }
+    table.sec th {
+      font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+      color:#666; background:#050505; font-weight:600; position:sticky; top:0;
+    }
+    table.sec tr:nth-child(even) td { background:#0a0a0a; }
+    table.sec tr:hover td { background:#141414; }
+    table.sec td.nm { font-family:var(--sans); font-weight:600; color:var(--tx); }
+    table.sec .ly { color:var(--mu-2); font-size:11px; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width:900px){ .two-col{ grid-template-columns:1fr; } }
+    .block { margin-bottom:14px; }
+    .note-foot { font-size:11px; color:var(--mu-2); margin-top:4px; }
   </style>
 </head>
 <body>
@@ -55,74 +101,237 @@
   </header>
   <main class="wrap">
     <h2 class="page-title">政策产业观察</h2>
-    <p class="page-sub" id="meta">加载 data/policy.json …</p>
-    <div class="tools">
-      <div id="filters" style="display:flex;gap:6px;flex-wrap:wrap"></div>
-      <input class="search" id="q" type="search" placeholder="搜索标题 / 行业 / 摘要" />
+    <p class="page-sub" id="meta">加载 policy/snapshot.json …</p>
+
+    <div class="brief-box" id="brief"></div>
+
+    <div class="bb-sec"><h2>三类热度 Top20</h2></div>
+    <div class="grid3 block" id="heat"></div>
+
+    <div class="bb-sec"><h2>板块总表</h2></div>
+    <div class="filt" id="secFilt"></div>
+    <div class="tbl-wrap block" style="max-height:420px;overflow:auto">
+      <table class="sec" id="secTbl">
+        <thead>
+          <tr>
+            <th>板块</th><th>层级</th>
+            <th>政策</th><th>关注</th><th>交易</th>
+          </tr>
+        </thead>
+        <tbody id="secBody"></tbody>
+      </table>
     </div>
-    <div class="pol-hd"><span>SECTOR</span><span>LEVEL</span><span>HEADLINE</span><span style="text-align:right">TIME</span></div>
-    <div id="list"></div>
+
+    <div class="bb-sec"><h2>板块异动</h2></div>
+    <div class="block" id="dynamics"></div>
+
+    <div class="bb-sec"><h2>实时窗 · 24h</h2></div>
+    <div id="rtSum" class="rt-sum block"></div>
+    <div class="two-col block">
+      <div>
+        <div class="sec-hd">TOP SECTORS · ATTENTION</div>
+        <div id="rtSectors"></div>
+      </div>
+      <div>
+        <div class="sec-hd">RECENT MATERIALS</div>
+        <div id="rtMats"></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="bb-sec"><h2>材料 · 政策</h2></div>
+        <div id="matPolicy"></div>
+      </div>
+      <div>
+        <div class="bb-sec"><h2>材料 · 媒体</h2></div>
+        <div id="matMedia"></div>
+      </div>
+    </div>
   </main>
-  <footer class="app-footer">字段：title / url / publishedAt / summary / sector / tags / level · 数据源：政策产业观察</footer>
+  <footer class="app-footer">公开 API 截面 · 结论在板块 · 非荐股 · 不合进 /feed · schema policy-industry-observe-v1 · ./snapshot.json</footer>
   <script src="../assets/shell.js"></script>
   <script>
-    let items = [];
-    let filter = "all";
-    let q = "";
+    const HEAT_LABEL = {
+      policy: "政策热度",
+      marketAttention: "市场关注",
+      marketTrading: "交易热度",
+    };
+    const LAYER_TABS = [
+      { id: "all", label: "全部" },
+      { id: "own_l1", label: "own_l1" },
+      { id: "own_l2", label: "own_l2" },
+      { id: "dynamic", label: "dynamic" },
+      { id: "market_dynamic", label: "market_dynamic" },
+    ];
+    let SECTORS = [];
+    let LAYER = "all";
 
-    function filtered() {
-      const qq = q.trim().toLowerCase();
-      return items.filter((x) => {
-        if (filter !== "all" && x.sector !== filter) return false;
-        if (!qq) return true;
-        const blob = `${x.title||""} ${x.summary||""} ${x.sector||""} ${(x.tags||[]).join(" ")}`.toLowerCase();
-        return blob.includes(qq);
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function num(v, dig) {
+      if (v == null || v === "" || Number.isNaN(+v)) return "—";
+      const n = +v;
+      const d = dig == null ? (Math.abs(n) >= 10 ? 1 : 3) : dig;
+      return n.toFixed(d);
+    }
+    function fmtTime(v) {
+      if (!v) return "—";
+      if (window.DashFmt && DashFmt.time) return DashFmt.time(v);
+      return String(v).replace("T", " ").slice(0, 16);
+    }
+    function heatBlock(key, rows) {
+      const list = (rows || []).slice(0, 20);
+      return `<div>
+        <div class="sec-hd">${HEAT_LABEL[key] || key} · ${list.length}</div>
+        ${list.map((x, i) => `
+          <div class="heat-row">
+            <span class="mono mu">${String(i + 1).padStart(2, "0")}</span>
+            <span class="nm" title="${esc(x.layer || "")}">${esc(x.name || x.sectorId || "—")}</span>
+            <span class="bb mono">${esc(num(x.heatLevel))}</span>
+            <span class="mu mono">${x.momentum == null ? "" : esc(num(x.momentum))}</span>
+          </div>`).join("") || `<div class="mu" style="padding:8px">暂无</div>`}
+      </div>`;
+    }
+    function highlightHtml(h) {
+      if (h == null) return "";
+      if (typeof h === "string") return `<li><span class="hx">${esc(h)}</span></li>`;
+      const title = h.title || "";
+      const text = h.text || h.summary || "";
+      return `<li><span class="ht">${esc(title)}</span><span class="hx">${esc(text)}</span></li>`;
+    }
+    function renderSectors() {
+      const rows = LAYER === "all" ? SECTORS : SECTORS.filter(s => s.layer === LAYER);
+      document.getElementById("secBody").innerHTML = rows.map(s => {
+        const h = s.heat || {};
+        return `<tr>
+          <td class="nm">${esc(s.name || s.sectorId || "—")}</td>
+          <td class="ly">${esc(s.layer || "—")}</td>
+          <td class="bb">${esc(num(h.policy))}</td>
+          <td>${esc(num(h.marketAttention))}</td>
+          <td>${esc(num(h.marketTrading))}</td>
+        </tr>`;
+      }).join("") || `<tr><td colspan="5" class="mu">暂无</td></tr>`;
+      document.querySelectorAll("#secFilt button").forEach(b => {
+        b.classList.toggle("on", b.dataset.layer === LAYER);
       });
+      const cnt = document.getElementById("secCnt");
+      if (cnt) cnt.textContent = `${rows.length} / ${SECTORS.length}`;
     }
-
-    function render() {
-      const rows = filtered().sort((a,b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
-      const list = document.getElementById("list");
-      if (!rows.length) {
-        list.innerHTML = `<div class="empty">没有匹配条目</div>`;
-        return;
-      }
-      list.innerHTML = rows.map((x) => {
-        const href = x.url && x.url !== "#" ? x.url : null;
+    function renderMat(arr, limit) {
+      const list = (arr || []).slice(0, limit || 40);
+      return list.map(x => {
         const inner = `
-          <span class="sec">${x.sector || "—"}</span>
-          <span class="lv">${x.level || "—"}</span>
-          <span><div class="t">${x.title || ""}</div>${x.summary ? `<div class="sum">${x.summary}</div>` : ""}</span>
-          <span class="tm mono">${DashFmt.time(x.publishedAt)}</span>`;
-        return href
-          ? `<a class="pol-row" href="${href}" target="_blank" rel="noopener">${inner}</a>`
-          : `<div class="pol-row">${inner}</div>`;
-      }).join("");
+          <span class="bb">${esc(x.industry || x.channel || "—")}</span>
+          <span>
+            <div class="nm">${esc(x.title || "")}</div>
+            <div class="mu">${esc(x.source || "")}${x.summary ? " · " + esc(x.summary).slice(0, 120) : ""}</div>
+          </span>
+          <span class="mu mono" style="text-align:right">${esc(fmtTime(x.publishedAt))}</span>`;
+        return x.url
+          ? `<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`
+          : `<div class="mat-row">${inner}</div>`;
+      }).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
     }
 
-    fetch("../data/policy.json")
-      .then((r) => r.json())
-      .then((d) => {
-        items = d.items || [];
-        document.getElementById("meta").textContent =
-          `${items.length} 条 · 更新 ${d.updated || "—"} · ${d.source || ""}`;
-        const sectors = [...new Set(items.map((x) => x.sector).filter(Boolean))];
-        const box = document.getElementById("filters");
-        box.innerHTML = [`all`, ...sectors].map((s) =>
-          `<button type="button" class="chip ${s===filter?"watching":""}" data-s="${s}">${s==="all"?"全部":s}</button>`
-        ).join("");
-        box.onclick = (e) => {
-          const b = e.target.closest("[data-s]");
-          if (!b) return;
-          filter = b.getAttribute("data-s");
-          [...box.children].forEach((c) => c.classList.toggle("watching", c.getAttribute("data-s")===filter));
-          render();
-        };
-        document.getElementById("q").oninput = (e) => { q = e.target.value; render(); };
-        render();
+    fetch("./snapshot.json")
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
       })
-      .catch(() => {
-        document.getElementById("meta").textContent = "无法加载 policy.json（等政策产业观察对接）";
+      .then(d => {
+        const m = d.meta || {};
+        document.getElementById("meta").textContent =
+          `asOf ${m.asOf || "—"} · snapshot ${m.snapshotId || "—"} · fetched ${m.fetchedAt || ""} · ${m.timezone || "Asia/Shanghai"}`;
+
+        const b = d.brief || {};
+        document.getElementById("brief").innerHTML = `
+          <h3>${esc(b.headline || "—")}</h3>
+          <div style="font-size:12px;color:#c8c8c8;line-height:1.55">${esc(b.summary || "")}</div>
+          <ul class="hl">${(b.highlights || []).map(highlightHtml).join("")}</ul>`;
+
+        const heat = d.heat || {};
+        document.getElementById("heat").innerHTML =
+          ["policy", "marketAttention", "marketTrading"].map(k => heatBlock(k, heat[k])).join("");
+
+        SECTORS = d.sectors || [];
+        const layersPresent = new Set(SECTORS.map(s => s.layer));
+        document.getElementById("secFilt").innerHTML =
+          LAYER_TABS.filter(t => t.id === "all" || layersPresent.has(t.id)).map(t =>
+            `<button type="button" data-layer="${t.id}">${t.label}</button>`
+          ).join("") + `<span class="cnt" id="secCnt"></span>`;
+        document.getElementById("secFilt").addEventListener("click", ev => {
+          const btn = ev.target.closest("button[data-layer]");
+          if (!btn) return;
+          LAYER = btn.dataset.layer;
+          renderSectors();
+        });
+        renderSectors();
+
+        const dyn = d.dynamics || [];
+        document.getElementById("dynamics").innerHTML =
+          `<div class="sec-hd">TYPE · NAME · REL/ABS · SCORE · ${dyn.length}</div>` +
+          dyn.map(x => `
+            <div class="dyn-row">
+              <span class="bb">${esc(x.type || "—")}</span>
+              <span>
+                <span class="nm">${esc(x.name || "")}</span>
+                <span class="mu"> ${esc(x.layer || "")}</span>
+                <div class="mu">${esc(x.summary || "").slice(0, 160)}</div>
+              </span>
+              <span class="mono mu">${esc(x.relative || "—")}/${esc(x.absolute || "—")}</span>
+              <span class="mono bb">${esc(num(x.score, 1))}</span>
+            </div>`).join("") || `<div class="mu">暂无</div>`;
+
+        const rt = d.realtime || {};
+        const sum = rt.summary || {};
+        const win = rt.window || {};
+        const cards = [
+          ["材料", sum.material_count],
+          ["政策材料", sum.policy_material_count],
+          ["媒体材料", sum.media_material_count],
+          ["关注材料", sum.market_attention_material_count],
+          ["板块", sum.sector_count],
+          ["新信号", sum.new_signal_sector_count],
+          ["多源", sum.multi_source_sector_count],
+        ];
+        document.getElementById("rtSum").innerHTML =
+          `<div class="c"><div class="k">窗口</div><div class="v" style="font-size:13px">${esc(win.duration || "24h")}</div>
+            <div class="mu mono" style="font-size:10px;margin-top:2px">${esc((win.start || "").slice(5, 16))} → ${esc((win.end || "").slice(5, 16))}</div></div>` +
+          cards.map(([k, v]) => `<div class="c"><div class="k">${k}</div><div class="v">${v == null ? "—" : esc(v)}</div></div>`).join("");
+
+        document.getElementById("rtSectors").innerHTML =
+          (rt.sectors || []).slice(0, 20).map(x => `
+            <div class="rt-row">
+              <span class="nm">${esc(x.name || "—")} <span class="mu">${esc((x.signals || []).join(","))}</span></span>
+              <span class="bb mono">${esc(num(x.attention))}</span>
+              <span class="mono ${(+x.delta > 0) ? "" : ""}">${x.delta == null ? "—" : esc(num(x.delta, 2))}</span>
+              <span class="mu mono">${esc(x.materialCount ?? "")}</span>
+            </div>`).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
+
+        document.getElementById("rtMats").innerHTML =
+          (rt.materials || []).slice(0, 20).map(x => {
+            const inner = `
+              <span class="bb">${esc(x.channel || "—")}</span>
+              <span class="nm">${esc(x.title || "")}</span>
+              <span class="mu mono" style="text-align:right;grid-column:3 / span 1">${esc(fmtTime(x.publishedAt))}</span>`;
+            // reuse mat-row grid loosely
+            return x.url
+              ? `<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener" style="grid-template-columns:72px 1fr 100px">${inner}</a>`
+              : `<div class="mat-row" style="grid-template-columns:72px 1fr 100px">${inner}</div>`;
+          }).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
+
+        const mats = d.materials || {};
+        document.getElementById("matPolicy").innerHTML =
+          `<div class="sec-hd">POLICY · ${(mats.policy || []).length}</div>` + renderMat(mats.policy, 40);
+        document.getElementById("matMedia").innerHTML =
+          `<div class="sec-hd">MEDIA · ${(mats.media || []).length}</div>` + renderMat(mats.media, 40);
+      })
+      .catch(e => {
+        document.getElementById("meta").textContent = "无法加载 snapshot.json：" + e.message;
       });
   </script>
 </body>

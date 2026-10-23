@@ -85,7 +85,7 @@
       try { bottom = await loadJSON("data/bottom.json"); } catch (_) {}
       try { feed = await loadJSON("data/feed.json"); } catch (_) {}
       let policy = null;
-      try { policy = await loadJSON("data/policy.json"); } catch (_) {}
+      try { policy = await loadJSON("policy/snapshot.json"); } catch (_) {}
 
       let flow1 = null, flow5 = null, flow20 = null, etfDate = "—";
       if (etf?.series && etf?.dates?.length) {
@@ -117,7 +117,7 @@
         <span class="sep">|</span>
         <span><span class="k">信息流</span><span class="v">${items.length}</span></span>
         <span class="sep">|</span>
-        <span><span class="k">政策</span><span class="v">${(policy?.items||[]).length}</span></span>
+        <span><span class="k">政策</span><span class="v">${((policy?.materials||{}).policy||[]).length + ((policy?.materials||{}).media||[]).length}</span></span>
         <span class="sep">|</span>
         <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
       </div>`;
@@ -128,7 +128,7 @@
         const on = i < trig;
         return `<i class="${on ? (trig >= 10 ? "on" : "soft") : ""}"></i>`;
       }).join("");
-      const sub = bottom?.verdict?.band?.sub || bottom?.verdict?.band?.rule || "";
+      const sub = bottom?.verdict?.band?.rule || bottom?.verdict?.band?.sub || "";
       const rows = inds.map((x) => {
         const on = x.status === "triggered";
         const unit = x.unit ? ` ${x.unit}` : "";
@@ -143,8 +143,10 @@
       document.getElementById("bottomBox").innerHTML = `
         <div class="bb-ind-top">
           <div class="ratio ${hot}" id="heroBig">${trig}<span style="font-size:13px;color:#666">/${total}</span></div>
-          <div class="band">${label}${sub ? `<small>${sub}</small>` : ""}</div>
-          <div class="ticks">${ticks}</div>
+          <div class="bb-ind-top-main">
+            <div class="band">${label}${sub ? `<small>${sub}</small>` : ""}</div>
+            <div class="ticks">${ticks}</div>
+          </div>
         </div>
         <div class="bb-ind-hd"><span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span><span style="text-align:right">状态</span></div>
         ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}
@@ -164,17 +166,21 @@
       }).join("") || `<div class="empty">暂无</div>`;
 
       
-      const pItems = policy?.items || [];
       const polEl = document.getElementById("policyBox");
-      if (polEl) {
-        polEl.innerHTML = pItems.slice(0, 5).map((x) =>
-          `<div style="display:flex;gap:8px;padding:4px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
-            <span style="color:var(--bb);min-width:48px">${x.sector||"—"}</span>
-            <span style="flex:1;color:#e8e8e8">${x.title||""}</span>
-          </div>`
-        ).join("") || `<div class="mu">暂无条目</div>`;
+      if (polEl && policy) {
+        const b = policy.brief || {};
+        const mats = [...((policy.materials||{}).policy||[]), ...((policy.materials||{}).media||[])];
+        const dyn = policy.dynamics || [];
+        polEl.innerHTML = `
+          <div style="font-size:12px;color:var(--bb);font-weight:700;margin-bottom:6px">${b.headline || "政策产业"}</div>
+          <div style="font-size:11px;color:#a0a0a0;line-height:1.45;margin-bottom:8px">${(b.summary||"").slice(0,120)}${(b.summary||"").length>120?"…":""}</div>
+          ${dyn.slice(0,4).map(x => `<div style="display:flex;gap:8px;padding:3px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
+            <span style="color:var(--bb);min-width:56px">${x.type||"—"}</span>
+            <span style="flex:1;color:#e8e8e8">${x.name||""}</span>
+          </div>`).join("") || ""}`;
+      } else if (polEl) {
+        polEl.innerHTML = `<div class="mu">暂无截面</div>`;
       }
-
       const holders = etf?.baseline?.holders || [];
       const holderSum = holders.reduce((s, h) => s + (h.shares_yi || 0), 0);
       document.getElementById("etfBox").innerHTML = `
@@ -193,7 +199,10 @@
         <a class="module-link" href="policy/" style="border-top:1px solid var(--bd)"><strong>政策产业</strong><div class="mu" style="font-size:11px;margin-top:4px" id="policyModHint">—</div><div class="go">OPEN</div></a>
         <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底红线</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
       const ph = document.getElementById("policyModHint");
-      if (ph) ph.textContent = `${pItems.length} 条 · ${policy?.updated || "—"}`;
+      if (ph) {
+        const n = ((policy?.materials||{}).policy||[]).length + ((policy?.materials||{}).media||[]).length;
+        ph.textContent = `${n} 材料 · asOf ${policy?.meta?.asOf || "—"}`;
+      }
     })();
   </script>
 </body>
