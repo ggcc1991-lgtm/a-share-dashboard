@@ -6,23 +6,25 @@
 
 ```
 /
-  index.html          # 总览
-  assets/theme.css    # 共用主题（主色/卡片/字体）
-  assets/shell.js     # 导航与格式化
+  index.html               # 总览
+  assets/theme.css         # 共用主题（扁平原文、4px 圆角、发丝边框）
+  assets/bottom-skin.css   # 抄底页覆盖：压平旧面板圆角与霓虹阴影
+  assets/shell.js          # 导航与格式化
   etf/index.html
   feed/index.html
   bottom/index.html
   data/
-    etf.json          # 来自 etf 追踪 data.json
-    feed.json         # 聚合订阅增量（当前为字段样例）
-    bottom.json       # 抄底 latest 快照
+    etf.json               # 来自 etf 追踪 data.json
+    feed.json              # 聚合订阅增量（当前为字段样例）
+    bottom.json            # 抄底 latest 快照
 ```
 
 ## 主题令牌
 
-- 背景 `#0b0f14` / 卡片 `#141b26` / 边框 `#243044`
-- 青 `#3dd6c6` / 红 `#ff3b4a` / 琥珀 `#f5a623` / 蓝 `#4c8dff`
-- 字体 PingFang SC · 圆角 14px
+- 背景 `#0a0a0b` / 表面 `#111113` / 卡片 `#121214` / 边框 `#2a2a2e`（1px hairline）
+- 涨红 `#e85d5d` / 跌绿 `#3d9a6a` / 琥珀 `#d4a017` / 蓝灰 `#6b8cae`
+- 字体 PingFang SC · 圆角 4px · 无霓虹光晕
+- `/bottom/` 在共用主题之外再链 `assets/bottom-skin.css`
 
 ## 数据对接
 

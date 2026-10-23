@@ -1,0 +1,26 @@
+/* Quiet overrides for legacy bottom panel; keep structure */
+body {
+  background: #0a0a0b !important;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif !important;
+}
+.wrap { max-width: 1120px !important; padding-top: 20px !important; }
+.panel, .card {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  background: #121214 !important;
+  border-color: #2a2a2e !important;
+}
+.panel {
+  background: #111113 !important;
+  background-image: none !important;
+}
+.card.triggered {
+  box-shadow: none !important;
+  border-color: rgba(232, 93, 93, 0.55) !important;
+  background: #141010 !important;
+}
+button {
+  border-radius: 4px !important;
+}
+.chip { border-radius: 2px !important; }
+/* keep 红线 red; kline already 涨红跌绿 per 抄底小天才 */

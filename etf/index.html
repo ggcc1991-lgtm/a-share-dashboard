@@ -144,18 +144,18 @@
           <b>估算口径</b>：当日估算净流入 ≈ 份额变动 × 当日成交均价（优先 VWAP，缺测时用收盘价近似）。份额变动为全市场申赎合计，国家队是主要持有人，但单日变动不能全部归因于国家队，仅作动向参考。<br>
           <b>期货持仓</b>：提取中信期货席位在 IH / IF / IC / IM 各合约的多空并按品种汇总。该席位常被市场视为机构套保动向的参考窗口；数据为该会员全部客户合计。换月导致近远月迁移属正常，建议看品种合计。<br>
           <b>官方持仓</b>：确切持仓仅在半年报 / 年报披露，见上方基准表；日度序列为高频代理指标。<br>
-          <b>免责声明</b>：数据仅供学习研究，可能存在误差或延迟，不构成任何投资建议。
+          <b>免责声明</b>：数据研究用途，可能存在误差或延迟，不构成任何投资建议。
         </p>
       </details>
     </div>
   </main>
-  <footer class="app-footer">数据相对路径 data/etf.json · 仅供学习研究</footer>
+  <footer class="app-footer">数据相对路径 data/etf.json · 研究用途</footer>
 
   <script src="../assets/shell.js"></script>
   <script>
 (function () {
   "use strict";
-  const POS = "#ff3b4a", NEG = "#12b76a", BLU = "#4c8dff", AMB = "#f5a623", PUR = "#a78bfa", CY = "#3dd6c6";
+  const POS = "#e85d5d", NEG = "#3d9a6a", BLU = "#6b8cae", AMB = "#d4a017", PUR = "#8b7aa8", CY = "#9aa0a6";
   const axisLabel = { color: "#8b9bb4", fontSize: 11 };
   const splitLine = { lineStyle: { color: "#1a2332" } };
   const axisLine = { lineStyle: { color: "#243044" } };
@@ -270,7 +270,7 @@
       ],
       dataZoom: [
         { type: "inside" },
-        { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
+        { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(200,205,211,.12)", handleStyle: { color: CY } },
       ],
       series: [
         {
@@ -311,7 +311,7 @@
           ],
           dataZoom: [
             { type: "inside" },
-            { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
+            { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(200,205,211,.12)", handleStyle: { color: CY } },
           ],
           series: [
             {
@@ -429,7 +429,7 @@
         },
         dataZoom: [
           { type: "inside" },
-          { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
+          { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(200,205,211,.12)", handleStyle: { color: CY } },
         ],
         series: (F.products || []).map((p) => ({
           name: p + " " + ((F.names && F.names[p]) || ""),
