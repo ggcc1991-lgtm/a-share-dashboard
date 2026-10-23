@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>抄底红线 · 数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <h1>数据<span>监控</span>中心</h1>
+      </div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <a href="../etf/" data-match="/etf">ETF 追踪</a>
+        <a href="../feed/" data-match="/feed">信息聚合</a>
+        <a href="./" data-match="/bottom" class="active">抄底红线</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 class="page-title">大A<b>抄底</b>红线监控</h2>
+    <p class="page-sub" id="meta">加载 data/bottom.json …</p>
+    <div class="tools">
+      <span class="chip" id="bandChip">—</span>
+      <span class="mu" style="font-size:.8rem">0–5 观望 · 6–8 可考虑 · 9 耐心 · 10–12 抄底区</span>
+      <a class="btn" href="../legacy/" target="_blank" rel="noopener">原完整面板</a>
+    </div>
+    <div class="grid grid-auto-3" id="grid" style="display:grid;gap:12px;grid-template-columns:1fr">
+    </div>
+  </main>
+  <footer class="app-footer">数据来自抄底模块 JSON · 仅供学习研究</footer>
+  <script src="../assets/shell.js"></script>
+  <script>
+    const mq = window.matchMedia("(min-width:640px)");
+    const mq2 = window.matchMedia("(min-width:1050px)");
+    function layoutGrid(el) {
+      el.style.gridTemplateColumns = mq2.matches ? "1fr 1fr 1fr" : mq.matches ? "1fr 1fr" : "1fr";
+    }
+    function bandText(n) {
+      if (n >= 10) return ["抄底区", "triggered"];
+      if (n >= 9) return ["持仓耐心等", "watching"];
+      if (n >= 6) return ["空仓可考虑", "watching"];
+      return ["观望", "ok"];
+    }
+    function statusChip(s) {
+      if (s === "triggered") return '<span class="chip triggered">红线</span>';
+      if (s === "watching") return '<span class="chip watching">观察</span>';
+      return '<span class="chip">未知</span>';
+    }
+    (async () => {
+      const grid = document.getElementById("grid");
+      layoutGrid(grid);
+      mq.addEventListener("change", () => layoutGrid(grid));
+      mq2.addEventListener("change", () => layoutGrid(grid));
+      try {
+        const d = await (await fetch("../data/bottom.json")).json();
+        const [label, cls] = bandText(d.triggered_count);
+        document.getElementById("meta").textContent =
+          `生成于 ${d.generated_at || "—"} · 触发 ${d.triggered_count}/${d.total}`;
+        const chip = document.getElementById("bandChip");
+        chip.textContent = `${d.triggered_count}/${d.total} · ${label}`;
+        chip.className = "chip " + cls;
+        grid.innerHTML = (d.indicators || []).map((x) => {
+          const val = typeof x.value === "number" ? DashFmt.num(x.value, 2) : (x.value ?? "—");
+          const thr = x.threshold != null ? `阈值 ${x.threshold}${x.unit ? " " + x.unit : ""}` : "";
+          return `<div class="card indicator ${x.status === "triggered" ? "triggered" : ""}">
+            <div class="hd"><h3>${x.name}</h3>${statusChip(x.status)}</div>
+            <div class="vr"><span class="val">${val}${x.unit && typeof x.value === "number" ? " " + x.unit : ""}</span><span class="thr">${thr}</span></div>
+            <div class="note">${x.note || x.source || ""}</div>
+          </div>`;
+        }).join("");
+      } catch (e) {
+        document.getElementById("meta").textContent = "无法加载 bottom.json";
+        grid.innerHTML = `<div class="empty">请把抄底 latest.json 放到 data/bottom.json</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>

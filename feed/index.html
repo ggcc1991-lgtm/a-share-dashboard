@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>信息聚合 · 数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand"><div class="brand-mark"></div><h1>数据<span>监控</span>中心</h1></div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <a href="../etf/" data-match="/etf">ETF 追踪</a>
+        <a href="./" data-match="/feed" class="active">信息聚合</a>
+        <a href="../bottom/" data-match="/bottom">抄底红线</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 class="page-title">信息聚合</h2>
+    <p class="page-sub" id="meta">加载 data/feed.json …</p>
+    <div class="tools" id="filters"></div>
+    <div class="grid" id="list" style="gap:10px"></div>
+  </main>
+  <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary</footer>
+  <script src="../assets/shell.js"></script>
+  <script>
+    const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS" };
+    let items = [];
+    let filter = "all";
+
+    function render() {
+      const list = document.getElementById("list");
+      const rows = filter === "all" ? items : items.filter((x) => x.source === filter);
+      if (!rows.length) {
+        list.innerHTML = `<div class="empty">暂无条目。把聚合订阅的 latest.json 放到 data/feed.json</div>`;
+        return;
+      }
+      list.innerHTML = rows.map((x) => `
+        <article class="feed-item">
+          <div class="feed-meta">
+            <span class="chip src">${SRC[x.source] || x.source}</span>
+            <span>${x.sourceName || ""}</span>
+            <span class="mono">${DashFmt.time(x.publishedAt)}</span>
+          </div>
+          <h3><a href="${x.url || "#"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>${x.title || "无标题"}</a></h3>
+          <p class="feed-sum">${x.summary || ""}</p>
+        </article>`).join("");
+    }
+
+    (async () => {
+      try {
+        const d = await (await fetch("../data/feed.json")).json();
+        items = d.items || [];
+        document.getElementById("meta").textContent = `${d.updated || "—"} · ${items.length} 条`;
+        const sources = ["all", ...new Set(items.map((x) => x.source))];
+        document.getElementById("filters").innerHTML = sources.map((s) =>
+          `<button type="button" data-s="${s}" class="${s === "all" ? "primary" : ""}">${s === "all" ? "全部" : (SRC[s] || s)}</button>`
+        ).join("");
+        document.getElementById("filters").addEventListener("click", (e) => {
+          const b = e.target.closest("button[data-s]");
+          if (!b) return;
+          filter = b.getAttribute("data-s");
+          document.querySelectorAll("#filters button").forEach((x) => x.classList.toggle("primary", x === b));
+          render();
+        });
+        render();
+      } catch (e) {
+        document.getElementById("meta").textContent = "无法加载 feed.json";
+        document.getElementById("list").innerHTML = `<div class="empty">${e}</div>`;
+      }
+    })();
+  </script>
+</body>
+</html>
