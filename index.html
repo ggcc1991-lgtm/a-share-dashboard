@@ -13,11 +13,12 @@
         <div class="brand-mark" aria-hidden="true"></div>
         <h1>GC的数据<span>监控</span>中心</h1>
       </div>
-      <nav class="nav">
+            <nav class="nav">
         <a href="./" data-match="/" class="active">总览</a>
         <a href="etf/" data-match="/etf">ETF</a>
         <a href="feed/" data-match="/feed">信息流</a>
         <a href="bottom/" data-match="/bottom">抄底</a>
+        <a href="policy/" data-match="/policy">政策产业</a>
       </nav>
       <div class="header-meta" id="clock"></div>
     </div>
@@ -39,6 +40,8 @@
         </div>
       </section>
       <section>
+        <div class="bb-sec"><h2>政策产业</h2><a class="more" href="policy/">全部 →</a></div>
+        <div class="bb-score" id="policyBox" style="margin-bottom:12px">加载中…</div>
         <div class="bb-sec"><h2>ETF 资金</h2><a class="more" href="etf/">明细 →</a></div>
         <div class="bb-score" id="etfBox">加载中…</div>
         <div class="bb-sec" style="margin-top:14px"><h2>模块</h2></div>
@@ -74,6 +77,8 @@
       try { etf = await loadJSON("data/etf.json"); } catch (_) {}
       try { bottom = await loadJSON("data/bottom.json"); } catch (_) {}
       try { feed = await loadJSON("data/feed.json"); } catch (_) {}
+      let policy = null;
+      try { policy = await loadJSON("data/policy.json"); } catch (_) {}
 
       let flow1 = null, flow5 = null, flow20 = null, etfDate = "—";
       if (etf?.series && etf?.dates?.length) {
@@ -105,6 +110,8 @@
         <span class="sep">|</span>
         <span><span class="k">信息流</span><span class="v">${items.length}</span></span>
         <span class="sep">|</span>
+        <span><span class="k">政策</span><span class="v">${(policy?.items||[]).length}</span></span>
+        <span class="sep">|</span>
         <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
       </div>`;
 
@@ -135,6 +142,18 @@
         </a>`;
       }).join("") || `<div class="empty">暂无</div>`;
 
+      
+      const pItems = policy?.items || [];
+      const polEl = document.getElementById("policyBox");
+      if (polEl) {
+        polEl.innerHTML = pItems.slice(0, 5).map(x =>
+          `<div style="display:flex;gap:8px;padding:4px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
+            <span style="color:var(--bb);min-width:48px">${x.sector||"—"}</span>
+            <span style="flex:1;color:#e8e8e8">${x.title||""}</span>
+          </div>`
+        ).join("") || `<div class="mu">暂无条目</div>`;
+      }
+
       const holders = etf?.baseline?.holders || [];
       const holderSum = holders.reduce((s, h) => s + (h.shares_yi || 0), 0);
       document.getElementById("etfBox").innerHTML = `
@@ -150,7 +169,10 @@
       document.getElementById("modules").innerHTML = `
         <a class="module-link" href="etf/"><strong>国家队 ETF</strong><div class="mu" style="font-size:11px;margin-top:4px">${(etf?.etfs || []).length} 只 · ${etf?.dates?.length || 0} 日</div><div class="go">OPEN</div></a>
         <a class="module-link" href="feed/" style="border-top:1px solid var(--bd)"><strong>信息聚合</strong><div class="mu" style="font-size:11px;margin-top:4px">${items.length} 条增量</div><div class="go">OPEN</div></a>
+        <a class="module-link" href="policy/" style="border-top:1px solid var(--bd)"><strong>政策产业</strong><div class="mu" style="font-size:11px;margin-top:4px" id="policyModHint">—</div><div class="go">OPEN</div></a>
         <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底红线</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
+      const ph = document.getElementById("policyModHint");
+      if (ph) ph.textContent = `${pItems.length} 条 · ${(policy&&policy.updated)||""}`;
     })();
   </script>
 </body>
