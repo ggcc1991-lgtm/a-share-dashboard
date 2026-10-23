@@ -95,3 +95,94 @@ window.DashMotion = {
     requestAnimationFrame(tick);
   },
 };
+
+
+/* == page transitions fallback ==
+   View Transitions handle MPA nav when supported; this covers the rest.
+*/
+(function pageTransitions() {
+  const reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const supportsVT = "startViewTransition" in document;
+  const html = document.documentElement;
+  const DURATION_MS = 180;
+
+  function preferMotion() {
+    return !reduceMq.matches;
+  }
+
+  function clearPageClasses() {
+    html.classList.remove("bb-page-enter", "bb-page-leave");
+  }
+
+  window.addEventListener("pageshow", clearPageClasses);
+
+  // Enter: brief fade-in when VT is unavailable
+  if (preferMotion() && !supportsVT) {
+    html.classList.add("bb-page-enter");
+    const done = () => html.classList.remove("bb-page-enter");
+    const onEnd = (e) => {
+      if (e.target !== html) return;
+      html.removeEventListener("animationend", onEnd);
+      done();
+    };
+    html.addEventListener("animationend", onEnd);
+    setTimeout(done, DURATION_MS + 80);
+  }
+
+  // Leave: intercept same-origin in-site links when VT unavailable
+  if (supportsVT) return;
+
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (!preferMotion()) return;
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      const a = e.target.closest && e.target.closest("a[href]");
+      if (!a) return;
+      if (a.target === "_blank" || a.hasAttribute("download")) return;
+
+      const raw = a.getAttribute("href");
+      if (!raw || raw.startsWith("javascript:")) return;
+      // hash-only / in-page
+      if (raw.charAt(0) === "#") return;
+
+      let url;
+      try {
+        url = new URL(raw, location.href);
+      } catch (_) {
+        return;
+      }
+      if (url.origin !== location.origin) return;
+      if (
+        url.pathname === location.pathname &&
+        url.search === location.search &&
+        url.hash !== ""
+      ) {
+        return;
+      }
+      if (url.href === location.href) return;
+
+      e.preventDefault();
+      if (html.classList.contains("bb-page-leave")) return;
+      html.classList.add("bb-page-leave");
+
+      let navigated = false;
+      const go = () => {
+        if (navigated) return;
+        navigated = true;
+        location.href = url.href;
+      };
+      const timer = setTimeout(go, DURATION_MS);
+      const onEnd = (ev) => {
+        if (ev.target !== html) return;
+        html.removeEventListener("animationend", onEnd);
+        clearTimeout(timer);
+        go();
+      };
+      html.addEventListener("animationend", onEnd);
+    },
+    true
+  );
+})();

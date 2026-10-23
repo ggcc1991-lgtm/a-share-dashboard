@@ -328,6 +328,11 @@ table.data tr:hover td { background: #1c1c1c; }
 .etf-intro { color: var(--mu); font-size: 12px; margin: 0 0 10px; max-width: 52rem; }
 
 /* Motion — terminal snap, not SaaS float */
+/* Multi-page View Transitions (Chromium/Safari 18+) */
+@view-transition {
+  navigation: auto;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @keyframes bb-flash {
     0% { background: rgba(255,100,0,.18); }
@@ -335,8 +340,41 @@ table.data tr:hover td { background: #1c1c1c; }
   }
   .stat-value.is-counting { animation: bb-flash .6s ease; }
   .nav a.active { transition: border-color .15s linear; }
+
+  /* VT root crossfade + slight Y — 180ms, ease-out */
+  @keyframes bb-vt-old {
+    to { opacity: 0; transform: translateY(-2px); }
+  }
+  @keyframes bb-vt-new {
+    from { opacity: 0; transform: translateY(3px); }
+  }
+  ::view-transition-old(root) {
+    animation: bb-vt-old 180ms ease-out both;
+  }
+  ::view-transition-new(root) {
+    animation: bb-vt-new 180ms ease-out both;
+  }
+
+  /* Fallback enter/leave when VT unsupported */
+  @keyframes bb-page-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes bb-page-leave {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  html.bb-page-enter {
+    animation: bb-page-enter 180ms ease-out both;
+  }
+  html.bb-page-leave {
+    animation: bb-page-leave 160ms ease-out both;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
   * { animation: none !important; transition: none !important; }
 }
 
