@@ -6,84 +6,107 @@
   <title>政策产业观察 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
   <style>
-    .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border:var(--hair); }
-    .grid3 > div { border-right:var(--hair); min-width:0; }
-    .grid3 > div:last-child { border-right:none; }
-    @media (max-width:980px){
-      .grid3{ grid-template-columns:1fr; }
-      .grid3 > div { border-right:none; border-bottom:var(--hair); }
-      .grid3 > div:last-child { border-bottom:none; }
+    .meta-bar{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:11px;color:var(--mu);font-family:var(--mono);margin:-4px 0 10px;padding:6px 0;border-bottom:var(--hair)}
+    .meta-bar b{color:var(--bb);font-weight:600}
+    .view-toggle{display:flex;gap:0;border:var(--hair);margin-bottom:12px}
+    .view-toggle button{flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);font:inherit;font-size:13px;padding:10px 12px;cursor:pointer;text-align:left}
+    .view-toggle button:last-child{border-right:0}
+    .view-toggle button .sub{display:block;font-size:10px;color:var(--mu-2);margin-top:2px;letter-spacing:.04em}
+    .view-toggle button.on{background:#120c04;color:var(--bb);box-shadow:inset 0 -2px 0 var(--bb)}
+    .view-toggle button.on .sub{color:#a07040}
+    .pane{display:none}.pane.on{display:block}
+    .filt{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px;align-items:center}
+    .filt button,.chip{background:#0a0a0a;color:var(--mu);border:1px solid #2b2b2b;font:inherit;font-size:11px;padding:3px 10px;cursor:pointer}
+    .filt button:hover,.chip:hover{color:var(--bb);border-color:#4a2a10}
+    .filt button.on,.chip.on{color:#000;background:var(--bb);border-color:var(--bb);font-weight:700}
+    .filt .cnt{color:var(--mu-2);font-size:11px;margin-left:6px;font-family:var(--mono)}
+    .metric-bar{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:var(--hair);margin-bottom:12px}
+    .metric-bar .c{padding:8px 10px;border-right:var(--hair);background:var(--bg-2);min-width:0}
+    .metric-bar .c:last-child{border-right:0}
+    .metric-bar .k{font-size:10px;color:var(--mu);letter-spacing:.06em;text-transform:uppercase}
+    .metric-bar .v{font-size:15px;font-weight:700;color:var(--bb);font-family:var(--mono);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .rt-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:0;border:var(--hair);margin-bottom:8px}
+    .rt-sum .c{padding:8px 10px;border-right:var(--hair);background:var(--bg-2)}
+    .rt-sum .c:last-child{border-right:0}
+    .rt-sum .k{font-size:10px;color:var(--mu);letter-spacing:.06em;text-transform:uppercase}
+    .rt-sum .v{font-size:16px;font-weight:700;color:var(--bb);font-family:var(--mono);margin-top:2px}
+    .brief-box{border:var(--hair);padding:10px 12px;margin-bottom:12px;background:var(--bg-2)}
+    .brief-box h3{margin:0 0 6px;color:var(--bb);font-size:14px;font-weight:700}
+    .hl{list-style:none;margin:8px 0 0;padding:0}
+    .hl li{font-size:12px;color:#c8c8c8;line-height:1.45;padding:6px 0;border-top:1px solid #1a1a1a}
+    .hl .ht{color:var(--bb);font-weight:650;margin-right:6px}
+    .hl .hx{color:#a8a8a8}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:var(--hair)}
+    .grid3>div{border-right:var(--hair);min-width:0}
+    .grid3>div:last-child{border-right:none}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .sec-hd{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#666;border-bottom:1px solid #333;padding:5px 8px;background:#050505}
+    .heat-row,.dyn-row,.mat-row,.rt-row,.snap-row,.res-row{
+      display:grid;gap:6px;align-items:baseline;padding:4px 8px;border-bottom:1px solid #1a1a1a;font-size:12px;text-decoration:none;color:inherit
     }
-    .heat-row, .dyn-row, .mat-row, .rt-row {
-      display:grid; gap:6px; align-items:baseline;
-      padding:4px 8px; border-bottom:1px solid #1a1a1a; font-size:12px;
-      text-decoration:none; color:inherit;
+    .heat-row{grid-template-columns:26px 1fr 56px 48px 40px 72px;cursor:pointer}
+    .dyn-row{grid-template-columns:100px 1fr 64px 48px;cursor:pointer}
+    .mat-row{grid-template-columns:88px 1fr 72px}
+    .rt-row{grid-template-columns:1fr 64px 52px 40px;cursor:pointer}
+    .snap-row{grid-template-columns:96px 1fr 88px 72px 56px}
+    .res-row{grid-template-columns:80px 1fr 56px}
+    .heat-row:hover,.dyn-row:hover,.mat-row:hover,.rt-row:hover,.snap-row:hover,table.sec tr.clickable:hover td,.res-row:hover{background:#0f0f0f}
+    .nm{color:#e8e8e8;font-weight:600}
+    .mu{color:#787878;font-size:11px}
+    .bb{color:var(--bb)}
+    .mono{font-variant-numeric:tabular-nums;font-family:var(--mono),ui-monospace,monospace}
+    .bar-wrap{display:inline-block;width:72px;height:8px;background:#1a1a1a;vertical-align:middle}
+    .bar-fill{height:100%;background:var(--bb);max-width:100%}
+    .sig{display:inline-block;font-size:10px;padding:1px 5px;margin:0 2px 2px 0;border:1px solid #3a2a10;color:var(--bb);background:#120c04}
+    .linked{font-size:11px;color:#a8a8a8;margin-top:2px}
+    .linked span{color:var(--bb);margin-right:6px}
+    .note-pill{display:inline-block;font-size:10px;color:var(--mu-2);border:1px solid #2b2b2b;padding:1px 6px;margin-left:6px;vertical-align:middle}
+    .block{margin-bottom:14px}
+    .tbl-wrap{overflow-x:auto;border:var(--hair)}
+    table.sec{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--mono);font-variant-numeric:tabular-nums}
+    table.sec th,table.sec td{padding:4px 8px;border-bottom:1px solid #1a1a1a;text-align:right;white-space:nowrap}
+    table.sec th:first-child,table.sec td:first-child,table.sec th:nth-child(2),table.sec td:nth-child(2),table.sec th:nth-child(3),table.sec td:nth-child(3){text-align:left}
+    table.sec th{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#666;background:#050505;font-weight:600;position:sticky;top:0;cursor:pointer}
+    table.sec th:hover,table.sec th.sort-on{color:var(--bb)}
+    table.sec tr:nth-child(even) td{background:#0a0a0a}
+    table.sec tr.clickable{cursor:pointer}
+    table.sec td.nm{font-family:var(--sans);font-weight:600;color:var(--tx)}
+    table.sec .ly{color:var(--mu-2);font-size:11px}
+    .search{background:#0a0a0a;border:1px solid #2b2b2b;color:var(--tx);font:inherit;font-size:12px;padding:4px 8px;min-width:140px}
+    .search:focus{outline:1px solid #4a2a10;border-color:var(--bb)}
+    .scatter-wrap{border:var(--hair);background:#050505;padding:8px;position:relative}
+    .scatter-wrap svg{width:100%;height:320px;display:block}
+    .scatter-legend{font-size:11px;color:var(--mu);margin-top:6px;font-family:var(--mono)}
+    .drawer-mask{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:80;display:none}
+    .drawer-mask.on{display:block}
+    .drawer{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:#050505;border-left:1px solid #2b2b2b;z-index:90;transform:translateX(100%);transition:transform .18s ease;overflow:auto;padding:12px 14px 40px}
+    .drawer.on{transform:translateX(0)}
+    .drawer h3{margin:0 0 4px;color:var(--bb);font-size:15px}
+    .drawer .close{float:right;background:transparent;border:1px solid #2b2b2b;color:var(--mu);font:inherit;font-size:12px;padding:2px 8px;cursor:pointer}
+    .drawer .close:hover{color:var(--bb);border-color:#4a2a10}
+    .drawer .kv{font-size:11px;color:var(--mu);font-family:var(--mono);margin-bottom:10px}
+    .drawer .sec-hd{margin-top:10px}
+    .drawer .row{display:grid;grid-template-columns:72px 1fr 48px;gap:6px;padding:3px 0;border-bottom:1px solid #1a1a1a;font-size:11px}
+    .drawer .miss{padding:16px 8px;color:var(--mu);font-size:12px;border:var(--hair);margin-top:8px}
+    .spark{width:100%;height:72px;margin:6px 0 10px;background:#0a0a0a;border:1px solid #1a1a1a}
+    .spark path{fill:none;stroke:var(--bb);stroke-width:1.5}
+    .spark circle{fill:var(--bb)}
+    @media (max-width:980px){.grid3{grid-template-columns:1fr}.grid3>div{border-right:none;border-bottom:var(--hair)}.grid3>div:last-child{border-bottom:none}.metric-bar{grid-template-columns:repeat(3,1fr)}.metric-bar .c{border-bottom:var(--hair)}}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}}
+    @media (max-width:719px){
+      .metric-bar{grid-template-columns:repeat(2,1fr)}
+      .view-toggle button{font-size:12px;padding:8px}
+      .heat-row{grid-template-columns:22px minmax(0,1fr) 48px 40px 32px}.heat-row .bar-wrap{display:none}
+      .dyn-row{grid-template-columns:72px minmax(0,1fr) 48px 40px}
+      .mat-row{grid-template-columns:64px minmax(0,1fr) 48px}
+      .rt-row{grid-template-columns:minmax(0,1fr) 52px 44px 36px}
+      .snap-row{grid-template-columns:80px minmax(0,1fr) 64px}.snap-row span:nth-child(4),.snap-row span:nth-child(5){display:none}
+      .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+      .rt-sum{grid-template-columns:repeat(2,1fr)}.rt-sum .c{border-bottom:var(--hair)}
+      .tbl-wrap{-webkit-overflow-scrolling:touch}
+      .drawer{width:100%}
+      .scatter-wrap svg{height:260px}
     }
-    .heat-row { grid-template-columns: 26px 1fr 64px 48px; }
-    .dyn-row { grid-template-columns: 88px 1fr 56px 56px; }
-    .mat-row { grid-template-columns: 96px 1fr 120px; }
-    .rt-row { grid-template-columns: 1fr 72px 56px 48px; }
-    .heat-row:hover, .dyn-row:hover, .mat-row:hover, .rt-row:hover { background:#0f0f0f; }
-    .nm { color:#e8e8e8; font-weight:600; }
-    .mu { color:#787878; font-size:11px; }
-    .bb { color:var(--bb); }
-    .mono { font-variant-numeric: tabular-nums; font-family: var(--mono), ui-monospace, monospace; }
-    .sec-hd {
-      font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#666;
-      border-bottom:1px solid #333; padding:5px 8px; background:#050505;
-    }
-    .brief-box { border:var(--hair); padding:10px 12px; margin-bottom:12px; background:var(--bg-2); }
-    .brief-box h3 { margin:0 0 6px; color:var(--bb); font-size:14px; font-weight:700; }
-    .hl { list-style:none; margin:8px 0 0; padding:0; }
-    .hl li {
-      font-size:12px; color:#c8c8c8; line-height:1.45;
-      padding:6px 0; border-top:1px solid #1a1a1a;
-    }
-    .hl .ht { color:var(--bb); font-weight:650; margin-right:6px; }
-    .hl .hx { color:#a8a8a8; }
-    .filt {
-      display:flex; flex-wrap:wrap; gap:4px; margin:0 0 8px; align-items:center;
-    }
-    .filt button {
-      background:#0a0a0a; color:var(--mu); border:1px solid #2b2b2b;
-      font:inherit; font-size:11px; padding:3px 10px; cursor:pointer;
-      letter-spacing:.02em;
-    }
-    .filt button:hover { color:var(--bb); border-color:#4a2a10; }
-    .filt button.on { color:#000; background:var(--bb); border-color:var(--bb); font-weight:700; }
-    .filt .cnt { color:var(--mu-2); font-size:11px; margin-left:6px; font-family:var(--mono); }
-    .rt-sum {
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
-      gap:0; border:var(--hair); margin-bottom:8px;
-    }
-    .rt-sum .c {
-      padding:8px 10px; border-right:var(--hair); background:var(--bg-2);
-    }
-    .rt-sum .c:last-child { border-right:none; }
-    .rt-sum .k { font-size:10px; color:var(--mu); letter-spacing:.06em; text-transform:uppercase; }
-    .rt-sum .v { font-size:16px; font-weight:700; color:var(--bb); font-family:var(--mono); margin-top:2px; }
-    .tbl-wrap { overflow-x:auto; border:var(--hair); }
-    table.sec {
-      width:100%; border-collapse:collapse; font-size:12px;
-      font-family:var(--mono); font-variant-numeric:tabular-nums;
-    }
-    table.sec th, table.sec td {
-      padding:4px 8px; border-bottom:1px solid #1a1a1a; text-align:right; white-space:nowrap;
-    }
-    table.sec th:first-child, table.sec td:first-child,
-    table.sec th:nth-child(2), table.sec td:nth-child(2) { text-align:left; }
-    table.sec th {
-      font-size:10px; letter-spacing:.06em; text-transform:uppercase;
-      color:#666; background:#050505; font-weight:600; position:sticky; top:0;
-    }
-    table.sec tr:nth-child(even) td { background:#0a0a0a; }
-    table.sec tr:hover td { background:#141414; }
-    table.sec td.nm { font-family:var(--sans); font-weight:600; color:var(--tx); }
-    table.sec .ly { color:var(--mu-2); font-size:11px; }
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    @media (max-width:900px){ .two-col{ grid-template-columns:1fr; } }
-    .block { margin-bottom:14px; }
-    .note-foot { font-size:11px; color:var(--mu-2); margin-top:4px; }
   </style>
 </head>
 <body>
@@ -101,238 +124,512 @@
   </header>
   <main class="wrap">
     <h2 class="page-title">政策产业观察</h2>
-    <p class="page-sub" id="meta">加载 policy/snapshot.json …</p>
+    <div class="meta-bar" id="metaBar">加载 policy/snapshot.json …</div>
 
-    <div class="brief-box" id="brief"></div>
-
-    <div class="bb-sec"><h2>三类热度 Top20</h2></div>
-    <div class="grid3 block" id="heat"></div>
-
-    <div class="bb-sec"><h2>板块总表</h2></div>
-    <div class="filt" id="secFilt"></div>
-    <div class="tbl-wrap block" style="max-height:420px;overflow:auto">
-      <table class="sec" id="secTbl">
-        <thead>
-          <tr>
-            <th>板块</th><th>层级</th>
-            <th>政策</th><th>关注</th><th>交易</th>
-          </tr>
-        </thead>
-        <tbody id="secBody"></tbody>
-      </table>
+    <div class="view-toggle" id="viewToggle">
+      <button type="button" data-pane="rt" class="on">实时动态<span class="sub">材料流 · 板块信号 · 滚动窗</span></button>
+      <button type="button" data-pane="daily">日报快照<span class="sub">指标 · 热度 · 扫描 · 截面 · 关联研究</span></button>
     </div>
 
-    <div class="bb-sec"><h2>板块异动</h2></div>
-    <div class="block" id="dynamics"></div>
-
-    <div class="bb-sec"><h2>实时窗 · 24h</h2></div>
-    <div id="rtSum" class="rt-sum block"></div>
-    <div class="two-col block">
-      <div>
-        <div class="sec-hd">TOP SECTORS · ATTENTION</div>
-        <div id="rtSectors"></div>
-      </div>
-      <div>
-        <div class="sec-hd">RECENT MATERIALS</div>
-        <div id="rtMats"></div>
+    <!-- ========== REALTIME ========== -->
+    <div class="pane on" id="pane-rt">
+      <div class="filt" id="rtFilt"></div>
+      <div id="rtSum" class="rt-sum block"></div>
+      <div class="two-col block">
+        <div>
+          <div class="bb-sec"><h2>材料实时流</h2></div>
+          <div class="filt" id="rtMatFilt"></div>
+          <div id="rtMats"></div>
+        </div>
+        <div>
+          <div class="bb-sec"><h2>板块信号</h2></div>
+          <div class="filt" id="rtSigFilt"></div>
+          <div id="rtSectors"></div>
+        </div>
       </div>
     </div>
 
-    <div class="two-col">
-      <div>
-        <div class="bb-sec"><h2>材料 · 政策</h2></div>
-        <div id="matPolicy"></div>
+    <!-- ========== DAILY ========== -->
+    <div class="pane" id="pane-daily">
+      <div class="metric-bar" id="metricBar"></div>
+      <div class="brief-box" id="brief"></div>
+
+      <div class="bb-sec"><h2>板块热度总览</h2><span class="note-pill">三信号独立 · 不可相加</span></div>
+      <div class="filt" id="heatViewFilt"></div>
+      <div class="filt" id="heatLayerFilt"></div>
+      <div class="block" id="heatSingle" style="border:var(--hair);display:none"></div>
+      <div class="grid3 block" id="heat"></div>
+
+      <div class="bb-sec"><h2>材料与板块分析</h2></div>
+      <div class="filt" id="matTabFilt"></div>
+      <div class="block" id="matPanel"></div>
+
+      <div class="bb-sec"><h2>市场扫描</h2><span class="note-pill">发现 · 定位 · 比较</span></div>
+      <div class="filt" id="scanFilt"></div>
+      <div class="filt" id="scanModeFilt"></div>
+      <div class="block" id="scanPanel"></div>
+
+      <div class="bb-sec"><h2>板块异动</h2></div>
+      <div class="block" id="dynamics"></div>
+
+      <div class="bb-sec"><h2>快照截面</h2><span class="note-pill">政策 · 关注 · 资金</span></div>
+      <div class="filt" id="secFilt">
+        <input class="search" id="secSearch" type="search" placeholder="搜索板块" autocomplete="off" />
       </div>
-      <div>
-        <div class="bb-sec"><h2>材料 · 媒体</h2></div>
-        <div id="matMedia"></div>
+      <div class="tbl-wrap block" style="max-height:460px;overflow:auto">
+        <table class="sec" id="secTbl">
+          <thead>
+            <tr>
+              <th data-sort="name">板块</th>
+              <th data-sort="layer">层级</th>
+              <th data-sort="status">状态</th>
+              <th data-sort="parent">父级</th>
+              <th data-sort="h.policy">政策热</th>
+              <th data-sort="m.policy">政策动量</th>
+              <th data-sort="h.marketAttention">关注热</th>
+              <th data-sort="m.marketAttention">关注动量</th>
+              <th data-sort="h.marketTrading">交易热</th>
+              <th data-sort="m.marketTrading">交易动量</th>
+            </tr>
+          </thead>
+          <tbody id="secBody"></tbody>
+        </table>
       </div>
+
+      <div class="bb-sec"><h2>关联研究</h2><span class="note-pill">公司 · ETF · 上市动态 · 非荐股</span></div>
+      <div class="filt" id="researchFilt"></div>
+      <div class="block" id="researchPanel"></div>
+
+      <div class="bb-sec"><h2>历史截面</h2><span class="note-pill">仅列表 · 钉住 latest · 不假切换</span></div>
+      <div class="block" id="snapList"></div>
     </div>
   </main>
-  <footer class="app-footer">公开 API 截面 · 结论在板块 · 非荐股 · 不合进 /feed · schema policy-industry-observe-v1 · ./snapshot.json</footer>
+  <footer class="app-footer">公开 API 截面 · 结论在板块 · 非荐股 · 三信号不可相加 · 不合进 /feed · schema policy-industry-observe-v1.1 · ./snapshot.json</footer>
+
+  <div class="drawer-mask" id="drawerMask"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button type="button" class="close" id="drawerClose">关闭</button>
+    <div id="drawerBody"></div>
+  </aside>
+
   <script src="../assets/shell.js"></script>
   <script>
-    const HEAT_LABEL = {
-      policy: "政策热度",
-      marketAttention: "市场关注",
-      marketTrading: "交易热度",
-    };
-    const LAYER_TABS = [
-      { id: "all", label: "全部" },
-      { id: "own_l1", label: "own_l1" },
-      { id: "own_l2", label: "own_l2" },
-      { id: "dynamic", label: "dynamic" },
-      { id: "market_dynamic", label: "market_dynamic" },
-    ];
-    let SECTORS = [];
-    let LAYER = "all";
+(function(){
+  const HEAT_LABEL={policy:"政策热度",marketAttention:"市场关注",marketTrading:"交易热度"};
+  const HEAT_KEYS=["policy","marketAttention","marketTrading"];
+  const LAYER_TABS=[
+    {id:"all",label:"全部"},{id:"own_l1",label:"一级"},{id:"own_l2",label:"二级"},
+    {id:"dynamic",label:"动态"},{id:"market_dynamic",label:"market_dynamic"}
+  ];
+  const RT_WINS=["6h","24h","3d"];
+  const VIEW_TABS=[
+    {id:"all3",label:"三列对照"},{id:"policy",label:"政策"},
+    {id:"marketAttention",label:"关注"},{id:"marketTrading",label:"交易"}
+  ];
+  const SCAN_FILTERS=[
+    {id:"all",label:"全部板块"},
+    {id:"rt_hit",label:"实时命中"},
+    {id:"new_signal",label:"新增信号"},
+    {id:"multi_source",label:"多源确认"},
+    {id:"pressure",label:"负向压力"}
+  ];
+  const SCAN_MODES=[
+    {id:"heat3",label:"热度三榜"},
+    {id:"scatter",label:"二维定位"},
+    {id:"detail",label:"板块明细"}
+  ];
 
-    function esc(s) {
-      return String(s == null ? "" : s)
-        .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
-    function num(v, dig) {
-      if (v == null || v === "" || Number.isNaN(+v)) return "—";
-      const n = +v;
-      const d = dig == null ? (Math.abs(n) >= 10 ? 1 : 3) : dig;
-      return n.toFixed(d);
-    }
-    function fmtTime(v) {
-      if (!v) return "—";
-      if (window.DashFmt && DashFmt.time) return DashFmt.time(v);
-      return String(v).replace("T", " ").slice(0, 16);
-    }
-    function heatBlock(key, rows) {
-      const list = (rows || []).slice(0, 20);
-      return `<div>
-        <div class="sec-hd">${HEAT_LABEL[key] || key} · ${list.length}</div>
-        ${list.map((x, i) => `
-          <div class="heat-row">
-            <span class="mono mu">${String(i + 1).padStart(2, "0")}</span>
-            <span class="nm" title="${esc(x.layer || "")}">${esc(x.name || x.sectorId || "—")}</span>
-            <span class="bb mono">${esc(num(x.heatLevel))}</span>
-            <span class="mu mono">${x.momentum == null ? "" : esc(num(x.momentum))}</span>
-          </div>`).join("") || `<div class="mu" style="padding:8px">暂无</div>`}
+  let DATA=null, SECTORS=[], LAYER="all", HEAT_LAYER="all", HEAT_VIEW="all3";
+  let RT_WIN="24h", RT_MAT_CH="all", RT_SIG="all";
+  let MAT_TAB="policy", SCAN_F="all", SCAN_MODE="heat3";
+  let RESEARCH_TAB="companies", SEC_Q="";
+  let SORT={key:"h.policy",dir:-1};
+  let PANE="rt";
+
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function num(v,dig){if(v==null||v===""||Number.isNaN(+v))return "—";const n=+v;const d=dig==null?(Math.abs(n)>=10?1:3):dig;return n.toFixed(d);}
+  function fmtTime(v){if(!v)return "—";if(window.DashFmt&&DashFmt.time)return DashFmt.time(v);return String(v).replace("T"," ").slice(0,16);}
+  function barHtml(val,max){if(val==null||max<=0)return "";const pct=Math.max(0,Math.min(100,(Math.abs(+val)/max)*100));return `<span class="bar-wrap" title="${esc(num(val))}"><span class="bar-fill" style="width:${pct}%"></span></span>`;}
+  function highlightHtml(h){if(h==null)return"";if(typeof h==="string")return `<li><span class="hx">${esc(h)}</span></li>`;return `<li><span class="ht">${esc(h.title||"")}</span><span class="hx">${esc(h.text||h.summary||"")}</span></li>`;}
+  function getSortVal(s,key){if(key==="name")return s.name||"";if(key==="layer")return s.layer||"";if(key==="status")return s.status||"";if(key==="parent")return s.parent||"";const[g,k]=key.split(".");if(g==="h")return(s.heat||{})[k];if(g==="m")return(s.momentum||{})[k];return null;}
+  function sparkSvg(points,w,h){
+    const pts=(points||[]).filter(p=>p.heatLevel!=null);
+    if(pts.length<2)return `<div class="mu" style="padding:8px">轨迹不足</div>`;
+    const vals=pts.map(p=>+p.heatLevel);let min=Math.min(...vals),max=Math.max(...vals);if(min===max){min-=1;max+=1;}
+    const pad=4;const coords=pts.map((p,i)=>{const x=pad+(i/(pts.length-1))*(w-pad*2);const y=h-pad-((+p.heatLevel-min)/(max-min))*(h-pad*2);return[x,y];});
+    const d=coords.map((c,i)=>(i?"L":"M")+c[0].toFixed(1)+","+c[1].toFixed(1)).join(" ");
+    const last=coords[coords.length-1];
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none"><path d="${d}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.2"/></svg><div class="mu mono">${esc(pts[0].asOf)} → ${esc(pts[pts.length-1].asOf)} · last ${esc(num(pts[pts.length-1].heatLevel))}</div>`;
+  }
+
+  function getRtPack(){const rt=(DATA&&DATA.realtime)||{};if(rt.byWindow&&rt.byWindow[RT_WIN])return rt.byWindow[RT_WIN];if(RT_WIN==="24h")return rt;return{summary:{},window:{duration:RT_WIN},sectors:[],materials:[]};}
+  function rtHitIds(){const pack=getRtPack();return new Set((pack.sectors||[]).map(s=>s.sectorId));}
+  function rtSignalMap(){const m={};(getRtPack().sectors||[]).forEach(s=>{m[s.sectorId]=s.signals||[];});return m;}
+
+  function filteredHeat(rows){let list=rows||[];if(HEAT_LAYER!=="all")list=list.filter(x=>x.layer===HEAT_LAYER);return list.slice(0,20);}
+  function heatBlock(key,rows){
+    const list=filteredHeat(rows);const maxH=Math.max(0.0001,...list.map(x=>Math.abs(+x.heatLevel||0)));
+    return `<div><div class="sec-hd">${HEAT_LABEL[key]||key} · ${list.length}</div>${list.map((x,i)=>`
+      <div class="heat-row" data-sid="${esc(x.sectorId||"")}">
+        <span class="mono mu">${String(i+1).padStart(2,"0")}</span>
+        <span class="nm" title="${esc(x.layer||"")}">${esc(x.name||x.sectorId||"—")}</span>
+        <span class="bb mono">${esc(num(x.heatLevel))}</span>
+        <span class="mu mono">${x.momentum==null?"—":esc(num(x.momentum))}</span>
+        <span class="mu mono">${x.evidenceCount==null?"":esc(x.evidenceCount)}</span>
+        ${barHtml(x.heatLevel,maxH)}
+      </div>`).join("")||`<div class="mu" style="padding:8px">暂无</div>`}</div>`;
+  }
+  function renderHeat(){
+    const heat=(DATA&&DATA.heat)||{};
+    document.querySelectorAll("#heatViewFilt button").forEach(b=>b.classList.toggle("on",b.dataset.view===HEAT_VIEW));
+    document.querySelectorAll("#heatLayerFilt button").forEach(b=>b.classList.toggle("on",b.dataset.layer===HEAT_LAYER));
+    if(HEAT_VIEW==="all3"){document.getElementById("heat").style.display="";document.getElementById("heatSingle").style.display="none";document.getElementById("heat").innerHTML=HEAT_KEYS.map(k=>heatBlock(k,heat[k])).join("");}
+    else{document.getElementById("heat").style.display="none";document.getElementById("heatSingle").style.display="";document.getElementById("heatSingle").innerHTML=heatBlock(HEAT_VIEW,heat[HEAT_VIEW]);}
+  }
+
+  function scanSectors(){
+    let rows=SECTORS.slice();
+    const hits=rtHitIds(), sigMap=rtSignalMap();
+    if(SCAN_F==="rt_hit") rows=rows.filter(s=>hits.has(s.sectorId));
+    else if(SCAN_F==="new_signal") rows=rows.filter(s=>(sigMap[s.sectorId]||[]).includes("new_signal"));
+    else if(SCAN_F==="multi_source") rows=rows.filter(s=>(sigMap[s.sectorId]||[]).includes("multi_source"));
+    else if(SCAN_F==="pressure") rows=rows.filter(s=>(sigMap[s.sectorId]||[]).some(x=>String(x).includes("pressure")||String(x).includes("negative")));
+    return rows;
+  }
+
+  function renderScan(){
+    document.querySelectorAll("#scanFilt button").forEach(b=>b.classList.toggle("on",b.dataset.sf===SCAN_F));
+    document.querySelectorAll("#scanModeFilt button").forEach(b=>b.classList.toggle("on",b.dataset.sm===SCAN_MODE));
+    const rows=scanSectors();
+    const panel=document.getElementById("scanPanel");
+    if(SCAN_MODE==="heat3"){
+      const heat=(DATA&&DATA.heat)||{};
+      const ids=new Set(rows.map(r=>r.sectorId));
+      const filterHeat=(arr)=>(arr||[]).filter(x=>ids.has(x.sectorId)).slice(0,15);
+      panel.innerHTML=`<div class="mu" style="margin-bottom:6px">筛选命中 ${rows.length} · 定位 ${rows.length}</div><div class="grid3">${HEAT_KEYS.map(k=>heatBlock(k,filterHeat(heat[k]))).join("")}</div>`;
+    } else if(SCAN_MODE==="scatter"){
+      const pts=rows.filter(s=>s.heat&&s.heat.policy!=null&&s.heat.marketAttention!=null);
+      const xs=pts.map(p=>+p.heat.policy), ys=pts.map(p=>+p.heat.marketAttention);
+      let xmin=Math.min(...xs,0), xmax=Math.max(...xs,1), ymin=Math.min(...ys,0), ymax=Math.max(...ys,1);
+      if(xmin===xmax){xmin-=1;xmax+=1;} if(ymin===ymax){ymin-=1;ymax+=1;}
+      const W=640,H=300,pad=36;
+      const sx=v=>pad+((v-xmin)/(xmax-xmin))*(W-pad*2);
+      const sy=v=>H-pad-((v-ymin)/(ymax-ymin))*(H-pad*2);
+      const dots=pts.map(p=>{
+        const x=sx(+p.heat.policy), y=sy(+p.heat.marketAttention);
+        const hit=rtHitIds().has(p.sectorId);
+        return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${hit?4.5:3}" fill="${hit?"#ffa028":"#666"}" data-sid="${esc(p.sectorId)}" style="cursor:pointer"><title>${esc(p.name)} pol=${esc(num(p.heat.policy))} att=${esc(num(p.heat.marketAttention))}</title></circle>`;
+      }).join("");
+      panel.innerHTML=`<div class="scatter-wrap">
+        <svg viewBox="0 0 ${W} ${H}" id="scatterSvg">
+          <line x1="${pad}" y1="${H-pad}" x2="${W-pad}" y2="${H-pad}" stroke="#2b2b2b"/>
+          <line x1="${pad}" y1="${pad}" x2="${pad}" y2="${H-pad}" stroke="#2b2b2b"/>
+          <text x="${W/2}" y="${H-8}" fill="#666" font-size="11" text-anchor="middle">policy heat →</text>
+          <text x="12" y="${H/2}" fill="#666" font-size="11" transform="rotate(-90 12 ${H/2})">market attention →</text>
+          ${dots}
+        </svg>
+        <div class="scatter-legend">X=政策热度 · Y=市场关注 · 琥珀点=实时窗命中 · 三维空间略（无现成 3D 坐标）· n=${pts.length}</div>
       </div>`;
+      const svg=document.getElementById("scatterSvg");
+      if(svg) svg.addEventListener("click",ev=>{const c=ev.target.closest("circle[data-sid]");if(c) openDrawer(c.getAttribute("data-sid"));});
+    } else {
+      panel.innerHTML=`<div class="sec-hd">SECTOR DETAIL · ${rows.length}</div>`+rows.slice(0,40).map(s=>{
+        const h=s.heat||{}; const sigs=rtSignalMap()[s.sectorId]||[];
+        return `<div class="rt-row" data-sid="${esc(s.sectorId)}">
+          <span><span class="nm">${esc(s.name)}</span> <span class="mu">${esc(s.layer)}</span>
+            <div>${sigs.map(x=>`<span class="sig">${esc(x)}</span>`).join("")}</div></span>
+          <span class="bb mono">${esc(num(h.policy))}</span>
+          <span class="mono">${esc(num(h.marketAttention))}</span>
+          <span class="mono">${esc(num(h.marketTrading))}</span>
+        </div>`;
+      }).join("")||`<div class="mu" style="padding:8px">暂无</div>`;
     }
-    function highlightHtml(h) {
-      if (h == null) return "";
-      if (typeof h === "string") return `<li><span class="hx">${esc(h)}</span></li>`;
-      const title = h.title || "";
-      const text = h.text || h.summary || "";
-      return `<li><span class="ht">${esc(title)}</span><span class="hx">${esc(text)}</span></li>`;
-    }
-    function renderSectors() {
-      const rows = LAYER === "all" ? SECTORS : SECTORS.filter(s => s.layer === LAYER);
-      document.getElementById("secBody").innerHTML = rows.map(s => {
-        const h = s.heat || {};
-        return `<tr>
-          <td class="nm">${esc(s.name || s.sectorId || "—")}</td>
-          <td class="ly">${esc(s.layer || "—")}</td>
-          <td class="bb">${esc(num(h.policy))}</td>
-          <td>${esc(num(h.marketAttention))}</td>
-          <td>${esc(num(h.marketTrading))}</td>
-        </tr>`;
-      }).join("") || `<tr><td colspan="5" class="mu">暂无</td></tr>`;
-      document.querySelectorAll("#secFilt button").forEach(b => {
-        b.classList.toggle("on", b.dataset.layer === LAYER);
-      });
-      const cnt = document.getElementById("secCnt");
-      if (cnt) cnt.textContent = `${rows.length} / ${SECTORS.length}`;
-    }
-    function renderMat(arr, limit) {
-      const list = (arr || []).slice(0, limit || 40);
-      return list.map(x => {
-        const inner = `
-          <span class="bb">${esc(x.industry || x.channel || "—")}</span>
-          <span>
-            <div class="nm">${esc(x.title || "")}</div>
-            <div class="mu">${esc(x.source || "")}${x.summary ? " · " + esc(x.summary).slice(0, 120) : ""}</div>
+  }
+
+  function renderSectors(){
+    let rows=LAYER==="all"?SECTORS.slice():SECTORS.filter(s=>s.layer===LAYER);
+    if(SEC_Q){const q=SEC_Q.toLowerCase();rows=rows.filter(s=>(s.name||"").toLowerCase().includes(q)||(s.sectorId||"").toLowerCase().includes(q)||(s.parent||"").toLowerCase().includes(q));}
+    const{key,dir}=SORT;
+    rows.sort((a,b)=>{const va=getSortVal(a,key),vb=getSortVal(b,key);if(va==null&&vb==null)return 0;if(va==null)return 1;if(vb==null)return-1;if(typeof va==="string")return va.localeCompare(vb,"zh")*dir;return(va-vb)*dir;});
+    document.getElementById("secBody").innerHTML=rows.map(s=>{
+      const h=s.heat||{},m=s.momentum||{};
+      return `<tr class="clickable" data-sid="${esc(s.sectorId||"")}">
+        <td class="nm">${esc(s.name||s.sectorId||"—")}</td>
+        <td class="ly">${esc(s.layer||"—")}</td>
+        <td class="ly">${esc(s.status||"—")}</td>
+        <td class="ly">${esc(s.parent||"—")}</td>
+        <td class="bb">${esc(num(h.policy))}</td><td>${esc(num(m.policy))}</td>
+        <td class="bb">${esc(num(h.marketAttention))}</td><td>${esc(num(m.marketAttention))}</td>
+        <td class="bb">${esc(num(h.marketTrading))}</td><td>${esc(num(m.marketTrading))}</td>
+      </tr>`;
+    }).join("")||`<tr><td colspan="10" class="mu">暂无</td></tr>`;
+    document.querySelectorAll("#secFilt button[data-layer]").forEach(b=>b.classList.toggle("on",b.dataset.layer===LAYER));
+    document.querySelectorAll("#secTbl th[data-sort]").forEach(th=>th.classList.toggle("sort-on",th.dataset.sort===SORT.key));
+    const cnt=document.getElementById("secCnt"); if(cnt) cnt.textContent=`${rows.length} / ${SECTORS.length}`;
+  }
+
+  function renderDynamics(){
+    const dyn=(DATA&&DATA.dynamics)||[];
+    document.getElementById("dynamics").innerHTML=`<div class="sec-hd">TYPE · NAME · EXPLANATION · LINKED · REL/ABS · SCORE · ${dyn.length}</div>`+
+      dyn.map(x=>{
+        const linked=(x.linkedSectors||[]).slice(0,4).map(l=>`<span title="${esc(l.pattern||"")}/${esc(l.relation||"")}">${esc(l.name||l.sectorId)}</span>`).join("");
+        return `<div class="dyn-row" data-sid="${esc(x.sectorId||"")}">
+          <span class="bb">${esc(x.type||"—")}</span>
+          <span><span class="nm">${esc(x.name||"")}</span><span class="mu"> ${esc(x.layer||"")}</span>
+            <div class="mu" style="white-space:normal;line-height:1.4">${esc(x.explanation||x.summary||"")}</div>
+            ${linked?`<div class="linked">关联 ${linked}</div>`:""}
           </span>
-          <span class="mu mono" style="text-align:right">${esc(fmtTime(x.publishedAt))}</span>`;
-        return x.url
-          ? `<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`
-          : `<div class="mat-row">${inner}</div>`;
-      }).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
+          <span class="mono mu">${esc(x.relative||"—")}/${esc(x.absolute||"—")}</span>
+          <span class="mono bb">${esc(num(x.score,1))}</span>
+        </div>`;
+      }).join("")||`<div class="mu">暂无</div>`;
+  }
+
+  function renderRealtime(){
+    document.querySelectorAll("#rtFilt button").forEach(b=>b.classList.toggle("on",b.dataset.win===RT_WIN));
+    document.querySelectorAll("#rtMatFilt button").forEach(b=>b.classList.toggle("on",b.dataset.ch===RT_MAT_CH));
+    document.querySelectorAll("#rtSigFilt button").forEach(b=>b.classList.toggle("on",b.dataset.sig===RT_SIG));
+    const pack=getRtPack(); const sum=pack.summary||{}; const win=pack.window||{};
+    const cards=[["材料",sum.material_count],["政策",sum.policy_material_count],["媒体",sum.media_material_count],["关注材料",sum.market_attention_material_count],["板块",sum.sector_count],["新信号",sum.new_signal_sector_count],["多源",sum.multi_source_sector_count],["承压",sum.pressure_sector_count]];
+    document.getElementById("rtSum").innerHTML=`<div class="c"><div class="k">窗口</div><div class="v" style="font-size:13px">${esc(win.duration||RT_WIN)}</div><div class="mu mono" style="font-size:10px;margin-top:2px">${esc((win.start||"").slice(5,16))} → ${esc((win.end||"").slice(5,16))}</div></div>`+
+      cards.map(([k,v])=>`<div class="c"><div class="k">${k}</div><div class="v">${v==null?"—":esc(v)}</div></div>`).join("");
+    let mats=(pack.materials||[]).slice();
+    if(RT_MAT_CH!=="all") mats=mats.filter(x=>(x.channel||"")===RT_MAT_CH);
+    document.getElementById("rtMats").innerHTML=`<div class="sec-hd">${mats.length} 份</div>`+mats.slice(0,40).map(x=>{
+      const inner=`<span class="bb">${esc(x.channel||"—")}</span><span class="nm">${esc(x.title||"")}</span><span class="mu mono" style="text-align:right">${esc(fmtTime(x.publishedAt))}</span>`;
+      return x.url?`<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="mat-row">${inner}</div>`;
+    }).join("")||`<div class="mu" style="padding:8px">暂无</div>`;
+    let secs=(pack.sectors||[]).slice();
+    if(RT_SIG==="new_signal") secs=secs.filter(s=>(s.signals||[]).includes("new_signal"));
+    else if(RT_SIG==="multi_source") secs=secs.filter(s=>(s.signals||[]).includes("multi_source"));
+    else if(RT_SIG==="pressure") secs=secs.filter(s=>(s.signals||[]).some(x=>String(x).includes("pressure")));
+    document.getElementById("rtSectors").innerHTML=`<div class="sec-hd">${secs.length}</div>`+secs.slice(0,30).map(x=>`
+      <div class="rt-row" data-sid="${esc(x.sectorId||"")}">
+        <span><span class="nm">${esc(x.name||"—")}</span><div>${(x.signals||[]).map(s=>`<span class="sig">${esc(s)}</span>`).join("")}</div></span>
+        <span class="bb mono">${esc(num(x.attention))}</span>
+        <span class="mono">${x.delta==null?"—":esc(num(x.delta,2))}</span>
+        <span class="mu mono">${esc(x.materialCount??"")}</span>
+      </div>`).join("")||`<div class="mu" style="padding:8px">暂无</div>`;
+  }
+
+  function renderMatPanel(){
+    document.querySelectorAll("#matTabFilt button").forEach(b=>b.classList.toggle("on",b.dataset.mt===MAT_TAB));
+    const mats=(DATA&&DATA.materials)||{};
+    const panel=document.getElementById("matPanel");
+    if(MAT_TAB==="attention"){
+      // gather market_attention from realtime windows
+      const seen=new Set(); const list=[];
+      const by=(DATA.realtime&&DATA.realtime.byWindow)||{};
+      ["24h","6h","3d"].forEach(w=>{(by[w]&&by[w].materials||[]).forEach(m=>{
+        if((m.channel||"")!=="market_attention") return;
+        const id=m.materialId||m.title; if(seen.has(id)) return; seen.add(id); list.push(m);
+      });});
+      panel.innerHTML=`<div class="sec-hd">即时关注 · 来自实时窗 materials · ${list.length}</div>`+list.slice(0,60).map(x=>{
+        const inner=`<span class="bb">${esc(x.source||"attention")}</span><span><div class="nm">${esc(x.title||"")}</div><div class="mu">${esc(fmtTime(x.publishedAt))}</div></span><span class="mu mono">${x.url?"↗":""}</span>`;
+        return x.url?`<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="mat-row">${inner}</div>`;
+      }).join("")||`<div class="mu" style="padding:8px">暂无即时关注材料</div>`;
+      return;
     }
+    const arr=MAT_TAB==="media"?(mats.media||[]):(mats.policy||[]);
+    const total=MAT_TAB==="media"?mats.mediaTotal:mats.policyTotal;
+    panel.innerHTML=`<div class="sec-hd">${MAT_TAB==="media"?"权威媒体":"权威政策"} · ${arr.length}${total!=null?" / total "+total:""}</div>`+arr.map(x=>{
+      const tags=(x.tags||[]).slice(0,3).map(t=>esc(t)).join(" · ");
+      const inner=`<span class="bb">${esc(x.source||x.channel||"—")}</span><span><div class="nm">${esc(x.title||"")}</div><div class="mu">${esc(x.publishedAt||"")}${tags?" · "+tags:""}</div></span><span class="mu mono">${x.url?"↗":""}</span>`;
+      return x.url?`<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="mat-row">${inner}</div>`;
+    }).join("")||`<div class="mu" style="padding:8px">暂无</div>`;
+  }
 
-    fetch("./snapshot.json")
-      .then(r => {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
-      .then(d => {
-        const m = d.meta || {};
-        document.getElementById("meta").textContent =
-          `asOf ${m.asOf || "—"} · snapshot ${m.snapshotId || "—"} · fetched ${m.fetchedAt || ""} · ${m.timezone || "Asia/Shanghai"}`;
+  function collectResearch(){
+    const byId=((DATA&&DATA.drilldown)||{}).byId||{};
+    const companies=[], etfs=[];
+    Object.values(byId).forEach(pack=>{
+      if(!pack||!pack.prefetched) return;
+      const sname=(pack.detail&&pack.detail.name)||pack.sectorId;
+      (pack.companies||[]).forEach(c=>companies.push({...c,_sector:sname,_sid:pack.sectorId}));
+      (pack.etfs||[]).forEach(e=>etfs.push({...e,_sector:sname,_sid:pack.sectorId}));
+    });
+    return{companies,etfs,securities:((DATA&&DATA.securities)||{}).changes||[]};
+  }
 
-        const b = d.brief || {};
-        document.getElementById("brief").innerHTML = `
-          <h3>${esc(b.headline || "—")}</h3>
-          <div style="font-size:12px;color:#c8c8c8;line-height:1.55">${esc(b.summary || "")}</div>
-          <ul class="hl">${(b.highlights || []).map(highlightHtml).join("")}</ul>`;
+  function renderResearch(){
+    document.querySelectorAll("#researchFilt button").forEach(b=>b.classList.toggle("on",b.dataset.rt===RESEARCH_TAB));
+    const{companies,etfs,securities}=collectResearch();
+    const panel=document.getElementById("researchPanel");
+    if(RESEARCH_TAB==="companies"){
+      panel.innerHTML=`<div class="sec-hd">预取板块公司映射 · ${companies.length} · 非荐股</div>`+companies.slice(0,80).map(c=>`
+        <div class="res-row" data-sid="${esc(c._sid||"")}">
+          <span class="mono bb">${esc(c.stockCode)}</span>
+          <span class="nm">${esc(c.stockName)} <span class="mu">${esc(c.board||"")} · ${esc(c._sector||"")}</span></span>
+          <span class="mono mu">${c.score==null?"":esc(num(c.score,2))}</span>
+        </div>`).join("")||`<div class="mu" style="padding:8px">无预取公司（见板块下钻）</div>`;
+    } else if(RESEARCH_TAB==="etfs"){
+      panel.innerHTML=`<div class="sec-hd">预取 ETF 映射 · ${etfs.length} · 暴露非买卖建议</div>`+etfs.slice(0,80).map(e=>`
+        <div class="res-row" data-sid="${esc(e._sid||"")}">
+          <span class="mono bb">${esc(e.fundCode)}</span>
+          <span class="nm">${esc(e.etfName)} <span class="mu">${esc(e._sector||"")}</span></span>
+          <span class="mono mu">${e.adjustedExposure==null?"":esc(num(e.adjustedExposure,2))}</span>
+        </div>`).join("")||`<div class="mu" style="padding:8px">无预取 ETF</div>`;
+    } else {
+      panel.innerHTML=`<div class="sec-hd">上市动态 securities/changes · ${securities.length}</div>`+securities.map(s=>`
+        <div class="res-row">
+          <span class="mono bb">${esc(s.stockCode||"")}</span>
+          <span><span class="nm">${esc(s.stockName||"")}</span>
+            <div class="mu">${esc(s.previousStatus||"—")} → ${esc(s.newStatus||"—")} · ${esc(s.effectiveDate||s.changedAt||"")}</div>
+            ${s.reason?`<div class="mu">${esc(s.reason)}</div>`:""}
+          </span>
+          <span class="mu mono">${esc(s.board||"")}</span>
+        </div>`).join("")||`<div class="mu" style="padding:8px">暂无上市动态（API security.lifecycle）</div>`;
+    }
+  }
 
-        const heat = d.heat || {};
-        document.getElementById("heat").innerHTML =
-          ["policy", "marketAttention", "marketTrading"].map(k => heatBlock(k, heat[k])).join("");
+  function renderSnapshots(){
+    const snaps=(DATA&&DATA.snapshots)||{}; const items=snaps.items||[];
+    const pinned=snaps.pinnedId||(DATA.meta||{}).snapshotId;
+    document.getElementById("snapList").innerHTML=`<div class="sec-hd">ASOF · ID · MARKET · STATUS · ${items.length}</div>`+
+      items.map(x=>`<div class="snap-row">
+        <span class="bb mono">${esc(x.asOf||"—")}</span>
+        <span class="mono mu">${esc((x.snapshotId||"").slice(0,12))}… ${x.snapshotId===pinned||x.pinned?'<span class="sig">PINNED</span>':""}</span>
+        <span class="mu mono">${esc(x.marketTradeDate||"—")}</span>
+        <span class="mu">${esc(x.marketStatus||"—")}</span>
+        <span class="mu">${esc(x.dataStatus||"")}</span>
+      </div>`).join("")||`<div class="mu">暂无</div>`;
+  }
 
-        SECTORS = d.sectors || [];
-        const layersPresent = new Set(SECTORS.map(s => s.layer));
-        document.getElementById("secFilt").innerHTML =
-          LAYER_TABS.filter(t => t.id === "all" || layersPresent.has(t.id)).map(t =>
-            `<button type="button" data-layer="${t.id}">${t.label}</button>`
-          ).join("") + `<span class="cnt" id="secCnt"></span>`;
-        document.getElementById("secFilt").addEventListener("click", ev => {
-          const btn = ev.target.closest("button[data-layer]");
-          if (!btn) return;
-          LAYER = btn.dataset.layer;
-          renderSectors();
-        });
-        renderSectors();
+  function openDrawer(sectorId){
+    if(!sectorId||!DATA)return;
+    const pack=((DATA.drilldown||{}).byId||{})[sectorId];
+    const sector=SECTORS.find(s=>s.sectorId===sectorId);
+    const body=document.getElementById("drawerBody");
+    if(!pack||!pack.prefetched){
+      body.innerHTML=`<h3>${esc((sector&&sector.name)||sectorId)}</h3><div class="kv">${esc(sectorId)} · ${esc((sector&&sector.layer)||"")}</div>
+        <div class="miss">截面未预取该板块下钻包。重建仅预埋热度 Top + 异动涉及板块。</div>`;
+    } else {
+      const d=pack.detail||{}; const hs=pack.heatSeries||{}; const pol=(hs.policy&&hs.policy.points)||[];
+      body.innerHTML=`<h3>${esc(d.name||(sector&&sector.name)||sectorId)}</h3>
+        <div class="kv">${esc(d.sectorId||sectorId)} · ${esc(d.layer||"")} · ${esc(d.status||"")} · parent ${esc(d.parent||"—")}</div>
+        ${d.definition?`<div style="font-size:12px;color:#b8b8b8;line-height:1.45;margin-bottom:8px">${esc(d.definition)}</div>`:""}
+        <div class="sec-hd">HEAT SERIES · POLICY</div>${sparkSvg(pol,440,72)}
+        ${(hs.marketAttention&&(hs.marketAttention.points||[]).length)?`<div class="sec-hd">HEAT SERIES · ATTENTION</div>${sparkSvg(hs.marketAttention.points,440,72)}`:""}
+        ${(hs.marketTrading&&(hs.marketTrading.points||[]).length)?`<div class="sec-hd">HEAT SERIES · TRADING</div>${sparkSvg(hs.marketTrading.points,440,72)}`:""}
+        <div class="sec-hd">COMPANIES · ${(pack.companies||[]).length}</div>
+        ${(pack.companies||[]).map(c=>`<div class="row"><span class="mono bb">${esc(c.stockCode)}</span><span class="nm">${esc(c.stockName)} <span class="mu">${esc(c.board||"")}</span></span><span class="mono mu">${c.score==null?"":esc(num(c.score,2))}</span></div>`).join("")||`<div class="mu" style="padding:6px">暂无</div>`}
+        <div class="sec-hd">ETFS · ${(pack.etfs||[]).length} · 映射暴露非荐股</div>
+        ${(pack.etfs||[]).map(e=>`<div class="row"><span class="mono bb">${esc(e.fundCode)}</span><span class="nm">${esc(e.etfName)}</span><span class="mono mu">${e.adjustedExposure==null?"":esc(num(e.adjustedExposure,2))}</span></div>`).join("")||`<div class="mu" style="padding:6px">暂无</div>`}
+        <div class="sec-hd">EVIDENCE · ${(pack.evidence||[]).length}</div>
+        ${(pack.evidence||[]).map(ev=>{const inner=`<div class="nm">${esc(ev.title||"")}</div><div class="mu">${esc(ev.viewpoint||"")} · ${esc(ev.evidenceDate||"")}</div>${ev.quote?`<div class="mu" style="white-space:normal">${esc(ev.quote).slice(0,160)}</div>`:""}`;return ev.url?`<a href="${esc(ev.url)}" target="_blank" rel="noopener" style="display:block;padding:4px 0;border-bottom:1px solid #1a1a1a;color:inherit;text-decoration:none">${inner}</a>`:`<div style="padding:4px 0;border-bottom:1px solid #1a1a1a">${inner}</div>`;}).join("")||`<div class="mu" style="padding:6px">暂无</div>`}
+        <p class="mu" style="margin-top:12px;font-size:11px">公司 / ETF 仅为映射暴露，不构成买卖建议。</p>`;
+    }
+    document.getElementById("drawerMask").classList.add("on");
+    document.getElementById("drawer").classList.add("on");
+    document.getElementById("drawer").setAttribute("aria-hidden","false");
+  }
+  function closeDrawer(){document.getElementById("drawerMask").classList.remove("on");document.getElementById("drawer").classList.remove("on");document.getElementById("drawer").setAttribute("aria-hidden","true");}
 
-        const dyn = d.dynamics || [];
-        document.getElementById("dynamics").innerHTML =
-          `<div class="sec-hd">TYPE · NAME · REL/ABS · SCORE · ${dyn.length}</div>` +
-          dyn.map(x => `
-            <div class="dyn-row">
-              <span class="bb">${esc(x.type || "—")}</span>
-              <span>
-                <span class="nm">${esc(x.name || "")}</span>
-                <span class="mu"> ${esc(x.layer || "")}</span>
-                <div class="mu">${esc(x.summary || "").slice(0, 160)}</div>
-              </span>
-              <span class="mono mu">${esc(x.relative || "—")}/${esc(x.absolute || "—")}</span>
-              <span class="mono bb">${esc(num(x.score, 1))}</span>
-            </div>`).join("") || `<div class="mu">暂无</div>`;
+  function setPane(p){
+    PANE=p;
+    document.querySelectorAll("#viewToggle button").forEach(b=>b.classList.toggle("on",b.dataset.pane===p));
+    document.getElementById("pane-rt").classList.toggle("on",p==="rt");
+    document.getElementById("pane-daily").classList.toggle("on",p==="daily");
+  }
 
-        const rt = d.realtime || {};
-        const sum = rt.summary || {};
-        const win = rt.window || {};
-        const cards = [
-          ["材料", sum.material_count],
-          ["政策材料", sum.policy_material_count],
-          ["媒体材料", sum.media_material_count],
-          ["关注材料", sum.market_attention_material_count],
-          ["板块", sum.sector_count],
-          ["新信号", sum.new_signal_sector_count],
-          ["多源", sum.multi_source_sector_count],
-        ];
-        document.getElementById("rtSum").innerHTML =
-          `<div class="c"><div class="k">窗口</div><div class="v" style="font-size:13px">${esc(win.duration || "24h")}</div>
-            <div class="mu mono" style="font-size:10px;margin-top:2px">${esc((win.start || "").slice(5, 16))} → ${esc((win.end || "").slice(5, 16))}</div></div>` +
-          cards.map(([k, v]) => `<div class="c"><div class="k">${k}</div><div class="v">${v == null ? "—" : esc(v)}</div></div>`).join("");
+  function bind(){
+    document.getElementById("viewToggle").addEventListener("click",ev=>{const b=ev.target.closest("button[data-pane]");if(b) setPane(b.dataset.pane);});
+    document.body.addEventListener("click",ev=>{
+      const row=ev.target.closest("[data-sid]");
+      if(row&&row.dataset.sid){if(ev.target.closest("a"))return; openDrawer(row.dataset.sid);}
+    });
+    document.getElementById("drawerClose").addEventListener("click",closeDrawer);
+    document.getElementById("drawerMask").addEventListener("click",closeDrawer);
+    document.getElementById("secTbl").querySelector("thead").addEventListener("click",ev=>{
+      const th=ev.target.closest("th[data-sort]"); if(!th)return;
+      const k=th.dataset.sort; if(SORT.key===k) SORT.dir*=-1; else{SORT.key=k; SORT.dir=(k==="name"||k==="layer"||k==="status"||k==="parent")?1:-1;}
+      renderSectors();
+    });
+    document.getElementById("secSearch").addEventListener("input",ev=>{SEC_Q=ev.target.value.trim(); renderSectors();});
+  }
 
-        document.getElementById("rtSectors").innerHTML =
-          (rt.sectors || []).slice(0, 20).map(x => `
-            <div class="rt-row">
-              <span class="nm">${esc(x.name || "—")} <span class="mu">${esc((x.signals || []).join(","))}</span></span>
-              <span class="bb mono">${esc(num(x.attention))}</span>
-              <span class="mono ${(+x.delta > 0) ? "" : ""}">${x.delta == null ? "—" : esc(num(x.delta, 2))}</span>
-              <span class="mu mono">${esc(x.materialCount ?? "")}</span>
-            </div>`).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
+  fetch("./snapshot.json").then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(d=>{
+    DATA=d;
+    const m=d.meta||{}, cov=d.coverage||{};
+    document.getElementById("metaBar").innerHTML=[
+      `asOf <b>${esc(m.asOf||"—")}</b>`,`snapshot <b>${esc(m.snapshotId||"—")}</b>`,
+      `trade <b>${esc(m.marketTradeDate||"—")}</b>`,`status <b>${esc(m.marketStatus||"—")}</b>`,
+      `taxonomy <b>${esc(m.taxonomyVersion||"—")}</b>`,
+      `sectors <b>${esc(cov.sectorCount??"—")}</b>`,`anomalies <b>${esc(cov.anomalyCount??"—")}</b>`,
+      `etfs <b>${esc(cov.etfCount??"—")}</b>`,`companyRel <b>${esc(cov.companyRelations??"—")}</b>`,
+      `fetched <b>${esc(m.fetchedAt||"")}</b>`
+    ].join('<span class="mu">·</span>');
 
-        document.getElementById("rtMats").innerHTML =
-          (rt.materials || []).slice(0, 20).map(x => {
-            const inner = `
-              <span class="bb">${esc(x.channel || "—")}</span>
-              <span class="nm">${esc(x.title || "")}</span>
-              <span class="mu mono" style="text-align:right;grid-column:3 / span 1">${esc(fmtTime(x.publishedAt))}</span>`;
-            // reuse mat-row grid loosely
-            return x.url
-              ? `<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener" style="grid-template-columns:72px 1fr 100px">${inner}</a>`
-              : `<div class="mat-row" style="grid-template-columns:72px 1fr 100px">${inner}</div>`;
-          }).join("") || `<div class="mu" style="padding:8px">暂无</div>`;
+    const raw=cov.raw||{};
+    document.getElementById("metricBar").innerHTML=[
+      ["数据快照", m.asOf||"—"],
+      ["板块节点", cov.taxonomyNodes||raw.taxonomy_nodes||cov.sectorCount||"—"],
+      ["公司关系", cov.companyRelations||raw.company_relations||"—"],
+      ["政策贡献", raw.policy_contributions||"—"],
+      ["行情覆盖", raw.market_stock_scores||raw.market_sector_scores||"—"],
+      ["资金样本", raw.market_contributions||"—"]
+    ].map(([k,v])=>`<div class="c"><div class="k">${k}</div><div class="v">${esc(v)}</div></div>`).join("");
 
-        const mats = d.materials || {};
-        document.getElementById("matPolicy").innerHTML =
-          `<div class="sec-hd">POLICY · ${(mats.policy || []).length}</div>` + renderMat(mats.policy, 40);
-        document.getElementById("matMedia").innerHTML =
-          `<div class="sec-hd">MEDIA · ${(mats.media || []).length}</div>` + renderMat(mats.media, 40);
-      })
-      .catch(e => {
-        document.getElementById("meta").textContent = "无法加载 snapshot.json：" + e.message;
-      });
+    const b=d.brief||{};
+    document.getElementById("brief").innerHTML=`<h3>${esc(b.headline||"—")}</h3>
+      <div style="font-size:12px;color:#c8c8c8;line-height:1.55">${esc(b.summary||"")}</div>
+      <ul class="hl">${(b.highlights||[]).map(highlightHtml).join("")}</ul>
+      <div class="mu" style="margin-top:8px">本次发布 · snapshot ${esc(m.snapshotId||"—")} · ${esc(m.publishedAt||m.asOf||"")}</div>`;
+
+    document.getElementById("heatViewFilt").innerHTML=VIEW_TABS.map(t=>`<button type="button" data-view="${t.id}">${t.label}</button>`).join("")+`<span class="cnt">heat/momentum/evidence</span>`;
+    document.getElementById("heatViewFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-view]");if(!b)return;HEAT_VIEW=b.dataset.view;renderHeat();});
+    const layersHeat=new Set(); HEAT_KEYS.forEach(k=>((d.heat||{})[k]||[]).forEach(x=>layersHeat.add(x.layer)));
+    document.getElementById("heatLayerFilt").innerHTML=LAYER_TABS.filter(t=>t.id==="all"||layersHeat.has(t.id)).map(t=>`<button type="button" data-layer="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("heatLayerFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-layer]");if(!b)return;HEAT_LAYER=b.dataset.layer;renderHeat();});
+    renderHeat();
+
+    document.getElementById("matTabFilt").innerHTML=[
+      {id:"policy",label:"权威政策"},{id:"media",label:"权威媒体"},{id:"attention",label:"即时关注"}
+    ].map(t=>`<button type="button" data-mt="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("matTabFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-mt]");if(!b)return;MAT_TAB=b.dataset.mt;renderMatPanel();});
+    renderMatPanel();
+
+    document.getElementById("scanFilt").innerHTML=SCAN_FILTERS.map(t=>`<button type="button" data-sf="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("scanFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-sf]");if(!b)return;SCAN_F=b.dataset.sf;renderScan();});
+    document.getElementById("scanModeFilt").innerHTML=SCAN_MODES.map(t=>`<button type="button" data-sm="${t.id}">${t.label}</button>`).join("")+`<span class="cnt">三维略</span>`;
+    document.getElementById("scanModeFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-sm]");if(!b)return;SCAN_MODE=b.dataset.sm;renderScan();});
+    renderScan();
+
+    SECTORS=d.sectors||[];
+    const layersPresent=new Set(SECTORS.map(s=>s.layer));
+    const secFilt=document.getElementById("secFilt");
+    const searchEl=document.getElementById("secSearch");
+    LAYER_TABS.filter(t=>t.id==="all"||layersPresent.has(t.id)).forEach(t=>{
+      const btn=document.createElement("button"); btn.type="button"; btn.dataset.layer=t.id; btn.textContent=t.label;
+      secFilt.insertBefore(btn, searchEl);
+    });
+    const cnt=document.createElement("span"); cnt.className="cnt"; cnt.id="secCnt"; secFilt.appendChild(cnt);
+    secFilt.addEventListener("click",ev=>{const b=ev.target.closest("button[data-layer]");if(!b)return;LAYER=b.dataset.layer;renderSectors();});
+    renderSectors();
+    renderDynamics();
+
+    RT_WIN=((d.realtime||{}).defaultWindow)||"24h";
+    document.getElementById("rtFilt").innerHTML=RT_WINS.map(w=>`<button type="button" data-win="${w}">${w}</button>`).join("")+`<span class="cnt">滚动窗 · 默认 24h</span>`;
+    document.getElementById("rtFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-win]");if(!b)return;RT_WIN=b.dataset.win;renderRealtime();renderScan();});
+    document.getElementById("rtMatFilt").innerHTML=[
+      {id:"all",label:"全部"},{id:"policy",label:"权威政策"},{id:"media",label:"权威媒体"},{id:"market_attention",label:"即时关注"}
+    ].map(t=>`<button type="button" data-ch="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("rtMatFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-ch]");if(!b)return;RT_MAT_CH=b.dataset.ch;renderRealtime();});
+    document.getElementById("rtSigFilt").innerHTML=[
+      {id:"all",label:"全部信号"},{id:"new_signal",label:"新增"},{id:"multi_source",label:"多源"},{id:"pressure",label:"承压"}
+    ].map(t=>`<button type="button" data-sig="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("rtSigFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-sig]");if(!b)return;RT_SIG=b.dataset.sig;renderRealtime();});
+    renderRealtime();
+
+    document.getElementById("researchFilt").innerHTML=[
+      {id:"companies",label:"公司研究"},{id:"etfs",label:"ETF 映射"},{id:"listing",label:"上市动态"}
+    ].map(t=>`<button type="button" data-rt="${t.id}">${t.label}</button>`).join("");
+    document.getElementById("researchFilt").addEventListener("click",ev=>{const b=ev.target.closest("button[data-rt]");if(!b)return;RESEARCH_TAB=b.dataset.rt;renderResearch();});
+    renderResearch();
+    renderSnapshots();
+    bind();
+  }).catch(e=>{document.getElementById("metaBar").textContent="无法加载 snapshot.json："+e.message;});
+})();
   </script>
 </body>
 </html>
