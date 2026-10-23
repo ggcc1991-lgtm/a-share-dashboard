@@ -536,16 +536,20 @@ table.data tr:hover td { background: #1c1c1c; }
   }
   .app-footer { padding-left: 10px; padding-right: 10px; }
 
-  /* Top bar: brand row + horizontally scrollable nav; short title; hide clock */
+  /* Column, not wrap+order: brand and nav cannot share a row. */
   .app-header .inner {
     height: auto;
     min-height: 40px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     padding: 0;
     align-items: stretch;
+    width: 100%;
+    min-width: 0;
   }
   .brand {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
+    width: 100%;
     min-width: 0;
     height: 40px;
     padding: 0 10px;
@@ -567,8 +571,10 @@ table.data tr:hover td { background: #1c1c1c; }
   }
   .brand h1 span { display: none; }
   .nav {
-    flex: 1 1 100%;
-    order: 3;
+    flex: 0 0 auto;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     height: 36px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -589,9 +595,11 @@ table.data tr:hover td { background: #1c1c1c; }
   }
 
   .bb-strip .inner {
-    padding: 6px 10px;
-    gap: 14px;
+    padding: 4px 10px;
+    gap: 10px;
+    font-size: 11px;
   }
+  .bb-strip .k { font-size: 10px; margin-right: 4px; }
 
   /* Overview cols: force single stack below 720 */
   .bb-cols {
