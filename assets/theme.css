@@ -724,3 +724,35 @@ table.data tr:hover td { background: #1c1c1c; }
   .bb-sec h2 { font-size: 12px; }
   .bb-sec .more { font-size: 10px; }
 }
+
+/* —— Nav dropdown (ETF) —— panel is position:fixed so the mobile scrolling nav can't clip it */
+.nav-dd { position: relative; display: flex; align-items: stretch; }
+.nav-dd-btn {
+  appearance: none; font: inherit; cursor: pointer;
+  color: var(--mu); font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 0 12px; display: inline-flex; align-items: center; gap: 4px;
+  background: transparent; border: 0; border-bottom: 2px solid transparent; border-radius: 0;
+  white-space: nowrap;
+}
+.nav-dd-btn:hover, .nav-dd.open .nav-dd-btn { color: var(--tx); background: #111; }
+.nav-dd-btn.active { color: var(--tx); border-bottom-color: var(--bb); font-weight: 700; }
+.nav-dd-btn:focus-visible, .nav-dd-panel a:focus-visible { outline: 1px solid var(--bb); outline-offset: -1px; }
+.nav-dd-caret { font-size: 9px; color: var(--bb); transition: transform .15s linear; }
+.nav-dd.open .nav-dd-caret { transform: rotate(180deg); }
+.nav-dd-panel {
+  display: none; position: fixed; z-index: 100; min-width: 170px;
+  background: #0a0a0a; border: 1px solid var(--bd); border-top: 2px solid var(--bb);
+  box-shadow: 0 8px 24px rgba(0,0,0,.6); padding: 2px 0;
+}
+.nav-dd.open .nav-dd-panel { display: block; }
+.nav .nav-dd-panel a {
+  display: block; height: auto; padding: 9px 14px; border: 0;
+  color: var(--mu); font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.nav .nav-dd-panel a:hover, .nav .nav-dd-panel a:focus { color: #000; background: var(--bb); }
+.nav .nav-dd-panel a.current { color: var(--bb); }
+.nav .nav-dd-panel a.current:hover { color: #000; }
+@media (max-width: 719px) {
+  .nav-dd { flex: 0 0 auto; }
+  .nav .nav-dd-panel a { padding: 12px 16px; font-size: 13px; }
+}
