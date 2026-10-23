@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>国家队ETF动向追踪 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="../assets/echarts.min.js"></script>
   <style>
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; margin-bottom: 0; border: var(--hair); border-bottom: none; }
     .cards .card { border-radius: 0; border-right: var(--hair); box-shadow: none; }
@@ -39,6 +39,16 @@
     #futPanel, #futTblPanel { display: none; }
     .page-title .title-note {
       font-weight: 500; font-size: 0.72em; color: var(--mu); margin-left: 0.15em;
+    }
+    @media (max-width: 719px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .card .v { font-size: 1.05rem; }
+      .chart { height: 240px; }
+      .chart.sm { height: 200px; }
+      .panel h2 { font-size: 0.92rem; line-height: 1.35; }
+      .panel h2 small { display: block; margin: 4px 0 0; margin-left: 0; }
+      .panel h2 .sel { display: block; margin: 6px 0 0; margin-left: 0; max-width: 100%; }
+      .note { font-size: 0.78rem; line-height: 1.55; word-break: break-word; }
     }
   </style>
 </head>
