@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>数据监控中心</title>
+  <title>GC的数据监控中心</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
     <div class="inner">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true"></div>
-        <h1>数据<span>监控</span>中心</h1>
+        <h1>GC的数据<span>监控</span>中心</h1>
       </div>
       <nav class="nav">
         <a href="./" data-match="/" class="active">总览</a>
@@ -121,7 +121,7 @@
 
       document.getElementById("kpis").innerHTML = `
         <div class="card"><div class="stat-label">抄底红线</div><div class="stat-value ${cls === "hot" ? "neg" : cls === "warn" ? "amb" : ""}">${trig}<span style="font-size:.9rem;color:var(--mu)"> / ${total}</span></div><div class="stat-hint">${bottom?.generated_at || "—"}</div></div>
-        <div class="card"><div class="stat-label">ETF 合计净流入</div><div class="stat-value ${flowSum != null && flowSum < 0 ? "neg" : ""}">${flowSum == null ? "—" : DashFmt.signed(flowSum, 1)}<span style="font-size:.85rem;color:var(--mu)"> 亿</span></div><div class="stat-hint">交易日 ${etfDate}</div></div>
+        <div class="card"><div class="stat-label">ETF 合计净流入</div><div class="stat-value ${flowSum > 0 ? "pos" : flowSum < 0 ? "neg" : ""}">${flowSum == null ? "—" : DashFmt.signed(flowSum, 1)}<span style="font-size:.85rem;color:var(--mu)"> 亿</span></div><div class="stat-hint">交易日 ${etfDate}</div></div>
         <div class="card"><div class="stat-label">信息流条数</div><div class="stat-value blu">${feedItems.length}</div><div class="stat-hint">${feed?.updated || "—"}</div></div>
         <div class="card"><div class="stat-label">汇金系观察份额</div><div class="stat-value">${etf?.baseline?.holders ? DashFmt.num(etf.baseline.holders.reduce((s, h) => s + (h.shares_yi || 0), 0), 0) : "—"}<span style="font-size:.85rem;color:var(--mu)"> 亿份</span></div><div class="stat-hint">${etf?.baseline?.asof || "基线"}</div></div>`;
 

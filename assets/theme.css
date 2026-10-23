@@ -1,4 +1,5 @@
 :root {
+  /* A股习惯：涨红跌绿（--pos/--neg） */
   --bg: #0b0f14;
   --bg-glow: #1a2740;
   --panel: #121925;
@@ -14,8 +15,8 @@
   --amb: #f5a623;
   --blu: #4c8dff;
   --cy: #3dd6c6;
-  --pos: #3dd6c6;
-  --neg: #ff3b4a;
+  --pos: #ff3b4a;  /* 上涨 */
+  --neg: #12b76a;  /* 下跌 */
   --mono: Menlo, Consolas, "SF Mono", monospace;
   --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
   --r: 14px;
@@ -107,6 +108,7 @@ a:hover { text-decoration: underline; }
 
 .stat-label { color: var(--mu); font-size: 0.75rem; }
 .stat-value { font-family: var(--mono); font-size: 1.45rem; font-weight: 700; margin-top: 4px; color: var(--cy); }
+.stat-value.pos { color: var(--pos); }
 .stat-value.neg { color: var(--neg); }
 .stat-value.amb { color: var(--amb); }
 .stat-value.blu { color: var(--blu); }
