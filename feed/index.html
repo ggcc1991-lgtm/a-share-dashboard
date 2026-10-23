@@ -29,6 +29,9 @@
   <main class="wrap">
     <h2 class="page-title">信息流</h2>
     <p class="page-sub" id="meta">加载 data/feed.json …</p>
+
+    <section id="feed-analysis" class="panel fa-panel" aria-label="刷新分析" hidden></section>
+
     <div class="grid grid-4" id="kpis" style="margin-bottom:12px"></div>
     <div class="tools">
       <div id="filters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
@@ -36,13 +39,21 @@
     </div>
     <div id="list"></div>
   </main>
-  <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary</footer>
+  <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary · 分析：data/feed-analysis.json</footer>
   <script src="../assets/shell.js"></script>
+  <script src="../assets/echarts.min.js"></script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
     let items = [];
     let filter = "all";
     let q = "";
+    const faCharts = [];
+
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
 
     function dayKey(iso) {
       if (!iso) return "未知日期";
@@ -82,21 +93,412 @@
               <article class="feed-item">
                 <div class="feed-meta">
                   <span class="chip src">${SRC[x.source] || x.source}</span>
-                  <span>${x.sourceName || ""}</span>
+                  <span>${esc(x.sourceName || "")}</span>
                   <span class="mono">${DashFmt.time(x.publishedAt)}</span>
                 </div>
-                <h3><a href="${x.url || "#"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>${x.title || "无标题"}</a></h3>
-                <p class="feed-sum">${x.summary || ""}</p>
+                <h3><a href="${esc(x.url || "#")}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>${esc(x.title || "无标题")}</a></h3>
+                <p class="feed-sum">${esc(x.summary || "")}</p>
               </article>`).join("")}
           </div>
         </section>`).join("");
     }
 
+    const STR_RANK = { "极强": 5, "强": 4, "中强": 3, "中": 2, "中低": 1, "弱": 0.5 };
+    const CONF_RANK = { "高": 3, "中高": 2.5, "中": 2, "中低": 1, "低": 0.5 };
+    const TOP_N_NAMES = 8;
+    const AMBER = "#FFA028";
+
+    function confClass(c) {
+      const s = String(c || "");
+      if (s.includes("高") && !s.includes("中")) return "high";
+      if (s.includes("中")) return "mid";
+      return "low";
+    }
+    function strengthVal(s) {
+      return STR_RANK[s] != null ? STR_RANK[s] : 1;
+    }
+    function confVal(s) {
+      return CONF_RANK[s] != null ? CONF_RANK[s] : 1;
+    }
+
+    function disposeFaCharts() {
+      while (faCharts.length) {
+        try { faCharts.pop().dispose(); } catch (_) {}
+      }
+    }
+
+    function ensureAmberTheme() {
+      if (!window.echarts || ensureAmberTheme._done) return;
+      const base = (window.DashTheme && DashTheme.echartsDark) || {};
+      echarts.registerTheme("amber-dark", Object.assign({}, base, {
+        color: (window.DashTheme && DashTheme.colors) || [AMBER, "#ef5350", "#26a69a", "#ffb74d", "#64b5f6", "#a0a0a0"],
+        backgroundColor: "transparent",
+      }));
+      ensureAmberTheme._done = true;
+    }
+
+    function initChart(el, option) {
+      if (!el || !window.echarts) return null;
+      ensureAmberTheme();
+      const c = echarts.init(el, "amber-dark", { renderer: "canvas" });
+      c.setOption(option);
+      faCharts.push(c);
+      return c;
+    }
+
+    function chartColors() {
+      return (window.DashTheme && DashTheme.colors) || [AMBER, "#ef5350", "#26a69a", "#ffb74d", "#64b5f6", "#a0a0a0"];
+    }
+
+    function axisMuted() {
+      return {
+        axisLabel: { color: "#a0a0a0", fontSize: 10 },
+        axisLine: { lineStyle: { color: "#2a2210" } },
+        axisTick: { show: false },
+        splitLine: { lineStyle: { color: "#1a160c" } },
+      };
+    }
+
+    /** Prefer viz.*; fallback from keywords / stats / opportunities / consensus */
+    function resolveVizSeries(d) {
+      const viz = (d && d.viz) || {};
+      const stats = (d && d.stats) || {};
+      const keywords = Array.isArray(d.keywords) ? d.keywords : [];
+      const opps = Array.isArray(d.opportunities) ? d.opportunities : [];
+      const consensus = (d && d.consensus) || {};
+      const agree = Array.isArray(consensus.agreement) ? consensus.agreement : [];
+      const disagree = Array.isArray(consensus.disagreement) ? consensus.disagreement : [];
+
+      let keywordBars = Array.isArray(viz.keywordBars) ? viz.keywordBars.slice() : null;
+      if (!keywordBars || !keywordBars.length) {
+        keywordBars = keywords.map((k) => {
+          const term = typeof k === "string" ? k : (k && k.term) || "";
+          const strength = typeof k === "object" && k ? k.strength : "";
+          return { label: term, value: strengthVal(strength), strength: strength || "" };
+        }).filter((x) => x.label);
+      }
+
+      let sourcePie = Array.isArray(viz.sourcePie) ? viz.sourcePie.slice() : null;
+      if (!sourcePie || !sourcePie.length) {
+        const bySrc = stats.bySource || {};
+        sourcePie = Object.entries(bySrc)
+          .map(([label, value]) => ({ label, value: +value || 0 }))
+          .sort((a, b) => b.value - a.value);
+      }
+
+      let sourceNameBars = Array.isArray(viz.sourceNameBars) ? viz.sourceNameBars.slice() : null;
+      if (!sourceNameBars || !sourceNameBars.length) {
+        const byName = stats.bySourceName || {};
+        sourceNameBars = Object.entries(byName)
+          .map(([label, value]) => ({ label, value: +value || 0 }))
+          .sort((a, b) => b.value - a.value)
+          .slice(0, TOP_N_NAMES);
+      } else {
+        sourceNameBars = sourceNameBars.slice(0, TOP_N_NAMES);
+      }
+
+      let confidenceDonut = Array.isArray(viz.confidenceDonut) ? viz.confidenceDonut.slice() : null;
+      if (!confidenceDonut || !confidenceDonut.length) {
+        const counts = {};
+        opps.forEach((o) => {
+          const c = (o && o.confidence) || "未知";
+          counts[c] = (counts[c] || 0) + 1;
+        });
+        confidenceDonut = Object.entries(counts).map(([label, value]) => ({ label, value }));
+      }
+
+      let opportunityScores = Array.isArray(viz.opportunityScores) ? viz.opportunityScores.slice() : null;
+      if (!opportunityScores || !opportunityScores.length) {
+        opportunityScores = opps.map((o) => {
+          const title = (o && o.title) || "—";
+          const conf = (o && o.confidence) || "";
+          const short = title.length > 18 ? title.slice(0, 17) + "…" : title;
+          return { label: short, value: confVal(conf), confidence: conf };
+        });
+      }
+
+      let consensusBalance = viz.consensusBalance && typeof viz.consensusBalance === "object"
+        ? viz.consensusBalance
+        : null;
+      if (!consensusBalance || (consensusBalance.agreement == null && consensusBalance.disagreement == null)) {
+        consensusBalance = { agreement: agree.length, disagreement: disagree.length };
+      }
+
+      return { keywordBars, sourcePie, sourceNameBars, confidenceDonut, opportunityScores, consensusBalance };
+    }
+
+    function hBarOption(labels, values, extraLabels) {
+      const colors = chartColors();
+      const muted = axisMuted();
+      return {
+        color: colors,
+        grid: { left: 4, right: 36, top: 4, bottom: 2, containLabel: true },
+        xAxis: Object.assign({ type: "value", axisLabel: { show: false }, axisLine: { show: false }, axisTick: { show: false }, splitLine: muted.splitLine }, {}),
+        yAxis: {
+          type: "category",
+          data: labels,
+          axisLabel: Object.assign({}, muted.axisLabel, { width: 96, overflow: "truncate" }),
+          axisLine: muted.axisLine,
+          axisTick: { show: false },
+        },
+        series: [{
+          type: "bar",
+          data: values.map((v, i) => ({
+            value: v,
+            itemStyle: { color: colors[i % colors.length], borderRadius: [0, 2, 2, 0] },
+          })),
+          barWidth: 8,
+          label: {
+            show: true,
+            position: "right",
+            formatter: (p) => {
+              if (extraLabels && extraLabels[p.dataIndex] != null) return String(extraLabels[p.dataIndex]);
+              return String(p.value);
+            },
+            color: "#787878",
+            fontSize: 9,
+          },
+        }],
+      };
+    }
+
+    function pieOption(items, { donut } = {}) {
+      const colors = chartColors();
+      return {
+        color: colors,
+        tooltip: { trigger: "item", confine: true },
+        series: [{
+          type: "pie",
+          radius: donut ? ["48%", "72%"] : ["28%", "68%"],
+          center: ["42%", "50%"],
+          avoidLabelOverlap: true,
+          itemStyle: { borderColor: "#0c0a06", borderWidth: 2 },
+          label: { color: "#a0a0a0", fontSize: 10, formatter: "{b}" },
+          labelLine: { length: 6, length2: 4, lineStyle: { color: "#3a2a10" } },
+          data: items.map((it) => ({
+            name: it.name,
+            value: it.value,
+          })),
+        }],
+        legend: {
+          orient: "vertical",
+          right: 0,
+          top: "middle",
+          textStyle: { color: "#787878", fontSize: 10 },
+          itemWidth: 8,
+          itemHeight: 8,
+          itemGap: 4,
+          formatter: (name) => {
+            const hit = items.find((x) => x.name === name);
+            return hit ? `${name} ${hit.value}` : name;
+          },
+        },
+      };
+    }
+
+    function renderFaCharts(series) {
+      disposeFaCharts();
+      const colors = chartColors();
+      const {
+        keywordBars, sourcePie, sourceNameBars,
+        confidenceDonut, opportunityScores, consensusBalance,
+      } = series;
+
+      const kwEl = document.getElementById("fa-chart-kw");
+      if (kwEl && keywordBars.length) {
+        const rev = keywordBars.slice().reverse();
+        initChart(kwEl, hBarOption(
+          rev.map((x) => x.label || ""),
+          rev.map((x) => +x.value || 0),
+          rev.map((x) => x.strength || x.value)
+        ));
+      }
+
+      const srcEl = document.getElementById("fa-chart-src");
+      if (srcEl && sourcePie.length) {
+        initChart(srcEl, pieOption(sourcePie.map((x) => ({
+          name: SRC[x.label] || x.label,
+          value: +x.value || 0,
+        }))));
+      }
+
+      const nameEl = document.getElementById("fa-chart-name");
+      if (nameEl && sourceNameBars.length) {
+        const rev = sourceNameBars.slice().reverse();
+        initChart(nameEl, hBarOption(
+          rev.map((x) => x.label || ""),
+          rev.map((x) => +x.value || 0),
+          rev.map((x) => x.value)
+        ));
+      }
+
+      const confEl = document.getElementById("fa-chart-conf");
+      if (confEl && confidenceDonut.length) {
+        initChart(confEl, pieOption(confidenceDonut.map((x) => ({
+          name: x.label,
+          value: +x.value || 0,
+        })), { donut: true }));
+      }
+
+      const oppEl = document.getElementById("fa-chart-opp");
+      if (oppEl && opportunityScores.length) {
+        const rev = opportunityScores.slice().reverse();
+        initChart(oppEl, hBarOption(
+          rev.map((x) => x.label || ""),
+          rev.map((x) => +x.value || 0),
+          rev.map((x) => x.confidence || x.value)
+        ));
+      }
+
+      const balEl = document.getElementById("fa-chart-bal");
+      if (balEl && consensusBalance) {
+        const ag = +consensusBalance.agreement || 0;
+        const dg = +consensusBalance.disagreement || 0;
+        initChart(balEl, {
+          color: [AMBER, "#ef5350"],
+          grid: { left: 4, right: 28, top: 8, bottom: 8, containLabel: true },
+          xAxis: {
+            type: "value",
+            minInterval: 1,
+            axisLabel: { color: "#787878", fontSize: 10 },
+            axisLine: { show: false },
+            axisTick: { show: false },
+            splitLine: { lineStyle: { color: "#1a160c" } },
+          },
+          yAxis: {
+            type: "category",
+            data: ["分歧", "一致"],
+            axisLabel: { color: "#a0a0a0", fontSize: 11 },
+            axisLine: { lineStyle: { color: "#2a2210" } },
+            axisTick: { show: false },
+          },
+          series: [{
+            type: "bar",
+            data: [
+              { value: dg, itemStyle: { color: "#ef5350", borderRadius: [0, 2, 2, 0] } },
+              { value: ag, itemStyle: { color: AMBER, borderRadius: [0, 2, 2, 0] } },
+            ],
+            barWidth: 16,
+            label: { show: true, position: "right", color: "#a0a0a0", fontSize: 11 },
+          }],
+        });
+      }
+
+      requestAnimationFrame(() => faCharts.forEach((c) => { try { c.resize(); } catch (_) {} }));
+    }
+
+    function renderAnalysis(d) {
+      const root = document.getElementById("feed-analysis");
+      if (!root) return;
+      root.hidden = false;
+      root.classList.remove("is-error");
+
+      const series = resolveVizSeries(d);
+      const highlights = Array.isArray(d.highlights) ? d.highlights : [];
+      const hasAnyChart = (
+        series.keywordBars.length ||
+        series.sourcePie.length ||
+        series.sourceNameBars.length ||
+        series.confidenceDonut.length ||
+        series.opportunityScores.length ||
+        ((+series.consensusBalance.agreement || 0) + (+series.consensusBalance.disagreement || 0) > 0)
+      );
+
+      let html = `
+        <div class="fa-hd">
+          <span class="fa-label">刷新分析</span>
+          <span class="fa-updated mono">${esc(DashFmt.time(d.updated || d.analyzedAt) || "—")}</span>
+        </div>
+        <div class="fa-body">`;
+
+      if (d.title) html += `<h3 class="fa-title">${esc(d.title)}</h3>`;
+      if (d.changeSummary) html += `<p class="fa-summary">${esc(d.changeSummary)}</p>`;
+
+      if (hasAnyChart) {
+        html += `<div class="fa-viz">`;
+        if (series.keywordBars.length) {
+          html += `<div class="fa-chart-box" data-chart="kw"><div class="fa-sec-h">关键词强度</div><div class="fa-chart" id="fa-chart-kw"></div></div>`;
+        }
+        if (series.sourcePie.length) {
+          html += `<div class="fa-chart-box" data-chart="src"><div class="fa-sec-h">来源分布</div><div class="fa-chart" id="fa-chart-src"></div></div>`;
+        }
+        if (series.sourceNameBars.length) {
+          html += `<div class="fa-chart-box" data-chart="name"><div class="fa-sec-h">来源名称 Top ${Math.min(TOP_N_NAMES, series.sourceNameBars.length)}</div><div class="fa-chart" id="fa-chart-name"></div></div>`;
+        }
+        if (series.confidenceDonut.length) {
+          html += `<div class="fa-chart-box" data-chart="conf"><div class="fa-sec-h">机会置信度</div><div class="fa-chart" id="fa-chart-conf"></div></div>`;
+        }
+        if (series.opportunityScores.length) {
+          html += `<div class="fa-chart-box" data-chart="opp"><div class="fa-sec-h">机会评分</div><div class="fa-chart" id="fa-chart-opp"></div></div>`;
+        }
+        if ((+series.consensusBalance.agreement || 0) + (+series.consensusBalance.disagreement || 0) > 0) {
+          html += `<div class="fa-chart-box" data-chart="bal"><div class="fa-sec-h">共识平衡</div><div class="fa-chart sm" id="fa-chart-bal"></div></div>`;
+        }
+        html += `</div>`;
+      }
+
+      if (highlights.length) {
+        html += `<div class="fa-sec fa-sec-hl"><div class="fa-sec-h">要点</div><div class="fa-hl">${
+          highlights.map((h) => {
+            const title = (h && h.title) || "—";
+            const note = h && h.note ? `<span class="note">${esc(h.note)}</span>` : "";
+            if (h && h.url) {
+              return `<a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(title)}${note}</a>`;
+            }
+            return `<span>${esc(title)}${note}</span>`;
+          }).join("")
+        }</div></div>`;
+      }
+
+      html += `</div>`;
+      root.innerHTML = html;
+      renderFaCharts(series);
+    }
+
+    function showFaEmpty(msg) {
+      const root = document.getElementById("feed-analysis");
+      if (!root) return;
+      root.hidden = false;
+      root.classList.add("is-error");
+      disposeFaCharts();
+      root.innerHTML = `<div class="fa-hd"><span class="fa-label">刷新分析</span></div><div class="fa-empty">${esc(msg)}</div>`;
+    }
+
+    let analysisUpdated = "";
+
+    async function loadAnalysis() {
+      try {
+        const res = await fetch("../data/feed-analysis.json");
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const d = await res.json();
+        if (!d || typeof d !== "object") throw new Error("无效 JSON");
+        analysisUpdated = d.updated || d.analyzedAt || "";
+        renderAnalysis(d);
+      } catch (e) {
+        analysisUpdated = "";
+        showFaEmpty(`暂无分析数据（${e.message || e}）`);
+      }
+    }
+
+    function updateMeta(feedUpdated, n) {
+      const parts = [`${feedUpdated || "—"} · ${n} 条`];
+      if (analysisUpdated) parts.push(`分析 ${DashFmt.time(analysisUpdated)}`);
+      document.getElementById("meta").textContent = parts.join(" · ");
+    }
+
+    let _faResizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(_faResizeTimer);
+      _faResizeTimer = setTimeout(() => faCharts.forEach((c) => { try { c.resize(); } catch (_) {} }), 120);
+    });
+
     (async () => {
+      const analysisP = loadAnalysis();
       try {
         const d = await (await fetch("../data/feed.json")).json();
         items = d.items || [];
-        document.getElementById("meta").textContent = `${d.updated || "—"} · ${items.length} 条`;
+        await analysisP;
+        updateMeta(d.updated, items.length);
         const counts = items.reduce((m, x) => ((m[x.source] = (m[x.source] || 0) + 1), m), {});
         document.getElementById("kpis").innerHTML = `
           <div class="card"><div class="stat-label">全部</div><div class="stat-value blu">${items.length}</div></div>
@@ -104,7 +506,6 @@
             <div class="card"><div class="stat-label">${name}</div><div class="stat-value">${counts[k] || 0}</div></div>`).join("")}`;
 
         const sources = ["all", ...Object.keys(SRC).filter((k) => counts[k])];
-        // include unknown sources
         Object.keys(counts).forEach((k) => { if (!sources.includes(k)) sources.push(k); });
         document.getElementById("filters").innerHTML = sources.map((s) =>
           `<button type="button" data-s="${s}" class="${s === "all" ? "primary" : ""}">${s === "all" ? "全部" : (SRC[s] || s)}${s === "all" ? "" : ` ${counts[s] || 0}`}</button>`
@@ -120,7 +521,8 @@
         render();
       } catch (e) {
         document.getElementById("meta").textContent = "无法加载 feed.json";
-        document.getElementById("list").innerHTML = `<div class="empty">${e}</div>`;
+        document.getElementById("list").innerHTML = `<div class="empty">${esc(String(e))}</div>`;
+        await analysisP;
       }
     })();
   </script>
