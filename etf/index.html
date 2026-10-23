@@ -152,7 +152,7 @@
   <script>
 (function () {
   "use strict";
-  const POS = "#3dd6c6", NEG = "#ff3b4a", BLU = "#4c8dff", AMB = "#f5a623", PUR = "#a78bfa";
+  const POS = "#ff3b4a", NEG = "#12b76a", BLU = "#4c8dff", AMB = "#f5a623", PUR = "#a78bfa", CY = "#3dd6c6";
   const axisLabel = { color: "#8b9bb4", fontSize: 11 };
   const splitLine = { lineStyle: { color: "#1a2332" } };
   const axisLine = { lineStyle: { color: "#243044" } };
@@ -267,7 +267,7 @@
       ],
       dataZoom: [
         { type: "inside" },
-        { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+        { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
       ],
       series: [
         {
@@ -308,7 +308,7 @@
           ],
           dataZoom: [
             { type: "inside" },
-            { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+            { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
           ],
           series: [
             {
@@ -400,7 +400,7 @@
         $("meta").textContent += `（期货已更新至 ${F.latest.date}）`;
       }
       const fdates = F.dates && F.dates.length ? F.dates : dates;
-      const colors = { IH: PUR, IF: BLU, IC: AMB, IM: POS };
+      const colors = { IH: PUR, IF: BLU, IC: AMB, IM: CY };
       const chF = echarts.init($("chartFut"));
       charts.push(chF);
       chF.setOption({
@@ -426,7 +426,7 @@
         },
         dataZoom: [
           { type: "inside" },
-          { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+          { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: CY } },
         ],
         series: (F.products || []).map((p) => ({
           name: p + " " + ((F.names && F.names[p]) || ""),
