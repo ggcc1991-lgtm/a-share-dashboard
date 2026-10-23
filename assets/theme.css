@@ -1,6 +1,6 @@
 /* DESIGN NOTES (Bloomberg Terminal + bloomberg.com UX):
    - Hallmark: orange-on-black (function over form, high contrast, dense)
-   - Orange (#ff6400) = non-semantic labels/titles; not for up/down
+   - Terminal amber (#ffa028) = non-semantic labels/titles; not for up/down
    - Our market colors stay A-share: up red / down green
    - Layout: flat, hairlines, tabular nums, 11–13px, no card stack
    - bloomberg.com blocked bots here; tokens from Bloomberg UX posts + Terminal convention
@@ -18,14 +18,14 @@
   --mu: #a0a0a0;
   --mu-2: #787878;
   --mu-3: #5c5c5c;
-  --bb: #ff6400;          /* Bloomberg orange — chrome only */
+  --bb: #ffa028;          /* terminal amber — chrome only */
   --pos: #ef5350;         /* 涨 */
   --neg: #26a69a;         /* 跌 */
   --amb: #ffb74d;
   --blu: #64b5f6;
   --red: #ef5350;
-  --cy: #ff6400;
-  --accent: #ff6400;
+  --cy: #ffa028;
+  --accent: #ffa028;
   --mono: "Bloomberg Prop", "SF Mono", Menlo, Consolas, "Courier New", monospace;
   --sans: "PingFang SC", "Helvetica Neue", Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --r: 0;
@@ -330,7 +330,7 @@ table.data tr:hover td { background: #1c1c1c; }
 /* Motion — terminal snap, not SaaS float */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes bb-flash {
-    0% { background: rgba(255,100,0,.18); }
+    0% { background: rgba(255,160,40,.18); }
     100% { background: transparent; }
   }
   .stat-value.is-counting { animation: bb-flash .6s ease; }
@@ -347,36 +347,53 @@ table.data tr:hover td { background: #1c1c1c; }
 }
 .bb-ind-top {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "ratio band"
+    "ratio ticks";
+  column-gap: 12px;
+  row-gap: 10px;
   align-items: center;
-  padding: 8px 10px;
+  padding: 10px;
   border-bottom: var(--hair);
   background: #0a0a0a;
 }
 .bb-ind-top .ratio {
+  grid-area: ratio;
   font-family: var(--mono), ui-monospace, monospace;
   font-size: 22px;
   font-weight: 700;
   color: var(--bb);
   letter-spacing: -0.02em;
+  line-height: 1;
 }
 .bb-ind-top .ratio.hot { color: var(--pos); }
 .bb-ind-top .band {
+  grid-area: band;
+  min-width: 0;
   font-size: 12px;
   font-weight: 700;
   color: #e8e8e8;
+  line-height: 1.4;
+  /* CJK stays intact; wrap after punctuation / spaces, not every character */
+  word-break: keep-all;
+  line-break: auto;
 }
 .bb-ind-top .band small {
   display: block;
-  margin-top: 2px;
+  margin-top: 3px;
   font-size: 10px;
   font-weight: 500;
   color: var(--mu);
+  line-height: 1.45;
+  word-break: keep-all;
+  line-break: auto;
 }
 .bb-ind-top .ticks {
+  grid-area: ticks;
   display: flex;
   gap: 2px;
+  align-self: start;
 }
 .bb-ind-top .ticks i {
   width: 8px; height: 10px;
