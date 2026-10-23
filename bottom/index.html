@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>抄底信号 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <style>
     .hero { margin-bottom: 14px; }
     .ind-full .bb-ind-hd,
@@ -59,6 +60,69 @@
     .delta-neg { color: var(--neg); }
     .delta-pos { color: var(--pos); }
     .flip-tag { font-size: 10px; font-weight: 700; letter-spacing: .04em; }
+
+    .charts {
+      display: grid;
+      grid-template-columns: 280px 1fr 1fr;
+      gap: 0;
+      border: var(--hair);
+      background: var(--surface);
+      margin-bottom: 14px;
+    }
+    .charts .cbox {
+      border-right: var(--hair);
+      min-height: 220px;
+      padding: 4px 0 0;
+    }
+    .charts .cbox:last-child { border-right: 0; }
+    .charts .cbox h3 {
+      margin: 0; padding: 6px 10px 0;
+      font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+      color: #666; font-weight: 700;
+    }
+    .charts .chart { height: 200px; width: 100%; }
+    @media (max-width: 900px) {
+      .charts { grid-template-columns: 1fr; }
+      .charts .cbox { border-right: 0; border-bottom: var(--hair); }
+      .charts .cbox:last-child { border-bottom: 0; }
+    }
+
+    .charts-hist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: var(--hair);
+      background: var(--surface);
+      margin-bottom: 14px;
+    }
+    .charts-hist .cbox {
+      border-right: var(--hair);
+      border-bottom: var(--hair);
+      min-height: 240px;
+      padding: 4px 0 0;
+    }
+    .charts-hist .cbox-kline {
+      grid-column: 1 / -1;
+      border-right: 0;
+    }
+    .charts-hist .cbox:nth-child(2) { border-bottom: 0; }
+    .charts-hist .cbox:last-child { border-right: 0; border-bottom: 0; }
+    .charts-hist .cbox h3 {
+      margin: 0; padding: 6px 10px 0;
+      font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+      color: #666; font-weight: 700;
+    }
+    .charts-hist .chart { height: 220px; width: 100%; }
+    @media (max-width: 900px) {
+      .charts-hist { grid-template-columns: 1fr; }
+      .charts-hist .cbox,
+      .charts-hist .cbox-kline {
+        grid-column: auto;
+        border-right: 0;
+        border-bottom: var(--hair);
+      }
+      .charts-hist .cbox:last-child { border-bottom: 0; }
+    }
   </style>
 </head>
 <body>
@@ -80,6 +144,18 @@
     <p class="page-sub mono" id="meta" style="margin-top:-8px">加载 data/bottom.json …</p>
 
     <div class="bb-ind hero" id="hero">加载中…</div>
+
+    <div class="bb-sec"><h2>可视化</h2></div>
+    <div class="charts">
+      <div class="cbox"><h3>SCORE GAUGE</h3><div class="chart" id="chartGauge"></div></div>
+      <div class="cbox"><h3>GROUPS</h3><div class="chart" id="chartGroups"></div></div>
+      <div class="cbox"><h3>NEAREST PROGRESS</h3><div class="chart" id="chartNear"></div></div>
+    </div>
+    <div class="charts-hist" id="chartsHist" hidden>
+      <div class="cbox cbox-kline"><h3>中证1000 K线</h3><div class="chart" id="chartKline"></div></div>
+      <div class="cbox"><h3>IM贴水</h3><div class="chart" id="chartBasis"></div></div>
+      <div class="cbox"><h3>融资余额</h3><div class="chart" id="chartMargin"></div></div>
+    </div>
 
     <div class="bb-sec"><h2>十二指标</h2></div>
     <div class="bb-ind ind-full" id="inds"></div>
@@ -134,12 +210,18 @@
       return String(v).replace("T", " ").slice(0, 16);
     }
 
-    fetch("../data/bottom.json")
-      .then(r => {
+    function loadJSON(url) {
+      return fetch(url).then(r => {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();
-      })
-      .then(d => {
+      });
+    }
+
+    Promise.all([
+      loadJSON("../data/bottom.json"),
+      loadJSON("../data/history.json").catch(() => null),
+    ])
+      .then(([d, hist]) => {
         const trig = d.triggered_count ?? d.verdict?.score ?? 0;
         const total = d.total ?? d.verdict?.total ?? 12;
         const band = d.verdict?.band || {};
@@ -246,6 +328,264 @@
             ${holding.map(t => `<div class="adv-li">${esc(t)}</div>`).join("") || `<div class="mu" style="padding:6px 10px">—</div>`}
           </div>
           ${strat ? `<div class="strat">${esc(strat)}</div>` : ""}`;
+
+
+        // —— charts (Bloomberg shell colors) ——
+        const BB = "#ffa028", POS = "#ef5350", NEG = "#26a69a", MU = "#a0a0a0", GRID = "#1a1a1a";
+        function mkChart(id) {
+          const el = document.getElementById(id);
+          if (!el || !window.echarts) return null;
+          const c = echarts.init(el, null, { renderer: "canvas" });
+          window.addEventListener("resize", () => c.resize());
+          return c;
+        }
+        const g = mkChart("chartGauge");
+        if (g) {
+          const pct = total ? trig / total : 0;
+          g.setOption({
+            backgroundColor: "transparent",
+            series: [{
+              type: "gauge",
+              startAngle: 210, endAngle: -30,
+              min: 0, max: total,
+              splitNumber: total,
+              radius: "90%",
+              axisLine: {
+                lineStyle: {
+                  width: 12,
+                  color: [
+                    [5 / total, MU],
+                    [8 / total, BB],
+                    [9 / total, "#ffb74d"],
+                    [1, POS],
+                  ],
+                },
+              },
+              pointer: { length: "62%", width: 4, itemStyle: { color: BB } },
+              axisTick: { show: false },
+              splitLine: { length: 8, lineStyle: { color: "#333", width: 1 } },
+              axisLabel: { color: MU, fontSize: 9, distance: 12 },
+              anchor: { show: true, size: 8, itemStyle: { color: BB } },
+              title: { show: true, offsetCenter: [0, "68%"], color: MU, fontSize: 11 },
+              detail: {
+                valueAnimation: true,
+                formatter: `{value}/${total}`,
+                color: BB, fontSize: 22, fontWeight: 700,
+                fontFamily: "SF Mono, Menlo, Consolas, monospace",
+                offsetCenter: [0, "40%"],
+              },
+              data: [{ value: trig, name: label }],
+            }],
+          });
+        }
+        const groups = (d.verdict && d.verdict.groups) || [];
+        const cg = mkChart("chartGroups");
+        if (cg && groups.length) {
+          cg.setOption({
+            backgroundColor: "transparent",
+            grid: { left: 72, right: 24, top: 16, bottom: 28 },
+            xAxis: {
+              type: "value", max: Math.max(...groups.map(x => x.total || 0), 1),
+              splitLine: { lineStyle: { color: GRID } },
+              axisLabel: { color: MU, fontSize: 10 },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+            },
+            yAxis: {
+              type: "category",
+              data: groups.map(x => x.name),
+              axisLabel: { color: "#e8e8e8", fontSize: 11 },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+              axisTick: { show: false },
+            },
+            series: [{
+              type: "bar",
+              data: groups.map(x => ({
+                value: x.triggered ?? 0,
+                itemStyle: { color: (x.triggered ?? 0) > 0 ? POS : "#333" },
+              })),
+              barWidth: 12,
+              label: {
+                show: true, position: "right", color: MU, fontSize: 10,
+                formatter: (p) => `${p.value}/${groups[p.dataIndex].total ?? "—"}`,
+              },
+            }],
+          });
+        }
+        const near = (d.verdict && d.verdict.nearest) || [];
+        const cn = mkChart("chartNear");
+        if (cn && near.length) {
+          const names = near.map(x => x.name).reverse();
+          const vals = near.map(x => Math.round((x.progress ?? 0) * 1000) / 10).reverse();
+          cn.setOption({
+            backgroundColor: "transparent",
+            grid: { left: 88, right: 40, top: 16, bottom: 28 },
+            xAxis: {
+              type: "value", min: 0, max: 100,
+              axisLabel: { color: MU, fontSize: 10, formatter: "{value}%" },
+              splitLine: { lineStyle: { color: GRID } },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+            },
+            yAxis: {
+              type: "category", data: names,
+              axisLabel: { color: "#e8e8e8", fontSize: 11 },
+              axisTick: { show: false },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+            },
+            series: [{
+              type: "bar",
+              data: vals.map(v => ({
+                value: v,
+                itemStyle: { color: v >= 95 ? POS : v >= 70 ? BB : MU },
+              })),
+              barWidth: 10,
+              label: { show: true, position: "right", color: MU, fontSize: 10, formatter: "{c}%" },
+            }],
+          });
+        }
+
+
+        // —— history time-series (kline / basis / margin) ——
+        (function renderHistory(hist) {
+          const wrap = document.getElementById("chartsHist");
+          if (!wrap || !hist || !window.echarts) {
+            if (wrap) wrap.hidden = true;
+            return;
+          }
+          const klineAll = hist.csi1000_kline || [];
+          const basisAll = hist.im_basis || [];
+          const marginAll = hist.margin_balance || [];
+          if (!klineAll.length && !basisAll.length && !marginAll.length) {
+            wrap.hidden = true;
+            return;
+          }
+          wrap.hidden = false;
+
+          const BB = "#ffa028", POS = "#ef5350", NEG = "#26a69a", MU = "#a0a0a0", GRID = "#1a1a1a";
+          const theme = (window.DashTheme && DashTheme.echartsDark) || null;
+          const N = 80;
+          function mk(id) {
+            const el = document.getElementById(id);
+            if (!el) return null;
+            const c = echarts.init(el, theme, { renderer: "canvas" });
+            window.addEventListener("resize", () => c.resize());
+            return c;
+          }
+          function axisCat(dates) {
+            return {
+              type: "category", data: dates, boundaryGap: true,
+              axisLabel: { color: MU, fontSize: 10, hideOverlap: true },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+              axisTick: { show: false },
+            };
+          }
+          function axisVal(extra) {
+            return Object.assign({
+              type: "value", scale: true,
+              axisLabel: { color: MU, fontSize: 10 },
+              splitLine: { lineStyle: { color: GRID } },
+              axisLine: { lineStyle: { color: "#2b2b2b" } },
+            }, extra || {});
+          }
+
+          const kl = klineAll.slice(-N);
+          const ck = mk("chartKline");
+          if (ck && kl.length) {
+            const dates = kl.map(x => x.d);
+            const ohlc = kl.map(x => [x.o, x.c, x.l, x.h]);
+            const yinMarks = kl.filter(x => x.big_yin).map(x => ({
+              coord: [x.d, x.l],
+              symbol: "circle",
+              symbolSize: 5,
+              itemStyle: { color: "rgba(255,160,40,0.45)", borderColor: BB, borderWidth: 1 },
+            }));
+            ck.setOption({
+              backgroundColor: "transparent",
+              animation: false,
+              grid: { left: 52, right: 16, top: 20, bottom: 28 },
+              tooltip: {
+                trigger: "axis",
+                axisPointer: { type: "cross", lineStyle: { color: "#333" } },
+                backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
+              },
+              xAxis: axisCat(dates),
+              yAxis: axisVal({ scale: true }),
+              series: [{
+                type: "candlestick",
+                name: "中证1000",
+                data: ohlc,
+                itemStyle: {
+                  color: POS, color0: NEG,
+                  borderColor: POS, borderColor0: NEG,
+                },
+                markPoint: yinMarks.length ? {
+                  data: yinMarks,
+                  label: { show: false },
+                  tooltip: { formatter: "大阴" },
+                } : undefined,
+              }],
+            });
+          }
+
+          const bas = basisAll.slice(-N);
+          const cb = mk("chartBasis");
+          if (cb && bas.length) {
+            const dates = bas.map(x => x.d);
+            const vals = bas.map(x => x.v);
+            cb.setOption({
+              backgroundColor: "transparent",
+              animation: false,
+              grid: { left: 48, right: 16, top: 20, bottom: 28 },
+              tooltip: {
+                trigger: "axis",
+                backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
+              },
+              xAxis: axisCat(dates),
+              yAxis: axisVal(),
+              series: [{
+                type: "line", name: "IM贴水",
+                data: vals, showSymbol: false,
+                lineStyle: { width: 1.5, color: BB },
+                itemStyle: { color: BB },
+                markLine: {
+                  silent: true, symbol: "none",
+                  data: [{ yAxis: 160, name: "红线 160" }],
+                  lineStyle: { color: POS, width: 1, type: "dashed" },
+                  label: { color: POS, fontSize: 10, formatter: "160" },
+                },
+              }],
+            });
+          }
+
+          const mb = marginAll.slice(-N);
+          const cm = mk("chartMargin");
+          if (cm && mb.length) {
+            const dates = mb.map(x => x.d);
+            const vals = mb.map(x => x.v);
+            cm.setOption({
+              backgroundColor: "transparent",
+              animation: false,
+              grid: { left: 48, right: 16, top: 20, bottom: 28 },
+              tooltip: {
+                trigger: "axis",
+                backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
+              },
+              xAxis: axisCat(dates),
+              yAxis: axisVal(),
+              series: [{
+                type: "line", name: "融资余额",
+                data: vals, showSymbol: false,
+                lineStyle: { width: 1.5, color: BB },
+                itemStyle: { color: BB },
+                markLine: {
+                  silent: true, symbol: "none",
+                  data: [{ yAxis: 2.45, name: "红线 2.45" }],
+                  lineStyle: { color: POS, width: 1, type: "dashed" },
+                  label: { color: POS, fontSize: 10, formatter: "2.45" },
+                },
+              }],
+            });
+          }
+        })(hist);
 
         document.getElementById("foot").textContent =
           d.disclaimer || "仅供学习研究，不构成投资建议；市场有风险";
