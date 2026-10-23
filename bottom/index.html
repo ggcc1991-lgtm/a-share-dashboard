@@ -124,6 +124,7 @@
       .charts-hist .cbox:last-child { border-bottom: 0; }
     }
     @media (max-width: 719px) {
+      .ind-full .bb-ind-hd > span, .ind-full .bb-ind-row > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
       .charts .cbox,
       .charts-hist .cbox { min-width: 0; }
       .charts .chart { height: 180px; }
@@ -286,7 +287,7 @@
         document.getElementById("inds").innerHTML = `
           <div class="bb-ind-hd">
             <span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span>
-            <span>THRESHOLD</span><span style="text-align:right">状态</span><span>NOTE</span>
+            <span class="thr">THRESHOLD</span><span class="st" style="text-align:right">状态</span><span class="note">NOTE</span>
           </div>
           ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}`;
 
