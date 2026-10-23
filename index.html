@@ -97,8 +97,13 @@
       const [label, cls] = band(trig);
 
       const big = document.getElementById("heroBig");
-      big.textContent = bottom ? `${trig}/${total}` : "—";
       big.className = "big " + cls;
+      if (bottom && window.DashMotion) {
+        big.dataset.total = total;
+        DashMotion.countTo(big, trig, { duration: 800, decimals: 0, suffix: "/" + total });
+      } else {
+        big.textContent = bottom ? `${trig}/${total}` : "—";
+      }
       document.getElementById("heroLbl").textContent = label;
       document.getElementById("heroLadder").innerHTML = Array.from({ length: total }, (_, i) => {
         const on = i < trig;

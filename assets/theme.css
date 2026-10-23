@@ -324,3 +324,114 @@ table.data tr:hover td { background: rgba(255,255,255,0.02); }
 .card, .panel, .feed-item, .module-link, .nav a, button, .btn {
   transition: border-color .15s ease, color .15s ease, background .15s ease;
 }
+
+/* —— 质感动效（可关） —— */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes gc-enter {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes gc-line {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes gc-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes gc-tick {
+    from { transform: scaleY(0); opacity: 0; }
+    to { transform: scaleY(1); opacity: 1; }
+  }
+  @keyframes gc-ink {
+    from { clip-path: inset(0 100% 0 0); opacity: .4; }
+    to { clip-path: inset(0 0 0 0); opacity: 1; }
+  }
+
+  .wrap > .page-title {
+    animation: gc-enter .45s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .wrap > .page-sub,
+  .wrap > .etf-intro {
+    animation: gc-enter .5s cubic-bezier(.2,.7,.2,1) .06s both;
+  }
+
+  .hero > *,
+  .grid-4 > .card,
+  .grid-3 > .card,
+  .grid-3 > a.card,
+  .cards > .card {
+    animation: gc-enter .5s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero > *:nth-child(1) { animation-delay: .04s; }
+  .hero > *:nth-child(2) { animation-delay: .1s; }
+  .grid-4 > .card:nth-child(1), .cards > .card:nth-child(1) { animation-delay: .05s; }
+  .grid-4 > .card:nth-child(2), .cards > .card:nth-child(2) { animation-delay: .09s; }
+  .grid-4 > .card:nth-child(3), .cards > .card:nth-child(3) { animation-delay: .13s; }
+  .grid-4 > .card:nth-child(4), .cards > .card:nth-child(4) { animation-delay: .17s; }
+  .grid-3 > .card:nth-child(1), .grid-3 > a.card:nth-child(1) { animation-delay: .08s; }
+  .grid-3 > .card:nth-child(2), .grid-3 > a.card:nth-child(2) { animation-delay: .14s; }
+  .grid-3 > .card:nth-child(3), .grid-3 > a.card:nth-child(3) { animation-delay: .2s; }
+
+  .nav a.active {
+    position: relative;
+  }
+  .nav a.active::after {
+    content: "";
+    position: absolute; left: 14px; right: 14px; bottom: 0; height: 2px;
+    background: var(--tx);
+    transform-origin: left center;
+    animation: gc-line .35s cubic-bezier(.2,.7,.2,1) both;
+  }
+  /* hide duplicate border when ::after draws */
+  .nav a.active { border-bottom-color: transparent; }
+
+  .bar > i, .pb > i {
+    transform-origin: left center;
+    animation: gc-fill .7s cubic-bezier(.2,.7,.2,1) .15s both;
+  }
+
+  .ladder i {
+    transform-origin: bottom center;
+    animation: gc-tick .28s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .ladder i:nth-child(1) { animation-delay: .02s; }
+  .ladder i:nth-child(2) { animation-delay: .04s; }
+  .ladder i:nth-child(3) { animation-delay: .06s; }
+  .ladder i:nth-child(4) { animation-delay: .08s; }
+  .ladder i:nth-child(5) { animation-delay: .1s; }
+  .ladder i:nth-child(6) { animation-delay: .12s; }
+  .ladder i:nth-child(7) { animation-delay: .14s; }
+  .ladder i:nth-child(8) { animation-delay: .16s; }
+  .ladder i:nth-child(9) { animation-delay: .18s; }
+  .ladder i:nth-child(10) { animation-delay: .2s; }
+  .ladder i:nth-child(11) { animation-delay: .22s; }
+  .ladder i:nth-child(12) { animation-delay: .24s; }
+
+  .hero-score .big {
+    animation: gc-ink .55s cubic-bezier(.2,.7,.2,1) both;
+  }
+
+  .chart {
+    animation: gc-enter .55s cubic-bezier(.2,.7,.2,1) .12s both;
+  }
+
+  .feed-item, .headline-list a {
+    animation: gc-enter .4s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .day-group .feed-item:nth-child(1) { animation-delay: .02s; }
+  .day-group .feed-item:nth-child(2) { animation-delay: .05s; }
+  .day-group .feed-item:nth-child(3) { animation-delay: .08s; }
+  .day-group .feed-item:nth-child(4) { animation-delay: .11s; }
+  .day-group .feed-item:nth-child(5) { animation-delay: .14s; }
+
+  .stat-value.is-counting {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ETF 页可选用的扫光分隔（很淡） */
+.gc-rule {
+  height: 1px; border: 0; margin: 18px 0;
+  background: linear-gradient(90deg, transparent, var(--bd), transparent);
+}
