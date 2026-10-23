@@ -10,7 +10,7 @@
       const u = new URL(href, location.href);
       const p = u.pathname.replace(/\/+$/, "") || "/";
       if (p === path || (m !== "/" && path.endsWith(m))) a.classList.add("active");
-      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom")) {
+      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy")) {
         a.classList.add("active");
       }
     } catch (_) {}
@@ -67,3 +67,30 @@ window.DashFmt = {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 })();
+
+
+window.DashMotion = {
+  countTo(el, target, { duration = 700, decimals = 0, prefix = "", suffix = "" } = {}) {
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (el) el.textContent = prefix + target + suffix;
+      return;
+    }
+    const start = performance.now();
+    const from = 0;
+    const to = Number(target);
+    if (!Number.isFinite(to)) { el.textContent = prefix + target + suffix; return; }
+    el.classList.add("is-counting");
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = from + (to - from) * eased;
+      el.textContent = prefix + v.toLocaleString("zh-CN", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.classList.remove("is-counting");
+    };
+    requestAnimationFrame(tick);
+  },
+};

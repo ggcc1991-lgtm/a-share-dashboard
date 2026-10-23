@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>政策产业 · GC的数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <style>
+    .pol-row {
+      display: grid;
+      grid-template-columns: 88px 64px 1fr 120px;
+      gap: 8px;
+      align-items: baseline;
+      padding: 6px 8px;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .pol-row:hover { background: #0f0f0f; }
+    .pol-row .t { color: #e8e8e8; font-weight: 600; }
+    .pol-row .sum { color: #787878; font-size: 11px; margin-top: 2px; }
+    .pol-row .sec { color: var(--bb); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .pol-row .lv { color: #a0a0a0; font-size: 11px; }
+    .pol-row .tm { color: #666; font-variant-numeric: tabular-nums; font-size: 11px; text-align: right; }
+    @media (max-width: 720px) {
+      .pol-row { grid-template-columns: 72px 1fr; }
+      .pol-row .lv, .pol-row .tm { display: none; }
+    }
+    .pol-hd {
+      display: grid;
+      grid-template-columns: 88px 64px 1fr 120px;
+      gap: 8px;
+      padding: 4px 8px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666;
+      border-bottom: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <a href="../etf/" data-match="/etf">ETF</a>
+        <a href="../feed/" data-match="/feed">信息流</a>
+        <a href="../bottom/" data-match="/bottom">抄底</a>
+        <a href="./" data-match="/policy" class="active">政策产业</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <h2 class="page-title">政策产业观察</h2>
+    <p class="page-sub" id="meta">加载 data/policy.json …</p>
+    <div class="tools">
+      <div id="filters" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      <input class="search" id="q" type="search" placeholder="搜索标题 / 行业 / 摘要" />
+    </div>
+    <div class="pol-hd"><span>SECTOR</span><span>LEVEL</span><span>HEADLINE</span><span style="text-align:right">TIME</span></div>
+    <div id="list"></div>
+  </main>
+  <footer class="app-footer">字段：title / url / publishedAt / summary / sector / tags / level · 数据源：政策产业观察</footer>
+  <script src="../assets/shell.js"></script>
+  <script>
+    let items = [];
+    let filter = "all";
+    let q = "";
+
+    function filtered() {
+      const qq = q.trim().toLowerCase();
+      return items.filter((x) => {
+        if (filter !== "all" && x.sector !== filter) return false;
+        if (!qq) return true;
+        const blob = `${x.title||""} ${x.summary||""} ${x.sector||""} ${(x.tags||[]).join(" ")}`.toLowerCase();
+        return blob.includes(qq);
+      });
+    }
+
+    function render() {
+      const rows = filtered().sort((a,b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
+      const list = document.getElementById("list");
+      if (!rows.length) {
+        list.innerHTML = `<div class="empty">没有匹配条目</div>`;
+        return;
+      }
+      list.innerHTML = rows.map((x) => {
+        const href = x.url && x.url !== "#" ? x.url : null;
+        const inner = `
+          <span class="sec">${x.sector || "—"}</span>
+          <span class="lv">${x.level || "—"}</span>
+          <span><div class="t">${x.title || ""}</div>${x.summary ? `<div class="sum">${x.summary}</div>` : ""}</span>
+          <span class="tm mono">${DashFmt.time(x.publishedAt)}</span>`;
+        return href
+          ? `<a class="pol-row" href="${href}" target="_blank" rel="noopener">${inner}</a>`
+          : `<div class="pol-row">${inner}</div>`;
+      }).join("");
+    }
+
+    fetch("../data/policy.json")
+      .then((r) => r.json())
+      .then((d) => {
+        items = d.items || [];
+        document.getElementById("meta").textContent =
+          `${items.length} 条 · 更新 ${d.updated || "—"} · ${d.source || ""}`;
+        const sectors = [...new Set(items.map((x) => x.sector).filter(Boolean))];
+        const box = document.getElementById("filters");
+        box.innerHTML = [`all`, ...sectors].map((s) =>
+          `<button type="button" class="chip ${s===filter?"watching":""}" data-s="${s}">${s==="all"?"全部":s}</button>`
+        ).join("");
+        box.onclick = (e) => {
+          const b = e.target.closest("[data-s]");
+          if (!b) return;
+          filter = b.getAttribute("data-s");
+          [...box.children].forEach((c) => c.classList.toggle("watching", c.getAttribute("data-s")===filter));
+          render();
+        };
+        document.getElementById("q").oninput = (e) => { q = e.target.value; render(); };
+        render();
+      })
+      .catch(() => {
+        document.getElementById("meta").textContent = "无法加载 policy.json（等政策产业观察对接）";
+      });
+  </script>
+</body>
+</html>
