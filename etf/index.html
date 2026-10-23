@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="../assets/theme.css" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <style>
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin-bottom: 14px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0; margin-bottom: 0; border: var(--hair); border-bottom: none; }
+    .cards .card { border-radius: 0; border-right: var(--hair); box-shadow: none; }
+    .cards .card:last-child { border-right: none; }
     .card .k { color: var(--mu); font-size: .75rem; }
     .card .v { font-size: 1.25rem; font-weight: 700; margin-top: .25rem; font-family: var(--mono); font-variant-numeric: tabular-nums; }
     .card .v.pos { color: var(--pos); }
@@ -22,8 +24,8 @@
     table.data th { cursor: pointer; user-select: none; white-space: nowrap; }
     table.data th:hover { color: var(--cy); }
     table.data th.l, table.data td.l { text-align: left; }
-    table.data tbody tr:hover { background: rgba(61,214,198,.04); }
-    table.data tbody tr.sumrow { background: rgba(76,141,255,.06); font-weight: 600; }
+    table.data tbody tr:hover { background: rgba(255,100,0,.06); }
+    table.data tbody tr.sumrow { background: rgba(255,255,255,.04); font-weight: 600; }
     table.data tfoot td { font-weight: 700; border-top: 2px solid var(--bd); }
     td.pos { color: var(--pos); }
     td.neg { color: var(--neg); }
@@ -46,9 +48,9 @@
       <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
       <nav class="nav">
         <a href="../" data-match="/">总览</a>
-        <a href="./" data-match="/etf" class="active">ETF 追踪</a>
-        <a href="../feed/" data-match="/feed">信息聚合</a>
-        <a href="../bottom/" data-match="/bottom">抄底红线</a>
+        <a href="./" data-match="/etf" class="active">ETF</a>
+        <a href="../feed/" data-match="/feed">信息流</a>
+        <a href="../bottom/" data-match="/bottom">抄底</a>
       </nav>
     </div>
   </header>
@@ -155,7 +157,7 @@
   <script>
 (function () {
   "use strict";
-  const POS = "#e85d5d", NEG = "#3d9a6a", BLU = "#6b8cae", AMB = "#d4a017", PUR = "#8b7aa8", CY = "#9aa0a6";
+  const POS = "#ef5350", NEG = "#26a69a", BLU = "#64b5f6", AMB = "#ffb74d", PUR = "#b39ddb", CY = "#ffa028";
   const axisLabel = { color: "#8b9bb4", fontSize: 11 };
   const splitLine = { lineStyle: { color: "#1a2332" } };
   const axisLine = { lineStyle: { color: "#243044" } };
