@@ -51,6 +51,11 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
+    <div class="panel" id="baselineBlock" style="margin-top:12px;display:none">
+      <strong>国家队观察基线</strong>
+      <p class="mu" id="baseMeta" style="margin:6px 0 10px;font-size:.82rem"></p>
+      <div class="holders" id="holders"></div>
+    </div>
     <div id="futuresBlock">
       <h3 class="section-title">股指期货会员持仓（中信期货）</h3>
       <p class="section-sub" id="futMeta"></p>
@@ -166,6 +171,20 @@
       chartShares.setOption(lineOption("合计模式仅展示资金流", dates, dates.map(() => null), "#4c8dff"), true);
       chartFlow.setOption(barFlowOption(dates, total), true);
     }
+
+    function renderBaseline() {
+      const b = DATA.baseline;
+      const block = document.getElementById("baselineBlock");
+      if (!b || !b.holders || !b.holders.length) { block.style.display = "none"; return; }
+      block.style.display = "block";
+      document.getElementById("baseMeta").textContent = `${b.asof || ""} · ${b.source || ""} · ${b.note || ""}`;
+      document.getElementById("holders").innerHTML = b.holders.map(h => `
+        <div class="holder">
+          <div class="n">${h.name}</div>
+          <div class="s">${DashFmt.num(h.shares_yi, 0)} 亿份</div>
+          <div class="m">${h.etf_count || 0} 只 ETF · 均占比 ${h.avg_pct != null ? h.avg_pct + "%" : "—"}</div>
+        </div>`).join("");
+    }
     function hasFuturesData(f) {
       if (!f?.series) return false;
       return (f.products || []).some(p => (f.series[p]?.net_short || []).some(v => v != null));
@@ -221,7 +240,8 @@
         document.getElementById("meta").textContent = "无法加载 data/etf.json — " + e;
         return;
       }
-      renderMeta(); fillSelect(); renderTable(); renderFutures();
+      renderMeta(); fillSelect(); renderTable(); renderBaseline(); renderFutures();
+
       const sel = document.getElementById("etfSelect");
       showEtf(sel.value);
       sel.addEventListener("change", () => showEtf(sel.value));

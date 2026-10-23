@@ -22,8 +22,12 @@
   <main class="wrap">
     <h2 class="page-title">信息聚合</h2>
     <p class="page-sub" id="meta">加载 data/feed.json …</p>
-    <div class="tools" id="filters"></div>
-    <div class="grid" id="list" style="gap:10px"></div>
+    <div class="grid grid-4" id="kpis" style="margin-bottom:12px"></div>
+    <div class="tools">
+      <div id="filters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+      <input class="search" id="q" type="search" placeholder="搜索标题 / 来源 / 摘要" />
+    </div>
+    <div id="list"></div>
   </main>
   <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary</footer>
   <script src="../assets/shell.js"></script>
@@ -31,24 +35,54 @@
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
     let items = [];
     let filter = "all";
+    let q = "";
+
+    function dayKey(iso) {
+      if (!iso) return "未知日期";
+      const d = new Date(iso);
+      if (Number.isNaN(d.getTime())) return String(iso).slice(0, 10);
+      return d.toLocaleDateString("zh-CN", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit", weekday: "short" });
+    }
+
+    function filtered() {
+      const qq = q.trim().toLowerCase();
+      return items.filter((x) => {
+        if (filter !== "all" && x.source !== filter) return false;
+        if (!qq) return true;
+        const blob = `${x.title || ""} ${x.sourceName || ""} ${x.summary || ""} ${x.source || ""}`.toLowerCase();
+        return blob.includes(qq);
+      });
+    }
 
     function render() {
+      const rows = filtered().sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)));
       const list = document.getElementById("list");
-      const rows = filter === "all" ? items : items.filter((x) => x.source === filter);
       if (!rows.length) {
-        list.innerHTML = `<div class="empty">暂无条目。把聚合订阅的 latest.json 放到 data/feed.json</div>`;
+        list.innerHTML = `<div class="empty">没有匹配条目</div>`;
         return;
       }
-      list.innerHTML = rows.map((x) => `
-        <article class="feed-item">
-          <div class="feed-meta">
-            <span class="chip src">${SRC[x.source] || x.source}</span>
-            <span>${x.sourceName || ""}</span>
-            <span class="mono">${DashFmt.time(x.publishedAt)}</span>
+      const groups = new Map();
+      rows.forEach((x) => {
+        const k = dayKey(x.publishedAt);
+        if (!groups.has(k)) groups.set(k, []);
+        groups.get(k).push(x);
+      });
+      list.innerHTML = [...groups.entries()].map(([day, arr]) => `
+        <section class="day-group">
+          <h3>${day}<span class="chip">${arr.length}</span></h3>
+          <div class="grid" style="gap:10px">
+            ${arr.map((x) => `
+              <article class="feed-item">
+                <div class="feed-meta">
+                  <span class="chip src">${SRC[x.source] || x.source}</span>
+                  <span>${x.sourceName || ""}</span>
+                  <span class="mono">${DashFmt.time(x.publishedAt)}</span>
+                </div>
+                <h3><a href="${x.url || "#"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>${x.title || "无标题"}</a></h3>
+                <p class="feed-sum">${x.summary || ""}</p>
+              </article>`).join("")}
           </div>
-          <h3><a href="${x.url || "#"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>${x.title || "无标题"}</a></h3>
-          <p class="feed-sum">${x.summary || ""}</p>
-        </article>`).join("");
+        </section>`).join("");
     }
 
     (async () => {
@@ -56,9 +90,17 @@
         const d = await (await fetch("../data/feed.json")).json();
         items = d.items || [];
         document.getElementById("meta").textContent = `${d.updated || "—"} · ${items.length} 条`;
-        const sources = ["all", ...new Set(items.map((x) => x.source))];
+        const counts = items.reduce((m, x) => ((m[x.source] = (m[x.source] || 0) + 1), m), {});
+        document.getElementById("kpis").innerHTML = `
+          <div class="card"><div class="stat-label">全部</div><div class="stat-value blu">${items.length}</div></div>
+          ${Object.entries(SRC).map(([k, name]) => `
+            <div class="card"><div class="stat-label">${name}</div><div class="stat-value">${counts[k] || 0}</div></div>`).join("")}`;
+
+        const sources = ["all", ...Object.keys(SRC).filter((k) => counts[k])];
+        // include unknown sources
+        Object.keys(counts).forEach((k) => { if (!sources.includes(k)) sources.push(k); });
         document.getElementById("filters").innerHTML = sources.map((s) =>
-          `<button type="button" data-s="${s}" class="${s === "all" ? "primary" : ""}">${s === "all" ? "全部" : (SRC[s] || s)}</button>`
+          `<button type="button" data-s="${s}" class="${s === "all" ? "primary" : ""}">${s === "all" ? "全部" : (SRC[s] || s)}${s === "all" ? "" : ` ${counts[s] || 0}`}</button>`
         ).join("");
         document.getElementById("filters").addEventListener("click", (e) => {
           const b = e.target.closest("button[data-s]");
@@ -67,6 +109,7 @@
           document.querySelectorAll("#filters button").forEach((x) => x.classList.toggle("primary", x === b));
           render();
         });
+        document.getElementById("q").addEventListener("input", (e) => { q = e.target.value; render(); });
         render();
       } catch (e) {
         document.getElementById("meta").textContent = "无法加载 feed.json";
