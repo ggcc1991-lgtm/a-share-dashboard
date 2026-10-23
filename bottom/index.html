@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>抄底信号 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <script src="../assets/echarts.min.js"></script>
   <style>
     .hero { margin-bottom: 14px; }
     .ind-full .bb-ind-hd,
@@ -122,6 +122,18 @@
         border-bottom: var(--hair);
       }
       .charts-hist .cbox:last-child { border-bottom: 0; }
+    }
+    @media (max-width: 719px) {
+      .charts .cbox,
+      .charts-hist .cbox { min-width: 0; }
+      .charts .chart { height: 180px; }
+      .charts-hist .chart { height: 200px; }
+      .near-row { grid-template-columns: minmax(0,1fr) 88px minmax(0,1.2fr); }
+      .chg-row { grid-template-columns: minmax(0,1fr) 56px 56px 48px; }
+      .ind-full .bb-ind-hd,
+      .ind-full .bb-ind-row {
+        grid-template-columns: 12px minmax(0,1fr) 56px 36px;
+      }
     }
   </style>
 </head>
