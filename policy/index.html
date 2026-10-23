@@ -115,7 +115,13 @@
       <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
       <nav class="nav">
         <a href="../" data-match="/">总览</a>
-        <a href="../etf/" data-match="/etf">ETF</a>
+        <div class="nav-dd" data-match="/etf">
+          <button type="button" class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-etf">ETF<span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dd-panel" id="nav-dd-etf" role="menu" aria-label="ETF">
+            <a href="../etf/" role="menuitem">国家队ETF追踪</a>
+            <a href="../sentiment/" role="menuitem">ETF情绪看板</a>
+          </div>
+        </div>
         <a href="../feed/" data-match="/feed">信息流</a>
         <a href="../bottom/" data-match="/bottom">抄底信号</a>
         <a href="./" data-match="/policy" class="active">政策产业</a>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ETF情绪看板 · GC的数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <style>
+    /* page-local tokens consumed by the inline JS/SVG chart, mapped to site palette */
+    .wrap{--line:var(--bd);--mute:var(--mu);--blue:var(--bb);--gold:var(--blu);--ok:var(--neg);--bad:var(--pos);--fg:var(--tx)}
+    #chart{--bg:#000;display:block;background:var(--surface)}
+    .page-title .title-note{font-weight:500;font-size:.72em;color:var(--mu);margin-left:.15em}
+    .scard{margin-bottom:14px}
+    .scard h2{margin:0 0 10px;font-size:1.02rem;font-weight:650;color:var(--bb)}
+    .scard h2 .sub{font-weight:400;color:var(--mu);font-size:.78rem;margin-left:6px}
+    .sub{color:var(--mu)}
+    .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .kv{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--bd-2);padding:6px 0;font-size:12px}
+    .kv:last-child{border:0}.kv>span{color:var(--mu)}.kv b{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--tx);text-align:right}
+    .kv small.sub{font-family:var(--mono);color:var(--mu-2)}
+    .ok,b.ok,td.ok,.kv b .ok{color:var(--neg)}.bad,b.bad,td.bad,.kv b .bad{color:var(--pos)}
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+    .row label{color:var(--mu);font-size:12px;display:inline-flex;align-items:center;gap:4px}
+    .row input[type=checkbox]{accent-color:var(--bb)}
+    select{font:inherit;font-size:12px;color:var(--tx);background:#000;border:1px solid var(--bd);border-radius:0;padding:4px 8px}
+    select:focus{outline:1px solid var(--bb)}
+    .tw{overflow-x:auto}
+    table.data{white-space:nowrap}
+    table.data th,table.data td{text-align:right}
+    table.data th:first-child,table.data td:first-child,table.data td.l,table.data th.l{text-align:left}
+    table.data td.l{white-space:normal;min-width:220px}
+    table.data tbody tr{cursor:pointer}table.data tbody tr:hover{background:rgba(255,100,0,.06)}
+    svg text{fill:var(--mu);font-size:11px;font-family:var(--mono)}
+    .scard ul{padding-left:18px;color:var(--mu);line-height:1.75;font-size:.82rem;margin:0}
+    @media (max-width:719px){
+      .sgrid{grid-template-columns:1fr;gap:6px}
+      .scard h2{font-size:.92rem;line-height:1.35}
+      .row{gap:6px}.row h2{flex-basis:100%!important}
+      .row select{flex:1 1 140px;min-width:0;max-width:100%}
+      #ds{flex-basis:100%}
+      .kv{font-size:12px}
+      table.data td.l{min-width:180px}
+      #chart{height:auto;min-height:200px}
+      svg text{font-size:16px}
+      .scard ul{font-size:.78rem;line-height:1.55;word-break:break-word}
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <div class="nav-dd" data-match="/etf">
+          <button type="button" class="nav-dd-btn active" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-etf">ETF<span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dd-panel" id="nav-dd-etf" role="menu" aria-label="ETF">
+            <a href="../etf/" role="menuitem">国家队ETF追踪</a>
+            <a href="../sentiment/" role="menuitem">ETF情绪看板</a>
+          </div>
+        </div>
+        <a href="../feed/" data-match="/feed">信息流</a>
+        <a href="../bottom/" data-match="/bottom">抄底信号</a>
+        <a href="../policy/" data-match="/policy">政策产业</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+<h2 class="page-title">ETF情绪看板<span class="title-note">（A股盘后情绪择时）</span></h2>
+<p class="page-sub" id="sum">加载 data/history.json …</p>
+<div class="panel scard"><h2 id="lh"></h2><div class="sgrid"><div id="lp"></div><div id="lg"></div></div></div>
+<div class="panel scard"><div class="row"><h2 style="margin:0;flex:1">历史情绪分走势</h2><label><input type="checkbox" id="hs" checked> 叠加沪深300</label></div>
+<svg id="chart" viewBox="0 0 1200 340" width="100%"></svg><div class="sub" id="stat"></div></div>
+<div class="panel scard"><div class="row"><h2 style="margin:0;flex:1" id="dh"></h2><select id="ds"></select></div>
+<div class="sgrid"><div id="dp"></div><div id="dg"></div></div>
+<div class="tw tbl" style="margin-top:12px"><table class="data"><thead><tr><th>因子</th><th>得分</th><th>权重</th><th>贡献分</th><th class="l">原始值</th></tr></thead><tbody id="ft"></tbody></table></div></div>
+<div class="panel scard"><h2>历史明细 <span class="sub" id="cnt"></span></h2><div class="row">
+<select id="fr"><option value="all">状态：全部</option><option value="strong">Risk-On 进攻</option><option value="neutral">Neutral 中性</option><option value="weak">Risk-Off 防守</option></select>
+<select id="fo"><option value="all">开仓：全部</option><option value="1">允许</option><option value="0">禁止</option></select>
+<select id="so"><option value="date:-1">日期 新→旧</option><option value="date:1">日期 旧→新</option><option value="emotionScore:-1">情绪分 高→低</option><option value="emotionScore:1">情绪分 低→高</option><option value="hs300ChangePct:-1">涨幅 高→低</option><option value="hs300ChangePct:1">涨幅 低→高</option></select></div>
+<div class="tw tbl"><table class="data"><thead><tr><th>日期</th><th>情绪分</th><th>状态</th><th>仓位</th><th>开仓</th><th>沪深300</th><th>涨跌</th><th>量能比</th></tr></thead><tbody id="ht"></tbody></table></div></div>
+<div class="panel scard"><h2>数据与算法说明</h2><ul>
+<li>数据源：新浪（全A现货、个股日K）+ 腾讯（指数日K、交易日历），替代 Tushare；东财 push2 不可用时自动回退。</li>
+<li>历史日个股成交额为 0（新浪日K不含），量能因子使用沪深300指数成交额，不受影响。</li>
+<li>涨跌停价按前收与板块规则推算。Risk-On ≥ 65，Risk-Off ≤ 40；三道门控（情绪≥54、量能比≥0.55、沪深300跌幅不超3%）全部通过才允许开仓。</li>
+<li id="algo"></li></ul></div>
+  </main>
+  <script src="../assets/shell.js"></script>
+<script>
+const $=id=>document.getElementById(id),RL={strong:"Risk-On 进攻",neutral:"Neutral 中性",weak:"Risk-Off 防守"},RC={strong:"ok",weak:"bad",neutral:""};
+const lab=d=>d.slice(0,4)+"-"+d.slice(4,6)+"-"+d.slice(6),pct=v=>(v>=0?"+":"")+v.toFixed(2)+"%";
+let D=[],sel="";
+function props(d){return [["情绪总分",d.emotionScore.toFixed(1)],["市场状态",`<span class="${RC[d.regime]}">${RL[d.regime]}</span>`],["建议仓位",`${d.suggestedPosition}%（${d.positionTier}）`],["允许开仓",d.allowOpen?'<span class="ok">允许</span>':'<span class="bad">禁止</span>'],["沪深300",`${d.hs300Close}（${pct(d.hs300ChangePct)}）`],["量能比",d.volumeRatio.toFixed(2)]].map(([k,v])=>`<div class="kv"><span>${k}</span><b>${v}</b></div>`).join("")}
+function gates(d){return d.gates.map(g=>`<div class="kv"><span>${g.label}<br><small class="sub">当前 ${g.current}，阈值 ${g.threshold}</small></span><b class="${g.passed?"ok":"bad"}">${g.passed?"通过":"未通过"}</b></div>`).join("")}
+function chart(){const W=1200,H=340,L=44,hs=$("hs").checked,R=hs?60:16,T=16,B=34,n=D.length,x=i=>L+i*(W-L-R)/(n-1),y=v=>T+(100-v)*(H-T-B)/100;
+ const cs=D.map(d=>d.hs300Close),mn=Math.min(...cs)-20,mx=Math.max(...cs)+20,yc=v=>T+(mx-v)*(H-T-B)/(mx-mn);let s="";
+ [0,25,50,75,100].forEach(v=>s+=`<line x1=${L} x2=${W-R} y1=${y(v)} y2=${y(v)} stroke="var(--line)"/><text x=${L-8} y=${y(v)+4} text-anchor="end">${v}</text>`);
+ [[65,"Risk-On 65","var(--ok)"],[54,"开仓门槛 54","var(--mute)"],[40,"Risk-Off 40","var(--bad)"]].forEach(([v,t,c])=>s+=`<line x1=${L} x2=${W-R} y1=${y(v)} y2=${y(v)} stroke="${c}" stroke-dasharray="6 4"/><text x=${L+6} y=${y(v)-5}>${t}</text>`);
+ if(hs){s+=`<path d="${D.map((d,i)=>(i?"L":"M")+x(i)+","+yc(d.hs300Close)).join("")}" fill="none" stroke="var(--gold)" stroke-width="1.5"/>`;[mn+20,(mn+mx)/2,mx-20].forEach(v=>s+=`<text x=${W-R+6} y=${yc(v)+4}>${Math.round(v)}</text>`)}
+ s+=`<path d="${D.map((d,i)=>(i?"L":"M")+x(i)+","+y(d.emotionScore)).join("")}" fill="none" stroke="var(--blue)" stroke-width="2"/>`;
+ const si=D.findIndex(d=>d.date===sel);D.forEach((d,i)=>s+=`<circle cx=${x(i)} cy=${y(d.emotionScore)} r=${i===si?6:3} fill="${i===si?"var(--blue)":"var(--bg)"}" stroke="var(--blue)" stroke-width="1.5"/>`);
+ if(si>=0)s+=`<line x1=${x(si)} x2=${x(si)} y1=${T} y2=${H-B} stroke="var(--mute)" stroke-dasharray="2 3"/>`;
+ [0,.2,.4,.6,.8,1].map(f=>Math.round(f*(n-1))).forEach((i,k)=>s+=`<text x=${x(i)} y=${H-10} text-anchor="${k?k==5?"end":"middle":"start"}">${D[i].date.slice(4,6)}-${D[i].date.slice(6)}</text>`);
+ const w=(W-L-R)/(n-1);D.forEach((d,i)=>s+=`<rect x=${x(i)-w/2} y=${T} width=${w} height=${H-T-B} fill="transparent" style="cursor:pointer" data-d="${d.date}"><title>${lab(d.date)} 情绪 ${d.emotionScore} ${RL[d.regime]} 沪深300 ${d.hs300Close}</title></rect>`);
+ $("chart").innerHTML=s}
+function detail(){const d=D.find(x=>x.date===sel);$("dh").textContent="单日回看 "+lab(d.date);$("ds").value=sel;$("dp").innerHTML=props(d);$("dg").innerHTML=gates(d);
+ let tot=0;$("ft").innerHTML=d.factors.map(f=>{tot+=f.contribution;return `<tr><td>${f.name}</td><td>${f.score.toFixed(1)}</td><td>${Math.round(f.weight*100)}%</td><td>${f.contribution.toFixed(2)}</td><td class="l">${f.rawValue.replace(/\n/g," / ")}</td></tr>`}).join("")+`<tr><td><b>合计</b></td><td><b>${d.emotionScore.toFixed(1)}</b></td><td>100%</td><td>${tot.toFixed(2)}</td><td></td></tr>`;chart()}
+function table(){const r=$("fr").value,o=$("fo").value,[k,dir]=$("so").value.split(":");
+ const rows=D.filter(d=>(r==="all"||d.regime===r)&&(o==="all"||String(+d.allowOpen)===o)).sort((a,b)=>(typeof a[k]==="string"?a[k].localeCompare(b[k]):a[k]-b[k])*+dir);
+ $("cnt").textContent=`显示 ${rows.length} / ${D.length} 天`;
+ $("ht").innerHTML=rows.map(d=>`<tr data-d="${d.date}"><td>${lab(d.date)}</td><td>${d.emotionScore.toFixed(1)}</td><td class="${RC[d.regime]}">${RL[d.regime]}</td><td>${d.suggestedPosition}% ${d.positionTier}</td><td class="${d.allowOpen?"ok":"bad"}">${d.allowOpen?"允许":"禁止"}</td><td>${d.hs300Close.toFixed(2)}</td><td>${pct(d.hs300ChangePct)}</td><td>${d.volumeRatio.toFixed(2)}</td></tr>`).join("")}
+const pick=d=>{sel=d;detail()};
+fetch("./data/history.json").then(r=>r.json()).then(j=>{D=j.days.sort((a,b)=>a.date.localeCompare(b.date));const L=D[D.length-1];sel=L.date;
+ $("sum").textContent=`盘后情绪择时：${lab(D[0].date)} 至 ${lab(L.date)} 共 ${D.length} 个交易日。点击走势图或表格任一行回看当日详情。`;
+ $("lh").textContent="最新交易日 "+lab(L.date);$("lp").innerHTML=props(L);$("lg").innerHTML=gates(L);
+ const c=k=>D.filter(d=>d.regime===k).length;$("stat").textContent=`Risk-On ${c("strong")} 天、中性 ${c("neutral")} 天、Risk-Off ${c("weak")} 天，允许开仓 ${D.filter(d=>d.allowOpen).length} 天。`;
+ $("algo").textContent=`算法版本 ${j.algoVersion}；数据导出于 ${new Date(j.exportedAt).toLocaleString("zh-CN",{timeZone:"Asia/Shanghai"})}（北京时间）。`;
+ $("ds").innerHTML=[...D].reverse().map(d=>`<option value="${d.date}">${lab(d.date)}  ${d.emotionScore}</option>`).join("");
+ detail();table()}).catch(e=>{$("sum").textContent="数据加载失败："+e});
+$("chart").addEventListener("click",e=>{const d=e.target.dataset&&e.target.dataset.d;if(d)pick(d)});
+$("ht").addEventListener("click",e=>{const tr=e.target.closest("tr");if(tr){pick(tr.dataset.d);$("dh").scrollIntoView({behavior:"smooth"})}});
+$("ds").onchange=e=>pick(e.target.value);$("hs").onchange=chart;["fr","fo","so"].forEach(i=>$(i).onchange=table);
+</script></body></html>

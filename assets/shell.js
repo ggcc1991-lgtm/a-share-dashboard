@@ -10,7 +10,7 @@
       const u = new URL(href, location.href);
       const p = u.pathname.replace(/\/+$/, "") || "/";
       if (p === path || (m !== "/" && path.endsWith(m))) a.classList.add("active");
-      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy")) {
+      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/sentiment")) {
         a.classList.add("active");
       }
     } catch (_) {}
@@ -185,4 +185,52 @@ window.DashMotion = {
     },
     true
   );
+})();
+
+/* == nav dropdown (ETF) == */
+(function navDropdown() {
+  const desk = window.matchMedia("(min-width: 720px)");
+  const path = location.pathname;
+  document.querySelectorAll(".nav-dd").forEach((dd) => {
+    const btn = dd.querySelector(".nav-dd-btn");
+    const panel = dd.querySelector(".nav-dd-panel");
+    if (!btn || !panel) return;
+    const items = Array.from(panel.querySelectorAll("a"));
+    if (/\/(etf|sentiment)(\/|$|\/index\.html)/.test(path)) btn.classList.add("active");
+    items.forEach((a) => {
+      try {
+        const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");
+        if (p === path.replace(/index\.html$/, "")) { a.classList.add("current"); a.setAttribute("aria-current", "page"); }
+      } catch (_) {}
+    });
+    const place = () => {
+      const r = btn.getBoundingClientRect();
+      const w = Math.max(panel.offsetWidth, 170);
+      panel.style.top = Math.round(r.bottom) + "px";
+      panel.style.left = Math.round(Math.max(4, Math.min(r.left, window.innerWidth - w - 4))) + "px";
+    };
+    const open = () => { if (dd.classList.contains("open")) return; dd.classList.add("open"); btn.setAttribute("aria-expanded", "true"); place(); };
+    const close = () => { if (!dd.classList.contains("open")) return; dd.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); };
+    btn.addEventListener("click", (e) => { e.preventDefault(); dd.classList.contains("open") ? close() : open(); });
+    dd.addEventListener("mouseenter", () => { if (desk.matches) open(); });
+    dd.addEventListener("mouseleave", () => { if (desk.matches) close(); });
+    dd.addEventListener("focusin", () => { if (desk.matches) open(); });
+    dd.addEventListener("focusout", (e) => { if (!dd.contains(e.relatedTarget)) close(); });
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); open(); items[0] && items[0].focus(); }
+    });
+    panel.addEventListener("keydown", (e) => {
+      const i = items.indexOf(document.activeElement);
+      if (e.key === "ArrowDown") { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    });
+    document.addEventListener("click", (e) => { if (!dd.contains(e.target)) close(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && dd.classList.contains("open")) { close(); btn.focus(); }
+    });
+    window.addEventListener("resize", close);
+    window.addEventListener("scroll", () => { if (dd.classList.contains("open")) place(); }, { passive: true });
+    const nav = dd.closest(".nav");
+    if (nav) nav.addEventListener("scroll", () => { if (dd.classList.contains("open")) place(); }, { passive: true });
+  });
 })();
