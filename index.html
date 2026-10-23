@@ -51,6 +51,7 @@
   </main>
 
   <footer class="app-footer">RESEARCH ONLY · NOT INVESTMENT ADVICE · GC DATA</footer>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <script src="assets/shell.js"></script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
@@ -77,6 +78,90 @@
     }
     function clsFlow(v) {
       return v > 0 ? "pos" : v < 0 ? "neg" : "";
+    }
+
+
+    let _scoreChart = null;
+    function disposeScoreChart() {
+      if (_scoreChart) { try { _scoreChart.dispose(); } catch (_) {} _scoreChart = null; }
+    }
+    async function initScoreSpark() {
+      const el = document.getElementById("scoreSpark");
+      if (!el || typeof echarts === "undefined") return;
+      disposeScoreChart();
+      let hist = null;
+      try { hist = await loadJSON("data/history.json"); } catch (_) {}
+      const series = Array.isArray(hist?.score) ? hist.score : [];
+      const pts = series
+        .filter((x) => x && x.d != null && x.v != null && !Number.isNaN(+x.v))
+        .slice(-30);
+      if (!pts.length) {
+        el.innerHTML = `<div class="bb-spark-empty">待抄底写入 history.score</div>`;
+        return;
+      }
+      _scoreChart = echarts.init(el, null, { renderer: "canvas" });
+      const dates = pts.map((x) => x.d);
+      const vals = pts.map((x) => +x.v);
+      _scoreChart.setOption({
+        backgroundColor: "transparent",
+        grid: { left: 28, right: 8, top: 8, bottom: 18, containLabel: false },
+        xAxis: {
+          type: "category",
+          data: dates,
+          boundaryGap: false,
+          axisLine: { lineStyle: { color: "#2b2b2b" } },
+          axisTick: { show: false },
+          axisLabel: {
+            color: "#787878",
+            fontSize: 9,
+            interval: Math.max(0, Math.floor(dates.length / 5) - 1),
+            formatter: (d) => String(d).slice(5),
+          },
+          splitLine: { show: false },
+        },
+        yAxis: {
+          type: "value",
+          min: 0,
+          max: 12,
+          interval: 1,
+          axisLine: { show: false },
+          axisTick: { show: false },
+          axisLabel: {
+            color: "#787878",
+            fontSize: 9,
+            formatter: (v) => ([0, 5, 8, 9, 12].includes(v) ? String(v) : ""),
+          },
+          splitLine: {
+            show: true,
+            lineStyle: { color: "#1a1a1a", type: "solid", width: 1 },
+          },
+        },
+        tooltip: {
+          trigger: "axis",
+          backgroundColor: "#0a0a0a",
+          borderColor: "#2b2b2b",
+          textStyle: { color: "#e8e8e8", fontSize: 11 },
+          formatter: (params) => {
+            const p = params?.[0];
+            if (!p) return "";
+            return `${p.axisValue}<br/>红线 <b style="color:#FFA028">${p.data}</b>/12`;
+          },
+        },
+        series: [{
+          type: "line",
+          data: vals,
+          showSymbol: false,
+          symbol: "circle",
+          symbolSize: 3,
+          lineStyle: { color: "#FFA028", width: 1.5 },
+          itemStyle: { color: "#FFA028" },
+          areaStyle: { color: "rgba(255,160,40,0.08)" },
+        }],
+      });
+      const onResize = () => { if (_scoreChart) _scoreChart.resize(); };
+      window.removeEventListener("resize", window.__scoreSparkResize);
+      window.__scoreSparkResize = onResize;
+      window.addEventListener("resize", onResize);
     }
 
     (async () => {
@@ -148,12 +233,17 @@
             <div class="ticks">${ticks}</div>
           </div>
         </div>
+        <div class="bb-spark" id="scoreSparkWrap">
+          <div class="bb-spark-title">近30天信号变化</div>
+          <div class="bb-spark-chart" id="scoreSpark"></div>
+        </div>
         <div class="bb-ind-hd"><span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span><span style="text-align:right">状态</span></div>
         ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}
         <div class="bb-ind-foot">
           <span>触发 ${trig} · 观察 ${watchN}</span>
           <span class="mono">${bottom?.generated_at || bottom?.verdict?.generated_at || "—"}</span>
         </div>`;
+      initScoreSpark();
 
       document.getElementById("feedMeta").textContent = feed?.updated || "";
       const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
