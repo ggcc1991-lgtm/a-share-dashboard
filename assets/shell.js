@@ -20,21 +20,22 @@
 window.DashTheme = {
   echartsDark: {
     backgroundColor: "transparent",
-    textStyle: { color: "#8b9bb4" },
-    title: { textStyle: { color: "#e6edf7" } },
-    legend: { textStyle: { color: "#8b9bb4" } },
+    textStyle: { color: "#a0a0a0" },
+    title: { textStyle: { color: "#e8e8e8" } },
+    legend: { textStyle: { color: "#a0a0a0" } },
     categoryAxis: {
-      axisLine: { lineStyle: { color: "#243044" } },
-      axisLabel: { color: "#8b9bb4" },
-      splitLine: { lineStyle: { color: "#1a2332" } },
+      axisLine: { lineStyle: { color: "#2b2b2b" } },
+      axisLabel: { color: "#a0a0a0" },
+      splitLine: { lineStyle: { color: "#1a1a1a" } },
     },
     valueAxis: {
-      axisLine: { lineStyle: { color: "#243044" } },
-      axisLabel: { color: "#8b9bb4" },
-      splitLine: { lineStyle: { color: "#1a2332" } },
+      axisLine: { lineStyle: { color: "#2b2b2b" } },
+      axisLabel: { color: "#a0a0a0" },
+      splitLine: { lineStyle: { color: "#1a1a1a" } },
     },
   },
-  colors: ["#3dd6c6", "#4c8dff", "#f5a623", "#ff3b4a", "#a78bfa", "#34d399"],
+  // A股涨红跌绿 + 琥珀强调
+  colors: ["#ffa028", "#ef5350", "#26a69a", "#ffb74d", "#64b5f6", "#a0a0a0"],
 };
 
 window.DashFmt = {
