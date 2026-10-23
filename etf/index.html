@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ETF 追踪 · GC的数据监控中心</title>
+  <title>国家队ETF动向追踪 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <style>
@@ -35,6 +35,9 @@
     details.method[open] summary { margin-bottom: 10px; }
     .tbl { overflow-x: auto; }
     #futPanel, #futTblPanel { display: none; }
+    .page-title .title-note {
+      font-weight: 500; font-size: 0.72em; color: var(--mu); margin-left: 0.15em;
+    }
   </style>
 </head>
 <body>
@@ -51,7 +54,7 @@
   </header>
 
   <main class="wrap">
-    <h2 class="page-title">宽基 ETF 份额与资金流</h2>
+    <h2 class="page-title">国家队ETF动向追踪<span class="title-note">（由于数据源问题，ETF动向于每日23:00更新）</span></h2>
     <p class="page-sub" id="meta">加载 data/etf.json …</p>
     <div id="warnBox" class="warn" style="display:none"></div>
 
@@ -190,8 +193,8 @@
     const L = dates.length;
     const codes = (D.etfs || []).map((e) => e.code);
     $("meta").textContent =
-      `更新：${D.updated || "—"}　|　最新交易日：${dates[L - 1] || "—"}　|　监控 ${codes.length} 只　|　序列 ${L} 个交易日` +
-      (D.sample ? "　· sample" : "");
+      `数据更新：${D.updated || "—"} | 最新交易日：${dates[L - 1] || "—"} | 监控 ${codes.length} 只国家队重仓ETF` +
+      (D.sample ? " · sample" : "");
 
     const w = D.warnings || [];
     if (w.length) {
