@@ -189,11 +189,6 @@ window.DashMotion = {
 
 /* == nav dropdown (ETF) == */
 (function navDropdown() {
-  // bottom/full.html loads shell.js before the header, so bind after parse.
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", navDropdown);
-    return;
-  }
   const desk = window.matchMedia("(min-width: 720px)");
   const path = location.pathname;
   document.querySelectorAll(".nav-dd").forEach((dd) => {
@@ -218,8 +213,9 @@ window.DashMotion = {
     const close = () => { if (!dd.classList.contains("open")) return; dd.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); };
     btn.addEventListener("click", (e) => { e.preventDefault(); dd.classList.contains("open") ? close() : open(); });
     dd.addEventListener("mouseenter", () => { if (desk.matches) open(); });
-    dd.addEventListener("mouseleave", () => { if (desk.matches) close(); });
-    dd.addEventListener("focusin", () => { if (desk.matches) open(); });
+    dd.addEventListener("mouseleave", () => { suppress = false; if (desk.matches) close(); });
+    let suppress = false;
+    dd.addEventListener("focusin", () => { if (desk.matches && !suppress) open(); });
     dd.addEventListener("focusout", (e) => { if (!dd.contains(e.relatedTarget)) close(); });
     btn.addEventListener("keydown", (e) => {
       if (e.key === "ArrowDown") { e.preventDefault(); open(); items[0] && items[0].focus(); }
@@ -231,7 +227,7 @@ window.DashMotion = {
     });
     document.addEventListener("click", (e) => { if (!dd.contains(e.target)) close(); });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && dd.classList.contains("open")) { close(); btn.focus(); }
+      if (e.key === "Escape" && dd.classList.contains("open")) { close(); suppress = true; btn.focus(); setTimeout(() => { suppress = false; }, 0); }
     });
     window.addEventListener("resize", close);
     window.addEventListener("scroll", () => { if (dd.classList.contains("open")) place(); }, { passive: true });

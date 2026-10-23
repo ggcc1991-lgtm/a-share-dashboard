@@ -30,16 +30,16 @@ body > .wrap { max-width: 1280px !important; padding-top: 12px !important; }
   border-color: #5a2020 !important;
   background: #120a0a !important;
 }
-h1 { font-size: 16px !important; font-weight: 800 !important; letter-spacing: 0.04em !important; color: #ffa028 !important; }
-h1 b { color: #ef5350 !important; }
+h1:not(.app-header h1) { font-size: 16px !important; font-weight: 800 !important; letter-spacing: 0.04em !important; color: #ffa028 !important; }
+h1:not(.app-header h1) b { color: #ef5350 !important; }
 .mu { color: #a0a0a0 !important; }
-button {
+button:not(.nav-dd-btn) {
   border-radius: 0 !important;
   background: #121212 !important;
   border-color: #2b2b2b !important;
   color: #e8e8e8 !important;
 }
-button:hover { border-color: #ffa028 !important; }
+button:not(.nav-dd-btn):hover { border-color: #ffa028 !important; }
 .legend span, .chip, .tag {
   border-radius: 0 !important;
   background: #121212 !important;
@@ -51,3 +51,10 @@ button:hover { border-color: #ffa028 !important; }
   border-radius: 0 !important;
 }
 .app-header + .wrap h1 { margin-top: 4px; }
+
+/* Mobile: charts / panels stay within viewport */
+@media (max-width: 719px) {
+  body > .wrap { padding-left: 10px !important; padding-right: 10px !important; }
+  .panel, .card, .verdict, .box { max-width: 100%; min-width: 0; }
+  h1 { font-size: 14px !important; line-height: 1.35 !important; word-break: break-word; }
+}
