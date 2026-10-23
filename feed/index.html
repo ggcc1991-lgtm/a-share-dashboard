@@ -30,7 +30,7 @@
     <h2 class="page-title">信息流</h2>
     <p class="page-sub" id="meta">加载 data/feed.json …</p>
 
-    <section id="feed-analysis" class="panel fa-panel" aria-label="刷新分析" hidden></section>
+    <section id="feed-analysis" class="panel fa-panel" aria-label="实时分析" hidden></section>
 
     <div class="grid grid-4" id="kpis" style="margin-bottom:12px"></div>
     <div class="tools">
@@ -105,7 +105,6 @@
 
     const STR_RANK = { "极强": 5, "强": 4, "中强": 3, "中": 2, "中低": 1, "弱": 0.5 };
     const CONF_RANK = { "高": 3, "中高": 2.5, "中": 2, "中低": 1, "低": 0.5 };
-    const TOP_N_NAMES = 8;
     const AMBER = "#FFA028";
 
     function confClass(c) {
@@ -159,15 +158,38 @@
       };
     }
 
-    /** Prefer viz.*; fallback from keywords / stats / opportunities / consensus */
+    function formatShanghaiShort(iso) {
+      if (!iso) return "";
+      try {
+        const d = new Date(iso);
+        if (Number.isNaN(d.getTime())) return "";
+        const parts = new Intl.DateTimeFormat("zh-CN", {
+          timeZone: "Asia/Shanghai",
+          year: "numeric", month: "2-digit", day: "2-digit",
+          hour: "2-digit", minute: "2-digit", hour12: false,
+        }).formatToParts(d);
+        const get = (t) => (parts.find((p) => p.type === t) || {}).value || "";
+        return `${get("year")}-${get("month")}-${get("day")} ${get("hour")}:${get("minute")}`;
+      } catch (_) {
+        return "";
+      }
+    }
+
+    function panelHeading(d) {
+      const hints = (d && d.uiHints) || {};
+      const base = (hints.panelTitle && String(hints.panelTitle).trim()) || "实时分析";
+      let ts = (d && d.generatedAtDisplay && String(d.generatedAtDisplay).trim()) || "";
+      if (!ts) {
+        ts = formatShanghaiShort(d.analyzedAt || d.updated || d.generatedAt || "");
+      }
+      return ts ? `${base} · ${ts}` : base;
+    }
+
+    /** Only remaining viz charts: keywordBars, confidenceDonut, opportunityScores */
     function resolveVizSeries(d) {
       const viz = (d && d.viz) || {};
-      const stats = (d && d.stats) || {};
       const keywords = Array.isArray(d.keywords) ? d.keywords : [];
       const opps = Array.isArray(d.opportunities) ? d.opportunities : [];
-      const consensus = (d && d.consensus) || {};
-      const agree = Array.isArray(consensus.agreement) ? consensus.agreement : [];
-      const disagree = Array.isArray(consensus.disagreement) ? consensus.disagreement : [];
 
       let keywordBars = Array.isArray(viz.keywordBars) ? viz.keywordBars.slice() : null;
       if (!keywordBars || !keywordBars.length) {
@@ -176,25 +198,6 @@
           const strength = typeof k === "object" && k ? k.strength : "";
           return { label: term, value: strengthVal(strength), strength: strength || "" };
         }).filter((x) => x.label);
-      }
-
-      let sourcePie = Array.isArray(viz.sourcePie) ? viz.sourcePie.slice() : null;
-      if (!sourcePie || !sourcePie.length) {
-        const bySrc = stats.bySource || {};
-        sourcePie = Object.entries(bySrc)
-          .map(([label, value]) => ({ label, value: +value || 0 }))
-          .sort((a, b) => b.value - a.value);
-      }
-
-      let sourceNameBars = Array.isArray(viz.sourceNameBars) ? viz.sourceNameBars.slice() : null;
-      if (!sourceNameBars || !sourceNameBars.length) {
-        const byName = stats.bySourceName || {};
-        sourceNameBars = Object.entries(byName)
-          .map(([label, value]) => ({ label, value: +value || 0 }))
-          .sort((a, b) => b.value - a.value)
-          .slice(0, TOP_N_NAMES);
-      } else {
-        sourceNameBars = sourceNameBars.slice(0, TOP_N_NAMES);
       }
 
       let confidenceDonut = Array.isArray(viz.confidenceDonut) ? viz.confidenceDonut.slice() : null;
@@ -217,14 +220,7 @@
         });
       }
 
-      let consensusBalance = viz.consensusBalance && typeof viz.consensusBalance === "object"
-        ? viz.consensusBalance
-        : null;
-      if (!consensusBalance || (consensusBalance.agreement == null && consensusBalance.disagreement == null)) {
-        consensusBalance = { agreement: agree.length, disagreement: disagree.length };
-      }
-
-      return { keywordBars, sourcePie, sourceNameBars, confidenceDonut, opportunityScores, consensusBalance };
+      return { keywordBars, confidenceDonut, opportunityScores };
     }
 
     function hBarOption(labels, values, extraLabels) {
@@ -298,11 +294,7 @@
 
     function renderFaCharts(series) {
       disposeFaCharts();
-      const colors = chartColors();
-      const {
-        keywordBars, sourcePie, sourceNameBars,
-        confidenceDonut, opportunityScores, consensusBalance,
-      } = series;
+      const { keywordBars, confidenceDonut, opportunityScores } = series;
 
       const kwEl = document.getElementById("fa-chart-kw");
       if (kwEl && keywordBars.length) {
@@ -311,24 +303,6 @@
           rev.map((x) => x.label || ""),
           rev.map((x) => +x.value || 0),
           rev.map((x) => x.strength || x.value)
-        ));
-      }
-
-      const srcEl = document.getElementById("fa-chart-src");
-      if (srcEl && sourcePie.length) {
-        initChart(srcEl, pieOption(sourcePie.map((x) => ({
-          name: SRC[x.label] || x.label,
-          value: +x.value || 0,
-        }))));
-      }
-
-      const nameEl = document.getElementById("fa-chart-name");
-      if (nameEl && sourceNameBars.length) {
-        const rev = sourceNameBars.slice().reverse();
-        initChart(nameEl, hBarOption(
-          rev.map((x) => x.label || ""),
-          rev.map((x) => +x.value || 0),
-          rev.map((x) => x.value)
         ));
       }
 
@@ -350,41 +324,163 @@
         ));
       }
 
-      const balEl = document.getElementById("fa-chart-bal");
-      if (balEl && consensusBalance) {
-        const ag = +consensusBalance.agreement || 0;
-        const dg = +consensusBalance.disagreement || 0;
-        initChart(balEl, {
-          color: [AMBER, "#ef5350"],
-          grid: { left: 4, right: 28, top: 8, bottom: 8, containLabel: true },
-          xAxis: {
-            type: "value",
-            minInterval: 1,
-            axisLabel: { color: "#787878", fontSize: 10 },
-            axisLine: { show: false },
-            axisTick: { show: false },
-            splitLine: { lineStyle: { color: "#1a160c" } },
-          },
-          yAxis: {
-            type: "category",
-            data: ["分歧", "一致"],
-            axisLabel: { color: "#a0a0a0", fontSize: 11 },
-            axisLine: { lineStyle: { color: "#2a2210" } },
-            axisTick: { show: false },
-          },
-          series: [{
-            type: "bar",
-            data: [
-              { value: dg, itemStyle: { color: "#ef5350", borderRadius: [0, 2, 2, 0] } },
-              { value: ag, itemStyle: { color: AMBER, borderRadius: [0, 2, 2, 0] } },
-            ],
-            barWidth: 16,
-            label: { show: true, position: "right", color: "#a0a0a0", fontSize: 11 },
-          }],
-        });
+      requestAnimationFrame(() => faCharts.forEach((c) => { try { c.resize(); } catch (_) {} }));
+    }
+
+    function linkListHtml(links) {
+      if (!Array.isArray(links) || !links.length) return "";
+      return `<div class="fa-opp-links">${links.map((l) => {
+        const t = (l && l.title) || "来源";
+        const u = l && l.url;
+        if (u) return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`;
+        return `<span>${esc(t)}</span>`;
+      }).join("")}</div>`;
+    }
+
+    function bulletsHtml(items, extraClass) {
+      if (!Array.isArray(items) || !items.length) return "";
+      const cls = extraClass ? `fa-list ${extraClass}` : "fa-list";
+      return `<ul class="${cls}">${items.map((x) => `<li>${esc(typeof x === "string" ? x : String(x))}</li>`).join("")}</ul>`;
+    }
+
+    /** Prefer prose.*; fallback to older structured fields */
+    function resolveProseBlocks(d) {
+      const prose = (d && d.prose && typeof d.prose === "object") ? d.prose : null;
+      const blocks = [];
+
+      const lead = prose && typeof prose.lead === "string" && prose.lead.trim()
+        ? prose.lead.trim()
+        : (d.title || d.changeSummary || "");
+      if (lead) blocks.push({ kind: "lead", text: lead });
+
+      const sampleNote = prose && typeof prose.sampleNote === "string" ? prose.sampleNote.trim() : "";
+      if (sampleNote) blocks.push({ kind: "note", text: sampleNote });
+      else if (!prose && d.changeSummary && d.title && d.changeSummary !== lead) {
+        blocks.push({ kind: "note", text: d.changeSummary });
       }
 
-      requestAnimationFrame(() => faCharts.forEach((c) => { try { c.resize(); } catch (_) {} }));
+      // Opportunities
+      let oppItems = null;
+      if (prose && Array.isArray(prose.opportunitiesText) && prose.opportunitiesText.length) {
+        oppItems = prose.opportunitiesText.map((o) => ({
+          title: (o && (o.headline || o.title)) || "—",
+          confidence: (o && o.confidence) || "",
+          rationale: (o && (o.body || o.rationale)) || "",
+          sources: Array.isArray(o && o.links) ? o.links : (Array.isArray(o && o.sources) ? o.sources : []),
+        }));
+      } else if (Array.isArray(d.opportunities) && d.opportunities.length) {
+        oppItems = d.opportunities.map((o) => ({
+          title: (o && o.title) || "—",
+          confidence: (o && o.confidence) || "",
+          rationale: (o && o.rationale) || "",
+          sources: Array.isArray(o && o.sources) ? o.sources : [],
+        }));
+      }
+      if (oppItems && oppItems.length) blocks.push({ kind: "opportunities", items: oppItems });
+
+      // Consensus
+      let agree = null, disagree = null;
+      if (prose && prose.consensusText && typeof prose.consensusText === "object") {
+        agree = Array.isArray(prose.consensusText.agreement) ? prose.consensusText.agreement : [];
+        disagree = Array.isArray(prose.consensusText.disagreement) ? prose.consensusText.disagreement : [];
+      } else if (d.consensus && typeof d.consensus === "object") {
+        agree = Array.isArray(d.consensus.agreement) ? d.consensus.agreement : [];
+        disagree = Array.isArray(d.consensus.disagreement) ? d.consensus.disagreement : [];
+      }
+      if ((agree && agree.length) || (disagree && disagree.length)) {
+        blocks.push({ kind: "consensus", agreement: agree || [], disagreement: disagree || [] });
+      }
+
+      // Risks
+      let risks = null;
+      if (prose && Array.isArray(prose.risksText) && prose.risksText.length) risks = prose.risksText;
+      else if (Array.isArray(d.risks) && d.risks.length) risks = d.risks;
+      if (risks && risks.length) blocks.push({ kind: "risks", items: risks });
+
+      // Narrative
+      let narr = null;
+      if (prose && Array.isArray(prose.narrativeText) && prose.narrativeText.length) narr = prose.narrativeText;
+      else if (Array.isArray(d.narrativeShifts) && d.narrativeShifts.length) narr = d.narrativeShifts;
+      if (narr && narr.length) blocks.push({ kind: "narrative", items: narr });
+
+      // Watch / time windows
+      let watch = null;
+      if (prose && Array.isArray(prose.watchText) && prose.watchText.length) {
+        watch = prose.watchText.map((x) => typeof x === "string" ? x : String(x));
+      } else if (Array.isArray(d.timeWindows) && d.timeWindows.length) {
+        watch = d.timeWindows.map((w) => {
+          if (typeof w === "string") return w;
+          const h = (w && w.horizon) || "";
+          const wt = (w && w.watch) || "";
+          return h && wt ? `${h}：${wt}` : (h || wt);
+        }).filter(Boolean);
+      }
+      if (watch && watch.length) blocks.push({ kind: "watch", items: watch });
+
+      // Highlights (structured fallback / supplement)
+      const highlights = Array.isArray(d.highlights) ? d.highlights : [];
+      if (highlights.length && !(oppItems && oppItems.length)) {
+        blocks.push({ kind: "highlights", items: highlights });
+      }
+
+      const disclaimer = prose && typeof prose.disclaimer === "string" ? prose.disclaimer.trim() : "";
+      if (disclaimer) blocks.push({ kind: "disclaimer", text: disclaimer });
+
+      return blocks;
+    }
+
+    function renderProseHtml(blocks) {
+      if (!blocks || !blocks.length) return "";
+      let html = `<div class="fa-prose">`;
+      for (const b of blocks) {
+        if (b.kind === "lead") {
+          html += `<p class="fa-prose-lead">${esc(b.text)}</p>`;
+        } else if (b.kind === "note") {
+          html += `<p class="fa-prose-note">${esc(b.text)}</p>`;
+        } else if (b.kind === "opportunities") {
+          html += `<section class="fa-sec fa-prose-sec"><div class="fa-sec-h">机会精读</div>`;
+          html += b.items.map((o) => `
+            <article class="fa-opp">
+              <div class="fa-opp-top">
+                <span class="fa-opp-t">${esc(o.title)}</span>
+                ${o.confidence ? `<span class="chip conf ${confClass(o.confidence)}">${esc(o.confidence)}</span>` : ""}
+              </div>
+              ${o.rationale ? `<p class="fa-opp-r">${esc(o.rationale)}</p>` : ""}
+              ${linkListHtml(o.sources)}
+            </article>`).join("");
+          html += `</section>`;
+        } else if (b.kind === "consensus") {
+          html += `<section class="fa-sec fa-prose-sec"><div class="fa-sec-h">共识与分歧</div><div class="fa-cols">`;
+          if (b.agreement.length) {
+            html += `<div><div class="fa-sub-h">一致</div>${bulletsHtml(b.agreement)}</div>`;
+          }
+          if (b.disagreement.length) {
+            html += `<div><div class="fa-sub-h">分歧</div>${bulletsHtml(b.disagreement, "fa-disagree")}</div>`;
+          }
+          html += `</div></section>`;
+        } else if (b.kind === "risks") {
+          html += `<section class="fa-sec fa-prose-sec"><div class="fa-sec-h">风险</div>${bulletsHtml(b.items, "fa-risks")}</section>`;
+        } else if (b.kind === "narrative") {
+          html += `<section class="fa-sec fa-prose-sec"><div class="fa-sec-h">叙事切换</div>${bulletsHtml(b.items)}</section>`;
+        } else if (b.kind === "watch") {
+          html += `<section class="fa-sec fa-prose-sec"><div class="fa-sec-h">时间窗</div>${bulletsHtml(b.items)}</section>`;
+        } else if (b.kind === "highlights") {
+          html += `<section class="fa-sec fa-prose-sec fa-sec-hl"><div class="fa-sec-h">要点</div><div class="fa-hl">${
+            b.items.map((h) => {
+              const title = (h && h.title) || "—";
+              const note = h && h.note ? `<span class="note">${esc(h.note)}</span>` : "";
+              if (h && h.url) {
+                return `<a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(title)}${note}</a>`;
+              }
+              return `<span>${esc(title)}${note}</span>`;
+            }).join("")
+          }</div></section>`;
+        } else if (b.kind === "disclaimer") {
+          html += `<p class="fa-disclaimer">${esc(b.text)}</p>`;
+        }
+      }
+      html += `</div>`;
+      return html;
     }
 
     function renderAnalysis(d) {
@@ -393,37 +489,27 @@
       root.hidden = false;
       root.classList.remove("is-error");
 
+      const heading = panelHeading(d);
       const series = resolveVizSeries(d);
-      const highlights = Array.isArray(d.highlights) ? d.highlights : [];
-      const hasAnyChart = (
+      const proseBlocks = resolveProseBlocks(d);
+      const hasAnyChart = !!(
         series.keywordBars.length ||
-        series.sourcePie.length ||
-        series.sourceNameBars.length ||
         series.confidenceDonut.length ||
-        series.opportunityScores.length ||
-        ((+series.consensusBalance.agreement || 0) + (+series.consensusBalance.disagreement || 0) > 0)
+        series.opportunityScores.length
       );
 
       let html = `
         <div class="fa-hd">
-          <span class="fa-label">刷新分析</span>
-          <span class="fa-updated mono">${esc(DashFmt.time(d.updated || d.analyzedAt) || "—")}</span>
+          <span class="fa-label">${esc(heading)}</span>
         </div>
         <div class="fa-body">`;
 
-      if (d.title) html += `<h3 class="fa-title">${esc(d.title)}</h3>`;
-      if (d.changeSummary) html += `<p class="fa-summary">${esc(d.changeSummary)}</p>`;
+      html += renderProseHtml(proseBlocks);
 
       if (hasAnyChart) {
         html += `<div class="fa-viz">`;
         if (series.keywordBars.length) {
           html += `<div class="fa-chart-box" data-chart="kw"><div class="fa-sec-h">关键词强度</div><div class="fa-chart" id="fa-chart-kw"></div></div>`;
-        }
-        if (series.sourcePie.length) {
-          html += `<div class="fa-chart-box" data-chart="src"><div class="fa-sec-h">来源分布</div><div class="fa-chart" id="fa-chart-src"></div></div>`;
-        }
-        if (series.sourceNameBars.length) {
-          html += `<div class="fa-chart-box" data-chart="name"><div class="fa-sec-h">来源名称 Top ${Math.min(TOP_N_NAMES, series.sourceNameBars.length)}</div><div class="fa-chart" id="fa-chart-name"></div></div>`;
         }
         if (series.confidenceDonut.length) {
           html += `<div class="fa-chart-box" data-chart="conf"><div class="fa-sec-h">机会置信度</div><div class="fa-chart" id="fa-chart-conf"></div></div>`;
@@ -431,23 +517,7 @@
         if (series.opportunityScores.length) {
           html += `<div class="fa-chart-box" data-chart="opp"><div class="fa-sec-h">机会评分</div><div class="fa-chart" id="fa-chart-opp"></div></div>`;
         }
-        if ((+series.consensusBalance.agreement || 0) + (+series.consensusBalance.disagreement || 0) > 0) {
-          html += `<div class="fa-chart-box" data-chart="bal"><div class="fa-sec-h">共识平衡</div><div class="fa-chart sm" id="fa-chart-bal"></div></div>`;
-        }
         html += `</div>`;
-      }
-
-      if (highlights.length) {
-        html += `<div class="fa-sec fa-sec-hl"><div class="fa-sec-h">要点</div><div class="fa-hl">${
-          highlights.map((h) => {
-            const title = (h && h.title) || "—";
-            const note = h && h.note ? `<span class="note">${esc(h.note)}</span>` : "";
-            if (h && h.url) {
-              return `<a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(title)}${note}</a>`;
-            }
-            return `<span>${esc(title)}${note}</span>`;
-          }).join("")
-        }</div></div>`;
       }
 
       html += `</div>`;
@@ -461,7 +531,7 @@
       root.hidden = false;
       root.classList.add("is-error");
       disposeFaCharts();
-      root.innerHTML = `<div class="fa-hd"><span class="fa-label">刷新分析</span></div><div class="fa-empty">${esc(msg)}</div>`;
+      root.innerHTML = `<div class="fa-hd"><span class="fa-label">实时分析</span></div><div class="fa-empty">${esc(msg)}</div>`;
     }
 
     let analysisUpdated = "";
@@ -472,7 +542,7 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const d = await res.json();
         if (!d || typeof d !== "object") throw new Error("无效 JSON");
-        analysisUpdated = d.updated || d.analyzedAt || "";
+        analysisUpdated = d.generatedAtDisplay || d.updated || d.analyzedAt || "";
         renderAnalysis(d);
       } catch (e) {
         analysisUpdated = "";
@@ -482,7 +552,7 @@
 
     function updateMeta(feedUpdated, n) {
       const parts = [`${feedUpdated || "—"} · ${n} 条`];
-      if (analysisUpdated) parts.push(`分析 ${DashFmt.time(analysisUpdated)}`);
+      if (analysisUpdated) parts.push(`分析 ${analysisUpdated}`);
       document.getElementById("meta").textContent = parts.join(" · ");
     }
 
