@@ -189,6 +189,11 @@ window.DashMotion = {
 
 /* == nav dropdown (ETF) == */
 (function navDropdown() {
+  // bottom/full.html loads shell.js before the header, so bind after parse.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", navDropdown);
+    return;
+  }
   const desk = window.matchMedia("(min-width: 720px)");
   const path = location.pathname;
   document.querySelectorAll(".nav-dd").forEach((dd) => {
