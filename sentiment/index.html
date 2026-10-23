@@ -98,6 +98,7 @@
 #emo-cal .d{font:700 18px var(--mono,monospace)}
 #emo-cal .s,#emo-cal .p,#emo-cal .st{margin-top:4px;line-height:1.35;font-variant-numeric:tabular-nums}
 #emo-cal .st{font-weight:700}
+#emo-cal .st-s{display:none}
 #emo-cal .open .st{color:var(--c-up)} #emo-cal .blocked .st{color:var(--c-down)}
 #emo-cal .trend{margin-top:14px;border-top:var(--hair,1px solid #2b2b2b);padding-top:8px}
 #emo-cal .trend .th{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--c-mu)}
@@ -128,6 +129,8 @@
   const root = document.getElementById('emo-cal');
   const $ = (s) => root.querySelector(s);
   let days = [], map = {}, months = [], mi = 0, sel = null, range = 3;
+  const mq = window.matchMedia('(max-width:719px)');
+  mq.addEventListener('change', () => { if (days.length) drawTrend(); });
   const ymd = (d) => d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
   const today = ymd(new Date());
 
@@ -158,21 +161,22 @@
     let html = '<div class="cell empty"></div>'.repeat(lead);
     for (let i = 1; i <= total; i++) {
       const ds = m + String(i).padStart(2, '0'), d = map[ds], wd = new Date(y, mo - 1, i).getDay();
-      let cls = 'cell', st;
-      if (d) { cls += d.allowOpen ? ' open' : ' blocked'; st = d.allowOpen ? '可开仓' : '暂停开仓'; }
+      let cls = 'cell', st, sh = '';
+      if (d) { cls += d.allowOpen ? ' open' : ' blocked'; st = d.allowOpen ? '可开仓' : '暂停开仓'; sh = d.allowOpen ? '开仓' : '暂停'; }
       else if (ds > today || ds > last0) { cls += ' future'; st = ds > today ? '未到交易日' : '待获取'; }
       else { cls += ' off'; st = (wd === 0 || wd === 6 || (ds >= first0)) ? '非交易日' : '无数据'; }
       if (ds === sel) cls += ' sel';
       html += `<button type="button" class="${cls}" data-d="${ds}" ${d ? '' : 'disabled'} title="${d ? d.regimeLabel : st}">
         <div class="d">${i}</div><div class="s">情绪 ${d ? d.emotionScore.toFixed(1) : '--'}</div>
-        <div class="p">仓位 ${d ? d.suggestedPosition + '%' : '--'}</div><div class="st">${st}</div></button>`;
+        <div class="p">仓位 ${d ? d.suggestedPosition + '%' : '--'}</div><div class="st" data-short="${sh}"><span class="st-f">${st}</span><span class="st-s">${sh}</span></div></button>`;
     }
     $('.grid').innerHTML = html;
     drawTrend();
   }
 
   function drawTrend() {
-    const W = 1000, H = 220, L = 46, R = 42, T = 12, B = 22;
+    const mob = mq.matches, W = mob ? 400 : 1000, H = mob ? 240 : 220, L = mob ? 52 : 46, R = mob ? 48 : 42, T = 12, B = mob ? 26 : 22;
+    $('.chart').setAttribute('viewBox', `0 0 ${W} ${H}`);
     const end = days[days.length - 1].date;
     const ed = new Date(+end.slice(0, 4), +end.slice(4, 6) - 1 - range, +end.slice(6));
     const s = days.filter((d) => d.date > ymd(ed));
@@ -187,7 +191,7 @@
     [lo, (lo + hi) / 2, hi].forEach((v) => { g += `<text x="${L - 4}" y="${yc(v) + 3}" text-anchor="end">${Math.round(v)}</text>`; });
     g += `<path d="${line((d) => yc(d.hs300Close))}" fill="none" stroke="var(--c-blu)" stroke-width="2"/>`;
     g += `<path d="${line((d) => yp(d.suggestedPosition))}" fill="none" stroke="var(--c-amber)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
-    const step = Math.max(1, Math.ceil(s.length / 8));
+    const step = Math.max(1, Math.ceil(s.length / (mob ? 4 : 8)));
     s.forEach((d, i) => {
       const on = d.date === sel;
       g += `<circle cx="${x(i)}" cy="${yc(d.hs300Close)}" r="${on ? 5 : 2.5}" fill="${on ? 'var(--c-amber)' : 'var(--c-blu)'}" data-d="${d.date}" style="cursor:pointer"><title>${d.date} 沪深300 ${d.hs300Close} 仓位 ${d.suggestedPosition}% 情绪 ${d.emotionScore}</title></circle>`;
@@ -226,7 +230,11 @@
   #emo-cal .cell{min-height:58px;padding:4px 3px;font-size:10px;overflow:hidden;min-width:0}
   #emo-cal .d{font-size:14px}
   #emo-cal .s,#emo-cal .p{display:none}
-  #emo-cal .st{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #emo-cal .st{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:clip}
+  #emo-cal .st-f{display:none}
+  #emo-cal .st-s{display:inline}
+  #emo-cal .cell.off .st,#emo-cal .cell.future .st{display:none}
+  #emo-cal svg.chart{height:auto;aspect-ratio:400/240;padding:0}
   #emo-cal .ml{min-width:80px;font-size:13px}
   #emo-cal .trend .th{flex-wrap:wrap;gap:6px}
   #emo-cal svg text{font-size:16px}
