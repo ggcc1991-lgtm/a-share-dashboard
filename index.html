@@ -85,7 +85,7 @@
       try { bottom = await loadJSON("data/bottom.json"); } catch (_) {}
       try { feed = await loadJSON("data/feed.json"); } catch (_) {}
       let policy = null;
-      try { policy = await loadJSON("data/policy.json"); } catch (_) {}
+      try { policy = await loadJSON("policy/snapshot.json"); } catch (_) {}
 
       let flow1 = null, flow5 = null, flow20 = null, etfDate = "—";
       if (etf?.series && etf?.dates?.length) {
@@ -117,7 +117,7 @@
         <span class="sep">|</span>
         <span><span class="k">信息流</span><span class="v">${items.length}</span></span>
         <span class="sep">|</span>
-        <span><span class="k">政策</span><span class="v">${(policy?.items||[]).length}</span></span>
+        <span><span class="k">政策</span><span class="v">${policy?.coverage?.sectorCount ?? "—"}</span></span>
         <span class="sep">|</span>
         <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
       </div>`;
@@ -164,15 +164,18 @@
       }).join("") || `<div class="empty">暂无</div>`;
 
       
-      const pItems = policy?.items || [];
+      const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const highlights = (policy?.brief?.highlights || []).slice(0, 4);
       const polEl = document.getElementById("policyBox");
       if (polEl) {
-        polEl.innerHTML = pItems.slice(0, 5).map((x) =>
-          `<div style="display:flex;gap:8px;padding:4px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
-            <span style="color:var(--bb);min-width:48px">${x.sector||"—"}</span>
-            <span style="flex:1;color:#e8e8e8">${x.title||""}</span>
+        const head = policy?.brief?.headline
+          ? `<div style="font-size:12px;font-weight:700;color:#e8e8e8;padding:2px 0 6px">${esc(policy.brief.headline)}</div>`
+          : "";
+        polEl.innerHTML = head + (highlights.map((x) =>
+          `<div style="padding:4px 0;border-bottom:1px solid #1a1a1a;font-size:12px;color:#c8c8c8">
+            <span style="color:var(--bb);font-weight:650">${esc(x.title || "—")}</span>
           </div>`
-        ).join("") || `<div class="mu">暂无条目</div>`;
+        ).join("") || `<div class="mu">暂无条目</div>`);
       }
 
       const holders = etf?.baseline?.holders || [];
@@ -193,7 +196,9 @@
         <a class="module-link" href="policy/" style="border-top:1px solid var(--bd)"><strong>政策产业</strong><div class="mu" style="font-size:11px;margin-top:4px" id="policyModHint">—</div><div class="go">OPEN</div></a>
         <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底红线</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
       const ph = document.getElementById("policyModHint");
-      if (ph) ph.textContent = `${pItems.length} 条 · ${policy?.updated || "—"}`;
+      if (ph) ph.textContent = policy?.meta
+        ? `${policy.coverage?.sectorCount ?? "—"} 板块 · ${policy.meta.asOf || "—"}`
+        : "—";
     })();
   </script>
 </body>
