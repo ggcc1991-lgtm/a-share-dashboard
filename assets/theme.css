@@ -556,20 +556,14 @@ table.data tr:hover td { background: #1c1c1c; }
     margin-right: 0;
     border-right: 0;
   }
+  /* keep full title — column layout already clears the nav */
   .brand h1 {
-    font-size: 0;
-    line-height: 0;
-    overflow: hidden;
-  }
-  .brand h1::after {
-    content: "GC监控";
     font-size: 13px;
-    font-weight: 700;
     line-height: 40px;
-    letter-spacing: 0.01em;
-    color: var(--tx);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-  .brand h1 span { display: none; }
   .nav {
     flex: 0 0 auto;
     width: 100%;
