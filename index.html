@@ -30,7 +30,7 @@
     <div class="bb-cols" id="mainCols">
       <section>
         <div class="bb-sec"><h2>抄底红线</h2><a class="more" href="bottom/">完整面板 →</a></div>
-        <div class="bb-score" id="bottomBox">加载中…</div>
+        <div class="bb-ind" id="bottomBox">加载中…</div>
       </section>
       <section>
         <div class="bb-sec"><h2>最新要闻</h2><a class="more" href="feed/">全部 →</a></div>
@@ -62,11 +62,18 @@
       if (!r.ok) throw new Error(url);
       return r.json();
     }
-    function band(n) {
-      if (n >= 10) return ["抄底区", "hot"];
-      if (n >= 9) return ["耐心等待", "warn"];
-      if (n >= 6) return ["可考虑分批", "warn"];
+    function band(n, bottom) {
+      const v = bottom?.verdict?.band;
+      if (v?.label) return [v.label, n >= 10 ? "hot" : n >= 6 ? "warn" : ""];
+      if (n >= 10) return ["高度警戒抄底区", "hot"];
+      if (n >= 9) return ["持仓耐心等", "warn"];
+      if (n >= 6) return ["空仓可考虑", "warn"];
       return ["观望", ""];
+    }
+    function fmtIndVal(x) {
+      if (x == null || x === "") return "—";
+      if (typeof x === "number") return DashFmt.num(x, 2);
+      return String(x);
     }
     function clsFlow(v) {
       return v > 0 ? "pos" : v < 0 ? "neg" : "";
@@ -96,7 +103,7 @@
       }
       const trig = bottom?.triggered_count ?? 0;
       const total = bottom?.total ?? 12;
-      const [label, hot] = band(trig);
+      const [label, hot] = band(trig, bottom);
       const items = feed?.items || [];
 
       document.getElementById("strip").innerHTML = `<div class="inner">
@@ -115,22 +122,36 @@
         <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
       </div>`;
 
-      const ladder = Array.from({ length: total }, (_, i) => {
+      const inds = bottom?.indicators || [];
+      const watchN = inds.filter((x) => x.status === "watching").length;
+      const ticks = Array.from({ length: total }, (_, i) => {
         const on = i < trig;
         return `<i class="${on ? (trig >= 10 ? "on" : "soft") : ""}"></i>`;
       }).join("");
+      const sub = bottom?.verdict?.band?.sub || bottom?.verdict?.band?.rule || "";
+      const rows = inds.map((x) => {
+        const on = x.status === "triggered";
+        const unit = x.unit ? ` ${x.unit}` : "";
+        return `<div class="bb-ind-row ${on ? "is-on" : ""}">
+          <span class="dot"></span>
+          <span class="nm" title="${x.name || ""}">${x.name || "—"}</span>
+          <span class="val">${fmtIndVal(x.value)}${unit}</span>
+          <span class="st">${on ? "红线" : "观察"}</span>
+        </div>`;
+      }).join("");
 
       document.getElementById("bottomBox").innerHTML = `
-        <div class="lab">TRIGGERED / ${total}</div>
-        <div class="big ${hot}" id="heroBig" style="font-family:var(--mono);font-size:42px;font-weight:700;margin:8px 0 4px">${trig}</div>
-        <div style="font-size:12px;font-weight:700;color:var(--mu)">${label}</div>
-        <div class="ladder">${ladder}</div>
-        <div class="stat-hint" style="margin-top:10px">${bottom?.generated_at || "—"}</div>
-        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">
-          <span class="chip triggered">触发 ${trig}</span>
-          <span class="chip watching">观察 ${(bottom?.indicators || []).filter(x => x.status === "watching").length}</span>
+        <div class="bb-ind-top">
+          <div class="ratio ${hot}" id="heroBig">${trig}<span style="font-size:13px;color:#666">/${total}</span></div>
+          <div class="band">${label}${sub ? `<small>${sub}</small>` : ""}</div>
+          <div class="ticks">${ticks}</div>
+        </div>
+        <div class="bb-ind-hd"><span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span><span style="text-align:right">状态</span></div>
+        ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}
+        <div class="bb-ind-foot">
+          <span>触发 ${trig} · 观察 ${watchN}</span>
+          <span class="mono">${bottom?.generated_at || bottom?.verdict?.generated_at || "—"}</span>
         </div>`;
-      if (window.DashMotion) DashMotion.countTo(document.getElementById("heroBig"), trig, { duration: 600 });
 
       document.getElementById("feedMeta").textContent = feed?.updated || "";
       const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
@@ -146,7 +167,7 @@
       const pItems = policy?.items || [];
       const polEl = document.getElementById("policyBox");
       if (polEl) {
-        polEl.innerHTML = pItems.slice(0, 5).map(x =>
+        polEl.innerHTML = pItems.slice(0, 5).map((x) =>
           `<div style="display:flex;gap:8px;padding:4px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
             <span style="color:var(--bb);min-width:48px">${x.sector||"—"}</span>
             <span style="flex:1;color:#e8e8e8">${x.title||""}</span>
@@ -172,7 +193,7 @@
         <a class="module-link" href="policy/" style="border-top:1px solid var(--bd)"><strong>政策产业</strong><div class="mu" style="font-size:11px;margin-top:4px" id="policyModHint">—</div><div class="go">OPEN</div></a>
         <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底红线</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
       const ph = document.getElementById("policyModHint");
-      if (ph) ph.textContent = `${pItems.length} 条 · ${(policy&&policy.updated)||""}`;
+      if (ph) ph.textContent = `${pItems.length} 条 · ${policy?.updated || "—"}`;
     })();
   </script>
 </body>
