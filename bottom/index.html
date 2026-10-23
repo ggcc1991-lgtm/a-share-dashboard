@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>抄底红线 · GC的数据监控中心</title>
+<title>抄底信号 · GC的数据监控中心</title>
 <style>
 :root{--bg:#0b0f14;--card:#141b26;--bd:#243044;--tx:#e6edf7;--mu:#8b9bb4;--red:#ff3b4a;--amb:#f5a623;--blu:#4c8dff;--cy:#3dd6c6;--mono:Menlo,Consolas,monospace}
 *{box-sizing:border-box}body{margin:0;font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;background:radial-gradient(1000px 500px at 0 -10%,#1a2740,transparent 60%),var(--bg);color:var(--tx)}
@@ -59,14 +59,14 @@ footer{text-align:center;color:#66788f;font-size:.75rem;margin-top:20px}
         <a href="../" data-match="/">总览</a>
         <a href="../etf/" data-match="/etf">ETF</a>
         <a href="../feed/" data-match="/feed">信息流</a>
-        <a href="./" data-match="/bottom" class="active">抄底</a>
+        <a href="./" data-match="/bottom" class="active">抄底信号</a>
         <a href="../policy/" data-match="/policy">政策产业</a>
       </nav>
     </div>
   </header>
 <div class="wrap">
 <div class="top">
- <div class="panel"><h1 class="page-title" style="border:0;padding:0;margin:0 0 4px">抄底红线</h1><div class="mu" style="margin:2px 0 6px;font-size:13px;opacity:.75">由GC制作</div><div class="mu mono" id="meta"></div><div id="gauge"></div><div class="band" id="band"></div>
+ <div class="panel"><h1 class="page-title" style="border:0;padding:0;margin:0 0 4px">抄底信号</h1><div class="mu" style="margin:2px 0 6px;font-size:13px;opacity:.75">由GC制作</div><div class="mu mono" id="meta"></div><div id="gauge"></div><div class="band" id="band"></div>
  <div class="legend"><span style="color:#8b9bb4">0–5 观望</span><span style="color:#f5a623">6–8 空仓可考虑</span><span style="color:#4c8dff">9 持仓耐心等</span><span style="color:#ff3b4a">10–12 抄底区</span></div></div>
  <div class="panel"><div id="kline" style="height:300px"></div>
  <ul class="strat"><li>红线越多 → 胜率越高；<b>0 根≠见底</b>，强调耐心</li><li><b>空仓</b>：6–8 根开始考虑分批；<b>已有仓位</b>：等向 10 根；作者等约 <b>9</b> 根</li></ul></div>
