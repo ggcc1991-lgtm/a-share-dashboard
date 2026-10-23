@@ -6,7 +6,7 @@
   <title>GC的数据监控中心</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
-<body>
+<body class="page-home">
   <header class="app-header">
     <div class="inner">
       <div class="brand">
@@ -15,68 +15,58 @@
       </div>
       <nav class="nav">
         <a href="./" data-match="/" class="active">总览</a>
-        <a href="etf/" data-match="/etf">ETF 追踪</a>
-        <a href="feed/" data-match="/feed">信息聚合</a>
-        <a href="bottom/" data-match="/bottom">抄底红线</a>
+        <a href="etf/" data-match="/etf">ETF</a>
+        <a href="feed/" data-match="/feed">信息流</a>
+        <a href="bottom/" data-match="/bottom">抄底</a>
       </nav>
       <div class="header-meta" id="clock"></div>
     </div>
   </header>
 
+  <div class="bb-strip" id="strip"></div>
+
   <main class="wrap">
-    <h2 class="page-title">今日总览</h2>
-    <p class="page-sub">ETF · 信息流 · 抄底红线</p>
-
-    <div class="hero">
-      <div class="panel hero-score" id="heroScore">
-        <div class="mu" style="font-size:.75rem">抄底红线触发</div>
-        <div class="big" id="heroBig">—</div>
-        <div class="lbl" id="heroLbl">加载中</div>
-        <div class="ladder" id="heroLadder"></div>
-      </div>
-      <div class="panel">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
-          <strong>最新信息流</strong>
-          <a href="feed/" style="font-size:.8rem">查看全部 →</a>
+    <div class="bb-cols" id="mainCols">
+      <section>
+        <div class="bb-sec"><h2>抄底红线</h2><a class="more" href="bottom/">完整面板 →</a></div>
+        <div class="bb-score" id="bottomBox">加载中…</div>
+      </section>
+      <section>
+        <div class="bb-sec"><h2>最新要闻</h2><a class="more" href="feed/">全部 →</a></div>
+        <div class="bb-list">
+          <div class="hd"><span>HEADLINES</span><span id="feedMeta" class="mu mono"></span></div>
+          <div class="bd headline-list" id="headlines"></div>
         </div>
-        <div class="headline-list" id="headlines" style="margin-top:10px"></div>
-      </div>
+      </section>
+      <section>
+        <div class="bb-sec"><h2>ETF 资金</h2><a class="more" href="etf/">明细 →</a></div>
+        <div class="bb-score" id="etfBox">加载中…</div>
+        <div class="bb-sec" style="margin-top:14px"><h2>模块</h2></div>
+        <div class="bb-list" id="modules"></div>
+      </section>
     </div>
-
-    <div class="grid grid-4" id="kpis" style="margin-bottom:14px"></div>
-    <div class="grid grid-3" id="modules"></div>
   </main>
 
-  <footer class="app-footer">研究用途 · 非投资建议</footer>
+  <footer class="app-footer">RESEARCH ONLY · NOT INVESTMENT ADVICE · GC DATA</footer>
   <script src="assets/shell.js"></script>
   <script>
-    document.getElementById("clock").textContent =
-      new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" }) + " 北京时间";
-
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
+    document.getElementById("clock").textContent =
+      new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" });
 
     async function loadJSON(url) {
       const r = await fetch(url);
-      if (!r.ok) throw new Error(url + " " + r.status);
+      if (!r.ok) throw new Error(url);
       return r.json();
     }
-
     function band(n) {
       if (n >= 10) return ["抄底区", "hot"];
-      if (n >= 9) return ["持仓耐心等", "warn"];
-      if (n >= 6) return ["空仓可考虑", "warn"];
+      if (n >= 9) return ["耐心等待", "warn"];
+      if (n >= 6) return ["可考虑分批", "warn"];
       return ["观望", ""];
     }
-
-    function moduleCard({ href, title, badge, stats, desc }) {
-      return `<a class="card module-link" href="${href}">
-        <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
-          <strong style="font-size:1.05rem">${title}</strong>${badge || ""}
-        </div>
-        <div style="margin-top:10px;display:grid;gap:6px">${stats}</div>
-        <p class="mu" style="margin:10px 0 0;font-size:.8rem">${desc}</p>
-        <div class="go">进入模块 →</div>
-      </a>`;
+    function clsFlow(v) {
+      return v > 0 ? "pos" : v < 0 ? "neg" : "";
     }
 
     (async () => {
@@ -85,72 +75,82 @@
       try { bottom = await loadJSON("data/bottom.json"); } catch (_) {}
       try { feed = await loadJSON("data/feed.json"); } catch (_) {}
 
-      let flowSum = null, etfDate = "—";
+      let flow1 = null, flow5 = null, flow20 = null, etfDate = "—";
       if (etf?.series && etf?.dates?.length) {
-        etfDate = etf.dates.at(-1);
-        const i = etf.dates.length - 1;
-        flowSum = Object.values(etf.series).reduce((s, x) => s + (x.flow?.[i] ?? 0), 0);
+        const dates = etf.dates;
+        etfDate = dates.at(-1);
+        const sumAt = (i) => Object.values(etf.series).reduce((s, x) => s + (x.flow?.[i] ?? 0), 0);
+        const win = (n) => {
+          let s = 0, any = false;
+          for (let i = Math.max(0, dates.length - n); i < dates.length; i++) {
+            const v = sumAt(i); if (v != null) { s += v; any = true; }
+          }
+          return any ? s : null;
+        };
+        flow1 = win(1); flow5 = win(5); flow20 = win(20);
       }
       const trig = bottom?.triggered_count ?? 0;
       const total = bottom?.total ?? 12;
-      const feedItems = feed?.items || [];
-      const [label, cls] = band(trig);
+      const [label, hot] = band(trig);
+      const items = feed?.items || [];
 
-      const big = document.getElementById("heroBig");
-      big.textContent = bottom ? `${trig}/${total}` : "—";
-      big.className = "big " + cls;
-      document.getElementById("heroLbl").textContent = label;
-      document.getElementById("heroLadder").innerHTML = Array.from({ length: total }, (_, i) => {
+      document.getElementById("strip").innerHTML = `<div class="inner">
+        <span><span class="k">红线</span><span class="v ${trig >= 6 ? "pos" : ""}">${trig}/${total}</span></span>
+        <span class="sep">|</span>
+        <span><span class="k">ETF日流入</span><span class="v ${clsFlow(flow1)}">${flow1 == null ? "—" : DashFmt.signed(flow1, 1)}亿</span></span>
+        <span class="sep">|</span>
+        <span><span class="k">5日</span><span class="v ${clsFlow(flow5)}">${flow5 == null ? "—" : DashFmt.signed(flow5, 1)}亿</span></span>
+        <span class="sep">|</span>
+        <span><span class="k">20日</span><span class="v ${clsFlow(flow20)}">${flow20 == null ? "—" : DashFmt.signed(flow20, 1)}亿</span></span>
+        <span class="sep">|</span>
+        <span><span class="k">信息流</span><span class="v">${items.length}</span></span>
+        <span class="sep">|</span>
+        <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
+      </div>`;
+
+      const ladder = Array.from({ length: total }, (_, i) => {
         const on = i < trig;
-        const soft = on && trig < 10 && trig >= 6;
-        return `<i class="${on ? (soft ? "soft" : "on") : ""}">${i + 1}</i>`;
+        return `<i class="${on ? (trig >= 10 ? "on" : "soft") : ""}"></i>`;
       }).join("");
 
-      const topNews = [...feedItems]
-        .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))
-        .slice(0, 5);
-      document.getElementById("headlines").innerHTML = topNews.length
-        ? topNews.map((x) => `<a href="${x.url || "feed/"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>
-            <span class="chip src">${SRC[x.source] || x.source}</span>
-            <span class="t">${x.title}<em>${x.sourceName || ""} · ${DashFmt.time(x.publishedAt)}</em></span>
-          </a>`).join("")
-        : `<div class="empty">暂无信息流</div>`;
+      document.getElementById("bottomBox").innerHTML = `
+        <div class="lab">TRIGGERED / ${total}</div>
+        <div class="big ${hot}" id="heroBig" style="font-family:var(--mono);font-size:42px;font-weight:700;margin:8px 0 4px">${trig}</div>
+        <div style="font-size:12px;font-weight:700;color:var(--mu)">${label}</div>
+        <div class="ladder">${ladder}</div>
+        <div class="stat-hint" style="margin-top:10px">${bottom?.generated_at || "—"}</div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap">
+          <span class="chip triggered">触发 ${trig}</span>
+          <span class="chip watching">观察 ${(bottom?.indicators || []).filter(x => x.status === "watching").length}</span>
+        </div>`;
+      if (window.DashMotion) DashMotion.countTo(document.getElementById("heroBig"), trig, { duration: 600 });
 
-      const bySrc = feedItems.reduce((m, x) => ((m[x.source] = (m[x.source] || 0) + 1), m), {});
-      const srcHint = Object.entries(bySrc).map(([k, v]) => `${SRC[k] || k}${v}`).join(" · ") || "—";
+      document.getElementById("feedMeta").textContent = feed?.updated || "";
+      const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
+      document.getElementById("headlines").innerHTML = top.map((x) => {
+        const t = DashFmt.time(x.publishedAt).slice(11, 16) || "--:--";
+        return `<a href="${x.url || "feed/"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>
+          <span class="mono" style="color:var(--mu-2)">${t}</span>
+          <span class="t">${x.title}<em>${SRC[x.source] || x.source} · ${x.sourceName || ""}</em></span>
+        </a>`;
+      }).join("") || `<div class="empty">暂无</div>`;
 
-      document.getElementById("kpis").innerHTML = `
-        <div class="card"><div class="stat-label">抄底红线</div><div class="stat-value ${cls === "hot" ? "neg" : cls === "warn" ? "amb" : ""}">${trig}<span style="font-size:.9rem;color:var(--mu)"> / ${total}</span></div><div class="stat-hint">${bottom?.generated_at || "—"}</div></div>
-        <div class="card"><div class="stat-label">ETF 合计净流入</div><div class="stat-value ${flowSum > 0 ? "pos" : flowSum < 0 ? "neg" : ""}">${flowSum == null ? "—" : DashFmt.signed(flowSum, 1)}<span style="font-size:.85rem;color:var(--mu)"> 亿</span></div><div class="stat-hint">交易日 ${etfDate}</div></div>
-        <div class="card"><div class="stat-label">信息流条数</div><div class="stat-value blu">${feedItems.length}</div><div class="stat-hint">${feed?.updated || "—"}</div></div>
-        <div class="card"><div class="stat-label">汇金系观察份额</div><div class="stat-value">${etf?.baseline?.holders ? DashFmt.num(etf.baseline.holders.reduce((s, h) => s + (h.shares_yi || 0), 0), 0) : "—"}<span style="font-size:.85rem;color:var(--mu)"> 亿份</span></div><div class="stat-hint">${etf?.baseline?.asof || "基线"}</div></div>`;
+      const holders = etf?.baseline?.holders || [];
+      const holderSum = holders.reduce((s, h) => s + (h.shares_yi || 0), 0);
+      document.getElementById("etfBox").innerHTML = `
+        <div class="lab">NET FLOW · ${etfDate}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+          <div><div class="stat-label">1D</div><div class="stat-value ${clsFlow(flow1)}">${flow1 == null ? "—" : DashFmt.signed(flow1, 1)}</div></div>
+          <div><div class="stat-label">5D</div><div class="stat-value ${clsFlow(flow5)}">${flow5 == null ? "—" : DashFmt.signed(flow5, 1)}</div></div>
+          <div><div class="stat-label">20D</div><div class="stat-value ${clsFlow(flow20)}">${flow20 == null ? "—" : DashFmt.signed(flow20, 1)}</div></div>
+          <div><div class="stat-label">汇金观察</div><div class="stat-value">${holderSum ? DashFmt.num(holderSum, 0) : "—"}</div></div>
+        </div>
+        <div class="stat-hint">${etf?.updated || ""} · 亿</div>`;
 
-      const watching = (bottom?.indicators || []).filter((x) => x.status === "watching").length;
-      document.getElementById("modules").innerHTML = [
-        moduleCard({
-          href: "bottom/",
-          title: "抄底红线",
-          badge: `<span class="chip ${trig >= 6 ? "triggered" : "watching"}">${trig} 根触发</span>`,
-          stats: `<div class="bar"><i style="width:${total ? (trig / total) * 100 : 0}%"></i></div>
-            <div class="mu" style="font-size:.78rem">观察中 ${watching} · ${label}</div>`,
-          desc: "12 条红线面板，统一深色皮肤",
-        }),
-        moduleCard({
-          href: "etf/",
-          title: "ETF 追踪",
-          badge: etf ? `<span class="chip ok">16 只宽基</span>` : `<span class="chip watching">缺数据</span>`,
-          stats: `<div class="mu mono" style="font-size:.85rem">更新 ${etf?.updated || "—"}</div>
-            <div class="mu" style="font-size:.78rem">最新日合计流 ${flowSum == null ? "—" : DashFmt.signed(flowSum, 1) + " 亿"}</div>`,
-          desc: "份额 / 净流入 / 期货净空 / 国家队基线",
-        }),
-        moduleCard({
-          href: "feed/",
-          title: "信息聚合",
-          badge: `<span class="chip ok">${feedItems.length} 条</span>`,
-          stats: `<div class="mu" style="font-size:.78rem">${srcHint}</div>`,
-          desc: "公众号 · X · 星球 · 播客 · 飞书",
-        }),
-      ].join("");
+      document.getElementById("modules").innerHTML = `
+        <a class="module-link" href="etf/"><strong>国家队 ETF</strong><div class="mu" style="font-size:11px;margin-top:4px">${(etf?.etfs || []).length} 只 · ${etf?.dates?.length || 0} 日</div><div class="go">OPEN</div></a>
+        <a class="module-link" href="feed/" style="border-top:1px solid var(--bd)"><strong>信息聚合</strong><div class="mu" style="font-size:11px;margin-top:4px">${items.length} 条增量</div><div class="go">OPEN</div></a>
+        <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底红线</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
     })();
   </script>
 </body>

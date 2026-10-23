@@ -1,14 +1,14 @@
 # GC的数据监控中心（第一版）
 
-统一深色主题的静态站：总览 + ETF + 信息聚合 + 抄底红线。
+Bloomberg 终端风格的静态站：总览 + ETF + 信息流 + 抄底红线。
 
 ## 结构
 
 ```
 /
   index.html               # 总览
-  assets/theme.css         # 共用主题（扁平原文、4px 圆角、发丝边框）
-  assets/bottom-skin.css   # 抄底页覆盖：压平旧面板圆角与霓虹阴影
+  assets/theme.css         # 共用主题（纯黑底、橙色 chrome、直角、密表）
+  assets/bottom-skin.css   # 抄底页覆盖：纯黑底、直角、去掉霓虹阴影
   assets/shell.js          # 导航与格式化
   etf/index.html
   feed/index.html
@@ -21,9 +21,10 @@
 
 ## 主题令牌
 
-- 背景 `#0a0a0b` / 表面 `#111113` / 卡片 `#121214` / 边框 `#2a2a2e`（1px hairline）
-- 涨红 `#e85d5d` / 跌绿 `#3d9a6a` / 琥珀 `#d4a017` / 蓝灰 `#6b8cae`
-- 字体 PingFang SC · 圆角 4px · 无霓虹光晕
+- 背景 `--bg: #000000` / 表面 `#121212` / 边框 `#2b2b2b`
+- 终端 chrome `--bb` / `--accent` / `--cy`：`#ff6400`（只用于导航、分区线、按钮，不表示涨跌）
+- 涨红 `--pos: #ef5350` / 跌绿 `--neg: #26a69a`（A股语义，不改成西方绿涨）
+- 直角 `--r: 0` · 密表 · 总览为三列（抄底红线 / 最新要闻 / ETF 资金）加顶部行情条
 - `/bottom/` 在共用主题之外再链 `assets/bottom-skin.css`
 
 ## 数据对接
@@ -44,10 +45,10 @@ Pages 源：`main` 分支 `/`（与原先一致）。
 
 | 页面 | 路径 |
 |------|------|
-| 总览 | `/` |
-| ETF 追踪 | `/etf/` |
-| 信息聚合 | `/feed/` |
-| 抄底红线 | `/bottom/` |
+| 总览 | `/`（导航：总览 / ETF / 信息流 / 抄底） |
+| ETF | `/etf/` |
+| 信息流 | `/feed/` |
+| 抄底 | `/bottom/` |
 | 原完整抄底面板 | `/legacy/` |
 
 原先单独发布的抄底面板是仓库根目录的 `index.html`，与总览冲突，已原样挪到 `legacy/index.html`。`/bottom/` 的「原完整面板」指向该页。后续若仍有脚本把完整面板刷回根目录 `index.html`，会盖掉总览，应改为写入 `legacy/index.html`。
