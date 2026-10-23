@@ -58,3 +58,35 @@ window.DashFmt = {
     }
   },
 };
+
+
+(function motion() {
+  const header = document.querySelector(".app-header");
+  if (header) {
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+  // re-trigger entrance for nodes injected after load
+  const io = ("IntersectionObserver" in window)
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("dash-inview");
+            io.unobserve(en.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 })
+    : null;
+  const watch = (root) => {
+    if (!io) return;
+    root.querySelectorAll(".card, .panel, .feed-item, .chart, .holder, .headline-list a").forEach((el) => io.observe(el));
+  };
+  watch(document);
+  const mo = new MutationObserver((muts) => {
+    muts.forEach((m) => m.addedNodes.forEach((n) => {
+      if (n.nodeType === 1) watch(n);
+    }));
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
+})();
