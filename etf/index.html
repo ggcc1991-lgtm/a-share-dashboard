@@ -7,16 +7,34 @@
   <link rel="stylesheet" href="../assets/theme.css" />
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
   <style>
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .75rem; }
-    .card .label { color: var(--mu); font-size: .75rem; }
-    .card .value { font-size: 1.15rem; font-weight: 600; margin-top: .2rem; font-family: var(--mono); }
-    .card .value.pos { color: var(--pos); }
-    .card .value.neg { color: var(--neg); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin-bottom: 14px; }
+    .card .k { color: var(--mu); font-size: .75rem; }
+    .card .v { font-size: 1.25rem; font-weight: 700; margin-top: .25rem; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .card .v.pos { color: var(--pos); }
+    .card .v.neg { color: var(--neg); }
+    .card .d { font-size: .72rem; color: var(--mu-2); margin-top: 2px; }
+    .panel { margin-bottom: 14px; }
+    .panel h2 { margin: 0 0 10px; font-size: 1.02rem; font-weight: 650; }
+    .panel h2 small { font-weight: 400; color: var(--mu); font-size: .78rem; margin-left: 8px; }
+    .panel h2 .sel { margin-left: 10px; vertical-align: middle; }
+    .chart { height: 340px; }
+    .chart.sm { height: 300px; }
+    table.data th { cursor: pointer; user-select: none; white-space: nowrap; }
+    table.data th:hover { color: var(--cy); }
+    table.data th.l, table.data td.l { text-align: left; }
+    table.data tbody tr:hover { background: rgba(61,214,198,.04); }
+    table.data tbody tr.sumrow { background: rgba(76,141,255,.06); font-weight: 600; }
+    table.data tfoot td { font-weight: 700; border-top: 2px solid var(--bd); }
     td.pos { color: var(--pos); }
     td.neg { color: var(--neg); }
-    .section-title { margin: .8rem 0 0; font-size: 1.05rem; font-weight: 600; }
-    .section-sub { margin: .2rem 0 .6rem; color: var(--mu); font-size: .85rem; }
-    #futuresBlock { display: none; }
+    .note { font-size: .82rem; color: var(--mu); line-height: 1.75; }
+    .note b { color: var(--tx); }
+    details.method summary {
+      cursor: pointer; color: var(--cy); font-size: .9rem; font-weight: 600; margin-bottom: 8px;
+    }
+    details.method[open] summary { margin-bottom: 10px; }
+    .tbl { overflow-x: auto; }
+    #futPanel, #futTblPanel { display: none; }
   </style>
 </head>
 <body>
@@ -36,219 +54,466 @@
     <h2 class="page-title">宽基 ETF 份额与资金流</h2>
     <p class="page-sub" id="meta">加载 data/etf.json …</p>
     <div id="warnBox" class="warn" style="display:none"></div>
-    <div class="tools">
-      <label class="mu">ETF <select id="etfSelect"></select></label>
-      <button type="button" class="primary" id="btnAll">全部合计资金流</button>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="panel">
+      <h2>每日估算净申赎（监控组合合计）<small>柱：单日净流入(亿元)　线：区间累计</small></h2>
+      <div class="chart" id="chartTotal"></div>
     </div>
-    <div class="cards" id="cards" style="margin-bottom:12px"></div>
-    <div id="chartShares" class="chart"></div>
-    <div id="chartFlow" class="chart" style="margin-top:12px"></div>
-    <div class="panel" style="margin-top:12px;overflow-x:auto">
-      <table class="data">
-        <thead>
-          <tr><th>代码</th><th>名称</th><th>最新份额(亿份)</th><th>当日估算流(亿)</th><th>收盘</th><th>备注</th></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
+
+    <div class="panel">
+      <h2>单只ETF明细
+        <select id="etfSel" class="sel"></select>
+        <small>线：份额(亿份)　柱：当日估算净流入(亿元)</small>
+      </h2>
+      <div class="chart" id="chartOne"></div>
     </div>
-    <div class="panel" id="baselineBlock" style="margin-top:12px;display:none">
-      <strong>国家队观察基线</strong>
-      <p class="mu" id="baseMeta" style="margin:6px 0 10px;font-size:.82rem"></p>
-      <div class="holders" id="holders"></div>
-    </div>
-    <div id="futuresBlock">
-      <h3 class="section-title">股指期货会员持仓（中信期货）</h3>
-      <p class="section-sub" id="futMeta"></p>
-      <div class="cards" id="futCards"></div>
-      <div id="chartFutures" class="chart sm" style="margin-top:12px"></div>
-      <div class="panel" style="margin-top:12px;overflow-x:auto">
-        <table class="data">
-          <thead><tr><th>品种</th><th>合约</th><th>多头</th><th>多头增减</th><th>空头</th><th>空头增减</th><th>净空</th></tr></thead>
-          <tbody id="futBody"></tbody>
+
+    <div class="panel">
+      <h2>最新快照<small>点击表头排序；净流入为全市场申赎估算</small></h2>
+      <div class="tbl">
+        <table class="data" id="tbl">
+          <thead>
+            <tr>
+              <th class="l" data-k="code">代码</th>
+              <th class="l" data-k="name">名称</th>
+              <th class="l" data-k="index">跟踪指数</th>
+              <th data-k="shares">最新份额<br>(亿份)</th>
+              <th data-k="dShares">当日变动<br>(亿份)</th>
+              <th data-k="flow1">当日净流入<br>(亿元)</th>
+              <th data-k="flow5">近5日<br>(亿元)</th>
+              <th data-k="flow20">近20日<br>(亿元)</th>
+              <th data-k="close">最新价</th>
+              <th class="l" data-k="note">国家队持仓备注</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
         </table>
       </div>
     </div>
+
+    <div class="panel" id="futPanel">
+      <h2 id="futTitle">股指期货持仓走势<small>净空头 = 空 − 多（手）；中金所前20会员排名口径</small></h2>
+      <div class="chart sm" id="chartFut"></div>
+    </div>
+
+    <div class="panel" id="futTblPanel">
+      <h2>股指期货最新持仓明细（按合约）<small id="futDate"></small></h2>
+      <div class="tbl">
+        <table class="data" id="futTbl">
+          <thead>
+            <tr>
+              <th class="l">品种</th><th class="l">合约</th>
+              <th>多头持仓(手)</th><th>多头增减</th>
+              <th>空头持仓(手)</th><th>空头增减</th>
+              <th>净空头(手)</th><th>净空头变动</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel" id="basePanel">
+      <h2>官方持仓基准 <small id="baseAsof"></small></h2>
+      <div class="tbl">
+        <table class="data" id="baseTbl">
+          <thead>
+            <tr>
+              <th class="l">机构</th><th>持有ETF数</th><th>持仓份额(亿份)</th>
+              <th>持仓市值(亿元)</th><th>平均持仓占比</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="note" id="baseNote" style="margin-top:8px"></p>
+    </div>
+
+    <div class="panel">
+      <details class="method">
+        <summary>方法论与免责声明</summary>
+        <p class="note">
+          <b>监控范围</b>：依据基金定期报告持有人披露，选取汇金、国新、诚通等机构重仓的 16 只宽基 ETF 作为观察列表。<br>
+          <b>数据来源</b>：份额取自上交所 / 深交所日更披露；价格与成交取自公开行情接口；期货持仓取自中金所每日成交持仓排名。<br>
+          <b>估算口径</b>：当日估算净流入 ≈ 份额变动 × 当日成交均价（优先 VWAP，缺测时用收盘价近似）。份额变动为全市场申赎合计，国家队是主要持有人，但单日变动不能全部归因于国家队，仅作动向参考。<br>
+          <b>期货持仓</b>：提取中信期货席位在 IH / IF / IC / IM 各合约的多空并按品种汇总。该席位常被市场视为机构套保动向的参考窗口；数据为该会员全部客户合计。换月导致近远月迁移属正常，建议看品种合计。<br>
+          <b>官方持仓</b>：确切持仓仅在半年报 / 年报披露，见上方基准表；日度序列为高频代理指标。<br>
+          <b>免责声明</b>：数据仅供学习研究，可能存在误差或延迟，不构成任何投资建议。
+        </p>
+      </details>
+    </div>
   </main>
   <footer class="app-footer">数据相对路径 data/etf.json · 仅供学习研究</footer>
+
   <script src="../assets/shell.js"></script>
   <script>
-    const fmt = (v, d = 4) => (v == null || Number.isNaN(v)) ? "—" : Number(v).toFixed(d);
-    const fmtInt = (v) => (v == null || Number.isNaN(v)) ? "—" : String(Math.round(v));
-    const chartShares = echarts.init(document.getElementById("chartShares"));
-    const chartFlow = echarts.init(document.getElementById("chartFlow"));
-    const chartFutures = echarts.init(document.getElementById("chartFutures"));
-    let DATA = null;
-    const axis = {
-      axisLabel: { color: "#8b9bb4" },
-      axisLine: { lineStyle: { color: "#243044" } },
-      splitLine: { lineStyle: { color: "#1a2332" } },
-    };
+(function () {
+  "use strict";
+  const POS = "#3dd6c6", NEG = "#ff3b4a", BLU = "#4c8dff", AMB = "#f5a623", PUR = "#a78bfa";
+  const axisLabel = { color: "#8b9bb4", fontSize: 11 };
+  const splitLine = { lineStyle: { color: "#1a2332" } };
+  const axisLine = { lineStyle: { color: "#243044" } };
 
-    function renderMeta() {
-      document.getElementById("meta").textContent =
-        `更新：${DATA.updated || "—"}${DATA.sample ? " · sample" : ""} · 交易日 ${DATA.dates?.length || 0} 个`;
-      const w = DATA.warnings || [];
-      const box = document.getElementById("warnBox");
-      if (w.length) { box.style.display = "block"; box.textContent = "告警：" + w.slice(-4).join("； "); }
-    }
-    function fillSelect() {
-      const sel = document.getElementById("etfSelect");
-      sel.innerHTML = "";
-      (DATA.etfs || []).forEach((e) => {
-        const o = document.createElement("option");
-        o.value = e.code; o.textContent = `${e.code} ${e.name}`;
-        sel.appendChild(o);
-      });
-    }
-    function renderTable() {
-      const tb = document.getElementById("tbody");
-      tb.innerHTML = "";
-      const lastIdx = (DATA.dates || []).length - 1;
-      (DATA.etfs || []).forEach((e) => {
-        const s = DATA.series?.[e.code] || {};
-        const fl = s.flow?.[lastIdx];
-        const tr = document.createElement("tr");
-        tr.innerHTML = `<td>${e.code}</td><td>${e.name}</td><td>${fmt(s.shares?.[lastIdx])}</td>
-          <td class="${fl>0?"pos":fl<0?"neg":""}">${fmt(fl)}</td><td>${fmt(s.close?.[lastIdx],3)}</td>
-          <td style="text-align:left;color:var(--mu);font-size:.8rem">${e.gjd_note||""}</td>`;
-        tb.appendChild(tr);
-      });
-    }
-    function renderCards(code) {
-      const dates = DATA.dates || [];
-      const lastIdx = dates.length - 1;
-      const s = DATA.series?.[code] || {};
-      const sh = s.shares?.[lastIdx], fl = s.flow?.[lastIdx], cl = s.close?.[lastIdx];
-      const prev = lastIdx > 0 ? s.shares?.[lastIdx - 1] : null;
-      const dSh = (sh != null && prev != null) ? sh - prev : null;
-      document.getElementById("cards").innerHTML = `
-        <div class="card"><div class="label">交易日</div><div class="value">${dates[lastIdx]||"—"}</div></div>
-        <div class="card"><div class="label">份额(亿份)</div><div class="value">${fmt(sh)}</div></div>
-        <div class="card"><div class="label">Δ份额</div><div class="value ${dSh>0?"pos":dSh<0?"neg":""}">${fmt(dSh)}</div></div>
-        <div class="card"><div class="label">估算资金流(亿)</div><div class="value ${fl>0?"pos":fl<0?"neg":""}">${fmt(fl)}</div></div>
-        <div class="card"><div class="label">收盘</div><div class="value">${fmt(cl,3)}</div></div>`;
-    }
-    function lineOption(title, dates, values, color) {
-      return {
-        backgroundColor: "transparent",
-        title: { text: title, left: 8, top: 6, textStyle: { color: "#e6edf7", fontSize: 13 } },
-        tooltip: { trigger: "axis" },
-        grid: { left: 50, right: 20, top: 40, bottom: 30 },
-        xAxis: { type: "category", data: dates, ...axis },
-        yAxis: { type: "value", scale: true, ...axis },
-        series: [{ type: "line", data: values, showSymbol: dates.length < 40, itemStyle: { color }, lineStyle: { width: 2 }, areaStyle: { color: color + "22" } }],
-      };
-    }
-    function barFlowOption(dates, values) {
-      return {
-        backgroundColor: "transparent",
-        title: { text: "估算资金流（亿元）", left: 8, top: 6, textStyle: { color: "#e6edf7", fontSize: 13 } },
-        tooltip: { trigger: "axis" },
-        grid: { left: 50, right: 20, top: 40, bottom: 30 },
-        xAxis: { type: "category", data: dates, ...axis },
-        yAxis: { type: "value", ...axis },
-        series: [{ type: "bar", data: values.map(v => ({ value: v, itemStyle: { color: v > 0 ? "#3dd6c6" : (v < 0 ? "#ff3b4a" : "#8b9bb4") } })) }],
-      };
-    }
-    function showEtf(code) {
-      const dates = DATA.dates || [];
-      const s = DATA.series?.[code] || { shares: [], flow: [] };
-      renderCards(code);
-      chartShares.setOption(lineOption(`${code} 份额（亿份）`, dates, s.shares || [], "#4c8dff"), true);
-      chartFlow.setOption(barFlowOption(dates, s.flow || []), true);
-    }
-    function showAllFlow() {
-      const dates = DATA.dates || [];
-      const codes = (DATA.etfs || []).map(e => e.code);
-      const total = dates.map((_, i) => {
-        let sum = 0, any = false;
-        codes.forEach(c => { const v = DATA.series?.[c]?.flow?.[i]; if (v != null) { sum += v; any = true; } });
-        return any ? Math.round(sum * 10000) / 10000 : null;
-      });
-      document.getElementById("cards").innerHTML = `
-        <div class="card"><div class="label">模式</div><div class="value">16只合计</div></div>
-        <div class="card"><div class="label">最新合计流(亿)</div><div class="value ${total.at(-1)>0?"pos":total.at(-1)<0?"neg":""}">${fmt(total.at(-1))}</div></div>`;
-      chartShares.setOption(lineOption("合计模式仅展示资金流", dates, dates.map(() => null), "#4c8dff"), true);
-      chartFlow.setOption(barFlowOption(dates, total), true);
+  const $ = (id) => document.getElementById(id);
+  const fmt = (v, d = 1, sign = false) => {
+    if (v == null || Number.isNaN(+v)) return "—";
+    const n = +v;
+    const s = sign && n > 0 ? "+" : "";
+    return s + n.toLocaleString("zh-CN", { minimumFractionDigits: d, maximumFractionDigits: d });
+  };
+  const cls = (v) => (v > 0 ? "pos" : v < 0 ? "neg" : "");
+  const sum = (a) => a.reduce((s, x) => s + (x || 0), 0);
+  const barColor = (v) => ((v || 0) >= 0 ? POS : NEG);
+
+  const charts = [];
+
+  fetch("../data/etf.json?t=" + Date.now())
+    .then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(render)
+    .catch((e) => {
+      $("meta").textContent = "无法加载 data/etf.json — " + e.message;
+    });
+
+  function lastNonNull(arr, from) {
+    for (let i = from; i >= 0; i--) if (arr[i] != null) return { v: arr[i], i };
+    return null;
+  }
+
+  function render(D) {
+    const dates = D.dates || [];
+    const L = dates.length;
+    const codes = (D.etfs || []).map((e) => e.code);
+    $("meta").textContent =
+      `更新：${D.updated || "—"}　|　最新交易日：${dates[L - 1] || "—"}　|　监控 ${codes.length} 只　|　序列 ${L} 个交易日` +
+      (D.sample ? "　· sample" : "");
+
+    const w = D.warnings || [];
+    if (w.length) {
+      $("warnBox").style.display = "block";
+      $("warnBox").textContent = "告警：" + w.slice(-4).join("； ");
     }
 
-    function renderBaseline() {
-      const b = DATA.baseline;
-      const block = document.getElementById("baselineBlock");
-      if (!b || !b.holders || !b.holders.length) { block.style.display = "none"; return; }
-      block.style.display = "block";
-      document.getElementById("baseMeta").textContent = `${b.asof || ""} · ${b.source || ""} · ${b.note || ""}`;
-      document.getElementById("holders").innerHTML = b.holders.map(h => `
-        <div class="holder">
-          <div class="n">${h.name}</div>
-          <div class="s">${DashFmt.num(h.shares_yi, 0)} 亿份</div>
-          <div class="m">${h.etf_count || 0} 只 ETF · 均占比 ${h.avg_pct != null ? h.avg_pct + "%" : "—"}</div>
-        </div>`).join("");
-    }
-    function hasFuturesData(f) {
-      if (!f?.series) return false;
-      return (f.products || []).some(p => (f.series[p]?.net_short || []).some(v => v != null));
-    }
-    function renderFutures() {
-      const f = DATA.futures;
-      const block = document.getElementById("futuresBlock");
-      if (!hasFuturesData(f)) { block.style.display = "none"; return; }
-      block.style.display = "grid"; block.style.gap = "1rem";
-      const lastIdx = (f.dates || []).length - 1;
-      document.getElementById("futMeta").textContent =
-        `会员：${f.member || "—"} · 最新 ${f.latest?.date || f.dates[lastIdx] || "—"}`;
-      const names = f.names || {};
-      document.getElementById("futCards").innerHTML = (f.products || []).map(p => {
-        const ns = f.series?.[p]?.net_short?.[lastIdx];
-        return `<div class="card"><div class="label">${p} ${names[p]||""} 净空</div>
-          <div class="value ${ns>0?"neg":ns<0?"pos":""}">${fmtInt(ns)}</div>
-          <div class="label">多 ${fmtInt(f.series?.[p]?.long?.[lastIdx])} / 空 ${fmtInt(f.series?.[p]?.short?.[lastIdx])}</div></div>`;
-      }).join("");
-      const colors = { IH: "#4c8dff", IF: "#3dd6c6", IC: "#f5a623", IM: "#a78bfa" };
-      chartFutures.setOption({
-        backgroundColor: "transparent",
-        title: { text: "净空头寸（手）", left: 8, top: 6, textStyle: { color: "#e6edf7", fontSize: 13 } },
-        tooltip: { trigger: "axis" },
-        legend: { data: f.products, top: 28, textStyle: { color: "#8b9bb4" } },
-        grid: { left: 55, right: 20, top: 60, bottom: 30 },
-        xAxis: { type: "category", data: f.dates, ...axis },
-        yAxis: { type: "value", ...axis },
-        series: (f.products || []).map(p => ({
-          name: p, type: "line", showSymbol: (f.dates || []).length < 40,
-          data: f.series?.[p]?.net_short || [], itemStyle: { color: colors[p] }, lineStyle: { width: 2 },
-        })),
-      }, true);
-      const tb = document.getElementById("futBody"); tb.innerHTML = "";
-      const contracts = f.latest?.contracts || {};
-      (f.products || []).forEach(p => {
-        (contracts[p] || []).forEach(row => {
-          const [code, L, Lch, S, Sch] = row;
-          const net = (S != null && L != null) ? (S - L) : null;
-          const tr = document.createElement("tr");
-          tr.innerHTML = `<td>${p}</td><td>${code}</td><td>${fmtInt(L)}</td><td>${fmtInt(Lch)}</td>
-            <td>${fmtInt(S)}</td><td>${fmtInt(Sch)}</td><td class="${net>0?"neg":net<0?"pos":""}">${fmtInt(net)}</td>`;
-          tb.appendChild(tr);
-        });
+    const totalFlow = dates.map((_, i) => {
+      let s = 0, any = false;
+      codes.forEach((c) => {
+        const v = D.series?.[c]?.flow?.[i];
+        if (v != null) { s += v; any = true; }
       });
+      return any ? +s.toFixed(4) : null;
+    });
+    const cumFlow = [];
+    totalFlow.reduce((acc, v, i) => {
+      const next = acc + (v || 0);
+      cumFlow[i] = +next.toFixed(2);
+      return next;
+    }, 0);
+
+    const rows = (D.etfs || []).map((e) => {
+      const s = D.series?.[e.code] || { shares: [], flow: [], close: [] };
+      const ls = lastNonNull(s.shares || [], L - 1);
+      const ps = ls ? lastNonNull(s.shares || [], ls.i - 1) : null;
+      const lc = lastNonNull(s.close || [], L - 1);
+      return {
+        code: e.code,
+        name: e.name,
+        full: e.full || e.name,
+        index: e.index || "",
+        note: e.gjd_note || "",
+        shares: ls ? ls.v : null,
+        dShares: ls && ps ? +(ls.v - ps.v).toFixed(4) : null,
+        flow1: s.flow?.[L - 1] ?? null,
+        flow5: +sum((s.flow || []).slice(-5)).toFixed(2),
+        flow20: +sum((s.flow || []).slice(-20)).toFixed(2),
+        close: lc ? lc.v : null,
+      };
+    });
+
+    const scale = sum(rows.map((r) => (r.shares != null && r.close != null ? r.shares * r.close : 0)));
+    const cardItems = [
+      ["当日估算净流入", fmt(totalFlow[L - 1], 1, true) + " 亿元", dates[L - 1] || "—", totalFlow[L - 1]],
+      ["近5日累计", fmt(sum(totalFlow.slice(-5)), 1, true) + " 亿元", "估算净申赎", sum(totalFlow.slice(-5))],
+      ["近20日累计", fmt(sum(totalFlow.slice(-20)), 1, true) + " 亿元", "估算净申赎", sum(totalFlow.slice(-20))],
+      ["监控组合规模", fmt(scale, 0) + " 亿元", fmt(sum(rows.map((r) => r.shares || 0)), 0) + " 亿份", 0],
+    ];
+    $("cards").innerHTML = cardItems
+      .map(
+        (c) =>
+          `<div class="card"><div class="k">${c[0]}</div><div class="v ${cls(c[3])}">${c[1]}</div><div class="d">${c[2]}</div></div>`
+      )
+      .join("");
+
+    // Chart A: total flow + cumulative
+    const ch1 = echarts.init($("chartTotal"));
+    charts.push(ch1);
+    ch1.setOption({
+      backgroundColor: "transparent",
+      tooltip: {
+        trigger: "axis",
+        axisPointer: { type: "cross" },
+        valueFormatter: (v) => fmt(v, 1, true) + " 亿元",
+      },
+      legend: { data: ["单日净流入", "累计净流入"], top: 0, textStyle: { color: "#8b9bb4" } },
+      grid: { left: 10, right: 10, top: 36, bottom: 50, containLabel: true },
+      xAxis: { type: "category", data: dates, axisLabel, axisLine },
+      yAxis: [
+        { type: "value", name: "亿元", nameTextStyle: { color: "#8b9bb4" }, axisLabel, splitLine, axisLine },
+        { type: "value", name: "累计", nameTextStyle: { color: "#8b9bb4" }, axisLabel, splitLine: { show: false }, axisLine },
+      ],
+      dataZoom: [
+        { type: "inside" },
+        { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+      ],
+      series: [
+        {
+          name: "单日净流入",
+          type: "bar",
+          data: totalFlow.map((v) => ({ value: v, itemStyle: { color: barColor(v) } })),
+        },
+        {
+          name: "累计净流入",
+          type: "line",
+          yAxisIndex: 1,
+          data: cumFlow,
+          symbol: "none",
+          lineStyle: { color: BLU, width: 2 },
+          itemStyle: { color: BLU },
+        },
+      ],
+    });
+
+    // Chart B: single ETF
+    $("etfSel").innerHTML = (D.etfs || [])
+      .map((e) => `<option value="${e.code}">${e.code} ${e.full || e.name}</option>`)
+      .join("");
+    const ch2 = echarts.init($("chartOne"));
+    charts.push(ch2);
+    function drawOne(code) {
+      const s = D.series?.[code] || { shares: [], flow: [] };
+      ch2.setOption(
+        {
+          backgroundColor: "transparent",
+          tooltip: { trigger: "axis", axisPointer: { type: "cross" } },
+          legend: { data: ["份额(亿份)", "净流入(亿元)"], top: 0, textStyle: { color: "#8b9bb4" } },
+          grid: { left: 10, right: 10, top: 36, bottom: 50, containLabel: true },
+          xAxis: { type: "category", data: dates, axisLabel, axisLine },
+          yAxis: [
+            { type: "value", name: "亿份", scale: true, nameTextStyle: { color: "#8b9bb4" }, axisLabel, splitLine, axisLine },
+            { type: "value", name: "亿元", nameTextStyle: { color: "#8b9bb4" }, axisLabel, splitLine: { show: false }, axisLine },
+          ],
+          dataZoom: [
+            { type: "inside" },
+            { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+          ],
+          series: [
+            {
+              name: "份额(亿份)",
+              type: "line",
+              data: s.shares || [],
+              symbol: "none",
+              connectNulls: true,
+              lineStyle: { color: BLU, width: 2 },
+              itemStyle: { color: BLU },
+              areaStyle: { color: "rgba(76,141,255,.10)" },
+            },
+            {
+              name: "净流入(亿元)",
+              type: "bar",
+              yAxisIndex: 1,
+              data: (s.flow || []).map((v) => ({ value: v, itemStyle: { color: barColor(v) } })),
+            },
+          ],
+        },
+        true
+      );
     }
-    async function main() {
-      try {
-        const res = await fetch("../data/etf.json?_=" + Date.now());
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        DATA = await res.json();
-      } catch (e) {
-        document.getElementById("meta").textContent = "无法加载 data/etf.json — " + e;
-        return;
+    if (codes[0]) drawOne(codes[0]);
+    $("etfSel").onchange = (e) => drawOne(e.target.value);
+
+    // Snapshot table
+    let sortK = "flow1",
+      asc = false;
+    function drawTable() {
+      const rs = [...rows].sort((a, b) => {
+        let x = a[sortK],
+          y = b[sortK];
+        if (typeof x === "string") return asc ? x.localeCompare(y, "zh") : y.localeCompare(x, "zh");
+        x = x == null ? -Infinity : x;
+        y = y == null ? -Infinity : y;
+        return asc ? x - y : y - x;
+      });
+      $("tbl").querySelector("tbody").innerHTML = rs
+        .map(
+          (r) =>
+            `<tr>
+          <td class="l">${r.code}</td>
+          <td class="l" title="${r.full}">${r.full}</td>
+          <td class="l">${r.index}</td>
+          <td>${fmt(r.shares, 2)}</td>
+          <td class="${cls(r.dShares)}">${fmt(r.dShares, 2, true)}</td>
+          <td class="${cls(r.flow1)}">${fmt(r.flow1, 1, true)}</td>
+          <td class="${cls(r.flow5)}">${fmt(r.flow5, 1, true)}</td>
+          <td class="${cls(r.flow20)}">${fmt(r.flow20, 1, true)}</td>
+          <td>${fmt(r.close, 3)}</td>
+          <td class="l" style="max-width:260px;white-space:normal;font-size:.78rem;color:var(--mu)">${r.note}</td>
+        </tr>`
+        )
+        .join("");
+      const sumShares = sum(rows.map((r) => r.shares || 0));
+      const sumD = sum(rows.map((r) => r.dShares || 0));
+      const f5 = sum(totalFlow.slice(-5));
+      const f20 = sum(totalFlow.slice(-20));
+      $("tbl").querySelector("tfoot").innerHTML = `<tr>
+        <td class="l" colspan="3">合计</td>
+        <td>${fmt(sumShares, 0)}</td>
+        <td class="${cls(sumD)}">${fmt(sumD, 1, true)}</td>
+        <td class="${cls(totalFlow[L - 1])}">${fmt(totalFlow[L - 1], 1, true)}</td>
+        <td class="${cls(f5)}">${fmt(f5, 1, true)}</td>
+        <td class="${cls(f20)}">${fmt(f20, 1, true)}</td>
+        <td></td><td></td>
+      </tr>`;
+    }
+    drawTable();
+    $("tbl").querySelectorAll("th").forEach((th) => {
+      th.onclick = () => {
+        const k = th.dataset.k;
+        if (!k) return;
+        asc = k === sortK ? !asc : false;
+        sortK = k;
+        drawTable();
+      };
+    });
+
+    // Futures
+    const F = D.futures;
+    if (F && F.latest && F.latest.date && F.series) {
+      $("futPanel").style.display = "";
+      $("futTblPanel").style.display = "";
+      const member = F.member || "中信期货";
+      $("futTitle").childNodes[0].textContent = member + "股指期货持仓走势";
+      if (F.latest.date && F.latest.date !== dates[L - 1]) {
+        $("meta").textContent += `（期货已更新至 ${F.latest.date}）`;
       }
-      renderMeta(); fillSelect(); renderTable(); renderBaseline(); renderFutures();
+      const fdates = F.dates && F.dates.length ? F.dates : dates;
+      const colors = { IH: PUR, IF: BLU, IC: AMB, IM: POS };
+      const chF = echarts.init($("chartFut"));
+      charts.push(chF);
+      chF.setOption({
+        backgroundColor: "transparent",
+        tooltip: {
+          trigger: "axis",
+          valueFormatter: (v) => (v == null ? "—" : Math.round(v).toLocaleString("zh-CN") + " 手"),
+        },
+        legend: {
+          data: (F.products || []).map((p) => p + " " + ((F.names && F.names[p]) || "")),
+          top: 0,
+          textStyle: { color: "#8b9bb4" },
+        },
+        grid: { left: 10, right: 10, top: 36, bottom: 50, containLabel: true },
+        xAxis: { type: "category", data: fdates, axisLabel, axisLine },
+        yAxis: {
+          type: "value",
+          name: "净空头(手)",
+          nameTextStyle: { color: "#8b9bb4" },
+          axisLabel,
+          splitLine,
+          axisLine,
+        },
+        dataZoom: [
+          { type: "inside" },
+          { type: "slider", height: 18, bottom: 8, borderColor: "#243044", fillerColor: "rgba(61,214,198,.15)", handleStyle: { color: POS } },
+        ],
+        series: (F.products || []).map((p) => ({
+          name: p + " " + ((F.names && F.names[p]) || ""),
+          type: "line",
+          symbol: "none",
+          connectNulls: true,
+          lineStyle: { width: 2, color: colors[p] || BLU },
+          itemStyle: { color: colors[p] || BLU },
+          data: (F.series[p] && F.series[p].net_short) || [],
+        })),
+      });
 
-      const sel = document.getElementById("etfSelect");
-      showEtf(sel.value);
-      sel.addEventListener("change", () => showEtf(sel.value));
-      document.getElementById("btnAll").addEventListener("click", showAllFlow);
-      window.addEventListener("resize", () => { chartShares.resize(); chartFlow.resize(); chartFutures.resize(); });
+      $("futDate").textContent =
+        `交易日 ${F.latest.date}　·　会员：${member}　·　多空为该会员全部客户合计`;
+
+      let fhtml = "";
+      let sumRow = [0, 0, 0, 0];
+      (F.products || []).forEach((p) => {
+        const cs = (F.latest.contracts && F.latest.contracts[p]) || [];
+        if (!cs.length) return;
+        let sub = [0, 0, 0, 0];
+        cs.forEach((c) => {
+          const Lh = c[1] || 0,
+            Lch = c[2] || 0,
+            Sh = c[3] || 0,
+            Sch = c[4] || 0;
+          sub[0] += Lh;
+          sub[1] += Lch;
+          sub[2] += Sh;
+          sub[3] += Sch;
+          fhtml += `<tr>
+            <td class="l">${p}</td><td class="l">${c[0]}</td>
+            <td>${Lh.toLocaleString("zh-CN")}</td>
+            <td class="${cls(Lch)}">${fmt(Lch, 0, true)}</td>
+            <td>${Sh.toLocaleString("zh-CN")}</td>
+            <td class="${cls(Sch)}">${fmt(Sch, 0, true)}</td>
+            <td>${(Sh - Lh).toLocaleString("zh-CN")}</td>
+            <td class="${cls(Sch - Lch)}">${fmt(Sch - Lch, 0, true)}</td>
+          </tr>`;
+        });
+        sumRow = sumRow.map((v, i) => v + sub[i]);
+        const nm = (F.names && F.names[p]) || "";
+        fhtml += `<tr class="sumrow">
+          <td class="l">${p} ${nm}</td><td class="l">小计</td>
+          <td>${sub[0].toLocaleString("zh-CN")}</td>
+          <td class="${cls(sub[1])}">${fmt(sub[1], 0, true)}</td>
+          <td>${sub[2].toLocaleString("zh-CN")}</td>
+          <td class="${cls(sub[3])}">${fmt(sub[3], 0, true)}</td>
+          <td>${(sub[2] - sub[0]).toLocaleString("zh-CN")}</td>
+          <td class="${cls(sub[3] - sub[1])}">${fmt(sub[3] - sub[1], 0, true)}</td>
+        </tr>`;
+      });
+      $("futTbl").querySelector("tbody").innerHTML = fhtml;
+
+      const netChg = sumRow[3] - sumRow[1];
+      $("cards").insertAdjacentHTML(
+        "beforeend",
+        `<div class="card"><div class="k">${member}净空头变动</div><div class="v ${cls(netChg)}">${fmt(netChg, 0, true)} 手</div><div class="d">${F.latest.date} 四品种合计</div></div>`
+      );
     }
-    main();
+
+    // Baseline holders
+    const B = D.baseline;
+    if (B && B.holders && B.holders.length) {
+      $("baseAsof").textContent = `${B.asof || ""}　来源：${B.source || ""}`;
+      $("baseTbl").querySelector("tbody").innerHTML =
+        B.holders
+          .map(
+            (h) => `<tr>
+          <td class="l">${h.name}</td>
+          <td>${h.etf_count ?? "—"}</td>
+          <td>${fmt(h.shares_yi, 0)}</td>
+          <td>${fmt(h.value_yi, 0)}</td>
+          <td>${h.avg_pct != null ? fmt(h.avg_pct, 1) + "%" : "—"}</td>
+        </tr>`
+          )
+          .join("") +
+        `<tr><td class="l"><b>合计</b></td><td></td><td></td><td><b>${fmt(B.total_value_yi, 0)}</b></td><td></td></tr>`;
+      $("baseNote").textContent =
+        (B.note || "") + " 确切持仓随基金半年报 / 年报披露；日度数据为高频代理。";
+    } else {
+      $("basePanel").style.display = "none";
+    }
+
+    window.addEventListener("resize", () => charts.forEach((c) => c.resize()));
+  }
+})();
   </script>
 </body>
 </html>
