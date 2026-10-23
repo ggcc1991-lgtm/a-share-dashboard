@@ -1,20 +1,53 @@
-body {
-  background: #000 !important;
-  font-family: "PingFang SC", "Helvetica Neue", Arial, "Noto Sans SC", sans-serif !important;
+/* 抄底完整面板 · 对齐彭博壳（覆盖内联蓝灰主题） */
+:root {
+  --bg: #000000 !important;
+  --card: #0a0a0a !important;
+  --bd: #2b2b2b !important;
+  --tx: #e8e8e8 !important;
+  --mu: #a0a0a0 !important;
+  --red: #ef5350 !important;
+  --amb: #ffa028 !important;
+  --blu: #64b5f6 !important;
+  --cy: #ffa028 !important;
 }
-.wrap { max-width: 1280px !important; }
-.panel, .card {
+html, body {
+  background: #000 !important;
+  background-image: none !important;
+  color: #e8e8e8 !important;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif !important;
+}
+body > .wrap { max-width: 1280px !important; padding-top: 12px !important; }
+.panel, .card, .verdict, .box, .modal, .drawer {
   border-radius: 0 !important;
   box-shadow: none !important;
-  background: #121212 !important;
+  background: #0a0a0a !important;
+  background-image: none !important;
   border-color: #2b2b2b !important;
 }
-.panel { background: #121212 !important; background-image: none !important; }
+.panel { border: 1px solid #2b2b2b !important; }
 .card.triggered {
   box-shadow: none !important;
   border-color: #5a2020 !important;
-  background: #140c0c !important;
+  background: #120a0a !important;
 }
-button { border-radius: 0 !important; }
-.chip { border-radius: 0 !important; }
-.app-header { border-bottom-color: #2b2b2b !important; }
+h1 { font-size: 16px !important; font-weight: 800 !important; letter-spacing: 0.04em !important; color: #ffa028 !important; }
+h1 b { color: #ef5350 !important; }
+.mu { color: #a0a0a0 !important; }
+button {
+  border-radius: 0 !important;
+  background: #121212 !important;
+  border-color: #2b2b2b !important;
+  color: #e8e8e8 !important;
+}
+button:hover { border-color: #ffa028 !important; }
+.legend span, .chip, .tag {
+  border-radius: 0 !important;
+  background: #121212 !important;
+}
+/* kill soft SaaS pills / glow */
+[style*="border-radius:14px"],
+[style*="border-radius: 14px"],
+[style*="border-radius:99px"] {
+  border-radius: 0 !important;
+}
+.app-header + .wrap h1 { margin-top: 4px; }
