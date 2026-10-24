@@ -352,8 +352,7 @@
       $("meta").hidden = false;
       $("meta").innerHTML = `
         <span>节奏 <b>${rf.cadence || "每个交易日盘后 1 次"}</b></span>
-        <span>窗口 <b>${rf.targetTime || "约 16:30–23:00"}</b></span>
-        <span>说明 <b>${rf.note || "无新交易日可不重推"}</b></span>`;
+        <span>窗口 <b>${rf.targetTime || "约 16:30–23:00"}</b></span>`;
       fillFilters(rows);
       bind();
       renderAll();
