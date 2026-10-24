@@ -10,7 +10,7 @@
       const u = new URL(href, location.href);
       const p = u.pathname.replace(/\/+$/, "") || "/";
       if (p === path || (m !== "/" && path.endsWith(m))) a.classList.add("active");
-      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/sentiment")) {
+      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/sentiment") && !path.includes("/momentum")) {
         a.classList.add("active");
       }
     } catch (_) {}
@@ -196,7 +196,7 @@ window.DashMotion = {
     const panel = dd.querySelector(".nav-dd-panel");
     if (!btn || !panel) return;
     const items = Array.from(panel.querySelectorAll("a"));
-    if (/\/(etf|sentiment)(\/|$|\/index\.html)/.test(path)) btn.classList.add("active");
+    if (/\/(etf|sentiment|momentum)(\/|$|\/index\.html)/.test(path)) btn.classList.add("active");
     items.forEach((a) => {
       try {
         const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");

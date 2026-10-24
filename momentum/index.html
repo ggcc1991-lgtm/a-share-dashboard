@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>动量排名 · GC的数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <style>
+    .page-title .title-note{font-weight:500;font-size:.72em;color:var(--mu);margin-left:.15em}
+    .mom-meta{display:flex;flex-wrap:wrap;gap:8px 14px;font:11px/1.4 var(--mono);color:var(--mu-2);margin:0 0 12px}
+    .mom-meta b{color:var(--tx);font-weight:600}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+    .filters label{font-size:12px;color:var(--mu);display:inline-flex;align-items:center;gap:4px}
+    .filters select,.filters input[type=search]{
+      font:12px/1.3 var(--sans);color:var(--tx);background:#000;border:1px solid var(--bd);
+      border-radius:0;padding:5px 8px;min-width:0
+    }
+    .filters input[type=search]{flex:1 1 160px;max-width:280px}
+    .filters select:focus,.filters input:focus{outline:1px solid var(--bb)}
+    .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    table.data th,table.data td{text-align:right}
+    table.data th.l,table.data td.l,table.data th:first-child,table.data td:first-child{text-align:left}
+    table.data th.c,table.data td.c{text-align:center}
+    table.data .rk{color:var(--bb);font-weight:700}
+    table.data .code{color:var(--mu)}
+    table.data .name{color:var(--tx);font-family:var(--sans);font-weight:600;max-width:9em;overflow:hidden;text-overflow:ellipsis}
+    table.data .grp{color:var(--mu-2);font-family:var(--sans);font-size:11px}
+    table.data .up{color:var(--pos)}
+    table.data .dn{color:var(--neg)}
+    .tier{
+      display:inline-block;min-width:2.4em;padding:1px 6px;border:1px solid var(--bd);
+      font:700 10px/1.4 var(--mono);letter-spacing:.04em;color:var(--mu);text-align:center
+    }
+    .tier.p10,.tier.p9{color:#000;background:var(--bb);border-color:var(--bb)}
+    .tier.p8,.tier.p7{color:var(--bb);border-color:var(--bb)}
+    .heat-wrap{margin-top:18px}
+    .heat-wrap h2{margin:0 0 8px;font-size:13px;color:var(--bb);letter-spacing:.04em}
+    .heat-note{font-size:11px;color:var(--mu-2);margin:0 0 10px}
+    .heat{
+      display:grid;gap:2px;
+      grid-template-columns:minmax(4.5em,7em) repeat(10,minmax(18px,1fr));
+      font:10px/1 var(--mono);align-items:stretch
+    }
+    .heat .lab{color:var(--mu);padding:4px 6px 4px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;align-self:center}
+    .heat .hd{color:var(--mu-3);text-align:center;padding:2px 0 6px;letter-spacing:-.02em}
+    .heat .cell{
+      min-height:22px;display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.55)
+    }
+    .heat .cell:hover{outline:1px solid var(--bb);z-index:1}
+    @media (max-width:719px){
+      .filters{gap:6px}
+      .filters select{flex:1 1 120px}
+      table.data .name{max-width:6.5em}
+      .heat{grid-template-columns:minmax(3.5em,5.5em) repeat(10,minmax(14px,1fr));font-size:9px}
+      .heat .cell{min-height:18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <div class="nav-dd" data-match="/etf">
+          <button type="button" class="nav-dd-btn active" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-etf">ETF<span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dd-panel" id="nav-dd-etf" role="menu" aria-label="ETF">
+            <a href="../etf/" role="menuitem">国家队ETF追踪</a>
+            <a href="../sentiment/" role="menuitem">ETF情绪看板</a>
+            <a href="../momentum/" role="menuitem">动量排名</a>
+          </div>
+        </div>
+        <a href="../feed/" data-match="/feed">信息流</a>
+        <a href="../bottom/" data-match="/bottom">抄底信号</a>
+        <a href="../policy/" data-match="/policy">政策产业</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 class="page-title">动量排名<span class="title-note" id="metricNote">（20日斜率动量）</span></h2>
+    <p class="page-sub" id="sum">加载 data/momentum.json …</p>
+    <div class="mom-meta" id="meta" hidden></div>
+
+    <div class="filters">
+      <label>分组
+        <select id="groupSel"><option value="">全部</option></select>
+      </label>
+      <label>分位
+        <select id="tierSel"><option value="">全部</option></select>
+      </label>
+      <input type="search" id="q" placeholder="代码 / 名称" autocomplete="off" />
+    </div>
+
+    <div class="panel">
+      <div class="tw">
+        <table class="data" id="tbl">
+          <thead>
+            <tr>
+              <th class="c">#</th>
+              <th class="l">代码</th>
+              <th class="l">名称</th>
+              <th class="l">分组</th>
+              <th>收盘</th>
+              <th>动量</th>
+              <th class="c">分位</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="heat-wrap panel" id="heatBox" hidden>
+      <h2>近 10 日动量热力 · 前 20</h2>
+      <p class="heat-note">色深按当日截面排名（越靠前越暖）；格子数字为排名。</p>
+      <div class="heat" id="heat"></div>
+    </div>
+  </main>
+  <script src="../assets/shell.js"></script>
+  <script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  let DATA = null;
+  let rows = [];
+
+  function fmtNum(v, d) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d });
+  }
+  function fmtMom(v) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    const n = +v;
+    const s = n > 0 ? "+" : "";
+    return s + n.toLocaleString("zh-CN", { maximumFractionDigits: 4, minimumFractionDigits: 2 });
+  }
+  function momClass(v) {
+    if (v == null || Number.isNaN(+v) || +v === 0) return "";
+    return +v > 0 ? "up" : "dn";
+  }
+
+  function fillFilters(list) {
+    const groups = [...new Set(list.map((x) => x.group).filter(Boolean))].sort();
+    const tiers = [...new Set(list.map((x) => x.tier).filter(Boolean))].sort((a, b) => {
+      const na = +String(a).replace(/\D/g, "") || 0;
+      const nb = +String(b).replace(/\D/g, "") || 0;
+      return nb - na;
+    });
+    const gs = $("groupSel"), ts = $("tierSel");
+    groups.forEach((g) => {
+      const o = document.createElement("option");
+      o.value = g; o.textContent = g; gs.appendChild(o);
+    });
+    tiers.forEach((t) => {
+      const o = document.createElement("option");
+      o.value = t; o.textContent = t; ts.appendChild(o);
+    });
+  }
+
+  function filtered() {
+    const g = $("groupSel").value;
+    const t = $("tierSel").value;
+    const q = ($("q").value || "").trim().toLowerCase();
+    return rows.filter((x) => {
+      if (g && x.group !== g) return false;
+      if (t && x.tier !== t) return false;
+      if (q) {
+        const hay = `${x.code || ""} ${x.name || ""}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+
+  function renderTable() {
+    const list = filtered();
+    $("tbody").innerHTML = list.map((x) => {
+      const tier = (x.tier || "").toLowerCase();
+      return `<tr>
+        <td class="c rk">${x.rank ?? "—"}</td>
+        <td class="l code">${x.code || "—"}</td>
+        <td class="l name" title="${x.name || ""}">${x.name || "—"}</td>
+        <td class="l grp">${x.group || "—"}</td>
+        <td>${fmtNum(x.close, 3)}</td>
+        <td class="${momClass(x.momentum)}">${fmtMom(x.momentum)}</td>
+        <td class="c"><span class="tier ${tier}">${x.tier || "—"}</span></td>
+      </tr>`;
+    }).join("") || `<tr><td colspan="7" class="l" style="color:var(--mu)">无匹配结果</td></tr>`;
+  }
+
+  function heatColor(rank, n) {
+    if (rank == null || n < 1) return "#1a1a1a";
+    // warmer (amber→red) for better ranks (smaller number)
+    const t = 1 - Math.min(1, Math.max(0, (rank - 1) / Math.max(1, n - 1)));
+    const r = Math.round(40 + t * 215);
+    const g = Math.round(28 + t * 100);
+    const b = Math.round(20 + (1 - t) * 40);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function renderHeat() {
+    const heat = DATA.heat || [];
+    const dates = DATA.recentDates || [];
+    if (!heat.length || !dates.length) return;
+    const byCode = Object.fromEntries(heat.map((h) => [h.code, h]));
+    const top = [...rows].sort((a, b) => (a.rank || 99) - (b.rank || 99)).slice(0, 20);
+    const pool = DATA.poolSize || rows.length || 50;
+    const head = `<div class="lab"></div>` + dates.map((d) => {
+      const short = String(d).slice(5);
+      return `<div class="hd">${short}</div>`;
+    }).join("");
+    const body = top.map((r) => {
+      const series = (byCode[r.code] && byCode[r.code].series) || [];
+      const byDate = Object.fromEntries(series.map((s) => [s.date, s]));
+      const cells = dates.map((d) => {
+        const s = byDate[d];
+        const rk = s && s.rank != null ? s.rank : null;
+        const bg = heatColor(rk, pool);
+        const tip = s ? `${r.name} · ${d} · 动量 ${fmtMom(s.momentum)} · 排名 ${rk}` : `${r.name} · ${d}`;
+        return `<div class="cell" style="background:${bg}" title="${tip}">${rk != null ? rk : ""}</div>`;
+      }).join("");
+      return `<div class="lab" title="${r.name}">${r.name || r.code}</div>${cells}`;
+    }).join("");
+    $("heat").innerHTML = head + body;
+    $("heatBox").hidden = false;
+  }
+
+  function bind() {
+    ["groupSel", "tierSel", "q"].forEach((id) => {
+      $(id).addEventListener("input", renderTable);
+      $(id).addEventListener("change", renderTable);
+    });
+  }
+
+  fetch("data/momentum.json", { cache: "no-store" })
+    .then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then((d) => {
+      DATA = d;
+      rows = Array.isArray(d.ranking) ? d.ranking.slice() : [];
+      rows.sort((a, b) => (a.rank || 999) - (b.rank || 999));
+      $("metricNote").textContent = `（${d.metric || "20日斜率动量"}）`;
+      $("sum").textContent = `交易日 ${d.tradeDate || "—"} · 池 ${d.poolSize || rows.length} · 更新 ${d.updatedAt || "—"}`;
+      const rf = d.refresh || {};
+      $("meta").hidden = false;
+      $("meta").innerHTML = `
+        <span>节奏 <b>${rf.cadence || "每个交易日盘后 1 次"}</b></span>
+        <span>窗口 <b>${rf.targetTime || "约 16:30–23:00"}</b></span>
+        <span>说明 <b>${rf.note || "无新交易日可不重推"}</b></span>`;
+      fillFilters(rows);
+      bind();
+      renderTable();
+      renderHeat();
+    })
+    .catch((e) => {
+      $("sum").textContent = "加载失败：" + (e && e.message ? e.message : e);
+    });
+})();
+  </script>
+</body>
+</html>
