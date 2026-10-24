@@ -229,6 +229,8 @@
   function channelLabel(ch){return CHANNEL_LABEL[ch]||ch||"—";}
   const DYN_TYPE_LABEL={broad_internal_move:"内部普动",relative_weakness:"相对偏弱",counter_trend:"逆势异动",cross_section_outlier:"截面异动"};
   function dynTypeLabel(t){return DYN_TYPE_LABEL[t]||t||"—";}
+  const SIGNAL_LABEL={new_signal:"新增",multi_source:"多源",strengthening:"走强",steady:"走稳",pressure:"承压",negative_pressure:"承压",weakening:"走弱"};
+  function signalLabel(s){return SIGNAL_LABEL[s]||s||"—";}
   const REL_LABEL={stronger:"偏强",weaker:"偏弱",inline:"持平"};
   const ABS_LABEL={positive:"上涨",negative:"下跌",flat:"平盘"};
   function relAbsLabel(r,a){return (REL_LABEL[r]||r||"—")+"/"+(ABS_LABEL[a]||a||"—");}
@@ -353,7 +355,7 @@
         const h=s.heat||{}; const sigs=rtSignalMap()[s.sectorId]||[];
         return `<div class="rt-row" data-sid="${esc(s.sectorId)}">
           <span><span class="nm">${esc(s.name)}</span> <span class="mu">${esc(s.layer)}</span>
-            <div>${sigs.map(x=>`<span class="sig">${esc(x)}</span>`).join("")}</div></span>
+            <div>${sigs.map(x=>`<span class="sig">${esc(signalLabel(x))}</span>`).join("")}</div></span>
           <span class="bb mono">${esc(num(h.policy))}</span>
           <span class="mono">${esc(num(h.marketAttention))}</span>
           <span class="mono">${esc(num(h.marketTrading))}</span>
@@ -421,7 +423,7 @@
     else if(RT_SIG==="pressure") secs=secs.filter(s=>(s.signals||[]).some(x=>String(x).includes("pressure")));
     document.getElementById("rtSectors").innerHTML=`<div class="sec-hd">${secs.length}</div>`+secs.slice(0,30).map(x=>`
       <div class="rt-row" data-sid="${esc(x.sectorId||"")}">
-        <span><span class="nm">${esc(x.name||"—")}</span><div>${(x.signals||[]).map(s=>`<span class="sig">${esc(s)}</span>`).join("")}</div></span>
+        <span><span class="nm">${esc(x.name||"—")}</span><div>${(x.signals||[]).map(s=>`<span class="sig">${esc(signalLabel(s))}</span>`).join("")}</div></span>
         <span class="bb mono">${esc(num(x.attention))}</span>
         <span class="mono">${x.delta==null?"—":esc(num(x.delta,2))}</span>
         <span class="mu mono">${esc(x.materialCount??"")}</span>
