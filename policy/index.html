@@ -46,7 +46,9 @@
     }
     .heat-row{grid-template-columns:26px 1fr 56px 48px 40px 72px;cursor:pointer}
     .dyn-row{grid-template-columns:100px 1fr 64px 48px;cursor:pointer}
-    .mat-row{grid-template-columns:88px 1fr 72px}
+    .mat-row{grid-template-columns:88px minmax(0,1fr) 72px}
+    .mat-row > :first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;font-size:11px}
+    .mat-row .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .rt-row{grid-template-columns:1fr 64px 52px 40px;cursor:pointer}
     .snap-row{grid-template-columns:96px 1fr 88px 72px 56px}
     .res-row{grid-template-columns:80px 1fr 56px}
@@ -98,7 +100,7 @@
       .view-toggle button{font-size:12px;padding:8px}
       .heat-row{grid-template-columns:22px minmax(0,1fr) 48px 40px 32px}.heat-row .bar-wrap{display:none}
       .dyn-row{grid-template-columns:72px minmax(0,1fr) 48px 40px}
-      .mat-row{grid-template-columns:64px minmax(0,1fr) 48px}
+      .mat-row{grid-template-columns:72px minmax(0,1fr) 48px}
       .rt-row{grid-template-columns:minmax(0,1fr) 52px 44px 36px}
       .snap-row{grid-template-columns:80px minmax(0,1fr) 64px}.snap-row span:nth-child(4),.snap-row span:nth-child(5){display:none}
       .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
@@ -222,6 +224,8 @@
   <script>
 (function(){
   const HEAT_LABEL={policy:"政策热度",marketAttention:"市场关注",marketTrading:"交易热度"};
+  const CHANNEL_LABEL={policy:"权威政策",media:"权威媒体",market_attention:"即时关注"};
+  function channelLabel(ch){return CHANNEL_LABEL[ch]||ch||"—";}
   const HEAT_KEYS=["policy","marketAttention","marketTrading"];
   const LAYER_TABS=[
     {id:"all",label:"全部"},{id:"own_l1",label:"一级"},{id:"own_l2",label:"二级"},
@@ -402,7 +406,7 @@
     let mats=(pack.materials||[]).slice();
     if(RT_MAT_CH!=="all") mats=mats.filter(x=>(x.channel||"")===RT_MAT_CH);
     document.getElementById("rtMats").innerHTML=`<div class="sec-hd">${mats.length} 份</div>`+mats.slice(0,40).map(x=>{
-      const inner=`<span class="bb">${esc(x.channel||"—")}</span><span class="nm">${esc(x.title||"")}</span><span class="mu mono" style="text-align:right">${esc(fmtTime(x.publishedAt))}</span>`;
+      const inner=`<span class="bb">${esc(channelLabel(x.channel))}</span><span class="nm">${esc(x.title||"")}</span><span class="mu mono" style="text-align:right">${esc(fmtTime(x.publishedAt))}</span>`;
       return x.url?`<a class="mat-row" href="${esc(x.url)}" target="_blank" rel="noopener">${inner}</a>`:`<div class="mat-row">${inner}</div>`;
     }).join("")||`<div class="mu" style="padding:8px">暂无</div>`;
     let secs=(pack.sectors||[]).slice();
