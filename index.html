@@ -266,9 +266,9 @@
         polEl.innerHTML = `
           <div style="font-size:12px;color:var(--bb);font-weight:700;margin-bottom:6px">${b.headline || "政策产业"}</div>
           <div style="font-size:11px;color:#a0a0a0;line-height:1.45;margin-bottom:8px">${(b.summary||"").slice(0,120)}${(b.summary||"").length>120?"…":""}</div>
-          ${dyn.slice(0,4).map(x => `<div style="display:flex;gap:8px;padding:3px 0;border-bottom:1px solid #1a1a1a;font-size:12px">
-            <span style="color:var(--bb);min-width:56px">${x.type||"—"}</span>
-            <span style="flex:1;color:#e8e8e8">${x.name||""}</span>
+          ${dyn.slice(0,4).map(x => `<div style="display:flex;gap:8px;padding:3px 0;border-bottom:1px solid #1a1a1a;font-size:12px;align-items:baseline">
+            <span style="color:var(--bb);flex:0 0 auto;max-width:5.5em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px">${({broad_internal_move:"内部普动",relative_weakness:"相对偏弱",counter_trend:"逆势异动",cross_section_outlier:"截面异动"}[x.type]||x.type||"—")}</span>
+            <span style="flex:1;min-width:0;color:#e8e8e8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${x.name||""}</span>
           </div>`).join("") || ""}`;
       } else if (polEl) {
         polEl.innerHTML = `<div class="mu">暂无截面</div>`;

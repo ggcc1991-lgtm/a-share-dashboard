@@ -99,7 +99,7 @@
       .metric-bar{grid-template-columns:repeat(2,1fr)}
       .view-toggle button{font-size:12px;padding:8px}
       .heat-row{grid-template-columns:22px minmax(0,1fr) 48px 40px 32px}.heat-row .bar-wrap{display:none}
-      .dyn-row{grid-template-columns:72px minmax(0,1fr) 48px 40px}
+      .dyn-row{grid-template-columns:72px minmax(0,1fr) 56px 40px}
       .mat-row{grid-template-columns:72px minmax(0,1fr) 48px}
       .rt-row{grid-template-columns:minmax(0,1fr) 52px 44px 36px}
       .snap-row{grid-template-columns:80px minmax(0,1fr) 64px}.snap-row span:nth-child(4),.snap-row span:nth-child(5){display:none}
@@ -226,6 +226,11 @@
   const HEAT_LABEL={policy:"政策热度",marketAttention:"市场关注",marketTrading:"交易热度"};
   const CHANNEL_LABEL={policy:"权威政策",media:"权威媒体",market_attention:"即时关注"};
   function channelLabel(ch){return CHANNEL_LABEL[ch]||ch||"—";}
+  const DYN_TYPE_LABEL={broad_internal_move:"内部普动",relative_weakness:"相对偏弱",counter_trend:"逆势异动",cross_section_outlier:"截面异动"};
+  function dynTypeLabel(t){return DYN_TYPE_LABEL[t]||t||"—";}
+  const REL_LABEL={stronger:"偏强",weaker:"偏弱",inline:"持平"};
+  const ABS_LABEL={positive:"上涨",negative:"下跌",flat:"平盘"};
+  function relAbsLabel(r,a){return (REL_LABEL[r]||r||"—")+"/"+(ABS_LABEL[a]||a||"—");}
   const HEAT_KEYS=["policy","marketAttention","marketTrading"];
   const LAYER_TABS=[
     {id:"all",label:"全部"},{id:"own_l1",label:"一级"},{id:"own_l2",label:"二级"},
@@ -384,12 +389,12 @@
       dyn.map(x=>{
         const linked=(x.linkedSectors||[]).slice(0,4).map(l=>`<span title="${esc(l.pattern||"")}/${esc(l.relation||"")}">${esc(l.name||l.sectorId)}</span>`).join("");
         return `<div class="dyn-row" data-sid="${esc(x.sectorId||"")}">
-          <span class="bb">${esc(x.type||"—")}</span>
+          <span class="bb">${esc(dynTypeLabel(x.type))}</span>
           <span><span class="nm">${esc(x.name||"")}</span><span class="mu"> ${esc(x.layer||"")}</span>
             <div class="mu" style="white-space:normal;line-height:1.4">${esc(x.explanation||x.summary||"")}</div>
             ${linked?`<div class="linked">关联 ${linked}</div>`:""}
           </span>
-          <span class="mono mu">${esc(x.relative||"—")}/${esc(x.absolute||"—")}</span>
+          <span class="mono mu">${esc(relAbsLabel(x.relative,x.absolute))}</span>
           <span class="mono bb">${esc(num(x.score,1))}</span>
         </div>`;
       }).join("")||`<div class="mu">暂无</div>`;
