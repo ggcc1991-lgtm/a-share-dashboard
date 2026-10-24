@@ -124,7 +124,6 @@
       .charts-hist .cbox:last-child { border-bottom: 0; }
     }
     @media (max-width: 719px) {
-      .ind-full .bb-ind-hd > span, .ind-full .bb-ind-row > span { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
       .charts .cbox,
       .charts-hist .cbox { min-width: 0; }
       .charts .chart { height: 180px; }
@@ -135,6 +134,9 @@
       .ind-full .bb-ind-row {
         grid-template-columns: 12px minmax(0,1fr) 56px 36px;
       }
+      .ind-full .bb-ind-hd > span,
+      .ind-full .bb-ind-row > span { min-width: 0; }
+      .ind-full .bb-ind-hd > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; letter-spacing: .04em; }
     }
   </style>
 </head>
@@ -149,6 +151,7 @@
           <div class="nav-dd-panel" id="nav-dd-etf" role="menu" aria-label="ETF">
             <a href="../etf/" role="menuitem">国家队ETF追踪</a>
             <a href="../sentiment/" role="menuitem">ETF情绪看板</a>
+            <a href="../momentum/" role="menuitem">动量排名</a>
           </div>
         </div>
         <a href="../feed/" data-match="/feed">信息流</a>
