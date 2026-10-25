@@ -40,6 +40,12 @@
     .page-title .title-note {
       font-weight: 500; font-size: 0.72em; color: var(--mu); margin-left: 0.15em;
     }
+    #baseTbl .th-short,
+    #baseTbl .nm-short { display: none; }
+    #baseTbl td.l.name {
+      font-family: var(--sans); font-weight: 600; color: var(--tx);
+      line-height: 1.35; word-break: break-word;
+    }
     @media (max-width: 719px) {
       .cards { grid-template-columns: repeat(2, 1fr); }
       .card .v { font-size: 1.05rem; }
@@ -49,6 +55,63 @@
       .panel h2 small { display: block; margin: 4px 0 0; margin-left: 0; }
       .panel h2 .sel { display: block; margin: 6px 0 0; margin-left: 0; max-width: 100%; }
       .note { font-size: 0.78rem; line-height: 1.55; word-break: break-word; }
+      #baseTbl .th-full,
+      #baseTbl .nm-full { display: none; }
+      #baseTbl .th-short,
+      #baseTbl .nm-short { display: inline; }
+      /* 官方持仓基准：横滑 + 机构名 sticky，避免窄屏把长名挤成竖排字 */
+      #basePanel .tbl { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      #baseTbl {
+        min-width: 520px;
+        width: max-content;
+        font-size: 11px;
+      }
+      #baseTbl th, #baseTbl td { padding: 6px 8px; white-space: nowrap; }
+      #baseTbl th:first-child,
+      #baseTbl td:first-child {
+        position: sticky; left: 0; z-index: 2;
+        min-width: 8.5em; max-width: 10.5em;
+        white-space: normal; word-break: break-word;
+        background: #0e0e0e;
+        box-shadow: 4px 0 8px rgba(0,0,0,.35);
+      }
+      #baseTbl thead th:first-child {
+        z-index: 3; background: #0a0a0a;
+      }
+      #baseTbl tr:nth-child(even) td:first-child { background: #121212; }
+      #baseTbl tbody tr:hover td:first-child { background: #1c1c1c; }
+
+      /* 最新快照：横滑 + 代码/名称 sticky，名称与指数不折行 */
+      #tbl {
+        min-width: 780px;
+        width: max-content;
+        font-size: 11px;
+      }
+      #tbl th, #tbl td { white-space: nowrap; padding: 6px 8px; }
+      #tbl th:nth-child(1), #tbl td:nth-child(1),
+      #tbl th:nth-child(2), #tbl td:nth-child(2) {
+        position: sticky; z-index: 2;
+        background: #0e0e0e;
+        box-shadow: 4px 0 8px rgba(0,0,0,.35);
+      }
+      #tbl th:nth-child(1), #tbl td:nth-child(1) { left: 0; min-width: 4.2em; }
+      #tbl th:nth-child(2), #tbl td:nth-child(2) {
+        left: 4.2em; min-width: 9em; max-width: 11em;
+        overflow: hidden; text-overflow: ellipsis;
+        font-family: var(--sans); font-weight: 600; color: var(--tx);
+      }
+      #tbl thead th:nth-child(1), #tbl thead th:nth-child(2) {
+        z-index: 3; background: #0a0a0a;
+      }
+      #tbl tr:nth-child(even) td:nth-child(1),
+      #tbl tr:nth-child(even) td:nth-child(2) { background: #121212; }
+      #tbl tbody tr:hover td:nth-child(1),
+      #tbl tbody tr:hover td:nth-child(2) { background: #1c1c1c; }
+      #tbl td:last-child {
+        white-space: normal; max-width: 11em;
+        font-size: 0.72rem; line-height: 1.35;
+      }
+      #tbl th br { display: none; }
     }
   </style>
 </head>
@@ -145,8 +208,11 @@
         <table class="data" id="baseTbl">
           <thead>
             <tr>
-              <th class="l">机构</th><th>持有ETF数</th><th>持仓份额(亿份)</th>
-              <th>持仓市值(亿元)</th><th>平均持仓占比</th>
+              <th class="l">机构</th>
+              <th><span class="th-full">持有ETF数</span><span class="th-short">持有数</span></th>
+              <th><span class="th-full">持仓份额(亿份)</span><span class="th-short">份额(亿)</span></th>
+              <th><span class="th-full">持仓市值(亿元)</span><span class="th-short">市值(亿)</span></th>
+              <th><span class="th-full">平均持仓占比</span><span class="th-short">均占比</span></th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -175,6 +241,19 @@
   <script>
 (function () {
   "use strict";
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  /** 手机窄列：去掉括号备注与「单一资管计划」尾巴，完整名放 title */
+  function shortHolder(name) {
+    let n = String(name || "").trim();
+    n = n.replace(/（[^）]*）/g, "").replace(/\([^)]*\)/g, "").trim();
+    n = n.replace(/-汇金资管单一资管计划$/, "-汇金资管");
+    n = n.replace(/单一资管计划$/, "");
+    return n || name;
+  }
   const POS = "#ef5350", NEG = "#26a69a", BLU = "#64b5f6", AMB = "#ffb74d", PUR = "#b39ddb", CY = "#ffa028";
   const axisLabel = { color: "#8b9bb4", fontSize: 11 };
   const splitLine = { lineStyle: { color: "#1a2332" } };
@@ -375,7 +454,7 @@
           (r) =>
             `<tr>
           <td class="l">${r.code}</td>
-          <td class="l" title="${r.full}">${r.full}</td>
+          <td class="l name" title="${r.full}">${r.full}</td>
           <td class="l">${r.index}</td>
           <td>${fmt(r.shares, 2)}</td>
           <td class="${cls(r.dShares)}">${fmt(r.dShares, 2, true)}</td>
@@ -518,13 +597,17 @@
       $("baseTbl").querySelector("tbody").innerHTML =
         B.holders
           .map(
-            (h) => `<tr>
-          <td class="l">${h.name}</td>
+            (h) => {
+          const full = String(h.name || "");
+          const short = shortHolder(full);
+          return `<tr>
+          <td class="l name" title="${esc(full)}"><span class="nm-full">${esc(full)}</span><span class="nm-short">${esc(short)}</span></td>
           <td>${h.etf_count ?? "—"}</td>
           <td>${fmt(h.shares_yi, 0)}</td>
           <td>${fmt(h.value_yi, 0)}</td>
           <td>${h.avg_pct != null ? fmt(h.avg_pct, 1) + "%" : "—"}</td>
-        </tr>`
+        </tr>`;
+        }
           )
           .join("") +
         `<tr><td class="l"><b>合计</b></td><td></td><td></td><td><b>${fmt(B.total_value_yi, 0)}</b></td><td></td></tr>`;
