@@ -80,6 +80,38 @@
       }
       #baseTbl tr:nth-child(even) td:first-child { background: #121212; }
       #baseTbl tbody tr:hover td:first-child { background: #1c1c1c; }
+
+      /* 最新快照：横滑 + 代码/名称 sticky，名称与指数不折行 */
+      #tbl {
+        min-width: 780px;
+        width: max-content;
+        font-size: 11px;
+      }
+      #tbl th, #tbl td { white-space: nowrap; padding: 6px 8px; }
+      #tbl th:nth-child(1), #tbl td:nth-child(1),
+      #tbl th:nth-child(2), #tbl td:nth-child(2) {
+        position: sticky; z-index: 2;
+        background: #0e0e0e;
+        box-shadow: 4px 0 8px rgba(0,0,0,.35);
+      }
+      #tbl th:nth-child(1), #tbl td:nth-child(1) { left: 0; min-width: 4.2em; }
+      #tbl th:nth-child(2), #tbl td:nth-child(2) {
+        left: 4.2em; min-width: 9em; max-width: 11em;
+        overflow: hidden; text-overflow: ellipsis;
+        font-family: var(--sans); font-weight: 600; color: var(--tx);
+      }
+      #tbl thead th:nth-child(1), #tbl thead th:nth-child(2) {
+        z-index: 3; background: #0a0a0a;
+      }
+      #tbl tr:nth-child(even) td:nth-child(1),
+      #tbl tr:nth-child(even) td:nth-child(2) { background: #121212; }
+      #tbl tbody tr:hover td:nth-child(1),
+      #tbl tbody tr:hover td:nth-child(2) { background: #1c1c1c; }
+      #tbl td:last-child {
+        white-space: normal; max-width: 11em;
+        font-size: 0.72rem; line-height: 1.35;
+      }
+      #tbl th br { display: none; }
     }
   </style>
 </head>
@@ -422,7 +454,7 @@
           (r) =>
             `<tr>
           <td class="l">${r.code}</td>
-          <td class="l" title="${r.full}">${r.full}</td>
+          <td class="l name" title="${r.full}">${r.full}</td>
           <td class="l">${r.index}</td>
           <td>${fmt(r.shares, 2)}</td>
           <td class="${cls(r.dShares)}">${fmt(r.dShares, 2, true)}</td>
