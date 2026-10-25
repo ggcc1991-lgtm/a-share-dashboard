@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T11:06:36+08:00",
+  "generated_at": "2026-10-25T10:56:21+08:00",
   "timezone": "Asia/Shanghai",
   "triggered_count": 5,
   "total": 12,
@@ -7,18 +7,18 @@
     {
       "id": "csi1000_vix",
       "name": "中证1000 VIX",
-      "value": 29.12,
+      "value": 29.68,
       "unit": "",
       "threshold": 35,
       "status": "watching",
-      "note": "官方QVIX源(optbbs)从本机不可达(URLError)；用 mo2611（27天到期）平值期权隐含波动率作代理（Black-76，隐含远期 6716）。与QVIX同口径近似但非官方值。",
+      "note": "官方QVIX源(optbbs)从本机不可达(URLError)；用 mo2611（26天到期）平值期权隐含波动率作代理（Black-76，隐含远期 6716）。与QVIX同口径近似但非官方值。",
       "source": "新浪 CFFEX MO期权 → ATM IV 代理",
       "meta": {
         "kind": "atm_iv_proxy",
         "contract": "mo2611",
         "forward": 6715.8
       },
-      "updated_at": "2026-10-24T11:06:17+08:00"
+      "updated_at": "2026-10-25T10:56:02+08:00"
     },
     {
       "id": "margin_balance",
@@ -36,7 +36,7 @@
         "sse": 1.2469,
         "szse": 1.1722
       },
-      "updated_at": "2026-10-24T11:05:44+08:00"
+      "updated_at": "2026-10-25T10:55:31+08:00"
     },
     {
       "id": "im_basis",
@@ -52,7 +52,7 @@
         "futures": 6660.0,
         "convention": "index - futures"
       },
-      "updated_at": "2026-10-24T11:05:45+08:00"
+      "updated_at": "2026-10-25T10:55:32+08:00"
     },
     {
       "id": "three_yin",
@@ -93,7 +93,7 @@
         ],
         "rule": "v2"
       },
-      "updated_at": "2026-10-24T11:06:36+08:00"
+      "updated_at": "2026-10-25T10:56:21+08:00"
     },
     {
       "id": "vol_shrink_expand",
@@ -109,7 +109,7 @@
         "vol_vs_prev": 1.3,
         "rule": "v2"
       },
-      "updated_at": "2026-10-24T11:06:36+08:00"
+      "updated_at": "2026-10-25T10:56:21+08:00"
     },
     {
       "id": "large_small_ratio",
@@ -131,35 +131,35 @@
         "value": 0.6646,
         "rule": "v2"
       },
-      "updated_at": "2026-10-24T11:06:36+08:00"
+      "updated_at": "2026-10-25T10:56:21+08:00"
     },
     {
       "id": "hike_prob",
       "name": "加息概率提升",
-      "value": 76.4,
+      "value": 79.1,
       "unit": "%",
       "threshold": "≥50% 且30日+10pp",
       "status": "watching",
-      "note": "Fed Decision in October? 加息概率 6.8%；Fed Decision in December? 加息概率 76.4%｜最高:Fed Decision in December? 76.4%，30日前基线 71.5% ，变化 +4.9pp。 触发规则：取未来两次FOMC中『任何加息(25bp+50bp+)』的最高概率 P；P≥50% 且较30日前基线提升≥10个百分点 → 红线（'加息概率提升'）；否则观察。触发后若回落仍应持续监控。",
+      "note": "Fed Decision in October? 加息概率 4.8%；Fed Decision in December? 加息概率 79.1%｜最高:Fed Decision in December? 79.1%，30日前基线 73.7% ，变化 +5.4pp。 触发规则：取未来两次FOMC中『任何加息(25bp+50bp+)』的最高概率 P；P≥50% 且较30日前基线提升≥10个百分点 → 红线（'加息概率提升'）；否则观察。触发后若回落仍应持续监控。",
       "source": "Polymarket Gamma/CLOB API",
       "meta": {
         "meetings": [
           {
             "title": "Fed Decision in October?",
             "url": "https://polymarket.com/event/fed-decision-in-october-20260617190323537",
-            "hike": 6.8
+            "hike": 4.8
           },
           {
             "title": "Fed Decision in December?",
             "url": "https://polymarket.com/event/fed-decision-in-december-20260729232808632",
-            "hike": 76.4
+            "hike": 79.1
           }
         ],
-        "baseline_30d": 71.5,
-        "rise_pp": 4.9,
+        "baseline_30d": 73.7,
+        "rise_pp": 5.4,
         "link": "https://polymarket.com/event/fed-decision-in-december-20260729232808632"
       },
-      "updated_at": "2026-10-24T11:05:59+08:00"
+      "updated_at": "2026-10-25T10:55:44+08:00"
     },
     {
       "id": "im_level",
@@ -176,7 +176,7 @@
           6700
         ]
       },
-      "updated_at": "2026-10-24T11:05:50+08:00"
+      "updated_at": "2026-10-25T10:55:36+08:00"
     },
     {
       "id": "star50",
@@ -193,7 +193,7 @@
           1300
         ]
       },
-      "updated_at": "2026-10-24T11:05:51+08:00"
+      "updated_at": "2026-10-25T10:55:37+08:00"
     },
     {
       "id": "jiuquan_sentiment",
@@ -212,7 +212,7 @@
         "last_low_value": 2.07,
         "method": "页面解密数据(JSON.parse截获)"
       },
-      "updated_at": "2026-10-24T11:06:33+08:00"
+      "updated_at": "2026-10-25T10:56:16+08:00"
     },
     {
       "id": "pcr_3of4",
@@ -235,7 +235,7 @@
         ],
         "extreme_threshold": 1.0
       },
-      "updated_at": "2026-10-24T11:05:56+08:00"
+      "updated_at": "2026-10-25T10:55:42+08:00"
     },
     {
       "id": "tech_six",
@@ -280,7 +280,7 @@
           }
         }
       },
-      "updated_at": "2026-10-24T11:06:23+08:00"
+      "updated_at": "2026-10-25T10:56:07+08:00"
     }
   ],
   "strategy": {
@@ -314,7 +314,7 @@
   },
   "disclaimer": "仅供学习研究，不构成投资建议；市场有风险",
   "verdict": {
-    "generated_at": "2026-10-24T11:06:36+08:00",
+    "generated_at": "2026-10-25T10:56:21+08:00",
     "score": 5,
     "total": 12,
     "band": {
@@ -327,7 +327,7 @@
       "sub": "0–5 根：观望；距下一档（6 根）还差 1 根",
       "gap_next": 1
     },
-    "summary": "已触发：融资余额、3根大阴线、大盘小盘比 MAX、韭圈情绪指数、6大科技点位。最接近触发：IM指数点位（0.91%）、科创50（7.64%）、中证1000 VIX（16.80%）。若IM指数点位触发，红线将升至 6 根（空仓可分批试探）。",
+    "summary": "已触发：融资余额、3根大阴线、大盘小盘比 MAX、韭圈情绪指数、6大科技点位。最接近触发：IM指数点位（0.91%）、科创50（7.64%）、中证1000 VIX（15.20%）。若IM指数点位触发，红线将升至 6 根（空仓可分批试探）。",
     "groups": [
       {
         "name": "价格位置",
@@ -380,11 +380,11 @@
             "name": "中证1000 VIX",
             "status": "watching",
             "status_cn": "观察",
-            "value_text": "29.12",
+            "value_text": "29.68",
             "threshold_text": "≥35",
-            "dist_text": "距红线 5.88（需再升 16.80%）",
-            "dist_pct": 16.8,
-            "progress": 0.832
+            "dist_text": "距红线 5.32（需再升 15.20%）",
+            "dist_pct": 15.2,
+            "progress": 0.848
           },
           {
             "id": "im_basis",
@@ -420,7 +420,7 @@
             "progress": 0.333
           }
         ],
-        "read": "恐慌升温但未到极致：贴水仅 74.5 点（红线 160）；VIX(代理) 29.12（红线 35）；韭圈情绪 7.95，已处极端恐惧；PCR 1/4极端"
+        "read": "恐慌升温但未到极致：贴水仅 74.5 点（红线 160）；VIX(代理) 29.68（红线 35）；韭圈情绪 7.95，已处极端恐惧；PCR 1/4极端"
       },
       {
         "name": "杠杆资金",
@@ -492,14 +492,14 @@
             "name": "加息概率提升",
             "status": "watching",
             "status_cn": "观察",
-            "value_text": "76.4%",
+            "value_text": "79.1%",
             "threshold_text": "≥50% 且30日+10pp",
-            "dist_text": "概率 76.4% 已≥50%，30日升幅 +4.9pp，距 +10pp 还差 5.1pp",
-            "dist_pct": 51.0,
-            "progress": 0.49
+            "dist_text": "概率 79.1% 已≥50%，30日升幅 +5.4pp，距 +10pp 还差 4.6pp",
+            "dist_pct": 46.0,
+            "progress": 0.54
           }
         ],
-        "read": "外部压力存在但未达红线：未来两次 FOMC 最高加息概率 76.4%，30日变化 +4.9pp（基线 71.5%）"
+        "read": "外部压力存在但未达红线：未来两次 FOMC 最高加息概率 79.1%，30日变化 +5.4pp（基线 73.7%）"
       }
     ],
     "nearest": [
@@ -524,15 +524,15 @@
       {
         "id": "csi1000_vix",
         "name": "中证1000 VIX",
-        "dist_pct": 16.8,
-        "dist_text": "距红线 5.88（需再升 16.80%）",
-        "value_text": "29.12",
+        "dist_pct": 15.2,
+        "dist_text": "距红线 5.32（需再升 15.20%）",
+        "value_text": "29.68",
         "threshold_text": "≥35",
-        "progress": 0.832
+        "progress": 0.848
       }
     ],
     "changes": {
-      "prev_at": "2026-10-23T16:37:30+08:00",
+      "prev_at": "2026-10-24T11:06:36+08:00",
       "score_prev": 5,
       "score_delta": 0,
       "flipped": [],
@@ -540,30 +540,16 @@
         {
           "id": "csi1000_vix",
           "name": "中证1000 VIX",
-          "prev": 28.6,
-          "now": 29.12,
-          "delta": 0.52
-        },
-        {
-          "id": "large_small_ratio",
-          "name": "大盘小盘比 MAX",
-          "prev": 0.6136,
-          "now": 0.6096,
-          "delta": -0.004
+          "prev": 29.12,
+          "now": 29.68,
+          "delta": 0.56
         },
         {
           "id": "hike_prob",
           "name": "加息概率提升",
-          "prev": 76.0,
-          "now": 76.4,
-          "delta": 0.4
-        },
-        {
-          "id": "jiuquan_sentiment",
-          "name": "韭圈情绪指数",
-          "prev": 2.07,
-          "now": 7.95,
-          "delta": 5.88
+          "prev": 76.4,
+          "now": 79.1,
+          "delta": 2.7
         }
       ],
       "text": "红线数持平（5）；无指标状态翻转"
