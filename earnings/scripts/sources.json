@@ -1,6 +1,22 @@
 {
- "_doc": "字段级优先级：前面的数据源有值就用它，后面的只补空字段。换付费源：把 fmp/finnhub/wind 放到列表前面并设置 API KEY。",
- "next_date":     ["overrides", "hkex", "yahoo", "nasdaq"],
- "consensus":     ["overrides", "yahoo"],
- "last_reported": ["overrides", "yahoo"]
+ "_doc": "字段级优先级：前面的数据源有值就用它，后面的只补空字段。A 股实际/日期优先 Tushare；港股/ADR 仍走 HKEXnews/Yahoo。换付费源：把 fmp/finnhub/wind 放到列表前面并设置 API KEY。 tushare_src 的 A股实际值不进 last_reported 链：仅当报告期比现有更新时写入 lastReported.ashareYtd（A股累计口径，与港股/季度口径分开）。",
+ "next_date": [
+  "overrides",
+  "tushare_src",
+  "hkex",
+  "yahoo",
+  "nasdaq"
+ ],
+ "consensus": [
+  "overrides",
+  "tushare_src",
+  "yahoo"
+ ],
+ "last_reported": [
+  "overrides",
+  "yahoo"
+ ],
+ "macro_actual": [
+  "tushare_src"
+ ]
 }

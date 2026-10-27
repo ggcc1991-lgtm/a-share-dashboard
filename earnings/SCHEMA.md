@@ -16,3 +16,27 @@
 - `companies[].sources`: `{nextDate:{name,url,asOf}, consensus:[{name,url,asOf}], lastReported:[{...}]}`，按优先级排列。
 - `lastReported` 新增（来自 overrides）：`epsGaap`,`epsGaapBasis`,`epsNonGaap`,`epsNonGaapBasis`,`epsCompareBasis`（epsActual/epsEstimate 的对比口径说明），`oneOff`（一次性项目说明），`adjNetIncome`,`adjNetIncomeYoY`,`netIncomeBasis`,`halfYear{period,revenue,revenueYoY,netIncome,netIncomeYoY,epsGaap,epsGaapBasis}`,`note`。
 - `dateStatus`: confirmed（公告/Yahoo 确认）| estimated（算法预估）| unknown。
+
+## v2.1 timeline 字段
+- `importance` (1–3)：所有 company / meeting / macro 项都有，3=最重要，用于时间线节点大小。
+- 超预期判断沿用 `verdict`/`diff`（宏观）和财报 surprise 字段。
+- `surprisePct`（可选）：超预期幅度 %，正=超预期。财报=EPS surprise×100；宏观=(实际-预期)/|预期|×100（数值从文本解析，口径以 verdict 为准）。会议暂不提供。
+
+## Tushare 接入
+- `companies[].` 刷新时内部 co 携带 `ashare`（如 `688981.SH`），不写入 JSON。
+- `sources` 链可含 `tushare_src`；`_src.name` 形如 `Tushare income 002594.SZ`。
+- 宏观项 `source.name` 在 Tushare 补数后追加 ` / Tushare cn_*`。
+
+## v2.2 信息流摘录（feedExtracts）
+- `companies[].feedExtracts[]`（可选）：从 `/workspace/data-dashboard/data/feed.json` 抽取的机构提到的财报数字，供详情展示；**不含 url**（不挂研报/条目链接）。
+  - `sourceName, publishedAt, excerpt, fields{...}, agreeWith[]?, conflictWith[]?`
+  - `fields` 仅含文中明确写出的数字（如 `revConsensusUsd/revConsensusYoY/revConsensusText`、分部 `cloudRevConsensus*`、`searchYoY`、`youtubeAdsYoY`、`epsActual/epsEstimate` 等）。
+- 合并规则：与面板 `consensus/lastReported` 交叉比对；相对误差<2% 视为一致，在 `note` 标注「信息流·机构名·日期」；冲突则 `note` 写两边数值，**不覆盖** overrides / 已有一致预期 / 公司公告确认值。分部数字只进 `note`+`feedExtracts`，不写入公司级 `consensus`。
+- 脚本：`scripts/extract_feed_earnings.py`（条目≤120 用全部，否则近 14 天）；刷新时 `feedExtracts/note/guidance/manual` 会被保留。
+
+## v2.3 A股 Tushare 子字段（2026-10-27）
+- `consensus.ashareAnnual`（仅 0981.HK/1211.HK，A股代码映射）：`{fiscalYear, basis:"年度预测（非季度）", eps{avg,high,low,n}, netProfit{...}, revenue{...}（元）, orgs, window, source:"Tushare report_rc <code>", asOf(最新研报日), unit, stale?}`。来自 report_rc `quarter=<当年>Q4`，同一机构取最新一篇；**不覆盖** Yahoo 季度 `eps*/rev*`。拉取失败时保留上次值并标 `stale:true`。
+- `lastReported.ashareYtd`：Tushare income（report_type=1，年初至报告期末累计，CNY）+ fina_indicator 同比；只查 20260930/20260630，且仅当报告期**晚于**现有 `lastReported.quarterEnd` 才写入；不改季度/港股口径字段。
+
+## v2.4 calendar.meetings.category
+- 可选字段 `category`；`"us-election"` = 美国2026中期选举时间线（region=US）。日期仅取有来源者，州认证日为按州法推算；result/verdict 暂留空。前端 #mf 筛选「美国大选」，时间线节点蓝色描边。

@@ -4,7 +4,7 @@ python3 -m venv /workspace/venv-earn && /workspace/venv-earn/bin/pip install yfi
 /workspace/venv-earn/bin/python earnings/scripts/refresh_earnings.py   # 日期+一致预期+最近财报 (Yahoo + Nasdaq)
 python3 earnings/scripts/refresh_macro.py                              # 合并 ForexFactory 本周中美日历(预期/前值)
 ```
-人工维护（无免费API）：`calendar.json` 中已公布宏观数据的实际值/对比、会议结果与市场预期；`earnings.json` 中 guidance/note/manual。
+人工维护（无免费API）：`calendar.json` 中已公布宏观数据的实际值/对比、会议结果与市场预期；`earnings.json` 中 guidance/note/manual/feedExtracts（信息流摘录无 url）。
 发布后用 Playwright 检查 1280/375/414 宽度。
 
 ## 数据源适配层（2026-10-27 起）
@@ -32,3 +32,30 @@ scripts/
 **人工核对数据**：`data/overrides.json`，每家公司可写 nextDate/dateStatus/dateSource、lastReported（含 epsGaap/epsNonGaap 及口径、oneOff 一次性项目、adjNetIncome、halfYear、source{name,url,asOf}）、guidance、note。新季度公告发布后需更新或删除对应条目，否则旧季度数据会被保留（不同季度不会与 Yahoo 混合，但 Yahoo 新季度会被挡掉）——更新时把 quarterEnd 改成新季度。
 
 免费源的限制：东方财富/新浪/雪球的一致预期多为年度口径且无稳定公开接口，当前未接入；季度一致预期仅来自 Yahoo。
+
+## Tushare（A 股 + 国内宏观，2026-10-27）
+
+- 适配器：`scripts/sources/tushare_src.py`，通过 `/workspace/tushare/client.py` 的 `get_pro()`（datahubco 镜像）与 `fallback.py` 粘性降级。
+- 映射：中芯 `0981.HK` → `688981.SH`；比亚迪 `1211.HK` → `002594.SZ`。其余公司无 `ashare` 字段，适配器直接跳过（不调用港股/美股接口）。
+- 财报字段：`disclosure_date`→nextDate；`income`/`express`/`fina_indicator`/`forecast`→lastReported；`report_rc`→consensus。
+- 宏观：`refresh_macro.py` 在 ForexFactory 合并后，用 `cn_cpi` / `cn_ppi` / `cn_pmi` / `cn_m` / `cn_gdp` 补 CN 项的 `actual`/`previous`；**不覆盖已有 forecast**；保留 `importance`、`surprisePct`（缺则在 actual+forecast 均为数值时重算）。
+- `sources.json` 优先级：`overrides > tushare_src > hkex > yahoo > nasdaq`。
+- 失败时（含 `api_or_ip_policy` 多 IP、积分/权限不足）打印 `[tushare] … → sticky backup` 并继续用下游源，不中断刷新。
+
+## 信息流 → 面板（机构数字摘录，2026-10-27）
+
+```
+/workspace/venv-earn/bin/python earnings/scripts/extract_feed_earnings.py
+# --dry-run 只汇报；--feed / --earn 可改路径
+```
+
+从 `data-dashboard/data/feed.json` 按 20 家公司别名 + 财报关键词筛条目，只抽取 title/summary 里**明确写出**的数字（总营收共识、分部一致预期、EPS 实际/预期等），写入对应公司的 `note` 与可选 `feedExtracts`（**不写 url、不挂研报链接**）。与 Yahoo/overrides 一致则标注「信息流·机构名·日期」；冲突只记 note，不覆盖面板。`refresh_earnings.py` 会保留 `feedExtracts`。
+
+### Tushare 字段修正（按 earnings_field_samples.json）
+- `cn_gdp` 参数改为 `start_q="2024Q1", end_q="2026Q4"`（YYYYQn）。
+- `disclosure_date` 加 `start_date` 窗口；`income`/`fina_indicator` 按 `period=20260930→20260630` 逐期查询（旧 2025 报告期不写入）。
+- `report_rc`：`np`/`op_rt` 单位万元；`quarter=2026Q4` 即当年年度预测 → `consensus.ashareAnnual`。修正前旧逻辑会把 2028Q4 年度 EPS 混入季度 `epsAvg`（中芯曾显示 1.607 CNY），已移除。
+- Tushare A股实际值不再进 `last_reported` 链，改写 `lastReported.ashareYtd`。IP 紧张：每次刷新只跑一轮，遇 `api_or_ip_policy` 立即粘性降级，不重试。
+
+## v2.4 calendar.meetings.category
+- 可选字段 `category`；`"us-election"` = 美国2026中期选举时间线（region=US）。日期仅取有来源者，州认证日为按州法推算；result/verdict 暂留空。前端 #mf 筛选「美国大选」，时间线节点蓝色描边。

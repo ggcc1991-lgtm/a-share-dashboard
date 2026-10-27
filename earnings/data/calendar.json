@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-10-27T10:41:47+08:00",
+ "updated": "2026-10-27T15:48:34+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -348,6 +348,56 @@
     }
    ],
    "importance": 2
+  },
+  {
+   "id": "us-elec-2026-election-day",
+   "category": "us-election",
+   "name": "美国中期选举 选举日（众院435席+参院35席）",
+   "region": "US",
+   "start": "2026-11-03",
+   "end": "2026-11-03",
+   "decisionAt": null,
+   "status": "upcoming",
+   "expectation": null,
+   "result": null,
+   "verdict": null,
+   "note": "联邦法定选举日(2 U.S.C. §7)；参院33席常规+2席补选(俄亥俄/佛罗里达)。投票站关闭后各州开始计票，夜间结果为非官方。",
+   "sources": [
+    {
+     "name": "FEC 选举信息",
+     "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/"
+    },
+    {
+     "name": "CRS R46413 Election Day",
+     "url": "https://www.congress.gov/crs_external_products/R/HTML/R46413.web.html"
+    }
+   ],
+   "importance": 3
+  },
+  {
+   "id": "us-elec-2027-congress-120",
+   "category": "us-election",
+   "name": "第120届国会开幕（新当选议员宣誓）",
+   "region": "US",
+   "start": "2027-01-03",
+   "end": "2027-01-03",
+   "decisionAt": "2027-01-04T01:00:00+08:00",
+   "status": "scheduled",
+   "expectation": null,
+   "result": null,
+   "verdict": null,
+   "note": "宪法第20修正案：1月3日正午开会，除非国会立法另定日期；2027-01-03为周日，可能改期（截至目前未见改期法律）。",
+   "sources": [
+    {
+     "name": "宪法第20修正案(National Archives)",
+     "url": "https://www.archives.gov/founding-docs/amendments-11-27"
+    },
+    {
+     "name": "Bipartisan Policy Center 2026中期选举关键日期",
+     "url": "https://bipartisanpolicy.org/article/the-2026-midterms-key-dates-and-events/"
+    }
+   ],
+   "importance": 3
   }
  ],
  "macro": [
