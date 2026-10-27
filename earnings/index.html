@@ -97,7 +97,8 @@
       .tl-anim .dot,.tl-anim .axis{animation:none!important;stroke-dashoffset:0}
       .dp{transition:none}
     }
-  </style>
+  .ib{display:inline-flex;align-items:flex-end;gap:2px;margin-right:6px;vertical-align:-1px}.ib i{display:block;width:4px;border-radius:1px;background:rgba(255,160,40,.18)}.ib i.on{background:#FFA028;box-shadow:0 0 4px rgba(255,160,40,.45)}
+</style>
 </head>
 <body>
   <header class="app-header">
@@ -236,7 +237,7 @@ function countdown(ev){
   pick.sort((a,b)=>a.t-b.t);
   if(!pick.length){box.innerHTML='<div class="note">未来 7 日暂无重点事件</div>';return}
   const LN=['财报','会议','宏观'];
-  box.innerHTML=pick.map((e,i)=>`<div class="cd" data-i="${H(e.id)}" tabindex="0"><div class="k"><span>${LN[e.lane]} · ${H(e.raw.region||'')}</span><span>${fmt(e.t)}</span></div><div class="n" title="${H(e.name)}">${H(e.name)}</div><div class="v" id="cdv${i}"></div><div class="w">${'●'.repeat(e.imp)}${'○'.repeat(3-e.imp)} 重要性${e.est?' · 日期预估':''}</div></div>`).join('');
+  box.innerHTML=pick.map((e,i)=>`<div class="cd" data-i="${H(e.id)}" tabindex="0"><div class="k"><span>${LN[e.lane]} · ${H(e.raw.region||'')}</span><span>${fmt(e.t)}</span></div><div class="n" title="${H(e.name)}">${H(e.name)}</div><div class="v" id="cdv${i}"></div><div class="w">${IB(e.imp)} 重要性${e.est?' · 日期预估':''}</div></div>`).join('');
   const tick=()=>{const n=Date.now();pick.forEach((e,i)=>{const el=document.getElementById('cdv'+i);if(!el)return;
     if(e.released){el.innerHTML=`<div class="r c-${e.st}">${H(resText(e))}</div>`;return}
     let d=e.t-n;if(d<=0){el.innerHTML='<div class="r c-pend">已到时间 · 等待数据</div>';return}
@@ -327,7 +328,8 @@ function nb(label,val,dg=2,suf='',cl=''){if(val==null||val===''||(typeof val==='
   if(n!=null&&m)return `<div><span>${H(label)}</span><b class="${cl}" data-n="${n}" data-d="${(m[1].split('.')[1]||'').length}" data-s="${H(m[2])}">0</b></div>`;
   return `<div><span>${H(label)}</span><b class="${cl}" style="font-size:12px">${H(val)}</b></div>`;}
 const bigN=n=>n==null?null:Math.abs(n)>=1e8?{v:n/1e8,s:'亿'}:{v:n,s:''};
-function detail(e){const r=e.raw;const LN=['财报','会议','宏观'];let h=`<h3>${H(e.name)}</h3><div class="meta">${LN[e.lane]} · ${H(r.region||'')} · ${H(fmt(e.t))} 北京时间 · 重要性 ${'●'.repeat(e.imp)}${'○'.repeat(3-e.imp)}</div><span class="vd c-${e.st}">${LBL[e.st]}</span>`;
+function IB(n){return '<span class="ib" title="重要性 '+n+'/3">'+[1,2,3].map(k=>'<i class="'+(k<=n?'on':'')+'" style="height:'+(4+k*3)+'px"></i>').join('')+'</span>';}
+function detail(e){const r=e.raw;const LN=['财报','会议','宏观'];let h=`<h3>${H(e.name)}</h3><div class="meta">${LN[e.lane]} · ${H(r.region||'')} · ${H(fmt(e.t))} 北京时间 · 重要性 ${IB(e.imp)}</div><span class="vd c-${e.st}">${LBL[e.st]}</span>`;
   if(e.kind==='X'){h+=`<div class="kv">${nb('实际',e.released?r.actual:null,0,'',`c-${e.st}`)}${nb('预期',r.forecast)}${nb('前值',r.previous)}${nb('差值',r.diff)}${e.spx!=null?nb('偏离预期',e.spx,1,'%',`c-${e.st}`):''}</div>`;
     if(e.released&&triSvg(r))h+=`<div class="lbl">前值 → 预期 → 实际</div>${triSvg(r,300,80)}`;
     if(r.impact)h+=`<div class="lbl">影响</div><p>${H(r.impact)}</p>`;if(r.note)h+=`<p class="note">${H(r.note)}</p>`;
