@@ -1,105 +1,77 @@
-import re
 #!/usr/bin/env python3
-"""刷新 earnings/data/earnings.json —— 数据源：Yahoo Finance(yfinance) + Nasdaq/Zacks 财报日期接口。
-用法: python refresh_earnings.py [--out ../data/earnings.json]
-仅写入接口返回的真实数据；取不到的字段为 null（页面显示“暂无”）。"""
-import json, sys, datetime as dt, time, math, urllib.request, argparse, os
-import yfinance as yf
-TZ = dt.timezone(dt.timedelta(hours=8))
-COS = [
- ("AAPL","苹果","US","AAPL"),("MSFT","微软","US","MSFT"),("GOOGL","谷歌(Alphabet)","US","GOOGL"),
- ("AMZN","亚马逊","US","AMZN"),("META","Meta","US","META"),("NVDA","英伟达","US","NVDA"),
- ("TSLA","特斯拉","US","TSLA"),("TSM","台积电(ADR)","TW","TSM"),("AMD","AMD","US","AMD"),
- ("AVGO","博通","US","AVGO"),("0700.HK","腾讯控股","CN",None),("BABA","阿里巴巴(ADR)","CN","BABA"),
- ("BIDU","百度(ADR)","CN","BIDU"),("JD","京东(ADR)","CN","JD"),("3690.HK","美团","CN",None),
- ("PDD","拼多多","CN","PDD"),("1810.HK","小米集团","CN",None),("NTES","网易(ADR)","CN","NTES"),
- ("0981.HK","中芯国际","CN",None),("1211.HK","比亚迪股份","CN",None),
+"""刷新 earnings/data/earnings.json。数据源由 sources.json 配置的适配器链提供（字段级合并，记录每个字段块的来源）。
+用法: python refresh_earnings.py [--out ../data/earnings.json] [--only SYM,SYM]
+取不到的字段为 null（页面显示“暂无”），绝不填充推测值。"""
+import json, os, sys, time, argparse, datetime as dt
+sys.path.insert(0, os.path.dirname(__file__))
+from sources import load
+from sources.base import TZ
+COS = [ # symbol, 名称, 地区, yahoo, nasdaq, hk 代码
+ ("AAPL","苹果","US","AAPL","AAPL",None),("MSFT","微软","US","MSFT","MSFT",None),("GOOGL","谷歌(Alphabet)","US","GOOGL","GOOGL",None),
+ ("AMZN","亚马逊","US","AMZN","AMZN",None),("META","Meta","US","META","META",None),("NVDA","英伟达","US","NVDA","NVDA",None),
+ ("TSLA","特斯拉","US","TSLA","TSLA",None),("TSM","台积电(ADR)","TW","TSM","TSM",None),("AMD","AMD","US","AMD","AMD",None),
+ ("AVGO","博通","US","AVGO","AVGO",None),("0700.HK","腾讯控股","CN","0700.HK",None,"00700"),("BABA","阿里巴巴(ADR)","CN","BABA","BABA","09988"),
+ ("BIDU","百度(ADR)","CN","BIDU","BIDU","09888"),("JD","京东(ADR)","CN","JD","JD","09618"),("3690.HK","美团","CN","3690.HK",None,"03690"),
+ ("PDD","拼多多","CN","PDD","PDD",None),("1810.HK","小米集团","CN","1810.HK",None,"01810"),("NTES","网易(ADR)","CN","NTES","NTES","09999"),
+ ("0981.HK","中芯国际","CN","0981.HK",None,"00981"),("1211.HK","比亚迪股份","CN","1211.HK",None,"01211"),
 ]
-UA = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124 Safari/537.36","Accept":"application/json"}
-def nasdaq(sym):
-    try:
-        r = urllib.request.urlopen(urllib.request.Request(f"https://api.nasdaq.com/api/analyst/{sym}/earnings-date", headers=UA), timeout=20)
-        d = json.load(r)["data"]; return d.get("reportText")
-    except Exception as e: return None
-def num(v):
-    try:
-        v=float(v); return None if math.isnan(v) else v
-    except Exception: return None
-def row(df, key, col):
-    try: return num(df.loc[key, col])
-    except Exception: return None
-def get(sym, name, region, nq):
-    t = yf.Ticker(sym); o = {"symbol":sym,"name":name,"region":region}
-    info = {}
-    try: info = t.info
-    except Exception: pass
-    o["currency"] = info.get("financialCurrency") or info.get("currency")
-    ts = info.get("earningsTimestamp") or info.get("earningsTimestampStart")
-    if ts: o["nextDate"] = dt.datetime.fromtimestamp(ts, TZ).isoformat()
-    else:
-        try: o["nextDate"] = str(t.calendar.get("Earnings Date")[0])
-        except Exception: o["nextDate"] = None
-    est = info.get("isEarningsDateEstimate")
-    o["dateStatus"] = None if est is None else ("estimated" if est else "confirmed")
-    o["nasdaqText"] = nasdaq(nq) if nq else None
-    if o["nasdaqText"] and "expected*" in o["nasdaqText"] and o["dateStatus"] is None: o["dateStatus"]="estimated"
-    cons = {}
-    try:
-        ee=t.earnings_estimate; re_=t.revenue_estimate
-        cons = {"epsAvg":row(ee,"0q","avg"),"epsLow":row(ee,"0q","low"),"epsHigh":row(ee,"0q","high"),
-                "epsAnalysts":row(ee,"0q","numberOfAnalysts"),"epsYearAgo":row(ee,"0q","yearAgoEps"),
-                "revAvg":row(re_,"0q","avg"),"revLow":row(re_,"0q","low"),"revHigh":row(re_,"0q","high"),
-                "revAnalysts":row(re_,"0q","numberOfAnalysts"),"revGrowth":row(re_,"0q","growth"),
-                "currency": (re_.loc["0q","currency"] if "currency" in re_.columns else None)}
-    except Exception: pass
-    o["consensus"]=cons
-    # 最近已发布季度：EPS 实际 vs 预期（Yahoo earnings_history）+ 利润表
-    last = None
-    try:
-        eh = t.earnings_history.dropna(subset=["epsActual"])
-        q = eh.index[-1]; r = eh.iloc[-1]
-        last = {"quarterEnd":str(q)[:10],"epsActual":num(r.epsActual),"epsEstimate":num(r.epsEstimate),"epsSurprisePct":num(r.surprisePercent)}
-    except Exception: pass
-    try:
-        qi = t.quarterly_income_stmt
-        cols = sorted(qi.columns, reverse=True); c0 = cols[0]
-        prev = [c for c in cols if abs((c0 - c).days - 365) < 20]
-        rev = row(qi,"Total Revenue",c0); ni = row(qi,"Net Income",c0)
-        lr = last or {"quarterEnd":str(c0)[:10]}
-        if str(c0)[:10][:7] == lr["quarterEnd"][:7]:
-            lr["revenue"]=rev; lr["netIncome"]=ni
-            if prev:
-                pr=row(qi,"Total Revenue",prev[0]); pn=row(qi,"Net Income",prev[0])
-                lr["revenueYoY"]= (rev/pr-1) if rev and pr else None
-                lr["netIncomeYoY"]= (ni/pn-1) if ni and pn and pn>0 else None
-        last = lr
-    except Exception: pass
-    try:
-        ed = t.get_earnings_dates(limit=8)
-        past = ed[ed["Reported EPS"].notna()]
-        if len(past) and last: last["reportDate"]=past.index[0].tz_convert(TZ).isoformat()
-    except Exception: pass
-    o["lastReported"]=last
-    return o
+def merge(dst,src):
+    for k,v in (src or {}).items():
+        if k=="_src": continue
+        if k not in dst: dst[k]=v  # 高优先级源显式给出的 null 不被覆盖
+def future(d):
+    if not d: return False
+    return dt.datetime.fromisoformat(d if "T" in d else d+"T23:59:00+08:00")>=dt.datetime.now(TZ)
 if __name__=="__main__":
-    ap=argparse.ArgumentParser(); ap.add_argument("--out",default=os.path.join(os.path.dirname(__file__),"..","data","earnings.json")); a=ap.parse_args()
+    here=os.path.dirname(os.path.abspath(__file__))
+    ap=argparse.ArgumentParser(); ap.add_argument("--out",default=os.path.join(here,"..","data","earnings.json")); ap.add_argument("--only"); a=ap.parse_args()
+    cfg=json.load(open(os.path.join(here,"sources.json")))
+    ads={}
+    for n in {x for k in ("next_date","consensus","last_reported") for x in cfg[k]}:
+        try:
+            ad=load(n)
+            if ad.available: ads[n]=ad
+        except Exception as e: print("skip source",n,e)
     old={}
     if os.path.exists(a.out):
         try: old={c["symbol"]:c for c in json.load(open(a.out))["companies"]}
         except Exception: pass
+    only=set(a.only.split(",")) if a.only else None
     out=[]
-    for s,n,r,nq in COS:
-        try: c=get(s,n,r,nq)
-        except Exception as e: c={"symbol":s,"name":n,"region":r,"error":str(e)}
-        # 保留人工补充字段（指引、备注、手工核对的实际数）
-        for k in ("guidance","note","manual"):
-            if k in old.get(s,{}): c[k]=old[s][k]
-        nd=c.get("nextDate")
-        if nd and dt.datetime.fromisoformat(nd if "T" in nd else nd+"T23:59:00+08:00")<dt.datetime.now(TZ):
-            m=re.search(r"(\d\d)/(\d\d)/(\d{4})",c.get("nasdaqText") or "")
-            if m: c["nextDate"]=f"{m[3]}-{m[1]}-{m[2]}"; c["dateStatus"]="estimated"; c["dateSource"]="Nasdaq/Zacks 算法预估"
-            else: c["nextDate"]=None; c["dateStatus"]="unknown"
-        if s=="3690.HK" and (c.get("lastReported") or {}).get("reportDate","")[:4]<"2026": c["lastReported"]=None
-        out.append(c); print(s, c.get("nextDate"), c.get("dateStatus")); time.sleep(0.5)
+    for s,n,r,y,nq,hk in COS:
+        if only and s not in only: out.append(old.get(s,{"symbol":s,"name":n,"region":r})); continue
+        co={"symbol":s,"name":n,"region":r,"yahoo":y,"nasdaq":nq,"hk":hk}
+        c={"symbol":s,"name":n,"region":r,"currency":None,"nextDate":None,"dateStatus":"unknown","sources":{}}
+        for src in cfg["next_date"]:   # 第一个给出“未来日期”的源胜出
+            ad=ads.get(src)
+            if not ad: continue
+            try: x=ad.next_date(co)
+            except Exception as e: x=None; print(s,src,"err",e)
+            if x and x.get("currency") and not c["currency"]: c["currency"]=x["currency"]
+            if x and x.get("nasdaqText"): c["nasdaqText"]=x["nasdaqText"]
+            if x and future(x.get("nextDate")) and c["nextDate"] is None:
+                c["nextDate"]=x["nextDate"]; c["dateStatus"]=x.get("dateStatus") or "unknown"; c["sources"]["nextDate"]=x.get("_src")
+        for key,meth in (("consensus","consensus"),("lastReported","last_reported")):
+            blk={}; used=[]
+            for src in cfg[meth]:
+                ad=ads.get(src)
+                if not ad: continue
+                try: x=getattr(ad,meth)(co)
+                except Exception as e: x=None; print(s,src,"err",e)
+                if x:
+                    if key=="lastReported" and blk.get("quarterEnd") and x.get("quarterEnd") and x["quarterEnd"]!=blk["quarterEnd"]: continue  # 不同季度不混合
+                    merge(blk,x); used.append(x.get("_src"))
+            c[key]=blk or None; c["sources"][key]=[u for u in used if u]
+        ov=ads.get("overrides")
+        if ov:
+            o=ov.d.get(s,{})
+            for k in ("currency","guidance","note"):
+                if o.get(k): c[k]=o[k]
+            if o.get("lastReported",{}).get("guidance"): c["guidance"]=o["lastReported"]["guidance"]
+        for k in ("guidance","note","manual"):  # 旧文件人工字段保留
+            if k in old.get(s,{}) and not c.get(k): c[k]=old[s][k]
+        out.append(c); print(s,c["nextDate"],c["dateStatus"]); time.sleep(0.3)
     now=dt.datetime.now(TZ).isoformat(timespec="seconds")
-    json.dump({"schema":"earnings-v1","updated":now,"consensusSource":"Yahoo Finance 分析师一致预期（底层为 LSEG/Refinitiv 等汇总）；美股日期另参 Nasdaq/Zacks","consensusAsOf":now[:10],"companies":out},open(a.out,"w"),ensure_ascii=False,indent=1)
+    json.dump({"schema":"earnings-v2","updated":now,
+      "consensusSource":"Yahoo Finance 分析师一致预期（港股用 .HK 代码；底层为 LSEG/Refinitiv 等汇总）；日期优先 公司公告/HKEXnews > Yahoo > Nasdaq/Zacks",
+      "consensusAsOf":now[:10],"companies":out},open(a.out,"w"),ensure_ascii=False,indent=1)

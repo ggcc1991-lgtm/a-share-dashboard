@@ -1,7 +1,7 @@
 {
- "schema": "earnings-v1",
- "updated": "2026-10-27T10:10:51+08:00",
- "consensusSource": "Yahoo Finance 分析师一致预期（底层为 LSEG/Refinitiv 等汇总）；美股日期另参 Nasdaq/Zacks",
+ "schema": "earnings-v2",
+ "updated": "2026-10-27T10:30:57+08:00",
+ "consensusSource": "Yahoo Finance 分析师一致预期（港股用 .HK 代码；底层为 LSEG/Refinitiv 等汇总）；日期优先 公司公告/HKEXnews > Yahoo > Nasdaq/Zacks",
  "consensusAsOf": "2026-10-27",
  "companies": [
   {
@@ -11,6 +11,27 @@
    "currency": "USD",
    "nextDate": "2026-11-03T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+     "asOf": "2026-10-27T10:29:05+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+      "asOf": "2026-10-27T10:29:07+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+      "asOf": "2026-10-27T10:29:08+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Apple Inc. Common Stock is expected* to report earnings on  11/02/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.  The reported EPS for the same quarter last year was $1.85.",
    "consensus": {
     "epsAvg": 1.97965,
@@ -44,6 +65,27 @@
    "currency": "USD",
    "nextDate": "2026-10-29T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/MSFT/analysis",
+     "asOf": "2026-10-27T10:29:08+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MSFT/analysis",
+      "asOf": "2026-10-27T10:29:10+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MSFT/analysis",
+      "asOf": "2026-10-27T10:29:11+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Microsoft Corporation Common Stock is expected* to report earnings on  10/28/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  14 analysts'  forecasts, the consensus EPS forecast for the quarter is $4.71.  The reported EPS for the same quarter last year was $4.13.",
    "consensus": {
     "epsAvg": 4.72072,
@@ -77,6 +119,32 @@
    "currency": "USD",
    "nextDate": "2026-10-29T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
+     "asOf": "2026-10-27T10:29:11+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
+      "asOf": "2026-10-27T10:29:12+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Alphabet Q2 2026 业绩(SEC 8-K Ex99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
+      "asOf": "2026-10-27T10:29:13+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Alphabet Inc. Class A Common Stock is expected* to report earnings on  10/28/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  14 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.94.  The reported EPS for the same quarter last year was $2.87.",
    "consensus": {
     "epsAvg": 3.00299,
@@ -93,14 +161,17 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-07-23",
+    "revenue": 119796000000,
+    "revenueYoY": 0.24,
+    "netIncome": 112107000000,
+    "netIncomeYoY": 2.98,
+    "epsGaap": 9.11,
+    "epsGaapBasis": "GAAP 摊薄 EPS",
+    "oneOff": "股权投资净收益 990亿美元，增厚 EPS 6.26 美元；剔除后约 2.85，与 2.90 预期大致可比（剔除值为按公告数推算）",
     "epsActual": 9.11,
     "epsEstimate": 2.89914,
-    "epsSurprisePct": 2.1423,
-    "revenue": 119796000000.0,
-    "netIncome": 112193000000.0,
-    "revenueYoY": 0.2423362508814868,
-    "netIncomeYoY": 2.979039580082281,
-    "reportDate": "2026-07-23T04:00:00+08:00"
+    "epsSurprisePct": 2.1423
    }
   },
   {
@@ -110,6 +181,32 @@
    "currency": "USD",
    "nextDate": "2026-10-30T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AMZN/analysis",
+     "asOf": "2026-10-27T10:29:14+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMZN/analysis",
+      "asOf": "2026-10-27T10:29:16+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Amazon Q2 2026 业绩新闻稿(IR)",
+      "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMZN/analysis",
+      "asOf": "2026-10-27T10:29:17+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Amazon.com, Inc. Common Stock is expected* to report earnings on  10/29/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  14 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.01.  The reported EPS for the same quarter last year was $1.95.",
    "consensus": {
     "epsAvg": 1.95857,
@@ -126,14 +223,18 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-07-31",
+    "revenue": 200600000000,
+    "revenueYoY": 0.196,
+    "netIncome": 62600000000,
+    "netIncomeYoY": 2.44,
+    "epsGaap": 5.75,
+    "epsGaapBasis": "GAAP 摊薄 EPS",
+    "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
+    "epsNonGaap": null,
     "epsActual": 5.75,
     "epsEstimate": 1.82461,
-    "epsSurprisePct": 2.1514,
-    "revenue": null,
-    "netIncome": null,
-    "revenueYoY": null,
-    "netIncomeYoY": null,
-    "reportDate": "2026-07-31T04:00:00+08:00"
+    "epsSurprisePct": 2.1514
    }
   },
   {
@@ -143,7 +244,22 @@
    "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
-   "nasdaqText": "Our vendor, Zacks Investment Research, hasn't provided us with the upcoming earnings report date.",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/META/analysis",
+      "asOf": "2026-10-27T10:29:18+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/META/analysis",
+      "asOf": "2026-10-27T10:29:19+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 8.33709,
     "epsLow": 7.68,
@@ -168,15 +284,15 @@
     "netIncomeYoY": 2.6397194536729423,
     "reportDate": "2026-10-22T04:00:00+08:00"
    },
+   "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿",
+   "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比",
    "manual": {
     "revEstimate": 63370000000.0,
     "revSource": "LSEG(CNBC)",
     "epsEstimateAlt": 5.75,
     "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比",
     "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿"
-   },
-   "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿",
-   "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比"
+   }
   },
   {
    "symbol": "NVDA",
@@ -185,6 +301,27 @@
    "currency": "USD",
    "nextDate": "2026-11-18T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+     "asOf": "2026-10-27T10:29:19+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+      "asOf": "2026-10-27T10:29:22+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+      "asOf": "2026-10-27T10:29:22+08:00"
+     }
+    ]
+   },
    "nasdaqText": "NVIDIA Corporation Common Stock is estimated to report earnings on  11/18/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  13 analysts' forecasts, the consensus EPS forecast for the quarter is $2.49.  The reported EPS for the same quarter last year was $1.24.",
    "consensus": {
     "epsAvg": 2.47325,
@@ -218,7 +355,22 @@
    "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
-   "nasdaqText": "Our vendor, Zacks Investment Research, hasn't provided us with the upcoming earnings report date.",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSLA/analysis",
+      "asOf": "2026-10-27T10:29:26+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSLA/analysis",
+      "asOf": "2026-10-27T10:29:27+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 0.50329,
     "epsLow": 0.34213,
@@ -243,15 +395,15 @@
     "netIncomeYoY": -0.42680262199563,
     "reportDate": "2026-10-22T04:00:00+08:00"
    },
+   "guidance": "暂无（未给出量化营收指引）",
+   "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)",
    "manual": {
     "revEstimate": 27900000000.0,
     "revSource": "LSEG(CNBC)",
     "epsEstimateAlt": 0.43,
     "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)",
     "guidance": "暂无（未给出量化营收指引）"
-   },
-   "guidance": "暂无（未给出量化营收指引）",
-   "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)"
+   }
   },
   {
    "symbol": "TSM",
@@ -260,7 +412,22 @@
    "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
-   "nasdaqText": "Our vendor, Zacks Investment Research, hasn't provided us with the upcoming earnings report date.",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis",
+      "asOf": "2026-10-27T10:29:29+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis",
+      "asOf": "2026-10-27T10:29:30+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 5.1641,
     "epsLow": 5.102,
@@ -285,13 +452,13 @@
     "netIncomeYoY": 0.6870674903051501,
     "reportDate": "2026-10-15T14:00:00+08:00"
    },
+   "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
+   "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)",
    "manual": {
     "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)",
     "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
     "revEstimate": null
-   },
-   "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
-   "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)"
+   }
   },
   {
    "symbol": "AMD",
@@ -300,6 +467,27 @@
    "currency": "USD",
    "nextDate": "2026-11-04T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AMD/analysis",
+     "asOf": "2026-10-27T10:29:30+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMD/analysis",
+      "asOf": "2026-10-27T10:29:33+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMD/analysis",
+      "asOf": "2026-10-27T10:29:33+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Advanced Micro Devices, Inc. Common Stock is expected* to report earnings on  11/03/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.68.  The reported EPS for the same quarter last year was $0.97.",
    "consensus": {
     "epsAvg": 1.93464,
@@ -333,6 +521,27 @@
    "currency": "USD",
    "nextDate": "2026-12-10T04:00:00+08:00",
    "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+     "asOf": "2026-10-27T10:29:34+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+      "asOf": "2026-10-27T10:29:36+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+      "asOf": "2026-10-27T10:29:37+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Broadcom Inc. Common Stock is estimated to report earnings on  12/10/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  10 analysts' forecasts, the consensus EPS forecast for the quarter is $3.45.  The reported EPS for the same quarter last year was $1.61.",
    "consensus": {
     "epsAvg": 3.83018,
@@ -364,9 +573,34 @@
    "name": "腾讯控股",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-18T16:10:00+08:00",
+   "nextDate": "2026-11-18",
    "dateStatus": "confirmed",
-   "nasdaqText": null,
+   "sources": {
+    "nextDate": {
+     "name": "HKEXnews 董事会会议通告(2026-09-24)",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
+     "asOf": "2026-10-27"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
+      "asOf": "2026-10-27T10:29:46+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
+      "asOf": "2026-10-27T10:29:47+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 7.23279,
     "epsLow": 6.61,
@@ -382,14 +616,19 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-12",
+    "revenue": 204785000000,
+    "revenueYoY": 0.11,
+    "netIncome": 56022000000,
+    "netIncomeYoY": 0.007,
+    "epsGaap": 6.104,
+    "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
+    "epsNonGaap": 7.433,
+    "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
+    "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
     "epsActual": 7.433,
     "epsEstimate": 7.23544,
-    "epsSurprisePct": 0.0273,
-    "revenue": 204785000000.0,
-    "netIncome": 56022000000.0,
-    "revenueYoY": 0.10992173611412226,
-    "netIncomeYoY": 0.0070827640756454535,
-    "reportDate": "2026-08-12T16:00:00+08:00"
+    "epsSurprisePct": 0.0273
    }
   },
   {
@@ -399,6 +638,32 @@
    "currency": "CNY",
    "nextDate": "2026-11-24",
    "dateStatus": "estimated",
+   "sources": {
+    "nextDate": {
+     "name": "Nasdaq/Zacks 算法预估",
+     "url": "https://www.nasdaq.com/market-activity/stocks/baba/earnings",
+     "asOf": "2026-10-27T10:30:01+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BABA/analysis",
+      "asOf": "2026-10-27T10:30:01+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BABA/analysis",
+      "asOf": "2026-10-27T10:30:01+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share is estimated to report earnings on  11/24/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  3 analysts' forecasts, the consensus EPS forecast for the quarter is $1.31.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 10.95842,
@@ -415,16 +680,21 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-20",
+    "revenue": 268953000000,
+    "revenueYoY": 0.09,
+    "netIncome": 10537000000,
+    "netIncomeYoY": null,
+    "epsGaap": 3.71,
+    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+    "epsNonGaap": 8.52,
+    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
+    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+    "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
     "epsActual": 8.52,
     "epsEstimate": 10.82038,
-    "epsSurprisePct": -0.21260001,
-    "revenue": 268953000000.0,
-    "netIncome": 10614000000.0,
-    "revenueYoY": 0.0860118230420106,
-    "netIncomeYoY": -0.7388865654751655,
-    "reportDate": "2026-08-20T17:00:00+08:00"
-   },
-   "dateSource": "Nasdaq/Zacks 算法预估"
+    "epsSurprisePct": -0.21260001
+   }
   },
   {
    "symbol": "BIDU",
@@ -433,6 +703,32 @@
    "currency": "CNY",
    "nextDate": "2026-11-17",
    "dateStatus": "estimated",
+   "sources": {
+    "nextDate": {
+     "name": "Nasdaq/Zacks 算法预估",
+     "url": "https://www.nasdaq.com/market-activity/stocks/bidu/earnings",
+     "asOf": "2026-10-27T10:30:08+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
+      "asOf": "2026-10-27T10:30:08+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "百度 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
+      "asOf": "2026-10-27T10:30:09+08:00"
+     }
+    ]
+   },
    "nasdaqText": "Baidu, Inc. ADS is estimated to report earnings on  11/17/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $1.05.  The reported EPS for the same quarter last year was $1.23.",
    "consensus": {
     "epsAvg": 6.7803,
@@ -449,16 +745,20 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-18",
+    "revenue": 31300000000,
+    "revenueYoY": -0.04,
+    "netIncome": 2300000000,
+    "epsGaap": 5.74,
+    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+    "epsNonGaap": 7.22,
+    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+    "netIncomeYoY": null,
     "epsActual": 7.22,
     "epsEstimate": 9.83686,
-    "epsSurprisePct": -0.266,
-    "revenue": 31325000000.0,
-    "netIncome": 2319000000.0,
-    "revenueYoY": -0.04242961513771282,
-    "netIncomeYoY": -0.6832832559409997,
-    "reportDate": "2026-08-18T17:00:00+08:00"
-   },
-   "dateSource": "Nasdaq/Zacks 算法预估"
+    "epsSurprisePct": -0.266
+   }
   },
   {
    "symbol": "JD",
@@ -467,6 +767,32 @@
    "currency": "CNY",
    "nextDate": "2026-11-12",
    "dateStatus": "estimated",
+   "sources": {
+    "nextDate": {
+     "name": "Nasdaq/Zacks 算法预估",
+     "url": "https://www.nasdaq.com/market-activity/stocks/jd/earnings",
+     "asOf": "2026-10-27T10:30:17+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/JD/analysis",
+      "asOf": "2026-10-27T10:30:17+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "京东 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/JD/analysis",
+      "asOf": "2026-10-27T10:30:18+08:00"
+     }
+    ]
+   },
    "nasdaqText": "JD.com, Inc. American Depositary Shares is estimated to report earnings on  11/12/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $0.95.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 5.95885,
@@ -483,16 +809,21 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-13",
+    "revenue": 346400000000,
+    "revenueYoY": -0.029,
+    "netIncome": 7100000000,
+    "netIncomeYoY": 0.145,
+    "epsGaap": 5.01,
+    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+    "epsNonGaap": 6.29,
+    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+    "note": "净利同比按公告 71亿 vs 62亿 计算",
     "epsActual": 6.29,
     "epsEstimate": 5.61488,
-    "epsSurprisePct": 0.12020001,
-    "revenue": 346401000000.0,
-    "netIncome": 7129000000.0,
-    "revenueYoY": -0.02876408904839345,
-    "netIncomeYoY": 0.15393331175137592,
-    "reportDate": "2026-08-13T18:00:00+08:00"
-   },
-   "dateSource": "Nasdaq/Zacks 算法预估"
+    "epsSurprisePct": 0.12020001
+   }
   },
   {
    "symbol": "3690.HK",
@@ -501,7 +832,27 @@
    "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
-   "nasdaqText": null,
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
+      "asOf": "2026-10-27T10:30:22+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "美团 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
+      "asOf": "2026-10-27T10:30:23+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 0.302,
     "epsLow": 0.07,
@@ -515,7 +866,23 @@
     "revGrowth": 0.1842,
     "currency": "CNY"
    },
-   "lastReported": null,
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-28",
+    "revenue": 104643044000,
+    "revenueYoY": 0.144,
+    "netIncome": 2155222000,
+    "netIncomeYoY": 4.9,
+    "netIncomeBasis": "期内利润(含少数股东)",
+    "epsGaap": null,
+    "epsGaapBasis": "单季 EPS 公告未单列（暂无）；上半年基本 EPS -0.76 元",
+    "epsNonGaap": null,
+    "adjNetIncome": 2523716000,
+    "adjNetIncomeYoY": 0.69,
+    "epsActual": null,
+    "epsEstimate": null,
+    "epsSurprisePct": null
+   },
    "note": "Yahoo 最近财报数据异常（2023），已置空"
   },
   {
@@ -525,6 +892,27 @@
    "currency": "CNY",
    "nextDate": "2026-11-17",
    "dateStatus": "estimated",
+   "sources": {
+    "nextDate": {
+     "name": "Nasdaq/Zacks 算法预估",
+     "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
+     "asOf": "2026-10-27T10:30:26+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PDD/analysis",
+      "asOf": "2026-10-27T10:30:26+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PDD/analysis",
+      "asOf": "2026-10-27T10:30:26+08:00"
+     }
+    ]
+   },
    "nasdaqText": "PDD Holdings Inc. American Depositary Shares is estimated to report earnings on  11/17/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $2.6.  The reported EPS for the same quarter last year was $2.77.",
    "consensus": {
     "epsAvg": 18.84143,
@@ -549,17 +937,41 @@
     "revenueYoY": 0.08052122902341674,
     "netIncomeYoY": -0.11614749300903948,
     "reportDate": "2026-08-24T18:00:00+08:00"
-   },
-   "dateSource": "Nasdaq/Zacks 算法预估"
+   }
   },
   {
    "symbol": "1810.HK",
    "name": "小米集团",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
-   "nasdaqText": null,
+   "nextDate": "2026-11-24",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "HKEXnews 董事会会议召开日期(2026-10-23)",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
+     "asOf": "2026-10-27"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
+      "asOf": "2026-10-27T10:30:33+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "小米 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
+      "asOf": "2026-10-27T10:30:34+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 0.20989,
     "epsLow": 0.16,
@@ -575,14 +987,19 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-18",
+    "revenue": 108921600000,
+    "revenueYoY": -0.061,
+    "netIncome": 9462405000,
+    "netIncomeYoY": -0.205,
+    "epsGaap": 0.37,
+    "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
+    "adjNetIncome": 6219100000,
+    "adjNetIncomeYoY": -0.426,
+    "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
     "epsActual": 0.2346,
     "epsEstimate": 0.22951,
-    "epsSurprisePct": 0.0222,
-    "revenue": 108921609000.0,
-    "netIncome": 9462405000.0,
-    "revenueYoY": -0.06066504949705487,
-    "netIncomeYoY": -0.20513414992181467,
-    "reportDate": "2026-08-18T17:00:00+08:00"
+    "epsSurprisePct": 0.0222
    }
   },
   {
@@ -592,6 +1009,32 @@
    "currency": "CNY",
    "nextDate": "2026-11-19",
    "dateStatus": "estimated",
+   "sources": {
+    "nextDate": {
+     "name": "Nasdaq/Zacks 算法预估",
+     "url": "https://www.nasdaq.com/market-activity/stocks/ntes/earnings",
+     "asOf": "2026-10-27T10:30:42+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NTES/analysis",
+      "asOf": "2026-10-27T10:30:43+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "网易 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NTES/analysis",
+      "asOf": "2026-10-27T10:30:43+08:00"
+     }
+    ]
+   },
    "nasdaqText": "NetEase, Inc. American Depositary Shares is estimated to report earnings on  11/19/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $2.4.  The reported EPS for the same quarter last year was $1.88.",
    "consensus": {
     "epsAvg": 16.13125,
@@ -608,16 +1051,20 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-20",
+    "revenue": 30100000000,
+    "revenueYoY": 0.079,
+    "netIncome": 7000000000,
+    "epsGaap": 1.61,
+    "epsGaapBasis": "GAAP 基本 EPS/ADS(美元)",
+    "epsNonGaap": 1.78,
+    "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
+    "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
+    "netIncomeYoY": null,
     "epsActual": 12.02,
     "epsEstimate": 15.54257,
-    "epsSurprisePct": -0.22659999,
-    "revenue": 30106546000.0,
-    "netIncome": 6980656000.0,
-    "revenueYoY": 0.07941017789401172,
-    "netIncomeYoY": -0.18839113080905612,
-    "reportDate": "2026-08-20T16:00:00+08:00"
-   },
-   "dateSource": "Nasdaq/Zacks 算法预估"
+    "epsSurprisePct": -0.22659999
+   }
   },
   {
    "symbol": "0981.HK",
@@ -626,7 +1073,27 @@
    "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
-   "nasdaqText": null,
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
+      "asOf": "2026-10-27T10:30:49+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
+      "asOf": "2026-10-27T10:30:49+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 0.04929,
     "epsLow": 0.03,
@@ -642,24 +1109,54 @@
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
+    "reportDate": "2026-08-13",
+    "revenue": 3005600000,
+    "revenueYoY": 0.3606,
+    "netIncome": 479197000,
+    "netIncomeYoY": 2.617,
+    "epsGaap": 0.06,
+    "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
+    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
+    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
     "epsActual": 0.06,
     "epsEstimate": 0.03482,
-    "epsSurprisePct": 0.72309995,
-    "revenue": null,
-    "netIncome": null,
-    "revenueYoY": null,
-    "netIncomeYoY": null,
-    "reportDate": "2026-08-13T16:00:00+08:00"
-   }
+    "epsSurprisePct": 0.72309995
+   },
+   "guidance": "Q3 营收环比 +2%~4%（公司指引）"
   },
   {
    "symbol": "1211.HK",
    "name": "比亚迪股份",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-10-29T16:10:00+08:00",
+   "nextDate": "2026-10-29",
    "dateStatus": "confirmed",
-   "nasdaqText": null,
+   "sources": {
+    "nextDate": {
+     "name": "HKEXnews 董事会会议通告(2026-10-14)",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1014/2026101400381.pdf",
+     "asOf": "2026-10-27"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1211.HK/analysis",
+      "asOf": "2026-10-27T10:30:56+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "比亚迪 2026 中期业绩公告(HKEXnews)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082801633.pdf",
+      "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1211.HK/analysis",
+      "asOf": "2026-10-27T10:30:57+08:00"
+     }
+    ]
+   },
    "consensus": {
     "epsAvg": 1.295,
     "epsLow": 1.26,
@@ -674,6 +1171,16 @@
     "currency": "CNY"
    },
    "lastReported": {
+    "halfYear": {
+     "period": "2026H1",
+     "revenue": 344815000000,
+     "revenueYoY": -0.0713,
+     "netIncome": 12325000000,
+     "netIncomeYoY": -0.2054,
+     "epsGaap": 1.35,
+     "epsGaapBasis": "基本 EPS(人民币/股)"
+    },
+    "note": "公告为半年口径(H1)；单季 Q2 数据为 Yahoo 推算值",
     "quarterEnd": "2026-06-30",
     "epsActual": 0.902,
     "epsEstimate": 0.85,

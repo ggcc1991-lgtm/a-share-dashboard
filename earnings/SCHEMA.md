@@ -11,3 +11,8 @@
 - `meetings[]`: `id,name,region(CN/US/EU/JP),start,end,decisionAt(ISO北京),status(done/upcoming/ongoing/scheduled/tbd),expectation,result,verdict,note,sources[{name,url}]`
 - `macro[]`: `id,region,name,releaseAt(ISO北京),status(released/upcoming/pending),actual,forecast,previous,diff,verdict,note,impact,source{name,url}`；`id` 以 `ff-` 开头者由脚本自动生成，每次重跑覆盖。
 - 任何取不到的值为 null 或 "暂无"，页面统一显示「暂无」。
+
+## earnings-v2 增量字段
+- `companies[].sources`: `{nextDate:{name,url,asOf}, consensus:[{name,url,asOf}], lastReported:[{...}]}`，按优先级排列。
+- `lastReported` 新增（来自 overrides）：`epsGaap`,`epsGaapBasis`,`epsNonGaap`,`epsNonGaapBasis`,`epsCompareBasis`（epsActual/epsEstimate 的对比口径说明），`oneOff`（一次性项目说明），`adjNetIncome`,`adjNetIncomeYoY`,`netIncomeBasis`,`halfYear{period,revenue,revenueYoY,netIncome,netIncomeYoY,epsGaap,epsGaapBasis}`,`note`。
+- `dateStatus`: confirmed（公告/Yahoo 确认）| estimated（算法预估）| unknown。
