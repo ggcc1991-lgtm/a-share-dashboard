@@ -173,6 +173,7 @@
       try { etf = await loadJSON("data/etf.json"); } catch (_) {}
       try { bottom = await loadJSON("data/bottom.json"); } catch (_) {}
       try { feed = await loadJSON("data/feed.json"); } catch (_) {}
+      if (feed?.items) feed.items = feed.items.filter(x => !/(加微信|微信群|加群|拉群|拉你|进群|入群|置顶微信|扫码进群|二维码|加V|wx号|免费领取)/.test((x.title||"")+" "+(x.summary||"")));
       let policy = null;
       try { policy = await loadJSON("policy/snapshot.json"); } catch (_) {}
 
