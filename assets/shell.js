@@ -10,7 +10,7 @@
       const u = new URL(href, location.href);
       const p = u.pathname.replace(/\/+$/, "") || "/";
       if (p === path || (m !== "/" && path.endsWith(m))) a.classList.add("active");
-      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/sentiment") && !path.includes("/momentum")) {
+      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/earnings") && !path.includes("/sentiment") && !path.includes("/momentum")) {
         a.classList.add("active");
       }
     } catch (_) {}
