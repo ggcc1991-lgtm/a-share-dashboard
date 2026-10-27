@@ -43,6 +43,7 @@
     .tl-wrap{position:relative;border:1px solid var(--bd);background:#030303;margin-bottom:10px}
     .tl-head{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid var(--bd);font-size:11px;color:var(--mu);gap:8px;flex-wrap:wrap}
     .tl-head b{color:var(--bb);font-weight:600}
+    .tag.el{border-color:#5b8cff;color:#8fb0ff}.lg .el-i{border:1.5px solid #5b8cff;border-radius:2px;transform:rotate(45deg)}circle.dot.el{stroke:#5b8cff}
     .lg{display:flex;gap:12px;flex-wrap:wrap}.lg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:-1px}
     .tl-head button{font:inherit;font-size:11px;background:#000;color:var(--bb);border:1px solid var(--bd);padding:2px 8px;cursor:pointer}
     .tl-body{display:flex}
@@ -127,7 +128,7 @@
         <section aria-label="近7日重点倒计时"><div class="sec-t">未来 7 日重点<span class="sub">北京时间 · 实时倒计时</span></div><div class="cd-row" id="cd"></div></section>
     <section class="tl-wrap" aria-label="事件时间线">
       <div class="tl-head"><span><b>事件时间线</b> · 过去 2 周 ← 今天 → 未来 4 周 · 可拖动 · 点节点看详情</span>
-        <span class="lg"><span><i style="background:var(--beatc)"></i>超预期</span><span><i style="background:var(--missc)"></i>不及预期</span><span><i style="background:#9a9a9a"></i>符合/已发生</span><span><i style="border:1.5px solid #777"></i>待公布</span><span>节点大小=重要性</span><button type="button" id="toNow">回到今天</button></span></div>
+        <span class="lg"><span><i style="background:var(--beatc)"></i>超预期</span><span><i style="background:var(--missc)"></i>不及预期</span><span><i style="background:#9a9a9a"></i>符合/已发生</span><span><i style="border:1.5px solid #777"></i>待公布</span><span><i class="el-i"></i>美国大选</span><span>节点大小=重要性</span><button type="button" id="toNow">回到今天</button></span></div>
       <div class="tl-body"><div class="tl-lanes"><div class="ax"></div><div>财报</div><div>会议</div><div>宏观</div></div><div class="tl-scroll" id="tls"></div></div>
     </section>
     <div class="stream" id="stream" aria-label="事件流"></div>
@@ -142,7 +143,7 @@
     <section id="t-r" class="panel scard" hidden><h2>最近一期财报 vs 一致预期</h2><div class="tw"><table class="data" id="tr"></table></div>
       <p class="note">实际数优先取公司业绩公告（HKEXnews/SEC），EPS实际/预期/偏差列为 Yahoo 同口径（中概/港股多为 Non-GAAP），下方小字为公告 GAAP/Non-GAAP 口径；一次性项目见备注。营收预期仅对有新闻来源的公司填写，其余“暂无”。</p></section>
     <section id="t-m" class="panel scard" hidden><h2>重要会议<span class="sub">央行 / 中央会议</span></h2>
-      <div class="filt"><select id="mf"><option value="">全部地区</option><option>CN</option><option>US</option><option>EU</option><option>JP</option></select></div>
+      <div class="filt"><select id="mf"><option value="">全部地区</option><option>CN</option><option>US</option><option>EU</option><option>JP</option><option value="us-election">美国大选</option></select></div>
       <div class="tw"><table class="data" id="tm"></table></div></section>
     <section id="t-x" class="panel scard" hidden><h2>中美宏观数据日历<span class="sub">北京时间</span></h2>
       <div class="filt"><select id="xf"><option value="">中美全部</option><option>CN</option><option>US</option></select><select id="xs"><option value="">全部状态</option><option value="released">已公布</option><option value="upcoming">待公布</option></select></div>
@@ -176,9 +177,9 @@ Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.
    return `<tr><td class="l">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span></td><td class="l">${bj(L.reportDate).slice(0,10)}</td><td>${v(L.quarterEnd)}</td><td>${v(c.currency)}</td><td>${L.epsActual!=null?(+L.epsActual).toFixed(2):NA}${L.epsGaap!=null?'<br><span class="sub">'+esc(L.epsGaapBasis||'GAAP')+' '+L.epsGaap+'</span>':''}${L.epsNonGaap!=null?'<br><span class="sub">'+esc(L.epsNonGaapBasis||'Non-GAAP')+' '+L.epsNonGaap+'</span>':''}</td><td>${ee!=null?(+ee).toFixed(2):NA}</td><td>${es!=null?pct(es):NA}</td><td>${big(L.revenue)}</td><td>${re?big(re)+' <span class="sub">'+esc(m.revSource||'')+'</span>':NA}</td><td>${rd!=null?pct(rd):NA}</td><td>${L.revenueYoY!=null?pct(L.revenueYoY*100):NA}</td><td>${big(L.netIncome)}</td><td>${L.netIncomeYoY!=null?pct(L.netIncomeYoY*100):NA}</td><td class="w note">${c.guidance?esc(c.guidance):'指引：暂无'}${L.oneOff?'<br><b>一次性项目：</b>'+esc(L.oneOff):''}${L.epsCompareBasis?'<br>EPS口径：'+esc(L.epsCompareBasis):''}${L.epsGaap==null&&L.epsGaapBasis?'<br>EPS：'+esc(L.epsGaapBasis):''}${L.adjNetIncome?'<br>经调整净利 '+big(L.adjNetIncome)+(L.adjNetIncomeYoY!=null?' ('+pct(L.adjNetIncomeYoY*100)+')':''):''}${L.netIncomeBasis?'<br>净利口径：'+esc(L.netIncomeBasis):''}${L.halfYear?'<br>'+esc(L.halfYear.period)+'：营收 '+big(L.halfYear.revenue)+' ('+pct(L.halfYear.revenueYoY*100)+')，归母净利 '+big(L.halfYear.netIncome)+' ('+pct(L.halfYear.netIncomeYoY*100)+')，EPS '+L.halfYear.epsGaap:''}${L.note?'<br>'+esc(L.note):''}${c.note?'<br>'+esc(c.note):''}<br>来源：${((c.sources||{}).lastReported||[]).map(S1).join(' · ')||NA}</td></tr>`}).join('')+'</tbody>';
   const src=a=>(a||[]).map(s=>`<a class="src" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · ')||NA;
   const ST={done:'已结束',upcoming:'即将召开',ongoing:'进行中',scheduled:'已排期',tbd:'待定'};
-  const rm=()=>{const f=document.getElementById('mf').value;const ms=C.meetings.filter(m=>!f||m.region===f).sort((a,b)=>(a.start||'9')<(b.start||'9')?-1:1);
+  const rm=()=>{const f=document.getElementById('mf').value;const ms=C.meetings.filter(m=>!f||(f==='us-election'?m.category==='us-election':m.region===f)).sort((a,b)=>(a.start||'9')<(b.start||'9')?-1:1);
    document.getElementById('tm').innerHTML='<thead><tr><th class="l">会议</th><th class="l">地区</th><th class="l">日期</th><th class="l">决议时间(北京)</th><th class="l">状态</th><th class="l">市场预期</th><th class="l">结果</th><th class="l">对比</th><th class="l">来源</th></tr></thead><tbody>'+
-   ms.map(m=>`<tr><td class="l">${esc(m.name)}</td><td class="l">${m.region}</td><td class="l">${m.start?esc(m.start)+(m.end&&m.end!==m.start?' ~ '+esc(m.end.slice(5)):''):NA}</td><td class="l">${bj(m.decisionAt)}</td><td class="l"><span class="tag ${m.status==='upcoming'||m.status==='ongoing'?'c':''}">${ST[m.status]||m.status}</span></td><td class="w note">${v(m.expectation)}</td><td class="w">${v(m.result)}${m.note?'<br><span class="note">'+esc(m.note)+'</span>':''}</td><td class="l">${m.verdict?esc(m.verdict):NA}</td><td class="w">${src(m.sources)}</td></tr>`).join('')+'</tbody>'};
+   ms.map(m=>`<tr><td class="l">${m.category==='us-election'?'<span class="tag el">大选</span> ':''}${esc(m.name)}</td><td class="l">${m.region}</td><td class="l">${m.start?esc(m.start)+(m.end&&m.end!==m.start?' ~ '+esc(m.end.slice(5)):''):NA}</td><td class="l">${bj(m.decisionAt)}</td><td class="l"><span class="tag ${m.status==='upcoming'||m.status==='ongoing'?'c':''}">${ST[m.status]||m.status}</span></td><td class="w note">${v(m.expectation)}</td><td class="w">${v(m.result)}${m.note?'<br><span class="note">'+esc(m.note)+'</span>':''}</td><td class="l">${m.verdict?esc(m.verdict):NA}</td><td class="w">${src(m.sources)}</td></tr>`).join('')+'</tbody>'};
   const rx=()=>{const f=document.getElementById('xf').value,s=document.getElementById('xs').value;
    const xs=C.macro.filter(x=>(!f||x.region===f)&&(!s||(s==='released'?x.status==='released':x.status!=='released'))).sort((a,b)=>a.releaseAt<b.releaseAt?1:-1);
    document.getElementById('tx').innerHTML='<thead><tr><th class="l">公布(北京)</th><th class="l">国</th><th class="l">指标</th><th>实际</th><th>预期</th><th>前值</th><th>差值</th><th class="l">对比</th><th class="l">来源</th></tr></thead><tbody>'+
@@ -222,7 +223,7 @@ function build(E,C){
   });
   (C.meetings||[]).forEach(m=>{const t=toT(m.decisionAt)||toT(m.end)||toT(m.start);if(!t)return;
     const done=m.status==='done'||!!m.result;const st=done?(cls(m.verdict)||'done'):'pend';
-    ev.push({lane:1,t,id:'m-'+m.id,name:m.name,st,imp:imp(m.importance),released:done,raw:m,kind:'M',tbd:m.status==='tbd'});});
+    ev.push({lane:1,t,id:'m-'+m.id,name:m.name,st,imp:imp(m.importance),released:done,raw:m,kind:'M',tbd:m.status==='tbd',el:m.category==='us-election'});});
   (C.macro||[]).forEach(x=>{const t=toT(x.releaseAt);if(!t)return;const done=x.status==='released'&&x.actual!=null;
     ev.push({lane:2,t,id:'x-'+x.id,name:x.name,st:done?(cls(x.verdict)||'inl'):'pend',imp:imp(x.importance),released:done,raw:x,kind:'X',spx:(x.surprisePct!=null&&isFinite(+x.surprisePct))?+x.surprisePct:null});});
   return ev.sort((a,b)=>a.t-b.t);
@@ -277,7 +278,7 @@ function timeline(ev,open){
     if(e.kind==='X'&&e.spx!=null)op=e.spx===0?1:Math.min(1,.45+Math.abs(e.spx)/12);
     else if(e.kind==='X'&&e.raw.diff!=null){const d=Math.abs(num(e.raw.diff)||0);op=d===0?1:Math.min(1,.5+d/1.2)}
     const f=COL[e.st];const pend=e.st==='pend';
-    s+=`<circle class="dot" data-i="${H(e.id)}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r}" fill="${pend?'#000':f}" fill-opacity="${pend?1:op.toFixed(2)}" stroke="${pend?'#808080':f}" stroke-width="1.5"${e.est||e.tbd?' stroke-dasharray="2 2"':''} style="animation-delay:${(0.6+i*0.025).toFixed(3)}s"><title>${H(fmt(e.t)+' '+e.name)}</title></circle>`;});
+    s+=`<circle class="dot${e.el?' el':''}" data-i="${H(e.id)}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r}" fill="${pend?'#000':f}" fill-opacity="${pend?1:op.toFixed(2)}" stroke="${pend?'#808080':f}" stroke-width="1.5"${e.est||e.tbd?' stroke-dasharray="2 2"':''} style="animation-delay:${(0.6+i*0.025).toFixed(3)}s"><title>${H(fmt(e.t)+' '+e.name)}</title></circle>`;});
   const nx=x(NOW);
   s+=`<g class="now-line"><line x1="${nx}" x2="${nx}" y1="0" y2="${Hh}" stroke="#FFA028" stroke-width="2"/><rect x="${nx-18}" y="0" width="36" height="13" fill="#FFA028"/><text x="${nx}" y="10" font-size="10" text-anchor="middle" fill="#000" font-weight="700">今天</text></g></svg>`;
   sc.innerHTML=s;
