@@ -64,3 +64,7 @@ scripts/
 - `companies[].region` 现覆盖：US / CN / TW / KR / JP / EU。
 - 2026-10-27 新增台/韩/日/欧半导体与科技龙头（现股优先；台积电保留 ADR `TSM` + 现股 `2330.TW`；索尼用 ADR `SONY`，东京现股 `6758.T` 见 note）。
 - `importance`：半导体龙头 3，其余 2。日期/一致预期来自 Yahoo；已过期的 nextDate 记 null/`unknown`（页面「暂无」），不编造。
+
+## v2.6 细分龙头扩展
+- 在 TW/KR/JP/EU/US 补光学、硅片、电源、驱动IC、动力电池、生物CDMO、互联网、FA传感、测分/切割/检测设备、电子材料、被动元件、功率半导体、ALD/先进封装设备、支付、代谢药、前道设备与模拟芯片等**替代性低**的细分龙头。
+- 代码勘误：环球晶 `6488.TWO`（非 `.TW`）；ASM International `ASM.AS`（`ASMI.AS` 404）；诺和诺德用 ADR `NVO`。`AVGO` 已在池，跳过。
