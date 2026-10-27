@@ -30,7 +30,7 @@
       table.data td.w{min-width:170px}
     }
     /* ===== 时间线改版 ===== */
-    :root{--up:#26A69A;--dn:#EF5350;--beatc:#3FB950;--missc:#F85149}
+    :root{--up:var(--pos);--dn:var(--neg);--beatc:var(--pos);--missc:var(--neg)}
     .cd-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:6px 0 14px}
     .cd{border:1px solid var(--bd);background:#050505;padding:9px 11px;cursor:pointer;position:relative;min-width:0}
     .cd:hover{border-color:var(--bb)}
@@ -202,7 +202,7 @@ const dkey=t=>{const b=bjd(t);return `${b.y}-${p2(b.m)}-${p2(b.d)}`};
 const WK='日一二三四五六';
 const num=s=>{if(s==null)return null;if(typeof s==='number')return s;const m=String(s).replace(/,/g,'').match(/-?\d+(\.\d+)?/);return m?+m[0]:null};
 const cls=(v)=>!v?null:/不及|低于|差于|miss|鹰派超/.test(v)?'miss':/高于|好于|超预期|beat/.test(v)?'beat':/符合|持平|in.?line|维持/.test(v)?'inl':null;
-const COL={beat:'#3FB950',miss:'#F85149',inl:'#9A9A9A',done:'#9A9A9A',pend:'none'};
+const COL={beat:'#ef5350',miss:'#26a69a',inl:'#9A9A9A',done:'#9A9A9A',pend:'none'};
 const LBL={beat:'超预期',miss:'不及预期',inl:'符合预期',done:'已发生',pend:'待公布'};
 const imp=x=>{const v=+x;return v>=1&&v<=3?v:2};
 
