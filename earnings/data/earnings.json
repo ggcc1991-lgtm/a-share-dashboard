@@ -1,7 +1,7 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-10-27T23:36:23+08:00",
- "consensusSource": "一致预期：A股优先 Tushare report_rc，其余 Yahoo（港股 .HK）；日期优先 overrides/HKEXnews/Tushare disclosure_date > Yahoo > Nasdaq/Zacks",
+ "updated": "2026-10-27T23:52:40+08:00",
+ "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks",
  "consensusAsOf": "2026-10-27",
  "companies": [
   {
@@ -4295,10 +4295,15 @@
    "name": "北方华创",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 002371.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
@@ -4311,7 +4316,12 @@
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
       "asOf": "2026-10-27T23:35:53+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 002371.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 2.84407,
@@ -4324,7 +4334,34 @@
     "revHigh": 14770000000.0,
     "revAnalysts": 9.0,
     "revGrowth": 0.22620001,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 9.9009,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 7207380000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 50121590000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 002371.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4345,10 +4382,15 @@
    "name": "中微公司",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688012.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
@@ -4361,7 +4403,12 @@
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
       "asOf": "2026-10-27T23:35:55+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688012.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.78778,
@@ -4374,7 +4421,34 @@
     "revHigh": 4934000000.0,
     "revAnalysts": 8.0,
     "revGrowth": 0.4627,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 4.4931,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 4303720000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 16988180000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688012.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4395,10 +4469,15 @@
    "name": "拓荆科技",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688072.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
@@ -4411,7 +4490,12 @@
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
       "asOf": "2026-10-27T23:35:56+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688072.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.25,
@@ -4424,7 +4508,34 @@
     "revHigh": 3126000000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.1973,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 6.8855,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 2011770000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 9166540000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688072.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-03-31",
@@ -4441,10 +4552,15 @@
    "name": "华海清科",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688120.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
@@ -4457,7 +4573,12 @@
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
       "asOf": "2026-10-27T23:35:57+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688120.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.78571,
@@ -4470,7 +4591,34 @@
     "revHigh": 1615000000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.2724,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 2.732,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 1399750000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 6014750000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688120.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4491,10 +4639,15 @@
    "name": "盛美上海",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688082.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
@@ -4507,7 +4660,12 @@
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
       "asOf": "2026-10-27T23:35:59+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688082.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.91588,
@@ -4520,7 +4678,34 @@
     "revHigh": 2420988040.0,
     "revAnalysts": 1.0,
     "revGrowth": 0.287,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.8736,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 1879750000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 8441000000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688082.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4541,10 +4726,15 @@
    "name": "沪硅产业",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688126.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
@@ -4557,7 +4747,12 @@
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
       "asOf": "2026-10-27T23:36:00+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688126.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": -0.12,
@@ -4570,7 +4765,34 @@
     "revHigh": 1466555000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.4722,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": -0.2055,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": -679110000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 4917250000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688126.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4591,10 +4813,15 @@
    "name": "安集科技",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688019.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
@@ -4607,7 +4834,12 @@
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
       "asOf": "2026-10-27T23:36:01+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688019.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.15,
@@ -4620,7 +4852,34 @@
     "revHigh": 885286000.0,
     "revAnalysts": 1.0,
     "revGrowth": 0.32,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 4.7811,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 1091790000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 3302860000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688019.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4646,6 +4905,11 @@
    "sources": {
     "consensus": [
      {
+      "name": "Wind MCP fundamentals 688256.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
+     {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
       "asOf": "2026-10-27T23:36:02+08:00"
@@ -4670,7 +4934,34 @@
     "revHigh": 8911362000.0,
     "revAnalysts": 2.0,
     "revGrowth": 2.8942,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 9.036,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 5682320000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 16334310000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688256.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
@@ -4696,6 +4987,11 @@
    "sources": {
     "consensus": [
      {
+      "name": "Wind MCP fundamentals 688041.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
+     {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
       "asOf": "2026-10-27T23:36:03+08:00"
@@ -4720,7 +5016,34 @@
     "revHigh": 7256000000.0,
     "revAnalysts": 1.0,
     "revGrowth": 0.48479998,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 1.9118,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 4443710000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 22574190000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688041.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
@@ -4739,10 +5062,15 @@
    "name": "兆易创新",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 603986.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
@@ -4755,7 +5083,12 @@
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
       "asOf": "2026-10-27T23:36:05+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 603986.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 6.05,
@@ -4768,7 +5101,34 @@
     "revHigh": 8469000000.0,
     "revAnalysts": 4.0,
     "revGrowth": 1.6341001,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 17.4892,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 12311880000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 25538880000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 603986.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4789,10 +5149,15 @@
    "name": "韦尔股份",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 603501.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
@@ -4805,7 +5170,12 @@
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
       "asOf": "2026-10-27T23:36:07+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 603501.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.91766,
@@ -4818,7 +5188,34 @@
     "revHigh": 8539082000.0,
     "revAnalysts": 9.0,
     "revGrowth": 0.0294,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.0983,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 3900620000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 30804910000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 603501.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4839,10 +5236,15 @@
    "name": "澜起科技",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688008.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
@@ -4855,7 +5257,12 @@
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
       "asOf": "2026-10-27T23:36:08+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688008.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.01367,
@@ -4868,7 +5275,34 @@
     "revHigh": 2132000000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.4783,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.0025,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 3666300000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 7589440000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688008.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4894,6 +5328,11 @@
    "sources": {
     "consensus": [
      {
+      "name": "Wind MCP fundamentals 600584.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
+     {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
       "asOf": "2026-10-27T23:36:09+08:00"
@@ -4918,7 +5357,34 @@
     "revHigh": 12924824000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.2642,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 1.2482,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 2233550000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 43827760000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 600584.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
@@ -4937,10 +5403,15 @@
    "name": "沪电股份",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 002463.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
@@ -4953,7 +5424,12 @@
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
       "asOf": "2026-10-27T23:36:11+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 002463.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.17,
@@ -4966,7 +5442,34 @@
     "revHigh": 9301984550.0,
     "revAnalysts": 4.0,
     "revGrowth": 0.65629995,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.5595,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 6849820000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 28797360000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 002463.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -4987,10 +5490,15 @@
    "name": "生益科技",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 600183.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
@@ -5003,7 +5511,12 @@
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
       "asOf": "2026-10-27T23:36:12+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 600183.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.77,
@@ -5016,7 +5529,34 @@
     "revHigh": 13262043000.0,
     "revAnalysts": 4.0,
     "revGrowth": 0.6053,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.0497,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 7407660000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 45622520000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 600183.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5037,10 +5577,15 @@
    "name": "中际旭创",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 300308.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
@@ -5053,7 +5598,12 @@
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
       "asOf": "2026-10-27T23:36:13+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 300308.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 7.84,
@@ -5066,7 +5616,34 @@
     "revHigh": 35716341000.0,
     "revAnalysts": 7.0,
     "revGrowth": 1.9346001,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 29.7662,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 35061930000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 108809260000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 300308.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5087,10 +5664,15 @@
    "name": "新易盛",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 300502.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
@@ -5103,7 +5685,12 @@
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
       "asOf": "2026-10-27T23:36:15+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 300502.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 4.49,
@@ -5116,7 +5703,34 @@
     "revHigh": 20870195120.0,
     "revAnalysts": 3.0,
     "revGrowth": 1.9277999,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 14.6225,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 20394480000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 53235510000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 300502.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5137,10 +5751,15 @@
    "name": "天孚通信",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 300394.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
@@ -5153,7 +5772,12 @@
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
       "asOf": "2026-10-27T23:36:16+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 300394.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.16064,
@@ -5166,7 +5790,34 @@
     "revHigh": 3606120000.0,
     "revAnalysts": 2.0,
     "revGrowth": 1.2292,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.238,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 3532040000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 8856080000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 300394.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5187,10 +5838,15 @@
    "name": "工业富联",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 601138.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
@@ -5203,7 +5859,12 @@
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
       "asOf": "2026-10-27T23:36:18+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 601138.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.81,
@@ -5216,7 +5877,34 @@
     "revHigh": 376321111000.0,
     "revAnalysts": 4.0,
     "revGrowth": 0.50270003,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.1205,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 61923810000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 1485790500000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 601138.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5237,10 +5925,15 @@
    "name": "浪潮信息",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 000977.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
@@ -5253,7 +5946,12 @@
       "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
       "asOf": "2026-10-27T23:36:19+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 000977.SZ Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.92,
@@ -5266,7 +5964,34 @@
     "revHigh": 59641961000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.2843,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 3.5296,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 5183180000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 211365780000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 000977.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-06-30",
@@ -5292,6 +6017,11 @@
    "sources": {
     "consensus": [
      {
+      "name": "Wind MCP fundamentals 002837.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
+     {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
       "asOf": "2026-10-27T23:36:19+08:00"
@@ -5316,7 +6046,34 @@
     "revHigh": 2914130000.0,
     "revAnalysts": 1.0,
     "revGrowth": 0.4273,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 0.8605,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 1100830000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 9938190000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 002837.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
@@ -5333,10 +6090,15 @@
    "name": "金山办公",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 688111.SH",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
@@ -5349,7 +6111,12 @@
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
       "asOf": "2026-10-27T23:36:21+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Wind MCP events 688111.SH Q3 FY2026",
+     "url": "https://www.wind.com.cn/",
+     "asOf": "2026-10-27T23:50:54+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 1.6944,
@@ -5362,7 +6129,34 @@
     "revHigh": 2232299000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.2321,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 7.0564,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 3274280000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 7105720000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 688111.SH",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
@@ -5383,6 +6177,11 @@
    "dateStatus": "unknown",
    "sources": {
     "consensus": [
+     {
+      "name": "Wind MCP fundamentals 002230.SZ",
+      "url": "https://www.wind.com.cn/",
+      "asOf": "2026-10-27T23:50:54+08:00"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
@@ -5408,7 +6207,34 @@
     "revHigh": 11583903000.0,
     "revAnalysts": 3.0,
     "revGrowth": 0.0424,
-    "currency": "CNY"
+    "currency": "CNY",
+    "ashareAnnual": {
+     "fiscalYear": 2026,
+     "basis": "年度预测（非季度）",
+     "eps": {
+      "avg": 0.4776,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "netProfit": {
+      "avg": 1147310000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "revenue": {
+      "avg": 31354940000.0,
+      "high": null,
+      "low": null,
+      "n": null
+     },
+     "orgs": null,
+     "window": null,
+     "source": "Wind 一致预期 002230.SZ",
+     "asOf": "2026-10-27",
+     "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
+    }
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",

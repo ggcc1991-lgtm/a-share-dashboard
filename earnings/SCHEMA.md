@@ -59,3 +59,12 @@
 - **Yahoo 沪市代码用 `.SS`（`.SH` 常 404）**；深市 `.SZ`。本批未挂 `ashare`，避免触发 Tushare IP 配额。
 - 多数 Yahoo `earningsTimestamp` 仍停在 2025 年年报季 → `nextDate` 记 null/`unknown`（不编造）；consensus / lastReported 仍有值。
 - 跳过已有中芯 `0981.HK`、比亚迪 `1211.HK`；精简未纳入：立昂微、龙芯、卓胜微、通富、兴森、飞荣达、曙光、科华、恒生等。
+
+## v2.9 Wind / 同花顺 MCP（2026-10-27）
+- 适配器：`scripts/sources/wind_src.py`、`ths_src.py`；缓存：`data/wind_cache.json`、`data/ths_cache.json`（Python 不直连 MCP，由 agent CallDynamicTool 小批量写入）。
+- **Wind 能补**：`get_stock_events`→A 股预约/实际披露日 → `nextDate`（`dateStatus=confirmed`）；`get_stock_fundamentals`→当年一致预期 EPS/营收/净利 → `consensus.ashareAnnual`（不覆盖 Yahoo 季度 `eps*/rev*`）；`user-wind-econ`→宏观一致预期 forecast（如 `cn-cpi-2026-10`）。
+- **Wind 暂不能**：未预约的下一报告期（已披露三季报、年报预约未出）→ `nextDate` 仍 null/「暂无」；单季一致预期/surprise 无稳定字段。
+- **同花顺能**：财务三表/指标/估值/行情（可填 `ashareYtd` 累计口径，需写入 ths_cache）。
+- **同花顺不能**：披露日历、卖方一致预期（MCP 无对应工具）→ `next_date`/`consensus` 恒空。
+- `sources.json`：`next_date` 含 `wind_src`（overrides 之后）；`consensus` 含 `wind_src`（写 ashareAnnual）；`macro_actual` 含 `wind_src`。
+- 旧 `wind.py` 占位 `available=False`，请用 `wind_src`。

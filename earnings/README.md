@@ -19,7 +19,8 @@ scripts/
     hkex.py             # 港交所披露易：自动找“董事会会议通告”并解析会议日期 → 已确认日期（需 pdftotext）
     yahoo.py            # yfinance：日期、一致预期（港股用 .HK 代码）、利润表
     nasdaq.py           # Nasdaq/Zacks 日期（文本含 expected*/estimated 时标为“预估”）
-    fmp.py finnhub.py wind.py   # 付费源占位，读取 FMP_API_KEY / FINNHUB_API_KEY / WIND_API_KEY
+    fmp.py finnhub.py wind.py   # 付费源占位
+    wind_src.py ths_src.py     # Wind/同花顺 MCP 缓存适配器（data/*_cache.json）
 ```
 
 **合并规则**：链上靠前的源先写入；后面的源只补“尚不存在”的字段。高优先级源显式写 `null` 的字段不会被低优先级源覆盖（用来防止把 Yahoo 的不同口径数字混入公告数据）。不同季度（quarterEnd 不同）的数据不混合。日期取链上第一个给出“未来日期”的源。
@@ -78,3 +79,20 @@ scripts/
 - **Yahoo 沪市代码用 `.SS`（`.SH` 常 404）**；深市 `.SZ`。本批未挂 `ashare`，避免触发 Tushare IP 配额。
 - 多数 Yahoo `earningsTimestamp` 仍停在 2025 年年报季 → `nextDate` 记 null/`unknown`（不编造）；consensus / lastReported 仍有值。
 - 跳过已有中芯 `0981.HK`、比亚迪 `1211.HK`；精简未纳入：立昂微、龙芯、卓胜微、通富、兴森、飞荣达、曙光、科华、恒生等。
+
+## Wind / 同花顺 MCP（2026-10-27）
+
+```
+# 1) agent 经 CallDynamicTool 刷新缓存（示例工具）
+#    user-wind-stock.get_stock_events / get_stock_fundamentals
+#    user-wind-econ.search_economic_indicator + query_economic_indicator_data
+#    user-ths-a-share.get_a_share_financials_income_statements（可选 ashareYtd）
+#    → 写入 data/wind_cache.json（必需）/ data/ths_cache.json（可选）
+# 2) 本地刷新只读缓存
+python3 earnings/scripts/refresh_earnings.py --only 002371.SZ,688256.SS,...
+```
+
+- `wind_src`：沪市 `.SS`↔Wind `.SH` 自动映射；只写有真值的字段。
+- `ths_src`：无披露日/一致预期 API；空缓存时 no-op。
+- 宏观：`cn-cpi-2026-10` forecast 由 Wind 一致预期（CPI M0061676 / PPI M0061677）补上；已有 actual 的 cn_* 不覆盖。
+- 不推送；先改 `earnings-payload/`，再同步 `data-dashboard/earnings/`。
