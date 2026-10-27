@@ -568,7 +568,7 @@
       const analysisP = loadAnalysis();
       try {
         const d = await (await fetch("../data/feed.json")).json();
-        items = d.items || [];
+        items = (d.items || []).filter(x => !/(加微信|微信群|加群|拉群|拉你|进群|入群|置顶微信|扫码进群|二维码|加V|wx号|免费领取)/.test((x.title||"")+" "+(x.summary||"")));
         await analysisP;
         updateMeta(d.updated, items.length);
         const counts = items.reduce((m, x) => ((m[x.source] = (m[x.source] || 0) + 1), m), {});
