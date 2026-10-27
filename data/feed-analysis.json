@@ -1,289 +1,271 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-10-27T12:16:50+08:00",
-  "analyzedAt": "2026-10-27T12:16:50+08:00",
+  "updated": "2026-10-27T14:13:51+08:00",
+  "analyzedAt": "2026-10-27T14:13:51+08:00",
   "timezone": "Asia/Shanghai",
-  "title": "瓶颈在互连/HBM/封测：Evercore称1.6T仍用AEC、CPO看2028+，Anthropic S-1警示HBM交付；A股芯片股续跌、银行走强",
-  "changeSummary": "相对12:06版：新增Evercore ISI AEC测算（1.6T仍用铜缆/AEC、CPO看2028年及以后、AEC约900美元、每颗GPU/ASIC配1.5条）与Anthropic S-1 HBM交付风险，升为第一机会；新增银行逆势走强（21家银行拟派息超2600亿元）、1—9月电力市场交易电量+18.9%、特斯拉FSD安全数据。另：此前引用的路透博通-Anthropic芯片融资、微软自愿离职、马斯克新云断贷、黑石等条目已滚出feed，相关机会与数字已撤下或改写；新增Anthropic IPO倒计时与A股银行/军工相对强弱两条。主线不变，瓶颈从封测光延伸至AEC互连与HBM。实质变化：是（中度）。",
+  "title": "AI瓶颈在交付不在需求：黑石称模型支出20倍、DC到2030超300GW且2028年缺电49GW；国巨MLCC涨价、应材增持BESI；华发债务承压",
+  "changeSummary": "相对12:16版：Ian Buck扩产清单、Citizens新云定价、Anthropic IPO规模/5GW、央行注资、军工/银行、东吴超跌等来源均已滚出feed，相关机会撤下；保留Evercore AEC与Anthropic S-1 HBM。新增黑石格雷20倍与Ode、DC容量2030超300GW/2028年缺电49GW、SpaceX地面算力13GW、应材增持BESI、国巨MLCC涨价、测试接口价值量、资本成本分层（Meta跌18%、稀释2.7%）、9月工业利润+14.4%与华发债务。主线由「互连/HBM」扩展为「交付体系（电力+封装+周边器件）瓶颈」。实质变化：是（较大）。",
   "stats": {
-    "feedItemCount": 72,
-    "itemCount": 72,
-    "usedItemCount": 21,
-    "newItemCount": 11,
+    "feedItemCount": 73,
+    "itemCount": 73,
+    "usedItemCount": 17,
+    "newItemCount": 59,
     "bySource": {
       "rss": 43,
-      "zsxq": 16,
-      "mp": 11,
+      "zsxq": 19,
+      "mp": 9,
       "x": 1,
       "feishu": 1
     },
     "bySourceName": {
       "DeepLearn快讯（彭博/路透等）": 43,
-      "404K Semi-Ai": 14,
-      "华泰睿思": 6,
+      "404K Semi-Ai": 17,
+      "华泰睿思": 5,
       "invest wallstreet": 3,
-      "中金点睛": 2,
       "口罩哥的星球": 2,
       "qinbafrank": 1,
+      "中金点睛": 1,
       "飞书知识库": 1
     }
   },
   "keywords": [
     {
-      "term": "封测/CPO光引擎扩产",
+      "term": "算力交付瓶颈",
       "strength": "极强"
     },
     {
-      "term": "AEC/HBM互连瓶颈",
+      "term": "DC电力缺口49GW",
       "strength": "极强"
     },
     {
-      "term": "Anthropic IPO倒计时",
+      "term": "HBM/先进封装",
       "strength": "强"
     },
     {
-      "term": "新云定价分层",
+      "term": "AEC/测试价值量",
       "strength": "强"
     },
     {
-      "term": "央行1.01万亿注资",
+      "term": "MLCC涨价",
       "strength": "中强"
     },
     {
-      "term": "中国科技股暴跌/港股IPO遇冷",
+      "term": "资本成本分层",
       "strength": "中强"
     },
     {
-      "term": "DSX pod/部署周期",
-      "strength": "中强"
+      "term": "A股量能清淡",
+      "strength": "中"
     },
     {
-      "term": "银行分红/逆势走强",
+      "term": "地方国企信用",
       "strength": "中低"
     }
   ],
   "consensus": {
     "agreement": [
-      "AI瓶颈在封装、测试、互连与HBM而非GPU：Ian Buck扩产清单、Evercore AEC测算、Anthropic S-1 HBM风险相互印证。",
-      "头部模型厂融资畅通（IPO最多1000亿、计划11月16日当周上市），尾部新云断贷，分层持续。",
-      "头部模型厂扩张未减：Anthropic 2026年5吉瓦/200亿美元算力、IPO最多1000亿美元（zsxq研究型条目）。"
+      "约束在交付不在需求：黑石20倍、Anthropic S-1 HBM风险、DC电力缺口三条研究型条目相互印证。",
+      "价值量向周边扩散：封装（应材/BESI）、测试座、AEC、MLCC、散热同步受益。",
+      "融资分层：超大厂资金便宜照建，低评级与股权融资方承压（Meta稀释、债市关门）。"
     ],
     "disagreement": [
-      "CPO（矽品2028年底30倍）与AEC（Evercore：CPO看2028年及以后）谁先兑现？",
-      "A股科技（创业板10日-11%）是超跌机会（东吴：政策底向市场底过渡）还是AI叙事裂痕定价？宽松注资能否扭转？",
-      "超大IPO与港股IPO叫停并存，一级发行能否被二级消化？"
+      "CPO（2028+）与AEC谁主导1.6T之后互连？",
+      "SpaceX等新进入者的地面算力能否缓解还是加剧电力/燃机短缺？",
+      "A股工业利润改善与科创成交萎缩背离，谁先修正？"
     ]
   },
   "opportunities": [
     {
-      "title": "英伟达Ian Buck点名四处扩产全在封测/光：载板3年2.5倍、中介层2028年底4倍、测试2027年2倍、CPO光引擎2028年底30倍",
+      "title": "交付而非需求是约束：黑石格雷称旗下模型支出12个月增至20倍，与Anthropic合资Ode「跟不上」；Anthropic S-1称HBM「无法保证」按时交付",
       "confidence": "高",
-      "rationale": "据《工商时报》转引《财讯》，Ian Buck在GTC柏林点名扩产：载板3年2.5倍（揖斐电、三星电机、欣兴），安靠中介层2028年底4倍，京元电子测试2027年2倍，矽品CPO光引擎2027年中15倍、2028年底30倍——GPU不在其中。与Baker×黄仁勋讨论的部署周期瓶颈相互印证。买方：瓶颈在封装、测试、光通信，弹性最大在CPO光引擎及其上游激光器。",
+      "rationale": "黑石乔恩·格雷：市场混淆了算力交付能力与需求，旗下企业过去12个月模型支出增至原来20倍，与Anthropic合资的Ode跟不上涌入业务；制约是供应交付（资本、数据中心、电力）。Anthropic S-1把三星、SK海力士、美光列为HBM主导生产商，称即便扩产也「无法保证」按计划交付。应用材料拟把BESI持股由9%提至约20%，深化先进封装合作。买方：HBM、先进封装（混合键合设备）议价权延续。",
       "sources": [
         {
-          "title": "Ian Buck点名扩产四处",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581554425854"
+          "title": "黑石格雷：模型支出20倍",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414258812"
         },
         {
-          "title": "Baker×黄仁勋：DSX pod",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518524114448"
+          "title": "Anthropic S-1：HBM供应风险",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218248828882"
+        },
+        {
+          "title": "应用材料增持BESI",
+          "url": "https://new.1fdsf.icu/dashboard#om_x100b6136c9c068acc434d54c1ccd55b"
         }
       ]
     },
     {
-      "title": "Anthropic IPO进入倒计时：拟募最多1000亿美元、估值约1.5万亿，计划11月16日当周上市",
-      "confidence": "中",
-      "rationale": "据报道Anthropic寻求IPO募资最多1000亿美元、讨论估值约1.5万亿美元；计划于11月16日当周IPO，最早11月9日当周启动营销。投资者材料称2026年预计5吉瓦、200亿美元算力支出。买方：头部模型厂融资通道畅通，与尾部新云分化；超大发行对二级流动性的虹吸需纳入11月仓位。",
-      "sources": [
-        {
-          "title": "Anthropic IPO最多1000亿",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518541548248"
-        },
-        {
-          "title": "Anthropic 2026年5GW/200亿",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518558512158"
-        }
-      ]
-    },
-    {
-      "title": "新云定价分层延续：NBIS每兆瓦2000万–2500万美元、客户预付50%–60%",
+      "title": "电力与DC容量：全球DC到2030E超300GW（基准316GW、乐观377GW），2028年49GW电力缺口提升运营商定价权；SpaceX地面算力预期上调至13GW",
       "confidence": "高",
-      "rationale": "沿用10:13版：Citizens称NBIS协议体现每兆瓦2000万–2500万美元定价重置、客户预付资本开支50%–60%，IREN新合同超2000万美元/兆瓦；尾部无评级新云融资收紧的此前报道已滚出本轮feed，本条仅保留Citizens口径。买方：选头部、回避无评级尾部信用。",
+      "rationale": "数据中心容量模型：2030年IT容量基准316GW、乐观377GW，CAGR约20%，2028年49GW电力缺口提升运营商定价权，EQIX列首选。SpaceX：分析师将2027年底地面算力预期上调5GW至13GW；2026年Q3 AI业务收入75.6亿美元、营业利润4.31亿美元转正，新签短期算力合同价格已超此前每瓦30至50美元区间，回收期缩短至一年以内，燃机与星舰复用为卡点。买方：电力/燃机与有现成电力的DC运营商受益。",
       "sources": [
         {
-          "title": "Citizens谈新型云服务商",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218254145812"
-        }
-      ]
-    },
-    {
-      "title": "AI支出外溢至CPU服务器与存储模块：Rambus确认，但利润率受投入成本挤压",
-      "confidence": "中",
-      "rationale": "Rambus Q3电话会解读：AI基础设施支出正从加速器扩展至CPU服务器、传统存储模块与复杂芯片设计；但客户维持模块数量同时降低模块容量，半导体投入成本挤压Rambus利润率，提前下单提高积压可见度。买方：需求广度确认，但需区分模块需求与真实终端消耗，警惕提前下单透支。",
-      "sources": [
-        {
-          "title": "Rambus Q3解读",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518555511118"
-        }
-      ]
-    },
-    {
-      "title": "国内流动性宽松：央行逆回购单日净注入1.01万亿创纪录，5年期国债收益率一度1.34%逼近历史低位",
-      "confidence": "中",
-      "rationale": "彭博：央行逆回购净注入1.01万亿元创单日纪录，5年期国债收益率一度触及1.34%；国开行1年期债发行利率1.3324%、投标倍数4.90倍。东吴宏观称创业板回撤已近2015、2022年首跌幅度，处政策底向市场底过渡窗口。买方：利率下行为权益超跌修复提供条件，但路透称中国科技股因AI需求担忧与出口限制暴跌，左侧需分批。",
-      "sources": [
-        {
-          "title": "央行注资、5年国债新低",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b6134bcaf54a8cfcd50458b2b9e0"
+          "title": "DC容量模型：2030超300GW",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414484812"
         },
         {
-          "title": "东吴宏观：权益超跌信号",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b6134c2a80ca0cf385c6f447c642"
-        },
-        {
-          "title": "路透：中国科技股暴跌",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b6134a4b2a0b8c0f3a059d1e7577"
+          "title": "SpaceX地面算力13GW",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518525885588"
         }
       ]
     },
     {
-      "title": "互连与HBM成新瓶颈：Evercore称1.6T阶段机架内仍用铜缆/AEC、CPO为2028年及以后方向；Anthropic S-1称HBM三巨头扩产也「无法保证」按时交付",
-      "confidence": "高",
-      "rationale": "Evercore ISI：每通道200G（1.6T）阶段铜缆和AEC仍用于机架内部，CPO被视为2028年及以后方向；每颗GPU/ASIC的AEC配比1.5条；无源铜缆约100美元、AEC约900美元、AOC 3,600至4,000美元；800G已量产，1.6T预计溢价定价。Anthropic S-1将三星、SK海力士、美光列为HBM主导生产商，称即使扩产也「无法保证」按计划交付，并强调先进封装与制程集中风险。买方：近端（至2027）AEC/铜互连兑现度高于CPO，CPO是2028年后弹性；HBM与封装议价权延续。",
+      "title": "互连与测试价值量上行：Evercore称1.6T仍用AEC、CPO看2028+；小芯片使每代测试时间增10–15%，2028E HPC测试座US$3.7bn",
+      "confidence": "中",
+      "rationale": "Evercore ISI：每通道200G（1.6T）阶段机架内仍用铜缆/AEC，CPO为2028年及以后方向；每颗GPU/ASIC配AEC 1.5条，AEC约900美元、无源铜缆约100美元、AOC 3,600至4,000美元。测试接口报告：小芯片设计带动每代测试时间增加10-15%，2028E高性能计算测试座空间US$3.7bn，系统级测试单颗价值量为成品测试7-8x。Astera Labs前瞻：Dec-Q收入预计高于华尔街12%，目标价430美元。买方：AEC、测试座/探针卡、PCIe/UALink互连。",
       "sources": [
         {
           "title": "Evercore ISI：AEC需求",
           "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581541145444"
         },
         {
-          "title": "Anthropic S-1：HBM供应风险",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218248828882"
-        }
-      ]
-    },
-    {
-      "title": "算力周转效率成新焦点：Gavin Baker对黄仁勋称以1万亿美元AI capex计、6–9个月部署周期即大量闲置资本，DSX pod旨在缩短",
-      "confidence": "中",
-      "rationale": "Baker与黄仁勋对话：以1万亿美元作为AI资本开支整数，若周期是六到九个月，就是大量未产生效益的资本；黄仁勋称系统一发货就得有人付款，DSX pod用于改变这一情况。与「封测扩产」同一逻辑：瓶颈从芯片转向部署与系统集成。买方：缩短上线周期的整机/机柜集成与封测是capex效率红利的受益方。",
-      "sources": [
-        {
-          "title": "Baker×黄仁勋：DSX pod",
-          "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518524114448"
-        }
-      ]
-    },
-    {
-      "title": "A股相对强弱：军工10日+2.07%领涨、创业板-11%；银行逆势走强、21家银行拟派息超2600亿元",
-      "confidence": "中",
-      "rationale": "近10个交易日军工指数+2.07%排名第一，同期上证综指跌近3%、创业板指跌11%、电子跌9%、通信跌12.5%；今日银行板块逆势走强，沪农商行涨超3%创年内新高，21家A股上市银行拟中期派息合计超2600亿元。买方：AI硬件回撤期，防御与高股息相对占优；科技左侧需等流动性宽松（央行单日净注入1.01万亿）传导。",
-      "sources": [
-        {
-          "title": "军工渐入佳境",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b6134e92b0ca4cf2e575dc9aac43"
+          "title": "台湾测试接口",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545148884"
         },
         {
-          "title": "银行板块逆势走强",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b61351dd958b4b32d0541e6db21a"
+          "title": "Astera Labs前瞻",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545155444"
         }
       ]
     },
     {
-      "title": "机器人感知/数采主题活跃（电子皮肤、数采手套、3D相机），但多为卖方/主题推介",
+      "title": "被动元件涨价周期：国巨Q3营收495.32亿新台币、同比+50%，中低端MLCC紧缺开启涨价",
+      "confidence": "中",
+      "rationale": "国巨未审计Q3营收495.32亿新台币，环比+11%、同比+50%，超管理层指引；分析师预计营业利润率29.1%、毛利率40.4%；中低端MLCC紧缺开启涨价，目标价1,050新台币，10月29日业绩说明会。奇鋐Q3营业利润高于预期6%，但ASIC液冷放量重置至2026年四季度中、Q4营收预计环比+14%。买方：AI外溢到被动元件与散热，散热节奏需看ASIC进度。",
+      "sources": [
+        {
+          "title": "国巨Q3超预期、MLCC涨价",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581582245424"
+        },
+        {
+          "title": "国巨三季度前瞻",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414511852"
+        },
+        {
+          "title": "奇鋐科技前瞻",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414512582"
+        }
+      ]
+    },
+    {
+      "title": "资本成本分层：四大云厂商占四分之三capex、明年再涨五成，低评级玩家被债市关门；Meta融资担忧以来跌18%",
+      "confidence": "中",
+      "rationale": "口罩哥：AI基建约束从「有没有钱」变成「谁的钱便宜」，四大云厂商占四分之三资本开支、明年再涨五成，低评级玩家已被债市关门。Meta自融资担忧以来下跌18%，287.5亿美元远期售股等合计稀释2.7%，明年还有2.5%的ATM。Anthropic S-1：有权以现金偿还亚马逊65亿美元可转债但未偿还，推测与亚马逊75%算力折扣条款相关。买方：偏好低资金成本的超大厂与其供应链，警惕股权稀释与高杠杆建设者。",
+      "sources": [
+        {
+          "title": "谁的钱便宜",
+          "url": "https://wx.zsxq.com/group/51285445548824/topic/22258218242881541"
+        },
+        {
+          "title": "Meta稀释测算",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581548881544"
+        },
+        {
+          "title": "Anthropic亚马逊可转债",
+          "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545252284"
+        }
+      ]
+    },
+    {
+      "title": "A股：9月规上工业利润同比+14.4%，但科创50半日跌1.5%、成交0.88万亿清淡；银行、零售、机器人逆势",
       "confidence": "中低",
-      "rationale": "东方电热与上海织识合作机器人电子皮肤、投入亿元级建中试线；慈星股份数采手套、麦克奥迪3D结构相机供货配天机器人。来源为主题推介，未经核实。买方：仅作主题跟踪，不宜追高。",
+      "rationale": "早间要闻：中国9月规模以上工业企业利润同比增长14.4%，为6月以来最高，AI与能源拉动；科创50半日跌1.5%，银行、零售逆势走强，机器人概念活跃，算力租赁走弱。高盛午评：A股上午成交0.88万亿、交投清淡。买方：盈利改善与成交萎缩背离，科技仓位等量能确认；高股息与内需为防守。",
       "sources": [
         {
-          "title": "电子皮肤",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b6134ba3110a8cf1fed81fd4adb1"
+          "title": "早间要闻汇总",
+          "url": "https://new.1fdsf.icu/dashboard#om_x100b6136db291ca4ce338358805ebeb"
         },
         {
-          "title": "慈星股份",
-          "url": "https://new.1fdsf.icu/dashboard#om_x100b61349e9c50b4b080d47a48726bb"
+          "title": "高盛中国午评",
+          "url": "https://new.1fdsf.icu/dashboard#om_x100b6136ae841138cfd70e0352946dd"
+        },
+        {
+          "title": "午间收评",
+          "url": "https://new.1fdsf.icu/dashboard#om_x100b6135ffebc0b0ce754660d1480f5"
         }
       ]
     }
   ],
   "risks": [
-    "银行逆势走强（21家A股银行拟派息超2600亿元）显示资金避险，A股芯片股续跌（星宸科技跌超10%，紫光国微、瑞芯微、华海清科等跌超5%），中国科技股估值承压",
-    "港股IPO认购收缩（一周两起叫停、咨询量降约50%）",
-    "超大IPO供给虹吸二级流动性",
-    "尾部新云违约外溢至GPU残值与信贷",
-    "存储模块提前下单透支、供应商利润率受挤压",
-    "AI驱动漏洞暴露推升安全事件"
+    "电力与燃机短缺约束DC上线节奏",
+    "HBM/封装交付不及预期",
+    "ASIC液冷等新品节奏推迟（奇鋐重置至2026年四季度中）",
+    "股权稀释与低评级建设者融资中断",
+    "地方国企信用：华发未按期兑付信托、总债务约620亿美元",
+    "日本财务大臣称准备在外汇市场采取果断行动，汇率波动外溢"
   ],
   "narrativeShifts": [
-    "12:06版之后新增：Evercore与Anthropic S-1把瓶颈延伸到AEC互连与HBM，CPO时间表被分歧化（2028年及以后）",
-    "10:13版主线：新云头部涨价、尾部断贷+Anthropic每GW成本1/4+IPO最多1000亿",
-    "本轮新增Ian Buck扩产清单，供给瓶颈从「设备交期」具体化为封测与CPO光引擎（2028年底30倍）",
-    "新增Anthropic IPO时间表（11月16日当周），强化「头部融资畅通」一侧",
-    "新增RSS源引入国内宏观与A股/港股线：央行创纪录注资、5年国债1.34%，同时中国科技股暴跌、港股IPO遇冷"
+    "12:16版主线：互连/HBM/封测瓶颈+Anthropic IPO倒计时+A股芯片续跌、银行走强",
+    "本轮多数旧来源滚出feed（Ian Buck扩产、Citizens新云、Anthropic IPO规模、央行注资等），相关论点已撤下",
+    "新主线：瓶颈从「器件」扩展到「交付体系」——电力49GW缺口、SpaceX 13GW、黑石Ode跟不上",
+    "新增被动元件（国巨MLCC涨价）、测试接口与资本成本分层；国内侧加入华发地方国企信用风险与日元干预"
   ],
   "timeWindows": [
     {
-      "horizon": "近端（本周至11月中）",
-      "watch": "FOMC；SK海力士10月28日展望；Anthropic 11月9日当周营销/11月16日当周IPO；云巨头财报；Anthropic IPO定价；A股科技股企稳与央行后续操作；港股IPO认购"
+      "horizon": "近端（本周）",
+      "watch": "国巨10月29日法说；ALAB财报；美国9月耐用品订单；日本外汇干预；华发展期进展"
     },
     {
-      "horizon": "中端（至2028）",
-      "watch": "载板/中介层/测试/CPO扩产兑现；Anthropic 5GW落地；尾部新云出清规模；存储模块实际消耗"
+      "horizon": "中端（至2030）",
+      "watch": "2028年电力缺口兑现；SpaceX 13GW；HBM扩产交付；CPO与AEC路线；四大云capex明年再涨五成能否落地"
     }
   ],
   "highlights": [
     {
-      "title": "英伟达Ian Buck点名四处扩产全在封测/光：载板3年2.5倍、中介层2028年底4倍、测试2027年2倍、CPO光引擎2028年底30倍",
-      "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581554425854",
+      "title": "交付而非需求是约束：黑石格雷称旗下模型支出12个月增至20倍，与Anthropic合资Ode「跟不上」；Anthropic S-1称HBM「无法保证」按时交付",
+      "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414258812",
       "note": "高"
     },
     {
-      "title": "Anthropic IPO进入倒计时：拟募最多1000亿美元、估值约1.5万亿，计划11月16日当周上市",
-      "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518541548248",
+      "title": "电力与DC容量：全球DC到2030E超300GW（基准316GW、乐观377GW），2028年49GW电力缺口提升运营商定价权；SpaceX地面算力预期上调至13GW",
+      "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414484812",
+      "note": "高"
+    },
+    {
+      "title": "互连与测试价值量上行：Evercore称1.6T仍用AEC、CPO看2028+；小芯片使每代测试时间增10–15%，2028E HPC测试座US$3.7bn",
+      "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581541145444",
       "note": "中"
-    },
-    {
-      "title": "新云定价分层延续：NBIS每兆瓦2000万–2500万美元、客户预付50%–60%",
-      "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218254145812",
-      "note": "高"
     }
   ],
   "viz": {
     "keywordBars": [
       {
-        "label": "封测/CPO光引擎扩产",
+        "label": "算力交付瓶颈",
         "value": 5,
         "strength": "极强"
       },
       {
-        "label": "AEC/HBM互连瓶颈",
+        "label": "DC电力缺口49GW",
         "value": 5,
         "strength": "极强"
       },
       {
-        "label": "Anthropic IPO倒计时",
+        "label": "HBM/先进封装",
         "value": 4,
         "strength": "强"
       },
       {
-        "label": "新云定价分层",
+        "label": "AEC/测试价值量",
         "value": 4,
         "strength": "强"
       },
       {
-        "label": "央行1.01万亿注资",
+        "label": "MLCC涨价",
         "value": 3,
         "strength": "中强"
       },
       {
-        "label": "中国科技股暴跌/港股IPO遇冷",
+        "label": "资本成本分层",
         "value": 3,
         "strength": "中强"
       },
       {
-        "label": "DSX pod/部署周期",
-        "value": 3,
-        "strength": "中强"
+        "label": "A股量能清淡",
+        "value": 2,
+        "strength": "中"
       },
       {
-        "label": "银行分红/逆势走强",
+        "label": "地方国企信用",
         "value": 1,
         "strength": "中低"
       }
@@ -291,11 +273,11 @@
     "confidenceDonut": [
       {
         "label": "高",
-        "value": 3
+        "value": 2
       },
       {
         "label": "中",
-        "value": 5
+        "value": 3
       },
       {
         "label": "中低",
@@ -304,47 +286,32 @@
     ],
     "opportunityScores": [
       {
-        "label": "英伟达Ian Buck点名四处扩产全…",
+        "label": "交付而非需求是约束：黑石格雷称旗下模…",
         "value": 3,
         "confidence": "高"
       },
       {
-        "label": "Anthropic IPO进入倒计时…",
-        "value": 2,
-        "confidence": "中"
-      },
-      {
-        "label": "新云定价分层延续：NBIS每兆瓦20…",
+        "label": "电力与DC容量：全球DC到2030E…",
         "value": 3,
         "confidence": "高"
       },
       {
-        "label": "AI支出外溢至CPU服务器与存储模块…",
+        "label": "互连与测试价值量上行：Evercor…",
         "value": 2,
         "confidence": "中"
       },
       {
-        "label": "国内流动性宽松：央行逆回购单日净注入…",
+        "label": "被动元件涨价周期：国巨Q3营收495…",
         "value": 2,
         "confidence": "中"
       },
       {
-        "label": "互连与HBM成新瓶颈：Evercor…",
-        "value": 3,
-        "confidence": "高"
-      },
-      {
-        "label": "算力周转效率成新焦点：Gavin B…",
+        "label": "资本成本分层：四大云厂商占四分之三c…",
         "value": 2,
         "confidence": "中"
       },
       {
-        "label": "A股相对强弱：军工10日+2.07%…",
-        "value": 2,
-        "confidence": "中"
-      },
-      {
-        "label": "机器人感知/数采主题活跃（电子皮肤、…",
+        "label": "A股：9月规上工业利润同比+14.4…",
         "value": 1,
         "confidence": "中低"
       }
@@ -379,179 +346,158 @@
     ],
     "layoutHint": "图表旁/下方展示 prose 文字区：先 lead，再机会精读，再共识/风险/叙事与时间窗；少缩写成标签堆砌。"
   },
-  "generatedAt": "2026-10-27T12:16:50+08:00",
-  "generatedAtDisplay": "2026-10-27 12:16 · Asia/Shanghai",
+  "generatedAt": "2026-10-27T14:13:51+08:00",
+  "generatedAtDisplay": "2026-10-27 14:13 · Asia/Shanghai",
   "prose": {
-    "lead": "瓶颈在互连/HBM/封测：Evercore称1.6T仍用AEC、CPO看2028+，Anthropic S-1警示HBM交付；A股芯片股续跌、银行走强。英伟达Ian Buck在GTC柏林点名的四处扩产全是封测与光通信：载板3年2.5倍、安靠中介层2028年底4倍、京元测试2027年2倍、矽品CPO光引擎2028年底30倍。Evercore称1.6T阶段机架内仍用铜缆/AEC、CPO看2028年及以后；Anthropic S-1警示HBM三巨头扩产也「无法保证」按时交付，并计划11月16日当周IPO。国内侧，央行逆回购单日净注入1.01万亿创纪录、5年国债一度1.34%，但路透称中国科技股暴跌、港股IPO一周两起叫停。买方：AI链偏向封测/CPO与头部ASIC，A股科技在流动性宽松下左侧分批，回避尾部信用与新股。",
-    "sampleNote": "本轮 feed 80 条，剔除信息汇总空壳、空白、仅标题排名等非内容 8 条后计 72 条（rss 43 / zsxq 16 / mp 11 / x 1 / feishu 1）；相对12:06版约新 11 条（DeepLearn快讯为主，另有Evercore AEC、Anthropic S-1 HBM、特斯拉FSD等zsxq）。样本明显偏向快讯（RSS占60%），而mp深度稿仅11条、x仅1条（10:13版为mp 42、x 7），故共识判断以zsxq/mp研究型条目为主、快讯仅作佐证，避免被标题式电讯放大；重点采用 21 条；地缘/政治/娱乐快讯、个股吹票与加密流水已剔除。标注ocr:true的条目为图片OCR，数字可能有误，本轮未引用其任何数字。",
+    "lead": "AI瓶颈在交付不在需求：黑石称模型支出20倍、DC到2030超300GW且2028年缺电49GW；国巨MLCC涨价、应材增持BESI；华发债务承压。黑石格雷称旗下模型支出12个月增至20倍、与Anthropic合资的Ode跟不上业务，约束在交付（资本、DC、电力）；DC容量模型给出2030年基准316GW、2028年49GW电力缺口，SpaceX地面算力预期上调至13GW。Anthropic S-1警示HBM交付「无法保证」，应用材料拟将BESI持股提至约20%；国巨Q3营收同比+50%、中低端MLCC开启涨价。国内9月工业利润+14.4%但科创50半日跌1.5%、成交清淡，华发债务承压。买方：沿「电力—封装/HBM—互连/测试—被动元件」配置交付瓶颈，回避高稀释与低评级建设者。",
+    "sampleNote": "本轮 feed 80 条，剔除信息汇总空壳、空白、仅标题、无来源小作文等非内容 7 条后计 73 条（rss 43 / zsxq 19 / mp 9 / x 1 / feishu 1）；相对12:16版约新 59 条。样本偏向快讯（RSS占59%，多为地缘/汇率/港股电讯），共识判断以zsxq研究型条目为主、快讯仅作佐证；重点采用 17 条。标注ocr:true的条目为图片OCR，数字可能有误，本轮未引用其任何数字。",
     "opportunitiesText": [
       {
         "rank": 1,
         "confidence": "高",
-        "headline": "英伟达Ian Buck点名四处扩产全在封测/光：载板3年2.5倍、中介层2028年底4倍、测试2027年2倍、CPO光引擎2028年底30倍",
-        "body": "据《工商时报》转引《财讯》，Ian Buck在GTC柏林点名扩产：载板3年2.5倍（揖斐电、三星电机、欣兴），安靠中介层2028年底4倍，京元电子测试2027年2倍，矽品CPO光引擎2027年中15倍、2028年底30倍——GPU不在其中。与Baker×黄仁勋讨论的部署周期瓶颈相互印证。买方：瓶颈在封装、测试、光通信，弹性最大在CPO光引擎及其上游激光器。",
+        "headline": "交付而非需求是约束：黑石格雷称旗下模型支出12个月增至20倍，与Anthropic合资Ode「跟不上」；Anthropic S-1称HBM「无法保证」按时交付",
+        "body": "黑石乔恩·格雷：市场混淆了算力交付能力与需求，旗下企业过去12个月模型支出增至原来20倍，与Anthropic合资的Ode跟不上涌入业务；制约是供应交付（资本、数据中心、电力）。Anthropic S-1把三星、SK海力士、美光列为HBM主导生产商，称即便扩产也「无法保证」按计划交付。应用材料拟把BESI持股由9%提至约20%，深化先进封装合作。买方：HBM、先进封装（混合键合设备）议价权延续。",
         "links": [
           {
-            "title": "Ian Buck点名扩产四处",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581554425854"
+            "title": "黑石格雷：模型支出20倍",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414258812"
           },
           {
-            "title": "Baker×黄仁勋：DSX pod",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518524114448"
+            "title": "Anthropic S-1：HBM供应风险",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218248828882"
+          },
+          {
+            "title": "应用材料增持BESI",
+            "url": "https://new.1fdsf.icu/dashboard#om_x100b6136c9c068acc434d54c1ccd55b"
           }
         ]
       },
       {
         "rank": 2,
-        "confidence": "中",
-        "headline": "Anthropic IPO进入倒计时：拟募最多1000亿美元、估值约1.5万亿，计划11月16日当周上市",
-        "body": "据报道Anthropic寻求IPO募资最多1000亿美元、讨论估值约1.5万亿美元；计划于11月16日当周IPO，最早11月9日当周启动营销。投资者材料称2026年预计5吉瓦、200亿美元算力支出。买方：头部模型厂融资通道畅通，与尾部新云分化；超大发行对二级流动性的虹吸需纳入11月仓位。",
+        "confidence": "高",
+        "headline": "电力与DC容量：全球DC到2030E超300GW（基准316GW、乐观377GW），2028年49GW电力缺口提升运营商定价权；SpaceX地面算力预期上调至13GW",
+        "body": "数据中心容量模型：2030年IT容量基准316GW、乐观377GW，CAGR约20%，2028年49GW电力缺口提升运营商定价权，EQIX列首选。SpaceX：分析师将2027年底地面算力预期上调5GW至13GW；2026年Q3 AI业务收入75.6亿美元、营业利润4.31亿美元转正，新签短期算力合同价格已超此前每瓦30至50美元区间，回收期缩短至一年以内，燃机与星舰复用为卡点。买方：电力/燃机与有现成电力的DC运营商受益。",
         "links": [
           {
-            "title": "Anthropic IPO最多1000亿",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518541548248"
+            "title": "DC容量模型：2030超300GW",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414484812"
           },
           {
-            "title": "Anthropic 2026年5GW/200亿",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518558512158"
+            "title": "SpaceX地面算力13GW",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518525885588"
           }
         ]
       },
       {
         "rank": 3,
-        "confidence": "高",
-        "headline": "新云定价分层延续：NBIS每兆瓦2000万–2500万美元、客户预付50%–60%",
-        "body": "沿用10:13版：Citizens称NBIS协议体现每兆瓦2000万–2500万美元定价重置、客户预付资本开支50%–60%，IREN新合同超2000万美元/兆瓦；尾部无评级新云融资收紧的此前报道已滚出本轮feed，本条仅保留Citizens口径。买方：选头部、回避无评级尾部信用。",
-        "links": [
-          {
-            "title": "Citizens谈新型云服务商",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218254145812"
-          }
-        ]
-      },
-      {
-        "rank": 4,
         "confidence": "中",
-        "headline": "AI支出外溢至CPU服务器与存储模块：Rambus确认，但利润率受投入成本挤压",
-        "body": "Rambus Q3电话会解读：AI基础设施支出正从加速器扩展至CPU服务器、传统存储模块与复杂芯片设计；但客户维持模块数量同时降低模块容量，半导体投入成本挤压Rambus利润率，提前下单提高积压可见度。买方：需求广度确认，但需区分模块需求与真实终端消耗，警惕提前下单透支。",
-        "links": [
-          {
-            "title": "Rambus Q3解读",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518555511118"
-          }
-        ]
-      },
-      {
-        "rank": 5,
-        "confidence": "中",
-        "headline": "国内流动性宽松：央行逆回购单日净注入1.01万亿创纪录，5年期国债收益率一度1.34%逼近历史低位",
-        "body": "彭博：央行逆回购净注入1.01万亿元创单日纪录，5年期国债收益率一度触及1.34%；国开行1年期债发行利率1.3324%、投标倍数4.90倍。东吴宏观称创业板回撤已近2015、2022年首跌幅度，处政策底向市场底过渡窗口。买方：利率下行为权益超跌修复提供条件，但路透称中国科技股因AI需求担忧与出口限制暴跌，左侧需分批。",
-        "links": [
-          {
-            "title": "央行注资、5年国债新低",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b6134bcaf54a8cfcd50458b2b9e0"
-          },
-          {
-            "title": "东吴宏观：权益超跌信号",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b6134c2a80ca0cf385c6f447c642"
-          },
-          {
-            "title": "路透：中国科技股暴跌",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b6134a4b2a0b8c0f3a059d1e7577"
-          }
-        ]
-      },
-      {
-        "rank": 6,
-        "confidence": "高",
-        "headline": "互连与HBM成新瓶颈：Evercore称1.6T阶段机架内仍用铜缆/AEC、CPO为2028年及以后方向；Anthropic S-1称HBM三巨头扩产也「无法保证」按时交付",
-        "body": "Evercore ISI：每通道200G（1.6T）阶段铜缆和AEC仍用于机架内部，CPO被视为2028年及以后方向；每颗GPU/ASIC的AEC配比1.5条；无源铜缆约100美元、AEC约900美元、AOC 3,600至4,000美元；800G已量产，1.6T预计溢价定价。Anthropic S-1将三星、SK海力士、美光列为HBM主导生产商，称即使扩产也「无法保证」按计划交付，并强调先进封装与制程集中风险。买方：近端（至2027）AEC/铜互连兑现度高于CPO，CPO是2028年后弹性；HBM与封装议价权延续。",
+        "headline": "互连与测试价值量上行：Evercore称1.6T仍用AEC、CPO看2028+；小芯片使每代测试时间增10–15%，2028E HPC测试座US$3.7bn",
+        "body": "Evercore ISI：每通道200G（1.6T）阶段机架内仍用铜缆/AEC，CPO为2028年及以后方向；每颗GPU/ASIC配AEC 1.5条，AEC约900美元、无源铜缆约100美元、AOC 3,600至4,000美元。测试接口报告：小芯片设计带动每代测试时间增加10-15%，2028E高性能计算测试座空间US$3.7bn，系统级测试单颗价值量为成品测试7-8x。Astera Labs前瞻：Dec-Q收入预计高于华尔街12%，目标价430美元。买方：AEC、测试座/探针卡、PCIe/UALink互连。",
         "links": [
           {
             "title": "Evercore ISI：AEC需求",
             "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581541145444"
           },
           {
-            "title": "Anthropic S-1：HBM供应风险",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/82258218248828882"
-          }
-        ]
-      },
-      {
-        "rank": 7,
-        "confidence": "中",
-        "headline": "算力周转效率成新焦点：Gavin Baker对黄仁勋称以1万亿美元AI capex计、6–9个月部署周期即大量闲置资本，DSX pod旨在缩短",
-        "body": "Baker与黄仁勋对话：以1万亿美元作为AI资本开支整数，若周期是六到九个月，就是大量未产生效益的资本；黄仁勋称系统一发货就得有人付款，DSX pod用于改变这一情况。与「封测扩产」同一逻辑：瓶颈从芯片转向部署与系统集成。买方：缩短上线周期的整机/机柜集成与封测是capex效率红利的受益方。",
-        "links": [
-          {
-            "title": "Baker×黄仁勋：DSX pod",
-            "url": "https://wx.zsxq.com/group/48885454415828/topic/45548518524114448"
-          }
-        ]
-      },
-      {
-        "rank": 8,
-        "confidence": "中",
-        "headline": "A股相对强弱：军工10日+2.07%领涨、创业板-11%；银行逆势走强、21家银行拟派息超2600亿元",
-        "body": "近10个交易日军工指数+2.07%排名第一，同期上证综指跌近3%、创业板指跌11%、电子跌9%、通信跌12.5%；今日银行板块逆势走强，沪农商行涨超3%创年内新高，21家A股上市银行拟中期派息合计超2600亿元。买方：AI硬件回撤期，防御与高股息相对占优；科技左侧需等流动性宽松（央行单日净注入1.01万亿）传导。",
-        "links": [
-          {
-            "title": "军工渐入佳境",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b6134e92b0ca4cf2e575dc9aac43"
+            "title": "台湾测试接口",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545148884"
           },
           {
-            "title": "银行板块逆势走强",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b61351dd958b4b32d0541e6db21a"
+            "title": "Astera Labs前瞻",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545155444"
           }
         ]
       },
       {
-        "rank": 9,
+        "rank": 4,
+        "confidence": "中",
+        "headline": "被动元件涨价周期：国巨Q3营收495.32亿新台币、同比+50%，中低端MLCC紧缺开启涨价",
+        "body": "国巨未审计Q3营收495.32亿新台币，环比+11%、同比+50%，超管理层指引；分析师预计营业利润率29.1%、毛利率40.4%；中低端MLCC紧缺开启涨价，目标价1,050新台币，10月29日业绩说明会。奇鋐Q3营业利润高于预期6%，但ASIC液冷放量重置至2026年四季度中、Q4营收预计环比+14%。买方：AI外溢到被动元件与散热，散热节奏需看ASIC进度。",
+        "links": [
+          {
+            "title": "国巨Q3超预期、MLCC涨价",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581582245424"
+          },
+          {
+            "title": "国巨三季度前瞻",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414511852"
+          },
+          {
+            "title": "奇鋐科技前瞻",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/14425485414512582"
+          }
+        ]
+      },
+      {
+        "rank": 5,
+        "confidence": "中",
+        "headline": "资本成本分层：四大云厂商占四分之三capex、明年再涨五成，低评级玩家被债市关门；Meta融资担忧以来跌18%",
+        "body": "口罩哥：AI基建约束从「有没有钱」变成「谁的钱便宜」，四大云厂商占四分之三资本开支、明年再涨五成，低评级玩家已被债市关门。Meta自融资担忧以来下跌18%，287.5亿美元远期售股等合计稀释2.7%，明年还有2.5%的ATM。Anthropic S-1：有权以现金偿还亚马逊65亿美元可转债但未偿还，推测与亚马逊75%算力折扣条款相关。买方：偏好低资金成本的超大厂与其供应链，警惕股权稀释与高杠杆建设者。",
+        "links": [
+          {
+            "title": "谁的钱便宜",
+            "url": "https://wx.zsxq.com/group/51285445548824/topic/22258218242881541"
+          },
+          {
+            "title": "Meta稀释测算",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581548881544"
+          },
+          {
+            "title": "Anthropic亚马逊可转债",
+            "url": "https://wx.zsxq.com/group/48885454415828/topic/55521581545252284"
+          }
+        ]
+      },
+      {
+        "rank": 6,
         "confidence": "中低",
-        "headline": "机器人感知/数采主题活跃（电子皮肤、数采手套、3D相机），但多为卖方/主题推介",
-        "body": "东方电热与上海织识合作机器人电子皮肤、投入亿元级建中试线；慈星股份数采手套、麦克奥迪3D结构相机供货配天机器人。来源为主题推介，未经核实。买方：仅作主题跟踪，不宜追高。",
+        "headline": "A股：9月规上工业利润同比+14.4%，但科创50半日跌1.5%、成交0.88万亿清淡；银行、零售、机器人逆势",
+        "body": "早间要闻：中国9月规模以上工业企业利润同比增长14.4%，为6月以来最高，AI与能源拉动；科创50半日跌1.5%，银行、零售逆势走强，机器人概念活跃，算力租赁走弱。高盛午评：A股上午成交0.88万亿、交投清淡。买方：盈利改善与成交萎缩背离，科技仓位等量能确认；高股息与内需为防守。",
         "links": [
           {
-            "title": "电子皮肤",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b6134ba3110a8cf1fed81fd4adb1"
+            "title": "早间要闻汇总",
+            "url": "https://new.1fdsf.icu/dashboard#om_x100b6136db291ca4ce338358805ebeb"
           },
           {
-            "title": "慈星股份",
-            "url": "https://new.1fdsf.icu/dashboard#om_x100b61349e9c50b4b080d47a48726bb"
+            "title": "高盛中国午评",
+            "url": "https://new.1fdsf.icu/dashboard#om_x100b6136ae841138cfd70e0352946dd"
+          },
+          {
+            "title": "午间收评",
+            "url": "https://new.1fdsf.icu/dashboard#om_x100b6135ffebc0b0ce754660d1480f5"
           }
         ]
       }
     ],
     "consensusText": {
       "agreement": [
-        "AI瓶颈在封装、测试、互连与HBM而非GPU：Ian Buck扩产清单、Evercore AEC测算、Anthropic S-1 HBM风险相互印证。",
-        "头部模型厂融资畅通（IPO最多1000亿、计划11月16日当周上市），尾部新云断贷，分层持续。",
-        "头部模型厂扩张未减：Anthropic 2026年5吉瓦/200亿美元算力、IPO最多1000亿美元（zsxq研究型条目）。"
+        "约束在交付不在需求：黑石20倍、Anthropic S-1 HBM风险、DC电力缺口三条研究型条目相互印证。",
+        "价值量向周边扩散：封装（应材/BESI）、测试座、AEC、MLCC、散热同步受益。",
+        "融资分层：超大厂资金便宜照建，低评级与股权融资方承压（Meta稀释、债市关门）。"
       ],
       "disagreement": [
-        "CPO（矽品2028年底30倍）与AEC（Evercore：CPO看2028年及以后）谁先兑现？",
-        "A股科技（创业板10日-11%）是超跌机会（东吴：政策底向市场底过渡）还是AI叙事裂痕定价？宽松注资能否扭转？",
-        "超大IPO与港股IPO叫停并存，一级发行能否被二级消化？"
+        "CPO（2028+）与AEC谁主导1.6T之后互连？",
+        "SpaceX等新进入者的地面算力能否缓解还是加剧电力/燃机短缺？",
+        "A股工业利润改善与科创成交萎缩背离，谁先修正？"
       ]
     },
     "risksText": [
-      "银行逆势走强（21家A股银行拟派息超2600亿元）显示资金避险，A股芯片股续跌（星宸科技跌超10%，紫光国微、瑞芯微、华海清科等跌超5%），中国科技股估值承压",
-      "港股IPO认购收缩（一周两起叫停、咨询量降约50%）",
-      "超大IPO供给虹吸二级流动性",
-      "尾部新云违约外溢至GPU残值与信贷",
-      "存储模块提前下单透支、供应商利润率受挤压",
-      "AI驱动漏洞暴露推升安全事件"
+      "电力与燃机短缺约束DC上线节奏",
+      "HBM/封装交付不及预期",
+      "ASIC液冷等新品节奏推迟（奇鋐重置至2026年四季度中）",
+      "股权稀释与低评级建设者融资中断",
+      "地方国企信用：华发未按期兑付信托、总债务约620亿美元",
+      "日本财务大臣称准备在外汇市场采取果断行动，汇率波动外溢"
     ],
     "narrativeText": [
-      "12:06版之后新增：Evercore与Anthropic S-1把瓶颈延伸到AEC互连与HBM，CPO时间表被分歧化（2028年及以后）",
-      "10:13版主线：新云头部涨价、尾部断贷+Anthropic每GW成本1/4+IPO最多1000亿",
-      "本轮新增Ian Buck扩产清单，供给瓶颈从「设备交期」具体化为封测与CPO光引擎（2028年底30倍）",
-      "新增Anthropic IPO时间表（11月16日当周），强化「头部融资畅通」一侧",
-      "新增RSS源引入国内宏观与A股/港股线：央行创纪录注资、5年国债1.34%，同时中国科技股暴跌、港股IPO遇冷"
+      "12:16版主线：互连/HBM/封测瓶颈+Anthropic IPO倒计时+A股芯片续跌、银行走强",
+      "本轮多数旧来源滚出feed（Ian Buck扩产、Citizens新云、Anthropic IPO规模、央行注资等），相关论点已撤下",
+      "新主线：瓶颈从「器件」扩展到「交付体系」——电力49GW缺口、SpaceX 13GW、黑石Ode跟不上",
+      "新增被动元件（国巨MLCC涨价）、测试接口与资本成本分层；国内侧加入华发地方国企信用风险与日元干预"
     ],
     "watchText": [
-      "近端（本周至11月中）：FOMC；SK海力士10月28日展望；Anthropic 11月9日当周营销/11月16日当周IPO；云巨头财报；Anthropic IPO定价；A股科技股企稳与央行后续操作；港股IPO认购",
-      "中端（至2028）：载板/中介层/测试/CPO扩产兑现；Anthropic 5GW落地；尾部新云出清规模；存储模块实际消耗"
+      "近端（本周）：国巨10月29日法说；ALAB财报；美国9月耐用品订单；日本外汇干预；华发展期进展",
+      "中端（至2030）：2028年电力缺口兑现；SpaceX 13GW；HBM扩产交付；CPO与AEC路线；四大云capex明年再涨五成能否落地"
     ],
     "disclaimer": "仅基于本地 feed 整理，不构成投资建议。数字均引用条目摘要原文；ocr:true 图片识别条目的数字未采用；报道与转述口径未经逐项审计。"
   }
