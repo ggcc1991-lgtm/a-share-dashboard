@@ -59,3 +59,8 @@ scripts/
 
 ## v2.4 calendar.meetings.category
 - 可选字段 `category`；`"us-election"` = 美国2026中期选举时间线（region=US）。日期仅取有来源者，州认证日为按州法推算；result/verdict 暂留空。前端 #mf 筛选「美国大选」，时间线节点蓝色描边。
+
+## v2.5 地区扩展（TW/KR/JP/EU）
+- `companies[].region` 现覆盖：US / CN / TW / KR / JP / EU。
+- 2026-10-27 新增台/韩/日/欧半导体与科技龙头（现股优先；台积电保留 ADR `TSM` + 现股 `2330.TW`；索尼用 ADR `SONY`，东京现股 `6758.T` 见 note）。
+- `importance`：半导体龙头 3，其余 2。日期/一致预期来自 Yahoo；已过期的 nextDate 记 null/`unknown`（页面「暂无」），不编造。
