@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-10-27T23:05:28+08:00",
+ "updated": "2026-10-27T23:21:53+08:00",
  "consensusSource": "一致预期：A股优先 Tushare report_rc，其余 Yahoo（港股 .HK）；日期优先 overrides/HKEXnews/Tushare disclosure_date > Yahoo > Nasdaq/Zacks",
  "consensusAsOf": "2026-10-27",
  "companies": [
@@ -474,12 +474,13 @@
     "reportDate": "2026-10-15T14:00:00+08:00"
    },
    "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
-   "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)",
+   "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)；台积电双上市：本条目为美股 ADR(TSM)；台股现股见 2330.TW。",
    "manual": {
     "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)",
     "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
     "revEstimate": null
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "AMD",
@@ -1212,6 +1213,582 @@
     "netIncomeYoY": 0.296639880620837,
     "reportDate": "2026-08-28T18:00:00+08:00"
    }
+  },
+  {
+   "symbol": "2330.TW",
+   "name": "台积电(现股)",
+   "region": "TW",
+   "currency": "TWD",
+   "nextDate": null,
+   "dateStatus": "unknown",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
+      "asOf": "2026-10-27T23:21:31+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
+      "asOf": "2026-10-27T23:21:31+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 33.01931,
+    "epsLow": 31.9,
+    "epsHigh": 33.92,
+    "epsAnalysts": 21.0,
+    "epsYearAgo": 19.5,
+    "revAvg": 1705011253270.0,
+    "revLow": 1625949000000.0,
+    "revHigh": 1753006000000.0,
+    "revAnalysts": 26.0,
+    "revGrowth": 0.62990004,
+    "currency": "TWD"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-09-30",
+    "epsActual": 29.43,
+    "epsEstimate": 28.45039,
+    "epsSurprisePct": 0.0344,
+    "revenue": 1494243000000.0,
+    "netIncome": 763064000000.0,
+    "revenueYoY": 0.5094613897312708,
+    "netIncomeYoY": 0.6870674903051501,
+    "reportDate": "2026-10-15T14:00:00+08:00"
+   },
+   "importance": 3,
+   "note": "台积电台股现股；美股 ADR 见 TSM。Yahoo 下次日期已过（2026-10-15 估），未到新一期确认日前记为暂无。"
+  },
+  {
+   "symbol": "2454.TW",
+   "name": "联发科",
+   "region": "TW",
+   "currency": "TWD",
+   "nextDate": "2026-10-30T13:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
+     "asOf": "2026-10-27T23:21:32+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
+      "asOf": "2026-10-27T23:21:32+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
+      "asOf": "2026-10-27T23:21:33+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 15.92761,
+    "epsLow": 14.54,
+    "epsHigh": 19.42342,
+    "epsAnalysts": 15.0,
+    "epsYearAgo": 15.84,
+    "revAvg": 162640223370.0,
+    "revLow": 155475000000.0,
+    "revHigh": 168100000000.0,
+    "revAnalysts": 16.0,
+    "revGrowth": 0.1446,
+    "currency": "TWD"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 15.28,
+    "epsEstimate": 14.42799,
+    "epsSurprisePct": 0.0591,
+    "revenue": 152182611000.0,
+    "netIncome": 24334734000.0,
+    "revenueYoY": 0.012063957168283457,
+    "netIncomeYoY": -0.12616693090815279,
+    "reportDate": "2026-07-31T08:00:00+08:00"
+   },
+   "importance": 3
+  },
+  {
+   "symbol": "3711.TW",
+   "name": "日月光投控",
+   "region": "TW",
+   "currency": "TWD",
+   "nextDate": "2026-10-29T13:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
+     "asOf": "2026-10-27T23:21:33+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
+      "asOf": "2026-10-27T23:21:33+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
+      "asOf": "2026-10-27T23:21:34+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 5.27985,
+    "epsLow": 4.83,
+    "epsHigh": 6.08,
+    "epsAnalysts": 15.0,
+    "epsYearAgo": 2.41,
+    "revAvg": 233360868920.0,
+    "revLow": 230350000000.0,
+    "revHigh": 238404000000.0,
+    "revAnalysts": 13.0,
+    "revGrowth": 0.38439998,
+    "currency": "TWD"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 4.61,
+    "epsEstimate": 3.85809,
+    "epsSurprisePct": 0.19489999,
+    "revenue": 191064000000.0,
+    "netIncome": 21068000000.0,
+    "revenueYoY": 0.2674228855721392,
+    "netIncomeYoY": 1.8012232415902139,
+    "reportDate": "2026-07-30T14:00:00+08:00"
+   },
+   "importance": 3
+  },
+  {
+   "symbol": "005930.KS",
+   "name": "三星电子",
+   "region": "KR",
+   "currency": "KRW",
+   "nextDate": "2026-10-28T14:00:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
+     "asOf": "2026-10-27T23:21:34+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
+      "asOf": "2026-10-27T23:21:35+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
+      "asOf": "2026-10-27T23:21:35+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 13710.027,
+    "epsLow": 11793.08,
+    "epsHigh": 14955.0,
+    "epsAnalysts": 8.0,
+    "epsYearAgo": 1802.0,
+    "revAvg": 195940858880000.0,
+    "revLow": 192078604170000.0,
+    "revHigh": 205819000000000.0,
+    "revAnalysts": 10.0,
+    "revGrowth": 1.2767,
+    "currency": "KRW"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 10849.0,
+    "epsEstimate": 11032.471,
+    "epsSurprisePct": -0.0166,
+    "revenue": 171499470000000.0,
+    "netIncome": 71269468000000.0,
+    "revenueYoY": 1.2999589747740927,
+    "netIncomeYoY": 13.444462279749187,
+    "reportDate": "2026-07-30T04:00:00+08:00"
+   },
+   "importance": 3
+  },
+  {
+   "symbol": "000660.KS",
+   "name": "SK海力士",
+   "region": "KR",
+   "currency": "KRW",
+   "nextDate": null,
+   "dateStatus": "unknown",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
+      "asOf": "2026-10-27T23:21:36+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
+      "asOf": "2026-10-27T23:21:37+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 85590.555,
+    "epsLow": 76215.51,
+    "epsHigh": 92069.0,
+    "epsAnalysts": 11.0,
+    "epsYearAgo": 17850.0,
+    "revAvg": 99592133040000.0,
+    "revLow": 91962000000000.0,
+    "revHigh": 111566000000000.0,
+    "revAnalysts": 37.0,
+    "revGrowth": 3.0735002,
+    "currency": "KRW"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 131478.0,
+    "epsEstimate": 70975.38,
+    "epsSurprisePct": 0.8524,
+    "revenue": 79318746000000.0,
+    "netIncome": 93820236000000.0,
+    "revenueYoY": 2.5677814525688074,
+    "netIncomeYoY": 12.408200504542656,
+    "reportDate": "2026-07-29T08:00:00+08:00"
+   },
+   "importance": 3,
+   "note": "Yahoo 显示 2026-10-27 14:00+08 已过，未到新一期确认日前记为暂无。"
+  },
+  {
+   "symbol": "SONY",
+   "name": "索尼(ADR)",
+   "region": "JP",
+   "currency": "JPY",
+   "nextDate": "2026-11-05T20:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SONY/analysis",
+     "asOf": "2026-10-27T23:21:37+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SONY/analysis",
+      "asOf": "2026-10-27T23:21:40+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SONY/analysis",
+      "asOf": "2026-10-27T23:21:41+08:00"
+     }
+    ]
+   },
+   "nasdaqText": "Sony Group Corporation American Depositary Shares  is expected* to report earnings on  11/05/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  1 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.38.  The reported EPS for the same quarter last year was $0.35.",
+   "consensus": {
+    "epsAvg": 0.37859,
+    "epsLow": 0.37859,
+    "epsHigh": 0.37859,
+    "epsAnalysts": 1.0,
+    "epsYearAgo": 0.33591,
+    "revAvg": 3168888816050.0,
+    "revLow": 3040688221520.0,
+    "revHigh": 3325900000000.0,
+    "revAnalysts": 11.0,
+    "revGrowth": 0.0196,
+    "currency": "JPY"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 0.36419,
+    "epsEstimate": 0.25005,
+    "epsSurprisePct": 0.45650002,
+    "revenue": 2837771000000.0,
+    "netIncome": 342161000000.0,
+    "revenueYoY": 0.08245146598566144,
+    "netIncomeYoY": 0.444271851217134,
+    "reportDate": "2026-07-31T11:00:00+08:00"
+   },
+   "importance": 2,
+   "note": "索尼双上市：本条目为美股 ADR(SONY)；东京现股 6758.T。"
+  },
+  {
+   "symbol": "8035.T",
+   "name": "东京电子",
+   "region": "JP",
+   "currency": "JPY",
+   "nextDate": "2026-10-30T14:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/8035.T/analysis",
+     "asOf": "2026-10-27T23:21:42+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/8035.T/analysis",
+      "asOf": "2026-10-27T23:21:42+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/8035.T/analysis",
+      "asOf": "2026-10-27T23:21:43+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 85.00543,
+    "epsLow": 77.04,
+    "epsHigh": 90.99713,
+    "epsAnalysts": 5.0,
+    "epsYearAgo": 54.036,
+    "revAvg": 900597295030.0,
+    "revLow": 890000000000.0,
+    "revHigh": 920000000000.0,
+    "revAnalysts": 11.0,
+    "revGrowth": 0.4293,
+    "currency": "JPY"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 72.272,
+    "epsEstimate": 69.6417,
+    "epsSurprisePct": 0.0378,
+    "revenue": 732388000000.0,
+    "netIncome": 164341000000.0,
+    "revenueYoY": 0.3326176430986234,
+    "netIncomeYoY": 0.39507304691810763,
+    "reportDate": "2026-07-30T15:00:00+08:00"
+   },
+   "importance": 3
+  },
+  {
+   "symbol": "9984.T",
+   "name": "软银集团",
+   "region": "JP",
+   "currency": "JPY",
+   "nextDate": "2026-11-10T14:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/9984.T/analysis",
+     "asOf": "2026-10-27T23:21:43+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/9984.T/analysis",
+      "asOf": "2026-10-27T23:21:43+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/9984.T/analysis",
+      "asOf": "2026-10-27T23:21:44+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 10.17535,
+    "epsLow": -19.97395,
+    "epsHigh": 27.82,
+    "epsAnalysts": 3.0,
+    "epsYearAgo": 437.4475,
+    "revAvg": 1992460333330.0,
+    "revLow": 1710409000000.0,
+    "revHigh": 2147000000000.0,
+    "revAnalysts": 6.0,
+    "revGrowth": 0.0396,
+    "currency": "JPY"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 60.08,
+    "epsEstimate": 44.12639,
+    "epsSurprisePct": 0.36150002,
+    "reportDate": "2026-08-06T14:00:00+08:00"
+   },
+   "importance": 2
+  },
+  {
+   "symbol": "ASML",
+   "name": "ASML",
+   "region": "EU",
+   "currency": "EUR",
+   "nextDate": null,
+   "dateStatus": "unknown",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASML/analysis",
+      "asOf": "2026-10-27T23:21:48+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASML/analysis",
+      "asOf": "2026-10-27T23:21:48+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 15.38838,
+    "epsLow": 14.84,
+    "epsHigh": 16.11,
+    "epsAnalysts": 7.0,
+    "epsYearAgo": 7.34,
+    "revAvg": 14816055140.0,
+    "revLow": 14410000000.0,
+    "revHigh": 15392855000.0,
+    "revAnalysts": 18.0,
+    "revGrowth": 0.52459997,
+    "currency": "EUR"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-09-30",
+    "epsActual": 11.8193,
+    "epsEstimate": 10.75815,
+    "epsSurprisePct": 0.0986,
+    "revenue": 11662000000.0,
+    "netIncome": 4960400000.0,
+    "revenueYoY": 0.5516232038318254,
+    "netIncomeYoY": 1.334855260061191,
+    "reportDate": "2026-10-14T13:00:00+08:00"
+   },
+   "importance": 3,
+   "note": "Yahoo 下次日期已过（2026-10-14），未到新一期确认日前记为暂无。"
+  },
+  {
+   "symbol": "SAP",
+   "name": "SAP",
+   "region": "EU",
+   "currency": "EUR",
+   "nextDate": null,
+   "dateStatus": "unknown",
+   "sources": {
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SAP/analysis",
+      "asOf": "2026-10-27T23:21:51+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SAP/analysis",
+      "asOf": "2026-10-27T23:21:52+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 2.18214,
+    "epsLow": 2.13668,
+    "epsHigh": 2.269,
+    "epsAnalysts": 5.0,
+    "epsYearAgo": 1.93317,
+    "revAvg": 10763979580.0,
+    "revLow": 10646000000.0,
+    "revHigh": 10976000000.0,
+    "revAnalysts": 13.0,
+    "revGrowth": 0.111499995,
+    "currency": "EUR"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-09-30",
+    "epsActual": 2.12097,
+    "epsEstimate": 2.08619,
+    "epsSurprisePct": 0.0167,
+    "revenue": 10270000000.0,
+    "netIncome": 2249000000.0,
+    "revenueYoY": 0.1315557514323491,
+    "netIncomeYoY": 0.12225548902195604,
+    "reportDate": "2026-10-21T08:00:00+08:00"
+   },
+   "importance": 2,
+   "note": "Yahoo 下次日期已过（2026-10-22），未到新一期确认日前记为暂无。"
+  },
+  {
+   "symbol": "ENR.DE",
+   "name": "西门子能源",
+   "region": "EU",
+   "currency": "EUR",
+   "nextDate": "2026-11-12T00:30:00+08:00",
+   "dateStatus": "confirmed",
+   "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
+     "asOf": "2026-10-27T23:21:52+08:00"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
+      "asOf": "2026-10-27T23:21:52+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
+      "asOf": "2026-10-27T23:21:53+08:00"
+     }
+    ]
+   },
+   "consensus": {
+    "epsAvg": 1.37838,
+    "epsLow": 1.16676,
+    "epsHigh": 1.59,
+    "epsAnalysts": 2.0,
+    "epsYearAgo": 0.3172,
+    "revAvg": 12710355880.0,
+    "revLow": 12488000000.0,
+    "revHigh": 13187180000.0,
+    "revAnalysts": 4.0,
+    "revGrowth": 0.2189,
+    "currency": "EUR"
+   },
+   "lastReported": {
+    "quarterEnd": "2026-06-30",
+    "epsActual": 1.3119,
+    "epsEstimate": 1.18603,
+    "epsSurprisePct": 0.10609999,
+    "revenue": 11447000000.0,
+    "netIncome": 1083000000.0,
+    "revenueYoY": 0.17465366854797337,
+    "netIncomeYoY": 0.7609756097560976,
+    "reportDate": "2026-08-05T10:00:00+08:00"
+   },
+   "importance": 2
   }
  ]
 }
