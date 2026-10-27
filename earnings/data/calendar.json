@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-10-27T10:13:18+08:00",
+ "updated": "2026-10-27T10:41:47+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -11,14 +11,19 @@
    "decisionAt": "2026-09-17T02:00:00+08:00",
    "status": "done",
    "result": "加息25bp，联邦基金目标区间升至3.75%–4.00%（12–0一致）",
-   "expectation": "暂无",
-   "verdict": null,
+   "expectation": "加息25bp（CME FedWatch 决议日约93%概率）",
+   "verdict": "符合预期",
    "sources": [
     {
      "name": "Federal Reserve 声明",
      "url": "https://www.federalreserve.gov/newsevents/pressreleases.htm"
+    },
+    {
+     "name": "Preduck/CME FedWatch 会前概率",
+     "url": "https://blog.preduck.com/blog/fomc-decision-day-where-fed-odds-stand-before-2pm-et"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "fomc-2026-10",
@@ -40,7 +45,8 @@
      "name": "ForexFactory 周历",
      "url": "https://www.forexfactory.com/calendar"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "fomc-2026-12",
@@ -58,7 +64,8 @@
      "name": "Fed 会议日历",
      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "lpr-2026-10",
@@ -80,7 +87,8 @@
      "name": "TradingEconomics",
      "url": "https://zh.tradingeconomics.com/china/calendar"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "lpr-2026-11",
@@ -98,7 +106,8 @@
      "name": "人民银行 LPR 说明（每月20日，遇节假日顺延）",
      "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "lpr-2026-12",
@@ -117,7 +126,8 @@
      "name": "人民银行 LPR 说明",
      "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125440/index.html"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "plenum-20-5",
@@ -139,7 +149,8 @@
      "name": "新华网·开幕",
      "url": "https://www.news.cn/20261026/20273396088c475bb4d6391658ae598f/c.html"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "politburo-2026-10",
@@ -157,7 +168,8 @@
      "name": "中国政府网·政治局会议",
      "url": "https://www.gov.cn/toutiao/zyzzjhy/home.htm"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "politburo-2026-07",
@@ -175,7 +187,8 @@
      "name": "中国政府网",
      "url": "https://www.gov.cn/yaowen/liebiao/202607/content_7077056.htm"
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "id": "politburo-2026-12",
@@ -188,7 +201,8 @@
    "result": null,
    "expectation": "日期暂无（惯例12月上中旬，未官宣）",
    "verdict": null,
-   "sources": []
+   "sources": [],
+   "importance": 3
   },
   {
    "id": "state-council",
@@ -206,7 +220,8 @@
      "name": "中国政府网·国常会",
      "url": "https://www.gov.cn/"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "ecb-2026-09",
@@ -217,14 +232,19 @@
    "decisionAt": "2026-09-10T20:15:00+08:00",
    "status": "done",
    "result": "加息25bp，存款便利利率升至2.50%（主要再融资利率2.65%）",
-   "expectation": "暂无",
-   "verdict": null,
+   "expectation": "加息25bp至2.50%（路透调查 65/65 位经济学家）",
+   "verdict": "符合预期",
    "sources": [
     {
      "name": "ECB 决议",
      "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.en.html"
+    },
+    {
+     "name": "路透调查(9/3)",
+     "url": "https://www.reuters.com/world/ecb-raise-rates-second-time-september-then-done-say-economists-2026-09-03/"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "ecb-2026-10",
@@ -242,7 +262,8 @@
      "name": "ForexFactory 周历",
      "url": "https://www.forexfactory.com/calendar"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "ecb-2026-12",
@@ -260,7 +281,8 @@
      "name": "Narwhal API 央行日程",
      "url": "https://narwhalapi.com/ja/guides/central-bank-meetings/december-2026"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "boj-2026-09",
@@ -271,14 +293,19 @@
    "decisionAt": null,
    "status": "done",
    "result": "政策利率上调至1.25%（9月24日生效）",
-   "expectation": "暂无",
-   "verdict": null,
+   "expectation": "加息至1.25%（路透调查 66/68 位经济学家）",
+   "verdict": "符合预期",
    "sources": [
     {
      "name": "BOJ 声明 PDF",
      "url": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260918a.pdf"
+    },
+    {
+     "name": "路透调查(9/10)",
+     "url": "https://www.reuters.com/world/asia-pacific/boj-raise-rates-125-this-month-reach-175-faster-than-expected-2026-09-09/"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "boj-2026-10",
@@ -300,7 +327,8 @@
      "name": "ForexFactory 周历",
      "url": "https://www.forexfactory.com/calendar"
     }
-   ]
+   ],
+   "importance": 2
   },
   {
    "id": "boj-2026-12",
@@ -318,7 +346,8 @@
      "name": "BOJ 会议日程",
      "url": "https://www.boj.or.jp/en/mopo/mpmsche_minu/"
     }
-   ]
+   ],
+   "importance": 2
   }
  ],
  "macro": [
@@ -336,7 +365,9 @@
    "source": {
     "name": "BLS / CNBC(道琼斯预期)",
     "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
-   }
+   },
+   "importance": 3,
+   "surprisePct": -65.5
   },
   {
    "id": "us-ur-2026-09",
@@ -352,7 +383,9 @@
    "source": {
     "name": "BLS",
     "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 2.4
   },
   {
    "id": "us-cpi-2026-09",
@@ -368,7 +401,9 @@
    "source": {
     "name": "BLS / CNBC(道琼斯预期)",
     "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
-   }
+   },
+   "importance": 3,
+   "surprisePct": 2.8
   },
   {
    "id": "us-ccpi-2026-09",
@@ -384,7 +419,9 @@
    "source": {
     "name": "CNBC",
     "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
-   }
+   },
+   "importance": 3,
+   "surprisePct": 4.0
   },
   {
    "id": "us-retail-2026-09",
@@ -400,7 +437,9 @@
    "source": {
     "name": "CME Econoday / PNC",
     "url": "https://www.cmegroup.com/education/events/econoday/667194"
-   }
+   },
+   "importance": 2,
+   "surprisePct": 166.7
   },
   {
    "id": "us-ism-2026-09",
@@ -417,7 +456,9 @@
     "name": "Sigmanomics / StockHub",
     "url": "https://sigmanomics.com/us/ism-manufacturing-pmi"
    },
-   "note": "来源页标题月份标注不一致，待官方 ISM 核对"
+   "note": "来源页标题月份标注不一致，待官方 ISM 核对",
+   "importance": 2,
+   "surprisePct": -0.9
   },
   {
    "id": "us-cpce-2026-08",
@@ -433,7 +474,9 @@
    "source": {
     "name": "CNBC",
     "url": "https://www.cnbc.com/2026/09/30/feds-preferred-gauge-showed-core-inflation-at-3point0percent-in-august-much-lighter-than-expected.html"
-   }
+   },
+   "importance": 3,
+   "surprisePct": -9.1
   },
   {
    "id": "cn-gdp-2026-q3",
@@ -449,7 +492,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇(预期)",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 3,
+   "surprisePct": 2.3
   },
   {
    "id": "cn-ip-2026-09",
@@ -465,7 +510,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 0.0
   },
   {
    "id": "cn-retail-2026-09",
@@ -481,7 +528,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 83.3
   },
   {
    "id": "cn-fai-2026-09",
@@ -497,7 +546,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 1.4
   },
   {
    "id": "cn-ur-2026-09",
@@ -513,7 +564,9 @@
    "source": {
     "name": "格隆汇汇总",
     "url": "https://www.gelonghui.com/live/2717010"
-   }
+   },
+   "importance": 1,
+   "surprisePct": -1.9
   },
   {
    "id": "cn-cpi-2026-09",
@@ -529,7 +582,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 3,
+   "surprisePct": -10.0
   },
   {
    "id": "cn-ppi-2026-09",
@@ -545,7 +600,9 @@
    "source": {
     "name": "国家统计局 / 格隆汇",
     "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 11.1
   },
   {
    "id": "cn-ex-2026-09",
@@ -561,7 +618,9 @@
    "source": {
     "name": "海关总署 / 申万宏源(格隆汇)",
     "url": "https://www.gelonghui.com/live/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 41.2
   },
   {
    "id": "cn-im-2026-09",
@@ -577,7 +636,9 @@
    "source": {
     "name": "海关总署 / 申万宏源(格隆汇)",
     "url": "https://www.gelonghui.com/live/"
-   }
+   },
+   "importance": 1,
+   "surprisePct": 30.3
   },
   {
    "id": "cn-tsf-2026-09",
@@ -594,7 +655,9 @@
     "name": "人民银行 / TradingEconomics(预期)",
     "url": "https://zh.tradingeconomics.com/china/calendar"
    },
-   "note": "发布时间为约数"
+   "note": "发布时间为约数",
+   "importance": 2,
+   "surprisePct": 8.6
   },
   {
    "id": "cn-loan-2026-09",
@@ -611,7 +674,9 @@
     "name": "人民银行 / TradingEconomics",
     "url": "https://zh.tradingeconomics.com/china/calendar"
    },
-   "note": "发布时间为约数"
+   "note": "发布时间为约数",
+   "importance": 1,
+   "surprisePct": 10.8
   },
   {
    "id": "cn-m2-2026-09",
@@ -628,7 +693,9 @@
     "name": "人民银行 / TradingEconomics",
     "url": "https://zh.tradingeconomics.com/china/calendar"
    },
-   "note": "发布时间为约数"
+   "note": "发布时间为约数",
+   "importance": 1,
+   "surprisePct": -2.7
   },
   {
    "id": "cn-pmi-2026-09",
@@ -644,23 +711,28 @@
    "source": {
     "name": "格隆汇汇总",
     "url": "https://www.gelonghui.com/live/2717010"
-   }
+   },
+   "importance": 2,
+   "surprisePct": 0.0
   },
   {
    "id": "cn-profit-2026-09",
    "region": "CN",
    "name": "规上工业利润 累计同比（1–9月）",
    "releaseAt": "2026-10-27T09:30:00+08:00",
-   "status": "pending",
-   "actual": null,
-   "forecast": "暂无",
+   "status": "released",
+   "actual": "15.5%",
+   "forecast": "15.2%",
    "previous": "15.7%（1–8月）",
-   "verdict": null,
-   "diff": null,
+   "verdict": "高于预期",
+   "diff": "+0.3pp",
    "source": {
-    "name": "国家统计局",
-    "url": "https://www.stats.gov.cn/sj/zxfb/"
-   }
+    "name": "国家统计局 / for-ex.news(预期)",
+    "url": "https://www.stats.gov.cn/sj/zxfb/202610/t20261027_1965697.html"
+   },
+   "importance": 1,
+   "surprisePct": 2.0,
+   "note": "9月单月同比+14.4%；1–9月利润总额60337.4亿元。预期来自 for-ex.news 日历（累计同比口径）"
   },
   {
    "id": "cn-pmi-2026-10",
@@ -676,7 +748,8 @@
    "source": {
     "name": "ForexFactory",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 2
   },
   {
    "id": "cn-nmpmi-2026-10",
@@ -692,7 +765,8 @@
    "source": {
     "name": "ForexFactory",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 2
   },
   {
    "id": "cn-cpi-2026-10",
@@ -708,7 +782,8 @@
    "source": {
     "name": "TradingEconomics 日程",
     "url": "https://zh.tradingeconomics.com/china/calendar"
-   }
+   },
+   "importance": 3
   },
   {
    "id": "ff-USD-202610272200-CBConsumerConfidence",
@@ -725,7 +800,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202610290200-FederalFundsRate",
@@ -742,7 +818,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202610290200-FOMCStatement",
@@ -759,7 +836,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202610290230-FOMCPressConference",
@@ -776,7 +854,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202610292030-AdvanceGDPqq",
@@ -793,7 +872,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 3
   },
   {
    "id": "ff-USD-202610292030-CorePCEPriceIndexmm",
@@ -810,7 +890,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 3
   },
   {
    "id": "ff-USD-202610292030-AdvanceGDPPriceIndex",
@@ -827,7 +908,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 3
   },
   {
    "id": "ff-USD-202610292030-UnemploymentClaims",
@@ -844,7 +926,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202610302030-EmploymentCostIndexq",
@@ -861,7 +944,8 @@
    "source": {
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
-   }
+   },
+   "importance": 1
   }
  ]
 }

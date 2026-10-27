@@ -29,6 +29,74 @@
       table.data{font-size:11px}
       table.data td.w{min-width:170px}
     }
+    /* ===== 时间线改版 ===== */
+    :root{--up:#26A69A;--dn:#EF5350;--beatc:#3FB950;--missc:#F85149}
+    .cd-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:6px 0 14px}
+    .cd{border:1px solid var(--bd);background:#050505;padding:9px 11px;cursor:pointer;position:relative;min-width:0}
+    .cd:hover{border-color:var(--bb)}
+    .cd .k{font-size:10px;color:var(--mu);letter-spacing:.04em;display:flex;justify-content:space-between;gap:6px}
+    .cd .n{font-size:13px;color:var(--tx);margin:4px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cd .t{font-family:var(--mono);font-size:20px;color:var(--bb);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+    .cd .t small{font-size:11px;color:var(--mu);margin:0 3px 0 1px}
+    .cd .r{font-size:12px;line-height:1.4}
+    .cd .w{font-size:10px;color:var(--mu);margin-top:4px}
+    .tl-wrap{position:relative;border:1px solid var(--bd);background:#030303;margin-bottom:10px}
+    .tl-head{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;border-bottom:1px solid var(--bd);font-size:11px;color:var(--mu);gap:8px;flex-wrap:wrap}
+    .tl-head b{color:var(--bb);font-weight:600}
+    .lg{display:flex;gap:12px;flex-wrap:wrap}.lg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+    .tl-head button{font:inherit;font-size:11px;background:#000;color:var(--bb);border:1px solid var(--bd);padding:2px 8px;cursor:pointer}
+    .tl-body{display:flex}
+    .tl-lanes{flex:0 0 52px;border-right:1px solid var(--bd);font-size:11px;color:var(--bb)}
+    .tl-lanes div{height:64px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid #141414}
+    .tl-lanes .ax{height:28px;color:var(--mu)}
+    .tl-scroll{flex:1;overflow-x:auto;overflow-y:hidden;cursor:grab;scrollbar-width:thin;scrollbar-color:#333 #000}
+    .tl-scroll.drag{cursor:grabbing;user-select:none}
+    .tl-scroll svg{display:block}
+    .dot{cursor:pointer;transform-box:fill-box;transform-origin:center}
+    .dot:hover,.dot.sel{stroke:#FFA028;stroke-width:2}
+    .tl-anim .dot{animation:pop .38s cubic-bezier(.3,1.6,.6,1) both}
+    .tl-anim .axis{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.1s ease-out forwards}
+    @keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+    @keyframes draw{to{stroke-dashoffset:0}}
+    .now-line{filter:drop-shadow(0 0 4px #FFA028) drop-shadow(0 0 8px rgba(255,160,40,.6))}
+    .tip{position:fixed;pointer-events:none;background:#111;border:1px solid var(--bb);color:var(--tx);font-size:11px;padding:4px 7px;z-index:60;display:none;max-width:260px}
+    .dp{position:fixed;top:0;right:0;height:100%;width:380px;max-width:92vw;background:#070707;border-left:1px solid var(--bb);z-index:50;transform:translateX(102%);transition:transform .28s ease;overflow-y:auto;padding:14px 16px 30px;box-shadow:-8px 0 24px rgba(0,0,0,.6)}
+    .dp.open{transform:none}
+    .dp .x{position:absolute;right:10px;top:8px;background:none;border:0;color:var(--mu);font-size:20px;cursor:pointer}
+    .dp h3{margin:0 24px 2px 0;color:var(--bb);font-size:15px}
+    .dp .meta{font-size:11px;color:var(--mu);margin-bottom:10px}
+    .dp .kv{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}
+    .dp .kv div{border:1px solid var(--bd);padding:6px 8px}
+    .dp .kv span{display:block;font-size:10px;color:var(--mu)}
+    .dp .kv b{font-family:var(--mono);font-size:15px;font-weight:500;font-variant-numeric:tabular-nums}
+    .dp p{font-size:12px;line-height:1.55;margin:6px 0}
+    .dp .lbl{font-size:10px;color:var(--bb);margin-top:12px;letter-spacing:.05em}
+    .vd{display:inline-block;font-size:11px;padding:1px 6px;border:1px solid currentColor}
+    .c-beat{color:var(--beatc)}.c-miss{color:var(--missc)}.c-inl{color:#C8C8C8}.c-pend{color:var(--mu)}
+    .strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:14px;scrollbar-width:thin;scrollbar-color:#333 #000}
+    .sc{flex:0 0 150px;border:1px solid var(--bd);padding:6px 8px;cursor:pointer;background:#050505}
+    .sc:hover{border-color:var(--bb)}
+    .sc .h{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sc .s{font-size:10px;color:var(--mu)}
+    .sec-t{font-size:12px;color:var(--bb);margin:4px 0 6px;font-weight:600}
+    .sec-t .sub{font-weight:400}
+    .stream{display:none}
+    @media (max-width:719px){
+      .tl-wrap{display:none}.stream{display:block}
+      .cd-row{grid-template-columns:1fr 1fr}.cd .t{font-size:16px}
+      .stream .dg{margin-bottom:10px}
+      .stream .dh{font-size:11px;color:var(--bb);border-bottom:1px solid var(--bd);padding:4px 0;position:sticky;top:0;background:#000}
+      .stream .dh.today{color:#000;background:var(--bb);padding-left:6px}
+      .stream .ev{display:flex;gap:8px;align-items:center;padding:7px 2px;border-bottom:1px solid #121212;font-size:12px;cursor:pointer}
+      .stream .ev i{flex:0 0 auto;border-radius:50%}
+      .stream .ev .ln{font-size:10px;color:var(--mu);flex:0 0 28px}
+      .stream .ev .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      .dp{width:100%;max-width:100%;top:auto;bottom:0;height:78vh;border-left:0;border-top:1px solid var(--bb);transform:translateY(102%)}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .tl-anim .dot,.tl-anim .axis{animation:none!important;stroke-dashoffset:0}
+      .dp{transition:none}
+    }
   </style>
 </head>
 <body>
@@ -55,6 +123,15 @@
   <main class="wrap">
     <h2 class="page-title">财报与会议</h2>
     <p class="page-sub" id="sum">加载数据…</p>
+        <section aria-label="近7日重点倒计时"><div class="sec-t">未来 7 日重点<span class="sub">北京时间 · 实时倒计时</span></div><div class="cd-row" id="cd"></div></section>
+    <section class="tl-wrap" aria-label="事件时间线">
+      <div class="tl-head"><span><b>事件时间线</b> · 过去 2 周 ← 今天 → 未来 4 周 · 可拖动 · 点节点看详情</span>
+        <span class="lg"><span><i style="background:var(--beatc)"></i>超预期</span><span><i style="background:var(--missc)"></i>不及预期</span><span><i style="background:#9a9a9a"></i>符合/已发生</span><span><i style="border:1.5px solid #777"></i>待公布</span><span>节点大小=重要性</span><button type="button" id="toNow">回到今天</button></span></div>
+      <div class="tl-body"><div class="tl-lanes"><div class="ax"></div><div>财报</div><div>会议</div><div>宏观</div></div><div class="tl-scroll" id="tls"></div></div>
+    </section>
+    <div class="stream" id="stream" aria-label="事件流"></div>
+    <section aria-label="预期差"><div class="sec-t">预期差速览<span class="sub">已公布宏观：前值/预期/实际 · 已发布财报：EPS 实际 vs 一致预期</span></div><div class="strip" id="strip"></div></section>
+    <div class="sec-t" style="margin-top:6px">明细表</div>
     <div class="tabs" id="tabs">
       <button data-t="e" class="on">财报日历</button><button data-t="r">已发布财报</button>
       <button data-t="m">会议日历</button><button data-t="x">宏观数据</button>
@@ -107,5 +184,176 @@ Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.
    xs.map(x=>`<tr><td class="l">${bj(x.releaseAt)}</td><td class="l">${x.region}</td><td class="l">${esc(x.name)}${x.note?'<br><span class="note">'+esc(x.note)+'</span>':''}</td><td>${x.status==='released'?v(x.actual):'<span class="tag">待公布</span>'}</td><td>${v(x.forecast)}</td><td>${v(x.previous)}</td><td>${v(x.diff)}</td><td class="l ${vcls(x.verdict)}">${x.verdict?esc(x.verdict):'—'}</td><td class="l">${src([x.source])}</td></tr>`).join('')+'</tbody>'};
   document.getElementById('mf').onchange=rm;document.getElementById('xf').onchange=rx;document.getElementById('xs').onchange=rx;rm();rx();
 }).catch(e=>{document.getElementById('sum').textContent='数据加载失败：'+e});
+</script>
+<div class="tip" id="tip"></div>
+<aside class="dp" id="dp" aria-hidden="true" role="dialog" aria-label="事件详情"><button class="x" id="dpx" aria-label="关闭">×</button><div id="dpc"></div></aside>
+<script>
+(()=>{
+const H=s=>s==null?'':String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DAY=864e5,NOW=Date.now();
+const p2=n=>String(n).padStart(2,'0');
+const toT=s=>{if(!s)return null;const t=Date.parse(s.includes('T')?s:s+'T00:00:00+08:00');return isNaN(t)?null:t};
+const bjd=t=>{const b=new Date(t+8*36e5);return {y:b.getUTCFullYear(),m:b.getUTCMonth()+1,d:b.getUTCDate(),h:b.getUTCHours(),mi:b.getUTCMinutes(),w:b.getUTCDay()}};
+const fmt=(t,hm=true)=>{if(t==null)return '暂无';const b=bjd(t);return `${b.m}/${b.d}`+(hm?` ${p2(b.h)}:${p2(b.mi)}`:'')};
+const dkey=t=>{const b=bjd(t);return `${b.y}-${p2(b.m)}-${p2(b.d)}`};
+const WK='日一二三四五六';
+const num=s=>{if(s==null)return null;if(typeof s==='number')return s;const m=String(s).replace(/,/g,'').match(/-?\d+(\.\d+)?/);return m?+m[0]:null};
+const cls=(v)=>!v?null:/不及|低于|差于|miss|鹰派超/.test(v)?'miss':/高于|好于|超预期|beat/.test(v)?'beat':/符合|持平|in.?line|维持/.test(v)?'inl':null;
+const COL={beat:'#3FB950',miss:'#F85149',inl:'#9A9A9A',done:'#9A9A9A',pend:'none'};
+const LBL={beat:'超预期',miss:'不及预期',inl:'符合预期',done:'已发生',pend:'待公布'};
+const imp=x=>{const v=+x;return v>=1&&v<=3?v:2};
+
+function build(E,C){
+  const ev=[];
+  (E.companies||[]).forEach(c=>{
+    const L=c.lastReported;
+    if(L&&L.reportDate){const t=toT(L.reportDate);const m=c.manual||{};const ee=m.epsEstimateAlt??L.epsEstimate;
+      let sp=(ee&&L.epsActual!=null)?(L.epsActual/ee-1)*100:(L.epsSurprisePct!=null?L.epsSurprisePct*100:null);
+      const rd=(m.revEstimate&&L.revenue)?(L.revenue/m.revEstimate-1)*100:null;
+      if(c.surprisePct!=null&&isFinite(+c.surprisePct))sp=+c.surprisePct;
+      const nt=[c.note,L.oneOff,L.note].filter(Boolean).join('；');let nj=null;
+      if(nt){if(/(剔除|调整后|经调整|underlying|adjusted)[^；。]*(超预期|高于|好于|beat)/i.test(nt))nj='beat';else if(/(剔除|调整后|经调整|underlying|adjusted)[^；。]*(不及|低于|差于|miss)/i.test(nt))nj='miss';else if(/大致可比|基本符合|大致符合|in.?line/i.test(nt))nj='inl';else if(/不可比/.test(nt))nj='nc';}
+      const st=nj==='nc'?'inl':nj||(sp==null?'done':sp>1?'beat':sp<-1?'miss':'inl');
+      if(t)ev.push({lane:0,t,id:'e-'+c.symbol+'-L',name:`${c.name||c.symbol} 财报`,sym:c.symbol,st,imp:imp(c.importance),released:true,raw:c,kind:'eR',sp,rd,ee,nt,nj});}
+    const tn=toT(c.nextDate);
+    if(tn&&(!L||Math.abs(tn-toT(L.reportDate))>5*DAY))ev.push({lane:0,t:tn,id:'e-'+c.symbol+'-N',name:`${c.name||c.symbol} 财报`,sym:c.symbol,st:tn<NOW?'done':'pend',imp:imp(c.importance),released:false,raw:c,kind:'eN',est:c.dateStatus!=='confirmed'});
+  });
+  (C.meetings||[]).forEach(m=>{const t=toT(m.decisionAt)||toT(m.end)||toT(m.start);if(!t)return;
+    const done=m.status==='done'||!!m.result;const st=done?(cls(m.verdict)||'done'):'pend';
+    ev.push({lane:1,t,id:'m-'+m.id,name:m.name,st,imp:imp(m.importance),released:done,raw:m,kind:'M',tbd:m.status==='tbd'});});
+  (C.macro||[]).forEach(x=>{const t=toT(x.releaseAt);if(!t)return;const done=x.status==='released'&&x.actual!=null;
+    ev.push({lane:2,t,id:'x-'+x.id,name:x.name,st:done?(cls(x.verdict)||'inl'):'pend',imp:imp(x.importance),released:done,raw:x,kind:'X',spx:(x.surprisePct!=null&&isFinite(+x.surprisePct))?+x.surprisePct:null});});
+  return ev.sort((a,b)=>a.t-b.t);
+}
+/* ---------- countdown ---------- */
+function countdown(ev){
+  const box=document.getElementById('cd');
+  const cand=ev.filter(e=>e.t>=NOW-12*36e5&&e.t<=NOW+7*DAY&&!e.tbd);
+  const score=e=>e.imp*10+(e.lane===1?3:e.lane===0?2:1)-(e.t-NOW)/DAY*.3;
+  const seen=new Set();const pick=[];
+  cand.sort((a,b)=>score(b)-score(a)).forEach(e=>{const k=e.lane+'|'+e.name.replace(/\s.*/,'')+'|'+Math.floor(e.t/36e5);if(pick.length<5&&!seen.has(k)){seen.add(k);pick.push(e)}});
+  pick.sort((a,b)=>a.t-b.t);
+  if(!pick.length){box.innerHTML='<div class="note">未来 7 日暂无重点事件</div>';return}
+  const LN=['财报','会议','宏观'];
+  box.innerHTML=pick.map((e,i)=>`<div class="cd" data-i="${H(e.id)}" tabindex="0"><div class="k"><span>${LN[e.lane]} · ${H(e.raw.region||'')}</span><span>${fmt(e.t)}</span></div><div class="n" title="${H(e.name)}">${H(e.name)}</div><div class="v" id="cdv${i}"></div><div class="w">${'●'.repeat(e.imp)}${'○'.repeat(3-e.imp)} 重要性${e.est?' · 日期预估':''}</div></div>`).join('');
+  const tick=()=>{const n=Date.now();pick.forEach((e,i)=>{const el=document.getElementById('cdv'+i);if(!el)return;
+    if(e.released){el.innerHTML=`<div class="r c-${e.st}">${H(resText(e))}</div>`;return}
+    let d=e.t-n;if(d<=0){el.innerHTML='<div class="r c-pend">已到时间 · 等待数据</div>';return}
+    const D=Math.floor(d/DAY),h=Math.floor(d%DAY/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+    el.innerHTML=`<div class="t">${D?D+'<small>天</small>':''}${p2(h)}<small>:</small>${p2(m)}<small>:</small>${p2(s)}</div>`;});};
+  tick();setInterval(tick,1000);
+}
+function resText(e){const r=e.raw;
+  if(e.kind==='X')return `实际 ${r.actual??'—'} / 预期 ${r.forecast??'—'}${r.verdict?' · '+r.verdict:''}`;
+  if(e.kind==='M')return (r.result||'已结束')+(r.verdict?' · '+r.verdict:'');
+  if(e.kind==='eR')return e.sp!=null?`EPS ${(+r.lastReported.epsActual).toFixed(2)} · 偏差 ${e.sp>=0?'+':''}${e.sp.toFixed(1)}%`:'已发布';
+  return '';}
+/* ---------- timeline ---------- */
+const PX=46,LH=64,AX=28;
+function timeline(ev,open){
+  const sc=document.getElementById('tls');
+  const t0=Math.floor((NOW-17*DAY)/DAY)*DAY-8*36e5, t1=t0+(17+28+2)*DAY;
+  const W=Math.round((t1-t0)/DAY*PX), Hh=AX+LH*3;
+  const x=t=>(t-t0)/DAY*PX;
+  const vis=ev.filter(e=>e.t>=t0&&e.t<=t1);
+  let s=`<svg width="${W}" height="${Hh}" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="事件时间线">`;
+  for(let i=0;i<3;i++)s+=`<rect x="0" y="${AX+i*LH}" width="${W}" height="${LH}" fill="${i%2?'#060606':'#030303'}"/><line x1="0" x2="${W}" y1="${AX+i*LH+LH/2}" y2="${AX+i*LH+LH/2}" stroke="#1a1a1a"/>`;
+  for(let t=t0;t<=t1;t+=DAY){const b=bjd(t),X=x(t),wk=b.w===0||b.w===6;
+    s+=`<line x1="${X}" x2="${X}" y1="${AX}" y2="${Hh}" stroke="${b.d===1?'#333':'#111'}"/>`;
+    s+=`<text x="${X+PX/2}" y="12" fill="${wk?'#555':'#8a8a8a'}" font-size="10" text-anchor="middle">${b.d===1||t===t0?b.m+'/':''}${b.d}</text><text x="${X+PX/2}" y="23" fill="#4a4a4a" font-size="9" text-anchor="middle">${WK[b.w]}</text>`;}
+  s+=`<line class="axis" style="--len:${W}" x1="0" x2="${W}" y1="${AX}" y2="${AX}" stroke="#FFA028" stroke-opacity=".55" stroke-width="1.5"/>`;
+  s+=`<rect x="0" y="${AX}" width="${x(NOW)}" height="${LH*3}" fill="#000" opacity=".28"/>`;
+  // stack same-day same-lane
+  const slot={};
+  vis.forEach((e,i)=>{const k=e.lane+'|'+dkey(e.t);const n=slot[k]=(slot[k]||0)+1;e._o=n-1;});
+  const cnt={};vis.forEach(e=>{const k=e.lane+'|'+dkey(e.t);cnt[k]=Math.max(cnt[k]||0,e._o+1)});
+  vis.forEach((e,i)=>{const k=e.lane+'|'+dkey(e.t),c=cnt[k];const r=3+e.imp*2.2;
+    const dayX=x(Math.floor((e.t+8*36e5)/DAY)*DAY-8*36e5)+PX/2;
+    const cx=c>1?dayX+((e._o%2)?6:-6)*(c>2?1:1):dayX;
+    const cy=AX+e.lane*LH+LH/2+(c>1?(e._o-(c-1)/2)*Math.min(14,(LH-12)/c):0);
+    let op=1;if(e.kind==='eR'&&e.sp!=null)op=e.nj?.75:Math.min(1,.45+Math.abs(e.sp)/15);
+    if(e.kind==='X'&&e.spx!=null)op=e.spx===0?1:Math.min(1,.45+Math.abs(e.spx)/12);
+    else if(e.kind==='X'&&e.raw.diff!=null){const d=Math.abs(num(e.raw.diff)||0);op=d===0?1:Math.min(1,.5+d/1.2)}
+    const f=COL[e.st];const pend=e.st==='pend';
+    s+=`<circle class="dot" data-i="${H(e.id)}" cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r}" fill="${pend?'#000':f}" fill-opacity="${pend?1:op.toFixed(2)}" stroke="${pend?'#808080':f}" stroke-width="1.5"${e.est||e.tbd?' stroke-dasharray="2 2"':''} style="animation-delay:${(0.6+i*0.025).toFixed(3)}s"><title>${H(fmt(e.t)+' '+e.name)}</title></circle>`;});
+  const nx=x(NOW);
+  s+=`<g class="now-line"><line x1="${nx}" x2="${nx}" y1="0" y2="${Hh}" stroke="#FFA028" stroke-width="2"/><rect x="${nx-18}" y="0" width="36" height="13" fill="#FFA028"/><text x="${nx}" y="10" font-size="10" text-anchor="middle" fill="#000" font-weight="700">今天</text></g></svg>`;
+  sc.innerHTML=s;
+  const wrap=sc.closest('.tl-wrap');if(!RM)wrap.classList.add('tl-anim');
+  const toNow=(sm)=>sc.scrollTo({left:nx-sc.clientWidth/2,behavior:sm&&!RM?'smooth':'auto'});
+  toNow(false);document.getElementById('toNow').onclick=()=>toNow(true);
+  // drag
+  let dn=null,moved=0;
+  sc.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn={x:e.clientX,l:sc.scrollLeft};moved=0;});
+  addEventListener('pointermove',e=>{if(!dn)return;const d=e.clientX-dn.x;if(Math.abs(d)>3){moved=1;sc.classList.add('drag')}sc.scrollLeft=dn.l-d;});
+  addEventListener('pointerup',()=>{dn=null;sc.classList.remove('drag')});
+  sc.addEventListener('wheel',e=>{if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){sc.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+  const tip=document.getElementById('tip');
+  sc.addEventListener('click',e=>{if(moved){moved=0;return}const d=e.target.closest('.dot');if(d)open(d.dataset.i)});
+  sc.addEventListener('mousemove',e=>{const d=e.target.closest('.dot');if(!d||dn){tip.style.display='none';return}
+    const ev2=EV.get(d.dataset.i);tip.innerHTML=`${H(fmt(ev2.t))} · ${H(ev2.name)}<br><span class="c-${ev2.st}">${LBL[ev2.st]}</span>${ev2.nt?'<br><span style="color:#aaa">'+H(ev2.nt)+'</span>':''}`;tip.style.display='block';tip.style.left=Math.min(e.clientX+12,innerWidth-270)+'px';tip.style.top=(e.clientY+14)+'px';});
+  sc.addEventListener('mouseleave',()=>tip.style.display='none');
+}
+/* ---------- mobile stream ---------- */
+function stream(ev){
+  const lo=NOW-14*DAY,hi=NOW+28*DAY;const g={};
+  ev.filter(e=>e.t>=lo&&e.t<=hi).forEach(e=>{(g[dkey(e.t)]=g[dkey(e.t)]||[]).push(e)});
+  const tk=dkey(NOW);const LN=['财报','会议','宏观'];
+  const keys=Object.keys(g).sort();if(!keys.includes(tk)){keys.push(tk);keys.sort();g[tk]=[]}
+  document.getElementById('stream').innerHTML=keys.map(k=>{const t=toT(k);const b=bjd(t);
+    return `<div class="dg" ${k===tk?'id="stoday"':''}><div class="dh ${k===tk?'today':''}">${b.m}月${b.d}日 周${WK[b.w]}${k===tk?' · 今天':''}</div>${g[k].length?g[k].map(e=>{const r=3+e.imp*2,pend=e.st==='pend';
+      return `<div class="ev" data-i="${H(e.id)}"><span class="ln">${LN[e.lane]}</span><i style="width:${r*2}px;height:${r*2}px;${pend?'border:1.5px solid #808080':'background:'+COL[e.st]}"></i><span class="nm">${H(e.name)}</span><span class="c-${e.st}" style="font-size:10px">${e.released?LBL[e.st]:H(fmt(e.t).split(' ')[1]||'')}</span></div>`}).join(''):'<div class="ev note">今日无事件</div>'}</div>`}).join('');
+}
+/* ---------- mini charts ---------- */
+function triSvg(x,w=130,h=46){const P=[num(x.previous),num(x.forecast),num(x.actual)];if(P.some(v=>v==null))return '';
+  const mn=Math.min(...P),mx=Math.max(...P),rg=mx-mn||1;const pt=P.map((v,i)=>[12+i*(w-24)/2,h-12-(v-mn)/rg*(h-24)]);
+  const c=COL[cls(x.verdict)||'inl'];const L=['前','预','实'];
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${pt.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#444" stroke-width="1"/>`+
+   pt.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i===2?4:3}" fill="${i===2?c:i===1?'#000':'#666'}" stroke="${i===1?'#aaa':i===2?c:'#666'}"/><text x="${p[0]}" y="${h-1}" font-size="8" fill="#777" text-anchor="middle">${L[i]}</text>`).join('')+'</svg>';}
+function barSvg(sp,w=130,h=30,cc){if(sp==null)return '';const m=Math.max(10,Math.min(60,Math.abs(sp)));const c=cc||(sp>=0?COL.beat:COL.miss);const mid=w/2,len=Math.min(1,Math.abs(sp)/m)*(w/2-4);
+  return `<svg width="${w}" height="${h}" aria-hidden="true"><line x1="${mid}" x2="${mid}" y1="2" y2="${h-10}" stroke="#666"/><rect x="${sp>=0?mid:mid-len}" y="6" width="${Math.max(1,len)}" height="${h-20}" fill="${c}"/><text x="${mid}" y="${h-1}" font-size="8" fill="#777" text-anchor="middle">一致预期</text></svg>`;}
+function strip(ev,open){
+  const xs=ev.filter(e=>e.released&&(e.kind==='X'&&triSvg(e.raw)||e.kind==='eR'&&e.sp!=null)).sort((a,b)=>b.t-a.t).slice(0,24);
+  document.getElementById('strip').innerHTML=xs.map(e=>`<div class="sc" data-i="${H(e.id)}"><div class="h" title="${H(e.name)}">${H(e.name)}</div><div class="s">${fmt(e.t,false)} · <span class="c-${e.st}">${e.kind==='X'?H(e.raw.actual)+' vs '+H(e.raw.forecast)+(e.spx!=null?' ('+(e.spx>=0?'+':'')+e.spx.toFixed(1)+'%)':''):(e.sp>=0?'+':'')+e.sp.toFixed(1)+'%'}</span></div>${e.kind==='X'?triSvg(e.raw)+(e.spx!=null?barSvg(e.spx,130,26,COL[e.st]):''):barSvg(e.sp,130,30,e.nj?COL[e.st]:null)}${e.nj?'<div class="s" title="'+H(e.nt)+'">⚠ 含一次性项目</div>':''}</div>`).join('')||'<div class="note">暂无已公布数据</div>';
+}
+/* ---------- detail panel ---------- */
+function countUp(root){root.querySelectorAll('[data-n]').forEach(el=>{const tgt=+el.dataset.n,dg=+el.dataset.d||0,pre=el.dataset.p||'',suf=el.dataset.s||'';
+  const show=v=>el.textContent=pre+(dg>=0?v.toFixed(dg):v)+suf;if(RM||!isFinite(tgt)){show(tgt);return}
+  const t0=performance.now(),D=700;const st=n=>{const k=Math.min(1,(n-t0)/D),e=1-Math.pow(1-k,3);show(tgt*e);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st);});}
+function nb(label,val,dg=2,suf='',cl=''){if(val==null||val===''||(typeof val==='number'&&!isFinite(val)))return `<div><span>${H(label)}</span><b class="c-pend">暂无</b></div>`;
+  if(typeof val==='number')return `<div><span>${H(label)}</span><b class="${cl}" data-n="${val}" data-d="${dg}" data-s="${H(suf)}">0</b></div>`;
+  const n=num(val);const m=String(val).match(/^(-?[\d.,]+)(.*)$/);
+  if(n!=null&&m)return `<div><span>${H(label)}</span><b class="${cl}" data-n="${n}" data-d="${(m[1].split('.')[1]||'').length}" data-s="${H(m[2])}">0</b></div>`;
+  return `<div><span>${H(label)}</span><b class="${cl}" style="font-size:12px">${H(val)}</b></div>`;}
+const bigN=n=>n==null?null:Math.abs(n)>=1e8?{v:n/1e8,s:'亿'}:{v:n,s:''};
+function detail(e){const r=e.raw;const LN=['财报','会议','宏观'];let h=`<h3>${H(e.name)}</h3><div class="meta">${LN[e.lane]} · ${H(r.region||'')} · ${H(fmt(e.t))} 北京时间 · 重要性 ${'●'.repeat(e.imp)}${'○'.repeat(3-e.imp)}</div><span class="vd c-${e.st}">${LBL[e.st]}</span>`;
+  if(e.kind==='X'){h+=`<div class="kv">${nb('实际',e.released?r.actual:null,0,'',`c-${e.st}`)}${nb('预期',r.forecast)}${nb('前值',r.previous)}${nb('差值',r.diff)}${e.spx!=null?nb('偏离预期',e.spx,1,'%',`c-${e.st}`):''}</div>`;
+    if(e.released&&triSvg(r))h+=`<div class="lbl">前值 → 预期 → 实际</div>${triSvg(r,300,80)}`;
+    if(r.impact)h+=`<div class="lbl">影响</div><p>${H(r.impact)}</p>`;if(r.note)h+=`<p class="note">${H(r.note)}</p>`;
+    if(r.source)h+=`<div class="lbl">来源</div><p>${r.source.url?`<a class="src" href="${H(r.source.url)}" target="_blank" rel="noopener">${H(r.source.name||r.source.url)}</a>`:H(r.source.name||'')}</p>`;}
+  else if(e.kind==='M'){h+=`<div class="lbl">日期</div><p>${H(r.start||'暂无')}${r.end&&r.end!==r.start?' ~ '+H(r.end):''}${r.status==='tbd'?'（待定）':''}</p><div class="lbl">市场预期</div><p>${H(r.expectation||'暂无')}</p><div class="lbl">结果</div><p>${H(r.result||'尚未公布')}</p>${r.verdict?`<div class="lbl">对比</div><p>${H(r.verdict)}</p>`:''}${r.note?`<p class="note">${H(r.note)}</p>`:''}`;
+    if((r.sources||[]).length)h+=`<div class="lbl">来源</div><p>${r.sources.map(s=>`<a class="src" href="${H(s.url||'#')}" target="_blank" rel="noopener">${H(s.name)}</a>`).join(' · ')}</p>`;}
+  else if(e.kind==='eR'){const L=r.lastReported,rv=bigN(L.revenue),ni=bigN(L.netIncome);
+    h+=`<div class="kv">${nb('EPS 实际',L.epsActual!=null?+L.epsActual:null,2)}${nb('EPS 预期',e.ee!=null?+e.ee:null,2)}${nb('EPS 偏差',e.sp,1,'%',`c-${e.st}`)}${nb('营收偏差',e.rd,1,'%',e.rd==null?'':e.rd>=0?'c-beat':'c-miss')}${nb('营收 '+(r.currency||''),rv&&rv.v,1,rv&&rv.s)}${nb('营收同比',L.revenueYoY!=null?L.revenueYoY*100:null,1,'%')}${nb('净利润',ni&&ni.v,1,ni&&ni.s)}${nb('净利同比',L.netIncomeYoY!=null?L.netIncomeYoY*100:null,1,'%')}</div>`;
+    if(e.nt)h+=`<div class="lbl">口径说明${e.nj?' · 颜色按说明判断':''}</div><p class="note">${H(e.nt)}</p>`;
+    if(e.sp!=null)h+=`<div class="lbl">EPS 实际 vs 一致预期</div>${barSvg(e.sp,300,40,e.nj?COL[e.st]:null)}`;
+    h+=`<p class="note">季末 ${H(L.quarterEnd||'暂无')}${L.epsCompareBasis?' · 口径：'+H(L.epsCompareBasis):''}</p>`;if(r.guidance)h+=`<div class="lbl">指引</div><p>${H(r.guidance)}</p>`;if(r.note)h+=`<p class="note">${H(r.note)}</p>`;}
+  else{const k=r.consensus||{},rv=bigN(k.revAvg);h+=`<p class="note">${r.dateStatus==='confirmed'?'日期已确认':'日期为预估'}</p><div class="kv">${nb('EPS 一致预期',k.epsAvg!=null?+k.epsAvg:null,2)}${nb('去年同期 EPS',k.epsYearAgo!=null?+k.epsYearAgo:null,2)}${nb('营收预期 '+(k.currency||r.currency||''),rv&&rv.v,1,rv&&rv.s)}${nb('营收增速预期',k.revGrowth!=null?k.revGrowth*100:null,1,'%')}</div>${k.epsLow!=null?`<p class="note">EPS 区间 ${(+k.epsLow).toFixed(2)} ~ ${(+k.epsHigh).toFixed(2)} · ${H(k.epsAnalysts??'—')} 位分析师</p>`:''}`;}
+  return h;}
+let EV;
+function init(E,C){
+  const ev=build(E,C);EV=new Map(ev.map(e=>[e.id,e]));
+  const dp=document.getElementById('dp'),dpc=document.getElementById('dpc');
+  const open=id=>{const e=EV.get(id);if(!e)return;dpc.innerHTML=detail(e);dp.classList.add('open');dp.setAttribute('aria-hidden','false');
+    document.querySelectorAll('.dot.sel').forEach(d=>d.classList.remove('sel'));document.querySelectorAll(`.dot[data-i="${CSS.escape(id)}"]`).forEach(d=>d.classList.add('sel'));countUp(dpc);};
+  const close=()=>{dp.classList.remove('open');dp.setAttribute('aria-hidden','true')};
+  document.getElementById('dpx').onclick=close;addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  ['cd','strip','stream'].forEach(id=>document.getElementById(id).addEventListener('click',e=>{const c=e.target.closest('[data-i]');if(c)open(c.dataset.i)}));
+  countdown(ev);timeline(ev,open);stream(ev);strip(ev,open);
+  window.__openEvent=open;
+}
+Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.json').then(r=>r.json())]).then(([E,C])=>init(E,C)).catch(e=>{document.getElementById('cd').innerHTML='<div class="note">时间线数据加载失败：'+H(e)+'</div>'});
+})();
 </script>
 </body></html>
