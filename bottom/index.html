@@ -255,7 +255,7 @@
         const watchN = inds.filter(x => x.status === "watching").length;
 
         document.getElementById("meta").textContent =
-          `asOf ${fmtTime(d.generated_at || d.verdict?.generated_at)} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
+          `asOf ${d.as_of || fmtTime(d.generated_at || d.verdict?.generated_at)} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
 
         const ticks = Array.from({ length: total }, (_, i) => {
           const on = i < trig;
