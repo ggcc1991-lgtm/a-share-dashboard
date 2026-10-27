@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-10-27T15:48:34+08:00",
+ "updated": "2026-10-27T23:06:31+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -32,7 +32,7 @@
    "start": "2026-10-27",
    "end": "2026-10-28",
    "decisionAt": "2026-10-29T02:00:00+08:00",
-   "status": "upcoming",
+   "status": "ongoing",
    "result": null,
    "expectation": "ForexFactory 预期利率上限 4.00%（前值 4.00%，即维持）",
    "verdict": null,
@@ -840,18 +840,20 @@
    "region": "US",
    "name": "CB Consumer Confidence",
    "releaseAt": "2026-10-27T22:00:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "91.7",
    "forecast": "81.2",
-   "previous": "81.9",
-   "verdict": null,
-   "diff": null,
+   "previous": "84.2（9月修正，初值81.9）",
+   "verdict": "高于预期",
+   "diff": "+10.5",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "The Conference Board / Investing.com",
+    "url": "https://www.conference-board.org/topics/consumer-confidence/index.cfm"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 12.9,
+   "note": "10月升至91.7（+7.5），现况与预期分项同步回升；汽油价格回落是主因之一（Conference Board）"
   },
   {
    "id": "ff-USD-202610290200-FederalFundsRate",
