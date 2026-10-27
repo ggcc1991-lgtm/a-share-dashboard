@@ -53,3 +53,9 @@
 ## v2.7 AI 上下游
 - 新增数据中心电力/散热、AI 服务器与 ODM、网络、AI 互联芯片、光模块，以及企业软件/云安全/电商等下游应用。
 - 跳过已有 AMD/NVDA；未上市 CoreWeave 跳过；施耐德用 `SU.PA`；光模块取 `COHR`（未并入 LITE）。importance：上游/芯片 3，应用 2。
+
+## v2.8 A股全产业链
+- 新增半导体设备/材料、AI芯片设计、先进封装与 PCB/CCL、光模块、算力服务器、液冷、办公/语音软件等 A 股卡位龙头。
+- **Yahoo 沪市代码用 `.SS`（`.SH` 常 404）**；深市 `.SZ`。本批未挂 `ashare`，避免触发 Tushare IP 配额。
+- 多数 Yahoo `earningsTimestamp` 仍停在 2025 年年报季 → `nextDate` 记 null/`unknown`（不编造）；consensus / lastReported 仍有值。
+- 跳过已有中芯 `0981.HK`、比亚迪 `1211.HK`；精简未纳入：立昂微、龙芯、卓胜微、通富、兴森、飞荣达、曙光、科华、恒生等。
