@@ -206,7 +206,7 @@ function render(){charts.splice(0).forEach(c=>c.dispose());const inds=LATEST.ind
  drawK();drawBig(inds);renderVerdict(n)}
 function drawK(){const k=(HIST&&HIST.csi1000_kline)||[];if(!k.length)return;const ds=k.map(x=>x.d);
  const yin=k.filter(x=>x.big_yin).map(x=>({coord:[x.d,x.h],value:x.chg+"%",itemStyle:{color:RED}}));
- ec(document.getElementById("kline")).setOption({animation:false,title:{text:"中证1000 日K（近120日）· 红点=大阴线 · 红量=急跌日",textStyle:{color:"#e6edf7",fontSize:12},left:4},tooltip:{trigger:"axis",axisPointer:{type:"cross"},confine:true},
+ ec(document.getElementById("kline")).setOption({animation:false,title:{text:"中证1000 日K（今年以来）· 红点=大阴线 · 红量=急跌日",textStyle:{color:"#e6edf7",fontSize:12},left:4},tooltip:{trigger:"axis",axisPointer:{type:"cross"},confine:true},
   grid:[{left:48,right:10,top:28,height:"58%"},{left:48,right:10,top:"76%",height:"16%"}],
   xAxis:[{type:"category",data:ds,axisLabel:{color:MU,fontSize:9}},{type:"category",gridIndex:1,data:ds,axisLabel:{show:false}}],
   yAxis:[{scale:true,axisLabel:{color:MU,fontSize:9},splitLine:{lineStyle:{color:"#1e2a3a"}}},{gridIndex:1,axisLabel:{show:false},splitLine:{show:false}}],

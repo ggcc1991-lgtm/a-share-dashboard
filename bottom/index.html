@@ -485,7 +485,8 @@
 
           const BB = "#ffa028", POS = "#ef5350", NEG = "#26a69a", MU = "#a0a0a0", GRID = "#1a1a1a";
           const theme = (window.DashTheme && DashTheme.echartsDark) || null;
-          const N = 80;
+          const HIST_START = "2026-01-01";
+          const since = (arr) => (arr || []).filter((x) => x && String(x.d) >= HIST_START);
           function mk(id) {
             const el = document.getElementById(id);
             if (!el) return null;
@@ -510,7 +511,7 @@
             }, extra || {});
           }
 
-          const kl = klineAll.slice(-N);
+          const kl = since(klineAll);
           const ck = mk("chartKline");
           if (ck && kl.length) {
             const dates = kl.map(x => x.d);
@@ -549,7 +550,7 @@
             });
           }
 
-          const bas = basisAll.slice(-N);
+          const bas = since(basisAll);
           const cb = mk("chartBasis");
           if (cb && bas.length) {
             const dates = bas.map(x => x.d);
@@ -579,7 +580,7 @@
             });
           }
 
-          const mb = marginAll.slice(-N);
+          const mb = since(marginAll);
           const cm = mk("chartMargin");
           if (cm && mb.length) {
             const dates = mb.map(x => x.d);
