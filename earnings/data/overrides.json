@@ -228,20 +228,35 @@
     },
     "GOOGL": {
       "lastReported": {
-        "quarterEnd": "2026-06-30",
-        "reportDate": "2026-07-23",
-        "revenue": 119796000000,
-        "revenueYoY": 0.24,
-        "netIncome": 112107000000,
-        "netIncomeYoY": 2.98,
-        "epsGaap": 9.11,
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29T04:00:00+08:00",
+        "revenue": 127580000000,
+        "revenueYoY": 0.25,
+        "netIncome": 26170000000,
+        "netIncomeYoY": -0.2519,
+        "epsGaap": 2.12,
         "epsGaapBasis": "GAAP 摊薄 EPS",
-        "oneOff": "股权投资净收益 990亿美元，增厚 EPS 6.26 美元；剔除后约 2.85，与 2.90 预期大致可比（剔除值为按公告数推算）",
+        "epsActual": 2.67,
+        "epsEstimate": 3.02,
+        "epsSurprisePct": -0.1159,
+        "epsCompareBasis": "CNBC 口径调整后 EPS vs LSEG 一致预期",
+        "manual": {
+          "revEstimate": 128220000000,
+          "revSource": "CNBC/LSEG"
+        },
+        "note": "营收/利润双 miss；Cloud $30.7B(+103%)；FCF -$9.07B；2026 capex 指引维持 $195-205B。数据取自 CNBC，官方 8-K 未逐项核对",
         "source": {
-          "name": "Alphabet Q2 2026 业绩(SEC 8-K Ex99.1)",
-          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
-          "asOf": "2026-10-27"
-        }
+          "name": "CNBC Alphabet Q3 2026",
+          "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG)",
+            "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+            "asOf": "2026-10-29"
+          }
+        ]
       }
     },
     "ASM.AS": {
@@ -424,24 +439,137 @@
     },
     "688072.SS": {
       "lastReported": {
-        "quarterEnd": "2026-06-30",
-        "reportDate": "2026-08-20",
-        "revenue": 2912864261.46,
-        "revenueYoY": 0.4906,
-        "netIncome": 1343000000,
-        "netIncomeYoY": 13.241,
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 2308000000,
+        "revenueYoY": 0.0184,
+        "netIncome": 1088000000,
+        "netIncomeYoY": 1.3539,
         "epsGaap": null,
-        "note": "H1 累计口径(1-6月)；归母净利润13.43亿元为新闻稿约数。原数据 quarterEnd=2026-03-31/reportDate=2025-10-31 错配已修正。Q3 报告尚未披露(预约 2026-10-29)，Wind 三季报字段亦为空。",
+        "note": "Q3 单季；前三季营收52.20亿(+23.70%)、归母净利24.31亿(+336.79%)。A股仅有年度一致预期，无单季可比预期",
         "source": {
-          "name": "拓荆科技 2026年半年度报告(巨潮资讯)",
-          "url": "https://static.cninfo.com.cn/finalpage/2026-08-21/1225486631.PDF",
-          "asOf": "2026-10-28"
+          "name": "拓荆科技 2026年第三季度报告",
+          "url": "http://notice.10jqka.com.cn/api/pdf/6e860445354fc17b.pdf",
+          "asOf": "2026-10-29"
         },
         "consensusSources": [
           {
-            "name": "财闻网 半年报速读",
-            "url": "https://www.caiwennews.com/article/1560549.shtml",
-            "asOf": "2026-10-28"
+            "name": "财联社",
+            "url": "https://www.cls.cn/detail/2518408",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "MSFT": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29T04:00:00+08:00",
+        "revenue": 92300000000,
+        "revenueYoY": 0.19,
+        "netIncome": 36600000000,
+        "netIncomeYoY": 0.32,
+        "epsGaap": 4.92,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsNonGaap": 4.89,
+        "epsNonGaapBasis": "Non-GAAP（剔除 OpenAI 投资影响）",
+        "epsActual": 4.89,
+        "epsEstimate": 4.73,
+        "epsSurprisePct": 0.0338,
+        "epsCompareBasis": "Non-GAAP vs LSEG 一致预期",
+        "manual": {
+          "revEstimate": 90690000000,
+          "revSource": "CNBC/LSEG"
+        },
+        "note": "FY27Q1；营收为官方约数$92.3B；Azure +48%",
+        "source": {
+          "name": "Microsoft FY27 Q1 Press Release",
+          "url": "https://www.microsoft.com/en-us/investor/earnings/FY-2027-Q1/press-release-webcast",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG)",
+            "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "VRT": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28T18:30:00+08:00",
+        "revenue": 4312800000,
+        "revenueYoY": 0.6118,
+        "netIncome": 764500000,
+        "netIncomeYoY": 0.9184,
+        "epsGaap": 1.95,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsNonGaap": 2.21,
+        "epsActual": 2.21,
+        "epsEstimate": 1.82,
+        "epsSurprisePct": 0.2143,
+        "epsCompareBasis": "调整后摊薄 EPS vs Investing.com 一致预期",
+        "manual": {
+          "revEstimate": 3760000000,
+          "revSource": "Investing.com"
+        },
+        "guidance": "上调 FY2026 指引：营收 $14.45–14.85B，调整后 EPS $7.10–7.20",
+        "source": {
+          "name": "Vertiv Q3 2026 Press Release(SEC Ex99.1)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Investing.com",
+            "url": "https://www.investing.com/news/earnings/vertiv-holdings-co-earnings-beat-by-039-revenue-topped-estimates-4978166",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "6857.T": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 477700000000,
+        "note": "FY26Q2 单季营业利润 2,668 亿日元（利润率 55.9%）；H1 营收 8,452 亿(+60.5%)、净利 3,681 亿(+116.8%)。单季 EPS 未在 IR 摘要中核对，沿用 Yahoo 值",
+        "source": {
+          "name": "Advantest Q2 FY2026 IR",
+          "url": "https://www.advantest.com/document/en/investors/ir-library/result/JE_BIZ_261028_note.pdf",
+          "asOf": "2026-10-29"
+        }
+      }
+    },
+    "2308.TW": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 197059000000,
+        "revenueYoY": 0.311,
+        "netIncome": 23495000000,
+        "netIncomeYoY": 0.263,
+        "epsGaap": 9.04,
+        "epsActual": 9.04,
+        "epsCompareBasis": "归母 EPS vs Yahoo 一致预期",
+        "note": "营收季增7.5%创新高，净利季减6.5%；经济日报称获利不如市场预期",
+        "source": {
+          "name": "台达电 115年Q3财报新闻稿",
+          "url": "https://www.deltaww.com/zh-TW/press/41194",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "中央社",
+            "url": "https://www.cna.com.tw/news/afe/202610280291.aspx",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "经济日报",
+            "url": "https://money.udn.com/money/story/5612/9843353",
+            "asOf": "2026-10-29"
           }
         ]
       }
