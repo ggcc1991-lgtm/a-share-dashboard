@@ -11011,37 +11011,35 @@
     },
     {
       "date": "20261028",
-      "emotionScore": 74.3,
+      "emotionScore": 73.1,
       "regime": "strong",
       "regimeLabel": "Risk-On (进攻)",
-      "suggestedPosition": 0,
-      "positionTier": "空仓观望",
-      "allowOpen": false,
-      "hs300Close": 4077.16,
-      "hs300ChangePct": 0.68,
-      "volumeRatio": 0.47,
-      "banReasons": [
-        "量能比 0.47 < 0.55"
-      ],
+      "suggestedPosition": 60,
+      "positionTier": "标准仓",
+      "allowOpen": true,
+      "hs300Close": 4083.87,
+      "hs300ChangePct": 0.85,
+      "volumeRatio": 0.8,
+      "banReasons": [],
       "gates": [
         {
           "key": "emotion",
           "label": "情绪阈值",
-          "current": "74.3",
+          "current": "73.1",
           "threshold": ">= 54",
           "passed": true
         },
         {
           "key": "volume",
           "label": "量能阈值",
-          "current": "0.47",
+          "current": "0.8",
           "threshold": ">= 0.55",
-          "passed": false
+          "passed": true
         },
         {
           "key": "hs300",
           "label": "HS300 涨跌幅",
-          "current": "0.68%",
+          "current": "0.85%",
           "threshold": ">= -3.00%",
           "passed": true
         }
@@ -11053,23 +11051,23 @@
           "score": 70,
           "weight": 0.2,
           "contribution": 14,
-          "rawValue": "4077.16 / MA5 4074.38 / MA20 4227.8"
+          "rawValue": "4083.87 / MA5 4075.72 / MA20 4228.13"
         },
         {
           "id": "volume",
           "name": "量能健康度",
-          "score": 0,
+          "score": 26.95,
           "weight": 0.15,
-          "contribution": 0,
-          "rawValue": "当日成交额 2437.57 亿\n60日均额 5235.34 亿\n量能比 0.47"
+          "contribution": 4.04,
+          "rawValue": "当日成交额 4192.79 亿\n60日均额 5264.59 亿\n量能比 0.8"
         },
         {
           "id": "volume_trend",
           "name": "量能趋势",
-          "score": 22.34,
+          "score": 23.88,
           "weight": 0.05,
-          "contribution": 1.12,
-          "rawValue": "20日均额 4076.78 亿\n60日均额 5235.34 亿\n20/60趋势 0.78"
+          "contribution": 1.19,
+          "rawValue": "20日均额 4164.54 亿\n60日均额 5264.59 亿\n20/60趋势 0.79"
         },
         {
           "id": "market_breadth",
@@ -11077,15 +11075,15 @@
           "score": 100,
           "weight": 0.15,
           "contribution": 15,
-          "rawValue": "上涨 3642\n下跌 547\n平盘 837\n上涨占比 72.5%"
+          "rawValue": "上涨 3183\n下跌 719\n平盘 929\n上涨占比 65.9%"
         },
         {
           "id": "advance_decline",
           "name": "涨跌比",
-          "score": 100,
+          "score": 85,
           "weight": 0.15,
-          "contribution": 15,
-          "rawValue": "3642 / 547 = 6.66"
+          "contribution": 12.75,
+          "rawValue": "3183 / 719 = 4.43"
         },
         {
           "id": "limit_up_down",
@@ -11093,7 +11091,7 @@
           "score": 100,
           "weight": 0.15,
           "contribution": 15,
-          "rawValue": "79 / 0 = 999"
+          "rawValue": "74 / 11 = 6.73"
         },
         {
           "id": "max_height",
@@ -11106,10 +11104,10 @@
         {
           "id": "panic_factor",
           "name": "恐慌因子",
-          "score": 84,
+          "score": 21.33,
           "weight": 0.05,
-          "contribution": 4.2,
-          "rawValue": "炸板 26 + 跌停 0 * 2 = 26"
+          "contribution": 1.07,
+          "rawValue": "炸板 76 + 跌停 11 * 2 = 98"
         }
       ]
     }
@@ -11117,6 +11115,6 @@
   "failed": [],
   "notes": [
     "成交额单位已统一为亿元（部分日期原始为错位单位，已/1000 修正；量能比不受影响）",
-    "2026-10-28 午间盘中快照（未收盘，收盘后将覆盖）"
+    "2026-10-26 收盘 EOD 快照（覆盖午盘）"
   ]
 }
