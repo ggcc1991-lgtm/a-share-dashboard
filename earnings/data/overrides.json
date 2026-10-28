@@ -1,248 +1,273 @@
 {
- "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。",
- "companies": {
-  "0700.HK": {
-   "nextDate": "2026-11-18",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "HKEXnews 董事会会议通告(2026-09-24)",
-    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
-    "asOf": "2026-10-27"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-12",
-    "revenue": 204785000000,
-    "revenueYoY": 0.11,
-    "netIncome": 56022000000,
-    "netIncomeYoY": 0.007,
-    "epsGaap": 6.104,
-    "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
-    "epsNonGaap": 7.433,
-    "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
-    "source": {
-     "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "BABA": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-20",
-    "revenue": 268953000000,
-    "revenueYoY": 0.09,
-    "netIncome": 10537000000,
-    "netIncomeYoY": null,
-    "epsGaap": 3.71,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 8.52,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
-    "source": {
-     "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "BIDU": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-18",
-    "revenue": 31300000000,
-    "revenueYoY": -0.04,
-    "netIncome": 2300000000,
-    "epsGaap": 5.74,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 7.22,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "source": {
-     "name": "百度 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
-     "asOf": "2026-10-27"
+  "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。",
+  "companies": {
+    "0700.HK": {
+      "nextDate": "2026-11-18",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "HKEXnews 董事会会议通告(2026-09-24)",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
+        "asOf": "2026-10-27"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-12",
+        "revenue": 204785000000,
+        "revenueYoY": 0.11,
+        "netIncome": 56022000000,
+        "netIncomeYoY": 0.007,
+        "epsGaap": 6.104,
+        "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
+        "epsNonGaap": 7.433,
+        "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
+        "source": {
+          "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
     },
-    "netIncomeYoY": null
-   }
-  },
-  "JD": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 346400000000,
-    "revenueYoY": -0.029,
-    "netIncome": 7100000000,
-    "netIncomeYoY": 0.145,
-    "epsGaap": 5.01,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 6.29,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利同比按公告 71亿 vs 62亿 计算",
-    "source": {
-     "name": "京东 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "3690.HK": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-28",
-    "revenue": 104643044000,
-    "revenueYoY": 0.144,
-    "netIncome": 2155222000,
-    "netIncomeYoY": 4.9,
-    "netIncomeBasis": "期内利润(含少数股东)",
-    "epsGaap": null,
-    "epsGaapBasis": "单季 EPS 公告未单列（暂无）；上半年基本 EPS -0.76 元",
-    "epsNonGaap": null,
-    "adjNetIncome": 2523716000,
-    "adjNetIncomeYoY": 0.69,
-    "epsActual": null,
-    "epsEstimate": null,
-    "epsSurprisePct": null,
-    "source": {
-     "name": "美团 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "1810.HK": {
-   "nextDate": "2026-11-24",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "HKEXnews 董事会会议召开日期(2026-10-23)",
-    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
-    "asOf": "2026-10-27"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-18",
-    "revenue": 108921600000,
-    "revenueYoY": -0.061,
-    "netIncome": 9462405000,
-    "netIncomeYoY": -0.205,
-    "epsGaap": 0.37,
-    "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
-    "adjNetIncome": 6219100000,
-    "adjNetIncomeYoY": -0.426,
-    "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
-    "source": {
-     "name": "小米 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "NTES": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-20",
-    "revenue": 30100000000,
-    "revenueYoY": 0.079,
-    "netIncome": 7000000000,
-    "epsGaap": 1.61,
-    "epsGaapBasis": "GAAP 基本 EPS/ADS(美元)",
-    "epsNonGaap": 1.78,
-    "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
-    "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
-    "source": {
-     "name": "网易 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
-     "asOf": "2026-10-27"
+    "BABA": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-20",
+        "revenue": 268953000000,
+        "revenueYoY": 0.09,
+        "netIncome": 10537000000,
+        "netIncomeYoY": null,
+        "epsGaap": 3.71,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 8.52,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
+        "source": {
+          "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
     },
-    "netIncomeYoY": null
-   }
-  },
-  "0981.HK": {
-   "currency": "USD",
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 3005600000,
-    "revenueYoY": 0.3606,
-    "netIncome": 479197000,
-    "netIncomeYoY": 2.617,
-    "epsGaap": 0.06,
-    "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
-    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
-    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
-    "source": {
-     "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "1211.HK": {
-   "nextDate": "2026-10-29",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "HKEXnews 董事会会议通告(2026-10-14)",
-    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1014/2026101400381.pdf",
-    "asOf": "2026-10-27"
-   },
-   "lastReported": {
-    "halfYear": {
-     "period": "2026H1",
-     "revenue": 344815000000,
-     "revenueYoY": -0.0713,
-     "netIncome": 12325000000,
-     "netIncomeYoY": -0.2054,
-     "epsGaap": 1.35,
-     "epsGaapBasis": "基本 EPS(人民币/股)"
+    "BIDU": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-18",
+        "revenue": 31300000000,
+        "revenueYoY": -0.04,
+        "netIncome": 2300000000,
+        "epsGaap": 5.74,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 7.22,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "source": {
+          "name": "百度 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
+          "asOf": "2026-10-27"
+        },
+        "netIncomeYoY": null
+      }
     },
-    "note": "公告为半年口径(H1)；单季 Q2 数据为 Yahoo 推算值",
-    "source": {
-     "name": "比亚迪 2026 中期业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082801633.pdf",
-     "asOf": "2026-10-27"
+    "JD": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-13",
+        "revenue": 346400000000,
+        "revenueYoY": -0.029,
+        "netIncome": 7100000000,
+        "netIncomeYoY": 0.145,
+        "epsGaap": 5.01,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 6.29,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "note": "净利同比按公告 71亿 vs 62亿 计算",
+        "source": {
+          "name": "京东 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "3690.HK": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-28",
+        "revenue": 104643044000,
+        "revenueYoY": 0.144,
+        "netIncome": 2155222000,
+        "netIncomeYoY": 4.9,
+        "netIncomeBasis": "期内利润(含少数股东)",
+        "epsGaap": null,
+        "epsGaapBasis": "单季 EPS 公告未单列（暂无）；上半年基本 EPS -0.76 元",
+        "epsNonGaap": null,
+        "adjNetIncome": 2523716000,
+        "adjNetIncomeYoY": 0.69,
+        "epsActual": null,
+        "epsEstimate": null,
+        "epsSurprisePct": null,
+        "source": {
+          "name": "美团 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "1810.HK": {
+      "nextDate": "2026-11-24",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "HKEXnews 董事会会议召开日期(2026-10-23)",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
+        "asOf": "2026-10-27"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-18",
+        "revenue": 108921600000,
+        "revenueYoY": -0.061,
+        "netIncome": 9462405000,
+        "netIncomeYoY": -0.205,
+        "epsGaap": 0.37,
+        "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
+        "adjNetIncome": 6219100000,
+        "adjNetIncomeYoY": -0.426,
+        "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
+        "source": {
+          "name": "小米 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "NTES": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-20",
+        "revenue": 30100000000,
+        "revenueYoY": 0.079,
+        "netIncome": 7000000000,
+        "epsGaap": 1.61,
+        "epsGaapBasis": "GAAP 基本 EPS/ADS(美元)",
+        "epsNonGaap": 1.78,
+        "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
+        "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
+        "source": {
+          "name": "网易 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
+          "asOf": "2026-10-27"
+        },
+        "netIncomeYoY": null
+      }
+    },
+    "0981.HK": {
+      "currency": "USD",
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-13",
+        "revenue": 3005600000,
+        "revenueYoY": 0.3606,
+        "netIncome": 479197000,
+        "netIncomeYoY": 2.617,
+        "epsGaap": 0.06,
+        "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
+        "guidance": "Q3 营收环比 +2%~4%（公司指引）",
+        "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
+        "source": {
+          "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "1211.HK": {
+      "nextDate": "2026-10-29",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "HKEXnews 董事会会议通告(2026-10-14)",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1014/2026101400381.pdf",
+        "asOf": "2026-10-27"
+      },
+      "lastReported": {
+        "halfYear": {
+          "period": "2026H1",
+          "revenue": 344815000000,
+          "revenueYoY": -0.0713,
+          "netIncome": 12325000000,
+          "netIncomeYoY": -0.2054,
+          "epsGaap": 1.35,
+          "epsGaapBasis": "基本 EPS(人民币/股)"
+        },
+        "note": "公告为半年口径(H1)；单季 Q2 数据为 Yahoo 推算值",
+        "source": {
+          "name": "比亚迪 2026 中期业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082801633.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "AMZN": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-07-31",
+        "revenue": 200600000000,
+        "revenueYoY": 0.196,
+        "netIncome": 62600000000,
+        "netIncomeYoY": 2.44,
+        "epsGaap": 5.75,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
+        "epsNonGaap": null,
+        "source": {
+          "name": "Amazon Q2 2026 业绩新闻稿(IR)",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "GOOGL": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-07-23",
+        "revenue": 119796000000,
+        "revenueYoY": 0.24,
+        "netIncome": 112107000000,
+        "netIncomeYoY": 2.98,
+        "epsGaap": 9.11,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "oneOff": "股权投资净收益 990亿美元，增厚 EPS 6.26 美元；剔除后约 2.85，与 2.90 预期大致可比（剔除值为按公告数推算）",
+        "source": {
+          "name": "Alphabet Q2 2026 业绩(SEC 8-K Ex99.1)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "ASM.AS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28T01:00:00+08:00",
+        "revenue": 1159400000,
+        "revenueYoY": 0.45,
+        "netIncome": 308100000,
+        "netIncomeYoY": -0.1979,
+        "adjNetIncome": 315400000,
+        "adjNetIncomeYoY": 0.5296,
+        "epsActual": 6.27,
+        "epsEstimate": 6.26009,
+        "epsSurprisePct": 0.0016,
+        "epsGaap": 6.27,
+        "epsGaapBasis": "IFRS 摊薄 EPS(欧元/股)",
+        "epsCompareBasis": "epsEstimate 为 Yahoo Q3 一致预期(4家)；公告未单列调整后 EPS",
+        "note": "营收11.59亿欧元创新高，高于 Yahoo 一致预期11.04亿约5%；毛利率52.0%，调整后经营利润率33.4%；Q4指引营收12.30亿欧元±5%，2027年营收预计超57亿欧元；新增最多3亿欧元回购。去年同期净利含一次性收益，故IFRS净利同比-20%，调整后净利同比+53%。",
+        "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
+        "source": {
+          "name": "ASM 2026Q3 业绩公告(asm.com)",
+          "url": "https://www.asm.com/media/bebbzlnv/20261027-asm-reports-third-quarter-2026-results.pdf",
+          "asOf": "2026-10-28"
+        }
+      }
     }
-   }
-  },
-  "AMZN": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-07-31",
-    "revenue": 200600000000,
-    "revenueYoY": 0.196,
-    "netIncome": 62600000000,
-    "netIncomeYoY": 2.44,
-    "epsGaap": 5.75,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
-    "epsNonGaap": null,
-    "source": {
-     "name": "Amazon Q2 2026 业绩新闻稿(IR)",
-     "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "GOOGL": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-07-23",
-    "revenue": 119796000000,
-    "revenueYoY": 0.24,
-    "netIncome": 112107000000,
-    "netIncomeYoY": 2.98,
-    "epsGaap": 9.11,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "oneOff": "股权投资净收益 990亿美元，增厚 EPS 6.26 美元；剔除后约 2.85，与 2.90 预期大致可比（剔除值为按公告数推算）",
-    "source": {
-     "name": "Alphabet Q2 2026 业绩(SEC 8-K Ex99.1)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
-     "asOf": "2026-10-27"
-    }
-   }
   }
- }
 }
