@@ -98,6 +98,21 @@
       .tl-anim .dot,.tl-anim .axis{animation:none!important;stroke-dashoffset:0}
       .dp{transition:none}
     }
+
+    /* 已发布表：备注默认折叠，点公司名展开 */
+    #tr .co-tog{font:inherit;background:none;border:0;color:var(--tx);cursor:pointer;padding:0;text-align:left;display:inline-flex;align-items:center;gap:4px;max-width:100%}
+    #tr .co-tog:hover,#tr .co-tog:focus-visible{color:var(--bb);outline:none}
+    #tr .co-tog .chev{display:inline-block;color:var(--bb);font-size:10px;line-height:1;transition:transform .18s ease;flex:0 0 auto}
+    #tr .erow.open .co-tog{color:var(--bb)}
+    #tr .erow.open .co-tog .chev{transform:rotate(90deg)}
+    #tr td.note-td{white-space:nowrap;min-width:0!important;width:1%;text-align:left;vertical-align:middle;color:var(--mu-2,#666);font-size:11px;cursor:pointer}
+    #tr .note-hint{color:var(--mu-2,#666)}
+    #tr .erow.open .note-hint{color:var(--bb)}
+    #tr .erow-detail td{text-align:left!important;white-space:normal;background:#0a0a0a;border-bottom:1px solid var(--bd);padding:8px 10px 10px;vertical-align:top}
+    #tr .note-panel{color:var(--mu);font-size:11px;line-height:1.55;max-width:min(720px,100%)}
+    #tr .erow-detail[hidden]{display:none}
+    #tr .erow td{vertical-align:middle}
+    @media (prefers-reduced-motion:reduce){#tr .co-tog .chev{transition:none}}
   .ib{display:inline-flex;align-items:flex-end;gap:2px;margin-right:6px;vertical-align:-1px}.ib i{display:block;width:4px;border-radius:1px;background:rgba(255,160,40,.18)}.ib i.on{background:#FFA028;box-shadow:0 0 4px rgba(255,160,40,.45)}
 </style>
 </head>
@@ -141,7 +156,7 @@
     <section id="t-e" class="panel scard"><h2>科技大厂下次财报<span class="sub" id="esub"></span></h2><div class="tw"><table class="data" id="te"></table></div>
       <p class="note">日期为北京时间。日期优先级：公司公告/HKEXnews 董事会通告 > Yahoo 确认 > Nasdaq/Zacks 算法预估。“已确认”=公告或 Yahoo 标注确认；“预估”=算法推算。一致预期为下一个待披露季度，币种见“币”。</p></section>
     <section id="t-r" class="panel scard" hidden><h2>最近一期财报 vs 一致预期</h2><div class="tw"><table class="data" id="tr"></table></div>
-      <p class="note">实际数优先取公司业绩公告（HKEXnews/SEC），EPS实际/预期/偏差列为 Yahoo 同口径（中概/港股多为 Non-GAAP），下方小字为公告 GAAP/Non-GAAP 口径；一次性项目见备注。营收预期仅对有新闻来源的公司填写，其余“暂无”。</p></section>
+      <p class="note">实际数优先取公司业绩公告（HKEXnews/SEC），EPS实际/预期/偏差列为 Yahoo 同口径（中概/港股多为 Non-GAAP），下方小字为公告 GAAP/Non-GAAP 口径；一次性项目见备注（点公司名称展开「指引 / 备注」）。营收预期仅对有新闻来源的公司填写，其余“暂无”。</p></section>
     <section id="t-m" class="panel scard" hidden><h2>重要会议<span class="sub">央行 / 中央会议</span></h2>
       <div class="filt"><select id="mf"><option value="">全部地区</option><option>CN</option><option>US</option><option>EU</option><option>JP</option><option value="us-election">美国大选</option></select></div>
       <div class="tw"><table class="data" id="tm"></table></div></section>
@@ -174,7 +189,20 @@ Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.
   document.getElementById('tr').innerHTML='<thead><tr><th class="l">公司</th><th class="l">发布</th><th>季末</th><th>币</th><th>EPS实际</th><th>EPS预期</th><th>EPS偏差</th><th>营收</th><th>营收预期</th><th>营收偏差</th><th>营收同比</th><th>净利润</th><th>净利同比</th><th class="l">指引 / 备注</th></tr></thead><tbody>'+
    rs.map(c=>{const L=c.lastReported,m=c.manual||{};const re=m.revEstimate;const rd=re&&L.revenue?(L.revenue/re-1)*100:null;
    const ee=m.epsEstimateAlt??L.epsEstimate;const es=ee&&L.epsActual!=null?(L.epsActual/ee-1)*100:(L.epsSurprisePct!=null?L.epsSurprisePct*100:null);
-   return `<tr><td class="l">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span></td><td class="l">${bj(L.reportDate).slice(0,10)}</td><td>${v(L.quarterEnd)}</td><td>${v(c.currency)}</td><td>${L.epsActual!=null?(+L.epsActual).toFixed(2):NA}${L.epsGaap!=null?'<br><span class="sub">'+esc(L.epsGaapBasis||'GAAP')+' '+L.epsGaap+'</span>':''}${L.epsNonGaap!=null?'<br><span class="sub">'+esc(L.epsNonGaapBasis||'Non-GAAP')+' '+L.epsNonGaap+'</span>':''}</td><td>${ee!=null?(+ee).toFixed(2):NA}</td><td>${es!=null?pct(es):NA}</td><td>${big(L.revenue)}</td><td>${re?big(re)+' <span class="sub">'+esc(m.revSource||'')+'</span>':NA}</td><td>${rd!=null?pct(rd):NA}</td><td>${L.revenueYoY!=null?pct(L.revenueYoY*100):NA}</td><td>${big(L.netIncome)}</td><td>${L.netIncomeYoY!=null?pct(L.netIncomeYoY*100):NA}</td><td class="w note">${c.guidance?esc(c.guidance):'指引：暂无'}${L.oneOff?'<br><b>一次性项目：</b>'+esc(L.oneOff):''}${L.epsCompareBasis?'<br>EPS口径：'+esc(L.epsCompareBasis):''}${L.epsGaap==null&&L.epsGaapBasis?'<br>EPS：'+esc(L.epsGaapBasis):''}${L.adjNetIncome?'<br>经调整净利 '+big(L.adjNetIncome)+(L.adjNetIncomeYoY!=null?' ('+pct(L.adjNetIncomeYoY*100)+')':''):''}${L.netIncomeBasis?'<br>净利口径：'+esc(L.netIncomeBasis):''}${L.halfYear?'<br>'+esc(L.halfYear.period)+'：营收 '+big(L.halfYear.revenue)+' ('+pct(L.halfYear.revenueYoY*100)+')，归母净利 '+big(L.halfYear.netIncome)+' ('+pct(L.halfYear.netIncomeYoY*100)+')，EPS '+L.halfYear.epsGaap:''}${L.note?'<br>'+esc(L.note):''}${c.note?'<br>'+esc(c.note):''}<br>来源：${((c.sources||{}).lastReported||[]).map(S1).join(' · ')||NA}</td></tr>`}).join('')+'</tbody>';
+   const noteHtml=`${c.guidance?esc(c.guidance):'指引：暂无'}${L.oneOff?'<br><b>一次性项目：</b>'+esc(L.oneOff):''}${L.epsCompareBasis?'<br>EPS口径：'+esc(L.epsCompareBasis):''}${L.epsGaap==null&&L.epsGaapBasis?'<br>EPS：'+esc(L.epsGaapBasis):''}${L.adjNetIncome?'<br>经调整净利 '+big(L.adjNetIncome)+(L.adjNetIncomeYoY!=null?' ('+pct(L.adjNetIncomeYoY*100)+')':''):''}${L.netIncomeBasis?'<br>净利口径：'+esc(L.netIncomeBasis):''}${L.halfYear?'<br>'+esc(L.halfYear.period)+'：营收 '+big(L.halfYear.revenue)+' ('+pct(L.halfYear.revenueYoY*100)+')，归母净利 '+big(L.halfYear.netIncome)+' ('+pct(L.halfYear.netIncomeYoY*100)+')，EPS '+L.halfYear.epsGaap:''}${L.note?'<br>'+esc(L.note):''}${c.note?'<br>'+esc(c.note):''}<br>来源：${((c.sources||{}).lastReported||[]).map(S1).join(' · ')||NA}`;
+   return `<tr class="erow"><td class="l"><button type="button" class="co-tog" aria-expanded="false">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span><span class="chev" aria-hidden="true">▸</span></button></td><td class="l">${bj(L.reportDate).slice(0,10)}</td><td>${v(L.quarterEnd)}</td><td>${v(c.currency)}</td><td>${L.epsActual!=null?(+L.epsActual).toFixed(2):NA}${L.epsGaap!=null?'<br><span class="sub">'+esc(L.epsGaapBasis||'GAAP')+' '+L.epsGaap+'</span>':''}${L.epsNonGaap!=null?'<br><span class="sub">'+esc(L.epsNonGaapBasis||'Non-GAAP')+' '+L.epsNonGaap+'</span>':''}</td><td>${ee!=null?(+ee).toFixed(2):NA}</td><td>${es!=null?pct(es):NA}</td><td>${big(L.revenue)}</td><td>${re?big(re)+' <span class="sub">'+esc(m.revSource||'')+'</span>':NA}</td><td>${rd!=null?pct(rd):NA}</td><td>${L.revenueYoY!=null?pct(L.revenueYoY*100):NA}</td><td>${big(L.netIncome)}</td><td>${L.netIncomeYoY!=null?pct(L.netIncomeYoY*100):NA}</td><td class="note-td"><span class="note-hint">详情</span></td></tr><tr class="erow-detail" hidden><td colspan="14"><div class="note-panel">${noteHtml}</div></td></tr>`}).join('')+'</tbody>';
+  document.getElementById('tr').onclick=e=>{
+    if(e.target.closest('a')) return;
+    const row=e.target.closest('tr.erow'); if(!row) return;
+    if(!e.target.closest('.co-tog')&&!e.target.closest('.note-td')) return;
+    const btn=row.querySelector('.co-tog');
+    const det=row.nextElementSibling;
+    const open=row.classList.toggle('open');
+    if(btn) btn.setAttribute('aria-expanded', open?'true':'false');
+    const hint=row.querySelector('.note-hint');
+    if(hint) hint.textContent=open?'收起':'详情';
+    if(det&&det.classList.contains('erow-detail')) det.hidden=!open;
+  };
   const src=a=>(a||[]).map(s=>`<a class="src" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(' · ')||NA;
   const ST={done:'已结束',upcoming:'即将召开',ongoing:'进行中',scheduled:'已排期',tbd:'待定'};
   const rm=()=>{const f=document.getElementById('mf').value;const ms=C.meetings.filter(m=>!f||(f==='us-election'?m.category==='us-election':m.region===f)).sort((a,b)=>(a.start||'9')<(b.start||'9')?-1:1);
