@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-10-29T23:15:00+08:00",
+ "updated": "2026-10-29T23:19:20+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks",
  "consensusAsOf": "2026-10-29",
  "companies": [
@@ -15,20 +15,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AAPL/analysis",
-     "asOf": "2026-10-29T23:08:30+08:00"
+     "asOf": "2026-10-29T23:11:01+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AAPL/analysis",
-      "asOf": "2026-10-29T23:08:33+08:00"
+      "asOf": "2026-10-29T23:11:02+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AAPL/analysis",
-      "asOf": "2026-10-29T23:08:34+08:00"
+      "asOf": "2026-10-29T23:11:03+08:00"
      }
     ]
    },
@@ -56,7 +56,8 @@
     "revenueYoY": 0.16356501765281384,
     "netIncomeYoY": 0.27118716394981646,
     "reportDate": "2026-07-31T04:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "MSFT",
@@ -70,7 +71,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MSFT/analysis",
-      "asOf": "2026-10-29T23:08:37+08:00"
+      "asOf": "2026-10-29T23:11:06+08:00"
      }
     ],
     "lastReported": [
@@ -82,7 +83,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MSFT/analysis",
-      "asOf": "2026-10-29T23:08:37+08:00"
+      "asOf": "2026-10-29T23:11:06+08:00"
      }
     ]
    },
@@ -126,7 +127,8 @@
       "asOf": "2026-10-29"
      }
     ]
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "GOOGL",
@@ -140,7 +142,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
-      "asOf": "2026-10-29T23:08:39+08:00"
+      "asOf": "2026-10-29T23:11:08+08:00"
      }
     ],
     "lastReported": [
@@ -152,7 +154,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
-      "asOf": "2026-10-29T23:08:40+08:00"
+      "asOf": "2026-10-29T23:11:09+08:00"
      }
     ]
    },
@@ -215,7 +217,8 @@
       "consensus.revAvg"
      ]
     }
-   ]
+   ],
+   "importance": 3
   },
   {
    "symbol": "AMZN",
@@ -228,13 +231,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AMZN/analysis",
-     "asOf": "2026-10-29T23:08:40+08:00"
+     "asOf": "2026-10-29T23:11:09+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMZN/analysis",
-      "asOf": "2026-10-29T23:08:42+08:00"
+      "asOf": "2026-10-29T23:11:12+08:00"
      }
     ],
     "lastReported": [
@@ -246,7 +249,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMZN/analysis",
-      "asOf": "2026-10-29T23:08:43+08:00"
+      "asOf": "2026-10-29T23:11:13+08:00"
      }
     ]
    },
@@ -277,7 +280,8 @@
     "epsActual": 5.75,
     "epsEstimate": 1.82461,
     "epsSurprisePct": 2.1514
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "META",
@@ -291,14 +295,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/META/analysis",
-      "asOf": "2026-10-29T23:08:47+08:00"
+      "asOf": "2026-10-29T23:11:17+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/META/analysis",
-      "asOf": "2026-10-29T23:08:47+08:00"
+      "asOf": "2026-10-29T23:11:18+08:00"
      }
     ]
    },
@@ -334,7 +338,8 @@
     "epsEstimateAlt": 5.75,
     "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比",
     "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "NVDA",
@@ -347,20 +352,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-     "asOf": "2026-10-29T23:08:48+08:00"
+     "asOf": "2026-10-29T23:11:18+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-      "asOf": "2026-10-29T23:08:49+08:00"
+      "asOf": "2026-10-29T23:11:19+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-      "asOf": "2026-10-29T23:08:50+08:00"
+      "asOf": "2026-10-29T23:11:20+08:00"
      }
     ]
    },
@@ -388,7 +393,8 @@
     "revenueYoY": 1.0585114348672526,
     "netIncomeYoY": 1.2590265687684505,
     "reportDate": "2026-08-27T04:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "TSLA",
@@ -402,14 +408,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSLA/analysis",
-      "asOf": "2026-10-29T23:08:51+08:00"
+      "asOf": "2026-10-29T23:11:24+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSLA/analysis",
-      "asOf": "2026-10-29T23:08:52+08:00"
+      "asOf": "2026-10-29T23:11:25+08:00"
      }
     ]
    },
@@ -445,7 +451,8 @@
     "epsEstimateAlt": 0.43,
     "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)",
     "guidance": "暂无（未给出量化营收指引）"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "TSM",
@@ -459,14 +466,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSM/analysis",
-      "asOf": "2026-10-29T23:08:55+08:00"
+      "asOf": "2026-10-29T23:11:26+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSM/analysis",
-      "asOf": "2026-10-29T23:08:56+08:00"
+      "asOf": "2026-10-29T23:11:27+08:00"
      }
     ]
    },
@@ -500,7 +507,8 @@
     "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)",
     "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
     "revEstimate": null
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "AMD",
@@ -513,20 +521,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AMD/analysis",
-     "asOf": "2026-10-29T23:08:57+08:00"
+     "asOf": "2026-10-29T23:11:28+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMD/analysis",
-      "asOf": "2026-10-29T23:09:00+08:00"
+      "asOf": "2026-10-29T23:11:30+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMD/analysis",
-      "asOf": "2026-10-29T23:09:01+08:00"
+      "asOf": "2026-10-29T23:11:30+08:00"
      }
     ]
    },
@@ -554,7 +562,8 @@
     "revenueYoY": 0.5011060507482108,
     "netIncomeYoY": 1.6341743119266057,
     "reportDate": "2026-08-05T04:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "AVGO",
@@ -567,20 +576,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-     "asOf": "2026-10-29T23:09:01+08:00"
+     "asOf": "2026-10-29T23:11:31+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-      "asOf": "2026-10-29T23:09:04+08:00"
+      "asOf": "2026-10-29T23:11:32+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-      "asOf": "2026-10-29T23:09:05+08:00"
+      "asOf": "2026-10-29T23:11:33+08:00"
      }
     ]
    },
@@ -608,7 +617,8 @@
     "revenueYoY": 0.8550025075225678,
     "netIncomeYoY": 2.161352657004831,
     "reportDate": "2026-06-04T04:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "0700.HK",
@@ -627,7 +637,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
-      "asOf": "2026-10-29T23:09:10+08:00"
+      "asOf": "2026-10-29T23:11:40+08:00"
      }
     ],
     "lastReported": [
@@ -639,7 +649,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
-      "asOf": "2026-10-29T23:09:11+08:00"
+      "asOf": "2026-10-29T23:11:41+08:00"
      }
     ]
    },
@@ -671,7 +681,8 @@
     "epsActual": 7.433,
     "epsEstimate": 7.23544,
     "epsSurprisePct": 0.0273
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "BABA",
@@ -684,13 +695,13 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/baba/earnings",
-     "asOf": "2026-10-29T23:09:19+08:00"
+     "asOf": "2026-10-29T23:11:52+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BABA/analysis",
-      "asOf": "2026-10-29T23:09:19+08:00"
+      "asOf": "2026-10-29T23:11:52+08:00"
      }
     ],
     "lastReported": [
@@ -702,7 +713,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BABA/analysis",
-      "asOf": "2026-10-29T23:09:20+08:00"
+      "asOf": "2026-10-29T23:11:52+08:00"
      }
     ]
    },
@@ -736,7 +747,8 @@
     "epsActual": 8.52,
     "epsEstimate": 10.82038,
     "epsSurprisePct": -0.21260001
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "BIDU",
@@ -749,13 +761,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-     "asOf": "2026-10-29T23:09:27+08:00"
+     "asOf": "2026-10-29T23:12:01+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-      "asOf": "2026-10-29T23:09:29+08:00"
+      "asOf": "2026-10-29T23:12:03+08:00"
      }
     ],
     "lastReported": [
@@ -767,7 +779,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-      "asOf": "2026-10-29T23:09:30+08:00"
+      "asOf": "2026-10-29T23:12:03+08:00"
      }
     ]
    },
@@ -800,7 +812,8 @@
     "epsActual": 7.22,
     "epsEstimate": 9.83686,
     "epsSurprisePct": -0.266
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "JD",
@@ -813,13 +826,13 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/jd/earnings",
-     "asOf": "2026-10-29T23:09:38+08:00"
+     "asOf": "2026-10-29T23:12:11+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/JD/analysis",
-      "asOf": "2026-10-29T23:09:39+08:00"
+      "asOf": "2026-10-29T23:12:11+08:00"
      }
     ],
     "lastReported": [
@@ -831,7 +844,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/JD/analysis",
-      "asOf": "2026-10-29T23:09:39+08:00"
+      "asOf": "2026-10-29T23:12:12+08:00"
      }
     ]
    },
@@ -865,7 +878,8 @@
     "epsActual": 6.29,
     "epsEstimate": 5.61488,
     "epsSurprisePct": 0.12020001
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "3690.HK",
@@ -879,7 +893,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-10-29T23:09:47+08:00"
+      "asOf": "2026-10-29T23:12:16+08:00"
      }
     ],
     "lastReported": [
@@ -891,7 +905,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-10-29T23:09:48+08:00"
+      "asOf": "2026-10-29T23:12:17+08:00"
      }
     ]
    },
@@ -925,7 +939,8 @@
     "epsEstimate": null,
     "epsSurprisePct": null
    },
-   "note": "Yahoo 最近财报数据异常（2023），已置空"
+   "note": "Yahoo 最近财报数据异常（2023），已置空",
+   "importance": 3
   },
   {
    "symbol": "PDD",
@@ -938,20 +953,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-10-29T23:09:50+08:00"
+     "asOf": "2026-10-29T23:12:19+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PDD/analysis",
-      "asOf": "2026-10-29T23:09:50+08:00"
+      "asOf": "2026-10-29T23:12:19+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PDD/analysis",
-      "asOf": "2026-10-29T23:09:51+08:00"
+      "asOf": "2026-10-29T23:12:19+08:00"
      }
     ]
    },
@@ -979,7 +994,8 @@
     "revenueYoY": 0.08052122902341674,
     "netIncomeYoY": -0.11614749300903948,
     "reportDate": "2026-08-24T18:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "1810.HK",
@@ -998,7 +1014,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
-      "asOf": "2026-10-29T23:09:58+08:00"
+      "asOf": "2026-10-29T23:12:25+08:00"
      }
     ],
     "lastReported": [
@@ -1010,7 +1026,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
-      "asOf": "2026-10-29T23:09:58+08:00"
+      "asOf": "2026-10-29T23:12:26+08:00"
      }
     ]
    },
@@ -1042,7 +1058,8 @@
     "epsActual": 0.2346,
     "epsEstimate": 0.22951,
     "epsSurprisePct": 0.0222
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "NTES",
@@ -1055,13 +1072,13 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/ntes/earnings",
-     "asOf": "2026-10-29T23:10:06+08:00"
+     "asOf": "2026-10-29T23:12:33+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NTES/analysis",
-      "asOf": "2026-10-29T23:10:06+08:00"
+      "asOf": "2026-10-29T23:12:33+08:00"
      }
     ],
     "lastReported": [
@@ -1073,7 +1090,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NTES/analysis",
-      "asOf": "2026-10-29T23:10:07+08:00"
+      "asOf": "2026-10-29T23:12:34+08:00"
      }
     ]
    },
@@ -1106,7 +1123,8 @@
     "epsActual": 12.02,
     "epsEstimate": 15.54257,
     "epsSurprisePct": -0.22659999
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "0981.HK",
@@ -1120,12 +1138,12 @@
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-10-29T23:10:15+08:00"
+      "asOf": "2026-10-29T23:12:47+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
-      "asOf": "2026-10-29T23:10:15+08:00"
+      "asOf": "2026-10-29T23:12:47+08:00"
      }
     ],
     "lastReported": [
@@ -1137,7 +1155,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
-      "asOf": "2026-10-29T23:10:16+08:00"
+      "asOf": "2026-10-29T23:12:47+08:00"
      }
     ]
    },
@@ -1196,15 +1214,16 @@
     "epsEstimate": 0.03482,
     "epsSurprisePct": 0.72309995
    },
-   "guidance": "Q3 营收环比 +2%~4%（公司指引）"
+   "guidance": "Q3 营收环比 +2%~4%（公司指引）",
+   "importance": 3
   },
   {
    "symbol": "1211.HK",
    "name": "比亚迪股份",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 002594.SZ Q3 FY2026",
@@ -1220,7 +1239,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1211.HK/analysis",
-      "asOf": "2026-10-29T23:10:22+08:00"
+      "asOf": "2026-10-29T23:12:56+08:00"
      }
     ],
     "lastReported": [
@@ -1279,7 +1298,7 @@
     "netIncome": 10020000000,
     "netIncomeYoY": 0.2808,
     "epsGaap": 1.1,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
+    "epsGaapBasis": "基本每股收益(人民币，单季)",
     "note": "Q3 单季；前三季营收5663.04亿、归母净利223.45亿(同比-4.24%)。Wind 预约披露日为10-30，中文媒体10-29已见业绩",
     "consensusSources": [
      {
@@ -1292,8 +1311,13 @@
       "url": "https://wallstreetcn.com/",
       "asOf": "2026-10-29"
      }
-    ]
-   }
+    ],
+    "epsActual": 1.1,
+    "epsEstimate": null,
+    "epsSurprisePct": null
+   },
+   "importance": 3,
+   "note": "三季报（单季）：营收2214.88亿元(+13.59% YoY)、归母净利100.20亿元(+28.08%)、基本EPS 1.10元（Wind/公告）。"
   },
   {
    "symbol": "2330.TW",
@@ -1307,14 +1331,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
-      "asOf": "2026-10-29T23:10:23+08:00"
+      "asOf": "2026-10-29T23:12:57+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
-      "asOf": "2026-10-29T23:10:24+08:00"
+      "asOf": "2026-10-29T23:12:58+08:00"
      }
     ]
    },
@@ -1342,7 +1366,8 @@
     "netIncomeYoY": 0.6870674903051501,
     "reportDate": "2026-10-15T14:00:00+08:00"
    },
-   "note": "台积电台股现股；美股 ADR 见 TSM。Yahoo 下次日期已过（2026-10-15 估），未到新一期确认日前记为暂无。"
+   "note": "台积电台股现股；美股 ADR 见 TSM。Yahoo 下次日期已过（2026-10-15 估），未到新一期确认日前记为暂无。",
+   "importance": 3
   },
   {
    "symbol": "2454.TW",
@@ -1355,20 +1380,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
-     "asOf": "2026-10-29T23:10:24+08:00"
+     "asOf": "2026-10-29T23:12:59+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
-      "asOf": "2026-10-29T23:10:24+08:00"
+      "asOf": "2026-10-29T23:12:59+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
-      "asOf": "2026-10-29T23:10:25+08:00"
+      "asOf": "2026-10-29T23:13:00+08:00"
      }
     ]
    },
@@ -1395,7 +1420,8 @@
     "revenueYoY": 0.012063957168283457,
     "netIncomeYoY": -0.12616693090815279,
     "reportDate": "2026-07-31T08:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "3711.TW",
@@ -1409,7 +1435,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
-      "asOf": "2026-10-29T23:10:26+08:00"
+      "asOf": "2026-10-29T23:13:00+08:00"
      }
     ],
     "lastReported": [
@@ -1421,7 +1447,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
-      "asOf": "2026-10-29T23:10:26+08:00"
+      "asOf": "2026-10-29T23:13:01+08:00"
      }
     ]
    },
@@ -1458,7 +1484,8 @@
     ],
     "epsEstimate": 5.27985,
     "epsSurprisePct": 0.10609999
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "005930.KS",
@@ -1472,7 +1499,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
-      "asOf": "2026-10-29T23:10:27+08:00"
+      "asOf": "2026-10-29T23:13:02+08:00"
      }
     ],
     "lastReported": [
@@ -1484,7 +1511,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
-      "asOf": "2026-10-29T23:10:28+08:00"
+      "asOf": "2026-10-29T23:13:03+08:00"
      }
     ]
    },
@@ -1529,15 +1556,16 @@
     "epsEstimate": 13710.027,
     "epsSurprisePct": -0.16399999
    },
-   "note": "原数据日期 2026-10-28 14:00 有误，官方为 10-29 10:00 KST(=北京时间 09:00)"
+   "note": "原数据日期 2026-10-28 14:00 有误，官方为 10-29 10:00 KST(=北京时间 09:00)；官方确认Q3：营收195.25万亿韩元、营业利润107.44万亿（纪录，约超一致预期1.7%）、净利75.14万亿；EPS 11,462韩元。DS营业利润106.5万亿。",
+   "importance": 3
   },
   {
    "symbol": "000660.KS",
    "name": "SK海力士",
    "region": "KR",
    "currency": "KRW",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
@@ -1548,7 +1576,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
-      "asOf": "2026-10-29T23:10:29+08:00"
+      "asOf": "2026-10-29T23:13:04+08:00"
      }
     ],
     "lastReported": [
@@ -1581,8 +1609,8 @@
     "operatingProfitYoY": 6.321,
     "netIncome": 39775600000000,
     "netIncomeYoY": 2.157,
-    "epsGaap": null,
-    "epsGaapBasis": "公告未披露 EPS，留空",
+    "epsGaap": 54773,
+    "epsGaapBasis": "K-IFRS 基本 EPS(韩元/股)",
     "revEstimate": 98340000000000,
     "opEstimate": 76720000000000,
     "note": "K-IFRS 初步数(未审计)。营收104.62万亿韩元 vs LSEG SmartEstimate 98.34万亿(超+6.4%)；营业利润83.33万亿 vs LSEG 76.72万亿(超+8.6%)、vs 联合Infomax 76.26万亿(超+9.3%)，高于预期。净利润39.78万亿(环比-58%，Q2含一次性收益)。",
@@ -1597,8 +1625,13 @@
       "url": "https://www.yna.co.kr/view/AKR20261028028052527",
       "asOf": "2026-10-28"
      }
-    ]
-   }
+    ],
+    "epsActual": 54773,
+    "epsEstimate": null,
+    "epsSurprisePct": null
+   },
+   "importance": 3,
+   "note": "官方IR：营收104.6155万亿韩元(+328% YoY)、营业利润83.3338万亿(+632%，约超联合InforMax一致预期9.3%)、净利39.7756万亿；基本EPS 54,773韩元。EPS一致预期暂不对比（Yahoo口径不一致）。"
   },
   {
    "symbol": "SONY",
@@ -1611,20 +1644,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/SONY/analysis",
-     "asOf": "2026-10-29T23:10:30+08:00"
+     "asOf": "2026-10-29T23:13:05+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SONY/analysis",
-      "asOf": "2026-10-29T23:10:33+08:00"
+      "asOf": "2026-10-29T23:13:06+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SONY/analysis",
-      "asOf": "2026-10-29T23:10:34+08:00"
+      "asOf": "2026-10-29T23:13:07+08:00"
      }
     ]
    },
@@ -1653,7 +1686,8 @@
     "netIncomeYoY": 0.444271851217134,
     "reportDate": "2026-07-31T11:00:00+08:00"
    },
-   "note": "索尼双上市：本条目为美股 ADR(SONY)；东京现股 6758.T。"
+   "note": "索尼双上市：本条目为美股 ADR(SONY)；东京现股 6758.T。",
+   "importance": 2
   },
   {
    "symbol": "8035.T",
@@ -1666,20 +1700,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/8035.T/analysis",
-     "asOf": "2026-10-29T23:10:34+08:00"
+     "asOf": "2026-10-29T23:13:07+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/8035.T/analysis",
-      "asOf": "2026-10-29T23:10:34+08:00"
+      "asOf": "2026-10-29T23:13:08+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/8035.T/analysis",
-      "asOf": "2026-10-29T23:10:35+08:00"
+      "asOf": "2026-10-29T23:13:08+08:00"
      }
     ]
    },
@@ -1706,7 +1740,8 @@
     "revenueYoY": 0.3326176430986234,
     "netIncomeYoY": 0.39507304691810763,
     "reportDate": "2026-07-30T15:00:00+08:00"
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "9984.T",
@@ -1719,20 +1754,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/9984.T/analysis",
-     "asOf": "2026-10-29T23:10:36+08:00"
+     "asOf": "2026-10-29T23:13:09+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/9984.T/analysis",
-      "asOf": "2026-10-29T23:10:36+08:00"
+      "asOf": "2026-10-29T23:13:09+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/9984.T/analysis",
-      "asOf": "2026-10-29T23:10:37+08:00"
+      "asOf": "2026-10-29T23:13:10+08:00"
      }
     ]
    },
@@ -1755,7 +1790,8 @@
     "epsEstimate": 44.12639,
     "epsSurprisePct": 0.36150002,
     "reportDate": "2026-08-06T14:00:00+08:00"
-   }
+   },
+   "importance": 2
   },
   {
    "symbol": "ASML",
@@ -1769,14 +1805,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASML/analysis",
-      "asOf": "2026-10-29T23:10:38+08:00"
+      "asOf": "2026-10-29T23:13:11+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASML/analysis",
-      "asOf": "2026-10-29T23:10:39+08:00"
+      "asOf": "2026-10-29T23:13:12+08:00"
      }
     ]
    },
@@ -1804,7 +1840,8 @@
     "netIncomeYoY": 1.334855260061191,
     "reportDate": "2026-10-14T13:00:00+08:00"
    },
-   "note": "Yahoo 下次日期已过（2026-10-14），未到新一期确认日前记为暂无。"
+   "note": "Yahoo 下次日期已过（2026-10-14），未到新一期确认日前记为暂无。",
+   "importance": 3
   },
   {
    "symbol": "SAP",
@@ -1818,14 +1855,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SAP/analysis",
-      "asOf": "2026-10-29T23:10:43+08:00"
+      "asOf": "2026-10-29T23:13:16+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SAP/analysis",
-      "asOf": "2026-10-29T23:10:43+08:00"
+      "asOf": "2026-10-29T23:13:17+08:00"
      }
     ]
    },
@@ -1853,7 +1890,8 @@
     "netIncomeYoY": 0.12225548902195604,
     "reportDate": "2026-10-21T08:00:00+08:00"
    },
-   "note": "Yahoo 下次日期已过（2026-10-22），未到新一期确认日前记为暂无。"
+   "note": "Yahoo 下次日期已过（2026-10-22），未到新一期确认日前记为暂无。",
+   "importance": 2
   },
   {
    "symbol": "ENR.DE",
@@ -1866,20 +1904,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
-     "asOf": "2026-10-29T23:10:44+08:00"
+     "asOf": "2026-10-29T23:13:18+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
-      "asOf": "2026-10-29T23:10:44+08:00"
+      "asOf": "2026-10-29T23:13:18+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
-      "asOf": "2026-10-29T23:10:45+08:00"
+      "asOf": "2026-10-29T23:13:19+08:00"
      }
     ]
    },
@@ -1906,7 +1944,8 @@
     "revenueYoY": 0.17465366854797337,
     "netIncomeYoY": 0.7609756097560976,
     "reportDate": "2026-08-05T10:00:00+08:00"
-   }
+   },
+   "importance": 2
   },
   {
    "symbol": "3008.TW",
@@ -1920,14 +1959,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3008.TW/analysis",
-      "asOf": "2026-10-29T23:10:45+08:00"
+      "asOf": "2026-10-29T23:13:19+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3008.TW/analysis",
-      "asOf": "2026-10-29T23:10:46+08:00"
+      "asOf": "2026-10-29T23:13:20+08:00"
      }
     ]
    },
@@ -1955,7 +1994,8 @@
     "netIncomeYoY": 3.5246112885223537,
     "reportDate": "2026-08-10T08:00:00+08:00"
    },
-   "note": "手机镜头模组光学龙头（大立光）。"
+   "note": "手机镜头模组光学龙头（大立光）。",
+   "importance": 3
   },
   {
    "symbol": "6488.TWO",
@@ -1974,14 +2014,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
-      "asOf": "2026-10-29T23:10:47+08:00"
+      "asOf": "2026-10-29T23:13:21+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
-      "asOf": "2026-10-29T23:10:47+08:00"
+      "asOf": "2026-10-29T23:13:21+08:00"
      }
     ]
    },
@@ -2009,7 +2049,8 @@
     "netIncomeYoY": 1.2471206990358228,
     "reportDate": "2026-08-07T08:00:00+08:00"
    },
-   "note": "日期为Q3法说会时间"
+   "note": "日期为Q3法说会时间",
+   "importance": 3
   },
   {
    "symbol": "2308.TW",
@@ -2023,7 +2064,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
-      "asOf": "2026-10-29T23:10:48+08:00"
+      "asOf": "2026-10-29T23:13:22+08:00"
      }
     ],
     "lastReported": [
@@ -2035,7 +2076,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
-      "asOf": "2026-10-29T23:10:49+08:00"
+      "asOf": "2026-10-29T23:13:23+08:00"
      }
     ]
    },
@@ -2078,7 +2119,8 @@
     "epsEstimate": 10.44039,
     "epsSurprisePct": -0.1351
    },
-   "note": "电源管理与工业自动化龙头（台达电）。"
+   "note": "电源管理与工业自动化龙头（台达电）。",
+   "importance": 2
   },
   {
    "symbol": "3034.TW",
@@ -2092,14 +2134,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
-      "asOf": "2026-10-29T23:10:49+08:00"
+      "asOf": "2026-10-29T23:13:23+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
-      "asOf": "2026-10-29T23:10:50+08:00"
+      "asOf": "2026-10-29T23:13:24+08:00"
      }
     ]
    },
@@ -2127,7 +2169,8 @@
     "netIncomeYoY": 0.6922787272541528,
     "reportDate": "2026-08-04T16:00:00+08:00"
    },
-   "note": "面板驱动 IC 龙头（联咏）；Yahoo 下次日期已过→暂无。"
+   "note": "面板驱动 IC 龙头（联咏）；Yahoo 下次日期已过→暂无。",
+   "importance": 2
   },
   {
    "symbol": "373220.KS",
@@ -2140,20 +2183,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
-     "asOf": "2026-10-29T23:10:51+08:00"
+     "asOf": "2026-10-29T23:13:24+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
-      "asOf": "2026-10-29T23:10:51+08:00"
+      "asOf": "2026-10-29T23:13:25+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
-      "asOf": "2026-10-29T23:10:51+08:00"
+      "asOf": "2026-10-29T23:13:25+08:00"
      }
     ]
    },
@@ -2181,15 +2224,16 @@
     "netIncomeYoY": null,
     "reportDate": "2026-08-13T09:00:00+08:00"
    },
-   "note": "动力电池全球龙头之一（LG Energy Solution）。"
+   "note": "动力电池全球龙头之一（LG Energy Solution）。",
+   "importance": 3
   },
   {
    "symbol": "207940.KS",
    "name": "三星生物",
    "region": "KR",
    "currency": "KRW",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-21",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Samsung Biologics 3Q26 业绩新闻稿",
@@ -2200,7 +2244,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/207940.KS/analysis",
-      "asOf": "2026-10-29T23:10:52+08:00"
+      "asOf": "2026-10-29T23:13:26+08:00"
      }
     ],
     "lastReported": [
@@ -2242,7 +2286,9 @@
       "asOf": "2026-10-28"
      }
     ]
-   }
+   },
+   "importance": 2,
+   "note": "Q3：营收1.4903万亿韩元(+18.5% YoY)、营业利润6401亿(+1.0%)、净利3911亿(-21.2%)；上调2026营收增速指引至20%。官方新闻稿未列EPS→epsActual暂无。"
   },
   {
    "symbol": "035420.KS",
@@ -2255,20 +2301,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
-     "asOf": "2026-10-29T23:10:53+08:00"
+     "asOf": "2026-10-29T23:13:27+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
-      "asOf": "2026-10-29T23:10:53+08:00"
+      "asOf": "2026-10-29T23:13:27+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
-      "asOf": "2026-10-29T23:10:54+08:00"
+      "asOf": "2026-10-29T23:13:28+08:00"
      }
     ]
    },
@@ -2296,7 +2342,8 @@
     "netIncomeYoY": 0.4293100207099483,
     "reportDate": "2026-08-14T14:00:00+08:00"
    },
-   "note": "韩国互联网平台龙头（NAVER）。"
+   "note": "韩国互联网平台龙头（NAVER）。",
+   "importance": 2
   },
   {
    "symbol": "6861.T",
@@ -2310,7 +2357,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6861.T/analysis",
-      "asOf": "2026-10-29T23:10:54+08:00"
+      "asOf": "2026-10-29T23:13:29+08:00"
      }
     ],
     "lastReported": [
@@ -2355,9 +2402,13 @@
       "url": "https://www.nikkei.com/nkd/disclosure/tdnr/20261027557109/",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 657.84,
+    "epsGaap": 657.84,
+    "epsGaapBasis": "单季EPS(日元，由中期减Q1或短信口径)"
    },
-   "note": "工厂自动化传感器/视觉检测龙头（基恩士）。"
+   "note": "工厂自动化传感器/视觉检测龙头（基恩士）。；FY2027 Q2单季（7–9月）：营收约3887.8亿日元、净利约1595.4亿；EPS约657.84日元。",
+   "importance": 3
   },
   {
    "symbol": "6857.T",
@@ -2371,7 +2422,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6857.T/analysis",
-      "asOf": "2026-10-29T23:10:55+08:00"
+      "asOf": "2026-10-29T23:13:30+08:00"
      }
     ],
     "lastReported": [
@@ -2383,7 +2434,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6857.T/analysis",
-      "asOf": "2026-10-29T23:10:56+08:00"
+      "asOf": "2026-10-29T23:13:31+08:00"
      }
     ]
    },
@@ -2409,7 +2460,8 @@
     "epsEstimate": 214.91544,
     "epsSurprisePct": 0.2457
    },
-   "note": "半导体测试设备龙头（爱德万 Advantest）。"
+   "note": "半导体测试设备龙头（爱德万 Advantest）。",
+   "importance": 3
   },
   {
    "symbol": "6146.T",
@@ -2423,14 +2475,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6146.T/analysis",
-      "asOf": "2026-10-29T23:10:57+08:00"
+      "asOf": "2026-10-29T23:13:31+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6146.T/analysis",
-      "asOf": "2026-10-29T23:10:58+08:00"
+      "asOf": "2026-10-29T23:13:32+08:00"
      }
     ]
    },
@@ -2454,7 +2506,8 @@
     "epsSurprisePct": -0.0752,
     "reportDate": "2026-10-22T15:00:00+08:00"
    },
-   "note": "晶圆切割/研磨设备龙头（Disco）；Yahoo 下次日期已过→暂无。"
+   "note": "晶圆切割/研磨设备龙头（Disco）；Yahoo 下次日期已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "6920.T",
@@ -2467,20 +2520,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/6920.T/analysis",
-     "asOf": "2026-10-29T23:10:58+08:00"
+     "asOf": "2026-10-29T23:13:33+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6920.T/analysis",
-      "asOf": "2026-10-29T23:10:58+08:00"
+      "asOf": "2026-10-29T23:13:33+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6920.T/analysis",
-      "asOf": "2026-10-29T23:10:59+08:00"
+      "asOf": "2026-10-29T23:13:34+08:00"
      }
     ]
    },
@@ -2508,7 +2561,8 @@
     "netIncomeYoY": -0.35346392139683336,
     "reportDate": "2026-08-06T08:00:00+08:00"
    },
-   "note": "光罩/晶圆缺陷检测设备龙头（Lasertec）。"
+   "note": "光罩/晶圆缺陷检测设备龙头（Lasertec）。",
+   "importance": 3
   },
   {
    "symbol": "4063.T",
@@ -2522,14 +2576,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/4063.T/analysis",
-      "asOf": "2026-10-29T23:11:00+08:00"
+      "asOf": "2026-10-29T23:13:34+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/4063.T/analysis",
-      "asOf": "2026-10-29T23:11:01+08:00"
+      "asOf": "2026-10-29T23:13:35+08:00"
      }
     ]
    },
@@ -2553,7 +2607,8 @@
     "epsSurprisePct": 0.0669,
     "reportDate": "2026-10-27T14:00:00+08:00"
    },
-   "note": "半导体硅片与电子材料龙头（信越化学）；Yahoo 显示日已过→暂无。"
+   "note": "半导体硅片与电子材料龙头（信越化学）；Yahoo 显示日已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "6981.T",
@@ -2566,20 +2621,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/6981.T/analysis",
-     "asOf": "2026-10-29T23:11:01+08:00"
+     "asOf": "2026-10-29T23:13:39+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6981.T/analysis",
-      "asOf": "2026-10-29T23:11:01+08:00"
+      "asOf": "2026-10-29T23:13:39+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6981.T/analysis",
-      "asOf": "2026-10-29T23:11:02+08:00"
+      "asOf": "2026-10-29T23:13:40+08:00"
      }
     ]
    },
@@ -2603,7 +2658,8 @@
     "epsSurprisePct": 0.105500005,
     "reportDate": "2026-07-31T13:00:00+08:00"
    },
-   "note": "MLCC 等被动元件龙头（村田）。"
+   "note": "MLCC 等被动元件龙头（村田）。",
+   "importance": 2
   },
   {
    "symbol": "IFX.DE",
@@ -2616,20 +2672,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
-     "asOf": "2026-10-29T23:11:03+08:00"
+     "asOf": "2026-10-29T23:13:40+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
-      "asOf": "2026-10-29T23:11:03+08:00"
+      "asOf": "2026-10-29T23:13:40+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
-      "asOf": "2026-10-29T23:11:04+08:00"
+      "asOf": "2026-10-29T23:13:41+08:00"
      }
     ]
    },
@@ -2657,7 +2713,8 @@
     "netIncomeYoY": 0.3868852459016394,
     "reportDate": "2026-08-05T08:00:00+08:00"
    },
-   "note": "汽车/功率半导体龙头（英飞凌）。"
+   "note": "汽车/功率半导体龙头（英飞凌）。",
+   "importance": 3
   },
   {
    "symbol": "STM",
@@ -2671,7 +2728,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/STM/analysis",
-      "asOf": "2026-10-29T23:11:05+08:00"
+      "asOf": "2026-10-29T23:13:42+08:00"
      }
     ],
     "lastReported": [
@@ -2683,7 +2740,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/STM/analysis",
-      "asOf": "2026-10-29T23:11:06+08:00"
+      "asOf": "2026-10-29T23:13:43+08:00"
      }
     ]
    },
@@ -2718,7 +2775,8 @@
     "epsSurprisePct": -0.0975
    },
    "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
-   "note": "意法半导体（NYSE ADR STM）；MCU/功率器件。"
+   "note": "意法半导体（NYSE ADR STM）；MCU/功率器件。",
+   "importance": 3
   },
   {
    "symbol": "ASM.AS",
@@ -2732,7 +2790,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
-      "asOf": "2026-10-29T23:11:06+08:00"
+      "asOf": "2026-10-29T23:13:44+08:00"
      }
     ],
     "lastReported": [
@@ -2744,7 +2802,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
-      "asOf": "2026-10-29T23:11:07+08:00"
+      "asOf": "2026-10-29T23:13:44+08:00"
      }
     ]
    },
@@ -2780,7 +2838,8 @@
     "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn"
    },
    "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
-   "note": "原子层沉积（ALD）设备龙头；Yahoo 用 ASM.AS（ASMI.AS 404）。"
+   "note": "原子层沉积（ALD）设备龙头；Yahoo 用 ASM.AS（ASMI.AS 404）。",
+   "importance": 3
   },
   {
    "symbol": "BESI.AS",
@@ -2794,14 +2853,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
-      "asOf": "2026-10-29T23:11:08+08:00"
+      "asOf": "2026-10-29T23:13:45+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
-      "asOf": "2026-10-29T23:11:09+08:00"
+      "asOf": "2026-10-29T23:13:46+08:00"
      }
     ]
    },
@@ -2827,15 +2886,16 @@
     "netIncome": 107193000.0,
     "reportDate": "2026-10-22T12:00:00+08:00"
    },
-   "note": "先进封装键合设备龙头（BESI）；Yahoo 下次日期已过→暂无。"
+   "note": "先进封装键合设备龙头（BESI）；Yahoo 下次日期已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "ADYEN.AS",
    "name": "Adyen",
    "region": "EU",
    "currency": "EUR",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Adyen IR: Business Update Q3 2026",
@@ -2846,7 +2906,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADYEN.AS/analysis",
-      "asOf": "2026-10-29T23:11:09+08:00"
+      "asOf": "2026-10-29T23:13:46+08:00"
      }
     ],
     "lastReported": [
@@ -2889,9 +2949,13 @@
       "url": "https://live.euronext.com/en/financial-news/adyen-shares-drop-12-lower-margin-target-overshadows-revenue-beat",
       "asOf": "2026-10-28"
      }
-    ]
+    ],
+    "epsActual": null,
+    "epsEstimate": null,
+    "epsSurprisePct": null
    },
-   "note": "Q3 Business Update 已于 2026-10-28 发布：净收入 €7.381 亿（+23% YoY，略超公司汇编一致预期 €7.303 亿约 +1.1%）；处理量 €4511 亿（+30%，超预期约 €4356 亿）。维持 2026 恒定汇率净收入增速指引 21%–23%；全年 EBITDA 利润率指引下调至 50%，并取消中期 EBITDA 目标。来源：Adyen 官网新闻稿 https://www.adyen.com/press-and-media/adyen-reports-third-quarter-2026-results"
+   "note": "Q3 Business Update(2026-10-28)：净收入€7.381亿(+23% YoY，略超公司汇编一致预期€7.303亿约+1.1%)；处理量€4511亿(+30%)。下调2026 EBITDA利润率目标至50%。无EPS（非完整财报）→epsActual暂无。",
+   "importance": 2
   },
   {
    "symbol": "NVO",
@@ -2904,20 +2968,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/NVO/analysis",
-     "asOf": "2026-10-29T23:11:10+08:00"
+     "asOf": "2026-10-29T23:13:48+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVO/analysis",
-      "asOf": "2026-10-29T23:11:14+08:00"
+      "asOf": "2026-10-29T23:13:51+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVO/analysis",
-      "asOf": "2026-10-29T23:11:15+08:00"
+      "asOf": "2026-10-29T23:13:51+08:00"
      }
     ]
    },
@@ -2946,7 +3010,8 @@
     "netIncomeYoY": -0.20805191865071881,
     "reportDate": "2026-08-05T05:00:00+08:00"
    },
-   "note": "GLP-1 等代谢药物龙头（诺和诺德 ADR）；哥本哈根现股 NOVO-B.CO。"
+   "note": "GLP-1 等代谢药物龙头（诺和诺德 ADR）；哥本哈根现股 NOVO-B.CO。",
+   "importance": 2
   },
   {
    "symbol": "AMAT",
@@ -2959,20 +3024,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-     "asOf": "2026-10-29T23:11:15+08:00"
+     "asOf": "2026-10-29T23:13:52+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-      "asOf": "2026-10-29T23:11:16+08:00"
+      "asOf": "2026-10-29T23:13:54+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-      "asOf": "2026-10-29T23:11:17+08:00"
+      "asOf": "2026-10-29T23:13:55+08:00"
      }
     ]
    },
@@ -3001,7 +3066,8 @@
     "netIncomeYoY": 0.4266441821247893,
     "reportDate": "2026-08-14T04:00:00+08:00"
    },
-   "note": "半导体前道设备龙头（应用材料）。"
+   "note": "半导体前道设备龙头（应用材料）。",
+   "importance": 3
   },
   {
    "symbol": "LRCX",
@@ -3015,14 +3081,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/LRCX/analysis",
-      "asOf": "2026-10-29T23:11:21+08:00"
+      "asOf": "2026-10-29T23:13:56+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/LRCX/analysis",
-      "asOf": "2026-10-29T23:11:22+08:00"
+      "asOf": "2026-10-29T23:13:57+08:00"
      }
     ]
    },
@@ -3050,7 +3116,8 @@
     "netIncomeYoY": 0.7550890569020692,
     "reportDate": "2026-10-22T04:00:00+08:00"
    },
-   "note": "刻蚀/沉积设备龙头（拉姆研究）；Yahoo 下次日期已过→暂无。"
+   "note": "刻蚀/沉积设备龙头（拉姆研究）；Yahoo 下次日期已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "KLAC",
@@ -3064,14 +3131,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/KLAC/analysis",
-      "asOf": "2026-10-29T23:11:24+08:00"
+      "asOf": "2026-10-29T23:14:01+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/KLAC/analysis",
-      "asOf": "2026-10-29T23:11:25+08:00"
+      "asOf": "2026-10-29T23:14:02+08:00"
      }
     ]
    },
@@ -3095,7 +3162,8 @@
     "epsSurprisePct": 0.0355,
     "reportDate": "2026-10-29T04:00:00+08:00"
    },
-   "note": "过程控制/量测设备龙头（科磊）。"
+   "note": "过程控制/量测设备龙头（科磊）。",
+   "importance": 3
   },
   {
    "symbol": "ADI",
@@ -3108,20 +3176,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ADI/analysis",
-     "asOf": "2026-10-29T23:11:25+08:00"
+     "asOf": "2026-10-29T23:14:02+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADI/analysis",
-      "asOf": "2026-10-29T23:11:27+08:00"
+      "asOf": "2026-10-29T23:14:05+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADI/analysis",
-      "asOf": "2026-10-29T23:11:28+08:00"
+      "asOf": "2026-10-29T23:14:06+08:00"
      }
     ]
    },
@@ -3150,7 +3218,8 @@
     "netIncomeYoY": 1.5844618701761557,
     "reportDate": "2026-08-19T19:00:00+08:00"
    },
-   "note": "高性能模拟芯片龙头（亚德诺）。"
+   "note": "高性能模拟芯片龙头（亚德诺）。",
+   "importance": 3
   },
   {
    "symbol": "VRT",
@@ -3164,7 +3233,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/VRT/analysis",
-      "asOf": "2026-10-29T23:11:32+08:00"
+      "asOf": "2026-10-29T23:14:10+08:00"
      }
     ],
     "lastReported": [
@@ -3176,7 +3245,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/VRT/analysis",
-      "asOf": "2026-10-29T23:11:33+08:00"
+      "asOf": "2026-10-29T23:14:10+08:00"
      }
     ]
    },
@@ -3221,7 +3290,8 @@
     ]
    },
    "guidance": "上调 FY2026 指引：营收 $14.45–14.85B，调整后 EPS $7.10–7.20",
-   "note": "AI上游·数据中心液冷/电源与散热基础设施（Vertiv 维谛）。"
+   "note": "AI上游·数据中心液冷/电源与散热基础设施（Vertiv 维谛）。",
+   "importance": 3
   },
   {
    "symbol": "ETN",
@@ -3234,20 +3304,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ETN/analysis",
-     "asOf": "2026-10-29T23:11:33+08:00"
+     "asOf": "2026-10-29T23:14:11+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ETN/analysis",
-      "asOf": "2026-10-29T23:11:34+08:00"
+      "asOf": "2026-10-29T23:14:12+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ETN/analysis",
-      "asOf": "2026-10-29T23:11:35+08:00"
+      "asOf": "2026-10-29T23:14:13+08:00"
      }
     ]
    },
@@ -3276,15 +3346,16 @@
     "netIncomeYoY": -0.16395112016293278,
     "reportDate": "2026-07-31T18:00:00+08:00"
    },
-   "note": "AI上游·电力管理与数据中心配电（伊顿 Eaton）。"
+   "note": "AI上游·电力管理与数据中心配电（伊顿 Eaton）。",
+   "importance": 3
   },
   {
    "symbol": "SU.PA",
    "name": "施耐德电气",
    "region": "EU",
    "currency": "EUR",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-16",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Schneider Electric Q3 2026 Revenues",
@@ -3295,7 +3366,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SU.PA/analysis",
-      "asOf": "2026-10-29T23:11:36+08:00"
+      "asOf": "2026-10-29T23:14:13+08:00"
      }
     ],
     "lastReported": [
@@ -3326,8 +3397,11 @@
     "revenueYoY": 0.179,
     "netIncome": null,
     "epsGaap": null,
-    "note": "Q3 仅披露营收：114.60亿欧元，有机+16.9%、报表+17.9%，创季度纪录；FY26 调整后EBITA有机增长目标上调至+18%~+21%。无利润/EPS；一致预期未取得。"
-   }
+    "note": "Q3 仅披露营收：114.60亿欧元，有机+16.9%、报表+17.9%，创季度纪录；FY26 调整后EBITA有机增长目标上调至+18%~+21%。无利润/EPS；一致预期未取得。",
+    "epsActual": null
+   },
+   "importance": 3,
+   "note": "Q3收入€114.6亿（纪录），有机+16.9%（超分析师预期约13.8%），上调2026指引；数据中心需求三位数增长。本季为收入简报无EPS→epsActual暂无。"
   },
   {
    "symbol": "SMCI",
@@ -3340,20 +3414,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/SMCI/analysis",
-     "asOf": "2026-10-29T23:11:37+08:00"
+     "asOf": "2026-10-29T23:14:15+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SMCI/analysis",
-      "asOf": "2026-10-29T23:11:40+08:00"
+      "asOf": "2026-10-29T23:14:16+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SMCI/analysis",
-      "asOf": "2026-10-29T23:11:41+08:00"
+      "asOf": "2026-10-29T23:14:17+08:00"
      }
     ]
    },
@@ -3382,7 +3456,8 @@
     "netIncomeYoY": 5.037370486897527,
     "reportDate": "2026-08-12T04:00:00+08:00"
    },
-   "note": "AI上游·AI 服务器整机（超微 Super Micro）。"
+   "note": "AI上游·AI 服务器整机（超微 Super Micro）。",
+   "importance": 3
   },
   {
    "symbol": "DELL",
@@ -3395,20 +3470,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/DELL/analysis",
-     "asOf": "2026-10-29T23:11:41+08:00"
+     "asOf": "2026-10-29T23:14:17+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DELL/analysis",
-      "asOf": "2026-10-29T23:11:42+08:00"
+      "asOf": "2026-10-29T23:14:20+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DELL/analysis",
-      "asOf": "2026-10-29T23:11:43+08:00"
+      "asOf": "2026-10-29T23:14:21+08:00"
      }
     ]
    },
@@ -3437,7 +3512,8 @@
     "netIncomeYoY": 2.5506872852233675,
     "reportDate": "2026-09-02T04:00:00+08:00"
    },
-   "note": "AI上游·AI 服务器与企业存储（戴尔）。"
+   "note": "AI上游·AI 服务器与企业存储（戴尔）。",
+   "importance": 3
   },
   {
    "symbol": "ANET",
@@ -3450,20 +3526,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ANET/analysis",
-     "asOf": "2026-10-29T23:11:43+08:00"
+     "asOf": "2026-10-29T23:14:22+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ANET/analysis",
-      "asOf": "2026-10-29T23:11:45+08:00"
+      "asOf": "2026-10-29T23:14:25+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ANET/analysis",
-      "asOf": "2026-10-29T23:11:45+08:00"
+      "asOf": "2026-10-29T23:14:25+08:00"
      }
     ]
    },
@@ -3492,7 +3568,8 @@
     "netIncomeYoY": 0.3646489648964897,
     "reportDate": "2026-08-05T04:00:00+08:00"
    },
-   "note": "AI上游·数据中心以太网交换机（Arista）。"
+   "note": "AI上游·数据中心以太网交换机（Arista）。",
+   "importance": 3
   },
   {
    "symbol": "CSCO",
@@ -3505,20 +3582,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-     "asOf": "2026-10-29T23:11:46+08:00"
+     "asOf": "2026-10-29T23:14:26+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-      "asOf": "2026-10-29T23:11:47+08:00"
+      "asOf": "2026-10-29T23:14:29+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-      "asOf": "2026-10-29T23:11:48+08:00"
+      "asOf": "2026-10-29T23:14:30+08:00"
      }
     ]
    },
@@ -3547,7 +3624,8 @@
     "netIncomeYoY": 0.5133333333333334,
     "reportDate": "2026-08-13T04:00:00+08:00"
    },
-   "note": "AI上游·网络设备与数据中心互联（思科）。"
+   "note": "AI上游·网络设备与数据中心互联（思科）。",
+   "importance": 3
   },
   {
    "symbol": "2382.TW",
@@ -3561,14 +3639,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
-      "asOf": "2026-10-29T23:11:48+08:00"
+      "asOf": "2026-10-29T23:14:30+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
-      "asOf": "2026-10-29T23:11:49+08:00"
+      "asOf": "2026-10-29T23:14:31+08:00"
      }
     ]
    },
@@ -3596,7 +3674,8 @@
     "netIncomeYoY": 0.699311117490202,
     "reportDate": "2026-08-13T17:00:00+08:00"
    },
-   "note": "AI上游·AI 服务器 ODM（广达）；Yahoo 下次日期已过→暂无。"
+   "note": "AI上游·AI 服务器 ODM（广达）；Yahoo 下次日期已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "3231.TW",
@@ -3610,14 +3689,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
-      "asOf": "2026-10-29T23:11:50+08:00"
+      "asOf": "2026-10-29T23:14:32+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
-      "asOf": "2026-10-29T23:11:50+08:00"
+      "asOf": "2026-10-29T23:14:32+08:00"
      }
     ]
    },
@@ -3645,7 +3724,8 @@
     "netIncomeYoY": 1.2797875670675758,
     "reportDate": "2026-08-06T08:00:00+08:00"
    },
-   "note": "AI上游·AI 服务器 ODM（纬创）；Yahoo 下次日期已过→暂无。"
+   "note": "AI上游·AI 服务器 ODM（纬创）；Yahoo 下次日期已过→暂无。",
+   "importance": 3
   },
   {
    "symbol": "2317.TW",
@@ -3658,20 +3738,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
-     "asOf": "2026-10-29T23:11:51+08:00"
+     "asOf": "2026-10-29T23:14:33+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
-      "asOf": "2026-10-29T23:11:51+08:00"
+      "asOf": "2026-10-29T23:14:33+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
-      "asOf": "2026-10-29T23:11:52+08:00"
+      "asOf": "2026-10-29T23:14:34+08:00"
      }
     ]
    },
@@ -3699,7 +3779,8 @@
     "netIncomeYoY": 0.3519616006633641,
     "reportDate": "2026-08-12T19:00:00+08:00"
    },
-   "note": "AI上游·电子代工/服务器组装（鸿海）。"
+   "note": "AI上游·电子代工/服务器组装（鸿海）。",
+   "importance": 3
   },
   {
    "symbol": "ARM",
@@ -3712,20 +3793,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ARM/analysis",
-     "asOf": "2026-10-29T23:11:52+08:00"
+     "asOf": "2026-10-29T23:14:34+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ARM/analysis",
-      "asOf": "2026-10-29T23:11:53+08:00"
+      "asOf": "2026-10-29T23:14:36+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ARM/analysis",
-      "asOf": "2026-10-29T23:11:54+08:00"
+      "asOf": "2026-10-29T23:14:37+08:00"
      }
     ]
    },
@@ -3754,7 +3835,8 @@
     "netIncomeYoY": 1.076923076923077,
     "reportDate": "2026-07-30T04:00:00+08:00"
    },
-   "note": "AI芯片·CPU IP 与 AI 加速架构（Arm）。"
+   "note": "AI芯片·CPU IP 与 AI 加速架构（Arm）。",
+   "importance": 3
   },
   {
    "symbol": "MRVL",
@@ -3767,20 +3849,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/mrvl/earnings",
-     "asOf": "2026-10-29T23:11:58+08:00"
+     "asOf": "2026-10-29T23:14:40+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MRVL/analysis",
-      "asOf": "2026-10-29T23:11:58+08:00"
+      "asOf": "2026-10-29T23:14:40+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MRVL/analysis",
-      "asOf": "2026-10-29T23:11:59+08:00"
+      "asOf": "2026-10-29T23:14:41+08:00"
      }
     ]
    },
@@ -3809,7 +3891,8 @@
     "netIncomeYoY": 0.5811088295687885,
     "reportDate": "2026-08-28T04:00:00+08:00"
    },
-   "note": "AI芯片·数据中心定制加速/互联（Marvell）。"
+   "note": "AI芯片·数据中心定制加速/互联（Marvell）。",
+   "importance": 3
   },
   {
    "symbol": "ALAB",
@@ -3822,20 +3905,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ALAB/analysis",
-     "asOf": "2026-10-29T23:11:59+08:00"
+     "asOf": "2026-10-29T23:14:42+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ALAB/analysis",
-      "asOf": "2026-10-29T23:12:01+08:00"
+      "asOf": "2026-10-29T23:14:44+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ALAB/analysis",
-      "asOf": "2026-10-29T23:12:02+08:00"
+      "asOf": "2026-10-29T23:14:45+08:00"
      }
     ]
    },
@@ -3864,7 +3947,8 @@
     "netIncomeYoY": 1.9888908412893653,
     "reportDate": "2026-08-05T04:00:00+08:00"
    },
-   "note": "AI芯片·高速互联/CXL 连接芯片（Astera Labs）。"
+   "note": "AI芯片·高速互联/CXL 连接芯片（Astera Labs）。",
+   "importance": 3
   },
   {
    "symbol": "CRDO",
@@ -3877,20 +3961,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-10-29T23:12:06+08:00"
+     "asOf": "2026-10-29T23:14:46+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRDO/analysis",
-      "asOf": "2026-10-29T23:12:06+08:00"
+      "asOf": "2026-10-29T23:14:46+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRDO/analysis",
-      "asOf": "2026-10-29T23:12:06+08:00"
+      "asOf": "2026-10-29T23:14:47+08:00"
      }
     ]
    },
@@ -3919,7 +4003,8 @@
     "netIncomeYoY": 1.0414359847947128,
     "reportDate": "2026-09-02T04:00:00+08:00"
    },
-   "note": "AI芯片·高速串行连接与 AEC（Credo）。"
+   "note": "AI芯片·高速串行连接与 AEC（Credo）。",
+   "importance": 3
   },
   {
    "symbol": "COHR",
@@ -3932,20 +4017,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/COHR/analysis",
-     "asOf": "2026-10-29T23:12:07+08:00"
+     "asOf": "2026-10-29T23:14:48+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/COHR/analysis",
-      "asOf": "2026-10-29T23:12:08+08:00"
+      "asOf": "2026-10-29T23:14:49+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/COHR/analysis",
-      "asOf": "2026-10-29T23:12:09+08:00"
+      "asOf": "2026-10-29T23:14:50+08:00"
      }
     ]
    },
@@ -3974,7 +4059,8 @@
     "netIncomeYoY": null,
     "reportDate": "2026-08-13T04:00:00+08:00"
    },
-   "note": "AI上游·光通信/光模块材料与器件（Coherent）；未采用 LITE 以免重复赛道。"
+   "note": "AI上游·光通信/光模块材料与器件（Coherent）；未采用 LITE 以免重复赛道。",
+   "importance": 3
   },
   {
    "symbol": "NOW",
@@ -3988,14 +4074,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NOW/analysis",
-      "asOf": "2026-10-29T23:12:12+08:00"
+      "asOf": "2026-10-29T23:14:53+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NOW/analysis",
-      "asOf": "2026-10-29T23:12:12+08:00"
+      "asOf": "2026-10-29T23:14:54+08:00"
      }
     ]
    },
@@ -4019,7 +4105,8 @@
     "epsSurprisePct": -0.0226,
     "reportDate": "2026-10-29T04:00:00+08:00"
    },
-   "note": "AI下游·企业工作流/AI agent 平台（ServiceNow）。"
+   "note": "AI下游·企业工作流/AI agent 平台（ServiceNow）。",
+   "importance": 2
   },
   {
    "symbol": "PLTR",
@@ -4032,20 +4119,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/PLTR/analysis",
-     "asOf": "2026-10-29T23:12:13+08:00"
+     "asOf": "2026-10-29T23:14:55+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PLTR/analysis",
-      "asOf": "2026-10-29T23:12:16+08:00"
+      "asOf": "2026-10-29T23:14:56+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PLTR/analysis",
-      "asOf": "2026-10-29T23:12:17+08:00"
+      "asOf": "2026-10-29T23:14:57+08:00"
      }
     ]
    },
@@ -4074,7 +4161,8 @@
     "netIncomeYoY": 2.2500834029633303,
     "reportDate": "2026-08-04T04:00:00+08:00"
    },
-   "note": "AI下游·数据分析与 Ontology 平台（Palantir）。"
+   "note": "AI下游·数据分析与 Ontology 平台（Palantir）。",
+   "importance": 2
   },
   {
    "symbol": "SNOW",
@@ -4087,20 +4175,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/snow/earnings",
-     "asOf": "2026-10-29T23:12:18+08:00"
+     "asOf": "2026-10-29T23:15:01+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SNOW/analysis",
-      "asOf": "2026-10-29T23:12:18+08:00"
+      "asOf": "2026-10-29T23:15:01+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SNOW/analysis",
-      "asOf": "2026-10-29T23:12:19+08:00"
+      "asOf": "2026-10-29T23:15:02+08:00"
      }
     ]
    },
@@ -4129,7 +4217,8 @@
     "netIncomeYoY": null,
     "reportDate": "2026-05-28T04:00:00+08:00"
    },
-   "note": "AI下游·云数据平台（Snowflake）。"
+   "note": "AI下游·云数据平台（Snowflake）。",
+   "importance": 2
   },
   {
    "symbol": "CRWD",
@@ -4142,20 +4231,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crwd/earnings",
-     "asOf": "2026-10-29T23:12:23+08:00"
+     "asOf": "2026-10-29T23:15:03+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRWD/analysis",
-      "asOf": "2026-10-29T23:12:23+08:00"
+      "asOf": "2026-10-29T23:15:03+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRWD/analysis",
-      "asOf": "2026-10-29T23:12:24+08:00"
+      "asOf": "2026-10-29T23:15:04+08:00"
      }
     ]
    },
@@ -4184,7 +4273,8 @@
     "netIncomeYoY": null,
     "reportDate": "2026-08-27T04:00:00+08:00"
    },
-   "note": "AI下游·云端网络安全（CrowdStrike）。"
+   "note": "AI下游·云端网络安全（CrowdStrike）。",
+   "importance": 2
   },
   {
    "symbol": "DDOG",
@@ -4197,20 +4287,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/DDOG/analysis",
-     "asOf": "2026-10-29T23:12:25+08:00"
+     "asOf": "2026-10-29T23:15:05+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DDOG/analysis",
-      "asOf": "2026-10-29T23:12:28+08:00"
+      "asOf": "2026-10-29T23:15:08+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DDOG/analysis",
-      "asOf": "2026-10-29T23:12:29+08:00"
+      "asOf": "2026-10-29T23:15:08+08:00"
      }
     ]
    },
@@ -4239,7 +4329,8 @@
     "netIncomeYoY": 15.833396297695504,
     "reportDate": "2026-08-06T19:00:00+08:00"
    },
-   "note": "AI下游·可观测性/监控（Datadog）。"
+   "note": "AI下游·可观测性/监控（Datadog）。",
+   "importance": 2
   },
   {
    "symbol": "ADBE",
@@ -4252,20 +4343,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-     "asOf": "2026-10-29T23:12:29+08:00"
+     "asOf": "2026-10-29T23:15:09+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-      "asOf": "2026-10-29T23:12:32+08:00"
+      "asOf": "2026-10-29T23:15:12+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-      "asOf": "2026-10-29T23:12:33+08:00"
+      "asOf": "2026-10-29T23:15:13+08:00"
      }
     ]
    },
@@ -4294,7 +4385,8 @@
     "netIncomeYoY": 0.031038374717832884,
     "reportDate": "2026-09-11T04:00:00+08:00"
    },
-   "note": "AI下游·创意与文档 AI（Adobe）。"
+   "note": "AI下游·创意与文档 AI（Adobe）。",
+   "importance": 2
   },
   {
    "symbol": "CRM",
@@ -4307,20 +4399,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-10-29T23:12:37+08:00"
+     "asOf": "2026-10-29T23:15:17+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRM/analysis",
-      "asOf": "2026-10-29T23:12:37+08:00"
+      "asOf": "2026-10-29T23:15:17+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRM/analysis",
-      "asOf": "2026-10-29T23:12:38+08:00"
+      "asOf": "2026-10-29T23:15:18+08:00"
      }
     ]
    },
@@ -4349,7 +4441,8 @@
     "netIncomeYoY": 0.8685744568097509,
     "reportDate": "2026-08-27T04:00:00+08:00"
    },
-   "note": "AI下游·CRM 与 Agentforce（Salesforce）。"
+   "note": "AI下游·CRM 与 Agentforce（Salesforce）。",
+   "importance": 2
   },
   {
    "symbol": "SHOP",
@@ -4362,20 +4455,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/SHOP/analysis",
-     "asOf": "2026-10-29T23:12:38+08:00"
+     "asOf": "2026-10-29T23:15:18+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SHOP/analysis",
-      "asOf": "2026-10-29T23:12:41+08:00"
+      "asOf": "2026-10-29T23:15:19+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SHOP/analysis",
-      "asOf": "2026-10-29T23:12:42+08:00"
+      "asOf": "2026-10-29T23:15:20+08:00"
      }
     ]
    },
@@ -4404,7 +4497,8 @@
     "netIncomeYoY": 0.6578366445916115,
     "reportDate": "2026-08-05T19:00:00+08:00"
    },
-   "note": "AI下游·电商平台（Shopify）。"
+   "note": "AI下游·电商平台（Shopify）。",
+   "importance": 2
   },
   {
    "symbol": "MELI",
@@ -4417,20 +4511,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/MELI/analysis",
-     "asOf": "2026-10-29T23:12:43+08:00"
+     "asOf": "2026-10-29T23:15:21+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MELI/analysis",
-      "asOf": "2026-10-29T23:12:45+08:00"
+      "asOf": "2026-10-29T23:15:22+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MELI/analysis",
-      "asOf": "2026-10-29T23:12:46+08:00"
+      "asOf": "2026-10-29T23:15:23+08:00"
      }
     ]
    },
@@ -4459,7 +4553,8 @@
     "netIncomeYoY": -0.10898661567877632,
     "reportDate": "2026-08-06T04:00:00+08:00"
    },
-   "note": "AI下游·拉美电商与金融科技（MercadoLibre）。"
+   "note": "AI下游·拉美电商与金融科技（MercadoLibre）。",
+   "importance": 2
   },
   {
    "symbol": "002371.SZ",
@@ -4483,14 +4578,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
-      "asOf": "2026-10-29T23:12:46+08:00"
+      "asOf": "2026-10-29T23:15:23+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
-      "asOf": "2026-10-29T23:12:47+08:00"
+      "asOf": "2026-10-29T23:15:24+08:00"
      }
     ]
    },
@@ -4545,7 +4640,8 @@
     "netIncomeYoY": 0.06637516131351906,
     "reportDate": "2026-08-25T17:00:00+08:00"
    },
-   "note": "A股·半导体刻蚀/薄膜等设备龙头（北方华创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·半导体刻蚀/薄膜等设备龙头（北方华创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688012.SS",
@@ -4569,14 +4665,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
-      "asOf": "2026-10-29T23:12:47+08:00"
+      "asOf": "2026-10-29T23:15:25+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
-      "asOf": "2026-10-29T23:12:48+08:00"
+      "asOf": "2026-10-29T23:15:25+08:00"
      }
     ]
    },
@@ -4631,15 +4727,16 @@
     "netIncomeYoY": 3.823174487294944,
     "reportDate": "2026-08-19T18:00:00+08:00"
    },
-   "note": "A股·刻蚀设备龙头（中微）；Yahoo 沪市码 .SS（非 .SH）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·刻蚀设备龙头（中微）；Yahoo 沪市码 .SS（非 .SH）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688072.SS",
    "name": "拓荆科技",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 688072.SH Q3 FY2026",
@@ -4655,7 +4752,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
-      "asOf": "2026-10-29T23:12:49+08:00"
+      "asOf": "2026-10-29T23:15:26+08:00"
      }
     ],
     "lastReported": [
@@ -4667,7 +4764,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
-      "asOf": "2026-10-29T23:12:49+08:00"
+      "asOf": "2026-10-29T23:15:27+08:00"
      }
     ]
    },
@@ -4730,7 +4827,8 @@
     "epsActual": 1.9343,
     "epsEstimate": 1.25,
     "epsSurprisePct": 0.5474
-   }
+   },
+   "importance": 3
   },
   {
    "symbol": "688120.SS",
@@ -4754,14 +4852,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
-      "asOf": "2026-10-29T23:12:50+08:00"
+      "asOf": "2026-10-29T23:15:27+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
-      "asOf": "2026-10-29T23:12:51+08:00"
+      "asOf": "2026-10-29T23:15:28+08:00"
      }
     ]
    },
@@ -4816,15 +4914,16 @@
     "netIncomeYoY": 0.16142599472016972,
     "reportDate": "2026-08-21T17:00:00+08:00"
    },
-   "note": "A股·CMP 设备（华海清科）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·CMP 设备（华海清科）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688082.SS",
    "name": "盛美上海",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 688082.SH Q3 FY2026",
@@ -4840,7 +4939,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
-      "asOf": "2026-10-29T23:12:51+08:00"
+      "asOf": "2026-10-29T23:15:29+08:00"
      }
     ],
     "lastReported": [
@@ -4852,7 +4951,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
-      "asOf": "2026-10-29T23:12:52+08:00"
+      "asOf": "2026-10-29T23:15:30+08:00"
      },
      {
       "name": "同花顺 MCP income 688082.SH",
@@ -4930,7 +5029,8 @@
      "note": "THS 累计前三季（非单季）"
     }
    },
-   "note": "A股·湿法清洗/电镀设备（盛美上海）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·湿法清洗/电镀设备（盛美上海）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688126.SS",
@@ -4954,14 +5054,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
-      "asOf": "2026-10-29T23:12:52+08:00"
+      "asOf": "2026-10-29T23:15:31+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
-      "asOf": "2026-10-29T23:12:53+08:00"
+      "asOf": "2026-10-29T23:15:31+08:00"
      }
     ]
    },
@@ -5016,7 +5116,8 @@
     "netIncomeYoY": null,
     "reportDate": "2026-08-19T19:00:00+08:00"
    },
-   "note": "A股·半导体硅片（沪硅产业）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·半导体硅片（沪硅产业）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688019.SS",
@@ -5040,14 +5141,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
-      "asOf": "2026-10-29T23:12:54+08:00"
+      "asOf": "2026-10-29T23:15:32+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
-      "asOf": "2026-10-29T23:12:54+08:00"
+      "asOf": "2026-10-29T23:15:33+08:00"
      }
     ]
    },
@@ -5102,7 +5203,8 @@
     "netIncomeYoY": 0.5671296120037386,
     "reportDate": "2026-08-26T19:00:00+08:00"
    },
-   "note": "A股·CMP 抛光液等材料（安集科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·CMP 抛光液等材料（安集科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688256.SS",
@@ -5121,14 +5223,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
-      "asOf": "2026-10-29T23:12:55+08:00"
+      "asOf": "2026-10-29T23:15:33+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
-      "asOf": "2026-10-29T23:12:56+08:00"
+      "asOf": "2026-10-29T23:15:34+08:00"
      }
     ]
    },
@@ -5183,7 +5285,8 @@
     "netIncomeYoY": null,
     "reportDate": "2026-10-23T21:00:00+08:00"
    },
-   "note": "A股·AI 芯片设计（寒武纪）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·AI 芯片设计（寒武纪）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688041.SS",
@@ -5202,14 +5305,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
-      "asOf": "2026-10-29T23:12:56+08:00"
+      "asOf": "2026-10-29T23:15:35+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
-      "asOf": "2026-10-29T23:12:57+08:00"
+      "asOf": "2026-10-29T23:15:35+08:00"
      }
     ]
    },
@@ -5262,7 +5365,8 @@
     "netIncome": 1048040894.63,
     "reportDate": "2026-10-19T22:00:00+08:00"
    },
-   "note": "A股·DCU/CPU（海光信息）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·DCU/CPU（海光信息）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "603986.SS",
@@ -5286,14 +5390,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
-      "asOf": "2026-10-29T23:12:58+08:00"
+      "asOf": "2026-10-29T23:15:36+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
-      "asOf": "2026-10-29T23:12:58+08:00"
+      "asOf": "2026-10-29T23:15:37+08:00"
      }
     ]
    },
@@ -5348,15 +5452,16 @@
     "netIncomeYoY": 14.829863587257307,
     "reportDate": "2026-08-18T18:00:00+08:00"
    },
-   "note": "A股·存储芯片设计（兆易创新）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·存储芯片设计（兆易创新）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 2
   },
   {
    "symbol": "603501.SS",
    "name": "韦尔股份",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 603501.SH Q3 FY2026",
@@ -5372,7 +5477,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
-      "asOf": "2026-10-29T23:12:59+08:00"
+      "asOf": "2026-10-29T23:15:37+08:00"
      }
     ],
     "lastReported": [
@@ -5384,7 +5489,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
-      "asOf": "2026-10-29T23:13:00+08:00"
+      "asOf": "2026-10-29T23:15:38+08:00"
      },
      {
       "name": "同花顺 MCP income 603501.SH",
@@ -5455,7 +5560,8 @@
      "note": "THS 累计前三季（非单季）"
     }
    },
-   "note": "A股·CIS 图像传感器（韦尔股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·CIS 图像传感器（韦尔股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 2
   },
   {
    "symbol": "688008.SS",
@@ -5479,14 +5585,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
-      "asOf": "2026-10-29T23:13:00+08:00"
+      "asOf": "2026-10-29T23:15:38+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
-      "asOf": "2026-10-29T23:13:01+08:00"
+      "asOf": "2026-10-29T23:15:39+08:00"
      }
     ]
    },
@@ -5541,7 +5647,8 @@
     "netIncomeYoY": 0.8146106686341972,
     "reportDate": "2026-08-28T18:00:00+08:00"
    },
-   "note": "A股·内存接口芯片（澜起科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·内存接口芯片（澜起科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "600584.SS",
@@ -5560,14 +5667,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
-      "asOf": "2026-10-29T23:13:02+08:00"
+      "asOf": "2026-10-29T23:15:40+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
-      "asOf": "2026-10-29T23:13:02+08:00"
+      "asOf": "2026-10-29T23:15:41+08:00"
      }
     ]
    },
@@ -5620,7 +5727,8 @@
     "netIncome": 772691876.23,
     "reportDate": "2026-10-22T22:00:00+08:00"
    },
-   "note": "A股·先进封装（长电科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·先进封装（长电科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "002463.SZ",
@@ -5639,7 +5747,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
-      "asOf": "2026-10-29T23:13:03+08:00"
+      "asOf": "2026-10-29T23:15:41+08:00"
      }
     ],
     "lastReported": [
@@ -5651,7 +5759,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
-      "asOf": "2026-10-29T23:13:04+08:00"
+      "asOf": "2026-10-29T23:15:42+08:00"
      }
     ]
    },
@@ -5716,7 +5824,8 @@
     "epsEstimate": 1.17,
     "epsSurprisePct": 0.17799999
    },
-   "note": "A股·高速 PCB（沪电股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·高速 PCB（沪电股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "600183.SS",
@@ -5740,14 +5849,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
-      "asOf": "2026-10-29T23:13:04+08:00"
+      "asOf": "2026-10-29T23:15:43+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
-      "asOf": "2026-10-29T23:13:05+08:00"
+      "asOf": "2026-10-29T23:15:43+08:00"
      }
     ]
    },
@@ -5802,7 +5911,8 @@
     "netIncomeYoY": 1.467235039084911,
     "reportDate": "2026-08-15T02:00:00+08:00"
    },
-   "note": "A股·覆铜板 CCL（生益科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·覆铜板 CCL（生益科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "300308.SZ",
@@ -5826,14 +5936,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
-      "asOf": "2026-10-29T23:13:06+08:00"
+      "asOf": "2026-10-29T23:15:44+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
-      "asOf": "2026-10-29T23:13:07+08:00"
+      "asOf": "2026-10-29T23:15:45+08:00"
      }
     ]
    },
@@ -5888,7 +5998,8 @@
     "netIncomeYoY": 2.2818668988369795,
     "reportDate": "2026-08-22T03:00:00+08:00"
    },
-   "note": "A股·光模块（中际旭创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·光模块（中际旭创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "300502.SZ",
@@ -5912,14 +6023,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
-      "asOf": "2026-10-29T23:13:07+08:00"
+      "asOf": "2026-10-29T23:15:45+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
-      "asOf": "2026-10-29T23:13:08+08:00"
+      "asOf": "2026-10-29T23:15:46+08:00"
      }
     ]
    },
@@ -5974,15 +6085,16 @@
     "netIncomeYoY": 1.0039700590765617,
     "reportDate": "2026-08-25T01:00:00+08:00"
    },
-   "note": "A股·光模块（新易盛）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·光模块（新易盛）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "300394.SZ",
    "name": "天孚通信",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 300394.SZ Q3 FY2026",
@@ -5998,7 +6110,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
-      "asOf": "2026-10-29T23:13:09+08:00"
+      "asOf": "2026-10-29T23:15:47+08:00"
      }
     ],
     "lastReported": [
@@ -6010,7 +6122,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
-      "asOf": "2026-10-29T23:13:09+08:00"
+      "asOf": "2026-10-29T23:15:47+08:00"
      },
      {
       "name": "同花顺 MCP income 300394.SZ",
@@ -6088,7 +6200,8 @@
      "note": "THS 累计前三季（非单季）"
     }
    },
-   "note": "A股·光器件（天孚通信）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·光器件（天孚通信）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "601138.SS",
@@ -6112,14 +6225,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
-      "asOf": "2026-10-29T23:13:10+08:00"
+      "asOf": "2026-10-29T23:15:48+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
-      "asOf": "2026-10-29T23:13:11+08:00"
+      "asOf": "2026-10-29T23:15:49+08:00"
      }
     ]
    },
@@ -6174,15 +6287,16 @@
     "netIncomeYoY": 0.9099810216572792,
     "reportDate": "2026-10-29T15:00:00+08:00"
    },
-   "note": "A股·服务器/算力代工（工业富联）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·服务器/算力代工（工业富联）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "000977.SZ",
    "name": "浪潮信息",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
      "name": "Wind MCP events 000977.SZ Q3 FY2026",
@@ -6198,7 +6312,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
-      "asOf": "2026-10-29T23:13:11+08:00"
+      "asOf": "2026-10-29T23:15:49+08:00"
      }
     ],
     "lastReported": [
@@ -6280,7 +6394,8 @@
      "note": "THS 累计前三季（非单季）"
     }
    },
-   "note": "A股·服务器（浪潮信息）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·服务器（浪潮信息）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。；三季报单季：营收449.5亿元(+11.05%)、归母净利9.8亿元(+43.46%)（公告/Wind新闻）；单季EPS暂无（Wind未返回）。前三季累计EPS 2.6777见 ashareYtd/THS。",
+   "importance": 2
   },
   {
    "symbol": "002837.SZ",
@@ -6299,14 +6414,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
-      "asOf": "2026-10-29T23:13:13+08:00"
+      "asOf": "2026-10-29T23:15:51+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
-      "asOf": "2026-10-29T23:13:14+08:00"
+      "asOf": "2026-10-29T23:15:51+08:00"
      }
     ]
    },
@@ -6359,7 +6474,8 @@
     "netIncome": 183891805.33,
     "reportDate": "2026-10-27T02:00:00+08:00"
    },
-   "note": "A股·液冷/温控（英维克）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·液冷/温控（英维克）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 3
   },
   {
    "symbol": "688111.SS",
@@ -6378,7 +6494,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
-      "asOf": "2026-10-29T23:13:14+08:00"
+      "asOf": "2026-10-29T23:15:52+08:00"
      }
     ],
     "lastReported": [
@@ -6390,7 +6506,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
-      "asOf": "2026-10-29T23:13:15+08:00"
+      "asOf": "2026-10-29T23:15:52+08:00"
      }
     ]
    },
@@ -6455,7 +6571,8 @@
     "epsEstimate": 0.88,
     "epsSurprisePct": -0.7278
    },
-   "note": "A股·办公软件（金山办公）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·办公软件（金山办公）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 2
   },
   {
    "symbol": "002230.SZ",
@@ -6474,14 +6591,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
-      "asOf": "2026-10-29T23:13:15+08:00"
+      "asOf": "2026-10-29T23:15:53+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
-      "asOf": "2026-10-29T23:13:16+08:00"
+      "asOf": "2026-10-29T23:15:54+08:00"
      }
     ]
    },
@@ -6534,7 +6651,8 @@
     "netIncome": 225728040.54,
     "reportDate": "2026-10-19T20:00:00+08:00"
    },
-   "note": "A股·语音 AI（科大讯飞）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。"
+   "note": "A股·语音 AI（科大讯飞）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
+   "importance": 2
   }
  ]
 }

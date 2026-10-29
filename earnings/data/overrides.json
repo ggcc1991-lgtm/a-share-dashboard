@@ -1,824 +1,843 @@
 {
- "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。",
- "companies": {
-  "0700.HK": {
-   "nextDate": "2026-11-18",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "HKEXnews 董事会会议通告(2026-09-24)",
-    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
-    "asOf": "2026-10-27"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-12",
-    "revenue": 204785000000,
-    "revenueYoY": 0.11,
-    "netIncome": 56022000000,
-    "netIncomeYoY": 0.007,
-    "epsGaap": 6.104,
-    "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
-    "epsNonGaap": 7.433,
-    "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
-    "source": {
-     "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
-     "asOf": "2026-10-27"
+  "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。",
+  "companies": {
+    "0700.HK": {
+      "nextDate": "2026-11-18",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "HKEXnews 董事会会议通告(2026-09-24)",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
+        "asOf": "2026-10-27"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-12",
+        "revenue": 204785000000,
+        "revenueYoY": 0.11,
+        "netIncome": 56022000000,
+        "netIncomeYoY": 0.007,
+        "epsGaap": 6.104,
+        "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
+        "epsNonGaap": 7.433,
+        "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
+        "source": {
+          "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "BABA": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-20",
+        "revenue": 268953000000,
+        "revenueYoY": 0.09,
+        "netIncome": 10537000000,
+        "netIncomeYoY": null,
+        "epsGaap": 3.71,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 8.52,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
+        "source": {
+          "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "BIDU": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-18",
+        "revenue": 31300000000,
+        "revenueYoY": -0.04,
+        "netIncome": 2300000000,
+        "epsGaap": 5.74,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 7.22,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "source": {
+          "name": "百度 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
+          "asOf": "2026-10-27"
+        },
+        "netIncomeYoY": null
+      }
+    },
+    "JD": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-13",
+        "revenue": 346400000000,
+        "revenueYoY": -0.029,
+        "netIncome": 7100000000,
+        "netIncomeYoY": 0.145,
+        "epsGaap": 5.01,
+        "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+        "epsNonGaap": 6.29,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+        "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+        "note": "净利同比按公告 71亿 vs 62亿 计算",
+        "source": {
+          "name": "京东 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "3690.HK": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-28",
+        "revenue": 104643044000,
+        "revenueYoY": 0.144,
+        "netIncome": 2155222000,
+        "netIncomeYoY": 4.9,
+        "netIncomeBasis": "期内利润(含少数股东)",
+        "epsGaap": null,
+        "epsGaapBasis": "单季 EPS 公告未单列（暂无）；上半年基本 EPS -0.76 元",
+        "epsNonGaap": null,
+        "adjNetIncome": 2523716000,
+        "adjNetIncomeYoY": 0.69,
+        "epsActual": null,
+        "epsEstimate": null,
+        "epsSurprisePct": null,
+        "source": {
+          "name": "美团 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "1810.HK": {
+      "nextDate": "2026-11-24",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "HKEXnews 董事会会议召开日期(2026-10-23)",
+        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
+        "asOf": "2026-10-27"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-18",
+        "revenue": 108921600000,
+        "revenueYoY": -0.061,
+        "netIncome": 9462405000,
+        "netIncomeYoY": -0.205,
+        "epsGaap": 0.37,
+        "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
+        "adjNetIncome": 6219100000,
+        "adjNetIncomeYoY": -0.426,
+        "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
+        "source": {
+          "name": "小米 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "NTES": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-20",
+        "revenue": 30100000000,
+        "revenueYoY": 0.079,
+        "netIncome": 7000000000,
+        "epsGaap": 1.61,
+        "epsGaapBasis": "GAAP 基本 EPS/ADS(美元)",
+        "epsNonGaap": 1.78,
+        "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
+        "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
+        "source": {
+          "name": "网易 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
+          "asOf": "2026-10-27"
+        },
+        "netIncomeYoY": null
+      }
+    },
+    "0981.HK": {
+      "currency": "USD",
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-08-13",
+        "revenue": 3005600000,
+        "revenueYoY": 0.3606,
+        "netIncome": 479197000,
+        "netIncomeYoY": 2.617,
+        "epsGaap": 0.06,
+        "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
+        "guidance": "Q3 营收环比 +2%~4%（公司指引）",
+        "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
+        "source": {
+          "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "1211.HK": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 221488000000,
+        "revenueYoY": 0.1359,
+        "netIncome": 10020000000,
+        "netIncomeYoY": 0.2808,
+        "epsGaap": 1.1,
+        "epsGaapBasis": "基本每股收益(人民币，单季)",
+        "note": "Q3 单季；前三季营收5663.04亿、归母净利223.45亿(同比-4.24%)。Wind 预约披露日为10-30，中文媒体10-29已见业绩",
+        "source": {
+          "name": "Wind / 公司三季报",
+          "url": null,
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "IT之家",
+            "url": "https://www.ithome.com/0/919/688.htm",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "财联社/华尔街见闻报道汇总",
+            "url": "https://wallstreetcn.com/",
+            "asOf": "2026-10-29"
+          }
+        ],
+        "epsActual": 1.1,
+        "epsEstimate": null,
+        "epsSurprisePct": null
+      },
+      "note": "三季报（单季）：营收2214.88亿元(+13.59% YoY)、归母净利100.20亿元(+28.08%)、基本EPS 1.10元（Wind/公告）。"
+    },
+    "AMZN": {
+      "lastReported": {
+        "quarterEnd": "2026-06-30",
+        "reportDate": "2026-07-31",
+        "revenue": 200600000000,
+        "revenueYoY": 0.196,
+        "netIncome": 62600000000,
+        "netIncomeYoY": 2.44,
+        "epsGaap": 5.75,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
+        "epsNonGaap": null,
+        "source": {
+          "name": "Amazon Q2 2026 业绩新闻稿(IR)",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+          "asOf": "2026-10-27"
+        }
+      }
+    },
+    "GOOGL": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29T04:00:00+08:00",
+        "revenue": 127580000000,
+        "revenueYoY": 0.25,
+        "netIncome": 26170000000,
+        "netIncomeYoY": -0.2519,
+        "epsGaap": 2.12,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsActual": 2.67,
+        "epsEstimate": 3.02,
+        "epsSurprisePct": -0.1159,
+        "epsCompareBasis": "CNBC 口径调整后 EPS vs LSEG 一致预期",
+        "manual": {
+          "revEstimate": 128220000000,
+          "revSource": "CNBC/LSEG"
+        },
+        "note": "营收/利润双 miss；Cloud $30.7B(+103%)；FCF -$9.07B；2026 capex 指引维持 $195-205B。数据取自 CNBC，官方 8-K 未逐项核对",
+        "source": {
+          "name": "CNBC Alphabet Q3 2026",
+          "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG)",
+            "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "ASM.AS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28T01:00:00+08:00",
+        "revenue": 1159400000,
+        "revenueYoY": 0.45,
+        "netIncome": 308100000,
+        "netIncomeYoY": -0.1979,
+        "adjNetIncome": 315400000,
+        "adjNetIncomeYoY": 0.5296,
+        "epsActual": 6.27,
+        "epsEstimate": 6.26009,
+        "epsSurprisePct": 0.0016,
+        "epsGaap": 6.27,
+        "epsGaapBasis": "IFRS 摊薄 EPS(欧元/股)",
+        "epsCompareBasis": "epsEstimate 为 Yahoo Q3 一致预期(4家)；公告未单列调整后 EPS",
+        "note": "营收11.59亿欧元创新高，高于 Yahoo 一致预期11.04亿约5%；毛利率52.0%，调整后经营利润率33.4%；Q4指引营收12.30亿欧元±5%，2027年营收预计超57亿欧元；新增最多3亿欧元回购。去年同期净利含一次性收益，故IFRS净利同比-20%，调整后净利同比+53%。",
+        "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
+        "source": {
+          "name": "ASM 2026Q3 业绩公告(asm.com)",
+          "url": "https://www.asm.com/media/bebbzlnv/20261027-asm-reports-third-quarter-2026-results.pdf",
+          "asOf": "2026-10-28"
+        }
+      }
+    },
+    "000660.KS": {
+      "nextDate": "2026-10-28",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
+        "url": "https://news.skhynix.com/en/q3-2026-business-results/",
+        "asOf": "2026-10-28"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 104615500000000,
+        "revenueYoY": 3.279,
+        "operatingProfit": 83333800000000,
+        "operatingProfitYoY": 6.321,
+        "netIncome": 39775600000000,
+        "netIncomeYoY": 2.157,
+        "epsGaap": 54773,
+        "epsGaapBasis": "K-IFRS 基本 EPS(韩元/股)",
+        "revEstimate": 98340000000000,
+        "opEstimate": 76720000000000,
+        "note": "K-IFRS 初步数(未审计)。营收104.62万亿韩元 vs LSEG SmartEstimate 98.34万亿(超+6.4%)；营业利润83.33万亿 vs LSEG 76.72万亿(超+8.6%)、vs 联合Infomax 76.26万亿(超+9.3%)，高于预期。净利润39.78万亿(环比-58%，Q2含一次性收益)。",
+        "source": {
+          "name": "SK hynix IR Q3 FY2026",
+          "url": "https://news.skhynix.com/en/q3-2026-business-results/",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG SmartEstimates)",
+            "url": "https://www.cnbc.com/2026/10/28/sk-hynix-third-quarter-profit.html",
+            "asOf": "2026-10-28"
+          },
+          {
+            "name": "연합뉴스(연합인포맥스 전망치)",
+            "url": "https://www.yna.co.kr/view/AKR20261028028052527",
+            "asOf": "2026-10-28"
+          }
+        ],
+        "epsActual": 54773,
+        "epsEstimate": null,
+        "epsSurprisePct": null
+      },
+      "note": "官方IR：营收104.6155万亿韩元(+328% YoY)、营业利润83.3338万亿(+632%，约超联合InforMax一致预期9.3%)、净利39.7756万亿；基本EPS 54,773韩元。EPS一致预期暂不对比（Yahoo口径不一致）。"
+    },
+    "005930.KS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 195250000000000,
+        "revenueYoY": 1.269,
+        "operatingProfit": 107440000000000,
+        "operatingProfitYoY": 7.831,
+        "netIncome": 75130000000000,
+        "netIncomeYoY": 5.146,
+        "epsGaap": 11462,
+        "epsGaapBasis": "普通股基本 EPS(韩元)",
+        "note": "营收195.25万亿韩元(+126.9%)、营业利润107.44万亿(+783.1%)、净利75.13万亿(+514.6%)；据韩联社/Infomax 略低于市场净利预期87.01万亿。DS部门营收147.1万亿、营业利润106.5万亿",
+        "source": {
+          "name": "Samsung Global Newsroom Q3 2026 Results",
+          "url": "https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Yonhap",
+            "url": "https://en.yna.co.kr/view/AEN20261029002600320",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "CNBC",
+            "url": "https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "207940.KS": {
+      "nextDate": "2026-10-21",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "Samsung Biologics 3Q26 业绩新闻稿",
+        "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
+        "asOf": "2026-10-28"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-21",
+        "revenue": 1490300000000,
+        "revenueYoY": 0.185,
+        "operatingProfit": 640100000000,
+        "operatingProfitYoY": 0.01,
+        "netIncome": 391100000000,
+        "netIncomeYoY": -0.212,
+        "epsGaap": null,
+        "note": "营业利润6401亿韩元，高于联合Infomax一致预期5.1%(超预期)；全年营收增长指引上调至20%。EPS未在新闻稿披露。",
+        "source": {
+          "name": "Samsung Biologics IR",
+          "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Yonhap(联合Infomax 预期)",
+            "url": "https://en.yna.co.kr/view/AEN20261021008900320",
+            "asOf": "2026-10-28"
+          }
+        ],
+        "epsActual": null
+      },
+      "note": "Q3：营收1.4903万亿韩元(+18.5% YoY)、营业利润6401亿(+1.0%)、净利3911亿(-21.2%)；上调2026营收增速指引至20%。官方新闻稿未列EPS→epsActual暂无。"
+    },
+    "6488.TWO": {
+      "nextDate": "2026-11-03T16:00:00+08:00",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "环球晶圆官网：2026Q3英文线上法说会",
+        "url": "https://www.sas-globalwafers.com/%e6%9c%ac%e5%85%ac%e5%8f%b8%e5%8f%ac%e9%96%8b2026q3%e8%8b%b1%e6%96%87%e7%b7%9a%e4%b8%8a%e6%b3%95%e8%aa%aa%e6%9c%83/",
+        "asOf": "2026-10-28"
+      },
+      "note": "日期为Q3法说会时间"
+    },
+    "ADYEN.AS": {
+      "nextDate": "2026-10-28",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "Adyen IR: Business Update Q3 2026",
+        "url": "https://investors.adyen.com/financials/q3-2026-10c88s",
+        "asOf": "2026-10-28"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 738100000,
+        "revenueYoY": 0.23,
+        "netIncome": null,
+        "epsGaap": null,
+        "epsGaapBasis": "Q3 Business Update 不披露利润/EPS",
+        "revEstimate": 730300000,
+        "processedVolume": 451100000000,
+        "processedVolumeYoY": 0.3,
+        "processedVolumeEstimate": 435600000000,
+        "note": "净收入7.381亿欧元(+23% YoY，恒定汇率+22%) vs 公司汇编一致预期7.303亿(Reuters，超约+1.1%)；处理量4511亿欧元(+30%) vs 预期4356亿(超约+3.6%)。维持2026恒定汇率净收入增速指引21%–23%；全年EBITDA利润率指引下调至50%，并取消中期EBITDA目标，股价盘中约跌12%。",
+        "source": {
+          "name": "Adyen Q3 2026 Business Update",
+          "url": "https://www.adyen.com/press-and-media/adyen-publishes-q3-2026-business-update-6r9vz0",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Reuters/Euronext(公司汇编一致预期)",
+            "url": "https://live.euronext.com/en/financial-news/adyen-shares-drop-12-lower-margin-target-overshadows-revenue-beat",
+            "asOf": "2026-10-28"
+          }
+        ],
+        "epsActual": null
+      },
+      "note": "Q3 Business Update(2026-10-28)：净收入€7.381亿(+23% YoY，略超公司汇编一致预期€7.303亿约+1.1%)；处理量€4511亿(+30%)。下调2026 EBITDA利润率目标至50%。无EPS（非完整财报）→epsActual暂无。"
+    },
+    "SU.PA": {
+      "nextDate": "2026-10-16",
+      "dateStatus": "confirmed",
+      "dateSource": {
+        "name": "Schneider Electric Q3 2026 Revenues",
+        "url": "https://www.se.com/ww/en/assets/pdf/release-Q3-revenues-2026",
+        "asOf": "2026-10-28"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-16",
+        "revenue": 11460000000,
+        "revenueYoY": 0.179,
+        "netIncome": null,
+        "epsGaap": null,
+        "note": "Q3 仅披露营收：114.60亿欧元，有机+16.9%、报表+17.9%，创季度纪录；FY26 调整后EBITA有机增长目标上调至+18%~+21%。无利润/EPS；一致预期未取得。",
+        "source": {
+          "name": "Schneider Electric Q3 2026 Revenues",
+          "url": "https://www.se.com/ww/en/about-us/investor-relations/financial-results/",
+          "asOf": "2026-10-29"
+        },
+        "epsActual": null
+      },
+      "note": "Q3收入€114.6亿（纪录），有机+16.9%（超分析师预期约13.8%），上调2026指引；数据中心需求三位数增长。本季为收入简报无EPS→epsActual暂无。"
+    },
+    "688072.SS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 2308000000,
+        "revenueYoY": 0.0184,
+        "netIncome": 1088000000,
+        "netIncomeYoY": 1.3539,
+        "epsGaap": null,
+        "note": "Q3 单季；前三季营收52.20亿(+23.70%)、归母净利24.31亿(+336.79%)。A股仅有年度一致预期，无单季可比预期",
+        "source": {
+          "name": "拓荆科技 2026年第三季度报告",
+          "url": "http://notice.10jqka.com.cn/api/pdf/6e860445354fc17b.pdf",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "财联社",
+            "url": "https://www.cls.cn/detail/2518408",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "MSFT": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29T04:00:00+08:00",
+        "revenue": 92300000000,
+        "revenueYoY": 0.19,
+        "netIncome": 36600000000,
+        "netIncomeYoY": 0.32,
+        "epsGaap": 4.92,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsNonGaap": 4.89,
+        "epsNonGaapBasis": "Non-GAAP（剔除 OpenAI 投资影响）",
+        "epsActual": 4.89,
+        "epsEstimate": 4.73,
+        "epsSurprisePct": 0.0338,
+        "epsCompareBasis": "Non-GAAP vs LSEG 一致预期",
+        "manual": {
+          "revEstimate": 90690000000,
+          "revSource": "CNBC/LSEG"
+        },
+        "note": "FY27Q1；营收为官方约数$92.3B；Azure +48%",
+        "source": {
+          "name": "Microsoft FY27 Q1 Press Release",
+          "url": "https://www.microsoft.com/en-us/investor/earnings/FY-2027-Q1/press-release-webcast",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG)",
+            "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "VRT": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28T18:30:00+08:00",
+        "revenue": 4312800000,
+        "revenueYoY": 0.6118,
+        "netIncome": 764500000,
+        "netIncomeYoY": 0.9184,
+        "epsGaap": 1.95,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsNonGaap": 2.21,
+        "epsActual": 2.21,
+        "epsEstimate": 1.82,
+        "epsSurprisePct": 0.2143,
+        "epsCompareBasis": "调整后摊薄 EPS vs Investing.com 一致预期",
+        "manual": {
+          "revEstimate": 3760000000,
+          "revSource": "Investing.com"
+        },
+        "guidance": "上调 FY2026 指引：营收 $14.45–14.85B，调整后 EPS $7.10–7.20",
+        "source": {
+          "name": "Vertiv Q3 2026 Press Release(SEC Ex99.1)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Investing.com",
+            "url": "https://www.investing.com/news/earnings/vertiv-holdings-co-earnings-beat-by-039-revenue-topped-estimates-4978166",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "6857.T": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 477700000000,
+        "note": "FY26Q2 单季营业利润 2,668 亿日元（利润率 55.9%）；H1 营收 8,452 亿(+60.5%)、净利 3,681 亿(+116.8%)。单季 EPS 未在 IR 摘要中核对，沿用 Yahoo 值",
+        "source": {
+          "name": "Advantest Q2 FY2026 IR",
+          "url": "https://www.advantest.com/document/en/investors/ir-library/result/JE_BIZ_261028_note.pdf",
+          "asOf": "2026-10-29"
+        }
+      }
+    },
+    "2308.TW": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 197059000000,
+        "revenueYoY": 0.311,
+        "netIncome": 23495000000,
+        "netIncomeYoY": 0.263,
+        "epsGaap": 9.04,
+        "epsActual": 9.04,
+        "epsCompareBasis": "归母 EPS vs Yahoo 一致预期",
+        "note": "营收季增7.5%创新高，净利季减6.5%；经济日报称获利不如市场预期",
+        "source": {
+          "name": "台达电 115年Q3财报新闻稿",
+          "url": "https://www.deltaww.com/zh-TW/press/41194",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "中央社",
+            "url": "https://www.cna.com.tw/news/afe/202610280291.aspx",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "经济日报",
+            "url": "https://money.udn.com/money/story/5612/9843353",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "603501.SS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 8124000000,
+        "revenueYoY": 0.038,
+        "netIncome": 1079000000,
+        "netIncomeYoY": -0.0874,
+        "epsGaap": 0.87,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "Q3 单季（豪威集团）；前三季营收221.49亿、归母净利22.99亿。修正此前 Yahoo 仍挂 QE 2026-06-30",
+        "source": {
+          "name": "同花顺·豪威集团三季报报道",
+          "url": "https://stock.10jqka.com.cn/20261029/c681229781.shtml",
+          "asOf": "2026-10-29"
+        }
+      }
+    },
+    "300394.SZ": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 1923000000,
+        "revenueYoY": 0.315,
+        "netIncome": 879000000,
+        "netIncomeYoY": 0.553,
+        "epsGaap": 0.8062,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "Q3 单季；前三季营收47.51亿(+21.25%)、归母净利20.83亿(+42.18%)。修正此前 Yahoo 仍挂 QE 2026-06-30",
+        "source": {
+          "name": "同花顺·天孚通信三季报",
+          "url": "https://news.10jqka.com.cn/20261028/c681209742.shtml",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "巨潮资讯 三季报 PDF",
+            "url": "https://static.cninfo.com.cn/finalpage/2026-10-29/1225634414.PDF",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "000977.SZ": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 44950000000,
+        "revenueYoY": 0.1105,
+        "netIncome": 980000000,
+        "netIncomeYoY": 0.4346,
+        "epsGaap": 0.6676,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "单季EPS暂无",
+        "source": {
+          "name": "公司公告 / Wind新闻",
+          "url": null,
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "中国金融信息网",
+            "url": "https://www.cnfin.com/kx/detail/20261028/4487696_1.html",
+            "asOf": "2026-10-29"
+          }
+        ],
+        "epsActual": null
+      },
+      "note": "三季报单季：营收449.5亿元(+11.05%)、归母净利9.8亿元(+43.46%)（公告/Wind新闻）；单季EPS暂无（Wind未返回）。前三季累计EPS 2.6777见 ashareYtd/THS。"
+    },
+    "3711.TW": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 244161000000,
+        "revenueYoY": 0.448,
+        "netIncome": 26996000000,
+        "netIncomeYoY": 1.484,
+        "epsGaap": 6.13,
+        "epsActual": 6.13,
+        "epsGaapBasis": "基本 EPS(新台币/股)",
+        "note": "Q3 营收季增27.8%；前三季营收6088.87亿、净利621.93亿、EPS 14.17。Q4 营收指引季增6%–8%",
+        "source": {
+          "name": "中央社·日月光投控Q3",
+          "url": "https://www.cna.com.tw/news/afe/202610290217.aspx",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "工商时报",
+            "url": "https://www.ctee.com.tw/news/20261029701674-430201",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "6861.T": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 388778000000,
+        "revenueYoY": 0.368,
+        "operatingProfit": 221186000000,
+        "operatingProfitYoY": 0.548,
+        "netIncome": 159542000000,
+        "netIncomeYoY": 0.479,
+        "note": "FY27Q2 单季；上半期(H1)营收7353.99亿(+34.9%)、营业利益4082.62亿。另宣布1拆5及增配",
+        "source": {
+          "name": "Keyence 決算短信 / 二次来源推算单季",
+          "url": "https://www.keyence.co.jp/investor/en/library/results.jsp",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Investing.com JP",
+            "url": "https://jp.investing.com/news/earnings/article-93CH-1732171",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "日经公司披露",
+            "url": "https://www.nikkei.com/nkd/disclosure/tdnr/20261027557109/",
+            "asOf": "2026-10-29"
+          }
+        ],
+        "epsActual": 657.84,
+        "epsGaap": 657.84,
+        "epsGaapBasis": "单季EPS(日元)"
+      },
+      "note": "FY2027 Q2单季（7–9月）：营收约3887.8亿日元、净利约1595.4亿；EPS约657.84日元。"
+    },
+    "STM": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 3757000000,
+        "revenueYoY": 0.179,
+        "netIncome": 291000000,
+        "epsGaap": 0.31,
+        "epsNonGaap": 0.37,
+        "epsGaapBasis": "GAAP diluted EPS(USD)",
+        "epsNonGaapBasis": "non-GAAP diluted EPS(USD)",
+        "epsCompareBasis": "Yahoo 预期对比口径=non-GAAP",
+        "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
+        "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37",
+        "source": {
+          "name": "GlobeNewswire·STMicroelectronics Q3 2026",
+          "url": "https://www.globenewswire.com/news-release/2026/10/29/3390920/0/en/stmicroelectronics-reports-q3-2026-financial-results.html",
+          "asOf": "2026-10-29"
+        }
+      }
+    },
+    "688082.SS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 2024000000,
+        "revenueYoY": 0.0759,
+        "netIncome": 81538300,
+        "netIncomeYoY": -0.857,
+        "epsGaap": 0.16,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "Q3 单季；前三季营收57.42亿(+11.57%)、归母净利10.70亿。单季净利大降主因对外投资公允价值变动",
+        "source": {
+          "name": "同花顺·盛美上海三季报",
+          "url": "https://stock.10jqka.com.cn/20261028/c681196940.shtml",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "盛美上海三季报 PDF(10jqka)",
+            "url": "http://notice.10jqka.com.cn/api/pdf/e69dceb854ec04a5.pdf",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "002463.SZ": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-27",
+        "revenue": 9536000000,
+        "revenueYoY": 0.9002,
+        "netIncome": 2699000000,
+        "netIncomeYoY": 1.6077,
+        "epsGaap": 1.3783,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "Q3 单季盈利规模创新高；前三季营收232.25亿、归母净利56.22亿",
+        "source": {
+          "name": "同花顺·沪电股份三季报",
+          "url": "https://stock.10jqka.com.cn/20261028/c681175920.shtml",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "巨潮资讯 PDF",
+            "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225627804.PDF",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "688111.SS": {
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-28",
+        "revenue": 1766000000,
+        "revenueYoY": 0.1611,
+        "netIncome": 119000000,
+        "netIncomeYoY": -0.723,
+        "epsGaap": 0.2395,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "note": "Q3 单季；前三季营收50.80亿(+21.57%)、归母净利26.37亿(+123.77%)。单季净利下滑主因对外投资基金收益降低；经调整归母净利5.39亿(+8.44%)",
+        "source": {
+          "name": "巨潮资讯·金山办公三季报",
+          "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225630176.PDF",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "经济观察网",
+            "url": "http://www.eeo.com.cn/2026/1028/1077307.shtml",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
     }
-   }
-  },
-  "BABA": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-20",
-    "revenue": 268953000000,
-    "revenueYoY": 0.09,
-    "netIncome": 10537000000,
-    "netIncomeYoY": null,
-    "epsGaap": 3.71,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 8.52,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
-    "source": {
-     "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "BIDU": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-18",
-    "revenue": 31300000000,
-    "revenueYoY": -0.04,
-    "netIncome": 2300000000,
-    "epsGaap": 5.74,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 7.22,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "source": {
-     "name": "百度 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
-     "asOf": "2026-10-27"
-    },
-    "netIncomeYoY": null
-   }
-  },
-  "JD": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 346400000000,
-    "revenueYoY": -0.029,
-    "netIncome": 7100000000,
-    "netIncomeYoY": 0.145,
-    "epsGaap": 5.01,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 6.29,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利同比按公告 71亿 vs 62亿 计算",
-    "source": {
-     "name": "京东 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "3690.HK": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-28",
-    "revenue": 104643044000,
-    "revenueYoY": 0.144,
-    "netIncome": 2155222000,
-    "netIncomeYoY": 4.9,
-    "netIncomeBasis": "期内利润(含少数股东)",
-    "epsGaap": null,
-    "epsGaapBasis": "单季 EPS 公告未单列（暂无）；上半年基本 EPS -0.76 元",
-    "epsNonGaap": null,
-    "adjNetIncome": 2523716000,
-    "adjNetIncomeYoY": 0.69,
-    "epsActual": null,
-    "epsEstimate": null,
-    "epsSurprisePct": null,
-    "source": {
-     "name": "美团 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "1810.HK": {
-   "nextDate": "2026-11-24",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "HKEXnews 董事会会议召开日期(2026-10-23)",
-    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
-    "asOf": "2026-10-27"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-18",
-    "revenue": 108921600000,
-    "revenueYoY": -0.061,
-    "netIncome": 9462405000,
-    "netIncomeYoY": -0.205,
-    "epsGaap": 0.37,
-    "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
-    "adjNetIncome": 6219100000,
-    "adjNetIncomeYoY": -0.426,
-    "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
-    "source": {
-     "name": "小米 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "NTES": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-20",
-    "revenue": 30100000000,
-    "revenueYoY": 0.079,
-    "netIncome": 7000000000,
-    "epsGaap": 1.61,
-    "epsGaapBasis": "GAAP 基本 EPS/ADS(美元)",
-    "epsNonGaap": 1.78,
-    "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
-    "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
-    "source": {
-     "name": "网易 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
-     "asOf": "2026-10-27"
-    },
-    "netIncomeYoY": null
-   }
-  },
-  "0981.HK": {
-   "currency": "USD",
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 3005600000,
-    "revenueYoY": 0.3606,
-    "netIncome": 479197000,
-    "netIncomeYoY": 2.617,
-    "epsGaap": 0.06,
-    "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
-    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
-    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
-    "source": {
-     "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "1211.HK": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 221488000000,
-    "revenueYoY": 0.1359,
-    "netIncome": 10020000000,
-    "netIncomeYoY": 0.2808,
-    "epsGaap": 1.1,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季；前三季营收5663.04亿、归母净利223.45亿(同比-4.24%)。Wind 预约披露日为10-30，中文媒体10-29已见业绩",
-    "source": {
-     "name": "观点网/IT之家 转引比亚迪三季报",
-     "url": "https://www.guandian.cn/article/20261029/620434.html",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "IT之家",
-      "url": "https://www.ithome.com/0/919/688.htm",
-      "asOf": "2026-10-29"
-     },
-     {
-      "name": "财联社/华尔街见闻报道汇总",
-      "url": "https://wallstreetcn.com/",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "AMZN": {
-   "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-07-31",
-    "revenue": 200600000000,
-    "revenueYoY": 0.196,
-    "netIncome": 62600000000,
-    "netIncomeYoY": 2.44,
-    "epsGaap": 5.75,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
-    "epsNonGaap": null,
-    "source": {
-     "name": "Amazon Q2 2026 业绩新闻稿(IR)",
-     "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
-     "asOf": "2026-10-27"
-    }
-   }
-  },
-  "GOOGL": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29T04:00:00+08:00",
-    "revenue": 127580000000,
-    "revenueYoY": 0.25,
-    "netIncome": 26170000000,
-    "netIncomeYoY": -0.2519,
-    "epsGaap": 2.12,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "epsActual": 2.67,
-    "epsEstimate": 3.02,
-    "epsSurprisePct": -0.1159,
-    "epsCompareBasis": "CNBC 口径调整后 EPS vs LSEG 一致预期",
-    "manual": {
-     "revEstimate": 128220000000,
-     "revSource": "CNBC/LSEG"
-    },
-    "note": "营收/利润双 miss；Cloud $30.7B(+103%)；FCF -$9.07B；2026 capex 指引维持 $195-205B。数据取自 CNBC，官方 8-K 未逐项核对",
-    "source": {
-     "name": "CNBC Alphabet Q3 2026",
-     "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "CNBC(LSEG)",
-      "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "ASM.AS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28T01:00:00+08:00",
-    "revenue": 1159400000,
-    "revenueYoY": 0.45,
-    "netIncome": 308100000,
-    "netIncomeYoY": -0.1979,
-    "adjNetIncome": 315400000,
-    "adjNetIncomeYoY": 0.5296,
-    "epsActual": 6.27,
-    "epsEstimate": 6.26009,
-    "epsSurprisePct": 0.0016,
-    "epsGaap": 6.27,
-    "epsGaapBasis": "IFRS 摊薄 EPS(欧元/股)",
-    "epsCompareBasis": "epsEstimate 为 Yahoo Q3 一致预期(4家)；公告未单列调整后 EPS",
-    "note": "营收11.59亿欧元创新高，高于 Yahoo 一致预期11.04亿约5%；毛利率52.0%，调整后经营利润率33.4%；Q4指引营收12.30亿欧元±5%，2027年营收预计超57亿欧元；新增最多3亿欧元回购。去年同期净利含一次性收益，故IFRS净利同比-20%，调整后净利同比+53%。",
-    "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
-    "source": {
-     "name": "ASM 2026Q3 业绩公告(asm.com)",
-     "url": "https://www.asm.com/media/bebbzlnv/20261027-asm-reports-third-quarter-2026-results.pdf",
-     "asOf": "2026-10-28"
-    }
-   }
-  },
-  "000660.KS": {
-   "nextDate": "2026-10-28",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
-    "url": "https://news.skhynix.com/en/q3-2026-business-results/",
-    "asOf": "2026-10-28"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 104615500000000,
-    "revenueYoY": 3.279,
-    "operatingProfit": 83333800000000,
-    "operatingProfitYoY": 6.321,
-    "netIncome": 39775600000000,
-    "netIncomeYoY": 2.157,
-    "epsGaap": null,
-    "epsGaapBasis": "公告未披露 EPS，留空",
-    "revEstimate": 98340000000000,
-    "opEstimate": 76720000000000,
-    "note": "K-IFRS 初步数(未审计)。营收104.62万亿韩元 vs LSEG SmartEstimate 98.34万亿(超+6.4%)；营业利润83.33万亿 vs LSEG 76.72万亿(超+8.6%)、vs 联合Infomax 76.26万亿(超+9.3%)，高于预期。净利润39.78万亿(环比-58%，Q2含一次性收益)。",
-    "source": {
-     "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
-     "url": "https://news.skhynix.com/en/q3-2026-business-results/",
-     "asOf": "2026-10-28"
-    },
-    "consensusSources": [
-     {
-      "name": "CNBC(LSEG SmartEstimates)",
-      "url": "https://www.cnbc.com/2026/10/28/sk-hynix-third-quarter-profit.html",
-      "asOf": "2026-10-28"
-     },
-     {
-      "name": "연합뉴스(연합인포맥스 전망치)",
-      "url": "https://www.yna.co.kr/view/AKR20261028028052527",
-      "asOf": "2026-10-28"
-     }
-    ]
-   }
-  },
-  "005930.KS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 195250000000000,
-    "revenueYoY": 1.269,
-    "operatingProfit": 107440000000000,
-    "operatingProfitYoY": 7.831,
-    "netIncome": 75130000000000,
-    "netIncomeYoY": 5.146,
-    "epsGaap": 11462,
-    "epsGaapBasis": "普通股基本 EPS(韩元)",
-    "note": "营收195.25万亿韩元(+126.9%)、营业利润107.44万亿(+783.1%)、净利75.13万亿(+514.6%)；据韩联社/Infomax 略低于市场净利预期87.01万亿。DS部门营收147.1万亿、营业利润106.5万亿",
-    "source": {
-     "name": "Samsung Global Newsroom Q3 2026 Results",
-     "url": "https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "Yonhap",
-      "url": "https://en.yna.co.kr/view/AEN20261029002600320",
-      "asOf": "2026-10-29"
-     },
-     {
-      "name": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "207940.KS": {
-   "nextDate": "2026-10-21",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "Samsung Biologics 3Q26 业绩新闻稿",
-    "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
-    "asOf": "2026-10-28"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-21",
-    "revenue": 1490300000000,
-    "revenueYoY": 0.185,
-    "operatingProfit": 640100000000,
-    "operatingProfitYoY": 0.01,
-    "netIncome": 391100000000,
-    "netIncomeYoY": -0.212,
-    "epsGaap": null,
-    "note": "营业利润6401亿韩元，高于联合Infomax一致预期5.1%(超预期)；全年营收增长指引上调至20%。EPS未在新闻稿披露。",
-    "source": {
-     "name": "Samsung Biologics 3Q26 业绩新闻稿",
-     "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
-     "asOf": "2026-10-28"
-    },
-    "consensusSources": [
-     {
-      "name": "Yonhap(联合Infomax 预期)",
-      "url": "https://en.yna.co.kr/view/AEN20261021008900320",
-      "asOf": "2026-10-28"
-     }
-    ]
-   }
-  },
-  "6488.TWO": {
-   "nextDate": "2026-11-03T16:00:00+08:00",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "环球晶圆官网：2026Q3英文线上法说会",
-    "url": "https://www.sas-globalwafers.com/%e6%9c%ac%e5%85%ac%e5%8f%b8%e5%8f%ac%e9%96%8b2026q3%e8%8b%b1%e6%96%87%e7%b7%9a%e4%b8%8a%e6%b3%95%e8%aa%aa%e6%9c%83/",
-    "asOf": "2026-10-28"
-   },
-   "note": "日期为Q3法说会时间"
-  },
-  "ADYEN.AS": {
-   "nextDate": "2026-10-28",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "Adyen IR: Business Update Q3 2026",
-    "url": "https://investors.adyen.com/financials/q3-2026-10c88s",
-    "asOf": "2026-10-28"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 738100000,
-    "revenueYoY": 0.23,
-    "netIncome": null,
-    "epsGaap": null,
-    "epsGaapBasis": "Q3 Business Update 不披露利润/EPS",
-    "revEstimate": 730300000,
-    "processedVolume": 451100000000,
-    "processedVolumeYoY": 0.3,
-    "processedVolumeEstimate": 435600000000,
-    "note": "净收入7.381亿欧元(+23% YoY，恒定汇率+22%) vs 公司汇编一致预期7.303亿(Reuters，超约+1.1%)；处理量4511亿欧元(+30%) vs 预期4356亿(超约+3.6%)。维持2026恒定汇率净收入增速指引21%–23%；全年EBITDA利润率指引下调至50%，并取消中期EBITDA目标，股价盘中约跌12%。",
-    "source": {
-     "name": "Adyen publishes Q3 2026 Business Update",
-     "url": "https://www.adyen.com/press-and-media/adyen-publishes-q3-2026-business-update-6r9vz0",
-     "asOf": "2026-10-28"
-    },
-    "consensusSources": [
-     {
-      "name": "Reuters/Euronext(公司汇编一致预期)",
-      "url": "https://live.euronext.com/en/financial-news/adyen-shares-drop-12-lower-margin-target-overshadows-revenue-beat",
-      "asOf": "2026-10-28"
-     }
-    ]
-   },
-   "note": "Q3 Business Update 已于 2026-10-28 发布：净收入 €7.381 亿（+23% YoY，略超公司汇编一致预期 €7.303 亿约 +1.1%）；处理量 €4511 亿（+30%，超预期约 €4356 亿）。维持 2026 恒定汇率净收入增速指引 21%–23%；全年 EBITDA 利润率指引下调至 50%，并取消中期 EBITDA 目标。来源：Adyen 官网新闻稿 https://www.adyen.com/press-and-media/adyen-reports-third-quarter-2026-results"
-  },
-  "SU.PA": {
-   "nextDate": "2026-10-16",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "Schneider Electric Q3 2026 Revenues",
-    "url": "https://www.se.com/ww/en/assets/pdf/release-Q3-revenues-2026",
-    "asOf": "2026-10-28"
-   },
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-16",
-    "revenue": 11460000000,
-    "revenueYoY": 0.179,
-    "netIncome": null,
-    "epsGaap": null,
-    "note": "Q3 仅披露营收：114.60亿欧元，有机+16.9%、报表+17.9%，创季度纪录；FY26 调整后EBITA有机增长目标上调至+18%~+21%。无利润/EPS；一致预期未取得。",
-    "source": {
-     "name": "Schneider Electric Q3 2026 Revenues",
-     "url": "https://www.se.com/ww/en/assets/pdf/release-Q3-revenues-2026",
-     "asOf": "2026-10-28"
-    }
-   }
-  },
-  "688072.SS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 2308000000,
-    "revenueYoY": 0.0184,
-    "netIncome": 1088000000,
-    "netIncomeYoY": 1.3539,
-    "epsGaap": null,
-    "note": "Q3 单季；前三季营收52.20亿(+23.70%)、归母净利24.31亿(+336.79%)。A股仅有年度一致预期，无单季可比预期",
-    "source": {
-     "name": "拓荆科技 2026年第三季度报告",
-     "url": "http://notice.10jqka.com.cn/api/pdf/6e860445354fc17b.pdf",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "财联社",
-      "url": "https://www.cls.cn/detail/2518408",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "MSFT": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29T04:00:00+08:00",
-    "revenue": 92300000000,
-    "revenueYoY": 0.19,
-    "netIncome": 36600000000,
-    "netIncomeYoY": 0.32,
-    "epsGaap": 4.92,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "epsNonGaap": 4.89,
-    "epsNonGaapBasis": "Non-GAAP（剔除 OpenAI 投资影响）",
-    "epsActual": 4.89,
-    "epsEstimate": 4.73,
-    "epsSurprisePct": 0.0338,
-    "epsCompareBasis": "Non-GAAP vs LSEG 一致预期",
-    "manual": {
-     "revEstimate": 90690000000,
-     "revSource": "CNBC/LSEG"
-    },
-    "note": "FY27Q1；营收为官方约数$92.3B；Azure +48%",
-    "source": {
-     "name": "Microsoft FY27 Q1 Press Release",
-     "url": "https://www.microsoft.com/en-us/investor/earnings/FY-2027-Q1/press-release-webcast",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "CNBC(LSEG)",
-      "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "VRT": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28T18:30:00+08:00",
-    "revenue": 4312800000,
-    "revenueYoY": 0.6118,
-    "netIncome": 764500000,
-    "netIncomeYoY": 0.9184,
-    "epsGaap": 1.95,
-    "epsGaapBasis": "GAAP 摊薄 EPS",
-    "epsNonGaap": 2.21,
-    "epsActual": 2.21,
-    "epsEstimate": 1.82,
-    "epsSurprisePct": 0.2143,
-    "epsCompareBasis": "调整后摊薄 EPS vs Investing.com 一致预期",
-    "manual": {
-     "revEstimate": 3760000000,
-     "revSource": "Investing.com"
-    },
-    "guidance": "上调 FY2026 指引：营收 $14.45–14.85B，调整后 EPS $7.10–7.20",
-    "source": {
-     "name": "Vertiv Q3 2026 Press Release(SEC Ex99.1)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "Investing.com",
-      "url": "https://www.investing.com/news/earnings/vertiv-holdings-co-earnings-beat-by-039-revenue-topped-estimates-4978166",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "6857.T": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 477700000000,
-    "note": "FY26Q2 单季营业利润 2,668 亿日元（利润率 55.9%）；H1 营收 8,452 亿(+60.5%)、净利 3,681 亿(+116.8%)。单季 EPS 未在 IR 摘要中核对，沿用 Yahoo 值",
-    "source": {
-     "name": "Advantest Q2 FY2026 IR",
-     "url": "https://www.advantest.com/document/en/investors/ir-library/result/JE_BIZ_261028_note.pdf",
-     "asOf": "2026-10-29"
-    }
-   }
-  },
-  "2308.TW": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 197059000000,
-    "revenueYoY": 0.311,
-    "netIncome": 23495000000,
-    "netIncomeYoY": 0.263,
-    "epsGaap": 9.04,
-    "epsActual": 9.04,
-    "epsCompareBasis": "归母 EPS vs Yahoo 一致预期",
-    "note": "营收季增7.5%创新高，净利季减6.5%；经济日报称获利不如市场预期",
-    "source": {
-     "name": "台达电 115年Q3财报新闻稿",
-     "url": "https://www.deltaww.com/zh-TW/press/41194",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "中央社",
-      "url": "https://www.cna.com.tw/news/afe/202610280291.aspx",
-      "asOf": "2026-10-29"
-     },
-     {
-      "name": "经济日报",
-      "url": "https://money.udn.com/money/story/5612/9843353",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "603501.SS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 8124000000,
-    "revenueYoY": 0.038,
-    "netIncome": 1079000000,
-    "netIncomeYoY": -0.0874,
-    "epsGaap": 0.87,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季（豪威集团）；前三季营收221.49亿、归母净利22.99亿。修正此前 Yahoo 仍挂 QE 2026-06-30",
-    "source": {
-     "name": "同花顺·豪威集团三季报报道",
-     "url": "https://stock.10jqka.com.cn/20261029/c681229781.shtml",
-     "asOf": "2026-10-29"
-    }
-   }
-  },
-  "300394.SZ": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 1923000000,
-    "revenueYoY": 0.315,
-    "netIncome": 879000000,
-    "netIncomeYoY": 0.553,
-    "epsGaap": 0.8062,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季；前三季营收47.51亿(+21.25%)、归母净利20.83亿(+42.18%)。修正此前 Yahoo 仍挂 QE 2026-06-30",
-    "source": {
-     "name": "同花顺·天孚通信三季报",
-     "url": "https://news.10jqka.com.cn/20261028/c681209742.shtml",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "巨潮资讯 三季报 PDF",
-      "url": "https://static.cninfo.com.cn/finalpage/2026-10-29/1225634414.PDF",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "000977.SZ": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 44950000000,
-    "revenueYoY": 0.1105,
-    "netIncome": 980000000,
-    "netIncomeYoY": 0.4346,
-    "epsGaap": 0.6676,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季；前三季营收1293.29亿(+7.18%)、归母净利39.32亿(+165.32%)",
-    "source": {
-     "name": "巨潮资讯·浪潮信息2026年第三季度报告",
-     "url": "https://static.cninfo.com.cn/finalpage/2026-10-29/1225637120.PDF",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "中国金融信息网",
-      "url": "https://www.cnfin.com/kx/detail/20261028/4487696_1.html",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "3711.TW": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 244161000000,
-    "revenueYoY": 0.448,
-    "netIncome": 26996000000,
-    "netIncomeYoY": 1.484,
-    "epsGaap": 6.13,
-    "epsActual": 6.13,
-    "epsGaapBasis": "基本 EPS(新台币/股)",
-    "note": "Q3 营收季增27.8%；前三季营收6088.87亿、净利621.93亿、EPS 14.17。Q4 营收指引季增6%–8%",
-    "source": {
-     "name": "中央社·日月光投控Q3",
-     "url": "https://www.cna.com.tw/news/afe/202610290217.aspx",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "工商时报",
-      "url": "https://www.ctee.com.tw/news/20261029701674-430201",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "6861.T": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 388778000000,
-    "revenueYoY": 0.368,
-    "operatingProfit": 221186000000,
-    "operatingProfitYoY": 0.548,
-    "netIncome": 159542000000,
-    "netIncomeYoY": 0.479,
-    "note": "FY27Q2 单季；上半期(H1)营收7353.99亿(+34.9%)、营业利益4082.62亿。另宣布1拆5及增配",
-    "source": {
-     "name": "投资の森 / 日经适时报 基恩士 2027年3月期2Q",
-     "url": "https://nikkeiyosoku.com/stock/financial_results/6861/",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "Investing.com JP",
-      "url": "https://jp.investing.com/news/earnings/article-93CH-1732171",
-      "asOf": "2026-10-29"
-     },
-     {
-      "name": "日经公司披露",
-      "url": "https://www.nikkei.com/nkd/disclosure/tdnr/20261027557109/",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "STM": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-29",
-    "revenue": 3757000000,
-    "revenueYoY": 0.179,
-    "netIncome": 291000000,
-    "epsGaap": 0.31,
-    "epsNonGaap": 0.37,
-    "epsGaapBasis": "GAAP diluted EPS(USD)",
-    "epsNonGaapBasis": "non-GAAP diluted EPS(USD)",
-    "epsCompareBasis": "Yahoo 预期对比口径=non-GAAP",
-    "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
-    "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37",
-    "source": {
-     "name": "GlobeNewswire·STMicroelectronics Q3 2026",
-     "url": "https://www.globenewswire.com/news-release/2026/10/29/3390920/0/en/stmicroelectronics-reports-q3-2026-financial-results.html",
-     "asOf": "2026-10-29"
-    }
-   }
-  },
-  "688082.SS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 2024000000,
-    "revenueYoY": 0.0759,
-    "netIncome": 81538300,
-    "netIncomeYoY": -0.857,
-    "epsGaap": 0.16,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季；前三季营收57.42亿(+11.57%)、归母净利10.70亿。单季净利大降主因对外投资公允价值变动",
-    "source": {
-     "name": "同花顺·盛美上海三季报",
-     "url": "https://stock.10jqka.com.cn/20261028/c681196940.shtml",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "盛美上海三季报 PDF(10jqka)",
-      "url": "http://notice.10jqka.com.cn/api/pdf/e69dceb854ec04a5.pdf",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "002463.SZ": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-27",
-    "revenue": 9536000000,
-    "revenueYoY": 0.9002,
-    "netIncome": 2699000000,
-    "netIncomeYoY": 1.6077,
-    "epsGaap": 1.3783,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季盈利规模创新高；前三季营收232.25亿、归母净利56.22亿",
-    "source": {
-     "name": "同花顺·沪电股份三季报",
-     "url": "https://stock.10jqka.com.cn/20261028/c681175920.shtml",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "巨潮资讯 PDF",
-      "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225627804.PDF",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
-  },
-  "688111.SS": {
-   "lastReported": {
-    "quarterEnd": "2026-09-30",
-    "reportDate": "2026-10-28",
-    "revenue": 1766000000,
-    "revenueYoY": 0.1611,
-    "netIncome": 119000000,
-    "netIncomeYoY": -0.723,
-    "epsGaap": 0.2395,
-    "epsGaapBasis": "基本 EPS(人民币/股)",
-    "note": "Q3 单季；前三季营收50.80亿(+21.57%)、归母净利26.37亿(+123.77%)。单季净利下滑主因对外投资基金收益降低；经调整归母净利5.39亿(+8.44%)",
-    "source": {
-     "name": "巨潮资讯·金山办公三季报",
-     "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225630176.PDF",
-     "asOf": "2026-10-29"
-    },
-    "consensusSources": [
-     {
-      "name": "经济观察网",
-      "url": "http://www.eeo.com.cn/2026/1028/1077307.shtml",
-      "asOf": "2026-10-29"
-     }
-    ]
-   }
   }
- }
 }
