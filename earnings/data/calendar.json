@@ -1,6 +1,6 @@
 {
   "schema": "earnings-calendar-v1",
-  "updated": "2026-10-29T07:55:00+08:00",
+  "updated": "2026-10-29T08:06:07+08:00",
   "meetings": [
     {
       "id": "fomc-2026-09",
@@ -866,54 +866,57 @@
       "region": "US",
       "name": "Federal Funds Rate",
       "releaseAt": "2026-10-29T02:00:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "4.00%",
       "forecast": "4.00%",
       "previous": "4.00%",
-      "verdict": null,
-      "diff": null,
+      "verdict": "符合预期",
+      "diff": "0",
       "impact": "High",
       "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "Federal Reserve FOMC 声明",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
       },
-      "importance": 1
+      "importance": 1,
+      "note": "维持 3.75%–4.00%（10–2，2票异议主张加息25bp）；IORB 3.90%"
     },
     {
       "id": "ff-USD-202610290200-FOMCStatement",
       "region": "US",
       "name": "FOMC Statement",
       "releaseAt": "2026-10-29T02:00:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "维持利率不变，偏鹰（2票异议支持加息）",
       "forecast": "暂无",
       "previous": "暂无",
-      "verdict": null,
+      "verdict": "符合预期",
       "diff": null,
       "impact": "High",
       "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "Federal Reserve FOMC 声明",
+        "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
       },
-      "importance": 1
+      "importance": 1,
+      "note": "经济强劲扩张、通胀仍偏高，需更多信息再定政策"
     },
     {
       "id": "ff-USD-202610290230-FOMCPressConference",
       "region": "US",
       "name": "FOMC Press Conference",
       "releaseAt": "2026-10-29T02:30:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "已召开",
       "forecast": "暂无",
       "previous": "暂无",
-      "verdict": null,
+      "verdict": "暂无",
       "diff": null,
       "impact": "High",
       "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "CNBC",
+        "url": "https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html"
       },
-      "importance": 1
+      "importance": 1,
+      "note": "Warsh：2027年将有一次会议专门讨论货币政策框架（无利率投票）"
     },
     {
       "id": "ff-USD-202610292030-AdvanceGDPqq",
