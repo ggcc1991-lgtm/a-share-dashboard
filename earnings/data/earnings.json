@@ -1,7 +1,7 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-10-29T23:27:44+08:00",
- "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发规则：importance≥2 或 nextDate∈未来24h 时，若 overrides/Wind/公告已有本期 actual，即使预约写次日零点也立刻写入 lastReported 并清空 nextDate（dateStatus=reported），不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
+ "updated": "2026-10-29T23:41:38+08:00",
+ "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-10-29",
  "companies": [
   {
@@ -1564,26 +1564,27 @@
    "name": "SK海力士",
    "region": "KR",
    "currency": "KRW",
-   "nextDate": "2026-10-28",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
     "nextDate": {
      "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
      "url": "https://news.skhynix.com/en/q3-2026-business-results/",
-     "asOf": "2026-10-28"
+     "asOf": "2026-10-29",
+     "note": "本期已披露(reportDate=2026-10-28)，原 nextDate=2026-10-28 已清空"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
-      "asOf": "2026-10-29T23:13:04+08:00"
+      "asOf": "2026-10-29T23:41:33+08:00"
      }
     ],
     "lastReported": [
      {
-      "name": "SK hynix Newsroom: SK hynix Announces 3Q26 Financial Results",
+      "name": "SK hynix IR Q3 FY2026",
       "url": "https://news.skhynix.com/en/q3-2026-business-results/",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
      }
     ]
    },
@@ -1630,8 +1631,8 @@
     "epsEstimate": null,
     "epsSurprisePct": null
    },
-   "importance": 3,
-   "note": "官方IR：营收104.6155万亿韩元(+328% YoY)、营业利润83.3338万亿(+632%，约超联合InforMax一致预期9.3%)、净利39.7756万亿；基本EPS 54,773韩元。EPS一致预期暂不对比（Yahoo口径不一致）。"
+   "note": "官方IR：营收104.6155万亿韩元(+328% YoY)、营业利润83.3338万亿(+632%，约超联合InforMax一致预期9.3%)、净利39.7756万亿；基本EPS 54,773韩元。EPS一致预期暂不对比（Yahoo口径不一致）。",
+   "importance": 3
   },
   {
    "symbol": "SONY",
@@ -2232,26 +2233,27 @@
    "name": "三星生物",
    "region": "KR",
    "currency": "KRW",
-   "nextDate": "2026-10-21",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
     "nextDate": {
      "name": "Samsung Biologics 3Q26 业绩新闻稿",
      "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
-     "asOf": "2026-10-28"
+     "asOf": "2026-10-29",
+     "note": "本期已披露(reportDate=2026-10-21)，原 nextDate=2026-10-21 已清空"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/207940.KS/analysis",
-      "asOf": "2026-10-29T23:13:26+08:00"
+      "asOf": "2026-10-29T23:41:34+08:00"
      }
     ],
     "lastReported": [
      {
-      "name": "Samsung Biologics 3Q26 业绩新闻稿",
+      "name": "Samsung Biologics IR",
       "url": "https://samsungbiologics.com/media/company-news/samsung-biologics-reports-third-quarter-2026-financial-results",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
      }
     ]
    },
@@ -2285,10 +2287,11 @@
       "url": "https://en.yna.co.kr/view/AEN20261021008900320",
       "asOf": "2026-10-28"
      }
-    ]
+    ],
+    "epsActual": null
    },
-   "importance": 2,
-   "note": "Q3：营收1.4903万亿韩元(+18.5% YoY)、营业利润6401亿(+1.0%)、净利3911亿(-21.2%)；上调2026营收增速指引至20%。官方新闻稿未列EPS→epsActual暂无。"
+   "note": "Q3：营收1.4903万亿韩元(+18.5% YoY)、营业利润6401亿(+1.0%)、净利3911亿(-21.2%)；上调2026营收增速指引至20%。官方新闻稿未列EPS→epsActual暂无。",
+   "importance": 2
   },
   {
    "symbol": "035420.KS",
@@ -2894,26 +2897,26 @@
    "name": "Adyen",
    "region": "EU",
    "currency": "EUR",
-   "nextDate": "2026-10-28",
+   "nextDate": "2027-02-11",
    "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Adyen IR: Business Update Q3 2026",
-     "url": "https://investors.adyen.com/financials/q3-2026-10c88s",
-     "asOf": "2026-10-28"
+     "name": "Adyen IR: Earnings Call H2 2026",
+     "url": "https://investors.adyen.com/events/earnings-call-h2-2026",
+     "asOf": "2026-10-29"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADYEN.AS/analysis",
-      "asOf": "2026-10-29T23:13:46+08:00"
+      "asOf": "2026-10-29T23:41:36+08:00"
      }
     ],
     "lastReported": [
      {
-      "name": "Adyen publishes Q3 2026 Business Update",
+      "name": "Adyen Q3 2026 Business Update",
       "url": "https://www.adyen.com/press-and-media/adyen-publishes-q3-2026-business-update-6r9vz0",
-      "asOf": "2026-10-28"
+      "asOf": "2026-10-29"
      }
     ]
    },
@@ -2950,9 +2953,7 @@
       "asOf": "2026-10-28"
      }
     ],
-    "epsActual": null,
-    "epsEstimate": null,
-    "epsSurprisePct": null
+    "epsActual": null
    },
    "note": "Q3 Business Update(2026-10-28)：净收入€7.381亿(+23% YoY，略超公司汇编一致预期€7.303亿约+1.1%)；处理量€4511亿(+30%)。下调2026 EBITDA利润率目标至50%。无EPS（非完整财报）→epsActual暂无。",
    "importance": 2
@@ -3354,26 +3355,27 @@
    "name": "施耐德电气",
    "region": "EU",
    "currency": "EUR",
-   "nextDate": "2026-10-16",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
     "nextDate": {
      "name": "Schneider Electric Q3 2026 Revenues",
      "url": "https://www.se.com/ww/en/assets/pdf/release-Q3-revenues-2026",
-     "asOf": "2026-10-28"
+     "asOf": "2026-10-29",
+     "note": "本期已披露(reportDate=2026-10-16)，原 nextDate=2026-10-16 已清空"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SU.PA/analysis",
-      "asOf": "2026-10-29T23:14:13+08:00"
+      "asOf": "2026-10-29T23:41:37+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Schneider Electric Q3 2026 Revenues",
-      "url": "https://www.se.com/ww/en/assets/pdf/release-Q3-revenues-2026",
-      "asOf": "2026-10-28"
+      "url": "https://www.se.com/ww/en/about-us/investor-relations/financial-results/",
+      "asOf": "2026-10-29"
      }
     ]
    },
@@ -3400,8 +3402,8 @@
     "note": "Q3 仅披露营收：114.60亿欧元，有机+16.9%、报表+17.9%，创季度纪录；FY26 调整后EBITA有机增长目标上调至+18%~+21%。无利润/EPS；一致预期未取得。",
     "epsActual": null
    },
-   "importance": 3,
-   "note": "Q3收入€114.6亿（纪录），有机+16.9%（超分析师预期约13.8%），上调2026指引；数据中心需求三位数增长。本季为收入简报无EPS→epsActual暂无。"
+   "note": "Q3收入€114.6亿（纪录），有机+16.9%（超分析师预期约13.8%），上调2026指引；数据中心需求三位数增长。本季为收入简报无EPS→epsActual暂无。",
+   "importance": 3
   },
   {
    "symbol": "SMCI",
