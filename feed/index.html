@@ -34,6 +34,8 @@
 
     <section id="feed-analysis" class="panel fa-panel" aria-label="实时分析" hidden></section>
 
+    <section id="feed-deepreads" class="panel fa-panel fr-panel" aria-label="卖方研报精读" hidden></section>
+
     <div class="grid grid-4" id="kpis" style="margin-bottom:12px"></div>
     <div class="tools">
       <div id="filters" style="display:flex;gap:8px;flex-wrap:wrap"></div>
@@ -41,7 +43,7 @@
     </div>
     <div id="list"></div>
   </main>
-  <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary · 分析：data/feed-analysis.json</footer>
+  <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary · 分析：data/feed-analysis.json · 精读：data/feed-research-deepreads.json</footer>
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
   <script>
@@ -558,6 +560,84 @@
       document.getElementById("meta").textContent = parts.join(" · ");
     }
 
+
+    const STANCE_ZH = { bullish: "看多", bearish: "看空", neutral: "中性", mixed: "分歧" };
+
+    function hideDeepreads() {
+      const root = document.getElementById("feed-deepreads");
+      if (!root) return;
+      root.hidden = true;
+      root.innerHTML = "";
+    }
+
+    function deepReadParas(text) {
+      const raw = String(text || "").trim();
+      if (!raw) return "";
+      return raw.split(/\n\n+/).map((p) => p.trim()).filter(Boolean)
+        .map((p) => `<p class="fr-deep">${esc(p)}</p>`).join("");
+    }
+
+    function renderDeepreads(d) {
+      const root = document.getElementById("feed-deepreads");
+      if (!root) return;
+      const items = Array.isArray(d && d.items) ? d.items : [];
+      const valid = items.filter((x) => x && x.title && x.broker && x.url && x.deepRead).slice(0, 2);
+      if (!valid.length) {
+        hideDeepreads();
+        return;
+      }
+      const ts = (d.generatedAtDisplay && String(d.generatedAtDisplay).trim()) || "";
+      let html = `
+        <div class="fa-hd">
+          <span class="fa-label">卖方研报精读</span>
+          ${ts ? `<span class="fa-updated">${esc(ts)}</span>` : ""}
+        </div>
+        <div class="fa-body fr-body">`;
+      html += valid.map((it) => {
+        const stance = STANCE_ZH[it.stance] || "";
+        const stanceCls = it.stance ? ` fr-stance-${esc(it.stance)}` : "";
+        const pub = it.publishedAt ? `<span class="fr-pub mono">${esc(DashFmt.time(it.publishedAt))}</span>` : "";
+        const sum = it.summary ? `<p class="fr-sum">${esc(it.summary)}</p>` : "";
+        const kps = Array.isArray(it.keyPoints) && it.keyPoints.length
+          ? `<ul class="fa-list fr-kps">${it.keyPoints.map((k) => `<li>${esc(typeof k === "string" ? k : String(k))}</li>`).join("")}</ul>`
+          : "";
+        const ticks = Array.isArray(it.tickers) && it.tickers.length
+          ? `<div class="fr-ticks">${it.tickers.map((t) => `<span class="chip fr-tick">${esc(String(t))}</span>`).join("")}</div>`
+          : "";
+        const why = it.whyPicked ? `<p class="fr-why">${esc(it.whyPicked)}</p>` : "";
+        return `
+          <article class="fr-card">
+            <div class="fr-top">
+              <span class="chip fr-broker">${esc(it.broker)}</span>
+              ${stance ? `<span class="chip fr-stance${stanceCls}">${esc(stance)}</span>` : ""}
+              ${pub}
+            </div>
+            <h3 class="fr-title"><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>
+            ${sum}
+            <div class="fr-deep-wrap">${deepReadParas(it.deepRead)}</div>
+            ${kps}
+            ${ticks}
+            ${why}
+          </article>`;
+      }).join("");
+      html += `</div>`;
+      root.innerHTML = html;
+      root.hidden = false;
+    }
+
+    async function loadDeepreads() {
+      try {
+        const res = await fetch("../data/feed-research-deepreads.json");
+        if (!res.ok) { hideDeepreads(); return; }
+        const d = await res.json();
+        if (!d || typeof d !== "object") { hideDeepreads(); return; }
+        renderDeepreads(d);
+      } catch (_) {
+        hideDeepreads();
+      }
+    }
+
+
     let _faResizeTimer = null;
     window.addEventListener("resize", () => {
       clearTimeout(_faResizeTimer);
@@ -566,10 +646,11 @@
 
     (async () => {
       const analysisP = loadAnalysis();
+      const deepreadsP = loadDeepreads();
       try {
         const d = await (await fetch("../data/feed.json")).json();
         items = (d.items || []).filter(x => !/(加微信|微信群|加群|拉群|拉你|进群|入群|置顶微信|扫码进群|二维码|加V|wx号|免费领取)/.test((x.title||"")+" "+(x.summary||"")));
-        await analysisP;
+        await Promise.all([analysisP, deepreadsP]);
         updateMeta(d.updated, items.length);
         const counts = items.reduce((m, x) => ((m[x.source] = (m[x.source] || 0) + 1), m), {});
         document.getElementById("kpis").innerHTML = `
@@ -594,7 +675,7 @@
       } catch (e) {
         document.getElementById("meta").textContent = "无法加载 feed.json";
         document.getElementById("list").innerHTML = `<div class="empty">${esc(String(e))}</div>`;
-        await analysisP;
+        await Promise.all([analysisP, deepreadsP]);
       }
     })();
   </script>
