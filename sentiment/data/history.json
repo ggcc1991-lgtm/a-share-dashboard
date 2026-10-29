@@ -1,6 +1,6 @@
 {
   "algoVersion": "market-emotion-eod-v3",
-  "exportedAt": "2026-10-29T07:31:00.000Z",
+  "exportedAt": "2026-10-29T07:40:00.000Z",
   "source": "sina/tencent via eastmoney provider",
   "days": [
     {
@@ -11113,38 +11113,37 @@
     },
     {
       "date": "20261029",
-      "emotionScore": 33.3,
+      "emotionScore": 31.9,
       "regime": "weak",
       "regimeLabel": "Risk-Off (防守)",
       "suggestedPosition": 0,
       "positionTier": "空仓观望",
       "allowOpen": false,
-      "hs300Close": 4034.81,
-      "hs300ChangePct": -1.2,
-      "volumeRatio": 0.46,
+      "hs300Close": 4041.84,
+      "hs300ChangePct": -1.03,
+      "volumeRatio": 0.79,
       "banReasons": [
-        "情绪得分 33.3 < 54",
-        "量能比 0.46 < 0.55"
+        "情绪得分 31.9 < 54"
       ],
       "gates": [
         {
           "key": "emotion",
           "label": "情绪阈值",
-          "current": "33.3",
+          "current": "31.9",
           "threshold": ">= 54",
           "passed": false
         },
         {
           "key": "volume",
           "label": "量能阈值",
-          "current": "0.46",
+          "current": "0.79",
           "threshold": ">= 0.55",
-          "passed": false
+          "passed": true
         },
         {
           "key": "hs300",
           "label": "HS300 涨跌幅",
-          "current": "-1.2%",
+          "current": "-1.03%",
           "threshold": ">= -3.00%",
           "passed": true
         }
@@ -11153,50 +11152,50 @@
         {
           "id": "hs300_trend",
           "name": "沪深300趋势",
-          "score": 55.05,
+          "score": 57.13,
           "weight": 0.2,
-          "contribution": 11.01,
-          "rawValue": "4034.81 / MA5 4075.42 / MA20 4204.01"
+          "contribution": 11.43,
+          "rawValue": "4041.84 / MA5 4076.83 / MA20 4204.36"
         },
         {
           "id": "volume",
           "name": "量能健康度",
-          "score": 0,
+          "score": 26.44,
           "weight": 0.15,
-          "contribution": 0,
-          "rawValue": "当日成交额 2383.55 亿\n60日均额 5179.06 亿\n量能比 0.46"
+          "contribution": 3.97,
+          "rawValue": "当日成交额 4118.93 亿\n60日均额 5207.98 亿\n量能比 0.79"
         },
         {
           "id": "volume_trend",
           "name": "量能趋势",
-          "score": 23.83,
+          "score": 25.36,
           "weight": 0.05,
-          "contribution": 1.19,
-          "rawValue": "20日均额 4094.57 亿\n60日均额 5179.06 亿\n20/60趋势 0.79"
+          "contribution": 1.27,
+          "rawValue": "20日均额 4181.34 亿\n60日均额 5207.98 亿\n20/60趋势 0.8"
         },
         {
           "id": "market_breadth",
           "name": "市场宽度",
-          "score": 7.45,
+          "score": 7.67,
           "weight": 0.15,
-          "contribution": 1.12,
-          "rawValue": "上涨 562\n下跌 3994\n平盘 470\n上涨占比 11.2%"
+          "contribution": 1.15,
+          "rawValue": "上涨 578\n下跌 4026\n平盘 422\n上涨占比 11.5%"
         },
         {
           "id": "advance_decline",
           "name": "涨跌比",
-          "score": 7.04,
+          "score": 7.18,
           "weight": 0.15,
-          "contribution": 1.06,
-          "rawValue": "562 / 3994 = 0.14"
+          "contribution": 1.08,
+          "rawValue": "578 / 4026 = 0.14"
         },
         {
           "id": "limit_up_down",
           "name": "涨跌停比",
-          "score": 60.23,
+          "score": 33.62,
           "weight": 0.15,
-          "contribution": 9.03,
-          "rawValue": "37 / 22 = 1.68"
+          "contribution": 5.04,
+          "rawValue": "39 / 58 = 0.67"
         },
         {
           "id": "max_height",
@@ -11209,10 +11208,10 @@
         {
           "id": "panic_factor",
           "name": "恐慌因子",
-          "score": 38,
+          "score": 0,
           "weight": 0.05,
-          "contribution": 1.9,
-          "rawValue": "炸板 29 + 跌停 22 * 2 = 73"
+          "contribution": 0,
+          "rawValue": "炸板 37 + 跌停 58 * 2 = 153"
         }
       ]
     }
@@ -11220,6 +11219,6 @@
   "failed": [],
   "notes": [
     "成交额单位已统一为亿元（部分日期原始为错位单位，已/1000 修正；量能比不受影响）",
-    "2026-10-29 午间盘中快照（未收盘，收盘后将覆盖）"
+    "2026-10-29 收盘 EOD 快照（覆盖午盘）"
   ]
 }
