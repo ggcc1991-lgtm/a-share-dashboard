@@ -296,10 +296,16 @@
       `数据更新：${D.updated || "—"} | 最新交易日：${dates[L - 1] || "—"} | 监控 ${codes.length} 只国家队重仓ETF` +
       (D.sample ? " · sample" : "");
 
-    const w = D.warnings || [];
+    // Quality VWAP/Sina alerts are private (gjd-etf-tracker); never show on public page.
+    // Published etf.json omits warnings; this filter is defense if raw data.json is copied.
+    const QUALITY_WARN_RE = /Sina fallback|VWAP≈close|flow used close as VWAP/i;
+    const w = (D.warnings || []).filter((msg) => !QUALITY_WARN_RE.test(String(msg)));
     if (w.length) {
       $("warnBox").style.display = "block";
       $("warnBox").textContent = "告警：" + w.slice(-4).join("； ");
+    } else {
+      $("warnBox").style.display = "none";
+      $("warnBox").textContent = "";
     }
 
     const totalFlow = dates.map((_, i) => {
