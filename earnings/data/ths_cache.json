@@ -1,44 +1,100 @@
 {
- "_doc": "同花顺 MCP 缓存。THS 无披露日/一致预期工具；可选写入 ashareYtd（累计口径）。",
- "asOf": "2026-10-29T23:08:00+08:00",
- "ashareYtd": {
-  "603501.SH": {
-   "quarterEnd": "2026-09-30",
-   "reportDate": "2026-10-28",
-   "revenue": 22148589613.96,
-   "netIncome": 2298795688.38,
-   "epsGaap": 1.84,
-   "note": "THS 累计前三季（非单季）"
+  "_doc": "同花顺 MCP 缓存。THS 无披露日/一致预期工具；可选写入 ashareYtd（累计口径）。 | 2026-10-29晚早发三季报 YTD 已补。",
+  "asOf": "2026-10-29T23:35:00+08:00",
+  "ashareYtd": {
+    "603501.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-28",
+      "revenue": 22148589613.96,
+      "netIncome": 2298795688.38,
+      "epsGaap": 1.84,
+      "note": "THS 累计前三季（非单季）"
+    },
+    "000977.SZ": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 129328997859.78,
+      "netIncome": 3932120372.78,
+      "epsGaap": 2.6777,
+      "note": "THS 累计前三季（非单季）"
+    },
+    "300394.SZ": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-28",
+      "revenue": 4751099905,
+      "netIncome": 2083459571.46,
+      "epsGaap": 1.9119,
+      "note": "THS 累计前三季（非单季）"
+    },
+    "688082.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-28",
+      "revenue": 5742028626,
+      "netIncome": 1070487678.72,
+      "epsGaap": 2.23,
+      "note": "THS 累计前三季（非单季）"
+    },
+    "600183.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 33207534206.33,
+      "netIncome": 6727389219.18,
+      "epsGaap": 2.8,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "002371.SZ": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 31467092379.45,
+      "netIncome": 5391953807.41,
+      "epsGaap": 7.4351,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "300308.SZ": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 69547057722.09,
+      "netIncome": 22237939006.75,
+      "epsGaap": 19.78,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "300502.SZ": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 31849895741.23,
+      "netIncome": 11372330534.73,
+      "epsGaap": 8.16,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "601138.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 941414498000.0,
+      "netIncome": 40374611000.0,
+      "epsGaap": 2.04,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "603986.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 20297371376.5,
+      "netIncome": 11065687391.96,
+      "epsGaap": 15.83,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    },
+    "688008.SH": {
+      "quarterEnd": "2026-09-30",
+      "reportDate": "2026-10-29",
+      "revenue": 5414416191.47,
+      "netIncome": 3237117611.82,
+      "epsGaap": 2.71,
+      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
+    }
   },
-  "000977.SZ": {
-   "quarterEnd": "2026-09-30",
-   "reportDate": "2026-10-29",
-   "revenue": 129328997859.78,
-   "netIncome": 3932120372.78,
-   "epsGaap": 2.6777,
-   "note": "THS 累计前三季（非单季）"
-  },
-  "300394.SZ": {
-   "quarterEnd": "2026-09-30",
-   "reportDate": "2026-10-28",
-   "revenue": 4751099905,
-   "netIncome": 2083459571.46,
-   "epsGaap": 1.9119,
-   "note": "THS 累计前三季（非单季）"
-  },
-  "688082.SH": {
-   "quarterEnd": "2026-09-30",
-   "reportDate": "2026-10-28",
-   "revenue": 5742028626,
-   "netIncome": 1070487678.72,
-   "epsGaap": 2.23,
-   "note": "THS 累计前三季（非单季）"
+  "capabilities": {
+    "next_date": false,
+    "consensus": false,
+    "ashareYtd": true,
+    "note": "需 agent 经 get_a_share_financials_income_statements 填充"
   }
- },
- "capabilities": {
-  "next_date": false,
-  "consensus": false,
-  "ashareYtd": true,
-  "note": "需 agent 经 get_a_share_financials_income_statements 填充"
- }
 }
