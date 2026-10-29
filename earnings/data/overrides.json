@@ -1,5 +1,5 @@
 {
-  "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。",
+  "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。 规则：预约日写在次日零点但当晚已发的，立刻写入 lastReported，并将 nextDate 置 null / dateStatus=reported，勿因日历未到跳过。",
   "companies": {
     "0700.HK": {
       "nextDate": "2026-11-18",
@@ -834,6 +834,243 @@
           {
             "name": "经济观察网",
             "url": "http://www.eeo.com.cn/2026/1028/1077307.shtml",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "600183.SS": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)：三季报 2026-10-29 晚",
+        "url": "https://stock.10jqka.com.cn/20261029/c681252238.shtml",
+        "asOf": "2026-10-29"
+      },
+      "note": "预约披露日写在 10-30 零点，实际 10-29 晚已发；refresh 应立刻写入，勿因日历未到而跳过。",
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 14181922440.2,
+        "revenueYoY": 0.7876,
+        "netIncome": 3440411940.85,
+        "netIncomeYoY": 2.384,
+        "epsGaap": 1.44,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "epsActual": 1.44,
+        "note": "Q3 单季；前三季营收332.08亿(+61.10%)、归母净利67.27亿(+175.36%)、基本EPS 2.80。日历预约10-30 00:00，实际10-29晚已披露。A股无单季可比一致预期。",
+        "source": {
+          "name": "同花顺·生益科技三季报快讯",
+          "url": "https://stock.10jqka.com.cn/20261029/c681252238.shtml",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "东方财富·生益科技三季报",
+            "url": "https://finance.eastmoney.com/a/202610293914645012.html",
+            "asOf": "2026-10-29"
+          },
+          {
+            "name": "Wind 公告·生益科技2026年第三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "002371.SZ": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://www.yicai.com/brief/103415556.html",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 11305675488.89,
+        "revenueYoY": 0.0131,
+        "netIncome": 2021933130.66,
+        "netIncomeYoY": 0.0518,
+        "epsGaap": 2.7865,
+        "epsGaapBasis": "基本 EPS(人民币/股)，由累计差减",
+        "epsActual": 2.7865,
+        "note": "Q3 单季；前三季营收314.67亿(+15.26%)、归母净利53.92亿(+5.10%)、基本EPS 7.4351。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "第一财经·北方华创三季报",
+          "url": "https://www.yicai.com/brief/103415556.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·北方华创2026年三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "300308.SZ": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 27769195927.06,
+        "revenueYoY": 1.7183,
+        "netIncome": 8586789313.48,
+        "netIncomeYoY": 1.7374,
+        "epsGaap": 7.47,
+        "epsGaapBasis": "基本 EPS(人民币/股)，由累计差减",
+        "epsActual": 7.47,
+        "note": "Q3 单季；前三季营收695.47亿(+178.13%)、归母净利222.38亿(+211.81%)、基本EPS 19.78。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "21经济网·易中天三季报",
+          "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·中际旭创2026年三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "300502.SZ": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 10940148779.03,
+        "revenueYoY": 0.803,
+        "netIncome": 3843162495.34,
+        "netIncomeYoY": 0.6115,
+        "epsGaap": 2.75,
+        "epsGaapBasis": "基本 EPS(人民币/股)，由累计差减",
+        "epsActual": 2.75,
+        "note": "Q3 单季；前三季营收318.50亿(+92.97%)、归母净利113.72亿(+79.74%)、基本EPS 8.16。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "21经济网·易中天三季报",
+          "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·新易盛2026年三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "601138.SS": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://www.yicai.com/brief/103415300.html",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 383553853000.0,
+        "revenueYoY": 0.5773,
+        "netIncome": 16634153000.0,
+        "netIncomeYoY": 0.6035,
+        "epsGaap": 0.84,
+        "epsGaapBasis": "基本 EPS(人民币/股)，由累计差减",
+        "epsActual": 0.84,
+        "note": "Q3 单季；前三季营收9414.14亿(+55.88%)、归母净利403.75亿(+79.55%)、基本EPS 2.04。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "第一财经·工业富联三季报",
+          "url": "https://www.yicai.com/brief/103415300.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·工业富联2026年第三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "603986.SS": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://finance.eastmoney.com/a/202610293914294266.html",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 8731610944.35,
+        "revenueYoY": 2.2565,
+        "netIncome": 4208900978.28,
+        "netIncomeYoY": 7.2893,
+        "epsGaap": 6.0,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "epsActual": 6.0,
+        "note": "Q3 单季；前三季营收202.97亿(+197.11%)、归母净利110.66亿(+921.55%)、基本EPS 15.83。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "东方财富·兆易创新三季报",
+          "url": "https://finance.eastmoney.com/a/202610293914294266.html",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·兆易创新2026年第三季度报告",
+            "url": "https://www.wind.com.cn/",
+            "asOf": "2026-10-29"
+          }
+        ]
+      }
+    },
+    "688008.SS": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "dateSource": {
+        "name": "已披露(早于预约日)",
+        "url": "https://www.ithome.com/1/019/674.htm",
+        "asOf": "2026-10-29"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-29",
+        "revenue": 2078918669.66,
+        "revenueYoY": 0.46,
+        "netIncome": 1239743093.95,
+        "netIncomeYoY": 1.62,
+        "epsGaap": 1.03,
+        "epsGaapBasis": "基本 EPS(人民币/股)",
+        "epsActual": 1.03,
+        "note": "Q3 单季；前三季营收54.14亿(+33.4%)、归母净利32.37亿(+98.3%)、基本EPS 2.71。日历预约10-30，实际10-29已披露。",
+        "source": {
+          "name": "IT之家·澜起科技三季报",
+          "url": "https://www.ithome.com/1/019/674.htm",
+          "asOf": "2026-10-29"
+        },
+        "consensusSources": [
+          {
+            "name": "Wind 公告·澜起科技2026年第三季度报告",
+            "url": "https://www.wind.com.cn/",
             "asOf": "2026-10-29"
           }
         ]
