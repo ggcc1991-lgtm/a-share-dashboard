@@ -1,438 +1,402 @@
 {
-  "_doc": "MCP 拉取缓存（CallDynamicTool user-wind-*）。Python 适配器只读此文件，不直连 MCP。由 agent 刷新。",
-  "asOf": "2026-10-27T23:50:54+08:00",
-  "source": "Wind MCP get_stock_events / get_stock_fundamentals / query_economic_indicator_data",
-  "nextDates": {
-    "002371.SZ": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688012.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688072.SH": {
-      "nextDate": "2026-10-29",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688120.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688082.SH": {
-      "nextDate": "2026-10-29",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688126.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688019.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "603986.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "603501.SH": {
-      "nextDate": "2026-10-29",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688008.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "002463.SZ": {
-      "nextDate": "2026-10-28",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "actual"
-    },
-    "600183.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "300308.SZ": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "300502.SZ": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "300394.SZ": {
-      "nextDate": "2026-10-29",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "601138.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "000977.SZ": {
-      "nextDate": "2026-10-29",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "estimated"
-    },
-    "688111.SH": {
-      "nextDate": "2026-10-28",
-      "dateStatus": "confirmed",
-      "period": "Q3 FY2026",
-      "field": "actual"
-    }
+ "_doc": "MCP 拉取缓存（CallDynamicTool user-wind-*）。Python 适配器只读此文件，不直连 MCP。由 agent 刷新。",
+ "asOf": "2026-10-29T23:15:00+08:00",
+ "source": "Wind MCP get_stock_events / get_stock_fundamentals / query_economic_indicator_data",
+ "nextDates": {
+  "002371.SZ": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
   },
-  "events": {
-    "002371.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "688012.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
-    "688072.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-29",
-        "actual": null
-      }
-    ],
-    "688120.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
-    "688082.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-29",
-        "actual": null
-      }
-    ],
-    "688126.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "688019.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
-    "688256.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-24",
-        "actual": "2026-10-24"
-      }
-    ],
-    "688041.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-20",
-        "actual": "2026-10-20"
-      }
-    ],
-    "603986.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "603501.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-29",
-        "actual": null
-      }
-    ],
-    "688008.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "600584.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-23",
-        "actual": "2026-10-23"
-      }
-    ],
-    "002463.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-28",
-        "actual": "2026-10-28"
-      }
-    ],
-    "600183.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "300308.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "300502.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "300394.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-29",
-        "actual": null
-      }
-    ],
-    "601138.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "000977.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-29",
-        "actual": null
-      }
-    ],
-    "002837.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-27",
-        "actual": "2026-10-27"
-      }
-    ],
-    "688111.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-28",
-        "actual": "2026-10-28"
-      }
-    ],
-    "002230.SZ": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-20",
-        "actual": "2026-10-20"
-      }
-    ]
+  "688012.SH": {
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
   },
-  "consensus": {
-    "688126.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": -0.2055,
-      "revYiYuan": 49.1725,
-      "npYiYuan": -6.7911
-    },
-    "688019.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 4.7811,
-      "revYiYuan": 33.0286,
-      "npYiYuan": 10.9179
-    },
-    "688256.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 9.036,
-      "revYiYuan": 163.3431,
-      "npYiYuan": 56.8232
-    },
-    "300502.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 14.6225,
-      "revYiYuan": 532.3551,
-      "npYiYuan": 203.9448
-    },
-    "002230.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 0.4776,
-      "revYiYuan": 313.5494,
-      "npYiYuan": 11.4731
-    },
-    "300308.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 29.7662,
-      "revYiYuan": 1088.0926,
-      "npYiYuan": 350.6193
-    },
-    "688041.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 1.9118,
-      "revYiYuan": 225.7419,
-      "npYiYuan": 44.4371
-    },
-    "002463.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.5595,
-      "revYiYuan": 287.9736,
-      "npYiYuan": 68.4982
-    },
-    "688012.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 4.4931,
-      "revYiYuan": 169.8818,
-      "npYiYuan": 43.0372
-    },
-    "688120.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 2.732,
-      "revYiYuan": 60.1475,
-      "npYiYuan": 13.9975
-    },
-    "688082.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.8736,
-      "revYiYuan": 84.41,
-      "npYiYuan": 18.7975
-    },
-    "600183.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.0497,
-      "revYiYuan": 456.2252,
-      "npYiYuan": 74.0766
-    },
-    "000977.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.5296,
-      "revYiYuan": 2113.6578,
-      "npYiYuan": 51.8318
-    },
-    "300394.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.238,
-      "revYiYuan": 88.5608,
-      "npYiYuan": 35.3204
-    },
-    "002371.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 9.9009,
-      "revYiYuan": 501.2159,
-      "npYiYuan": 72.0738
-    },
-    "688008.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.0025,
-      "revYiYuan": 75.8944,
-      "npYiYuan": 36.663
-    },
-    "002837.SZ": {
-      "fiscalYear": 2026,
-      "epsAvg": 0.8605,
-      "revYiYuan": 99.3819,
-      "npYiYuan": 11.0083
-    },
-    "603501.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.0983,
-      "revYiYuan": 308.0491,
-      "npYiYuan": 39.0062
-    },
-    "600584.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 1.2482,
-      "revYiYuan": 438.2776,
-      "npYiYuan": 22.3355
-    },
-    "601138.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 3.1205,
-      "revYiYuan": 14857.905,
-      "npYiYuan": 619.2381
-    },
-    "688072.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 6.8855,
-      "revYiYuan": 91.6654,
-      "npYiYuan": 20.1177
-    },
-    "603986.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 17.4892,
-      "revYiYuan": 255.3888,
-      "npYiYuan": 123.1188
-    },
-    "688111.SH": {
-      "fiscalYear": 2026,
-      "epsAvg": 7.0564,
-      "revYiYuan": 71.0572,
-      "npYiYuan": 32.7428
-    }
+  "688120.SH": {
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
   },
-  "macro": {
-    "cn-cpi-2026-10": {
-      "forecast": "CPI 0.8% / PPI 5.4%（Wind一致预期）",
-      "forecastDetail": {
-        "cpiYoY": 0.75,
-        "ppiYoY": 5.43,
-        "codes": {
-          "cpi": "M0061676",
-          "ppi": "M0061677"
-        },
-        "asOf": "2026-10-26"
-      }
-    },
-    "cn-pmi-2026-10": {
-      "forecastWind": 49.97,
-      "code": "M0331594",
-      "asOf": "2026-10-22"
-    }
+  "688126.SH": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
   },
-  "symbolMapNote": "earnings.json 沪市用 .SS；Wind 用 .SH。适配器自动映射。"
+  "688019.SH": {
+   "nextDate": "2026-10-31",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "603986.SH": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "688008.SH": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "600183.SH": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "300308.SZ": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "300502.SZ": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  },
+  "601138.SH": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "estimated"
+  }
+ },
+ "events": {
+  "002371.SZ": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "688012.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-31",
+    "actual": null
+   }
+  ],
+  "688072.SH": {
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "688120.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-31",
+    "actual": null
+   }
+  ],
+  "688082.SH": {
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "688126.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "688019.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-31",
+    "actual": null
+   }
+  ],
+  "688256.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-24",
+    "actual": "2026-10-24"
+   }
+  ],
+  "688041.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-20",
+    "actual": "2026-10-20"
+   }
+  ],
+  "603986.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "603501.SH": {
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "688008.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "600584.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-23",
+    "actual": "2026-10-23"
+   }
+  ],
+  "002463.SZ": {
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "600183.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "300308.SZ": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "300502.SZ": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "300394.SZ": {
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "601138.SH": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-30",
+    "actual": null
+   }
+  ],
+  "000977.SZ": {
+   "nextDate": "2026-10-29",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "002837.SZ": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-27",
+    "actual": "2026-10-27"
+   }
+  ],
+  "688111.SH": {
+   "nextDate": "2026-10-28",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual"
+  },
+  "002230.SZ": [
+   {
+    "period": "Q3 FY2026",
+    "estimated": "2026-10-20",
+    "actual": "2026-10-20"
+   }
+  ],
+  "002594.SZ": {
+   "nextDate": "2026-10-30",
+   "dateStatus": "confirmed",
+   "period": "Q3 FY2026",
+   "field": "actual",
+   "note": "媒体10-29已披露Q3；Wind原预约10-30"
+  }
+ },
+ "consensus": {
+  "688126.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": -0.2055,
+   "revYiYuan": 49.1725,
+   "npYiYuan": -6.7911
+  },
+  "688019.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 4.7811,
+   "revYiYuan": 33.0286,
+   "npYiYuan": 10.9179
+  },
+  "688256.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 9.036,
+   "revYiYuan": 163.3431,
+   "npYiYuan": 56.8232
+  },
+  "300502.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 14.6225,
+   "revYiYuan": 532.3551,
+   "npYiYuan": 203.9448
+  },
+  "002230.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 0.4776,
+   "revYiYuan": 313.5494,
+   "npYiYuan": 11.4731
+  },
+  "300308.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 29.7662,
+   "revYiYuan": 1088.0926,
+   "npYiYuan": 350.6193
+  },
+  "688041.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 1.9118,
+   "revYiYuan": 225.7419,
+   "npYiYuan": 44.4371
+  },
+  "002463.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.6446,
+   "revYiYuan": 293.003,
+   "npYiYuan": 70.2888
+  },
+  "688012.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 4.4931,
+   "revYiYuan": 169.8818,
+   "npYiYuan": 43.0372
+  },
+  "688120.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 2.732,
+   "revYiYuan": 60.1475,
+   "npYiYuan": 13.9975
+  },
+  "688082.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.8736,
+   "revYiYuan": 84.41,
+   "npYiYuan": 18.7975
+  },
+  "600183.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.0497,
+   "revYiYuan": 456.2252,
+   "npYiYuan": 74.0766
+  },
+  "000977.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.6146,
+   "revYiYuan": 2123.5677,
+   "npYiYuan": 53.0799
+  },
+  "300394.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.238,
+   "revYiYuan": 88.5608,
+   "npYiYuan": 35.3204
+  },
+  "002371.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 9.9009,
+   "revYiYuan": 501.2159,
+   "npYiYuan": 72.0738
+  },
+  "688008.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.0025,
+   "revYiYuan": 75.8944,
+   "npYiYuan": 36.663
+  },
+  "002837.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 0.8605,
+   "revYiYuan": 99.3819,
+   "npYiYuan": 11.0083
+  },
+  "603501.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.0983,
+   "revYiYuan": 308.0491,
+   "npYiYuan": 39.0062
+  },
+  "600584.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 1.2482,
+   "revYiYuan": 438.2776,
+   "npYiYuan": 22.3355
+  },
+  "601138.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 3.1205,
+   "revYiYuan": 14857.905,
+   "npYiYuan": 619.2381
+  },
+  "688072.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 6.8855,
+   "revYiYuan": 91.6654,
+   "npYiYuan": 20.1177
+  },
+  "603986.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 17.4892,
+   "revYiYuan": 255.3888,
+   "npYiYuan": 123.1188
+  },
+  "688111.SH": {
+   "fiscalYear": 2026,
+   "epsAvg": 6.9915,
+   "revYiYuan": 70.9106,
+   "npYiYuan": 32.4415
+  },
+  "002594.SZ": {
+   "fiscalYear": 2026,
+   "epsAvg": 4.336,
+   "revYiYuan": 9042.6005,
+   "npYiYuan": 395.4001
+  }
+ },
+ "macro": {
+  "cn-cpi-2026-10": {
+   "forecast": "CPI 0.8% / PPI 5.4%（Wind一致预期）",
+   "forecastDetail": {
+    "cpiYoY": 0.75,
+    "ppiYoY": 5.43,
+    "codes": {
+     "cpi": "M0061676",
+     "ppi": "M0061677"
+    },
+    "asOf": "2026-10-26"
+   }
+  },
+  "cn-pmi-2026-10": {
+   "forecastWind": 49.97,
+   "code": "M0331594",
+   "asOf": "2026-10-22"
+  }
+ },
+ "symbolMapNote": "earnings.json 沪市用 .SS；Wind 用 .SH。适配器自动映射。"
 }

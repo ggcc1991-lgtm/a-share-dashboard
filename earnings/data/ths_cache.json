@@ -1,11 +1,44 @@
 {
-  "_doc": "同花顺 MCP 缓存。THS 无披露日/一致预期工具；可选写入 ashareYtd（累计口径）。",
-  "asOf": null,
-  "ashareYtd": {},
-  "capabilities": {
-    "next_date": false,
-    "consensus": false,
-    "ashareYtd": true,
-    "note": "需 agent 经 get_a_share_financials_income_statements 填充"
+ "_doc": "同花顺 MCP 缓存。THS 无披露日/一致预期工具；可选写入 ashareYtd（累计口径）。",
+ "asOf": "2026-10-29T23:08:00+08:00",
+ "ashareYtd": {
+  "603501.SH": {
+   "quarterEnd": "2026-09-30",
+   "reportDate": "2026-10-28",
+   "revenue": 22148589613.96,
+   "netIncome": 2298795688.38,
+   "epsGaap": 1.84,
+   "note": "THS 累计前三季（非单季）"
+  },
+  "000977.SZ": {
+   "quarterEnd": "2026-09-30",
+   "reportDate": "2026-10-29",
+   "revenue": 129328997859.78,
+   "netIncome": 3932120372.78,
+   "epsGaap": 2.6777,
+   "note": "THS 累计前三季（非单季）"
+  },
+  "300394.SZ": {
+   "quarterEnd": "2026-09-30",
+   "reportDate": "2026-10-28",
+   "revenue": 4751099905,
+   "netIncome": 2083459571.46,
+   "epsGaap": 1.9119,
+   "note": "THS 累计前三季（非单季）"
+  },
+  "688082.SH": {
+   "quarterEnd": "2026-09-30",
+   "reportDate": "2026-10-28",
+   "revenue": 5742028626,
+   "netIncome": 1070487678.72,
+   "epsGaap": 2.23,
+   "note": "THS 累计前三季（非单季）"
   }
+ },
+ "capabilities": {
+  "next_date": false,
+  "consensus": false,
+  "ashareYtd": true,
+  "note": "需 agent 经 get_a_share_financials_income_statements 填充"
+ }
 }
