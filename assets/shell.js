@@ -1,3 +1,13 @@
+/* Pageviews only. GoatCounter does not render a counter unless visit_count() is called. */
+(function () {
+  if (document.querySelector("script[data-goatcounter]")) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.setAttribute("data-goatcounter", "https://gcdata.goatcounter.com/count");
+  s.src = "//gc.zgo.at/count.js";
+  (document.head || document.documentElement).appendChild(s);
+})();
+
 (function () {
   const path = location.pathname.replace(/\/+$/, "") || "/";
   document.querySelectorAll(".nav a[data-match]").forEach((a) => {
