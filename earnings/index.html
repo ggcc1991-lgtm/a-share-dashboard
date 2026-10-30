@@ -9,6 +9,9 @@
     .scard{margin-bottom:14px}
     .scard h2{margin:0 0 10px;font-size:1.02rem;font-weight:650;color:var(--bb)}
     .scard h2 .sub,.sub{font-weight:400;color:var(--mu);font-size:.78rem;margin-left:6px}
+    @media (max-width:719px){
+      .page-sub{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+    }
     .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}
     .tabs button{font:inherit;font-size:12px;background:#000;color:var(--mu);border:1px solid var(--bd);padding:5px 12px;cursor:pointer}
     .tabs button.on{color:#000;background:var(--bb);border-color:var(--bb)}
@@ -113,6 +116,62 @@
     #tr .erow-detail[hidden]{display:none}
     #tr .erow td{vertical-align:middle}
     @media (prefers-reduced-motion:reduce){#tr .co-tog .chev{transition:none}}
+
+    /* 来源列 / 长文案：默认折叠，点开展开（对齐已发布表 ▸ 交互） */
+    .fold{max-width:220px}
+    .fold-tog,.clamp-tog{
+      font:inherit;background:none;border:0;color:var(--mu);cursor:pointer;padding:0;
+      text-align:left;display:inline-flex;align-items:center;gap:4px;max-width:100%;
+    }
+    .fold-tog:hover,.fold-tog:focus-visible,
+    .clamp-tog:hover,.clamp-tog:focus-visible{color:var(--bb);outline:none}
+    .fold-tog .chev,.clamp-tog .chev{
+      display:inline-block;color:var(--bb);font-size:10px;line-height:1;
+      transition:transform .18s ease;flex:0 0 auto;
+    }
+    .fold.open > .fold-tog,.clamp.open > .clamp-tog{color:var(--bb)}
+    .fold.open > .fold-tog .chev,.clamp.open > .clamp-tog .chev{transform:rotate(90deg)}
+    .fold-sum{
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;
+      color:inherit;font-size:11px;line-height:1.3;
+    }
+    .fold-full{color:var(--mu);font-size:11px;line-height:1.5;white-space:normal;margin-top:4px}
+    .fold-full[hidden]{display:none}
+    td.src-td{min-width:110px;max-width:200px;vertical-align:middle;white-space:normal}
+    .clamp{max-width:min(420px,100%);cursor:pointer}
+    .clamp.open{cursor:default}
+    .clamp-body{white-space:normal;line-height:1.5;word-break:break-word}
+    .clamp:not(.open) .clamp-body{
+      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;
+      overflow:hidden;
+    }
+    .clamp-tog{margin-top:2px;font-size:11px;color:var(--mu-2,#666);cursor:pointer}
+    .clamp.open .clamp-tog{color:var(--bb)}
+    /* 表尾说明默认两行，避免占半屏 */
+    .foot-clamp-wrap{margin:0}
+    .foot-clamp-wrap > p.note.foot-clamp:not(.open){
+      display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+      overflow:hidden;cursor:pointer;margin-bottom:2px;
+    }
+    .foot-clamp-wrap > p.note.foot-clamp.open{display:block;-webkit-line-clamp:unset}
+    .foot-clamp-tog{
+      font:inherit;background:none;border:0;color:var(--mu-2,#666);cursor:pointer;
+      padding:0;margin:0 0 8px;font-size:11px;display:inline-flex;align-items:center;gap:4px;
+    }
+    .foot-clamp-tog:hover,.foot-clamp-tog:focus-visible{color:var(--bb);outline:none}
+    .foot-clamp-tog .chev{display:inline-block;color:var(--bb);font-size:10px;transition:transform .18s ease}
+    .foot-clamp-wrap.open .foot-clamp-tog{color:var(--bb)}
+    .foot-clamp-wrap.open .foot-clamp-tog .chev{transform:rotate(90deg)}
+    @media (max-width:719px){
+      .fold{max-width:140px}
+      td.src-td{max-width:140px;min-width:96px}
+      .clamp{max-width:min(280px,72vw)}
+      .clamp:not(.open) .clamp-body{-webkit-line-clamp:2}
+      table.data td.w{min-width:132px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .fold-tog .chev,.clamp-tog .chev{transition:none}
+    }
   .ib{display:inline-flex;align-items:flex-end;gap:2px;margin-right:6px;vertical-align:-1px}.ib i{display:block;width:4px;border-radius:1px;background:rgba(255,160,40,.18)}.ib i.on{background:#FFA028;box-shadow:0 0 4px rgba(255,160,40,.45)}
 </style>
 </head>
@@ -154,9 +213,9 @@
       <button data-t="m">会议日历</button><button data-t="x">宏观数据</button>
     </div>
     <section id="t-e" class="panel scard"><h2>科技大厂下次财报<span class="sub" id="esub"></span></h2><div class="tw"><table class="data" id="te"></table></div>
-      <p class="note">日期为北京时间。日期优先级：公司公告/HKEXnews 董事会通告 > Yahoo 确认 > Nasdaq/Zacks 算法预估。“已确认”=公告或 Yahoo 标注确认；“预估”=算法推算。一致预期为下一个待披露季度，币种见“币”。</p></section>
+      <div class="foot-clamp-wrap"><p class="note foot-clamp">日期为北京时间。日期优先级：公司公告/HKEXnews 董事会通告 > Yahoo 确认 > Nasdaq/Zacks 算法预估。“已确认”=公告或 Yahoo 标注确认；“预估”=算法推算。一致预期为下一个待披露季度，币种见“币”。</p><button type="button" class="foot-clamp-tog" aria-expanded="false"><span class="chev" aria-hidden="true">▸</span><span class="clamp-lab">展开</span></button></div></section>
     <section id="t-r" class="panel scard" hidden><h2>最近一期财报 vs 一致预期</h2><div class="tw"><table class="data" id="tr"></table></div>
-      <p class="note">实际数优先取公司业绩公告（HKEXnews/SEC），EPS实际/预期/偏差列为 Yahoo 同口径（中概/港股多为 Non-GAAP），下方小字为公告 GAAP/Non-GAAP 口径；一次性项目见备注（点公司名称展开「指引 / 备注」）。营收预期仅对有新闻来源的公司填写，其余“暂无”。</p></section>
+      <div class="foot-clamp-wrap"><p class="note foot-clamp">实际数优先取公司业绩公告（HKEXnews/SEC），EPS实际/预期/偏差列为 Yahoo 同口径（中概/港股多为 Non-GAAP），下方小字为公告 GAAP/Non-GAAP 口径；一次性项目见备注（点公司名称展开「指引 / 备注」）。营收预期仅对有新闻来源的公司填写，其余“暂无”。</p><button type="button" class="foot-clamp-tog" aria-expanded="false"><span class="chev" aria-hidden="true">▸</span><span class="clamp-lab">展开</span></button></div></section>
     <section id="t-m" class="panel scard" hidden><h2>重要会议<span class="sub">央行 / 中央会议</span></h2>
       <div class="filt"><select id="mf"><option value="">全部地区</option><option>CN</option><option>US</option><option>EU</option><option>JP</option><option value="us-election">美国大选</option></select></div>
       <div class="tw"><table class="data" id="tm"></table></div></section>
@@ -170,6 +229,30 @@
 const NA='<span class="na">暂无</span>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const v=x=>x==null||x===''?NA:esc(x);
+/* 长文案折叠阈值：约 2–3 行（CJK 手机窄列 ~56 字；拉丁约 80–100） */
+const FOLD_CHARS=28; /* CJK：手机 td.w≈132px 约 2 行；拉丁可视约 50–60 字 */
+const plainLen=h=>String(h).replace(/<[^>]+>/g,' ').replace(/&[^;]+;/g,' ').replace(/\s+/g,' ').trim().length;
+function foldSrc(sumHtml,fullHtml){
+  return `<div class="fold"><button type="button" class="fold-tog" aria-expanded="false"><span class="chev" aria-hidden="true">▸</span><span class="fold-sum">${sumHtml}</span></button><div class="fold-full" hidden>${fullHtml}</div></div>`;
+}
+function clampIfLong(html){
+  const t=String(html||'');
+  if(!t||t===NA) return t;
+  const n=plainLen(t);
+  const multi=/<br\s*\/?>/i.test(t);
+  if(n<=FOLD_CHARS && !multi) return t;
+  if(n<=20 && multi) return t; /* 极短多行不折 */
+  return `<div class="clamp"><div class="clamp-body">${t}</div><button type="button" class="clamp-tog" aria-expanded="false"><span class="chev" aria-hidden="true">▸</span><span class="clamp-lab">展开</span></button></div>`;
+}
+function srcSumLine(c){
+  const nd=(c.sources||{}).nextDate;
+  const cs=((c.sources||{}).consensus||[])[0];
+  const s=nd||cs;
+  if(!s||!s.name) return '来源 · 点开';
+  const nm=String(s.name).replace(/\s*\(yfinance\)\s*/i,'').trim()||'来源';
+  const d=(s.asOf||'').slice(0,10);
+  return esc(nm)+(d?' · '+esc(d):'');
+}
 function big(n){if(n==null)return NA;const a=Math.abs(n);return a>=1e12?(n/1e12).toFixed(2)+'万亿':a>=1e8?(n/1e8).toFixed(1)+'亿':a>=1e4?(n/1e4).toFixed(1)+'万':n.toFixed(2)}
 const pct=(x,d=1)=>x==null?NA:`<span class="${x>=0?'beat':'miss'}">${x>=0?'+':''}${(+x).toFixed(d)}%</span>`;
 function bj(s){if(!s)return NA;if(!s.includes('T'))return s;const d=new Date(s);const p=n=>String(n).padStart(2,'0');
@@ -178,19 +261,63 @@ const vcls=t=>!t?'':/不及|低于预期|miss/.test(t)?'miss':/高于|好于|超
 document.getElementById('tabs').onclick=e=>{const t=e.target.dataset.t;if(!t)return;
   document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
   ['e','r','m','x'].forEach(k=>document.getElementById('t-'+k).hidden=k!==t);};
+/* 来源 fold / 长文 clamp：独立按行切换 */
+document.addEventListener('click',e=>{
+  if(e.target.closest('a')) return;
+  const foldTog=e.target.closest('.fold-tog');
+  if(foldTog){
+    const box=foldTog.closest('.fold'); if(!box) return;
+    const open=box.classList.toggle('open');
+    foldTog.setAttribute('aria-expanded', open?'true':'false');
+    const full=box.querySelector('.fold-full');
+    if(full) full.hidden=!open;
+    return;
+  }
+  const footTog=e.target.closest('.foot-clamp-tog');
+  const footP=e.target.closest('p.note.foot-clamp');
+  if(footTog || (footP && !footP.closest('.foot-clamp-wrap')?.classList.contains('open') && !footP.classList.contains('open'))){
+    const wrap=(footTog||footP).closest('.foot-clamp-wrap');
+    if(wrap){
+      const open=wrap.classList.toggle('open');
+      const p=wrap.querySelector('p.note.foot-clamp');
+      if(p) p.classList.toggle('open', open);
+      const btn=wrap.querySelector('.foot-clamp-tog');
+      if(btn){
+        btn.setAttribute('aria-expanded', open?'true':'false');
+        const lab=btn.querySelector('.clamp-lab');
+        if(lab) lab.textContent=open?'收起':'展开';
+      }
+      return;
+    }
+  }
+  const clampTog=e.target.closest('.clamp-tog');
+  const clamp=e.target.closest('.clamp');
+  if(!clampTog && !(clamp && !clamp.classList.contains('open'))) return;
+  const box=clampTog?clampTog.closest('.clamp'):clamp;
+  if(!box) return;
+  const open=box.classList.toggle('open');
+  const btn=box.querySelector('.clamp-tog');
+  if(btn){
+    btn.setAttribute('aria-expanded', open?'true':'false');
+    const lab=btn.querySelector('.clamp-lab');
+    if(lab) lab.textContent=open?'收起':'展开';
+  }
+});
 Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.json').then(r=>r.json())]).then(([E,C])=>{
   document.getElementById('sum').textContent=`财报数据更新 ${bj(E.updated)} · 会议/宏观更新 ${bj(C.updated)} · 一致预期来源：${E.consensusSource}（截至 ${E.consensusAsOf}）`;
   const S1=x=>x?`<a class="src" href="${esc(x.url||'#')}" target="_blank" rel="noopener">${esc(x.name)}</a> <span class="sub">${esc((x.asOf||'').slice(0,10))}</span>`:NA;
-  const cs=E.companies.slice().sort((a,b)=>(a.nextDate||'9')<(b.nextDate||'9')?-1:1);
+  const todaySH=(()=>{const p=n=>String(n).padStart(2,'0');const b=new Date(Date.now()+8*3600e3);return `${b.getUTCFullYear()}-${p(b.getUTCMonth()+1)}-${p(b.getUTCDate())}`})();
+  const cs=E.companies.filter(c=>c.nextDate&&String(c.nextDate).slice(0,10)>=todaySH&&c.dateStatus!=='reported').sort((a,b)=>(a.nextDate||'9')<(b.nextDate||'9')?-1:1);
+  const esub=document.getElementById('esub'); if(esub) esub.textContent=` · ${cs.length} 家待披露（已过滤过期/已报）`;
   document.getElementById('te').innerHTML='<thead><tr><th class="l">公司</th><th class="l">下次财报</th><th>状态</th><th>币</th><th>EPS预期</th><th>EPS区间</th><th>营收预期</th><th>营收同比</th><th>分析师</th><th class="l">来源 / 截至</th></tr></thead><tbody>'+
    cs.map(c=>{const k=c.consensus||{};const st=c.dateStatus==='confirmed'?'<span class="tag c">已确认</span>':c.dateStatus==='estimated'?'<span class="tag">预估</span>':NA;
-   return `<tr><td class="l">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span></td><td class="l">${bj(c.nextDate)}</td><td>${st}</td><td>${v(k.currency||c.currency)}</td><td>${k.epsAvg!=null?(+k.epsAvg).toFixed(2):NA}</td><td>${k.epsLow!=null?(+k.epsLow).toFixed(2)+'~'+(+k.epsHigh).toFixed(2):NA}</td><td>${big(k.revAvg)}</td><td>${k.revGrowth!=null?pct(k.revGrowth*100):NA}</td><td>${v(k.epsAnalysts)}</td><td class="l note">日期：${S1((c.sources||{}).nextDate)}<br>预期：${S1(((c.sources||{}).consensus||[])[0])}</td></tr>`}).join('')+'</tbody>';
+   return `<tr><td class="l">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span></td><td class="l">${bj(c.nextDate)}</td><td>${st}</td><td>${v(k.currency||c.currency)}</td><td>${k.epsAvg!=null?(+k.epsAvg).toFixed(2):NA}</td><td>${k.epsLow!=null?(+k.epsLow).toFixed(2)+'~'+(+k.epsHigh).toFixed(2):NA}</td><td>${big(k.revAvg)}</td><td>${k.revGrowth!=null?pct(k.revGrowth*100):NA}</td><td>${v(k.epsAnalysts)}</td><td class="l src-td">${foldSrc(srcSumLine(c),`日期：${S1((c.sources||{}).nextDate)}<br>预期：${S1(((c.sources||{}).consensus||[])[0])}`)}</td></tr>`}).join('')+'</tbody>';
   const rs=E.companies.filter(c=>c.lastReported).sort((a,b)=>a.lastReported.reportDate<b.lastReported.reportDate?1:-1);
   document.getElementById('tr').innerHTML='<thead><tr><th class="l">公司</th><th class="l">发布</th><th>季末</th><th>币</th><th>EPS实际</th><th>EPS预期</th><th>EPS偏差</th><th>营收</th><th>营收预期</th><th>营收偏差</th><th>营收同比</th><th>净利润</th><th>净利同比</th><th class="l">指引 / 备注</th></tr></thead><tbody>'+
    rs.map(c=>{const L=c.lastReported,m=c.manual||{};const re=m.revEstimate;const rd=re&&L.revenue?(L.revenue/re-1)*100:null;
    const ee=m.epsEstimateAlt??L.epsEstimate;const es=ee&&L.epsActual!=null?(L.epsActual/ee-1)*100:(L.epsSurprisePct!=null?L.epsSurprisePct*100:null);
    const noteHtml=`${c.guidance?esc(c.guidance):'指引：暂无'}${L.oneOff?'<br><b>一次性项目：</b>'+esc(L.oneOff):''}${L.epsCompareBasis?'<br>EPS口径：'+esc(L.epsCompareBasis):''}${L.epsGaap==null&&L.epsGaapBasis?'<br>EPS：'+esc(L.epsGaapBasis):''}${L.adjNetIncome?'<br>经调整净利 '+big(L.adjNetIncome)+(L.adjNetIncomeYoY!=null?' ('+pct(L.adjNetIncomeYoY*100)+')':''):''}${L.netIncomeBasis?'<br>净利口径：'+esc(L.netIncomeBasis):''}${L.halfYear?'<br>'+esc(L.halfYear.period)+'：营收 '+big(L.halfYear.revenue)+' ('+pct(L.halfYear.revenueYoY*100)+')，归母净利 '+big(L.halfYear.netIncome)+' ('+pct(L.halfYear.netIncomeYoY*100)+')，EPS '+L.halfYear.epsGaap:''}${L.note?'<br>'+esc(L.note):''}${c.note?'<br>'+esc(c.note):''}<br>来源：${((c.sources||{}).lastReported||[]).map(S1).join(' · ')||NA}`;
-   return `<tr class="erow"><td class="l"><button type="button" class="co-tog" aria-expanded="false">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span><span class="chev" aria-hidden="true">▸</span></button></td><td class="l">${bj(L.reportDate).slice(0,10)}</td><td>${v(L.quarterEnd)}</td><td>${v(c.currency)}</td><td>${L.epsActual!=null?(+L.epsActual).toFixed(2):NA}${L.epsGaap!=null?'<br><span class="sub">'+esc(L.epsGaapBasis||'GAAP')+' '+L.epsGaap+'</span>':''}${L.epsNonGaap!=null?'<br><span class="sub">'+esc(L.epsNonGaapBasis||'Non-GAAP')+' '+L.epsNonGaap+'</span>':''}</td><td>${ee!=null?(+ee).toFixed(2):NA}</td><td>${es!=null?pct(es):NA}</td><td>${big(L.revenue)}</td><td>${re?big(re)+' <span class="sub">'+esc(m.revSource||'')+'</span>':NA}</td><td>${rd!=null?pct(rd):NA}</td><td>${L.revenueYoY!=null?pct(L.revenueYoY*100):NA}</td><td>${big(L.netIncome)}</td><td>${L.netIncomeYoY!=null?pct(L.netIncomeYoY*100):NA}</td><td class="note-td"><span class="note-hint">详情</span></td></tr><tr class="erow-detail" hidden><td colspan="14"><div class="note-panel">${noteHtml}</div></td></tr>`}).join('')+'</tbody>';
+   return `<tr class="erow"><td class="l"><button type="button" class="co-tog" aria-expanded="false">${esc(c.name)} <span class="sub">${esc(c.symbol)}</span><span class="chev" aria-hidden="true">▸</span></button></td><td class="l">${bj(L.reportDate).slice(0,10)}</td><td>${v(L.quarterEnd)}</td><td>${v(c.currency)}</td><td>${L.epsActual!=null?(+L.epsActual).toFixed(2):NA}${((()=>{const b=[];if(L.epsGaap!=null)b.push(esc(L.epsGaapBasis||'GAAP')+' '+L.epsGaap);if(L.epsNonGaap!=null)b.push(esc(L.epsNonGaapBasis||'Non-GAAP')+' '+L.epsNonGaap);return b.length?'<br><span class="sub">'+b.join(' · ')+'</span>':'';})())}</td><td>${ee!=null?(+ee).toFixed(2):NA}</td><td>${es!=null?pct(es):NA}</td><td>${big(L.revenue)}</td><td>${re?big(re)+' <span class="sub">'+esc(m.revSource||'')+'</span>':NA}</td><td>${rd!=null?pct(rd):NA}</td><td>${L.revenueYoY!=null?pct(L.revenueYoY*100):NA}</td><td>${big(L.netIncome)}</td><td>${L.netIncomeYoY!=null?pct(L.netIncomeYoY*100):NA}</td><td class="note-td"><span class="note-hint">详情</span></td></tr><tr class="erow-detail" hidden><td colspan="14"><div class="note-panel">${noteHtml}</div></td></tr>`}).join('')+'</tbody>';
   document.getElementById('tr').onclick=e=>{
     if(e.target.closest('a')) return;
     const row=e.target.closest('tr.erow'); if(!row) return;
@@ -207,11 +334,13 @@ Promise.all([fetch('data/earnings.json').then(r=>r.json()),fetch('data/calendar.
   const ST={done:'已结束',upcoming:'即将召开',ongoing:'进行中',scheduled:'已排期',tbd:'待定'};
   const rm=()=>{const f=document.getElementById('mf').value;const ms=C.meetings.filter(m=>!f||(f==='us-election'?m.category==='us-election':m.region===f)).sort((a,b)=>(a.start||'9')<(b.start||'9')?-1:1);
    document.getElementById('tm').innerHTML='<thead><tr><th class="l">会议</th><th class="l">地区</th><th class="l">日期</th><th class="l">决议时间(北京)</th><th class="l">状态</th><th class="l">市场预期</th><th class="l">结果</th><th class="l">对比</th><th class="l">来源</th></tr></thead><tbody>'+
-   ms.map(m=>`<tr><td class="l">${m.category==='us-election'?'<span class="tag el">大选</span> ':''}${esc(m.name)}</td><td class="l">${m.region}</td><td class="l">${m.start?esc(m.start)+(m.end&&m.end!==m.start?' ~ '+esc(m.end.slice(5)):''):NA}</td><td class="l">${bj(m.decisionAt)}</td><td class="l"><span class="tag ${m.status==='upcoming'||m.status==='ongoing'?'c':''}">${ST[m.status]||m.status}</span></td><td class="w note">${v(m.expectation)}</td><td class="w">${v(m.result)}${m.note?'<br><span class="note">'+esc(m.note)+'</span>':''}</td><td class="l">${m.verdict?esc(m.verdict):NA}</td><td class="w">${src(m.sources)}</td></tr>`).join('')+'</tbody>'};
+   ms.map(m=>{const expH=v(m.expectation);const resH=`${v(m.result)}${m.note?'<br><span class="note">'+esc(m.note)+'</span>':''}`;
+   return `<tr><td class="l">${m.category==='us-election'?'<span class="tag el">大选</span> ':''}${esc(m.name)}</td><td class="l">${m.region}</td><td class="l">${m.start?esc(m.start)+(m.end&&m.end!==m.start?' ~ '+esc(m.end.slice(5)):''):NA}</td><td class="l">${bj(m.decisionAt)}</td><td class="l"><span class="tag ${m.status==='upcoming'||m.status==='ongoing'?'c':''}">${ST[m.status]||m.status}</span></td><td class="w note">${clampIfLong(expH)}</td><td class="w">${clampIfLong(resH)}</td><td class="l">${m.verdict?esc(m.verdict):NA}</td><td class="w">${clampIfLong(src(m.sources))}</td></tr>`}).join('')+'</tbody>'};
   const rx=()=>{const f=document.getElementById('xf').value,s=document.getElementById('xs').value;
    const xs=C.macro.filter(x=>(!f||x.region===f)&&(!s||(s==='released'?x.status==='released':x.status!=='released'))).sort((a,b)=>a.releaseAt<b.releaseAt?1:-1);
    document.getElementById('tx').innerHTML='<thead><tr><th class="l">公布(北京)</th><th class="l">国</th><th class="l">指标</th><th>实际</th><th>预期</th><th>前值</th><th>差值</th><th class="l">对比</th><th class="l">来源</th></tr></thead><tbody>'+
-   xs.map(x=>`<tr><td class="l">${bj(x.releaseAt)}</td><td class="l">${x.region}</td><td class="l">${esc(x.name)}${x.note?'<br><span class="note">'+esc(x.note)+'</span>':''}</td><td>${x.status==='released'?v(x.actual):'<span class="tag">待公布</span>'}</td><td>${v(x.forecast)}</td><td>${v(x.previous)}</td><td>${v(x.diff)}</td><td class="l ${vcls(x.verdict)}">${x.verdict?esc(x.verdict):'—'}</td><td class="l">${src([x.source])}</td></tr>`).join('')+'</tbody>'};
+   xs.map(x=>{const nameH=`${esc(x.name)}${x.note?'<br><span class="note">'+esc(x.note)+'</span>':''}`;
+   return `<tr><td class="l">${bj(x.releaseAt)}</td><td class="l">${x.region}</td><td class="l">${clampIfLong(nameH)}</td><td>${x.status==='released'?v(x.actual):'<span class="tag">待公布</span>'}</td><td>${v(x.forecast)}</td><td>${v(x.previous)}</td><td>${v(x.diff)}</td><td class="l ${vcls(x.verdict)}">${x.verdict?esc(x.verdict):'—'}</td><td class="l">${src([x.source])}</td></tr>`}).join('')+'</tbody>'};
   document.getElementById('mf').onchange=rm;document.getElementById('xf').onchange=rx;document.getElementById('xs').onchange=rx;rm();rx();
 }).catch(e=>{document.getElementById('sum').textContent='数据加载失败：'+e});
 </script>
