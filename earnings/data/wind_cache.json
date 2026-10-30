@@ -1,31 +1,31 @@
 {
   "_doc": "MCP 拉取缓存（CallDynamicTool user-wind-*）。Python 适配器只读此文件，不直连 MCP。由 agent 刷新。 | 早发：预约次日零点但当晚已披露的，清空 nextDates 并 events.field=actual。",
-  "asOf": "2026-10-29T23:35:00+08:00",
-  "source": "Wind MCP get_stock_events / get_stock_fundamentals / query_economic_indicator_data",
+  "asOf": "2026-10-30T23:30:00+08:00",
+  "source": "Wind MCP get_stock_events / get_stock_fundamentals / BOJ+BLS web",
   "nextDates": {
     "688012.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
+      "nextDate": null,
+      "dateStatus": "reported",
       "period": "Q3 FY2026",
-      "field": "estimated"
+      "field": "actual"
     },
     "688120.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
+      "nextDate": null,
+      "dateStatus": "reported",
       "period": "Q3 FY2026",
-      "field": "estimated"
+      "field": "actual"
     },
     "688126.SH": {
-      "nextDate": "2026-10-30",
-      "dateStatus": "confirmed",
+      "nextDate": null,
+      "dateStatus": "reported",
       "period": "Q3 FY2026",
-      "field": "estimated"
+      "field": "actual"
     },
     "688019.SH": {
-      "nextDate": "2026-10-31",
-      "dateStatus": "confirmed",
+      "nextDate": null,
+      "dateStatus": "reported",
       "period": "Q3 FY2026",
-      "field": "estimated"
+      "field": "actual"
     }
   },
   "events": {
@@ -39,46 +39,54 @@
       "actual": "2026-10-29",
       "note": "北方华创 Q3 已于2026-10-29晚披露(预约日历写10-30零点)；单季营收113.06亿、归母20.22亿"
     },
-    "688012.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
+    "688012.SH": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "period": "Q3 FY2026",
+      "field": "actual",
+      "reportDate": "2026-10-30",
+      "actual": "2026-10-30",
+      "note": "中微 Q3 已披露(早于预约10-31)"
+    },
     "688072.SH": {
       "nextDate": "2026-10-29",
       "dateStatus": "confirmed",
       "period": "Q3 FY2026",
       "field": "actual"
     },
-    "688120.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
+    "688120.SH": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "period": "Q3 FY2026",
+      "field": "actual",
+      "reportDate": "2026-10-30",
+      "actual": "2026-10-30",
+      "note": "华海清科 Q3 已披露(早于预约10-31)"
+    },
     "688082.SH": {
       "nextDate": "2026-10-29",
       "dateStatus": "confirmed",
       "period": "Q3 FY2026",
       "field": "actual"
     },
-    "688126.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-30",
-        "actual": null
-      }
-    ],
-    "688019.SH": [
-      {
-        "period": "Q3 FY2026",
-        "estimated": "2026-10-31",
-        "actual": null
-      }
-    ],
+    "688126.SH": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "period": "Q3 FY2026",
+      "field": "actual",
+      "reportDate": "2026-10-30",
+      "actual": "2026-10-30",
+      "note": "沪硅 Q3 已披露"
+    },
+    "688019.SH": {
+      "nextDate": null,
+      "dateStatus": "reported",
+      "period": "Q3 FY2026",
+      "field": "actual",
+      "reportDate": "2026-10-30",
+      "actual": "2026-10-30",
+      "note": "安集 Q3 已披露(早于预约10-31)"
+    },
     "688256.SH": [
       {
         "period": "Q3 FY2026",
@@ -375,6 +383,18 @@
       "forecastWind": 49.97,
       "code": "M0331594",
       "asOf": "2026-10-22"
+    },
+    "boj-2026-10": {
+      "status": "done",
+      "result": "hold 1.25% 8-1; ETF sales ~¥860bn/yr",
+      "verdict": "符合预期",
+      "asOf": "2026-10-30"
+    },
+    "eci-2026-q3": {
+      "actual": "0.8%",
+      "forecast": "0.8%",
+      "verdict": "符合预期",
+      "asOf": "2026-10-30"
     }
   },
   "symbolMapNote": "earnings.json 沪市用 .SS；Wind 用 .SH。适配器自动映射。"
