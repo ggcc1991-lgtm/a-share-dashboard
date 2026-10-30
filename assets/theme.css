@@ -1185,3 +1185,16 @@ table.data tr:hover td { background: #1c1c1c; }
   .fr-title { font-size: 12px; }
   .fr-pub { margin-left: 0; }
 }
+
+/* 卖方研报精读：折叠/展开 */
+.fr-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.fr-head .fr-title { flex: 1 1 60%; margin: 0; min-width: 0; }
+.fr-head:hover .fr-title, .fr-head:focus-visible .fr-title { color: var(--bb); }
+.fr-head:focus-visible { outline: 1px solid #FFA028; outline-offset: 2px; }
+.fr-caret { display: inline-block; width: 10px; color: var(--mu); font-size: 11px; transition: transform 180ms ease, color 180ms ease; }
+.fr-open .fr-caret { transform: rotate(90deg); color: #FFA028; }
+.fr-open .fr-head .fr-title { color: #FFA028; }
+.fr-detail { margin-top: 8px; padding-top: 6px; border-top: 1px solid #2a2210; }
+.fr-detail[hidden] { display: none; }
+.fr-src { display: inline-block; margin-top: 4px; font-size: 11px; color: #FFA028; text-decoration: none; border: 1px solid #4a3a10; padding: 1px 6px; }
+.fr-src:hover { background: #1a1408; }

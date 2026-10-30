@@ -216,22 +216,38 @@
       "note": "三季报（单季）：营收2214.88亿元(+13.59% YoY)、归母净利100.20亿元(+28.08%)、基本EPS 1.10元（Wind/公告）。"
     },
     "AMZN": {
+      "nextDate": null,
+      "dateStatus": "reported",
       "lastReported": {
-        "quarterEnd": "2026-06-30",
-        "reportDate": "2026-07-31",
-        "revenue": 200600000000,
-        "revenueYoY": 0.196,
-        "netIncome": 62600000000,
-        "netIncomeYoY": 2.44,
-        "epsGaap": 5.75,
+        "quarterEnd": "2026-09-30",
+        "reportDate": "2026-10-30T04:00:00+08:00",
+        "revenue": 201944000000,
+        "revenueYoY": 0.1209,
+        "netIncome": 20685000000,
+        "netIncomeYoY": -0.0237,
+        "epsGaap": 1.89,
         "epsGaapBasis": "GAAP 摊薄 EPS",
-        "oneOff": "含 534亿美元税前非经营性其他收入（主要为 Anthropic 投资账面收益），EPS 与 1.82 预期不可比",
-        "epsNonGaap": null,
+        "epsActual": 1.89,
+        "epsEstimate": 1.96,
+        "epsSurprisePct": -0.0357,
+        "epsCompareBasis": "GAAP 摊薄 vs LSEG 一致预期",
+        "manual": {
+          "revEstimate": 202310000000,
+          "revSource": "CNBC/LSEG"
+        },
+        "note": "Q3 营收与EPS均略低于预期；AWS +39.3% 至$46.0B（超StreetAccount $45.29B），营业利润率13.9%创新高；上年同期含Anthropic投资收益$9.5B；Q4指引偏谨慎",
         "source": {
-          "name": "Amazon Q2 2026 业绩新闻稿(IR)",
-          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
-          "asOf": "2026-10-27"
-        }
+          "name": "Amazon Q3 2026 Press Release",
+          "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/",
+          "asOf": "2026-10-30"
+        },
+        "consensusSources": [
+          {
+            "name": "CNBC(LSEG)",
+            "url": "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html",
+            "asOf": "2026-10-30"
+          }
+        ]
       }
     },
     "GOOGL": {

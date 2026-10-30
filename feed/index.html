@@ -607,22 +607,44 @@
         const why = it.whyPicked ? `<p class="fr-why">${esc(it.whyPicked)}</p>` : "";
         return `
           <article class="fr-card">
-            <div class="fr-top">
+            <div class="fr-head" role="button" tabindex="0" aria-expanded="false">
+              <span class="fr-caret" aria-hidden="true">▸</span>
               <span class="chip fr-broker">${esc(it.broker)}</span>
-              ${stance ? `<span class="chip fr-stance${stanceCls}">${esc(stance)}</span>` : ""}
+              <h3 class="fr-title">${esc(it.title)}</h3>
               ${pub}
             </div>
-            <h3 class="fr-title"><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a></h3>
-            ${sum}
-            <div class="fr-deep-wrap">${deepReadParas(it.deepRead)}</div>
-            ${kps}
-            ${ticks}
-            ${why}
+            <div class="fr-detail" hidden>
+              ${stance ? `<div class="fr-top"><span class="chip fr-stance${stanceCls}">${esc(stance)}</span></div>` : ""}
+              ${sum}
+              <div class="fr-deep-wrap">${deepReadParas(it.deepRead)}</div>
+              ${kps}
+              ${ticks}
+              ${why}
+              <a class="fr-src" href="${esc(it.url)}" target="_blank" rel="noopener">原文 ↗</a>
+            </div>
           </article>`;
       }).join("");
       html += `</div>`;
       root.innerHTML = html;
       root.hidden = false;
+      if (!root._frBound) {
+        root._frBound = true;
+        const toggle = (h) => {
+          const card = h.closest(".fr-card");
+          const open = !card.classList.contains("fr-open");
+          card.classList.toggle("fr-open", open);
+          h.setAttribute("aria-expanded", String(open));
+          card.querySelector(".fr-detail").hidden = !open;
+        };
+        root.addEventListener("click", (e) => {
+          const h = e.target.closest(".fr-head");
+          if (h && root.contains(h)) toggle(h);
+        });
+        root.addEventListener("keydown", (e) => {
+          const h = e.target.closest(".fr-head");
+          if (h && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(h); }
+        });
+      }
     }
 
     async function loadDeepreads() {
