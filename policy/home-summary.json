@@ -1,24 +1,39 @@
 {
   "schema": "policy-home-summary-v1",
-  "sourceSnapshotId": "3ee146b4f29523f0b0d2",
+  "sourceSnapshotId": "85ca0ce94389204b0884",
   "meta": {
-    "asOf": "2026-11-01",
-    "snapshotId": "3ee146b4f29523f0b0d2",
-    "fetchedAt": "2026-11-02T00:18:37+08:00"
+    "asOf": "2026-11-02",
+    "snapshotId": "85ca0ce94389204b0884",
+    "fetchedAt": "2026-11-02T18:19:19+08:00"
   },
   "brief": {
-    "headline": "油气与炼化逆势走强，科技板块仅显韧性",
-    "summary": "休市日未出现新交易，资金信息均沿用10月30日收盘并按当前板块映射重新汇总。油气与炼化、中医药产品在弱市中保持正收益，脑机接口与固态电池虽相对抗跌但仍收跌，政策、市场关注与资金信号并不同步。",
+    "headline": "算力网络走强，但CPO逆势偏弱",
+    "summary": "算力网络与数据流通与治理在收盘交易中表现较强，且成分表现较一致。CPO则在市场普涨背景下逆势走弱，与数据中心与智算设施呈同日分歧。政策热度、市场关注和资金确认并非全面同步，板块间差异仍较明显。",
     "highlights": [
       {
-        "title": "油气与炼化",
-        "text": "油气与炼化在市场普遍下跌时逆势上涨，成分表现较一致；国际油价及天然气供应消息提升市场关注，但政策热度居中，资金方向仍为中性。",
+        "title": "算力网络",
+        "text": "算力网络较市场中位表现更强，板块上涨广度较高、成分表现较一致，收盘资金确认突出；政策支持仍在，但近期政策热度有所回落。",
         "direction": "positive",
         "sectorIds": [
-          "xw-5a4303247dce"
+          "xw-b99074901f85"
         ],
         "sectorNames": [
-          "油气与炼化"
+          "算力网络"
+        ],
+        "signalTypes": [
+          "policy",
+          "market_trading"
+        ]
+      },
+      {
+        "title": "数据流通与治理",
+        "text": "数据流通与治理收盘表现较强，上涨覆盖面较广、成分表现较一致，资金确认突出；其与数字技术与智能系统存在较高结构重叠，独立证据仍显不足。",
+        "direction": "positive",
+        "sectorIds": [
+          "xw-4fbc23718588"
+        ],
+        "sectorNames": [
+          "数据流通与治理"
         ],
         "signalTypes": [
           "policy",
@@ -27,35 +42,18 @@
         ]
       },
       {
-        "title": "脑机接口 · 固态电池",
-        "text": "脑机接口与固态电池均获得政策支撑，10月30日资金确认较强且成分表现较一致；两板块收盘仍为下跌，只是跌幅小于市场中位水平，独立板块联动证据尚不足。",
-        "direction": "positive",
+        "title": "CPO · 数据中心与智算设施",
+        "text": "CPO虽有市场关注，但收盘交易方向偏负，在市场普涨时明显偏弱；其与数据中心与智算设施呈同日分歧，后者资金确认较强。",
+        "direction": "mixed",
         "sectorIds": [
-          "xw-1846176c488b",
-          "xw-90e6756afb95"
+          "xw-7f29b8370c32",
+          "xw-d19d30890b4b"
         ],
         "sectorNames": [
-          "脑机接口",
-          "固态电池"
+          "CPO",
+          "数据中心与智算设施"
         ],
         "signalTypes": [
-          "policy",
-          "market_attention",
-          "market_trading"
-        ]
-      },
-      {
-        "title": "中医药产品",
-        "text": "中医药产品在弱市中上涨且成分表现较一致，10月30日资金方向偏正；政策与市场关注的相对热度偏弱，其结构重叠较高，不能视为充分的独立佐证。",
-        "direction": "positive",
-        "sectorIds": [
-          "xw-b0422815fe8f"
-        ],
-        "sectorNames": [
-          "中医药产品"
-        ],
-        "signalTypes": [
-          "policy",
           "market_attention",
           "market_trading"
         ]
@@ -63,456 +61,1716 @@
     ]
   },
   "materials": {
-    "policy": [],
-    "media": []
+    "policy": [
+      {
+        "materialId": "7036634fbceeaec5e9f5",
+        "title": "张国清在江苏调研时强调 大力发展先进制造业 培育壮大专精特新企业",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084778.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "990d7b96c7458bbd08fe",
+        "title": "习近平对进一步做好黄河保护治理工作作出重要指示强调 持续完善大保护大协同格局 努力让这条母亲河越来越美",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084773.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "6120f3a10e12ebde2ba0",
+        "title": "加蓬总统恩圭马将访华",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084766.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "ed69bef0ba768ec5af36",
+        "title": "中华人民共和国和阿曼苏丹国关于深化中阿战略伙伴关系的联合声明",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084769.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "dae585ff34d87cfa24f9",
+        "title": "习近平同秘鲁总统藤森庆子就中秘建交55周年互致贺电",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084763.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "5eac5a499b89121a3860",
+        "title": "新征程上强党强国的光辉文献——《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》诞生记",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084758.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "94eccee0a7a6e66a0a86",
+        "title": "国家能源局公告 2026年第5号",
+        "url": "https://www.nea.gov.cn/20261102/af04409304d44bfb89c9880f55b70dff/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国家能源局·政策法规"
+      },
+      {
+        "materialId": "05fde5d7f7a37744c7b4",
+        "title": "习近平同阿曼苏丹海赛姆会谈",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084753.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "7f659bb4a01b69417f5a",
+        "title": "人民日报评论员：坚持严的基调，激发全党积极性主动性创造性——论学习贯彻党的二十届五中全会精神",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084742.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "3e64fd41546949ad08d1",
+        "title": "自然资源部 农业农村部 国家林业和草原局关于完善设施农用地管理的通知",
+        "url": "https://www.gov.cn/zhengce/zhengceku/202611/content_7084736.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "部委文件统一通道（政策文件库 bm 分库）"
+      },
+      {
+        "materialId": "724718a2a402b6f81187",
+        "title": "永葆生机活力 为中国式现代化提供根本保证——各地干部群众以党的二十届五中全会精神为指引凝聚磅礴奋进力量",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084726.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "de7fb86dd39f450ab33d",
+        "title": "坚持从严治吏 建强组织体系——论学习贯彻党的二十届五中全会精神",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084731.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "b2171ef4c30da5c2cd3b",
+        "title": "以习近平党建思想为根本遵循 持之以恒推进全面从严治党——深入学习贯彻党的二十届五中全会精神系列述评之一",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7084727.htm",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      }
+    ],
+    "media": [
+      {
+        "materialId": "fa406b50c79a66582a6b",
+        "title": "服务新质生产力培育 深交所全链条体系助“小微”变“龙头”",
+        "url": "https://www.stcn.com/article/detail/4318013.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "996753d59fc29a0fa407",
+        "title": "无界动力与京东达成战略合作 具身智能机器人落地零售场景",
+        "url": "https://www.cnstock.com/commonDetail/822275",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "57d619d9af93bd30a7d5",
+        "title": "财经慧说丨拆解“产能过剩”的三个误区",
+        "url": "https://www.news.cn/fortune/20261102/9a4c998fe3524152838918403a7d0b79/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "9deefb7d826bf837b95a",
+        "title": "AI狂奔 底座先行 美的远见者大会共探算力新基建",
+        "url": "https://www.cnstock.com/commonDetail/822222",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "a81f960467c9757ed3bd",
+        "title": "央行将开展证券、基金、保险公司互换便利第三次操作",
+        "url": "https://www.news.cn/fortune/20261102/8c4820d7a02d47f5bfcf2715cfd995d4/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "30b6bd861e1373c50aa2",
+        "title": "唐佳履新西部证券研究所业务副所长 认为“端侧AI潜力被低估”",
+        "url": "https://www.cnstock.com/commonDetail/822224",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "7bab52f16ced57443898",
+        "title": "专访｜“我不满足于现状，澳中贸易还可以做得更多”——访澳大利亚贸易与旅游部长法雷尔",
+        "url": "https://www.news.cn/fortune/20261102/dc9ed784c3284db688fd843bc1ea3c12/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "06c7e7a9ee0e9e148d88",
+        "title": "“多语种+海关”特色智库落地 上外世界海关研究中心揭牌",
+        "url": "https://www.cnstock.com/commonDetail/822223",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "914173cae0571f083299",
+        "title": "前9月期货公司业绩出炉：净利润91.27亿元 同比增长3.14%",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/137069.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "b0fa29d02013f912753b",
+        "title": "港股2日涨0.42% 收报23393.32点",
+        "url": "https://www.news.cn/fortune/20261102/00650709f0a84aa986bf170f952cec0a/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "509be4227fdd7bcbb6cb",
+        "title": "习近平对进一步做好黄河保护治理工作作出重要指示强调 持续完善大保护大协同格局 努力让这条母亲河越来越美",
+        "url": "https://www.cnstock.com/commonDetail/822214",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "6ec81ecdb6aaf5b9bb22",
+        "title": "沪市公司前三季度经营业绩持续改善 八成实现盈利",
+        "url": "https://www.cs.com.cn/ssgs/01/2026/11/02/detail_2026110210049208.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "19d78ceadaf69abcd0a2",
+        "title": "稳市场！央行出手",
+        "url": "https://mp.weixin.qq.com/s/JaLkDzllSLvGZdsA0CKqlg",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "49fb51b49db0ee029530",
+        "title": "“小海豚计划”赴约江西浮梁：以公益支教滋养少年成长",
+        "url": "https://www.cnstock.com/commonDetail/822160",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "4303e423f121d2a4b8f4",
+        "title": "财政部拟第二次续发行2025年记账式附息（二十一期）国债",
+        "url": "https://www.cnstock.com/commonDetail/822151",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "a564d18b5256e87eaea9",
+        "title": "财政部拟第一次续发行2026年记账式附息（二十期）国债",
+        "url": "https://www.cnstock.com/commonDetail/822150",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "520ab6a1fc0e4888bf9f",
+        "title": "新型储能护航算力 多维度构建算电协同新生态",
+        "url": "https://www.cnstock.com/commonDetail/822146",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "0bfc0f22819db3ee2533",
+        "title": "人工智能时代的贵州机遇：2026贵商大会在黔启幕，粤黔协作迎来“三十而立”",
+        "url": "https://www.cnstock.com/commonDetail/822099",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "16a800a4311574177637",
+        "title": "11月重点8城待拍涉宅用地总起始价超768亿元",
+        "url": "https://www.stcn.com/article/detail/4317468.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "99ee95926e82f5b7c455",
+        "title": "稳市场，央行明日出手",
+        "url": "https://www.cnstock.com/commonDetail/822145",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "397ed9041bc2d0f7ac02",
+        "title": "盘后重磅！增量资金来了",
+        "url": "https://www.stcn.com/article/detail/4317480.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "01fddbbe696f927695e2",
+        "title": "央行出手稳市场，明日操作！",
+        "url": "https://www.stcn.com/article/detail/4317483.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "6b6ec4e6bd3719113f37",
+        "title": "投资贵州｜从“一罚了之”到“帮到底”",
+        "url": "https://www.cnstock.com/commonDetail/822098",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "f4969b640bf2dc838f5d",
+        "title": "习近平同秘鲁总统藤森庆子就中秘建交55周年互致贺电",
+        "url": "https://www.cnstock.com/commonDetail/822141",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "6aefbfc0b628bb8d4d7f",
+        "title": "首钢股份联合奇瑞汽车推动汽车外板新产品顺利下线",
+        "url": "https://www.cnstock.com/commonDetail/822139",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3fa472681d39abdfb1ac",
+        "title": "安钢股份公司数智化转型成果斐然",
+        "url": "https://www.cnstock.com/commonDetail/822138",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "63266c774642c7fb6f3d",
+        "title": "600715，午后“地天板”",
+        "url": "https://www.cnstock.com/commonDetail/822137",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "093758ee92853db420f4",
+        "title": "“非洲好物”赴进博之约　期待中国市场新机遇",
+        "url": "https://www.news.cn/fortune/20261102/4b92010a803a48108a6159f18e808e87/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "228f5006f5a9a41a3fbf",
+        "title": "湘财证券曹旭特：三方面因素支撑资本市场提升中长期价值",
+        "url": "https://www.cnstock.com/commonDetail/822124",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3d179faecd2a21565f65",
+        "title": "2027年度“新基石研究员项目”启动申报",
+        "url": "https://www.cnstock.com/commonDetail/822129",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "7f553cd3213718b569fc",
+        "title": "20项举措！5部门合力推动消费投资良性互动",
+        "url": "https://www.cnstock.com/commonDetail/822120",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "343b3d28ffa84a041714",
+        "title": "资本向实·宁波力量丨宁波辖区证券期货行业服务实体经济一线调研案例揭晓（第二期）",
+        "url": "https://www.stcn.com/article/detail/4317378.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "40d03d23af1b8d32a168",
+        "title": "资本向实·宁波力量丨宁波辖区证券期货行业服务实体经济一线调研案例揭晓（第一期）",
+        "url": "https://www.stcn.com/article/detail/4317374.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "03ab4e59e51266043c16",
+        "title": "数据要素撬动医险协同 多地试水“一站式结算”",
+        "url": "https://www.stcn.com/article/detail/4317364.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "2fe2d4b9ee88e2ce5c9b",
+        "title": "广电“十五五”规划出台 明确两个“不低于95%”",
+        "url": "https://www.stcn.com/article/detail/4317345.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "9c1fbaae77a00c1fa7c0",
+        "title": "从项目帮扶到机制共建 东西部协作助力安龙产业高质量发展",
+        "url": "https://www.stcn.com/article/detail/4317350.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "ff26330c3a875b03288d",
+        "title": "投资贵州｜从“看抵押”到“看信用”",
+        "url": "https://www.cnstock.com/commonDetail/822108",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "9c3153be3c503ed78a0a",
+        "title": "政策利率“换锚”落地，央行开展5410亿元隔夜逆回购操作",
+        "url": "https://www.stcn.com/article/detail/4317304.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "f4f15262030a9a087af7",
+        "title": "方正证券燕翔：资本市场改革持续显效 市场配置价值持续凸显",
+        "url": "https://www.cnstock.com/commonDetail/822110",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "780dc0ca8bfba3c73af2",
+        "title": "投资贵州｜追“光”逐“绿”“税”力全开",
+        "url": "https://www.cnstock.com/commonDetail/822107",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3b9b3ed2e4859d9337e3",
+        "title": "涉网络“开盒”、“饭圈”乱象等，最高检发布典型案例",
+        "url": "https://www.stcn.com/article/detail/4317263.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "abf578dd5c8cf48ffe6a",
+        "title": "远景800V SST高压直流系统实现商业化运行",
+        "url": "https://www.cnstock.com/commonDetail/822093",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3f97c9445ae6c84cef24",
+        "title": "超42万手封单！300413“20cm”涨停",
+        "url": "https://www.cnstock.com/commonDetail/822087",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "b7add66ea52dfd99178b",
+        "title": "美团LongCat-2.5发布  “国芯国模”生态提速",
+        "url": "https://www.cnstock.com/commonDetail/822088",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "42e2eebe2df89cc0b9d5",
+        "title": "多家运营机构上线数字人民币App流水打印服务",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/137036.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "f129efb50bd8b5e1071a",
+        "title": "【答疑室】水晶光电：光存储产品预计今年年底具备小批量生产能力",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/137033.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "87f498b65f5294486ca5",
+        "title": "【涨停直击】超260万手封单，阳光照明3天3板",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/137037.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "0ad49e1f90224a32e265",
+        "title": "政策利率换锚后，债市、信贷定价将迎哪些变化？",
+        "url": "https://www.stcn.com/article/detail/4317205.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "21ae38b67aa6479d0680",
+        "title": "金融法草案二审稿充实金融消费者、投资者保护相关内容",
+        "url": "https://www.stcn.com/article/detail/4317267.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "e44a5256f5a2fc6bb00e",
+        "title": "迅捷兴高端PCB新工艺亮相行业展会 探索高速光模块应用",
+        "url": "https://www.cnstock.com/commonDetail/822082",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "5114de37fc06e4d38b5d",
+        "title": "7只沪市主动ETF已正式成立 增量资金有望持续入市",
+        "url": "https://www.cs.com.cn/gppd/gsyj/2026/11/02/detail_2026110210049116.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "5d4293d6350f94556880",
+        "title": "海南：以自由贸易港建设为纽带 共筑区域合作新格局",
+        "url": "https://www.cnstock.com/commonDetail/822080",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "fd0f304be7c3589d1c3a",
+        "title": "人大常委会丨金融法草案二审稿充实金融消费者、投资者保护相关内容",
+        "url": "https://www.news.cn/fortune/20261102/313fd07fb7b84565b185a4a4b223acc4/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "02fd8da5d12b80ad1089",
+        "title": "京港将签署新一轮商务合作行动计划",
+        "url": "https://www.cnstock.com/commonDetail/822070",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "49091b26464fdd8c20d2",
+        "title": "习近平同阿曼苏丹海赛姆会谈",
+        "url": "https://www.stcn.com/article/detail/4317239.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "2fae4e4e5dd2ad8af74f",
+        "title": "专访丨中瑞自贸协定升级将进一步推动互利合作——访瑞士中心董事会主席戴尚贤",
+        "url": "https://www.news.cn/fortune/20261102/ea506bc2d93a4feba97ddf246049555c/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "d9d738aef7eb3c62d5cf",
+        "title": "前10个月新增专项债发行超3.8万亿元，进度接近九成",
+        "url": "https://www.stcn.com/article/detail/4316957.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "e606027222104d11b64b",
+        "title": "“换锚”落地 央行开展5410亿元隔夜逆回购操作",
+        "url": "https://www.news.cn/fortune/20261102/25dc995cacf94be78df410fe0fbaf033/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "051a16086f379bb0fd18",
+        "title": "超大城市进入消费换挡时间 | 中国产经观察",
+        "url": "https://www.stcn.com/article/detail/4316943.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "fc4b44e941930e4c5d76",
+        "title": "开放、创新、赋能——世界眼中的“中国机遇2.0”",
+        "url": "https://www.news.cn/fortune/20261102/16c56f74bff44f4d81a46f852093beab/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "5d766e791a907bf22433",
+        "title": "长春高新总经理金磊：金赛药业正在构建多产品、多领域与全球化研发体系",
+        "url": "https://www.cnstock.com/commonDetail/822059",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "18242f7fcb7498e91371",
+        "title": "磐耀资产拟出资不低于1000万元自购",
+        "url": "https://www.cnstock.com/commonDetail/822060",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "1e088fee48edf3aab508",
+        "title": "ZAP-X发明人John Adler获得福格蒂奖  百洋医药前沿赛道布局价值显现",
+        "url": "https://www.cnstock.com/commonDetail/822054",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "d201b17f6114cabebd6d",
+        "title": "赛力斯：公司与华为是长期、稳定、互信的战略合作关系",
+        "url": "https://www.cnstock.com/commonDetail/822046",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "e687a1ff2fe45dfbc717",
+        "title": "摩尔线程等三方达成战略合作 相关算力需求规模接近万卡级",
+        "url": "https://www.cnstock.com/commonDetail/822048",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "d3869d671578e2886fd1",
+        "title": "中广核技：截至9月底累计中标3台锗镓发生器  另有5台已发出试用",
+        "url": "https://www.cnstock.com/commonDetail/822047",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "bb375f767f4f592e6ac7",
+        "title": "中国燃气获鼎革奖“年度智融共生典范企业”奖 刘畅获评“年度企业数字化领军者”",
+        "url": "https://www.cnstock.com/commonDetail/822043",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "a22c117adb16f5246974",
+        "title": "603131，炸板！此前三连板",
+        "url": "https://www.cnstock.com/commonDetail/822042",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3bcd28818199b56a0aed",
+        "title": "人民币市场汇价（11月2日）",
+        "url": "https://www.news.cn/fortune/20261102/74fe23ebe29a4724a5844a2f2cd21cb2/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "8e8f6388b8da9cb0b460",
+        "title": "自然资源部等三部门联合发文完善设施农用地管理",
+        "url": "https://www.stcn.com/article/detail/4316838.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "05f2876c4b085689d874",
+        "title": "7年只投入没产出，“政府引导基金+银行信贷”组团托起一家“小巨人”",
+        "url": "https://www.stcn.com/article/detail/4316851.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "de2b19cc9dabb6304524",
+        "title": "伊朗外长：希望美方保持理性",
+        "url": "https://www.cnstock.com/commonDetail/822039",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "aa29fe8ae66796df30ce",
+        "title": "“股王”重回1400元",
+        "url": "https://www.cnstock.com/commonDetail/822036",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "1273bea8b0b4a3bfd6eb",
+        "title": "考古薪火照亮文明探源之路",
+        "url": "http://www.news.cn/politics/20261102/05622f87c5a948c39b07305c60a67c79/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华社时政通稿"
+      },
+      {
+        "materialId": "1815bee96338a0d7cb26",
+        "title": "新华社权威快报丨可再生能源法修订草案提请审议",
+        "url": "http://www.news.cn/politics/20261102/d61f18e9c8514496b1252d952100f7cb/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华社时政通稿"
+      },
+      {
+        "materialId": "9e30f23b6144ba07c86f",
+        "title": "不能随意修、不知怎么修，一些低级别民居类文物面临尴尬——老宅被列为文物，怎么保护怎么住",
+        "url": "http://www.news.cn/politics/20261102/1ee5e06ca13147b58093fd755e37c69a/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华社时政通稿"
+      },
+      {
+        "materialId": "50fa3c8630949b645b46",
+        "title": "《国家残疾预防行动计划（2026—2030年）》发布 推动不同人群降低致残风险",
+        "url": "http://www.news.cn/politics/20261102/b67a106df54248d2b8e50503142c2ee6/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华社时政通稿"
+      },
+      {
+        "materialId": "7643c48bcc75e7ea456a",
+        "title": "2026年“全国十佳新闻工作者”名单揭晓",
+        "url": "http://www.news.cn/politics/20261102/170c7b97fa384786b67c1abb3501a6b7/c.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华社时政通稿"
+      },
+      {
+        "materialId": "2cdf8b3660b0023abb87",
+        "title": "从“年报附录”到“战略决策” 上市公司治理架构迎来升级潮",
+        "url": "https://www.cs.com.cn/esg/2026/11/02/detail_2026110210049020.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "a6affa9dba2676ed1639",
+        "title": "日本央行按兵不动“鹰”声不减：通胀风险抬头，12月加息渐近",
+        "url": "https://www.stcn.com/article/detail/4316764.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "d2eda977ec1116c913f4",
+        "title": "广交会上，服务机器人解锁出海新范式",
+        "url": "https://www.stcn.com/article/detail/4316759.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "97d497f660f20270a016",
+        "title": "封关十个月，海南服务贸易形成系统化开放“新叙事”",
+        "url": "https://www.stcn.com/article/detail/4316752.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "79cc4ca525e27a99d64b",
+        "title": "郑州下线、亚太协同、飞进全球口袋：一部折叠屏手机的APEC之旅",
+        "url": "https://www.stcn.com/article/detail/4316723.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "341165ee228fcd4067ea",
+        "title": "大小企业联手，亚太经贸一体化愈走愈宽",
+        "url": "https://www.stcn.com/article/detail/4316728.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "746e54de5bbae6f699ca",
+        "title": "“皮带一条街”的这家工厂，成中小企业数字化出海样本",
+        "url": "https://www.stcn.com/article/detail/4316726.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "af6f94ef3ad57c823aac",
+        "title": "押注“小天才”：资本热潮下的掌声与审视",
+        "url": "https://www.cs.com.cn/tzjj/01/2026/11/02/detail_2026110210049039.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "2aee472d36dfb7aa0997",
+        "title": "AI算力与新能源协同驱动 A股三季报“动能向新”",
+        "url": "https://www.cs.com.cn/ssgs/cj2020/2026/11/02/detail_2026110210049030.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "5945e200a69bc97b9400",
+        "title": "商务部：积极做好扩消费稳外贸稳外资等重点工作",
+        "url": "https://www.cs.com.cn/xwzx/01/2026/11/02/detail_2026110210049026.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "12ddd8dc129f3e5dd1f1",
+        "title": "从“大而全”转向“小而美” 中小公募机构寻求差异化突围",
+        "url": "https://www.cs.com.cn/tzjj/01/2026/11/02/detail_2026110210049040.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "d3acbe664f17e61ce19f",
+        "title": "10月制造业PMI为49.3% 企业生产活动基本平稳",
+        "url": "https://www.cs.com.cn/xwzx/01/2026/11/02/detail_2026110210049044.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "3e5be00559668e93b2f3",
+        "title": "“金九银十”收官 二手房市场成交韧性延续",
+        "url": "https://www.cnstock.com/commonDetail/822015",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "eb420b620836b9b37a7d",
+        "title": "沪深两市公司三季报折射经济向新而行",
+        "url": "https://www.cs.com.cn/xwzx/01/2026/11/02/detail_2026110210049038.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "1cf11ae0fd2b3f2e4b98",
+        "title": "“真金白银”入场 产业资本稳市信心凸显",
+        "url": "https://www.stcn.com/article/detail/4316505.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "69c304d193b42e3130a3",
+        "title": "本周，美股将迎多重考验",
+        "url": "https://www.cnstock.com/commonDetail/822013",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "1114af54226e4b575bbe",
+        "title": "伊朗披露“两天计划”！以总理督促对伊“动手”，特朗普回应！油价开盘大跌",
+        "url": "https://www.stcn.com/article/detail/4316678.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "b732d1702af66ab6fb8d",
+        "title": "永葆生机活力 为中国式现代化提供根本保证——各地干部群众以党的二十届五中全会精神为指引凝聚磅礴奋进力量",
+        "url": "https://www.cs.com.cn/xwzx/01/2026/11/02/detail_2026110210049033.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "91f0c570595182ce7ccb",
+        "title": "美伊谈判，突传大消息！伊朗，最新发声！",
+        "url": "https://www.stcn.com/article/detail/4316651.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "75bf8ca8d130ba2e4f95",
+        "title": "市场调整已较充分 机构建议均衡配置弹性资产与防御底仓",
+        "url": "https://www.cnstock.com/commonDetail/822007",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "94338fff4ecab30aea9b",
+        "title": "以习近平党建思想为根本遵循 持之以恒推进全面从严治党——深入学习贯彻党的二十届五中全会精神系列述评之一",
+        "url": "https://www.cnstock.com/commonDetail/821977",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "6a0a62983caea3495af1",
+        "title": "上交所ABS簿记模块今起上线运行",
+        "url": "https://www.cnstock.com/commonDetail/822006",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "c01cecb573d966906bb0",
+        "title": "规模放量、结构优化、盈利韧性“三力共振” 沪深上市公司前三季度净利润超5万亿元",
+        "url": "https://www.cnstock.com/commonDetail/822004",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "501ecab38d186cbfd5f0",
+        "title": "经营显韧劲 创新添活力 沪市公司前三季度业绩增长量质齐升",
+        "url": "https://www.cnstock.com/commonDetail/822003",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "239dfc6c55e7009de74b",
+        "title": "深市公司前三季度整体业绩实现高增长",
+        "url": "https://www.cnstock.com/commonDetail/822002",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "9f82fd1d9ec22893db04",
+        "title": "早新闻 | 央行、证监会重磅会议，今日举行",
+        "url": "https://www.stcn.com/article/detail/4316647.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "a9596364699e53a8d1f6",
+        "title": "政策利率正式“换锚”",
+        "url": "https://www.stcn.com/article/detail/4316610.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "2483be1842ca92fa7ed6",
+        "title": "多部门发文加强消费基础设施建设 提升线下消费体验感，促进线下消费扩容升级",
+        "url": "https://www.stcn.com/article/detail/4316645.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "bc29968af83b8e2a099d",
+        "title": "10月服务业主要门类商务活动回暖",
+        "url": "https://www.stcn.com/article/detail/4316643.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "3a9505337c53925dc0ce",
+        "title": "大小企业手牵手 亚太经贸一体化愈走愈宽",
+        "url": "https://www.stcn.com/article/detail/4316512.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "7c5c57baa63262db6ea1",
+        "title": "创业板公司主业盈利能力提升",
+        "url": "https://www.cnstock.com/commonDetail/822001",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "f97992ec2ce2b77e872a",
+        "title": "平台助力数智赋能 APEC东风吹拂中小企业",
+        "url": "https://www.stcn.com/article/detail/4316513.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "f4f606c1c7a282052fbd",
+        "title": "亚太产业链供应链韧性增强 合作之路越走越实",
+        "url": "https://www.stcn.com/article/detail/4316511.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "5011020fbcb338a54908",
+        "title": "上市券商三季报“收官” 逾六成营利双增 业绩分化凸显",
+        "url": "https://www.cnstock.com/commonDetail/821980",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "3392bad9f2a749800f5e",
+        "title": "广交会：智能新品解锁消费新体验",
+        "url": "https://www.stcn.com/article/detail/4316595.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "980f187d7604cfd7242f",
+        "title": "深化“三投联动”服务实体经济 壮大耐心资本赋能新质生产力",
+        "url": "https://www.cnstock.com/commonDetail/821996",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "92a2a81381ffb154f485",
+        "title": "以“产业纵深”锻造一流投行——“十五五”券业新使命调研之东方证券样本",
+        "url": "https://www.cnstock.com/commonDetail/821997",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "e18a93b2808e38f835d0",
+        "title": "三季度末我国科技型中小企业获贷率为51.1%",
+        "url": "https://www.stcn.com/article/detail/4316568.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "7e3b931487dc708c692e",
+        "title": "地方经济“三季报”出炉  增长动能加速向新",
+        "url": "https://www.stcn.com/article/detail/4316558.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "952f515aa8c9b3fb22c0",
+        "title": "扩投资、稳增长 重大项目刷新“进度条”",
+        "url": "http://epaper.zqrb.cn/html/2026-11/02/content_1285308.htm?div=-1",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券日报·A1版"
+      },
+      {
+        "materialId": "3e968922b5b5ea16178f",
+        "title": "前三季度全国社会物流总额同比增长4.9%",
+        "url": "https://www.cs.com.cn/xwzx/01/2026/11/02/detail_2026110210049028.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "c440779c73c170384576",
+        "title": "今日视点：质效双升 向新而行",
+        "url": "http://epaper.zqrb.cn/html/2026-11/02/content_1285323.htm?div=-1",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券日报·A1版"
+      },
+      {
+        "materialId": "fa6e48fe688ec5b10ceb",
+        "title": "上市公司三季报业绩量增质优、结构向好",
+        "url": "http://epaper.zqrb.cn/html/2026-11/02/content_1285316.htm?div=-1",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券日报·A1版"
+      },
+      {
+        "materialId": "7a558bf7979fb0dfac92",
+        "title": "关于《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》的说明",
+        "url": "http://paper.people.com.cn/rmrb/pc/content/202611/02/content_30188805.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "人民日报·头版目录"
+      },
+      {
+        "materialId": "9ca64d7030f2ac0d47de",
+        "title": "中共中央关于持之以恒推进全面从严治党若干重大问题的决定",
+        "url": "http://paper.people.com.cn/rmrb/pc/content/202611/02/content_30188804.html",
+        "publishedAt": "2026-11-02",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "人民日报·头版目录"
+      }
+    ]
   },
   "dynamics": [
     {
-      "sectorId": "xw-90e6756afb95",
-      "name": "固态电池",
-      "layer": "dynamic",
-      "type": "relative_resilience",
-      "score": 87.65393666192989,
-      "relative": "stronger",
+      "sectorId": "xw-7f29b8370c32",
+      "name": "CPO",
+      "layer": "market_dynamic",
+      "type": "counter_trend",
+      "score": 100.0,
+      "relative": "weaker",
       "absolute": "negative",
-      "attentionScore": 81.91300485685987,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，固态电池样本加权涨跌幅-0.91%，较市场中位+2.22个百分点，板块上涨广度35.2%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；尚无独立关联板块确认。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，固态电池样本加权涨跌幅-0.91%，较市场中位+2.22个百分点，板块上涨广度35.2%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；尚无独立关联板块确认。",
-      "linkedSectors": [],
-      "linkageScore": 0.0,
-      "linkageConfirmation": 0.0,
-      "confidence": 0.7752607977244825
-    },
-    {
-      "sectorId": "xw-1846176c488b",
-      "name": "脑机接口",
-      "layer": "dynamic",
-      "type": "relative_resilience",
-      "score": 83.35600001591638,
-      "relative": "stronger",
-      "absolute": "negative",
-      "attentionScore": 80.90483019709104,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，脑机接口样本加权涨跌幅-0.70%，较市场中位+2.43个百分点，板块上涨广度34.9%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与半导体与电子系统呈同日分歧。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，脑机接口样本加权涨跌幅-0.70%，较市场中位+2.43个百分点，板块上涨广度34.9%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与半导体与电子系统呈同日分歧。",
+      "attentionScore": 96.37777014947265,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，CPO样本加权涨跌幅-1.47%，较市场中位-3.49个百分点，板块上涨广度21.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与数据中心与智算设施呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，CPO样本加权涨跌幅-1.47%，较市场中位-3.49个百分点，板块上涨广度21.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与数据中心与智算设施呈同日分歧。",
       "linkedSectors": [
+        {
+          "sectorId": "xw-d19d30890b4b",
+          "name": "数据中心与智算设施",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.3060746325958309,
+          "confidence": 0.5652565094060154,
+          "stockOverlap": 0.14634146341463414,
+          "independentSignal": true
+        },
         {
           "sectorId": "xw-44df3a7133d1",
           "name": "半导体与电子系统",
           "pattern": "same_day_divergence",
           "relation": "related_to",
-          "linkageScore": -0.44003956676811334,
-          "confidence": 0.49193256779272176,
-          "stockOverlap": 0.0,
+          "linkageScore": -0.10056171989997251,
+          "confidence": 0.4176001140577278,
+          "stockOverlap": 0.4146341463414634,
           "independentSignal": true
         },
         {
-          "sectorId": "xw-9cdb283a5860",
-          "name": "智能装备与先进制造",
-          "pattern": "same_day_divergence",
-          "relation": "related_to",
-          "linkageScore": -0.29814193993139215,
-          "confidence": 0.49193256779272176,
-          "stockOverlap": 0.0,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-355bbba8934b",
-          "name": "生命科学与医疗健康",
+          "sectorId": "xw-21ae3fcece5b",
+          "name": "光通信与高速互联",
           "pattern": "structural_overlap",
-          "relation": "parent_of",
-          "linkageScore": 0.20094515520073666,
-          "confidence": 0.3067761301368138,
-          "stockOverlap": 1.0,
+          "relation": "related_to",
+          "linkageScore": 0.21605506202860175,
+          "confidence": 0.33435597240727166,
+          "stockOverlap": 0.8292682926829268,
           "independentSignal": false
         }
       ],
-      "linkageScore": -0.44003956676811334,
-      "linkageConfirmation": 44.003956676811335,
-      "confidence": 0.681724733637364
-    },
-    {
-      "sectorId": "xw-b0422815fe8f",
-      "name": "中医药产品",
-      "layer": "own_l2",
-      "type": "counter_trend",
-      "score": 73.04903426737289,
-      "relative": "stronger",
-      "absolute": "positive",
-      "attentionScore": 69.64749302097331,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，中医药产品样本加权涨跌幅+0.85%，较市场中位+3.98个百分点，板块上涨广度67.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与生命科学与医疗健康呈结构重叠。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，中医药产品样本加权涨跌幅+0.85%，较市场中位+3.98个百分点，板块上涨广度67.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与生命科学与医疗健康呈结构重叠。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-355bbba8934b",
-          "name": "生命科学与医疗健康",
-          "pattern": "structural_overlap",
-          "relation": "parent_of",
-          "linkageScore": 0.20094515520073666,
-          "confidence": 0.35685989575107757,
-          "stockOverlap": 1.0,
-          "independentSignal": false
-        }
-      ],
-      "linkageScore": 0.20094515520073666,
-      "linkageConfirmation": 20.094515520073667,
-      "confidence": 0.7930219905579501
-    },
-    {
-      "sectorId": "xw-3a97c6ae506e",
-      "name": "算力与通信基础设施",
-      "layer": "own_l1",
-      "type": "broad_internal_move",
-      "score": 68.50917254351248,
-      "relative": "weaker",
-      "absolute": "negative",
-      "attentionScore": 68.1896561598095,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，算力与通信基础设施样本加权涨跌幅-5.43%，较市场中位-2.30个百分点，板块上涨广度7.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与量子信息技术呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，算力与通信基础设施样本加权涨跌幅-5.43%，较市场中位-2.30个百分点，板块上涨广度7.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与量子信息技术呈同日共振。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-982fc3388ed4",
-          "name": "量子信息技术",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.267827648056855,
-          "confidence": 0.4880389873120671,
-          "stockOverlap": 0.16666666666666666,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-070a5a543435",
-          "name": "存储芯片",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.22331535316634524,
-          "confidence": 0.525224526037009,
-          "stockOverlap": 0.21052631578947367,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-5846e1a424f3",
-          "name": "商业航天",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.19279264021072628,
-          "confidence": 0.4555195072894871,
-          "stockOverlap": 0.36666666666666664,
-          "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.267827648056855,
-      "linkageConfirmation": 26.7827648056855,
-      "confidence": 0.8231761755212599
-    },
-    {
-      "sectorId": "xw-ddcbfb3eb374",
-      "name": "医药研发与定制生产",
-      "layer": "own_l2",
-      "type": "counter_trend",
-      "score": 67.70613333883769,
-      "relative": "stronger",
-      "absolute": "positive",
-      "attentionScore": 67.7866540583651,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，医药研发与定制生产样本加权涨跌幅+0.62%，较市场中位+3.75个百分点，板块上涨广度48.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与创新药与生物制品呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，医药研发与定制生产样本加权涨跌幅+0.62%，较市场中位+3.75个百分点，板块上涨广度48.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与创新药与生物制品呈同日共振。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-1db613f6416e",
-          "name": "创新药与生物制品",
-          "pattern": "same_day_resonance",
-          "relation": "enables",
-          "linkageScore": 0.30363768277806186,
-          "confidence": 0.5128079394086036,
-          "stockOverlap": 0.375,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-1db613f6416e",
-          "name": "创新药与生物制品",
-          "pattern": "same_day_resonance",
-          "relation": "upstream_of",
-          "linkageScore": 0.30363768277806186,
-          "confidence": 0.5128079394086036,
-          "stockOverlap": 0.375,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-a13d65288762",
-          "name": "金融与产业服务",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.23362705378029242,
-          "confidence": 0.5658857393441551,
-          "stockOverlap": 0.078125,
-          "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.30363768277806186,
-      "linkageConfirmation": 30.363768277806187,
-      "confidence": 0.8194191438079987
+      "linkageScore": -0.3060746325958309,
+      "linkageConfirmation": 30.60746325958309,
+      "confidence": 0.7496770681777392
     },
     {
       "sectorId": "xw-364cbc742e30",
       "name": "煤炭与煤化工",
       "layer": "own_l2",
       "type": "counter_trend",
-      "score": 66.33974397313642,
-      "relative": "stronger",
-      "absolute": "positive",
-      "attentionScore": 66.37737915324911,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，煤炭与煤化工样本加权涨跌幅+0.45%，较市场中位+3.58个百分点，板块上涨广度55.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与油气与炼化呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，煤炭与煤化工样本加权涨跌幅+0.45%，较市场中位+3.58个百分点，板块上涨广度55.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与油气与炼化呈同日共振。",
+      "score": 82.34606316401768,
+      "relative": "weaker",
+      "absolute": "negative",
+      "attentionScore": 79.08096611333484,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，煤炭与煤化工样本加权涨跌幅-0.50%，较市场中位-2.52个百分点，板块上涨广度35.8%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与油气与炼化呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，煤炭与煤化工样本加权涨跌幅-0.50%，较市场中位-2.52个百分点，板块上涨广度35.8%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与油气与炼化呈同日共振。",
       "linkedSectors": [
         {
           "sectorId": "xw-5a4303247dce",
           "name": "油气与炼化",
           "pattern": "same_day_resonance",
           "relation": "related_to",
-          "linkageScore": 0.31706614781331516,
-          "confidence": 0.3974492121549901,
+          "linkageScore": 0.14565104162898304,
+          "confidence": 0.38918516312590146,
           "stockOverlap": 0.17142857142857143,
           "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.31706614781331516,
-      "linkageConfirmation": 31.706614781331517,
-      "confidence": 0.8051466012398476
-    },
-    {
-      "sectorId": "xw-355bbba8934b",
-      "name": "生命科学与医疗健康",
-      "layer": "own_l1",
-      "type": "relative_resilience",
-      "score": 66.98171840024555,
-      "relative": "stronger",
-      "absolute": "negative",
-      "attentionScore": 65.82967457994567,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，生命科学与医疗健康样本加权涨跌幅-0.10%，较市场中位+3.03个百分点，板块上涨广度47.5%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与养老与长期护理呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，生命科学与医疗健康样本加权涨跌幅-0.10%，较市场中位+3.03个百分点，板块上涨广度47.5%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与养老与长期护理呈同日共振。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-e7a97bf58e9e",
-          "name": "养老与长期护理",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.21916702677918756,
-          "confidence": 0.41913163040481266,
-          "stockOverlap": 0.42857142857142855,
-          "independentSignal": true
         },
         {
-          "sectorId": "xw-6c0aa50a22de",
-          "name": "科技成果转化服务",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.1609227126197009,
-          "confidence": 0.41536468259723974,
-          "stockOverlap": 0.35714285714285715,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-f8aa384e4d0d",
-          "name": "可穿戴智能设备",
+          "sectorId": "xw-5f2c5119475e",
+          "name": "清洁能源与电力系统",
           "pattern": "same_day_divergence",
           "relation": "related_to",
-          "linkageScore": -0.13581299396757293,
-          "confidence": 0.5043483538229062,
-          "stockOverlap": 0.16176470588235295,
-          "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.21916702677918756,
-      "linkageConfirmation": 21.916702677918757,
-      "confidence": 0.8064369488895237
-    },
-    {
-      "sectorId": "xw-5a4303247dce",
-      "name": "油气与炼化",
-      "layer": "own_l2",
-      "type": "counter_trend",
-      "score": 65.50953467217256,
-      "relative": "stronger",
-      "absolute": "positive",
-      "attentionScore": 65.43486553273836,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，油气与炼化样本加权涨跌幅+0.27%，较市场中位+3.40个百分点，板块上涨广度52.8%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与煤炭与煤化工呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，油气与炼化样本加权涨跌幅+0.27%，较市场中位+3.40个百分点，板块上涨广度52.8%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与煤炭与煤化工呈同日共振。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-364cbc742e30",
-          "name": "煤炭与煤化工",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.31706614781331516,
-          "confidence": 0.3974492121549901,
-          "stockOverlap": 0.17142857142857143,
-          "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.31706614781331516,
-      "linkageConfirmation": 31.706614781331517,
-      "confidence": 0.797861911409501
-    },
-    {
-      "sectorId": "xw-44df3a7133d1",
-      "name": "半导体与电子系统",
-      "layer": "own_l1",
-      "type": "broad_internal_move",
-      "score": 60.981092955669816,
-      "relative": "weaker",
-      "absolute": "negative",
-      "attentionScore": 63.22130145027551,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，半导体与电子系统样本加权涨跌幅-4.81%，较市场中位-1.68个百分点，板块上涨广度11.5%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与脑机接口呈同日分歧。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，半导体与电子系统样本加权涨跌幅-4.81%，较市场中位-1.68个百分点，板块上涨广度11.5%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与脑机接口呈同日分歧。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-1846176c488b",
-          "name": "脑机接口",
-          "pattern": "same_day_divergence",
-          "relation": "related_to",
-          "linkageScore": -0.44003956676811334,
-          "confidence": 0.49193256779272176,
-          "stockOverlap": 0.0,
+          "linkageScore": -0.10168031749309124,
+          "confidence": 0.45041290178320575,
+          "stockOverlap": 0.37142857142857144,
           "independentSignal": true
         },
         {
-          "sectorId": "xw-21ae3fcece5b",
-          "name": "光通信与高速互联",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.1815807592840649,
-          "confidence": 0.4359141831907604,
-          "stockOverlap": 0.4931506849315068,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-5b43813a194e",
-          "name": "AI服务器",
-          "pattern": "same_day_resonance",
-          "relation": "related_to",
-          "linkageScore": 0.17598769160182426,
-          "confidence": 0.40190841703542696,
-          "stockOverlap": 0.5657894736842105,
-          "independentSignal": true
+          "sectorId": "xw-e8c29e7c597e",
+          "name": "资源材料与基础工业",
+          "pattern": "structural_overlap",
+          "relation": "parent_of",
+          "linkageScore": 0.19911287523227986,
+          "confidence": 0.3560000951811965,
+          "stockOverlap": 1.0,
+          "independentSignal": false
         }
       ],
-      "linkageScore": -0.44003956676811334,
-      "linkageConfirmation": 44.003956676811335,
-      "confidence": 0.828925887671442
+      "linkageScore": 0.14565104162898304,
+      "linkageConfirmation": 14.565104162898304,
+      "confidence": 0.7911113226248812
     },
     {
       "sectorId": "xw-db3895062f15",
       "name": "数字技术与智能系统",
       "layer": "own_l1",
       "type": "broad_internal_move",
-      "score": 59.94000302685165,
-      "relative": "weaker",
-      "absolute": "negative",
-      "attentionScore": 59.79973608074211,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，数字技术与智能系统样本加权涨跌幅-4.70%，较市场中位-1.57个百分点，板块上涨广度10.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与综合物流与多式联运呈同日分歧。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，数字技术与智能系统样本加权涨跌幅-4.70%，较市场中位-1.57个百分点，板块上涨广度10.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与综合物流与多式联运呈同日分歧。",
+      "score": 78.97977165667479,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 78.12802109853816,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，数字技术与智能系统样本加权涨跌幅+3.94%，较市场中位+1.92个百分点，板块上涨广度86.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与第六代移动通信呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，数字技术与智能系统样本加权涨跌幅+3.94%，较市场中位+1.92个百分点，板块上涨广度86.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与第六代移动通信呈同日共振。",
       "linkedSectors": [
         {
-          "sectorId": "xw-917079d89e09",
-          "name": "综合物流与多式联运",
-          "pattern": "same_day_divergence",
+          "sectorId": "xw-116c65f0af50",
+          "name": "第六代移动通信",
+          "pattern": "same_day_resonance",
           "relation": "related_to",
-          "linkageScore": -0.2954915773504223,
-          "confidence": 0.5253079334070107,
-          "stockOverlap": 0.14093959731543623,
+          "linkageScore": 0.36075678624826724,
+          "confidence": 0.4307346326643365,
+          "stockOverlap": 0.15384615384615385,
           "independentSignal": true
         },
         {
-          "sectorId": "xw-227637670a60",
-          "name": "智能工厂解决方案",
+          "sectorId": "xw-6c0aa50a22de",
+          "name": "科技成果转化服务",
           "pattern": "same_day_divergence",
           "relation": "related_to",
-          "linkageScore": -0.21015827712895405,
-          "confidence": 0.4351118642074143,
-          "stockOverlap": 0.3963963963963964,
+          "linkageScore": -0.30771673302111535,
+          "confidence": 0.43180326985746337,
+          "stockOverlap": 0.2857142857142857,
           "independentSignal": true
         },
         {
-          "sectorId": "xw-2e6faa7f5aa4",
-          "name": "零售与生活服务",
+          "sectorId": "xw-bfa28c93ca1e",
+          "name": "工业机器人",
           "pattern": "same_day_divergence",
           "relation": "related_to",
-          "linkageScore": -0.20054804663203188,
-          "confidence": 0.4663030954792573,
-          "stockOverlap": 0.2595419847328244,
+          "linkageScore": -0.20552830925543566,
+          "confidence": 0.4780424898305645,
+          "stockOverlap": 0.2641509433962264,
           "independentSignal": true
         }
       ],
-      "linkageScore": -0.2954915773504223,
-      "linkageConfirmation": 29.54915773504223,
-      "confidence": 0.7891489071781452
+      "linkageScore": 0.36075678624826724,
+      "linkageConfirmation": 36.07567862482672,
+      "confidence": 0.7750819848772387
     },
     {
-      "sectorId": "xw-230be3285ec6",
-      "name": "半导体设备",
+      "sectorId": "xw-b99074901f85",
+      "name": "算力网络",
       "layer": "own_l2",
       "type": "broad_internal_move",
-      "score": 54.15793797598552,
-      "relative": "weaker",
-      "absolute": "negative",
-      "attentionScore": 54.768741091077466,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，半导体设备样本加权涨跌幅-7.07%，较市场中位-3.94个百分点，板块上涨广度2.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与集成电路设计与制造呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，半导体设备样本加权涨跌幅-7.07%，较市场中位-3.94个百分点，板块上涨广度2.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与集成电路设计与制造呈同日共振。",
+      "score": 75.3909952453431,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 74.74437551438027,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，算力网络样本加权涨跌幅+6.43%，较市场中位+4.41个百分点，板块上涨广度95.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与光通信与高速互联呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，算力网络样本加权涨跌幅+6.43%，较市场中位+4.41个百分点，板块上涨广度95.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与光通信与高速互联呈同日分歧。",
       "linkedSectors": [
         {
-          "sectorId": "xw-93861d32fa14",
-          "name": "集成电路设计与制造",
-          "pattern": "same_day_resonance",
+          "sectorId": "xw-21ae3fcece5b",
+          "name": "光通信与高速互联",
+          "pattern": "same_day_divergence",
           "relation": "enables",
-          "linkageScore": 0.29729456569910356,
-          "confidence": 0.6248938026931006,
-          "stockOverlap": 0.11320754716981132,
+          "linkageScore": -0.424887353088224,
+          "confidence": 0.5223096642021854,
+          "stockOverlap": 0.25,
           "independentSignal": true
         },
         {
-          "sectorId": "xw-93861d32fa14",
-          "name": "集成电路设计与制造",
-          "pattern": "same_day_resonance",
-          "relation": "upstream_of",
-          "linkageScore": 0.29729456569910356,
-          "confidence": 0.6248938026931006,
-          "stockOverlap": 0.11320754716981132,
-          "independentSignal": true
+          "sectorId": "xw-781ef51695cf",
+          "name": "云计算与算力服务",
+          "pattern": "structural_overlap",
+          "relation": "enables",
+          "linkageScore": 0.2112240403723101,
+          "confidence": 0.3391227964675059,
+          "stockOverlap": 0.8,
+          "independentSignal": false
         },
         {
-          "sectorId": "xw-9cdb283a5860",
-          "name": "智能装备与先进制造",
-          "pattern": "same_day_resonance",
+          "sectorId": "xw-db3895062f15",
+          "name": "数字技术与智能系统",
+          "pattern": "structural_overlap",
           "relation": "related_to",
-          "linkageScore": 0.19969884655781925,
-          "confidence": 0.42853942888541735,
-          "stockOverlap": 0.4716981132075472,
-          "independentSignal": true
+          "linkageScore": 0.18224717626628262,
+          "confidence": 0.2544632126350821,
+          "stockOverlap": 0.95,
+          "independentSignal": false
         }
       ],
-      "linkageScore": 0.29729456569910356,
-      "linkageConfirmation": 29.729456569910358,
-      "confidence": 0.8126655430812761
+      "linkageScore": -0.424887353088224,
+      "linkageConfirmation": 42.4887353088224,
+      "confidence": 0.7385078320285408
     },
     {
-      "sectorId": "xw-4fbc23718588",
-      "name": "数据流通与治理",
-      "layer": "own_l2",
+      "sectorId": "xw-982fc3388ed4",
+      "name": "量子信息技术",
+      "layer": "dynamic",
       "type": "broad_internal_move",
-      "score": 54.02095204488796,
-      "relative": "weaker",
-      "absolute": "negative",
-      "attentionScore": 53.335725760974135,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，数据流通与治理样本加权涨跌幅-6.70%，较市场中位-3.57个百分点，板块上涨广度4.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与金融与产业服务呈同日分歧。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，数据流通与治理样本加权涨跌幅-6.70%，较市场中位-3.57个百分点，板块上涨广度4.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与金融与产业服务呈同日分歧。",
+      "score": 72.8299561387778,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 69.61931185435269,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，量子信息技术样本加权涨跌幅+6.77%，较市场中位+4.75个百分点，板块上涨广度100.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，量子信息技术样本加权涨跌幅+6.77%，较市场中位+4.75个百分点，板块上涨广度100.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈同日分歧。",
       "linkedSectors": [
         {
-          "sectorId": "xw-a13d65288762",
-          "name": "金融与产业服务",
+          "sectorId": "xw-3a97c6ae506e",
+          "name": "算力与通信基础设施",
           "pattern": "same_day_divergence",
           "relation": "related_to",
-          "linkageScore": -0.24031372630693149,
-          "confidence": 0.545898675922251,
-          "stockOverlap": 0.039473684210526314,
+          "linkageScore": -0.20252364035167011,
+          "confidence": 0.4812525295010231,
+          "stockOverlap": 0.16666666666666666,
           "independentSignal": true
         },
         {
@@ -520,99 +1778,603 @@
           "name": "数字技术与智能系统",
           "pattern": "structural_overlap",
           "relation": "parent_of",
-          "linkageScore": 0.18694092615533595,
-          "confidence": 0.3759663587627729,
-          "stockOverlap": 0.9342105263157895,
+          "linkageScore": 0.21848986841633342,
+          "confidence": 0.3304028330653498,
+          "stockOverlap": 1.0,
           "independentSignal": false
         }
       ],
-      "linkageScore": -0.24031372630693149,
-      "linkageConfirmation": 24.03137263069315,
-      "confidence": 0.7733002237069213
+      "linkageScore": -0.20252364035167011,
+      "linkageConfirmation": 20.252364035167012,
+      "confidence": 0.7342285179229995
     },
     {
-      "sectorId": "xw-1db613f6416e",
-      "name": "创新药与生物制品",
-      "layer": "own_l2",
-      "type": "relative_resilience",
-      "score": 50.20879417578534,
-      "relative": "stronger",
-      "absolute": "negative",
-      "attentionScore": 50.748570053067155,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，创新药与生物制品样本加权涨跌幅-0.58%，较市场中位+2.55个百分点，板块上涨广度44.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与医药研发与定制生产呈同日共振。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，创新药与生物制品样本加权涨跌幅-0.58%，较市场中位+2.55个百分点，板块上涨广度44.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与医药研发与定制生产呈同日共振。",
-      "linkedSectors": [
-        {
-          "sectorId": "xw-ddcbfb3eb374",
-          "name": "医药研发与定制生产",
-          "pattern": "same_day_resonance",
-          "relation": "enables",
-          "linkageScore": 0.30363768277806186,
-          "confidence": 0.5128079394086036,
-          "stockOverlap": 0.375,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-ddcbfb3eb374",
-          "name": "医药研发与定制生产",
-          "pattern": "same_day_resonance",
-          "relation": "upstream_of",
-          "linkageScore": 0.30363768277806186,
-          "confidence": 0.5128079394086036,
-          "stockOverlap": 0.375,
-          "independentSignal": true
-        },
-        {
-          "sectorId": "xw-6c0aa50a22de",
-          "name": "科技成果转化服务",
-          "pattern": "same_day_resonance",
-          "relation": "enables",
-          "linkageScore": 0.1950578334784254,
-          "confidence": 0.4950811368330737,
-          "stockOverlap": 0.2857142857142857,
-          "independentSignal": true
-        }
-      ],
-      "linkageScore": 0.30363768277806186,
-      "linkageConfirmation": 30.363768277806187,
-      "confidence": 0.7878746908524734
-    },
-    {
-      "sectorId": "xw-722fa53dd96e",
-      "name": "算电协同",
-      "layer": "dynamic",
-      "type": "relative_resilience",
-      "score": 50.33619383366806,
-      "relative": "stronger",
-      "absolute": "negative",
-      "attentionScore": 46.970757048356845,
-      "explanation": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，算电协同样本加权涨跌幅-2.67%，较市场中位+0.46个百分点，板块上涨广度16.2%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈父子层级分歧。",
-      "summary": "全市场中位涨跌幅-3.13%、上涨家数占比16.0%时，算电协同样本加权涨跌幅-2.67%，较市场中位+0.46个百分点，板块上涨广度16.2%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈父子层级分歧。",
+      "sectorId": "xw-311ee0def7a5",
+      "name": "玻璃基封装互连",
+      "layer": "market_dynamic",
+      "type": "relative_weakness",
+      "score": 72.62425442905058,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 69.4487537850994,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，玻璃基封装互连样本加权涨跌幅+0.84%，较市场中位-1.18个百分点，板块上涨广度48.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与算力与通信基础设施呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，玻璃基封装互连样本加权涨跌幅+0.84%，较市场中位-1.18个百分点，板块上涨广度48.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与算力与通信基础设施呈同日共振。",
       "linkedSectors": [
         {
           "sectorId": "xw-3a97c6ae506e",
           "name": "算力与通信基础设施",
-          "pattern": "hierarchy_divergence",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.14902682969273837,
+          "confidence": 0.40046214545584696,
+          "stockOverlap": 0.5,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": 0.14902682969273837,
+      "linkageConfirmation": 14.902682969273837,
+      "confidence": 0.7654678214233637
+    },
+    {
+      "sectorId": "xw-4fbc23718588",
+      "name": "数据流通与治理",
+      "layer": "own_l2",
+      "type": "broad_internal_move",
+      "score": 72.51595702325886,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 68.70593558587427,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，数据流通与治理样本加权涨跌幅+5.25%，较市场中位+3.23个百分点，板块上涨广度97.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与数字技术与智能系统呈结构重叠。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，数据流通与治理样本加权涨跌幅+5.25%，较市场中位+3.23个百分点，板块上涨广度97.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与数字技术与智能系统呈结构重叠。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-db3895062f15",
+          "name": "数字技术与智能系统",
+          "pattern": "structural_overlap",
           "relation": "parent_of",
-          "linkageScore": -0.15100858150100419,
-          "confidence": 0.3235997912545898,
-          "stockOverlap": 1.0,
+          "linkageScore": 0.2505096697167124,
+          "confidence": 0.3693589805331017,
+          "stockOverlap": 0.935064935064935,
           "independentSignal": false
+        }
+      ],
+      "linkageScore": 0.2505096697167124,
+      "linkageConfirmation": 25.05096697167124,
+      "confidence": 0.7604449599210916
+    },
+    {
+      "sectorId": "xw-e8c29e7c597e",
+      "name": "资源材料与基础工业",
+      "layer": "own_l1",
+      "type": "relative_weakness",
+      "score": 66.37095841075995,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 65.7529878387339,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，资源材料与基础工业样本加权涨跌幅+0.89%，较市场中位-1.13个百分点，板块上涨广度63.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与半导体材料呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，资源材料与基础工业样本加权涨跌幅+0.89%，较市场中位-1.13个百分点，板块上涨广度63.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与半导体材料呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-9dc6345ce191",
+          "name": "半导体材料",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.27908904853840233,
+          "confidence": 0.4689719127583519,
+          "stockOverlap": 0.31645569620253167,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-c20136c9d1b6",
+          "name": "动力电池",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.23073567052076058,
+          "confidence": 0.4977739584931111,
+          "stockOverlap": 0.23943661971830985,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-4af7f3552f2e",
+          "name": "核能发电",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.22996210524354038,
+          "confidence": 0.44012136121985707,
+          "stockOverlap": 0.40425531914893614,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.27908904853840233,
+      "linkageConfirmation": 27.908904853840234,
+      "confidence": 0.7953335953460557
+    },
+    {
+      "sectorId": "xw-21ae3fcece5b",
+      "name": "光通信与高速互联",
+      "layer": "own_l2",
+      "type": "relative_weakness",
+      "score": 62.80670407808191,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 64.59324332599803,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，光通信与高速互联样本加权涨跌幅+0.84%，较市场中位-1.18个百分点，板块上涨广度54.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与算力网络呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，光通信与高速互联样本加权涨跌幅+0.84%，较市场中位-1.18个百分点，板块上涨广度54.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与算力网络呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-b99074901f85",
+          "name": "算力网络",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.424887353088224,
+          "confidence": 0.5223096642021854,
+          "stockOverlap": 0.25,
+          "independentSignal": true
         },
         {
           "sectorId": "xw-d19d30890b4b",
           "name": "数据中心与智算设施",
           "pattern": "same_day_divergence",
           "relation": "enables",
-          "linkageScore": -0.14855795467387187,
-          "confidence": 0.3734581294627044,
-          "stockOverlap": 0.6666666666666666,
+          "linkageScore": -0.29359306767591087,
+          "confidence": 0.5659600867111677,
+          "stockOverlap": 0.19863013698630136,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-44df3a7133d1",
+          "name": "半导体与电子系统",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.09277449449699483,
+          "confidence": 0.42559762284818464,
+          "stockOverlap": 0.4931506849315068,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.424887353088224,
+      "linkageConfirmation": 42.4887353088224,
+      "confidence": 0.8190467079664663
+    },
+    {
+      "sectorId": "xw-44aa448608dc",
+      "name": "人工智能平台与应用",
+      "layer": "own_l2",
+      "type": "broad_internal_move",
+      "score": 65.30784726130229,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 63.14210061087886,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，人工智能平台与应用样本加权涨跌幅+4.94%，较市场中位+2.92个百分点，板块上涨广度90.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，人工智能平台与应用样本加权涨跌幅+4.94%，较市场中位+2.92个百分点，板块上涨广度90.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与算力与通信基础设施呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-3a97c6ae506e",
+          "name": "算力与通信基础设施",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.19592338449115257,
+          "confidence": 0.4874521827800922,
+          "stockOverlap": 0.2077922077922078,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-584cc9e8ba4e",
+          "name": "具身智能",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.13908443818322802,
+          "confidence": 0.5398242670414861,
+          "stockOverlap": 0.24878048780487805,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-227637670a60",
+          "name": "智能工厂解决方案",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.13383811686808988,
+          "confidence": 0.5342640698601218,
+          "stockOverlap": 0.25892857142857145,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.19592338449115257,
+      "linkageConfirmation": 19.592338449115257,
+      "confidence": 0.7626791000868693
+    },
+    {
+      "sectorId": "xw-5c99b7879a92",
+      "name": "智能体应用",
+      "layer": "dynamic",
+      "type": "broad_internal_move",
+      "score": 61.980898400019655,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 61.86563264632506,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，智能体应用样本加权涨跌幅+4.85%，较市场中位+2.83个百分点，板块上涨广度89.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与消费与社会服务呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，智能体应用样本加权涨跌幅+4.85%，较市场中位+2.83个百分点，板块上涨广度89.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与消费与社会服务呈同日共振。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-338f0026bf3d",
+          "name": "消费与社会服务",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.3633035121163187,
+          "confidence": 0.49937076167291494,
+          "stockOverlap": 0.14556962025316456,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-b0455383144a",
+          "name": "大模型服务",
+          "pattern": "same_day_resonance",
+          "relation": "uses",
+          "linkageScore": 0.24646019803297062,
+          "confidence": 0.4583794473726906,
+          "stockOverlap": 0.46710526315789475,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-b0455383144a",
+          "name": "大模型服务",
+          "pattern": "same_day_resonance",
+          "relation": "enables",
+          "linkageScore": 0.24646019803297062,
+          "confidence": 0.4583794473726906,
+          "stockOverlap": 0.46710526315789475,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": 0.3633035121163187,
+      "linkageConfirmation": 36.33035121163187,
+      "confidence": 0.7522611559253389
+    },
+    {
+      "sectorId": "xw-5846e1a424f3",
+      "name": "商业航天",
+      "layer": "dynamic",
+      "type": "relative_weakness",
+      "score": 63.4594946392428,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 61.373671155159954,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，商业航天样本加权涨跌幅+0.78%，较市场中位-1.24个百分点，板块上涨广度50.6%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与卫星互联网呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，商业航天样本加权涨跌幅+0.78%，较市场中位-1.24个百分点，板块上涨广度50.6%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与卫星互联网呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-1e2fb2c67511",
+          "name": "卫星互联网",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.17188469097763287,
+          "confidence": 0.5600116883942993,
+          "stockOverlap": 0.21739130434782608,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-3a97c6ae506e",
+          "name": "算力与通信基础设施",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.17042555395631107,
+          "confidence": 0.44685521963088015,
+          "stockOverlap": 0.36666666666666664,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.17188469097763287,
+      "linkageConfirmation": 17.18846909776329,
+      "confidence": 0.7756861688087251
+    },
+    {
+      "sectorId": "xw-781ef51695cf",
+      "name": "云计算与算力服务",
+      "layer": "own_l2",
+      "type": "broad_internal_move",
+      "score": 58.543248440218996,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 58.06853988747804,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，云计算与算力服务样本加权涨跌幅+3.83%，较市场中位+1.81个百分点，板块上涨广度90.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与数据中心与智算设施呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，云计算与算力服务样本加权涨跌幅+3.83%，较市场中位+1.81个百分点，板块上涨广度90.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与数据中心与智算设施呈同日共振。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-d19d30890b4b",
+          "name": "数据中心与智算设施",
+          "pattern": "same_day_resonance",
+          "relation": "uses",
+          "linkageScore": 0.2447849153423769,
+          "confidence": 0.49450684352452273,
+          "stockOverlap": 0.40310077519379844,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-d19d30890b4b",
+          "name": "数据中心与智算设施",
+          "pattern": "same_day_resonance",
+          "relation": "upstream_of",
+          "linkageScore": 0.2447849153423769,
+          "confidence": 0.49450684352452273,
+          "stockOverlap": 0.40310077519379844,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-3a97c6ae506e",
+          "name": "算力与通信基础设施",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.14716066187905472,
+          "confidence": 0.4148393607598823,
+          "stockOverlap": 0.5116279069767442,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": 0.2447849153423769,
+      "linkageConfirmation": 24.47849153423769,
+      "confidence": 0.8000063017402419
+    },
+    {
+      "sectorId": "xw-338f0026bf3d",
+      "name": "消费与社会服务",
+      "layer": "own_l1",
+      "type": "broad_internal_move",
+      "score": 56.05931196899613,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 56.38389362591752,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，消费与社会服务样本加权涨跌幅+2.95%，较市场中位+0.93个百分点，板块上涨广度84.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与智能体应用呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，消费与社会服务样本加权涨跌幅+2.95%，较市场中位+0.93个百分点，板块上涨广度84.7%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与智能体应用呈同日共振。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-5c99b7879a92",
+          "name": "智能体应用",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.3633035121163187,
+          "confidence": 0.49937076167291494,
+          "stockOverlap": 0.14556962025316456,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-876336812f76",
+          "name": "保险与风险保障",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.28069829479349523,
+          "confidence": 0.48159190252848255,
+          "stockOverlap": 0.20689655172413793,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-3e507546a810",
+          "name": "医疗器械与康复设备",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.1564501898266027,
+          "confidence": 0.5065309461431101,
+          "stockOverlap": 0.12345679012345678,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": 0.3633035121163187,
+      "linkageConfirmation": 36.33035121163187,
+      "confidence": 0.753091119028941
+    },
+    {
+      "sectorId": "xw-5b43813a194e",
+      "name": "AI服务器",
+      "layer": "own_l2",
+      "type": "relative_weakness",
+      "score": 52.5102789553313,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 54.1845414293515,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，AI服务器样本加权涨跌幅+1.18%，较市场中位-0.84个百分点，板块上涨广度54.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与HBM呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，AI服务器样本加权涨跌幅+1.18%，较市场中位-0.84个百分点，板块上涨广度54.3%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与HBM呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-9170d6b91e93",
+          "name": "HBM",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.40739897964882416,
+          "confidence": 0.5217462355267476,
+          "stockOverlap": 0.07692307692307693,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-9170d6b91e93",
+          "name": "HBM",
+          "pattern": "same_day_divergence",
+          "relation": "upstream_of",
+          "linkageScore": -0.40739897964882416,
+          "confidence": 0.5217462355267476,
+          "stockOverlap": 0.07692307692307693,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-070a5a543435",
+          "name": "存储芯片",
+          "pattern": "same_day_resonance",
+          "relation": "upstream_of",
+          "linkageScore": 0.3332040314604525,
+          "confidence": 0.6290012621176524,
+          "stockOverlap": 0.05263157894736842,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.40739897964882416,
+      "linkageConfirmation": 40.73989796488242,
+      "confidence": 0.7899414356689403
+    },
+    {
+      "sectorId": "xw-116c65f0af50",
+      "name": "第六代移动通信",
+      "layer": "dynamic",
+      "type": "broad_internal_move",
+      "score": 56.027771394356826,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 53.70732980248368,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，第六代移动通信样本加权涨跌幅+4.79%，较市场中位+2.77个百分点，板块上涨广度100.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强，最大单一样本权重56%；与数字技术与智能系统呈同日共振。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，第六代移动通信样本加权涨跌幅+4.79%，较市场中位+2.77个百分点，板块上涨广度100.0%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强，最大单一样本权重56%；与数字技术与智能系统呈同日共振。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-db3895062f15",
+          "name": "数字技术与智能系统",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.36075678624826724,
+          "confidence": 0.4307346326643365,
+          "stockOverlap": 0.15384615384615385,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-44df3a7133d1",
+          "name": "半导体与电子系统",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.10353896352376235,
+          "confidence": 0.371010923093231,
+          "stockOverlap": 0.38461538461538464,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-70cd392969f4",
+          "name": "新一代通信网络",
+          "pattern": "structural_overlap",
+          "relation": "related_to",
+          "linkageScore": 0.16104751268067866,
+          "confidence": 0.3311128526497239,
+          "stockOverlap": 0.6923076923076923,
           "independentSignal": false
         }
       ],
-      "linkageScore": -0.15100858150100419,
-      "linkageConfirmation": 15.100858150100418,
-      "confidence": 0.7191106472324218
+      "linkageScore": 0.36075678624826724,
+      "linkageConfirmation": 36.07567862482672,
+      "confidence": 0.6520931804948358
+    },
+    {
+      "sectorId": "xw-6c0aa50a22de",
+      "name": "科技成果转化服务",
+      "layer": "own_l2",
+      "type": "relative_weakness",
+      "score": 53.3045892844227,
+      "relative": "weaker",
+      "absolute": "positive",
+      "attentionScore": 52.491608770782605,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，科技成果转化服务样本加权涨跌幅+0.63%，较市场中位-1.39个百分点，板块上涨广度55.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与数字技术与智能系统呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，科技成果转化服务样本加权涨跌幅+0.63%，较市场中位-1.39个百分点，板块上涨广度55.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏弱；内部确认较强；与数字技术与智能系统呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-db3895062f15",
+          "name": "数字技术与智能系统",
+          "pattern": "same_day_divergence",
+          "relation": "related_to",
+          "linkageScore": -0.30771673302111535,
+          "confidence": 0.43180326985746337,
+          "stockOverlap": 0.2857142857142857,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-355bbba8934b",
+          "name": "生命科学与医疗健康",
+          "pattern": "same_day_resonance",
+          "relation": "related_to",
+          "linkageScore": 0.1479482985290097,
+          "confidence": 0.4116768462624121,
+          "stockOverlap": 0.35714285714285715,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-1db613f6416e",
+          "name": "创新药与生物制品",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.12929211545320568,
+          "confidence": 0.4906855339289357,
+          "stockOverlap": 0.2857142857142857,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.30771673302111535,
+      "linkageConfirmation": 30.771673302111534,
+      "confidence": 0.7099625335887867
+    },
+    {
+      "sectorId": "xw-96267feda64f",
+      "name": "旅游与文体服务",
+      "layer": "own_l2",
+      "type": "broad_internal_move",
+      "score": 54.33785591741219,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 51.37195998008949,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，旅游与文体服务样本加权涨跌幅+3.98%，较市场中位+1.96个百分点，板块上涨广度90.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与消费与社会服务呈结构重叠。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，旅游与文体服务样本加权涨跌幅+3.98%，较市场中位+1.96个百分点，板块上涨广度90.1%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强；与消费与社会服务呈结构重叠。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-338f0026bf3d",
+          "name": "消费与社会服务",
+          "pattern": "structural_overlap",
+          "relation": "parent_of",
+          "linkageScore": 0.16301356775223658,
+          "confidence": 0.33889100356302343,
+          "stockOverlap": 1.0,
+          "independentSignal": false
+        }
+      ],
+      "linkageScore": 0.16301356775223658,
+      "linkageConfirmation": 16.301356775223656,
+      "confidence": 0.7614143979253155
+    },
+    {
+      "sectorId": "xw-9170d6b91e93",
+      "name": "HBM",
+      "layer": "market_dynamic",
+      "type": "flow_price_divergence",
+      "score": 53.597558619302,
+      "relative": "stronger",
+      "absolute": "positive",
+      "attentionScore": 49.86621397257262,
+      "explanation": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，HBM样本加权涨跌幅+5.11%，较市场中位+3.09个百分点，板块上涨广度98.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强，最大单一样本权重47%；与AI服务器呈同日分歧。",
+      "summary": "全市场中位涨跌幅+2.02%、上涨家数占比84.0%时，HBM样本加权涨跌幅+5.11%，较市场中位+3.09个百分点，板块上涨广度98.4%；在同层板块的收益、广度和资金综合截面中表现为同层综合偏强；内部确认较强，最大单一样本权重47%；与AI服务器呈同日分歧。",
+      "linkedSectors": [
+        {
+          "sectorId": "xw-5b43813a194e",
+          "name": "AI服务器",
+          "pattern": "same_day_divergence",
+          "relation": "enables",
+          "linkageScore": -0.40739897964882416,
+          "confidence": 0.5217462355267476,
+          "stockOverlap": 0.07692307692307693,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-5b43813a194e",
+          "name": "AI服务器",
+          "pattern": "same_day_divergence",
+          "relation": "upstream_of",
+          "linkageScore": -0.40739897964882416,
+          "confidence": 0.5217462355267476,
+          "stockOverlap": 0.07692307692307693,
+          "independentSignal": true
+        },
+        {
+          "sectorId": "xw-d19d30890b4b",
+          "name": "数据中心与智算设施",
+          "pattern": "same_day_resonance",
+          "relation": "enables",
+          "linkageScore": 0.3410070634899203,
+          "confidence": 0.5447952660118649,
+          "stockOverlap": 0.0,
+          "independentSignal": true
+        }
+      ],
+      "linkageScore": -0.40739897964882416,
+      "linkageConfirmation": 40.73989796488242,
+      "confidence": 0.6643844707461768
     }
   ]
 }
