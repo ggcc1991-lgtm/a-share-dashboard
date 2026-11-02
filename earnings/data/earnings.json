@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-02T08:08:31+08:00",
+ "updated": "2026-11-02T23:09:45+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-11-02",
  "companies": [
@@ -8,30 +8,41 @@
    "symbol": "AAPL",
    "name": "苹果",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-02",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-03T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/aapl/earnings",
-     "asOf": "2026-11-02T08:04:34+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+     "asOf": "2026-11-02T23:04:14+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+      "asOf": "2026-11-02T23:04:17+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AAPL/analysis",
+      "asOf": "2026-11-02T23:04:18+08:00"
+     }
+    ]
    },
-   "nasdaqText": "Apple Inc. Common Stock is expected* to report earnings on  11/02/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  7 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.98.  The reported EPS for the same quarter last year was $1.85.",
    "consensus": {
-    "epsAvg": 1.97891,
+    "epsAvg": 1.98895,
     "epsLow": 1.93,
-    "epsHigh": 2.06,
-    "epsAnalysts": 27.0,
+    "epsHigh": 2.1,
+    "epsAnalysts": 28.0,
     "epsYearAgo": 1.85,
-    "revAvg": 113322287400.0,
+    "revAvg": 113350453600.0,
     "revLow": 112525022000.0,
     "revHigh": 116186700000.0,
     "revAnalysts": 25.0,
-    "revGrowth": 0.106000006,
+    "revGrowth": 0.1062,
     "currency": "USD"
    },
    "lastReported": {
@@ -51,30 +62,41 @@
    "symbol": "MSFT",
    "name": "微软",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MSFT/analysis",
+      "asOf": "2026-11-02T23:04:20+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Microsoft FY27 Q1 Press Release",
       "url": "https://www.microsoft.com/en-us/investor/earnings/FY-2027-Q1/press-release-webcast",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MSFT/analysis",
+      "asOf": "2026-11-02T23:04:20+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 4.81705,
-    "epsLow": 4.65,
-    "epsHigh": 4.97,
-    "epsAnalysts": 25.0,
+    "epsAvg": 4.85731,
+    "epsLow": 4.82,
+    "epsHigh": 4.97073,
+    "epsAnalysts": 23.0,
     "epsYearAgo": 4.14,
-    "revAvg": 95646497200.0,
-    "revLow": 93527000000.0,
-    "revHigh": 98410000000.0,
-    "revAnalysts": 37.0,
-    "revGrowth": 0.1769,
+    "revAvg": 96701925060.0,
+    "revLow": 95582000000.0,
+    "revHigh": 97868000000.0,
+    "revAnalysts": 34.0,
+    "revGrowth": 0.1898,
     "currency": "USD"
    },
    "lastReported": {
@@ -111,30 +133,41 @@
    "symbol": "GOOGL",
    "name": "谷歌(Alphabet)",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
+      "asOf": "2026-11-02T23:04:22+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "CNBC Alphabet Q3 2026",
       "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
+      "asOf": "2026-11-02T23:04:23+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 3.21554,
+    "epsAvg": 3.21527,
     "epsLow": 2.70429,
-    "epsHigh": 3.48,
-    "epsAnalysts": 34.0,
+    "epsHigh": 3.57629,
+    "epsAnalysts": 36.0,
     "epsYearAgo": 2.82,
-    "revAvg": 141536876300.0,
-    "revLow": 139659000000.0,
-    "revHigh": 144000000000.0,
-    "revAnalysts": 26.0,
-    "revGrowth": 0.24340001,
+    "revAvg": 142237589900.0,
+    "revLow": 139000000000.0,
+    "revHigh": 148055000000.0,
+    "revAnalysts": 34.0,
+    "revGrowth": 0.2496,
     "currency": "USD"
    },
    "lastReported": {
@@ -190,30 +223,41 @@
    "symbol": "AMZN",
    "name": "亚马逊",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMZN/analysis",
+      "asOf": "2026-11-02T23:04:24+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Amazon Q3 2026 Press Release",
       "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMZN/analysis",
+      "asOf": "2026-11-02T23:04:25+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 1.95944,
-    "epsLow": 1.72,
-    "epsHigh": 2.23,
-    "epsAnalysts": 46.0,
+    "epsAvg": 2.40992,
+    "epsLow": 2.13,
+    "epsHigh": 2.67,
+    "epsAnalysts": 42.0,
     "epsYearAgo": 1.95,
-    "revAvg": 202264872830.0,
-    "revLow": 199369000000.0,
-    "revHigh": 205932000000.0,
-    "revAnalysts": 49.0,
-    "revGrowth": 0.122600004,
+    "revAvg": 244719282850.0,
+    "revLow": 240000000000.0,
+    "revHigh": 247611000000.0,
+    "revAnalysts": 42.0,
+    "revGrowth": 0.1468,
     "currency": "USD"
    },
    "lastReported": {
@@ -248,31 +292,43 @@
    "symbol": "META",
    "name": "Meta",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/META/analysis",
+      "asOf": "2026-11-02T23:04:29+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/META/analysis",
+      "asOf": "2026-11-02T23:04:29+08:00"
+     }
+    ]
    },
    "consensus": {
-    "epsAvg": 8.32758,
+    "epsAvg": 8.33102,
     "epsLow": 7.64,
     "epsHigh": 9.65,
-    "epsAnalysts": 41.0,
+    "epsAnalysts": 40.0,
     "epsYearAgo": 8.88,
-    "revAvg": 75120697740.0,
+    "revAvg": 75155372690.0,
     "revLow": 73578400000.0,
     "revHigh": 76065000000.0,
-    "revAnalysts": 45.0,
-    "revGrowth": 0.2542,
+    "revAnalysts": 44.0,
+    "revGrowth": 0.2548,
     "currency": "USD"
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
     "epsActual": 3.83,
-    "epsEstimate": 5.48356,
-    "epsSurprisePct": -0.3015,
+    "epsEstimate": 5.41956,
+    "epsSurprisePct": -0.2933,
     "revenue": 64601000000.0,
     "netIncome": 9860000000.0,
     "revenueYoY": 0.2607041099098395,
@@ -294,18 +350,30 @@
    "symbol": "NVDA",
    "name": "英伟达",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/nvda/earnings",
-     "asOf": "2026-11-02T08:04:44+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+     "asOf": "2026-11-02T23:04:30+08:00",
      "note": "已披露清空(reportDate=2026-08-27，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+      "asOf": "2026-11-02T23:04:33+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
+      "asOf": "2026-11-02T23:04:34+08:00"
+     }
+    ]
    },
    "nasdaqText": "NVIDIA Corporation Common Stock is expected* to report earnings on  11/17/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.49.  The reported EPS for the same quarter last year was $1.24.",
    "consensus": {
@@ -338,24 +406,36 @@
    "symbol": "TSLA",
    "name": "特斯拉",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSLA/analysis",
+      "asOf": "2026-11-02T23:04:35+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSLA/analysis",
+      "asOf": "2026-11-02T23:04:36+08:00"
+     }
+    ]
    },
    "consensus": {
-    "epsAvg": 0.50329,
+    "epsAvg": 0.50008,
     "epsLow": 0.34213,
     "epsHigh": 0.88,
-    "epsAnalysts": 28.0,
+    "epsAnalysts": 27.0,
     "epsYearAgo": 0.5,
-    "revAvg": 29322961330.0,
+    "revAvg": 29313093470.0,
     "revLow": 26676000000.0,
     "revHigh": 35449624740.0,
     "revAnalysts": 28.0,
-    "revGrowth": 0.1776,
+    "revGrowth": 0.17719999,
     "currency": "USD"
    },
    "lastReported": {
@@ -384,12 +464,24 @@
    "symbol": "TSM",
    "name": "台积电(ADR)",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis",
+      "asOf": "2026-11-02T23:04:38+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/TSM/analysis",
+      "asOf": "2026-11-02T23:04:39+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 5.1641,
@@ -428,30 +520,42 @@
    "symbol": "AMD",
    "name": "AMD",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-04T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/amd/earnings",
-     "asOf": "2026-11-02T08:04:53+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AMD/analysis",
+     "asOf": "2026-11-02T23:04:39+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMD/analysis",
+      "asOf": "2026-11-02T23:04:41+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMD/analysis",
+      "asOf": "2026-11-02T23:04:42+08:00"
+     }
+    ]
    },
    "nasdaqText": "Advanced Micro Devices, Inc. Common Stock is expected* to report earnings on  11/03/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.68.  The reported EPS for the same quarter last year was $0.97.",
    "consensus": {
-    "epsAvg": 1.93659,
+    "epsAvg": 1.93863,
     "epsLow": 1.72,
     "epsHigh": 2.1,
-    "epsAnalysts": 41.0,
+    "epsAnalysts": 39.0,
     "epsYearAgo": 1.2,
-    "revAvg": 13083021310.0,
+    "revAvg": 13092087100.0,
     "revLow": 12749000000.0,
     "revHigh": 14019000000.0,
     "revAnalysts": 38.0,
-    "revGrowth": 0.415,
+    "revGrowth": 0.41599998,
     "currency": "USD"
    },
    "lastReported": {
@@ -471,17 +575,29 @@
    "symbol": "AVGO",
    "name": "博通",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-12-10",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-12-10T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/avgo/earnings",
-     "asOf": "2026-11-02T08:04:55+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+     "asOf": "2026-11-02T23:04:43+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+      "asOf": "2026-11-02T23:04:45+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
+      "asOf": "2026-11-02T23:04:45+08:00"
+     }
+    ]
    },
    "nasdaqText": "Broadcom Inc. Common Stock is estimated to report earnings on  12/10/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  10 analysts' forecasts, the consensus EPS forecast for the quarter is $3.45.  The reported EPS for the same quarter last year was $1.61.",
    "consensus": {
@@ -514,7 +630,7 @@
    "symbol": "0700.HK",
    "name": "腾讯控股",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-18",
    "dateStatus": "confirmed",
    "sources": {
@@ -523,12 +639,23 @@
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
      "asOf": "2026-10-27"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
+      "asOf": "2026-11-02T23:05:00+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "腾讯 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
+      "asOf": "2026-11-02T23:05:01+08:00"
      }
     ]
    },
@@ -556,7 +683,10 @@
     "epsGaapBasis": "IFRS 摊薄 EPS(人民币/股)",
     "epsNonGaap": 7.433,
     "epsNonGaapBasis": "Non-IFRS 摊薄 EPS",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄"
+    "epsCompareBasis": "Yahoo 预期对比口径=Non-IFRS 摊薄",
+    "epsActual": 7.433,
+    "epsEstimate": 7.23544,
+    "epsSurprisePct": 0.0273
    },
    "importance": 3
   },
@@ -564,21 +694,32 @@
    "symbol": "BABA",
    "name": "阿里巴巴(ADR)",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-24",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/baba/earnings",
-     "asOf": "2026-11-02T08:05:15+08:00"
+     "asOf": "2026-11-02T23:05:10+08:00"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BABA/analysis",
+      "asOf": "2026-11-02T23:05:10+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "阿里巴巴 2026年6月季度业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000745.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BABA/analysis",
+      "asOf": "2026-11-02T23:05:11+08:00"
      }
     ]
    },
@@ -608,7 +749,10 @@
     "epsNonGaap": 8.52,
     "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币，同比-42%)",
     "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出"
+    "note": "净利润(含少数股东)104.44亿元，同比-75%；归母净利润同比公告未直接给出",
+    "epsActual": 8.52,
+    "epsEstimate": 10.82038,
+    "epsSurprisePct": -0.21260001
    },
    "importance": 3
   },
@@ -616,21 +760,32 @@
    "symbol": "BIDU",
    "name": "百度(ADR)",
    "region": "CN",
-   "currency": null,
-   "nextDate": "2026-11-16",
-   "dateStatus": "estimated",
+   "currency": "CNY",
+   "nextDate": "2026-11-16T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/bidu/earnings",
-     "asOf": "2026-11-02T08:05:28+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/BIDU/analysis",
+     "asOf": "2026-11-02T23:05:26+08:00"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
+      "asOf": "2026-11-02T23:05:29+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "百度 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
+      "asOf": "2026-11-02T23:05:29+08:00"
      }
     ]
    },
@@ -659,7 +814,10 @@
     "epsNonGaap": 7.22,
     "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
     "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "netIncomeYoY": null
+    "netIncomeYoY": null,
+    "epsActual": 7.22,
+    "epsEstimate": 9.83686,
+    "epsSurprisePct": -0.266
    },
    "importance": 3
   },
@@ -667,21 +825,32 @@
    "symbol": "JD",
    "name": "京东(ADR)",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-12",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/jd/earnings",
-     "asOf": "2026-11-02T08:05:39+08:00"
+     "asOf": "2026-11-02T23:05:41+08:00"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/JD/analysis",
+      "asOf": "2026-11-02T23:05:42+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "京东 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300917.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/JD/analysis",
+      "asOf": "2026-11-02T23:05:42+08:00"
      }
     ]
    },
@@ -711,7 +880,10 @@
     "epsNonGaap": 6.29,
     "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
     "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
-    "note": "净利同比按公告 71亿 vs 62亿 计算"
+    "note": "净利同比按公告 71亿 vs 62亿 计算",
+    "epsActual": 6.29,
+    "epsEstimate": 5.61488,
+    "epsSurprisePct": 0.12020001
    },
    "importance": 3
   },
@@ -719,16 +891,27 @@
    "symbol": "3690.HK",
    "name": "美团",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
+      "asOf": "2026-11-02T23:05:50+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "美团 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
+      "asOf": "2026-11-02T23:05:51+08:00"
      }
     ]
    },
@@ -769,17 +952,29 @@
    "symbol": "PDD",
    "name": "拼多多",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-17",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-11-02T08:05:53+08:00"
+     "asOf": "2026-11-02T23:05:54+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PDD/analysis",
+      "asOf": "2026-11-02T23:05:54+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PDD/analysis",
+      "asOf": "2026-11-02T23:05:55+08:00"
+     }
+    ]
    },
    "nasdaqText": "PDD Holdings Inc. American Depositary Shares is estimated to report earnings on  11/17/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $2.6.  The reported EPS for the same quarter last year was $2.77.",
    "consensus": {
@@ -812,7 +1007,7 @@
    "symbol": "1810.HK",
    "name": "小米集团",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-24",
    "dateStatus": "confirmed",
    "sources": {
@@ -821,26 +1016,37 @@
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1023/2026102301169.pdf",
      "asOf": "2026-10-27"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
+      "asOf": "2026-11-02T23:06:08+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "小米 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801014.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
+      "asOf": "2026-11-02T23:06:09+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.20989,
+    "epsAvg": 0.20636,
     "epsLow": 0.16,
     "epsHigh": 0.23,
     "epsAnalysts": 9.0,
     "epsYearAgo": 0.4213,
-    "revAvg": 107822387410.0,
-    "revLow": 104843000000.0,
+    "revAvg": 106825705710.0,
+    "revLow": 102405676450.0,
     "revHigh": 110605000000.0,
-    "revAnalysts": 9.0,
-    "revGrowth": -0.0468,
+    "revAnalysts": 10.0,
+    "revGrowth": -0.0556,
     "currency": "CNY"
    },
    "lastReported": {
@@ -854,7 +1060,10 @@
     "epsGaapBasis": "IFRS 基本 EPS(人民币/股)",
     "adjNetIncome": 6219100000,
     "adjNetIncomeYoY": -0.426,
-    "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同"
+    "epsCompareBasis": "Yahoo 实际 0.2346 疑为经调整口径，与 IFRS 0.37 不同",
+    "epsActual": 0.2346,
+    "epsEstimate": 0.22951,
+    "epsSurprisePct": 0.0222
    },
    "importance": 3
   },
@@ -862,21 +1071,32 @@
    "symbol": "NTES",
    "name": "网易(ADR)",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": "2026-11-19",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/ntes/earnings",
-     "asOf": "2026-11-02T08:06:16+08:00"
+     "asOf": "2026-11-02T23:06:19+08:00"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NTES/analysis",
+      "asOf": "2026-11-02T23:06:19+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "网易 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0820/2026082000465.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NTES/analysis",
+      "asOf": "2026-11-02T23:06:20+08:00"
      }
     ]
    },
@@ -905,7 +1125,10 @@
     "epsNonGaap": 1.78,
     "epsNonGaapBasis": "Non-GAAP 基本 EPS/ADS(美元)",
     "epsCompareBasis": "Yahoo 预期为人民币/ADS 口径，与公告美元口径不同",
-    "netIncomeYoY": null
+    "netIncomeYoY": null,
+    "epsActual": 12.02,
+    "epsEstimate": 15.54257,
+    "epsSurprisePct": -0.22659999
    },
    "importance": 3
   },
@@ -920,13 +1143,18 @@
     "nextDate": {
      "name": "HKEXnews 董事会会议通告(2026-10-30)",
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1030/2026103000818.pdf",
-     "asOf": "2026-11-02T08:06:28+08:00"
+     "asOf": "2026-11-02T23:06:37+08:00"
     },
     "consensus": [
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-11-02T08:06:29+08:00"
+      "asOf": "2026-11-02T23:06:40+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
+      "asOf": "2026-11-02T23:06:40+08:00"
      }
     ],
     "lastReported": [
@@ -934,6 +1162,11 @@
       "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
       "asOf": "2026-10-27"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
+      "asOf": "2026-11-02T23:06:40+08:00"
      }
     ]
    },
@@ -987,7 +1220,10 @@
     "epsGaap": 0.06,
     "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
     "guidance": "Q3 营收环比 +2%~4%（公司指引）",
-    "note": "营收同比按 30.056亿 vs 22.091亿美元计算"
+    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
+    "epsActual": 0.06,
+    "epsEstimate": 0.03482,
+    "epsSurprisePct": 0.72309995
    },
    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
    "importance": 3
@@ -996,7 +1232,7 @@
    "symbol": "1211.HK",
    "name": "比亚迪股份",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1005,6 +1241,11 @@
       "name": "Wind MCP fundamentals 002594.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/1211.HK/analysis",
+      "asOf": "2026-11-02T23:06:58+08:00"
      }
     ],
     "lastReported": [
@@ -1043,16 +1284,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 1.54,
-    "epsLow": 1.5,
-    "epsHigh": 1.58,
-    "epsAnalysts": 2.0,
+    "epsAvg": 1.33,
+    "epsLow": 1.33,
+    "epsHigh": 1.33,
+    "epsAnalysts": 1.0,
     "epsYearAgo": 1.02,
-    "revAvg": 283354341500.0,
-    "revLow": 277970000000.0,
-    "revHigh": 288738683000.0,
-    "revAnalysts": 2.0,
-    "revGrowth": 0.19209999,
+    "revAvg": 265508356000.0,
+    "revLow": 265508356000.0,
+    "revHigh": 265508356000.0,
+    "revAnalysts": 3.0,
+    "revGrowth": 0.117,
     "currency": "CNY"
    },
    "lastReported": {
@@ -1088,12 +1329,24 @@
    "symbol": "2330.TW",
    "name": "台积电(现股)",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
+      "asOf": "2026-11-02T23:06:59+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
+      "asOf": "2026-11-02T23:07:00+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 33.01931,
@@ -1126,7 +1379,7 @@
    "symbol": "2454.TW",
    "name": "联发科",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1135,26 +1388,37 @@
      "url": "https://tw.stock.yahoo.com/quote/2454.TW",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
+      "asOf": "2026-11-02T23:07:00+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Yahoo/MediaTek Q3 法说摘要",
       "url": "https://tw.stock.yahoo.com/quote/2454.TW",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
+      "asOf": "2026-11-02T23:07:01+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 16.06227,
-    "epsLow": 14.54,
-    "epsHigh": 19.42342,
-    "epsAnalysts": 15.0,
-    "epsYearAgo": 15.84,
-    "revAvg": 163349473370.0,
-    "revLow": 155475000000.0,
-    "revHigh": 168100000000.0,
-    "revAnalysts": 16.0,
-    "revGrowth": 0.1496,
+    "epsAvg": 25.36184,
+    "epsLow": 23.64,
+    "epsHigh": 26.74,
+    "epsAnalysts": 10.0,
+    "epsYearAgo": 14.39,
+    "revAvg": 218988252820.0,
+    "revLow": 210609000000.0,
+    "revHigh": 223246622460.0,
+    "revAnalysts": 10.0,
+    "revGrowth": 0.45810002,
     "currency": "TWD"
    },
    "lastReported": {
@@ -1174,7 +1438,9 @@
       "url": "https://www.mediatek.com/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsEstimate": 16.06227,
+    "epsSurprisePct": 0.089499995
    },
    "importance": 3
   },
@@ -1182,30 +1448,41 @@
    "symbol": "3711.TW",
    "name": "日月光投控",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
+      "asOf": "2026-11-02T23:07:01+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "中央社·日月光投控Q3",
       "url": "https://www.cna.com.tw/news/afe/202610290217.aspx",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
+      "asOf": "2026-11-02T23:07:02+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 5.92457,
-    "epsLow": 5.11,
-    "epsHigh": 6.88585,
-    "epsAnalysts": 15.0,
+    "epsAvg": 7.0409,
+    "epsLow": 6.24258,
+    "epsHigh": 8.43667,
+    "epsAnalysts": 12.0,
     "epsYearAgo": 3.24,
-    "revAvg": 245692480420.0,
-    "revLow": 235849000000.0,
-    "revHigh": 269115336950.0,
+    "revAvg": 260606380630.0,
+    "revLow": 244000000000.0,
+    "revHigh": 265005880120.0,
     "revAnalysts": 15.0,
-    "revGrowth": 0.38099998,
+    "revGrowth": 0.4648,
     "currency": "TWD"
    },
    "lastReported": {
@@ -1225,7 +1502,9 @@
       "url": "https://www.ctee.com.tw/news/20261029701674-430201",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsEstimate": 5.27985,
+    "epsSurprisePct": 0.10609999
    },
    "importance": 3
   },
@@ -1233,30 +1512,41 @@
    "symbol": "005930.KS",
    "name": "三星电子",
    "region": "KR",
-   "currency": null,
+   "currency": "KRW",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
+      "asOf": "2026-11-02T23:07:03+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Samsung Global Newsroom Q3 2026 Results",
       "url": "https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
+      "asOf": "2026-11-02T23:07:04+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 15075.507,
-    "epsLow": 12520.516,
-    "epsHigh": 17787.0,
-    "epsAnalysts": 7.0,
+    "epsAvg": 16478.95,
+    "epsLow": 15008.783,
+    "epsHigh": 19142.0,
+    "epsAnalysts": 10.0,
     "epsYearAgo": 2909.0,
-    "revAvg": 205235925780000.0,
-    "revLow": 196437752210000.0,
-    "revHigh": 222377000000000.0,
-    "revAnalysts": 14.0,
-    "revGrowth": 1.1870999,
+    "revAvg": 225687174960000.0,
+    "revLow": 212400000000000.0,
+    "revHigh": 257970000000000.0,
+    "revAnalysts": 18.0,
+    "revGrowth": 1.4051,
     "currency": "KRW"
    },
    "lastReported": {
@@ -1282,7 +1572,10 @@
       "url": "https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 11462.0,
+    "epsEstimate": 13710.027,
+    "epsSurprisePct": -0.16399999
    },
    "note": "原数据日期 2026-10-28 14:00 有误，官方为 10-29 10:00 KST(=北京时间 09:00)；官方确认Q3：营收195.25万亿韩元、营业利润107.44万亿（纪录，约超一致预期1.7%）、净利75.14万亿；EPS 11,462韩元。DS营业利润106.5万亿。",
    "importance": 3
@@ -1291,7 +1584,7 @@
    "symbol": "000660.KS",
    "name": "SK海力士",
    "region": "KR",
-   "currency": null,
+   "currency": "KRW",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1301,7 +1594,13 @@
      "asOf": "2026-10-29",
      "note": "本期已披露(reportDate=2026-10-28)，原 nextDate=2026-10-28 已清空"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
+      "asOf": "2026-11-02T23:07:04+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "SK hynix IR Q3 FY2026",
@@ -1360,17 +1659,29 @@
    "symbol": "SONY",
    "name": "索尼(ADR)",
    "region": "JP",
-   "currency": null,
-   "nextDate": "2026-11-05",
-   "dateStatus": "estimated",
+   "currency": "JPY",
+   "nextDate": "2026-11-05T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/sony/earnings",
-     "asOf": "2026-11-02T08:06:49+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SONY/analysis",
+     "asOf": "2026-11-02T23:07:06+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SONY/analysis",
+      "asOf": "2026-11-02T23:07:07+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SONY/analysis",
+      "asOf": "2026-11-02T23:07:08+08:00"
+     }
+    ]
    },
    "nasdaqText": "Sony Group Corporation American Depositary Shares  is expected* to report earnings on  11/05/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  1 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.38.  The reported EPS for the same quarter last year was $0.35.",
    "consensus": {
@@ -1404,7 +1715,7 @@
    "symbol": "8035.T",
    "name": "东京电子",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1413,26 +1724,37 @@
      "url": "https://www.tel.com/ir/library/report/",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/8035.T/analysis",
+      "asOf": "2026-11-02T23:07:08+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Yahoo Finance JP / TEL 短信摘要",
       "url": "https://finance.yahoo.co.jp/quote/8035.T/financials",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/8035.T/analysis",
+      "asOf": "2026-11-02T23:07:09+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 85.00543,
-    "epsLow": 77.04,
-    "epsHigh": 90.99713,
-    "epsAnalysts": 5.0,
-    "epsYearAgo": 54.036,
-    "revAvg": 900597295030.0,
-    "revLow": 890000000000.0,
-    "revHigh": 920000000000.0,
-    "revAnalysts": 11.0,
-    "revGrowth": 0.4293,
+    "epsAvg": 92.90097,
+    "epsLow": 84.76,
+    "epsHigh": 105.54,
+    "epsAnalysts": 3.0,
+    "epsYearAgo": 51.718,
+    "revAvg": 924874431800.0,
+    "revLow": 876921022590.0,
+    "revHigh": 967800000000.0,
+    "revAnalysts": 7.0,
+    "revGrowth": 0.6754,
     "currency": "JPY"
    },
    "lastReported": {
@@ -1451,7 +1773,10 @@
       "url": "https://www.tel.com/ir/library/report/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsActual": 93.858,
+    "epsEstimate": 85.00543,
+    "epsSurprisePct": 0.1041
    },
    "importance": 3
   },
@@ -1459,7 +1784,7 @@
    "symbol": "9984.T",
    "name": "软银集团",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": "2026-11-10T14:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1468,8 +1793,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/9984.T/analysis",
+      "asOf": "2026-11-02T23:07:10+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/9984.T/analysis",
+      "asOf": "2026-11-02T23:07:10+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 10.17535,
@@ -1498,12 +1835,30 @@
    "symbol": "ASML",
    "name": "ASML",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": null,
-   "dateStatus": "unknown",
+   "dateStatus": "reported",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ASML/analysis",
+     "asOf": "2026-11-02T23:07:11+08:00",
+     "note": "已披露清空(reportDate=2026-10-14，原预约 nextDate 已清空，reason=early-release)"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASML/analysis",
+      "asOf": "2026-11-02T23:07:13+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASML/analysis",
+      "asOf": "2026-11-02T23:07:14+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 15.38838,
@@ -1536,12 +1891,30 @@
    "symbol": "SAP",
    "name": "SAP",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": null,
-   "dateStatus": "unknown",
+   "dateStatus": "reported",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SAP/analysis",
+     "asOf": "2026-11-02T23:07:14+08:00",
+     "note": "已披露清空(reportDate=2026-10-21，原预约 nextDate 已清空，reason=early-release)"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SAP/analysis",
+      "asOf": "2026-11-02T23:07:17+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SAP/analysis",
+      "asOf": "2026-11-02T23:07:18+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 2.18214,
@@ -1574,7 +1947,7 @@
    "symbol": "ENR.DE",
    "name": "西门子能源",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": "2026-11-12T00:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1583,8 +1956,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
+      "asOf": "2026-11-02T23:07:19+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
+      "asOf": "2026-11-02T23:07:19+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 1.37838,
@@ -1617,12 +2002,24 @@
    "symbol": "3008.TW",
    "name": "大立光",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3008.TW/analysis",
+      "asOf": "2026-11-02T23:07:20+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3008.TW/analysis",
+      "asOf": "2026-11-02T23:07:21+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 43.41023,
@@ -1655,7 +2052,7 @@
    "symbol": "6488.TWO",
    "name": "环球晶圆",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": "2026-11-03T16:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1664,8 +2061,20 @@
      "url": "https://www.sas-globalwafers.com/%e6%9c%ac%e5%85%ac%e5%8f%b8%e5%8f%ac%e9%96%8b2026q3%e8%8b%b1%e6%96%87%e7%b7%9a%e4%b8%8a%e6%b3%95%e8%aa%aa%e6%9c%83/",
      "asOf": "2026-10-28"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
+      "asOf": "2026-11-02T23:07:21+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
+      "asOf": "2026-11-02T23:07:22+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 3.66108,
@@ -1698,30 +2107,41 @@
    "symbol": "2308.TW",
    "name": "台达电",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
+      "asOf": "2026-11-02T23:07:23+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "台达电 115年Q3财报新闻稿",
       "url": "https://www.deltaww.com/zh-TW/press/41194",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
+      "asOf": "2026-11-02T23:07:23+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 12.19992,
-    "epsLow": 9.56572,
-    "epsHigh": 14.68,
+    "epsAvg": 11.25652,
+    "epsLow": 9.49421,
+    "epsHigh": 12.92,
     "epsAnalysts": 15.0,
     "epsYearAgo": 6.65,
-    "revAvg": 226029486230.0,
-    "revLow": 215231000000.0,
-    "revHigh": 251078000000.0,
-    "revAnalysts": 14.0,
-    "revGrowth": 0.3986,
+    "revAvg": 219092075530.0,
+    "revLow": 215302659880.0,
+    "revHigh": 228099000000.0,
+    "revAnalysts": 12.0,
+    "revGrowth": 0.3557,
     "currency": "TWD"
    },
    "lastReported": {
@@ -1746,7 +2166,9 @@
       "url": "https://money.udn.com/money/story/5612/9843353",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsEstimate": 10.44039,
+    "epsSurprisePct": -0.1351
    },
    "note": "电源管理与工业自动化龙头（台达电）。",
    "importance": 2
@@ -1755,12 +2177,24 @@
    "symbol": "3034.TW",
    "name": "联咏",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
+      "asOf": "2026-11-02T23:07:24+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
+      "asOf": "2026-11-02T23:07:25+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 9.56055,
@@ -1793,7 +2227,7 @@
    "symbol": "373220.KS",
    "name": "LG新能源",
    "region": "KR",
-   "currency": null,
+   "currency": "KRW",
    "nextDate": "2026-11-03T14:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1802,8 +2236,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
+      "asOf": "2026-11-02T23:07:25+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
+      "asOf": "2026-11-02T23:07:26+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 3133.3958,
@@ -1811,11 +2257,11 @@
     "epsHigh": 4635.419,
     "epsAnalysts": 3.0,
     "epsYearAgo": -3747.0,
-    "revAvg": 9283733880000.0,
+    "revAvg": 9306154750000.0,
     "revLow": 7739392370000.0,
     "revHigh": 10624000000000.0,
-    "revAnalysts": 17.0,
-    "revGrowth": 0.5116,
+    "revAnalysts": 16.0,
+    "revGrowth": 0.5153,
     "currency": "KRW"
    },
    "lastReported": {
@@ -1836,7 +2282,7 @@
    "symbol": "207940.KS",
    "name": "三星生物",
    "region": "KR",
-   "currency": null,
+   "currency": "KRW",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1846,7 +2292,13 @@
      "asOf": "2026-10-29",
      "note": "本期已披露(reportDate=2026-10-21)，原 nextDate=2026-10-21 已清空"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/207940.KS/analysis",
+      "asOf": "2026-11-02T23:07:27+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Samsung Biologics IR",
@@ -1895,7 +2347,7 @@
    "symbol": "035420.KS",
    "name": "NAVER",
    "region": "KR",
-   "currency": null,
+   "currency": "KRW",
    "nextDate": "2026-11-12T14:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1904,8 +2356,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
+      "asOf": "2026-11-02T23:07:28+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
+      "asOf": "2026-11-02T23:07:29+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 3273.0234,
@@ -1938,30 +2402,41 @@
    "symbol": "6861.T",
    "name": "基恩士",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6861.T/analysis",
+      "asOf": "2026-11-02T23:07:30+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Keyence 決算短信 / 二次来源推算单季",
       "url": "https://www.keyence.co.jp/investor/en/library/results.jsp",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6861.T/analysis",
+      "asOf": "2026-11-02T23:07:31+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 532.9287,
-    "epsLow": 489.01,
-    "epsHigh": 576.8475,
-    "epsAnalysts": 2.0,
+    "epsAvg": 568.57,
+    "epsLow": 568.57,
+    "epsHigh": 568.57,
+    "epsAnalysts": 1.0,
     "epsYearAgo": 458.54,
-    "revAvg": 359564874240.0,
-    "revLow": 327054119660.0,
-    "revHigh": 384600000000.0,
-    "revAnalysts": 7.0,
-    "revGrowth": 0.24290001,
+    "revAvg": 375902848520.0,
+    "revLow": 363914242590.0,
+    "revHigh": 397600000000.0,
+    "revAnalysts": 5.0,
+    "revGrowth": 0.29930001,
     "currency": "JPY"
    },
    "lastReported": {
@@ -1988,7 +2463,9 @@
     ],
     "epsActual": 657.84,
     "epsGaap": 657.84,
-    "epsGaapBasis": "单季EPS(日元)"
+    "epsGaapBasis": "单季EPS(日元)",
+    "epsEstimate": 635.85004,
+    "epsSurprisePct": 0.0346
    },
    "note": "FY2027 Q2单季（7–9月）：营收约3887.8亿日元、净利约1595.4亿；EPS约657.84日元。",
    "importance": 3
@@ -1997,37 +2474,51 @@
    "symbol": "6857.T",
    "name": "爱德万测试",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6857.T/analysis",
+      "asOf": "2026-11-02T23:07:32+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Advantest Q2 FY2026 IR",
       "url": "https://www.advantest.com/document/en/investors/ir-library/result/JE_BIZ_261028_note.pdf",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6857.T/analysis",
+      "asOf": "2026-11-02T23:07:33+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 256.498,
+    "epsAvg": 256.89334,
     "epsLow": 234.8,
-    "epsHigh": 282.6,
+    "epsHigh": 284.57672,
     "epsAnalysts": 5.0,
     "epsYearAgo": 108.41,
-    "revAvg": 485424924960.0,
+    "revAvg": 489864864920.0,
     "revLow": 460980580000.0,
     "revHigh": 530000000000.0,
-    "revAnalysts": 9.0,
-    "revGrowth": 0.7729,
+    "revAnalysts": 5.0,
+    "revGrowth": 0.78910005,
     "currency": "JPY"
    },
    "lastReported": {
     "quarterEnd": "2026-09-30",
     "reportDate": "2026-10-28",
     "revenue": 477700000000,
-    "note": "FY26Q2 单季营业利润 2,668 亿日元（利润率 55.9%）；H1 营收 8,452 亿(+60.5%)、净利 3,681 亿(+116.8%)。单季 EPS 未在 IR 摘要中核对，沿用 Yahoo 值"
+    "note": "FY26Q2 单季营业利润 2,668 亿日元（利润率 55.9%）；H1 营收 8,452 亿(+60.5%)、净利 3,681 亿(+116.8%)。单季 EPS 未在 IR 摘要中核对，沿用 Yahoo 值",
+    "epsActual": 267.72,
+    "epsEstimate": 214.91544,
+    "epsSurprisePct": 0.2457
    },
    "note": "半导体测试设备龙头（爱德万 Advantest）。",
    "importance": 3
@@ -2036,12 +2527,24 @@
    "symbol": "6146.T",
    "name": "Disco",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6146.T/analysis",
+      "asOf": "2026-11-02T23:07:33+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6146.T/analysis",
+      "asOf": "2026-11-02T23:07:34+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 454.46252,
@@ -2074,7 +2577,7 @@
    "symbol": "6920.T",
    "name": "Lasertec",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2083,26 +2586,37 @@
      "url": "https://finance.yahoo.co.jp/quote/6920.T",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6920.T/analysis",
+      "asOf": "2026-11-02T23:07:34+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "RTTNews / Yahoo Finance JP 短信摘要",
       "url": "https://www.rttnews.com/3706118/lasertec-q1-profit-sales-decline-maintains-annual-outlook.aspx",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6920.T/analysis",
+      "asOf": "2026-11-02T23:07:35+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 229.84131,
-    "epsLow": 192.7692,
-    "epsHigh": 276.0,
-    "epsAnalysts": 7.0,
-    "epsYearAgo": 211.46,
-    "revAvg": 60985792470.0,
-    "revLow": 47682417210.0,
-    "revHigh": 77486000000.0,
+    "epsAvg": 304.27658,
+    "epsLow": 229.0,
+    "epsHigh": 407.0895,
+    "epsAnalysts": 6.0,
+    "epsYearAgo": 297.15,
+    "revAvg": 78381606390.0,
+    "revLow": 66900000000.0,
+    "revHigh": 99240170290.0,
     "revAnalysts": 11.0,
-    "revGrowth": 0.1258,
+    "revGrowth": 0.058000002,
     "currency": "JPY"
    },
    "lastReported": {
@@ -2125,7 +2639,8 @@
       "url": "https://www.nikkei.com/article/DGXZQOUC296BB0Z21C26A0000000/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsSurprisePct": -0.4791
    },
    "note": "光罩/晶圆缺陷检测设备龙头（Lasertec）。",
    "importance": 3
@@ -2134,12 +2649,24 @@
    "symbol": "4063.T",
    "name": "信越化学",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/4063.T/analysis",
+      "asOf": "2026-11-02T23:07:36+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/4063.T/analysis",
+      "asOf": "2026-11-02T23:07:36+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 79.94649,
@@ -2147,11 +2674,11 @@
     "epsHigh": 79.94649,
     "epsAnalysts": 1.0,
     "epsYearAgo": 67.51,
-    "revAvg": 737835333330.0,
+    "revAvg": 740685333330.0,
     "revLow": 708000000000.0,
     "revHigh": 775496000000.0,
     "revAnalysts": 6.0,
-    "revGrowth": 0.136,
+    "revGrowth": 0.14039999,
     "currency": "JPY"
    },
    "lastReported": {
@@ -2168,7 +2695,7 @@
    "symbol": "6981.T",
    "name": "村田制作所",
    "region": "JP",
-   "currency": null,
+   "currency": "JPY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2177,26 +2704,37 @@
      "url": "https://corporate.murata.com/ja-jp/ir/library/results",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6981.T/analysis",
+      "asOf": "2026-11-02T23:07:37+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Yahoo Finance JP·村田短信摘要",
       "url": "https://finance.yahoo.co.jp/quote/6981.T/financials",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6981.T/analysis",
+      "asOf": "2026-11-02T23:07:38+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 57.96275,
-    "epsLow": 55.63,
-    "epsHigh": 59.79826,
-    "epsAnalysts": 3.0,
-    "epsYearAgo": 44.94,
-    "revAvg": 563930527270.0,
-    "revLow": 538400000000.0,
-    "revHigh": 584700000000.0,
-    "revAnalysts": 11.0,
-    "revGrowth": 0.15890001,
+    "epsAvg": 60.9072,
+    "epsLow": 56.2144,
+    "epsHigh": 65.6,
+    "epsAnalysts": 2.0,
+    "epsYearAgo": 13.72,
+    "revAvg": 556435023000.0,
+    "revLow": 543000000000.0,
+    "revHigh": 582859000000.0,
+    "revAnalysts": 8.0,
+    "revGrowth": 0.1904,
     "currency": "JPY"
    },
    "lastReported": {
@@ -2215,7 +2753,10 @@
       "url": "https://corporate.murata.com/ja-jp/ir/library/results",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsActual": 57.75,
+    "epsEstimate": 57.96275,
+    "epsSurprisePct": -0.0037
    },
    "note": "MLCC 等被动元件龙头（村田）。",
    "importance": 2
@@ -2224,7 +2765,7 @@
    "symbol": "IFX.DE",
    "name": "英飞凌",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": "2026-11-11T00:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -2233,8 +2774,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
+      "asOf": "2026-11-02T23:07:39+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
+      "asOf": "2026-11-02T23:07:40+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 0.62219,
@@ -2267,30 +2820,47 @@
    "symbol": "STM",
    "name": "意法半导体",
    "region": "EU",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
-   "dateStatus": "unknown",
+   "dateStatus": "reported",
    "sources": {
-    "consensus": [],
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/STM/analysis",
+     "asOf": "2026-11-02T23:07:40+08:00",
+     "note": "已披露清空(reportDate=2026-10-29，原预约 nextDate 已清空，reason=early-release)"
+    },
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/STM/analysis",
+      "asOf": "2026-11-02T23:07:42+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "GlobeNewswire·STMicroelectronics Q3 2026",
       "url": "https://www.globenewswire.com/news-release/2026/10/29/3390920/0/en/stmicroelectronics-reports-q3-2026-financial-results.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/STM/analysis",
+      "asOf": "2026-11-02T23:07:43+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.56718,
-    "epsLow": 0.52,
-    "epsHigh": 0.61311,
-    "epsAnalysts": 6.0,
+    "epsAvg": 0.56227,
+    "epsLow": 0.53,
+    "epsHigh": 0.58,
+    "epsAnalysts": 5.0,
     "epsYearAgo": 0.11,
-    "revAvg": 4118880440.0,
-    "revLow": 4057000000.0,
-    "revHigh": 4249850000.0,
-    "revAnalysts": 9.0,
-    "revGrowth": 0.2373,
+    "revAvg": 4158090000.0,
+    "revLow": 4145600000.0,
+    "revHigh": 4185960000.0,
+    "revAnalysts": 8.0,
+    "revGrowth": 0.2491,
     "currency": "USD"
    },
    "lastReported": {
@@ -2305,7 +2875,11 @@
     "epsNonGaapBasis": "non-GAAP diluted EPS(USD)",
     "epsCompareBasis": "Yahoo 预期对比口径=non-GAAP",
     "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
-    "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37"
+    "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37",
+    "epsActual": 0.37,
+    "epsEstimate": 0.40998,
+    "epsSurprisePct": -0.0975,
+    "netIncomeYoY": 0.2278481012658229
    },
    "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
    "note": "意法半导体（NYSE ADR STM）；MCU/功率器件。",
@@ -2315,16 +2889,27 @@
    "symbol": "ASM.AS",
    "name": "ASM International",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
+      "asOf": "2026-11-02T23:07:43+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "ASM 2026Q3 业绩公告(asm.com)",
       "url": "https://www.asm.com/media/bebbzlnv/20261027-asm-reports-third-quarter-2026-results.pdf",
       "asOf": "2026-10-28"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
+      "asOf": "2026-11-02T23:07:44+08:00"
      }
     ]
    },
@@ -2334,11 +2919,11 @@
     "epsHigh": 7.47424,
     "epsAnalysts": 2.0,
     "epsYearAgo": 3.4533,
-    "revAvg": 1242684000.0,
-    "revLow": 1179546000.0,
+    "revAvg": 1264481500.0,
+    "revLow": 1230000000.0,
     "revHigh": 1323160000.0,
     "revAnalysts": 4.0,
-    "revGrowth": 0.77959996,
+    "revGrowth": 0.8108,
     "currency": "EUR"
    },
    "lastReported": {
@@ -2367,12 +2952,24 @@
    "symbol": "BESI.AS",
    "name": "BE半导体",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
+      "asOf": "2026-11-02T23:07:45+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
+      "asOf": "2026-11-02T23:07:45+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 1.29645,
@@ -2403,7 +3000,7 @@
    "symbol": "ADYEN.AS",
    "name": "Adyen",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": "2027-02-11",
    "dateStatus": "confirmed",
    "sources": {
@@ -2412,7 +3009,13 @@
      "url": "https://investors.adyen.com/events/earnings-call-h2-2026",
      "asOf": "2026-10-29"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ADYEN.AS/analysis",
+      "asOf": "2026-11-02T23:07:46+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Adyen Q3 2026 Business Update",
@@ -2427,11 +3030,11 @@
     "epsHigh": 22.68,
     "epsAnalysts": 1.0,
     "epsYearAgo": null,
-    "revAvg": 734136170.0,
+    "revAvg": 733363400.0,
     "revLow": 725817000.0,
     "revHigh": 740000000.0,
-    "revAnalysts": 6.0,
-    "revGrowth": 0.22680001,
+    "revAnalysts": 5.0,
+    "revGrowth": 0.22549999,
     "currency": "EUR"
    },
    "lastReported": {
@@ -2463,17 +3066,29 @@
    "symbol": "NVO",
    "name": "诺和诺德(ADR)",
    "region": "EU",
-   "currency": null,
-   "nextDate": "2026-11-04",
-   "dateStatus": "estimated",
+   "currency": "DKK",
+   "nextDate": "2026-11-04T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/nvo/earnings",
-     "asOf": "2026-11-02T08:07:13+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/NVO/analysis",
+     "asOf": "2026-11-02T23:07:47+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVO/analysis",
+      "asOf": "2026-11-02T23:07:49+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NVO/analysis",
+      "asOf": "2026-11-02T23:07:50+08:00"
+     }
+    ]
    },
    "nasdaqText": "Novo Nordisk A/S Common Stock is expected* to report earnings on  11/04/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  4 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.81.  The reported EPS for the same quarter last year was $1.02.",
    "consensus": {
@@ -2482,11 +3097,11 @@
     "epsHigh": 5.282,
     "epsAnalysts": 3.0,
     "epsYearAgo": 4.5,
-    "revAvg": 73684835180.0,
+    "revAvg": 73791758260.0,
     "revLow": 71193000000.0,
     "revHigh": 78488000000.0,
     "revAnalysts": 13.0,
-    "revGrowth": -0.0172,
+    "revGrowth": -0.015800001,
     "currency": "DKK"
    },
    "lastReported": {
@@ -2507,18 +3122,30 @@
    "symbol": "AMAT",
    "name": "应用材料",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/amat/earnings",
-     "asOf": "2026-11-02T08:07:14+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/AMAT/analysis",
+     "asOf": "2026-11-02T23:07:51+08:00",
      "note": "已披露清空(reportDate=2026-08-14，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMAT/analysis",
+      "asOf": "2026-11-02T23:07:54+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/AMAT/analysis",
+      "asOf": "2026-11-02T23:07:55+08:00"
+     }
+    ]
    },
    "nasdaqText": "Applied Materials, Inc. Common Stock is expected* to report earnings on  11/12/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $4.06.  The reported EPS for the same quarter last year was $2.17.",
    "consensus": {
@@ -2552,12 +3179,24 @@
    "symbol": "LRCX",
    "name": "拉姆研究",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/LRCX/analysis",
+      "asOf": "2026-11-02T23:07:57+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/LRCX/analysis",
+      "asOf": "2026-11-02T23:07:58+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 2.34922,
@@ -2590,24 +3229,36 @@
    "symbol": "KLAC",
    "name": "科磊",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/KLAC/analysis",
+      "asOf": "2026-11-02T23:08:00+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/KLAC/analysis",
+      "asOf": "2026-11-02T23:08:00+08:00"
+     }
+    ]
    },
    "consensus": {
-    "epsAvg": 1.42229,
-    "epsLow": 1.34,
+    "epsAvg": 1.44921,
+    "epsLow": 1.38,
     "epsHigh": 1.49,
-    "epsAnalysts": 23.0,
+    "epsAnalysts": 22.0,
     "epsYearAgo": 0.885,
-    "revAvg": 4645803710.0,
-    "revLow": 4397837000.0,
-    "revHigh": 4840546800.0,
+    "revAvg": 4720182520.0,
+    "revLow": 4500000000.0,
+    "revHigh": 4813300000.0,
     "revAnalysts": 20.0,
-    "revGrowth": 0.409,
+    "revGrowth": 0.4316,
     "currency": "USD"
    },
    "lastReported": {
@@ -2615,6 +3266,10 @@
     "epsActual": 1.22,
     "epsEstimate": 1.17822,
     "epsSurprisePct": 0.0355,
+    "revenue": 4136015000.0,
+    "netIncome": 1548588000.0,
+    "revenueYoY": 0.28860022880671554,
+    "netIncomeYoY": 0.3813851423678014,
     "reportDate": "2026-10-29T04:00:00+08:00"
    },
    "note": "过程控制/量测设备龙头（科磊）。",
@@ -2624,18 +3279,30 @@
    "symbol": "ADI",
    "name": "亚德诺",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/adi/earnings",
-     "asOf": "2026-11-02T08:07:23+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ADI/analysis",
+     "asOf": "2026-11-02T23:08:01+08:00",
      "note": "已披露清空(reportDate=2026-08-19，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ADI/analysis",
+      "asOf": "2026-11-02T23:08:03+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ADI/analysis",
+      "asOf": "2026-11-02T23:08:04+08:00"
+     }
+    ]
    },
    "nasdaqText": "Analog Devices, Inc. Common Stock is expected* to report earnings on  11/24/2026 before market open.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  9 analysts'  forecasts, the consensus EPS forecast for the quarter is $3.89.  The reported EPS for the same quarter last year was $2.26.",
    "consensus": {
@@ -2669,30 +3336,41 @@
    "symbol": "VRT",
    "name": "维谛 Vertiv",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/VRT/analysis",
+      "asOf": "2026-11-02T23:08:05+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Vertiv Q3 2026 Press Release(SEC Ex99.1)",
       "url": "https://www.sec.gov/Archives/edgar/data/1674101/000162828026067707/q32026exhibit991vrt10282026.htm",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/VRT/analysis",
+      "asOf": "2026-11-02T23:08:06+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 2.28113,
+    "epsAvg": 2.27868,
     "epsLow": 2.22,
     "epsHigh": 2.42,
-    "epsAnalysts": 19.0,
+    "epsAnalysts": 24.0,
     "epsYearAgo": 1.36,
-    "revAvg": 4463455560.0,
-    "revLow": 4321365000.0,
+    "revAvg": 4476127960.0,
+    "revLow": 4380000000.0,
     "revHigh": 4649058130.0,
-    "revAnalysts": 18.0,
-    "revGrowth": 0.5498,
+    "revAnalysts": 22.0,
+    "revGrowth": 0.5542,
     "currency": "USD"
    },
    "lastReported": {
@@ -2730,17 +3408,29 @@
    "symbol": "ETN",
    "name": "伊顿",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-03T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/etn/earnings",
-     "asOf": "2026-11-02T08:07:30+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ETN/analysis",
+     "asOf": "2026-11-02T23:08:07+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ETN/analysis",
+      "asOf": "2026-11-02T23:08:09+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ETN/analysis",
+      "asOf": "2026-11-02T23:08:09+08:00"
+     }
+    ]
    },
    "nasdaqText": "Eaton Corporation, PLC Ordinary Shares is expected* to report earnings on  11/03/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $3.54.  The reported EPS for the same quarter last year was $3.07.",
    "consensus": {
@@ -2774,7 +3464,7 @@
    "symbol": "SU.PA",
    "name": "施耐德电气",
    "region": "EU",
-   "currency": null,
+   "currency": "EUR",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2784,7 +3474,13 @@
      "asOf": "2026-10-29",
      "note": "本期已披露(reportDate=2026-10-16)，原 nextDate=2026-10-16 已清空"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SU.PA/analysis",
+      "asOf": "2026-11-02T23:08:10+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "Schneider Electric Q3 2026 Revenues",
@@ -2799,10 +3495,10 @@
     "epsHigh": null,
     "epsAnalysts": null,
     "epsYearAgo": null,
-    "revAvg": 11136695880.0,
-    "revLow": 10940000000.0,
-    "revHigh": 11358000000.0,
-    "revAnalysts": 8.0,
+    "revAvg": 12709679000.0,
+    "revLow": 12709679000.0,
+    "revHigh": 12709679000.0,
+    "revAnalysts": 1.0,
     "revGrowth": 0.1455,
     "currency": "EUR"
    },
@@ -2823,21 +3519,33 @@
    "symbol": "SMCI",
    "name": "超微电脑",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-04T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/smci/earnings",
-     "asOf": "2026-11-02T08:07:35+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SMCI/analysis",
+     "asOf": "2026-11-02T23:08:11+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SMCI/analysis",
+      "asOf": "2026-11-02T23:08:12+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SMCI/analysis",
+      "asOf": "2026-11-02T23:08:13+08:00"
+     }
+    ]
    },
    "nasdaqText": "Super Micro Computer, Inc. Common Stock is expected* to report earnings on  11/03/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  6 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.04.  The reported EPS for the same quarter last year was $0.26.",
    "consensus": {
-    "epsAvg": 1.19576,
+    "epsAvg": 1.23458,
     "epsLow": 0.8,
     "epsHigh": 1.87,
     "epsAnalysts": 17.0,
@@ -2867,18 +3575,30 @@
    "symbol": "DELL",
    "name": "戴尔",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/dell/earnings",
-     "asOf": "2026-11-02T08:07:40+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/DELL/analysis",
+     "asOf": "2026-11-02T23:08:13+08:00",
      "note": "已披露清空(reportDate=2026-09-02，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/DELL/analysis",
+      "asOf": "2026-11-02T23:08:15+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/DELL/analysis",
+      "asOf": "2026-11-02T23:08:16+08:00"
+     }
+    ]
    },
    "nasdaqText": "Dell Technologies Inc. Class C Common Stock  is estimated to report earnings on  11/24/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  8 analysts' forecasts, the consensus EPS forecast for the quarter is $6.41.  The reported EPS for the same quarter last year was $2.35.",
    "consensus": {
@@ -2912,17 +3632,29 @@
    "symbol": "ANET",
    "name": "Arista",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-04T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/anet/earnings",
-     "asOf": "2026-11-02T08:07:44+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ANET/analysis",
+     "asOf": "2026-11-02T23:08:17+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ANET/analysis",
+      "asOf": "2026-11-02T23:08:19+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ANET/analysis",
+      "asOf": "2026-11-02T23:08:19+08:00"
+     }
+    ]
    },
    "nasdaqText": "Arista Networks, Inc. Common Stock is expected* to report earnings on  11/03/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  9 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.99.  The reported EPS for the same quarter last year was $0.67.",
    "consensus": {
@@ -2956,18 +3688,30 @@
    "symbol": "CSCO",
    "name": "思科",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/csco/earnings",
-     "asOf": "2026-11-02T08:07:47+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/CSCO/analysis",
+     "asOf": "2026-11-02T23:08:20+08:00",
      "note": "已披露清空(reportDate=2026-08-13，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CSCO/analysis",
+      "asOf": "2026-11-02T23:08:21+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CSCO/analysis",
+      "asOf": "2026-11-02T23:08:22+08:00"
+     }
+    ]
    },
    "nasdaqText": "Cisco Systems, Inc. Common Stock (DE) is estimated to report earnings on  11/11/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  8 analysts' forecasts, the consensus EPS forecast for the quarter is $1.15.  The reported EPS for the same quarter last year was $0.81.",
    "consensus": {
@@ -3001,12 +3745,24 @@
    "symbol": "2382.TW",
    "name": "广达电脑",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
+      "asOf": "2026-11-02T23:08:22+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
+      "asOf": "2026-11-02T23:08:23+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 7.14568,
@@ -3039,24 +3795,36 @@
    "symbol": "3231.TW",
    "name": "纬创",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
+      "asOf": "2026-11-02T23:08:24+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
+      "asOf": "2026-11-02T23:08:24+08:00"
+     }
+    ]
    },
    "consensus": {
-    "epsAvg": 4.90408,
-    "epsLow": 4.45,
+    "epsAvg": 4.58162,
+    "epsLow": 3.98171,
     "epsHigh": 5.77,
-    "epsAnalysts": 6.0,
+    "epsAnalysts": 10.0,
     "epsYearAgo": 2.36,
-    "revAvg": 1148869967430.0,
-    "revLow": 1085688000000.0,
+    "revAvg": 1112131605620.0,
+    "revLow": 1009568402160.0,
     "revHigh": 1208848000000.0,
-    "revAnalysts": 5.0,
-    "revGrowth": 1.0234,
+    "revAnalysts": 7.0,
+    "revGrowth": 0.9586,
     "currency": "TWD"
    },
    "lastReported": {
@@ -3077,7 +3845,7 @@
    "symbol": "2317.TW",
    "name": "鸿海",
    "region": "TW",
-   "currency": null,
+   "currency": "TWD",
    "nextDate": "2026-11-12T13:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3086,8 +3854,20 @@
      "url": "",
      "asOf": "2026-10-30"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
+      "asOf": "2026-11-02T23:08:25+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
+      "asOf": "2026-11-02T23:08:26+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 4.99322,
@@ -3120,30 +3900,42 @@
    "symbol": "ARM",
    "name": "Arm",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-04",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-05T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/arm/earnings",
-     "asOf": "2026-11-02T08:07:51+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ARM/analysis",
+     "asOf": "2026-11-02T23:08:26+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ARM/analysis",
+      "asOf": "2026-11-02T23:08:28+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ARM/analysis",
+      "asOf": "2026-11-02T23:08:29+08:00"
+     }
+    ]
    },
    "nasdaqText": "Arm Holdings plc American Depositary Shares is expected* to report earnings on  11/04/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  7 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.22.  The reported EPS for the same quarter last year was $0.15.",
    "consensus": {
-    "epsAvg": 0.47534,
+    "epsAvg": 0.47564,
     "epsLow": 0.46,
     "epsHigh": 0.5,
-    "epsAnalysts": 29.0,
+    "epsAnalysts": 31.0,
     "epsYearAgo": 0.39,
-    "revAvg": 1377533970.0,
+    "revAvg": 1378098370.0,
     "revLow": 1290000000.0,
     "revHigh": 1409000000.0,
-    "revAnalysts": 28.0,
-    "revGrowth": 0.21370001,
+    "revAnalysts": 30.0,
+    "revGrowth": 0.2142,
     "currency": "USD"
    },
    "lastReported": {
@@ -3164,17 +3956,29 @@
    "symbol": "MRVL",
    "name": "Marvell",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": "2026-12-01",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/mrvl/earnings",
-     "asOf": "2026-11-02T08:07:52+08:00"
+     "asOf": "2026-11-02T23:08:32+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MRVL/analysis",
+      "asOf": "2026-11-02T23:08:32+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MRVL/analysis",
+      "asOf": "2026-11-02T23:08:32+08:00"
+     }
+    ]
    },
    "nasdaqText": "Marvell Technology, Inc. Common Stock is estimated to report earnings on  12/01/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  12 analysts' forecasts, the consensus EPS forecast for the quarter is $0.79.  The reported EPS for the same quarter last year was $0.62.",
    "consensus": {
@@ -3208,17 +4012,29 @@
    "symbol": "ALAB",
    "name": "Astera Labs",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-04T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/alab/earnings",
-     "asOf": "2026-11-02T08:07:54+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ALAB/analysis",
+     "asOf": "2026-11-02T23:08:33+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ALAB/analysis",
+      "asOf": "2026-11-02T23:08:34+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ALAB/analysis",
+      "asOf": "2026-11-02T23:08:35+08:00"
+     }
+    ]
    },
    "nasdaqText": "Astera Labs, Inc. Common Stock is expected* to report earnings on  11/03/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.83.  The reported EPS for the same quarter last year was $0.26.",
    "consensus": {
@@ -3252,17 +4068,29 @@
    "symbol": "CRDO",
    "name": "Credo",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": "2026-12-07",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-11-02T08:07:57+08:00"
+     "asOf": "2026-11-02T23:08:37+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRDO/analysis",
+      "asOf": "2026-11-02T23:08:37+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRDO/analysis",
+      "asOf": "2026-11-02T23:08:37+08:00"
+     }
+    ]
    },
    "nasdaqText": "Credo Technology Group Holding Ltd Ordinary Shares is estimated to report earnings on  12/07/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  6 analysts' forecasts, the consensus EPS forecast for the quarter is $1.03.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
@@ -3296,17 +4124,29 @@
    "symbol": "COHR",
    "name": "Coherent",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-04",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-05T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/cohr/earnings",
-     "asOf": "2026-11-02T08:07:59+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/COHR/analysis",
+     "asOf": "2026-11-02T23:08:38+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/COHR/analysis",
+      "asOf": "2026-11-02T23:08:40+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/COHR/analysis",
+      "asOf": "2026-11-02T23:08:41+08:00"
+     }
+    ]
    },
    "nasdaqText": "Coherent Corp. Common Stock is expected* to report earnings on  11/04/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.78.  The reported EPS for the same quarter last year was $0.93.",
    "consensus": {
@@ -3340,24 +4180,36 @@
    "symbol": "NOW",
    "name": "ServiceNow",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NOW/analysis",
+      "asOf": "2026-11-02T23:08:45+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/NOW/analysis",
+      "asOf": "2026-11-02T23:08:45+08:00"
+     }
+    ]
    },
    "consensus": {
-    "epsAvg": 1.06853,
+    "epsAvg": 1.07213,
     "epsLow": 0.99,
-    "epsHigh": 1.18,
-    "epsAnalysts": 31.0,
+    "epsHigh": 1.21,
+    "epsAnalysts": 38.0,
     "epsYearAgo": 0.92,
-    "revAvg": 4369238100.0,
+    "revAvg": 4370528970.0,
     "revLow": 4350000000.0,
     "revHigh": 4441872000.0,
-    "revAnalysts": 33.0,
-    "revGrowth": 0.22459999,
+    "revAnalysts": 35.0,
+    "revGrowth": 0.22489999,
     "currency": "USD"
    },
    "lastReported": {
@@ -3378,30 +4230,41 @@
    "symbol": "PLTR",
    "name": "Palantir",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-02",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-03T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/pltr/earnings",
-     "asOf": "2026-11-02T08:08:03+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/PLTR/analysis",
+     "asOf": "2026-11-02T23:08:46+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PLTR/analysis",
+      "asOf": "2026-11-02T23:08:49+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/PLTR/analysis",
+      "asOf": "2026-11-02T23:08:50+08:00"
+     }
+    ]
    },
-   "nasdaqText": "Palantir Technologies Inc. Class A Common Stock is expected* to report earnings on  11/02/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.33.  The reported EPS for the same quarter last year was $0.18.",
    "consensus": {
-    "epsAvg": 0.40722,
+    "epsAvg": 0.40705,
     "epsLow": 0.38,
     "epsHigh": 0.45,
-    "epsAnalysts": 24.0,
+    "epsAnalysts": 25.0,
     "epsYearAgo": 0.21,
-    "revAvg": 2180834970.0,
-    "revLow": 2161000000.0,
+    "revAvg": 2180359530.0,
+    "revLow": 2160000000.0,
     "revHigh": 2262971840.0,
-    "revAnalysts": 24.0,
-    "revGrowth": 0.84650004,
+    "revAnalysts": 25.0,
+    "revGrowth": 0.84610003,
     "currency": "USD"
    },
    "lastReported": {
@@ -3422,17 +4285,29 @@
    "symbol": "SNOW",
    "name": "Snowflake",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": "2026-12-02",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/snow/earnings",
-     "asOf": "2026-11-02T08:08:05+08:00"
+     "asOf": "2026-11-02T23:08:53+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SNOW/analysis",
+      "asOf": "2026-11-02T23:08:53+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SNOW/analysis",
+      "asOf": "2026-11-02T23:08:54+08:00"
+     }
+    ]
    },
    "nasdaqText": "Snowflake Inc. Common Stock is estimated to report earnings on  12/02/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  11 analysts' forecasts, the consensus EPS forecast for the quarter is $-0.32.  The reported EPS for the same quarter last year was $-0.84.",
    "consensus": {
@@ -3466,17 +4341,29 @@
    "symbol": "CRWD",
    "name": "CrowdStrike",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": "2026-12-01",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crwd/earnings",
-     "asOf": "2026-11-02T08:08:06+08:00"
+     "asOf": "2026-11-02T23:08:56+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRWD/analysis",
+      "asOf": "2026-11-02T23:08:56+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRWD/analysis",
+      "asOf": "2026-11-02T23:08:56+08:00"
+     }
+    ]
    },
    "nasdaqText": "CrowdStrike Holdings, Inc. Class A Common Stock is estimated to report earnings on  12/01/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  13 analysts' forecasts, the consensus EPS forecast for the quarter is $0.  The reported EPS for the same quarter last year was $0.",
    "consensus": {
@@ -3510,17 +4397,29 @@
    "symbol": "DDOG",
    "name": "Datadog",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-04",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-04T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/ddog/earnings",
-     "asOf": "2026-11-02T08:08:09+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/DDOG/analysis",
+     "asOf": "2026-11-02T23:08:57+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/DDOG/analysis",
+      "asOf": "2026-11-02T23:09:00+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/DDOG/analysis",
+      "asOf": "2026-11-02T23:09:01+08:00"
+     }
+    ]
    },
    "nasdaqText": "Datadog, Inc. Class A Common Stock is expected* to report earnings on  11/04/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.18.  The reported EPS for the same quarter last year was $0.11.",
    "consensus": {
@@ -3529,11 +4428,11 @@
     "epsHigh": 0.68,
     "epsAnalysts": 40.0,
     "epsYearAgo": 0.55,
-    "revAvg": 1145540090.0,
+    "revAvg": 1146965090.0,
     "revLow": 1139500000.0,
     "revHigh": 1231154000.0,
     "revAnalysts": 40.0,
-    "revGrowth": 0.2934,
+    "revGrowth": 0.2951,
     "currency": "USD"
    },
    "lastReported": {
@@ -3554,18 +4453,30 @@
    "symbol": "ADBE",
    "name": "Adobe",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/adbe/earnings",
-     "asOf": "2026-11-02T08:08:12+08:00",
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ADBE/analysis",
+     "asOf": "2026-11-02T23:09:01+08:00",
      "note": "已披露清空(reportDate=2026-09-11，原预约 nextDate 已清空，reason=early-release)"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ADBE/analysis",
+      "asOf": "2026-11-02T23:09:04+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/ADBE/analysis",
+      "asOf": "2026-11-02T23:09:05+08:00"
+     }
+    ]
    },
    "nasdaqText": "Adobe Inc. Common Stock is estimated to report earnings on  12/09/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  12 analysts' forecasts, the consensus EPS forecast for the quarter is $5.11.  The reported EPS for the same quarter last year was $4.55.",
    "consensus": {
@@ -3599,17 +4510,29 @@
    "symbol": "CRM",
    "name": "Salesforce",
    "region": "US",
-   "currency": null,
+   "currency": "USD",
    "nextDate": "2026-12-02",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-11-02T08:08:14+08:00"
+     "asOf": "2026-11-02T23:09:08+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRM/analysis",
+      "asOf": "2026-11-02T23:09:08+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/CRM/analysis",
+      "asOf": "2026-11-02T23:09:08+08:00"
+     }
+    ]
    },
    "nasdaqText": "Salesforce, Inc. Common Stock is estimated to report earnings on  12/02/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  13 analysts' forecasts, the consensus EPS forecast for the quarter is $2.41.  The reported EPS for the same quarter last year was $2.66.",
    "consensus": {
@@ -3643,17 +4566,29 @@
    "symbol": "SHOP",
    "name": "Shopify",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-03",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-03T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/shop/earnings",
-     "asOf": "2026-11-02T08:08:17+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SHOP/analysis",
+     "asOf": "2026-11-02T23:09:09+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SHOP/analysis",
+      "asOf": "2026-11-02T23:09:11+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/SHOP/analysis",
+      "asOf": "2026-11-02T23:09:12+08:00"
+     }
+    ]
    },
    "nasdaqText": "Shopify Inc. Class A Subordinate Voting Shares is expected* to report earnings on  11/03/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.33.  The reported EPS for the same quarter last year was $0.27.",
    "consensus": {
@@ -3662,7 +4597,7 @@
     "epsHigh": 0.52483,
     "epsAnalysts": 33.0,
     "epsYearAgo": 0.34,
-    "revAvg": 3744363700.0,
+    "revAvg": 3744370520.0,
     "revLow": 3652000000.0,
     "revHigh": 3823769980.0,
     "revAnalysts": 44.0,
@@ -3687,17 +4622,29 @@
    "symbol": "MELI",
    "name": "MercadoLibre",
    "region": "US",
-   "currency": null,
-   "nextDate": "2026-11-04",
-   "dateStatus": "estimated",
+   "currency": "USD",
+   "nextDate": "2026-11-05T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/meli/earnings",
-     "asOf": "2026-11-02T08:08:19+08:00"
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/MELI/analysis",
+     "asOf": "2026-11-02T23:09:12+08:00"
     },
-    "consensus": [],
-    "lastReported": []
+    "consensus": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MELI/analysis",
+      "asOf": "2026-11-02T23:09:13+08:00"
+     }
+    ],
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/MELI/analysis",
+      "asOf": "2026-11-02T23:09:14+08:00"
+     }
+    ]
    },
    "nasdaqText": "MercadoLibre, Inc. Common Stock is expected* to report earnings on  11/04/2026 after market close.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  3 analysts'  forecasts, the consensus EPS forecast for the quarter is $9.41.  The reported EPS for the same quarter last year was $8.32.",
    "consensus": {
@@ -3731,7 +4678,7 @@
    "symbol": "002371.SZ",
    "name": "北方华创",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3745,6 +4692,11 @@
       "name": "Wind MCP fundamentals 002371.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
+      "asOf": "2026-11-02T23:09:15+08:00"
      }
     ],
     "lastReported": [
@@ -3752,6 +4704,11 @@
       "name": "第一财经·北方华创三季报",
       "url": "https://www.yicai.com/brief/103415556.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
+      "asOf": "2026-11-02T23:09:16+08:00"
      },
      {
       "name": "同花顺 MCP income 002371.SZ",
@@ -3788,16 +4745,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 2.29674,
-    "epsLow": 1.86347,
-    "epsHigh": 2.73,
-    "epsAnalysts": 2.0,
+    "epsAvg": 1.93,
+    "epsLow": 1.93,
+    "epsHigh": 1.93,
+    "epsAnalysts": 1.0,
     "epsYearAgo": 0.34,
-    "revAvg": 15638474810.0,
-    "revLow": 14070000000.0,
-    "revHigh": 17167228319.0,
-    "revAnalysts": 9.0,
-    "revGrowth": 0.2976,
+    "revAvg": 16598631470.0,
+    "revLow": 15510000000.0,
+    "revHigh": 17518192000.0,
+    "revAnalysts": 7.0,
+    "revGrowth": 0.3773,
     "currency": "CNY"
    },
    "lastReported": {
@@ -3818,6 +4775,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 2.84407,
+    "epsSurprisePct": -0.0436,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -3834,7 +4793,7 @@
    "symbol": "688012.SS",
    "name": "中微公司",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3848,6 +4807,11 @@
       "name": "Wind MCP fundamentals 688012.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
+      "asOf": "2026-11-02T23:09:16+08:00"
      }
     ],
     "lastReported": [
@@ -3855,6 +4819,11 @@
       "name": "Wind 公告·中微公司2026年第三季度报告",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
+      "asOf": "2026-11-02T23:09:17+08:00"
      }
     ]
    },
@@ -3886,16 +4855,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 0.78778,
-    "epsLow": 0.78778,
-    "epsHigh": 0.78778,
+    "epsAvg": 1.09637,
+    "epsLow": 1.09637,
+    "epsHigh": 1.09637,
     "epsAnalysts": 1.0,
-    "epsYearAgo": 0.36913,
-    "revAvg": 4537351000.0,
-    "revLow": 4054000000.0,
-    "revHigh": 4934000000.0,
-    "revAnalysts": 8.0,
-    "revGrowth": 0.4627,
+    "epsYearAgo": 0.71812,
+    "revAvg": 5922796800.0,
+    "revLow": 5519000000.0,
+    "revHigh": 6389000000.0,
+    "revAnalysts": 7.0,
+    "revGrowth": 0.3704,
     "currency": "CNY"
    },
    "lastReported": {
@@ -3915,7 +4884,9 @@
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsEstimate": 0.78778,
+    "epsSurprisePct": -0.3145
    },
    "note": "预约日历写 10-31，Wind 已有三季报数据；立刻写入。",
    "importance": 3
@@ -3924,7 +4895,7 @@
    "symbol": "688072.SS",
    "name": "拓荆科技",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -3933,6 +4904,11 @@
       "name": "Wind MCP fundamentals 688072.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
+      "asOf": "2026-11-02T23:09:18+08:00"
      }
     ],
     "lastReported": [
@@ -3940,6 +4916,11 @@
       "name": "拓荆科技 2026年第三季度报告",
       "url": "http://notice.10jqka.com.cn/api/pdf/6e860445354fc17b.pdf",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
+      "asOf": "2026-11-02T23:09:19+08:00"
      }
     ]
    },
@@ -3971,14 +4952,14 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 1.1,
-    "epsLow": 1.1,
-    "epsHigh": 1.1,
+    "epsAvg": 1.14,
+    "epsLow": 1.14,
+    "epsHigh": 1.14,
     "epsAnalysts": 1.0,
     "epsYearAgo": 1.49,
-    "revAvg": 2920500000.0,
-    "revLow": 2677000000.0,
-    "revHigh": 3164000000.0,
+    "revAvg": 3057000000.0,
+    "revLow": 2670000000.0,
+    "revHigh": 3444000000.0,
     "revAnalysts": 2.0,
     "revGrowth": 0.1973,
     "currency": "CNY"
@@ -3998,7 +4979,10 @@
       "url": "https://www.cls.cn/detail/2518408",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 1.9343,
+    "epsEstimate": 1.25,
+    "epsSurprisePct": 0.5474
    },
    "importance": 3
   },
@@ -4006,7 +4990,7 @@
    "symbol": "688120.SS",
    "name": "华海清科",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4020,6 +5004,11 @@
       "name": "Wind MCP fundamentals 688120.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
+      "asOf": "2026-11-02T23:09:19+08:00"
      }
     ],
     "lastReported": [
@@ -4027,6 +5016,11 @@
       "name": "Wind 公告·华海清科2026年第三季度报告",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
+      "asOf": "2026-11-02T23:09:20+08:00"
      }
     ]
    },
@@ -4058,16 +5052,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 0.78571,
-    "epsLow": 0.78571,
-    "epsHigh": 0.78571,
+    "epsAvg": 0.9,
+    "epsLow": 0.9,
+    "epsHigh": 0.9,
     "epsAnalysts": 1.0,
-    "epsYearAgo": 0.57857,
-    "revAvg": 1583141000.0,
-    "revLow": 1551282000.0,
-    "revHigh": 1615000000.0,
+    "epsYearAgo": 0.59286,
+    "revAvg": 1792461000.0,
+    "revLow": 1730000000.0,
+    "revHigh": 1854922000.0,
     "revAnalysts": 2.0,
-    "revGrowth": 0.2724,
+    "revGrowth": 0.2324,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4087,7 +5081,9 @@
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsEstimate": 0.78571,
+    "epsSurprisePct": 0.13270001
    },
    "note": "预约日历写 10-31，董事会日期 10-30；立刻写入。",
    "importance": 3
@@ -4096,7 +5092,7 @@
    "symbol": "688082.SS",
    "name": "盛美上海",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4105,6 +5101,11 @@
       "name": "Wind MCP fundamentals 688082.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
+      "asOf": "2026-11-02T23:09:20+08:00"
      }
     ],
     "lastReported": [
@@ -4112,6 +5113,11 @@
       "name": "同花顺·盛美上海三季报",
       "url": "https://stock.10jqka.com.cn/20261028/c681196940.shtml",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
+      "asOf": "2026-11-02T23:09:21+08:00"
      },
      {
       "name": "同花顺 MCP income 688082.SH",
@@ -4177,6 +5183,9 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsActual": 0.16,
+    "epsEstimate": 0.91588,
+    "epsSurprisePct": -0.8253,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -4193,7 +5202,7 @@
    "symbol": "688126.SS",
    "name": "沪硅产业",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4207,6 +5216,11 @@
       "name": "Wind MCP fundamentals 688126.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
+      "asOf": "2026-11-02T23:09:22+08:00"
      }
     ],
     "lastReported": [
@@ -4214,6 +5228,11 @@
       "name": "Wind 公告·沪硅产业2026年第三季度报告",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
+      "asOf": "2026-11-02T23:09:22+08:00"
      }
     ]
    },
@@ -4245,15 +5264,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": -0.12,
-    "epsLow": -0.12,
-    "epsHigh": -0.12,
+    "epsAvg": -0.16,
+    "epsLow": -0.16,
+    "epsHigh": -0.16,
     "epsAnalysts": 1.0,
-    "revAvg": 1389277500.0,
-    "revLow": 1312000000.0,
-    "revHigh": 1466555000.0,
+    "epsYearAgo": null,
+    "revAvg": 1523085000.0,
+    "revLow": 1457000000.0,
+    "revHigh": 1589170000.0,
     "revAnalysts": 2.0,
-    "revGrowth": 0.4722,
+    "revGrowth": 0.41689998,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4273,7 +5293,9 @@
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsEstimate": -0.12,
+    "epsSurprisePct": 0.0833
    },
    "note": "预约披露日写在 10-30/官方披露日 10-31，Wind 公告董事会日期 2026-10-29；refresh 应立刻写入。",
    "importance": 3
@@ -4282,7 +5304,7 @@
    "symbol": "688019.SS",
    "name": "安集科技",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4296,6 +5318,11 @@
       "name": "Wind MCP fundamentals 688019.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
+      "asOf": "2026-11-02T23:09:23+08:00"
      }
     ],
     "lastReported": [
@@ -4303,6 +5330,11 @@
       "name": "Wind 公告·安集科技2026年第三季度报告",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
+      "asOf": "2026-11-02T23:09:24+08:00"
      }
     ]
    },
@@ -4334,16 +5366,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 1.15,
-    "epsLow": 1.15,
-    "epsHigh": 1.15,
+    "epsAvg": 1.4,
+    "epsLow": 1.4,
+    "epsHigh": 1.4,
     "epsAnalysts": 1.0,
-    "epsYearAgo": 1.06154,
-    "revAvg": 885286000.0,
-    "revLow": 885286000.0,
-    "revHigh": 885286000.0,
+    "epsYearAgo": 0.79231,
+    "revAvg": 1041621000.0,
+    "revLow": 1041621000.0,
+    "revHigh": 1041621000.0,
     "revAnalysts": 1.0,
-    "revGrowth": 0.32,
+    "revGrowth": 0.505,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4363,7 +5395,9 @@
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "epsEstimate": 1.15,
+    "epsSurprisePct": 2.2087
    },
    "note": "预约日历写 10-31，董事会日期 10-30；立刻写入。",
    "importance": 3
@@ -4372,7 +5406,7 @@
    "symbol": "688256.SS",
    "name": "寒武纪",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4381,9 +5415,20 @@
       "name": "Wind MCP fundamentals 688256.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
+      "asOf": "2026-11-02T23:09:24+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
+      "asOf": "2026-11-02T23:09:25+08:00"
+     }
+    ]
    },
    "consensus": {
     "ashareAnnual": {
@@ -4443,7 +5488,7 @@
    "symbol": "688041.SS",
    "name": "海光信息",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4452,9 +5497,20 @@
       "name": "Wind MCP fundamentals 688041.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
+      "asOf": "2026-11-02T23:09:26+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
+      "asOf": "2026-11-02T23:09:26+08:00"
+     }
+    ]
    },
    "consensus": {
     "ashareAnnual": {
@@ -4512,7 +5568,7 @@
    "symbol": "603986.SS",
    "name": "兆易创新",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4526,6 +5582,11 @@
       "name": "Wind MCP fundamentals 603986.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
+      "asOf": "2026-11-02T23:09:27+08:00"
      }
     ],
     "lastReported": [
@@ -4533,6 +5594,11 @@
       "name": "东方财富·兆易创新三季报",
       "url": "https://finance.eastmoney.com/a/202610293914294266.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
+      "asOf": "2026-11-02T23:09:28+08:00"
      },
      {
       "name": "同花顺 MCP income 603986.SH",
@@ -4569,16 +5635,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 6.05,
-    "epsLow": 6.05,
-    "epsHigh": 6.05,
+    "epsAvg": 5.19,
+    "epsLow": 5.19,
+    "epsHigh": 5.19,
     "epsAnalysts": 1.0,
-    "epsYearAgo": 0.74,
-    "revAvg": 7062815500.0,
-    "revLow": 4928000000.0,
-    "revHigh": 8469000000.0,
-    "revAnalysts": 4.0,
-    "revGrowth": 1.6341001,
+    "epsYearAgo": 0.6352,
+    "revAvg": 7228000000.0,
+    "revLow": 4775000000.0,
+    "revHigh": 9681000000.0,
+    "revAnalysts": 2.0,
+    "revGrowth": 2.0474,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4599,6 +5665,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 6.05,
+    "epsSurprisePct": 0.0579,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -4615,7 +5683,7 @@
    "symbol": "603501.SS",
    "name": "韦尔股份",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4624,6 +5692,11 @@
       "name": "Wind MCP fundamentals 603501.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
+      "asOf": "2026-11-02T23:09:28+08:00"
      }
     ],
     "lastReported": [
@@ -4631,6 +5704,11 @@
       "name": "同花顺·豪威集团三季报报道",
       "url": "https://stock.10jqka.com.cn/20261029/c681229781.shtml",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
+      "asOf": "2026-11-02T23:09:29+08:00"
      },
      {
       "name": "同花顺 MCP income 603501.SH",
@@ -4672,11 +5750,11 @@
     "epsHigh": 0.89,
     "epsAnalysts": 2.0,
     "epsYearAgo": 0.7,
-    "revAvg": 8092968140.0,
+    "revAvg": 8408471910.0,
     "revLow": 8011872560.0,
-    "revHigh": 8154000000.0,
-    "revAnalysts": 4.0,
-    "revGrowth": 0.1443,
+    "revHigh": 9624487000.0,
+    "revAnalysts": 5.0,
+    "revGrowth": 0.189,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4689,6 +5767,9 @@
     "epsGaap": 0.87,
     "epsGaapBasis": "基本 EPS(人民币/股)",
     "note": "Q3 单季（豪威集团）；前三季营收221.49亿、归母净利22.99亿。修正此前 Yahoo 仍挂 QE 2026-06-30",
+    "epsActual": 0.87,
+    "epsEstimate": 0.91766,
+    "epsSurprisePct": -0.0519,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -4705,7 +5786,7 @@
    "symbol": "688008.SS",
    "name": "澜起科技",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4719,6 +5800,11 @@
       "name": "Wind MCP fundamentals 688008.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
+      "asOf": "2026-11-02T23:09:29+08:00"
      }
     ],
     "lastReported": [
@@ -4726,6 +5812,11 @@
       "name": "IT之家·澜起科技三季报",
       "url": "https://www.ithome.com/1/019/674.htm",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
+      "asOf": "2026-11-02T23:09:30+08:00"
      },
      {
       "name": "同花顺 MCP income 688008.SH",
@@ -4762,16 +5853,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 1.01367,
-    "epsLow": 0.99734,
-    "epsHigh": 1.03,
-    "epsAnalysts": 2.0,
-    "epsYearAgo": 0.41,
-    "revAvg": 2105500000.0,
-    "revLow": 2079000000.0,
-    "revHigh": 2132000000.0,
-    "revAnalysts": 2.0,
-    "revGrowth": 0.4783,
+    "epsAvg": 1.03174,
+    "epsLow": 1.0,
+    "epsHigh": 1.05,
+    "epsAnalysts": 3.0,
+    "epsYearAgo": 0.53,
+    "revAvg": 2422256060.0,
+    "revLow": 2300917000.0,
+    "revHigh": 2643190100.0,
+    "revAnalysts": 4.0,
+    "revGrowth": 0.73190004,
     "currency": "CNY"
    },
    "lastReported": {
@@ -4792,6 +5883,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": null,
+    "epsSurprisePct": null,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -4808,7 +5901,7 @@
    "symbol": "600584.SS",
    "name": "长电科技",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4817,9 +5910,20 @@
       "name": "Wind MCP fundamentals 600584.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
+      "asOf": "2026-11-02T23:09:31+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
+      "asOf": "2026-11-02T23:09:31+08:00"
+     }
+    ]
    },
    "consensus": {
     "ashareAnnual": {
@@ -4877,7 +5981,7 @@
    "symbol": "002463.SZ",
    "name": "沪电股份",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4886,6 +5990,11 @@
       "name": "Wind MCP fundamentals 002463.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
+      "asOf": "2026-11-02T23:09:32+08:00"
      }
     ],
     "lastReported": [
@@ -4893,6 +6002,11 @@
       "name": "同花顺·沪电股份三季报",
       "url": "https://stock.10jqka.com.cn/20261028/c681175920.shtml",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
+      "asOf": "2026-11-02T23:09:33+08:00"
      }
     ]
    },
@@ -4952,7 +6066,10 @@
       "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225627804.PDF",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 1.3783,
+    "epsEstimate": 1.17,
+    "epsSurprisePct": 0.17799999
    },
    "note": "A股·高速 PCB（沪电股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -4961,7 +6078,7 @@
    "symbol": "600183.SS",
    "name": "生益科技",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4975,6 +6092,11 @@
       "name": "Wind MCP fundamentals 600183.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
+      "asOf": "2026-11-02T23:09:33+08:00"
      }
     ],
     "lastReported": [
@@ -4982,6 +6104,11 @@
       "name": "同花顺·生益科技三季报快讯",
       "url": "https://stock.10jqka.com.cn/20261029/c681252238.shtml",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
+      "asOf": "2026-11-02T23:09:34+08:00"
      },
      {
       "name": "同花顺 MCP income 600183.SH",
@@ -5023,11 +6150,11 @@
     "epsHigh": 0.61,
     "epsAnalysts": 1.0,
     "epsYearAgo": 0.34,
-    "revAvg": 13519827450.0,
-    "revLow": 12703000000.0,
-    "revHigh": 14497100000.0,
-    "revAnalysts": 4.0,
-    "revGrowth": 0.72940004,
+    "revAvg": 16658000000.0,
+    "revLow": 16658000000.0,
+    "revHigh": 16658000000.0,
+    "revAnalysts": 1.0,
+    "revGrowth": 1.1308,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5053,6 +6180,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 0.77,
+    "epsSurprisePct": 0.8571,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5069,7 +6198,7 @@
    "symbol": "300308.SZ",
    "name": "中际旭创",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5083,6 +6212,11 @@
       "name": "Wind MCP fundamentals 300308.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
+      "asOf": "2026-11-02T23:09:35+08:00"
      }
     ],
     "lastReported": [
@@ -5090,6 +6224,11 @@
       "name": "21经济网·易中天三季报",
       "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
+      "asOf": "2026-11-02T23:09:35+08:00"
      },
      {
       "name": "同花顺 MCP income 300308.SZ",
@@ -5126,16 +6265,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 7.84,
-    "epsLow": 7.84,
-    "epsHigh": 7.84,
+    "epsAvg": 9.15,
+    "epsLow": 9.15,
+    "epsHigh": 9.15,
     "epsAnalysts": 1.0,
-    "epsYearAgo": 2.76,
-    "revAvg": 29978705480.0,
-    "revLow": 26738000000.0,
-    "revHigh": 35716341000.0,
+    "epsYearAgo": 3.34,
+    "revAvg": 37115338530.0,
+    "revLow": 34668547050.0,
+    "revHigh": 42014763590.0,
     "revAnalysts": 7.0,
-    "revGrowth": 1.9346001,
+    "revGrowth": 1.8043,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5156,6 +6295,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 7.84,
+    "epsSurprisePct": -0.111,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5172,7 +6313,7 @@
    "symbol": "300502.SZ",
    "name": "新易盛",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5186,6 +6327,11 @@
       "name": "Wind MCP fundamentals 300502.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
+      "asOf": "2026-11-02T23:09:36+08:00"
      }
     ],
     "lastReported": [
@@ -5193,6 +6339,11 @@
       "name": "21经济网·易中天三季报",
       "url": "https://www.21jingji.com/article/20261029/herald/4b997413a889105df9e873b9b3c8c7ce.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
+      "asOf": "2026-11-02T23:09:36+08:00"
      },
      {
       "name": "同花顺 MCP income 300502.SZ",
@@ -5234,11 +6385,11 @@
     "epsHigh": 6.08,
     "epsAnalysts": 1.0,
     "epsYearAgo": 2.31429,
-    "revAvg": 23321016990.0,
-    "revLow": 17437676000.0,
-    "revHigh": 27787374980.0,
-    "revAnalysts": 3.0,
-    "revGrowth": 1.7973,
+    "revAvg": 19152848640.0,
+    "revLow": 18267104280.0,
+    "revHigh": 20038593000.0,
+    "revAnalysts": 2.0,
+    "revGrowth": 1.2973,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5259,6 +6410,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 4.49,
+    "epsSurprisePct": -0.4209,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5275,7 +6428,7 @@
    "symbol": "300394.SZ",
    "name": "天孚通信",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5284,6 +6437,11 @@
       "name": "Wind MCP fundamentals 300394.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
+      "asOf": "2026-11-02T23:09:37+08:00"
      }
     ],
     "lastReported": [
@@ -5291,6 +6449,11 @@
       "name": "同花顺·天孚通信三季报",
       "url": "https://news.10jqka.com.cn/20261028/c681209742.shtml",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
+      "asOf": "2026-11-02T23:09:38+08:00"
      },
      {
       "name": "同花顺 MCP income 300394.SZ",
@@ -5356,6 +6519,9 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsActual": 0.8045,
+    "epsEstimate": 1.16064,
+    "epsSurprisePct": -0.3068,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -5372,7 +6538,7 @@
    "symbol": "601138.SS",
    "name": "工业富联",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5386,6 +6552,11 @@
       "name": "Wind MCP fundamentals 601138.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
+      "asOf": "2026-11-02T23:09:38+08:00"
      }
     ],
     "lastReported": [
@@ -5393,6 +6564,11 @@
       "name": "第一财经·工业富联三季报",
       "url": "https://www.yicai.com/brief/103415300.html",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
+      "asOf": "2026-11-02T23:09:39+08:00"
      },
      {
       "name": "同花顺 MCP income 601138.SH",
@@ -5434,11 +6610,11 @@
     "epsHigh": 1.01,
     "epsAnalysts": 1.0,
     "epsYearAgo": 0.63,
-    "revAvg": 466048753190.0,
-    "revLow": 402434870550.0,
-    "revHigh": 541621505000.0,
+    "revAvg": 502979003720.0,
+    "revLow": 449525390870.0,
+    "revHigh": 559567000000.0,
     "revAnalysts": 4.0,
-    "revGrowth": 0.5589,
+    "revGrowth": 0.6825,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5459,6 +6635,8 @@
       "asOf": "2026-10-29"
      }
     ],
+    "epsEstimate": 0.81,
+    "epsSurprisePct": 0.026400002,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5475,7 +6653,7 @@
    "symbol": "000977.SZ",
    "name": "浪潮信息",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5484,6 +6662,11 @@
       "name": "Wind MCP fundamentals 000977.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
+      "asOf": "2026-11-02T23:09:40+08:00"
      }
     ],
     "lastReported": [
@@ -5491,6 +6674,11 @@
       "name": "公司公告 / Wind新闻",
       "url": null,
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
+      "asOf": "2026-11-02T23:09:40+08:00"
      },
      {
       "name": "同花顺 MCP income 000977.SZ",
@@ -5532,11 +6720,11 @@
     "epsHigh": 1.0,
     "epsAnalysts": 1.0,
     "epsYearAgo": 0.5,
-    "revAvg": 59092939280.0,
-    "revLow": 54221848550.0,
-    "revHigh": 63964030000.0,
-    "revAnalysts": 2.0,
-    "revGrowth": 0.3396,
+    "revAvg": 62439218000.0,
+    "revLow": 62439218000.0,
+    "revHigh": 62439218000.0,
+    "revAnalysts": 1.0,
+    "revGrowth": 0.4154,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5557,6 +6745,8 @@
      }
     ],
     "epsActual": null,
+    "epsEstimate": 0.92,
+    "epsSurprisePct": -0.24360001,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5573,7 +6763,7 @@
    "symbol": "002837.SZ",
    "name": "英维克",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5582,9 +6772,20 @@
       "name": "Wind MCP fundamentals 002837.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
+      "asOf": "2026-11-02T23:09:42+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
+      "asOf": "2026-11-02T23:09:42+08:00"
+     }
+    ]
    },
    "consensus": {
     "ashareAnnual": {
@@ -5642,7 +6843,7 @@
    "symbol": "688111.SS",
    "name": "金山办公",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5651,6 +6852,11 @@
       "name": "Wind MCP fundamentals 688111.SH",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
+      "asOf": "2026-11-02T23:09:43+08:00"
      }
     ],
     "lastReported": [
@@ -5658,6 +6864,11 @@
       "name": "巨潮资讯·金山办公三季报",
       "url": "https://static.cninfo.com.cn/finalpage/2026-10-28/1225630176.PDF",
       "asOf": "2026-10-29"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
+      "asOf": "2026-11-02T23:09:44+08:00"
      }
     ]
    },
@@ -5689,16 +6900,16 @@
      "asOf": "2026-10-30",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
-    "epsAvg": 1.6,
-    "epsLow": 1.6,
-    "epsHigh": 1.6,
-    "epsAnalysts": 1.0,
+    "epsAvg": 1.30497,
+    "epsLow": 0.73491,
+    "epsHigh": 1.75,
+    "epsAnalysts": 3.0,
     "epsYearAgo": 1.42,
-    "revAvg": 1997000000.0,
+    "revAvg": 2032000000.0,
     "revLow": 1997000000.0,
-    "revHigh": 1997000000.0,
-    "revAnalysts": 1.0,
-    "revGrowth": 0.1409,
+    "revHigh": 2067000000.0,
+    "revAnalysts": 2.0,
+    "revGrowth": 0.1609,
     "currency": "CNY"
    },
    "lastReported": {
@@ -5717,7 +6928,10 @@
       "url": "http://www.eeo.com.cn/2026/1028/1077307.shtml",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 0.2395,
+    "epsEstimate": 0.90494,
+    "epsSurprisePct": -0.7353
    },
    "note": "A股·办公软件（金山办公）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 2
@@ -5726,7 +6940,7 @@
    "symbol": "002230.SZ",
    "name": "科大讯飞",
    "region": "CN",
-   "currency": null,
+   "currency": "CNY",
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5735,9 +6949,20 @@
       "name": "Wind MCP fundamentals 002230.SZ",
       "url": "https://www.wind.com.cn/",
       "asOf": "2026-10-30T23:30:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
+      "asOf": "2026-11-02T23:09:44+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
+      "asOf": "2026-11-02T23:09:45+08:00"
+     }
+    ]
    },
    "consensus": {
     "ashareAnnual": {
