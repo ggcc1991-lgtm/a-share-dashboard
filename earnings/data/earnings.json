@@ -1,8 +1,8 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-10-30T23:25:25+08:00",
+ "updated": "2026-11-02T08:08:31+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-10-30",
+ "consensusAsOf": "2026-11-02",
  "companies": [
   {
    "symbol": "AAPL",
@@ -15,7 +15,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/aapl/earnings",
-     "asOf": "2026-10-30T23:21:11+08:00"
+     "asOf": "2026-11-02T08:04:34+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -301,7 +301,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/nvda/earnings",
-     "asOf": "2026-10-30T23:21:25+08:00",
+     "asOf": "2026-11-02T08:04:44+08:00",
      "note": "已披露清空(reportDate=2026-08-27，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -435,7 +435,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/amd/earnings",
-     "asOf": "2026-10-30T23:21:31+08:00"
+     "asOf": "2026-11-02T08:04:53+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -478,7 +478,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/avgo/earnings",
-     "asOf": "2026-10-30T23:21:35+08:00"
+     "asOf": "2026-11-02T08:04:55+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -571,7 +571,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/baba/earnings",
-     "asOf": "2026-10-30T23:21:56+08:00"
+     "asOf": "2026-11-02T08:05:15+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -623,7 +623,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/bidu/earnings",
-     "asOf": "2026-10-30T23:22:10+08:00"
+     "asOf": "2026-11-02T08:05:28+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -674,7 +674,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/jd/earnings",
-     "asOf": "2026-10-30T23:22:23+08:00"
+     "asOf": "2026-11-02T08:05:39+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -776,7 +776,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-10-30T23:22:36+08:00"
+     "asOf": "2026-11-02T08:05:53+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -869,7 +869,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/ntes/earnings",
-     "asOf": "2026-10-30T23:23:13+08:00"
+     "asOf": "2026-11-02T08:06:16+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -920,13 +920,13 @@
     "nextDate": {
      "name": "HKEXnews 董事会会议通告(2026-10-30)",
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1030/2026103000818.pdf",
-     "asOf": "2026-10-30T23:23:26+08:00"
+     "asOf": "2026-11-02T08:06:28+08:00"
     },
     "consensus": [
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-10-30T23:23:27+08:00"
+      "asOf": "2026-11-02T08:06:29+08:00"
      }
     ],
     "lastReported": [
@@ -960,7 +960,7 @@
       "n": 6
      },
      "orgs": 8,
-     "window": "2026-08-01~2026-10-30",
+     "window": "2026-08-04~2026-11-02",
      "source": "Tushare report_rc 688981.SH",
      "asOf": "2026-09-18",
      "unit": "CNY（np/op_rt 万元×1e4）"
@@ -1367,7 +1367,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/sony/earnings",
-     "asOf": "2026-10-30T23:23:47+08:00"
+     "asOf": "2026-11-02T08:06:49+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -2470,7 +2470,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/nvo/earnings",
-     "asOf": "2026-10-30T23:24:09+08:00"
+     "asOf": "2026-11-02T08:07:13+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -2514,7 +2514,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/amat/earnings",
-     "asOf": "2026-10-30T23:24:13+08:00",
+     "asOf": "2026-11-02T08:07:14+08:00",
      "note": "已披露清空(reportDate=2026-08-14，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -2631,7 +2631,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/adi/earnings",
-     "asOf": "2026-10-30T23:24:21+08:00",
+     "asOf": "2026-11-02T08:07:23+08:00",
      "note": "已披露清空(reportDate=2026-08-19，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -2737,7 +2737,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/etn/earnings",
-     "asOf": "2026-10-30T23:24:26+08:00"
+     "asOf": "2026-11-02T08:07:30+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -2830,7 +2830,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/smci/earnings",
-     "asOf": "2026-10-30T23:24:28+08:00"
+     "asOf": "2026-11-02T08:07:35+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -2874,7 +2874,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/dell/earnings",
-     "asOf": "2026-10-30T23:24:30+08:00",
+     "asOf": "2026-11-02T08:07:40+08:00",
      "note": "已披露清空(reportDate=2026-09-02，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -2919,7 +2919,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/anet/earnings",
-     "asOf": "2026-10-30T23:24:33+08:00"
+     "asOf": "2026-11-02T08:07:44+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -2963,7 +2963,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/csco/earnings",
-     "asOf": "2026-10-30T23:24:35+08:00",
+     "asOf": "2026-11-02T08:07:47+08:00",
      "note": "已披露清空(reportDate=2026-08-13，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -3127,7 +3127,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/arm/earnings",
-     "asOf": "2026-10-30T23:24:40+08:00"
+     "asOf": "2026-11-02T08:07:51+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3171,7 +3171,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/mrvl/earnings",
-     "asOf": "2026-10-30T23:24:41+08:00"
+     "asOf": "2026-11-02T08:07:52+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3215,7 +3215,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/alab/earnings",
-     "asOf": "2026-10-30T23:24:44+08:00"
+     "asOf": "2026-11-02T08:07:54+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3259,7 +3259,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-10-30T23:24:47+08:00"
+     "asOf": "2026-11-02T08:07:57+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3303,7 +3303,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/cohr/earnings",
-     "asOf": "2026-10-30T23:24:50+08:00"
+     "asOf": "2026-11-02T08:07:59+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3385,7 +3385,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pltr/earnings",
-     "asOf": "2026-10-30T23:24:55+08:00"
+     "asOf": "2026-11-02T08:08:03+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3429,7 +3429,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/snow/earnings",
-     "asOf": "2026-10-30T23:24:58+08:00"
+     "asOf": "2026-11-02T08:08:05+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3473,7 +3473,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crwd/earnings",
-     "asOf": "2026-10-30T23:25:00+08:00"
+     "asOf": "2026-11-02T08:08:06+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3517,7 +3517,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/ddog/earnings",
-     "asOf": "2026-10-30T23:25:03+08:00"
+     "asOf": "2026-11-02T08:08:09+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3561,7 +3561,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/adbe/earnings",
-     "asOf": "2026-10-30T23:25:04+08:00",
+     "asOf": "2026-11-02T08:08:12+08:00",
      "note": "已披露清空(reportDate=2026-09-11，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -3606,7 +3606,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-10-30T23:25:07+08:00"
+     "asOf": "2026-11-02T08:08:14+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3650,7 +3650,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/shop/earnings",
-     "asOf": "2026-10-30T23:25:11+08:00"
+     "asOf": "2026-11-02T08:08:17+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3694,7 +3694,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/meli/earnings",
-     "asOf": "2026-10-30T23:25:13+08:00"
+     "asOf": "2026-11-02T08:08:19+08:00"
     },
     "consensus": [],
     "lastReported": []

@@ -1,6 +1,6 @@
 {
   "schema": "earnings-calendar-v1",
-  "updated": "2026-10-30T23:30:00+08:00",
+  "updated": "2026-11-02T08:09:35+08:00",
   "meetings": [
     {
       "id": "fomc-2026-09",
@@ -805,34 +805,36 @@
       "region": "CN",
       "name": "官方制造业PMI（10月）",
       "releaseAt": "2026-10-31T09:30:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "49.3",
       "forecast": "49.9",
       "previous": "50.1",
-      "verdict": null,
-      "diff": null,
+      "verdict": "不及预期",
+      "diff": "-0.6",
       "source": {
-        "name": "ForexFactory / Wind一致预期≈49.97",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "国家统计局 / Wind",
+        "url": "https://www.stats.gov.cn/zwfwck/sjfb/202610/t20261031_1965718.html"
       },
-      "importance": 2
+      "importance": 2,
+      "surprisePct": -1.2
     },
     {
       "id": "cn-nmpmi-2026-10",
       "region": "CN",
       "name": "官方非制造业PMI（10月）",
       "releaseAt": "2026-10-31T09:30:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "49.7",
       "forecast": "50.0",
       "previous": "50.2",
-      "verdict": null,
-      "diff": null,
+      "verdict": "不及预期",
+      "diff": "-0.3",
       "source": {
-        "name": "ForexFactory",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "国家统计局 / Wind",
+        "url": "https://www.stats.gov.cn/zwfwck/sjfb/202610/t20261031_1965718.html"
       },
-      "importance": 2
+      "importance": 2,
+      "surprisePct": -0.6
     },
     {
       "id": "cn-cpi-2026-10",
@@ -852,180 +854,184 @@
       "importance": 3
     },
     {
-      "id": "ff-USD-202610272200-CBConsumerConfidence",
+      "id": "ff-USD-202611022300-ISMManufacturingPMI",
       "region": "US",
-      "name": "CB Consumer Confidence",
-      "releaseAt": "2026-10-27T22:00:00+08:00",
-      "status": "released",
-      "actual": "91.7",
-      "forecast": "81.2",
-      "previous": "81.9",
-      "verdict": "高于预期",
-      "diff": "+10.5",
-      "impact": "Medium",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 1,
-      "surprisePct": 12.9,
-      "note": "10月升至91.7（+7.5），现况与预期分项同步回升；汽油价格回落是主因之一（Conference Board）"
-    },
-    {
-      "id": "ff-USD-202610290200-FederalFundsRate",
-      "region": "US",
-      "name": "Federal Funds Rate",
-      "releaseAt": "2026-10-29T02:00:00+08:00",
-      "status": "released",
-      "actual": "4.00%",
-      "forecast": "4.00%",
-      "previous": "4.00%",
-      "verdict": "符合预期",
-      "diff": "0",
-      "impact": "High",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 1,
-      "note": "维持 3.75%–4.00%（10–2，2票异议主张加息25bp）；IORB 3.90%"
-    },
-    {
-      "id": "ff-USD-202610290200-FOMCStatement",
-      "region": "US",
-      "name": "FOMC Statement",
-      "releaseAt": "2026-10-29T02:00:00+08:00",
-      "status": "released",
-      "actual": "维持利率不变，偏鹰（2票异议支持加息）",
-      "forecast": "暂无",
-      "previous": "暂无",
-      "verdict": "符合预期",
-      "diff": null,
-      "impact": "High",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 1,
-      "note": "经济强劲扩张、通胀仍偏高，需更多信息再定政策"
-    },
-    {
-      "id": "ff-USD-202610290230-FOMCPressConference",
-      "region": "US",
-      "name": "FOMC Press Conference",
-      "releaseAt": "2026-10-29T02:30:00+08:00",
-      "status": "released",
-      "actual": "已召开",
-      "forecast": "暂无",
-      "previous": "暂无",
-      "verdict": "暂无",
-      "diff": null,
-      "impact": "High",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 1,
-      "note": "Warsh：2027年将有一次会议专门讨论货币政策框架（无利率投票）"
-    },
-    {
-      "id": "ff-USD-202610292030-AdvanceGDPqq",
-      "region": "US",
-      "name": "Advance GDP q/q",
-      "releaseAt": "2026-10-29T20:30:00+08:00",
-      "status": "released",
-      "actual": "3.4%",
-      "forecast": "3.2%",
-      "previous": "1.5%",
-      "verdict": "高于预期",
-      "diff": null,
-      "impact": "High",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 3,
-      "surprisePct": 6.2,
-      "note": "Advance GDP q/q；媒体普遍报 3.4% vs 预期 3.2%"
-    },
-    {
-      "id": "ff-USD-202610292030-CorePCEPriceIndexmm",
-      "region": "US",
-      "name": "Core PCE Price Index m/m",
-      "releaseAt": "2026-10-29T20:30:00+08:00",
-      "status": "released",
-      "actual": "0.3%",
-      "forecast": "0.3%",
-      "previous": "0.2%",
-      "verdict": "符合预期",
-      "diff": null,
-      "impact": "High",
-      "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
-      },
-      "importance": 3,
-      "surprisePct": 0.0
-    },
-    {
-      "id": "ff-USD-202610292030-AdvanceGDPPriceIndex",
-      "region": "US",
-      "name": "Advance GDP Price Index q/q",
-      "releaseAt": "2026-10-29T20:30:00+08:00",
-      "status": "released",
-      "actual": "2.2%",
-      "forecast": "3.3%",
-      "previous": "6.2%",
-      "verdict": "低于预期",
+      "name": "ISM Manufacturing PMI",
+      "releaseAt": "2026-11-02T23:00:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "54.5",
+      "previous": "54.5",
+      "verdict": null,
       "diff": null,
       "impact": "Medium",
       "source": {
         "name": "ForexFactory 周历",
         "url": "https://www.forexfactory.com/calendar"
       },
-      "importance": 3,
-      "surprisePct": -33.3,
-      "note": "Newsquawk: 2.2% vs Exp 3.2%（FF 预期栏为 3.3%）；prev 6.1%/6.2%"
+      "importance": 1
     },
     {
-      "id": "ff-USD-202610292030-UnemploymentClaims",
+      "id": "ff-USD-202611032300-JOLTSJobOpenings",
+      "region": "US",
+      "name": "JOLTS Job Openings",
+      "releaseAt": "2026-11-03T23:00:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "7.11M",
+      "previous": "7.08M",
+      "verdict": null,
+      "diff": null,
+      "impact": "Medium",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 1
+    },
+    {
+      "id": "ff-USD-202611032316-CongressionalElectio",
+      "region": "US",
+      "name": "Congressional Elections",
+      "releaseAt": "2026-11-03T23:16:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "暂无",
+      "previous": "暂无",
+      "verdict": null,
+      "diff": null,
+      "impact": "High",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 3
+    },
+    {
+      "id": "ff-USD-202611042300-ISMServicesPMI",
+      "region": "US",
+      "name": "ISM Services PMI",
+      "releaseAt": "2026-11-04T23:00:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "54.9",
+      "previous": "54.9",
+      "verdict": null,
+      "diff": null,
+      "impact": "Medium",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 1
+    },
+    {
+      "id": "ff-USD-202611052130-UnemploymentClaims",
       "region": "US",
       "name": "Unemployment Claims",
-      "releaseAt": "2026-10-29T20:30:00+08:00",
-      "status": "released",
-      "actual": "194K",
-      "forecast": "198K",
+      "releaseAt": "2026-11-05T21:30:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "197K",
       "previous": "194K",
-      "verdict": "低于预期",
+      "verdict": null,
       "diff": null,
       "impact": "Medium",
       "source": {
         "name": "ForexFactory 周历",
         "url": "https://www.forexfactory.com/calendar"
       },
-      "importance": 1,
-      "surprisePct": -2.0,
-      "note": "初请失业金；低于预期视为偏积极"
+      "importance": 1
     },
     {
-      "id": "ff-USD-202610302030-EmploymentCostIndexq",
+      "id": "ff-USD-202611062130-AverageHourlyEarning",
       "region": "US",
-      "name": "Employment Cost Index q/q",
-      "releaseAt": "2026-10-30T20:30:00+08:00",
-      "status": "released",
-      "actual": "0.8%",
-      "forecast": "0.8%",
-      "previous": "0.9%",
-      "verdict": "符合预期",
-      "diff": "0.0pp",
+      "name": "Average Hourly Earnings m/m",
+      "releaseAt": "2026-11-06T21:30:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "0.3%",
+      "previous": "0.1%",
+      "verdict": null,
+      "diff": null,
+      "impact": "High",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 3
+    },
+    {
+      "id": "ff-USD-202611062130-NonFarmEmploymentCha",
+      "region": "US",
+      "name": "Non-Farm Employment Change",
+      "releaseAt": "2026-11-06T21:30:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "63K",
+      "previous": "29K",
+      "verdict": null,
+      "diff": null,
+      "impact": "High",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 3
+    },
+    {
+      "id": "ff-USD-202611062130-UnemploymentRate",
+      "region": "US",
+      "name": "Unemployment Rate",
+      "releaseAt": "2026-11-06T21:30:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "4.2%",
+      "previous": "4.2%",
+      "verdict": null,
+      "diff": null,
+      "impact": "High",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 3
+    },
+    {
+      "id": "ff-USD-202611062300-PrelimUoMConsumerSen",
+      "region": "US",
+      "name": "Prelim UoM Consumer Sentiment",
+      "releaseAt": "2026-11-06T23:00:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "47.8",
+      "previous": "46.3",
+      "verdict": null,
+      "diff": null,
       "impact": "Medium",
       "source": {
-        "name": "BLS Employment Cost Index – September 2026",
-        "url": "https://www.bls.gov/news.release/eci.htm"
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
       },
-      "importance": 1,
-      "surprisePct": 0.0,
-      "note": "Civilian compensation +0.8% q/q SA（工资+0.7%、福利+0.9%）；12个月 +3.4%。预测0.8%、前值0.9%。"
+      "importance": 1
+    },
+    {
+      "id": "ff-USD-202611062300-PrelimUoMInflationEx",
+      "region": "US",
+      "name": "Prelim UoM Inflation Expectations",
+      "releaseAt": "2026-11-06T23:00:00+08:00",
+      "status": "upcoming",
+      "actual": null,
+      "forecast": "暂无",
+      "previous": "4.7%",
+      "verdict": null,
+      "diff": null,
+      "impact": "Medium",
+      "source": {
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
+      },
+      "importance": 1
     }
   ]
 }
