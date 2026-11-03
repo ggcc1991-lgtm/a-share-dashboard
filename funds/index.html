@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>基金数据 · GC的数据监控中心</title>
+  <link rel="stylesheet" href="../assets/theme.css" />
+  <style>
+    .page-title .title-note{font-weight:500;font-size:.72em;color:var(--mu);margin-left:.15em}
+    .page-title .sample-badge{
+      display:inline-block;margin-left:.45em;padding:1px 7px;border:1px solid var(--bb);
+      color:var(--bb);font:650 10px/1.4 var(--mono);letter-spacing:.06em;vertical-align:middle
+    }
+    .kpi-bar{
+      display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+      border:var(--hair);margin:0 0 12px;background:var(--bd);
+    }
+    .kpi-bar .c{background:var(--bg-2);padding:8px 10px;min-width:0;border-right:var(--hair)}
+    .kpi-bar .c:last-child{border-right:0}
+    .kpi-bar .k{font-size:10px;color:var(--mu);letter-spacing:.06em;text-transform:uppercase}
+    .kpi-bar .v{font:700 16px/1.25 var(--mono);color:var(--bb);margin-top:3px;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .kpi-bar .d{font:10px/1.3 var(--mono);color:var(--mu-2);margin-top:2px}
+    .kpi-bar .v.pos{color:var(--pos)}.kpi-bar .v.neg{color:var(--neg)}.kpi-bar .v.neu{color:var(--bb)}
+    .view-toggle{display:flex;gap:0;border:var(--hair);margin-bottom:10px}
+    .view-toggle button{
+      flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
+      font:inherit;font-size:12px;padding:8px 10px;cursor:pointer;text-align:left
+    }
+    .view-toggle button:last-child{border-right:0}
+    .view-toggle button .sub{display:block;font-size:10px;color:var(--mu-2);margin-top:2px;letter-spacing:.04em}
+    .view-toggle button.on{background:#120c04;color:var(--bb);box-shadow:inset 0 -2px 0 var(--bb)}
+    .view-toggle button.on .sub{color:#a07040}
+    .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:var(--hair);margin-bottom:12px}
+    table.data{width:100%;border-collapse:collapse;font:12px/1.35 var(--mono);font-variant-numeric:tabular-nums;min-width:980px}
+    table.data th,table.data td{padding:5px 8px;border-bottom:1px solid #1a1a1a;text-align:right;white-space:nowrap}
+    table.data th:first-child,table.data td:first-child,
+    table.data th.l,table.data td.l{text-align:left}
+    table.data th{
+      font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mu-2);
+      background:#050505;font-weight:650;position:sticky;top:0
+    }
+    table.data tbody tr:nth-child(even) td{background:#0a0a0a}
+    table.data tbody tr:hover td{background:rgba(255,160,40,.05)}
+    table.data td.nm{font-family:var(--sans);font-weight:650;color:var(--tx);text-align:left}
+    table.data td.code{color:var(--mu);text-align:left}
+    table.data .pos{color:var(--pos)} table.data .neg{color:var(--neg)}
+    .empty-box{padding:18px 12px;border:var(--hair);background:#050505;color:var(--mu);font:12px/1.5 var(--mono);margin:0 0 12px}
+    .foot-note{font:11px/1.5 var(--mono);color:var(--mu-2);margin:0 0 8px;padding:8px 10px;border:var(--hair);background:#050505}
+    .scroll-hint{display:none;font:10px/1.3 var(--mono);color:var(--mu-3);margin:0 0 6px}
+    .err{color:var(--pos);padding:16px;border:var(--hair)}
+    @media (max-width:719px){
+      .kpi-bar{grid-template-columns:1fr}
+      .kpi-bar .c{border-right:0;border-bottom:var(--hair)}
+      .kpi-bar .c:last-child{border-bottom:0}
+      .kpi-bar .v{font-size:15px}
+      .view-toggle{flex-wrap:wrap}
+      .view-toggle button{font-size:11px;padding:7px 8px;flex:1 1 40%}
+      .page-title .title-note{display:block;margin:.15em 0 0;font-size:.68em}
+      .scroll-hint{display:block}
+      table.data{min-width:860px;font-size:11px}
+      table.data th,table.data td{padding:5px 6px}
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="inner">
+      <div class="brand"><div class="brand-mark"></div><h1>GC的数据<span>监控</span>中心</h1></div>
+      <nav class="nav">
+        <a href="../" data-match="/">总览</a>
+        <div class="nav-dd" data-match="/etf">
+          <button type="button" class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-etf">ETF<span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dd-panel" id="nav-dd-etf" role="menu" aria-label="ETF">
+            <a href="../etf/" role="menuitem">国家队追踪</a>
+            <a href="../sentiment/" role="menuitem">情绪看板</a>
+            <a href="../momentum/" role="menuitem">动量排名</a>
+          </div>
+        </div>
+        <a href="../feed/" data-match="/feed">信息流</a>
+        <a href="../bottom/" data-match="/bottom">抄底信号</a>
+        <a href="../policy/" data-match="/policy">政策产业</a>
+        <a href="../earnings/" data-match="/earnings">财报会议</a>
+        <a href="../openrouter/" data-match="/openrouter">OpenRouter</a>
+        <a href="./" data-match="/funds" class="active">基金数据</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2 class="page-title">基金数据<span class="title-note" id="titleNote"></span><span class="sample-badge" id="sampleBadge" hidden>样例</span></h2>
+    <p class="page-sub" id="sum">加载 data/mutual.json …</p>
+
+    <div class="view-toggle" id="viewToggle" role="tablist" aria-label="基金类型">
+      <button type="button" data-view="mutual" class="on" role="tab" aria-selected="true">公募基金<span class="sub">观察池 · 净值与区间收益</span></button>
+      <button type="button" data-view="private" role="tab" aria-selected="false">私募基金<span class="sub">观察池 · 策略与净值</span></button>
+    </div>
+
+    <div id="content">
+      <div class="kpi-bar" id="kpiBar" aria-label="基金 KPI"></div>
+      <p class="scroll-hint">← 左右滑动查看更多列</p>
+      <div class="tw" id="tblWrap">
+        <table class="data" id="tbl">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="empty-box" id="emptyBox" hidden>暂无数据</div>
+      <p class="foot-note" id="footNote" hidden></p>
+    </div>
+  </main>
+  <footer class="app-footer">RESEARCH ONLY · SAMPLE OR OBSERVATION POOL · GC DATA</footer>
+
+  <script src="../assets/shell.js"></script>
+  <script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+  const VIEWS = {
+    mutual: { file: "data/mutual.json", label: "公募基金", codeHead: "代码", typeHead: "类型", typeKey: "category", hasRank: true },
+    private: { file: "data/private.json", label: "私募基金", codeHead: "备案号/代码", typeHead: "策略", typeKey: "strategy", hasRank: false },
+  };
+
+  let cache = { mutual: null, private: null };
+  let view = "mutual";
+
+  function fmtNum(v, d = 2) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d });
+  }
+  function fmtPct(v, d = 1) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    const n = +v;
+    const s = n > 0 ? "+" : "";
+    return s + n.toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d }) + "%";
+  }
+  function retCls(v) {
+    if (v == null || Number.isNaN(+v) || +v === 0) return "";
+    return +v > 0 ? "pos" : "neg";
+  }
+  function kpiCls(id, v) {
+    if (id === "avg_mdd_1y") return "neg";
+    if (id === "avg_ret_1y") return retCls(v) || "neu";
+    return "neu";
+  }
+  function fmtKpiValue(k) {
+    if (k == null || k.value == null || Number.isNaN(+k.value)) return "—";
+    const unit = k.unit || "";
+    if (unit === "%") return fmtPct(k.value, 1);
+    const n = +k.value;
+    const body = Number.isInteger(n)
+      ? n.toLocaleString("zh-CN")
+      : n.toLocaleString("zh-CN", { maximumFractionDigits: 2 });
+    return body + (unit ? unit : "");
+  }
+
+  async function loadView(key) {
+    if (cache[key]) return cache[key];
+    const meta = VIEWS[key];
+    const r = await fetch(meta.file, { cache: "no-store" });
+    if (!r.ok) throw new Error(meta.label + " HTTP " + r.status);
+    const d = await r.json();
+    cache[key] = d;
+    return d;
+  }
+
+  function renderSub(d) {
+    const bits = [];
+    if (d.generatedAtDisplay) bits.push("生成 " + d.generatedAtDisplay);
+    if (d.asOf) bits.push("asOf " + d.asOf);
+    if (d.schemaVersion) bits.push(d.schemaVersion);
+    $("sum").textContent = bits.join(" · ") || "—";
+    $("titleNote").textContent = d.asOf ? ("asOf " + d.asOf) : "";
+    $("sampleBadge").hidden = !d.sample;
+  }
+
+  function renderKpis(d) {
+    const kpis = Array.isArray(d.kpis) ? d.kpis : [];
+    if (!kpis.length) {
+      $("kpiBar").innerHTML = "";
+      $("kpiBar").hidden = true;
+      return;
+    }
+    $("kpiBar").hidden = false;
+    $("kpiBar").innerHTML = kpis.map((k) => {
+      const cls = kpiCls(k.id, k.value);
+      return `<div class="c"><div class="k">${esc(k.label || k.id)}</div><div class="v ${cls}">${esc(fmtKpiValue(k))}</div><div class="d">${esc(k.note || "")}</div></div>`;
+    }).join("");
+  }
+
+  function renderTable(d) {
+    const meta = VIEWS[view];
+    const funds = Array.isArray(d.funds) ? d.funds : [];
+    const empty = !funds.length;
+    $("tblWrap").hidden = empty;
+    $("emptyBox").hidden = !empty;
+    if (empty) {
+      $("emptyBox").textContent = "暂无" + meta.label + "数据（funds 为空）";
+      $("thead").innerHTML = "";
+      $("tbody").innerHTML = "";
+      return;
+    }
+
+    const heads = [
+      meta.codeHead, "名称", meta.typeHead, "公司", "经理", "净值",
+      "近1月", "近3月", "近1年", "今年", "近1年回撤", "规模(亿)",
+    ];
+    if (meta.hasRank) heads.push("同类排名");
+
+    $("thead").innerHTML = "<tr>" + heads.map((h, i) => {
+      const cls = (i <= 4) ? ' class="l"' : "";
+      return `<th${cls}>${esc(h)}</th>`;
+    }).join("") + "</tr>";
+
+    $("tbody").innerHTML = funds.map((f) => {
+      const typeVal = f[meta.typeKey] || "—";
+      const cells = [
+        `<td class="code">${esc(f.code || "—")}</td>`,
+        `<td class="nm" title="${esc(f.fullName || f.name || "")}">${esc(f.name || "—")}</td>`,
+        `<td class="l">${esc(typeVal)}</td>`,
+        `<td class="l">${esc(f.company || "—")}</td>`,
+        `<td class="l">${esc(f.manager || "—")}</td>`,
+        `<td>${fmtNum(f.nav, 4)}</td>`,
+        `<td class="${retCls(f.ret1m)}">${fmtPct(f.ret1m, 1)}</td>`,
+        `<td class="${retCls(f.ret3m)}">${fmtPct(f.ret3m, 1)}</td>`,
+        `<td class="${retCls(f.ret1y)}">${fmtPct(f.ret1y, 1)}</td>`,
+        `<td class="${retCls(f.retYtd)}">${fmtPct(f.retYtd, 1)}</td>`,
+        `<td class="neg">${fmtPct(f.mdd1y, 1)}</td>`,
+        `<td>${f.aumYi == null || Number.isNaN(+f.aumYi) ? "—" : fmtNum(f.aumYi, 1)}</td>`,
+      ];
+      if (meta.hasRank) cells.push(`<td>${esc(f.rank1y || "—")}</td>`);
+      return "<tr>" + cells.join("") + "</tr>";
+    }).join("");
+  }
+
+  function renderNote(d) {
+    const el = $("footNote");
+    if (!d.note) { el.hidden = true; el.textContent = ""; return; }
+    el.hidden = false;
+    el.textContent = d.note;
+  }
+
+  function render(d) {
+    renderSub(d);
+    renderKpis(d);
+    renderTable(d);
+    renderNote(d);
+  }
+
+  function wireToggle() {
+    const buttons = Array.from(document.querySelectorAll("#viewToggle button"));
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const next = btn.getAttribute("data-view");
+        if (!next || next === view) return;
+        buttons.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("on", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        view = next;
+        $("sum").textContent = "加载 " + VIEWS[view].file + " …";
+        try {
+          const d = await loadView(view);
+          render(d);
+        } catch (e) {
+          $("sum").innerHTML = `<span class="err">加载失败：${esc(e.message || e)}</span>`;
+          $("kpiBar").innerHTML = "";
+          $("tbody").innerHTML = "";
+          $("thead").innerHTML = "";
+          $("footNote").hidden = true;
+          $("emptyBox").hidden = true;
+          $("sampleBadge").hidden = true;
+        }
+      });
+    });
+  }
+
+  async function main() {
+    wireToggle();
+    try {
+      const d = await loadView("mutual");
+      render(d);
+      // prefetch private
+      loadView("private").catch(() => {});
+    } catch (e) {
+      $("sum").innerHTML = `<span class="err">加载失败：${esc(e.message || e)}（请用 http server 打开本页）</span>`;
+    }
+  }
+
+  main();
+})();
+  </script>
+</body>
+</html>

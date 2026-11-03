@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "funds-private-v1",
+  "generatedAt": "2026-11-03T12:43:01+08:00",
+  "generatedAtDisplay": "2026-11-03 12:43（北京时间）",
+  "asOf": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "sample": false,
+  "note": "私募子页当前展示 Wind 私募/量化策略指数（晨会复刻序列），非单只私募产品观察池；期权策略无对应 Wind 代码已剔除。源：financial_capital_sankey/pe_abs_return/series_data.json",
+  "universe": "strategy_index",
+  "kpis": [
+    {
+      "id": "watch_count",
+      "label": "策略指数",
+      "value": 10,
+      "unit": "条",
+      "note": "Wind 私募/量化策略指数条数"
+    },
+    {
+      "id": "avg_ret_1y",
+      "label": "近一年收益均值",
+      "value": 0.4,
+      "unit": "%",
+      "note": "策略指数算术平均"
+    },
+    {
+      "id": "avg_mdd_1y",
+      "label": "近一年最大回撤均值",
+      "value": -13.5,
+      "unit": "%",
+      "note": "负数表示回撤"
+    }
+  ],
+  "funds": [
+    {
+      "code": "GLMS888851",
+      "thscode": "GLMS888851.WI",
+      "name": "300指增",
+      "fullName": "国联民生量化私募300指增策略指数",
+      "strategy": "300指增",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 153.06,
+      "navDate": "2026-10-23",
+      "ret1m": -9.3,
+      "ret3m": -5.9,
+      "ret6m": -9.2,
+      "ret1y": 2.8,
+      "retYtd": -2.8,
+      "retSince": 53.1,
+      "mdd1y": -15.7,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "300指增",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "GLMS888852",
+      "thscode": "GLMS888852.WI",
+      "name": "500指增",
+      "fullName": "国联民生量化私募500指增策略指数",
+      "strategy": "500指增",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 202.72,
+      "navDate": "2026-10-23",
+      "ret1m": -10.2,
+      "ret3m": -5.9,
+      "ret6m": -16.1,
+      "ret1y": 2.3,
+      "retYtd": -5.5,
+      "retSince": 102.7,
+      "mdd1y": -22.9,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "500指增",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "GLMS888853",
+      "thscode": "GLMS888853.WI",
+      "name": "1000指增",
+      "fullName": "国联民生量化私募1000指增策略指数",
+      "strategy": "1000指增",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 247.29,
+      "navDate": "2026-10-23",
+      "ret1m": -9.5,
+      "ret3m": -3.6,
+      "ret6m": -16.5,
+      "ret1y": 2.2,
+      "retYtd": -6.0,
+      "retSince": 147.3,
+      "mdd1y": -22.4,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "1000指增",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "GLMS888862",
+      "thscode": "GLMS888862.WI",
+      "name": "量选+小盘增强",
+      "fullName": "国联民生量化私募全市场选股策略指数（近似，非专属小盘）",
+      "strategy": "量选+小盘增强",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 272.12,
+      "navDate": "2026-10-23",
+      "ret1m": -8.2,
+      "ret3m": -1.0,
+      "ret6m": -14.5,
+      "ret1y": 3.2,
+      "retYtd": -5.0,
+      "retSince": 172.1,
+      "mdd1y": -21.1,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "量选+小盘增强",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "GLMS888861",
+      "thscode": "GLMS888861.WI",
+      "name": "中性",
+      "fullName": "国联民生中性策略指数",
+      "strategy": "中性",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 148.36,
+      "navDate": "2026-10-23",
+      "ret1m": -1.5,
+      "ret3m": 1.6,
+      "ret6m": -0.5,
+      "ret1y": 1.3,
+      "retYtd": 1.0,
+      "retSince": 48.4,
+      "mdd1y": -4.5,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "中性",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "885310",
+      "thscode": "885310.WI",
+      "name": "宏观",
+      "fullName": "万得宏观策略私募指数",
+      "strategy": "宏观",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 100.78,
+      "navDate": "2026-10-23",
+      "ret1m": -2.3,
+      "ret3m": 3.3,
+      "ret6m": -4.6,
+      "ret1y": -4.8,
+      "retYtd": -5.1,
+      "retSince": 0.8,
+      "mdd1y": -10.8,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "宏观",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "885312",
+      "thscode": "885312.WI",
+      "name": "套利",
+      "fullName": "万得套利策略私募指数",
+      "strategy": "套利",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 105.12,
+      "navDate": "2026-10-23",
+      "ret1m": -1.6,
+      "ret3m": -0.8,
+      "ret6m": -1.2,
+      "ret1y": 3.9,
+      "retYtd": 1.5,
+      "retSince": 5.1,
+      "mdd1y": -3.6,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "套利",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "885309",
+      "thscode": "885309.WI",
+      "name": "量化CTA",
+      "fullName": "万得管理期货私募指数（含主观/量化CTA，未拆分）",
+      "strategy": "量化CTA",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 128.1,
+      "navDate": "2026-10-23",
+      "ret1m": 0.3,
+      "ret3m": 3.2,
+      "ret6m": 1.6,
+      "ret1y": 2.5,
+      "retYtd": 2.4,
+      "retSince": 28.1,
+      "mdd1y": -3.2,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "量化CTA",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "885306",
+      "thscode": "885306.WI",
+      "name": "主观多头",
+      "fullName": "万得股票策略私募指数（含主观+量化多头）",
+      "strategy": "主观多头",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 95.45,
+      "navDate": "2026-10-23",
+      "ret1m": -4.6,
+      "ret3m": -1.4,
+      "ret6m": -6.6,
+      "ret1y": -6.4,
+      "retYtd": -6.9,
+      "retSince": -4.5,
+      "mdd1y": -11.3,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "主观多头",
+        "strategy_index"
+      ]
+    },
+    {
+      "code": "885001",
+      "thscode": "885001.WI",
+      "name": "主观公募",
+      "fullName": "万得偏股混合型基金指数",
+      "strategy": "主观公募",
+      "company": "Wind策略指数",
+      "manager": null,
+      "kind": "strategy_index",
+      "nav": 93.88,
+      "navDate": "2026-10-23",
+      "ret1m": -11.0,
+      "ret3m": -10.0,
+      "ret6m": -14.1,
+      "ret1y": -3.2,
+      "retYtd": -7.3,
+      "retSince": -6.1,
+      "mdd1y": -19.9,
+      "aumYi": null,
+      "asOf": "2026-10-23",
+      "tags": [
+        "主观公募",
+        "strategy_index"
+      ]
+    }
+  ],
+  "source": {
+    "series": "financial_capital_sankey/pe_abs_return/series_data.json",
+    "pageId": "659ceb59-1707-46db-9cd6-19962110e905",
+    "freq": "weekly",
+    "excluded": [
+      "期权"
+    ]
+  }
+}
