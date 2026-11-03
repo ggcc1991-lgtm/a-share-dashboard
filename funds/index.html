@@ -92,7 +92,7 @@
 
     <div class="view-toggle" id="viewToggle" role="tablist" aria-label="基金类型">
       <button type="button" data-view="mutual" class="on" role="tab" aria-selected="true">公募基金<span class="sub">观察池 · 净值与区间收益</span></button>
-      <button type="button" data-view="private" role="tab" aria-selected="false">私募基金<span class="sub">观察池 · 策略与净值</span></button>
+      <button type="button" data-view="private" role="tab" aria-selected="false">私募基金<span class="sub" id="privateSub">Wind策略指数</span></button>
     </div>
 
     <div id="content">
@@ -166,14 +166,28 @@
     return d;
   }
 
+  function isStrategyIndex(d) {
+    if (d && d.universe === "strategy_index") return true;
+    const funds = d && Array.isArray(d.funds) ? d.funds : [];
+    return funds.length > 0 && funds.every((f) => f && f.kind === "strategy_index");
+  }
+
   function renderSub(d) {
     const bits = [];
     if (d.generatedAtDisplay) bits.push("生成 " + d.generatedAtDisplay);
     if (d.asOf) bits.push("asOf " + d.asOf);
+    if (isStrategyIndex(d)) bits.push("策略指数");
     if (d.schemaVersion) bits.push(d.schemaVersion);
     $("sum").textContent = bits.join(" · ") || "—";
-    $("titleNote").textContent = d.asOf ? ("asOf " + d.asOf) : "";
+    const noteBits = [];
+    if (isStrategyIndex(d)) noteBits.push("策略指数");
+    if (d.asOf) noteBits.push("asOf " + d.asOf);
+    $("titleNote").textContent = noteBits.length ? noteBits.join(" · ") : "";
     $("sampleBadge").hidden = !d.sample;
+    const privSub = $("privateSub");
+    if (privSub && view === "private") {
+      privSub.textContent = isStrategyIndex(d) ? "Wind策略指数" : "观察池 · 策略与净值";
+    }
   }
 
   function renderKpis(d) {
@@ -192,45 +206,65 @@
 
   function renderTable(d) {
     const meta = VIEWS[view];
+    const strat = isStrategyIndex(d);
     const funds = Array.isArray(d.funds) ? d.funds : [];
     const empty = !funds.length;
     $("tblWrap").hidden = empty;
     $("emptyBox").hidden = !empty;
     if (empty) {
-      $("emptyBox").textContent = "暂无" + meta.label + "数据（funds 为空）";
+      $("emptyBox").textContent = "暂无" + (strat ? "策略指数" : meta.label) + "数据（funds 为空）";
       $("thead").innerHTML = "";
       $("tbody").innerHTML = "";
       return;
     }
 
-    const heads = [
-      meta.codeHead, "名称", meta.typeHead, "公司", "经理", "净值",
-      "近1月", "近3月", "近1年", "今年", "近1年回撤", "规模(亿)",
-    ];
-    if (meta.hasRank) heads.push("同类排名");
+    const codeHead = strat ? "指数代码" : meta.codeHead;
+    const navHead = strat ? "点位" : "净值";
+    const heads = strat
+      ? [codeHead, "名称", meta.typeHead, "来源", navHead, "近1月", "近3月", "近1年", "今年", "近1年回撤"]
+      : [meta.codeHead, "名称", meta.typeHead, "公司", "经理", "净值", "近1月", "近3月", "近1年", "今年", "近1年回撤", "规模(亿)"];
+    if (!strat && meta.hasRank) heads.push("同类排名");
 
+    const leftN = strat ? 3 : 4;
     $("thead").innerHTML = "<tr>" + heads.map((h, i) => {
-      const cls = (i <= 4) ? ' class="l"' : "";
+      const cls = (i <= leftN) ? ' class="l"' : "";
       return `<th${cls}>${esc(h)}</th>`;
     }).join("") + "</tr>";
 
     $("tbody").innerHTML = funds.map((f) => {
       const typeVal = f[meta.typeKey] || "—";
-      const cells = [
-        `<td class="code">${esc(f.code || "—")}</td>`,
-        `<td class="nm" title="${esc(f.fullName || f.name || "")}">${esc(f.name || "—")}</td>`,
-        `<td class="l">${esc(typeVal)}</td>`,
-        `<td class="l">${esc(f.company || "—")}</td>`,
-        `<td class="l">${esc(f.manager || "—")}</td>`,
-        `<td>${fmtNum(f.nav, 4)}</td>`,
-        `<td class="${retCls(f.ret1m)}">${fmtPct(f.ret1m, 1)}</td>`,
-        `<td class="${retCls(f.ret3m)}">${fmtPct(f.ret3m, 1)}</td>`,
-        `<td class="${retCls(f.ret1y)}">${fmtPct(f.ret1y, 1)}</td>`,
-        `<td class="${retCls(f.retYtd)}">${fmtPct(f.retYtd, 1)}</td>`,
-        `<td class="neg">${fmtPct(f.mdd1y, 1)}</td>`,
-        `<td>${f.aumYi == null || Number.isNaN(+f.aumYi) ? "—" : fmtNum(f.aumYi, 1)}</td>`,
-      ];
-      if (meta.hasRank) cells.push(`<td>${esc(f.rank1y || "—")}</td>`);
+      const navDigits = strat ? 2 : 4;
+      let cells;
+      if (strat) {
+        cells = [
+          `<td class="code">${esc(f.code || "—")}</td>`,
+          `<td class="nm" title="${esc(f.fullName || f.name || "")}">${esc(f.name || "—")}</td>`,
+          `<td class="l">${esc(typeVal)}</td>`,
+          `<td class="l">${esc(f.company || "—")}</td>`,
+          `<td>${fmtNum(f.nav, navDigits)}</td>`,
+          `<td class="${retCls(f.ret1m)}">${fmtPct(f.ret1m, 1)}</td>`,
+          `<td class="${retCls(f.ret3m)}">${fmtPct(f.ret3m, 1)}</td>`,
+          `<td class="${retCls(f.ret1y)}">${fmtPct(f.ret1y, 1)}</td>`,
+          `<td class="${retCls(f.retYtd)}">${fmtPct(f.retYtd, 1)}</td>`,
+          `<td class="neg">${fmtPct(f.mdd1y, 1)}</td>`,
+        ];
+      } else {
+        cells = [
+          `<td class="code">${esc(f.code || "—")}</td>`,
+          `<td class="nm" title="${esc(f.fullName || f.name || "")}">${esc(f.name || "—")}</td>`,
+          `<td class="l">${esc(typeVal)}</td>`,
+          `<td class="l">${esc(f.company || "—")}</td>`,
+          `<td class="l">${esc(f.manager || "—")}</td>`,
+          `<td>${fmtNum(f.nav, navDigits)}</td>`,
+          `<td class="${retCls(f.ret1m)}">${fmtPct(f.ret1m, 1)}</td>`,
+          `<td class="${retCls(f.ret3m)}">${fmtPct(f.ret3m, 1)}</td>`,
+          `<td class="${retCls(f.ret1y)}">${fmtPct(f.ret1y, 1)}</td>`,
+          `<td class="${retCls(f.retYtd)}">${fmtPct(f.retYtd, 1)}</td>`,
+          `<td class="neg">${fmtPct(f.mdd1y, 1)}</td>`,
+          `<td>${f.aumYi == null || Number.isNaN(+f.aumYi) ? "—" : fmtNum(f.aumYi, 1)}</td>`,
+        ];
+        if (meta.hasRank) cells.push(`<td>${esc(f.rank1y || "—")}</td>`);
+      }
       return "<tr>" + cells.join("") + "</tr>";
     }).join("");
   }
@@ -283,8 +317,11 @@
     try {
       const d = await loadView("mutual");
       render(d);
-      // prefetch private
-      loadView("private").catch(() => {});
+      // prefetch private + refresh toggle subtitle
+      loadView("private").then((pd) => {
+        const privSub = $("privateSub");
+        if (privSub) privSub.textContent = isStrategyIndex(pd) ? "Wind策略指数" : "观察池 · 策略与净值";
+      }).catch(() => {});
     } catch (e) {
       $("sum").innerHTML = `<span class="err">加载失败：${esc(e.message || e)}（请用 http server 打开本页）</span>`;
     }
