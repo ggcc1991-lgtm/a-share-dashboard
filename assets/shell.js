@@ -1,13 +1,3 @@
-/* Pageviews only. GoatCounter does not render a counter unless visit_count() is called. */
-(function () {
-  if (document.querySelector("script[data-goatcounter]")) return;
-  var s = document.createElement("script");
-  s.async = true;
-  s.setAttribute("data-goatcounter", "https://gcdata.goatcounter.com/count");
-  s.src = "//gc.zgo.at/count.js";
-  (document.head || document.documentElement).appendChild(s);
-})();
-
 (function () {
   const path = location.pathname.replace(/\/+$/, "") || "/";
   document.querySelectorAll(".nav a[data-match]").forEach((a) => {
@@ -20,7 +10,7 @@
       const u = new URL(href, location.href);
       const p = u.pathname.replace(/\/+$/, "") || "/";
       if (p === path || (m !== "/" && path.endsWith(m))) a.classList.add("active");
-      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/earnings") && !path.includes("/sentiment") && !path.includes("/momentum")) {
+      if (m === "/" && /(?:^|\/)(index\.html)?$/.test(path.split("/").pop() || "") && !path.includes("/etf") && !path.includes("/feed") && !path.includes("/bottom") && !path.includes("/policy") && !path.includes("/earnings") && !path.includes("/sentiment") && !path.includes("/momentum") && !path.includes("/openrouter")) {
         a.classList.add("active");
       }
     } catch (_) {}
