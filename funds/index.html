@@ -21,8 +21,24 @@
     .kpi-bar .v{font:700 16px/1.25 var(--mono);color:var(--bb);margin-top:3px;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .kpi-bar .d{font:10px/1.3 var(--mono);color:var(--mu-2);margin-top:2px}
     .kpi-bar .v.pos{color:var(--pos)}.kpi-bar .v.neg{color:var(--neg)}.kpi-bar .v.neu{color:var(--bb)}
+    .seg{
+      display:flex;flex-wrap:wrap;gap:0;border:var(--hair);margin:0 0 10px;background:var(--bd);width:fit-content;max-width:100%
+    }
+    .seg button{
+      appearance:none;border:0;border-right:var(--hair);background:#050505;color:var(--mu);
+      font:650 11px/1 var(--mono);letter-spacing:.04em;padding:8px 14px;cursor:pointer
+    }
+    .seg button:last-child{border-right:0}
+    .seg button.active{background:rgba(255,160,40,.12);color:var(--bb)}
+    .seg button:hover{color:var(--tx)}
+    .tbl-cap{
+      display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px;
+      margin:0 0 6px;font:11px/1.4 var(--mono);color:var(--mu-2)
+    }
+    .tbl-cap .t{color:var(--bb);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:var(--hair);margin-bottom:12px}
     table.data{width:100%;border-collapse:collapse;font:12px/1.35 var(--mono);font-variant-numeric:tabular-nums;min-width:980px}
+    table.data.compact{min-width:720px}
     table.data th,table.data td{padding:5px 8px;border-bottom:1px solid #1a1a1a;text-align:right;white-space:nowrap}
     table.data th:first-child,table.data td:first-child,
     table.data th.l,table.data td.l{text-align:left}
@@ -47,7 +63,10 @@
       .page-title .title-note{display:block;margin:.15em 0 0;font-size:.68em}
       .scroll-hint{display:block}
       table.data{min-width:860px;font-size:11px}
+      table.data.compact{min-width:640px}
       table.data th,table.data td{padding:5px 6px}
+      .seg{width:100%}
+      .seg button{flex:1 1 auto;padding:8px 10px}
     }
   </style>
 </head>
@@ -87,6 +106,11 @@
 
     <div id="content">
       <div class="kpi-bar" id="kpiBar" aria-label="基金 KPI"></div>
+      <div class="seg" id="tableSeg" hidden role="tablist" aria-label="私募三表"></div>
+      <div class="tbl-cap" id="tblCap" hidden>
+        <span class="t" id="tblTitle"></span>
+        <span id="tblMeta"></span>
+      </div>
       <p class="scroll-hint">← 左右滑动查看更多列</p>
       <div class="tw" id="tblWrap">
         <table class="data" id="tbl">
@@ -95,6 +119,7 @@
         </table>
       </div>
       <div class="empty-box" id="emptyBox" hidden>暂无数据</div>
+      <p class="foot-note" id="tblNote" hidden></p>
       <p class="foot-note" id="footNote" hidden></p>
     </div>
   </main>
@@ -112,10 +137,14 @@
     mutual: { file: "data/mutual.json", label: "公募基金", codeHead: "代码", typeHead: "类型", typeKey: "category", hasRank: true },
     private: { file: "data/private.json", label: "私募基金", codeHead: "备案号/代码", typeHead: "策略", typeKey: "strategy", hasRank: false },
   };
+  const TABLE_ORDER = ["absolute", "excess", "style"];
+  const TABLE_LABEL = { absolute: "绝对收益", excess: "超额收益", style: "风格持仓" };
 
   const params = new URLSearchParams(location.search);
   const view = params.get("view") === "private" ? "private" : "mutual";
   let cache = { mutual: null, private: null };
+  let activeTableId = params.get("table") || "absolute";
+  if (!TABLE_ORDER.includes(activeTableId)) activeTableId = "absolute";
 
   function fmtNum(v, d = 2) {
     if (v == null || Number.isNaN(+v)) return "—";
@@ -163,11 +192,20 @@
     return funds.length > 0 && funds.every((f) => f && f.kind === "strategy_index");
   }
 
+  function privateTables(d) {
+    if (!d || !Array.isArray(d.tables)) return [];
+    const byId = {};
+    d.tables.forEach((t) => { if (t && t.id) byId[t.id] = t; });
+    return TABLE_ORDER.map((id) => byId[id]).filter(Boolean);
+  }
+
   function renderSub(d) {
     const bits = [];
     if (d.generatedAtDisplay) bits.push("生成 " + d.generatedAtDisplay);
     if (d.asOf) bits.push("asOf " + d.asOf);
     if (isStrategyIndex(d)) bits.push("策略指数");
+    const tabs = privateTables(d);
+    if (view === "private" && tabs.length) bits.push("三表 " + tabs.length);
     if (d.schemaVersion) bits.push(d.schemaVersion);
     $("sum").textContent = bits.join(" · ") || "—";
     const noteBits = [];
@@ -195,33 +233,74 @@
     }).join("");
   }
 
-  function renderTable(d) {
+  function cellFor(col, row) {
+    const key = col.key;
+    const v = row[key];
+    const fmt = col.format || "";
+    const left = (col.align === "left") || key === "code" || key === "name" || key === "strategy" || key === "benchmark" || key === "fullName";
+    if (key === "code" || key === "thscode") {
+      return `<td class="code">${esc(v || "—")}</td>`;
+    }
+    if (key === "name" || key === "strategy") {
+      return `<td class="nm" title="${esc(row.fullName || row.name || "")}">${esc(v || "—")}</td>`;
+    }
+    if (fmt === "pct1" || /^(ret|mdd)/.test(key)) {
+      const cls = key === "mdd1y" ? "neg" : retCls(v);
+      return `<td class="${cls}">${fmtPct(v, 1)}</td>`;
+    }
+    if (fmt === "num2" || key === "level" || key === "nav") {
+      return `<td>${fmtNum(v, 2)}</td>`;
+    }
+    if (left) return `<td class="l">${esc(v == null || v === "" ? "—" : v)}</td>`;
+    if (typeof v === "number") return `<td>${fmtNum(v, 2)}</td>`;
+    return `<td>${esc(v == null || v === "" ? "—" : v)}</td>`;
+  }
+
+  function renderGenericTable(table) {
+    const cols = Array.isArray(table.columns) ? table.columns : [];
+    const rows = Array.isArray(table.rows) ? table.rows : [];
+    const empty = !rows.length;
+    $("tblWrap").hidden = empty;
+    $("emptyBox").hidden = !empty;
+    $("tbl").classList.toggle("compact", table.id === "style" || rows.length <= 5);
+    if (empty) {
+      $("emptyBox").textContent = "暂无「" + (table.title || table.id) + "」数据";
+      $("thead").innerHTML = "";
+      $("tbody").innerHTML = "";
+      return;
+    }
+    $("thead").innerHTML = "<tr>" + cols.map((c) => {
+      const cls = (c.align === "left" || c.key === "code" || c.key === "name" || c.key === "strategy") ? ' class="l"' : "";
+      return `<th${cls}>${esc(c.label || c.key)}</th>`;
+    }).join("") + "</tr>";
+    $("tbody").innerHTML = rows.map((row) => "<tr>" + cols.map((c) => cellFor(c, row)).join("") + "</tr>").join("");
+  }
+
+  function renderFundsFallback(d) {
     const meta = VIEWS[view];
     const strat = isStrategyIndex(d);
     const funds = Array.isArray(d.funds) ? d.funds : [];
     const empty = !funds.length;
     $("tblWrap").hidden = empty;
     $("emptyBox").hidden = !empty;
+    $("tbl").classList.remove("compact");
     if (empty) {
       $("emptyBox").textContent = "暂无" + (strat ? "策略指数" : meta.label) + "数据（funds 为空）";
       $("thead").innerHTML = "";
       $("tbody").innerHTML = "";
       return;
     }
-
     const codeHead = strat ? "指数代码" : meta.codeHead;
     const navHead = strat ? "点位" : "净值";
     const heads = strat
       ? [codeHead, "名称", meta.typeHead, "来源", navHead, "近1月", "近3月", "近1年", "今年", "近1年回撤"]
       : [meta.codeHead, "名称", meta.typeHead, "公司", "经理", "净值", "近1月", "近3月", "近1年", "今年", "近1年回撤", "规模(亿)"];
     if (!strat && meta.hasRank) heads.push("同类排名");
-
     const leftN = strat ? 3 : 4;
     $("thead").innerHTML = "<tr>" + heads.map((h, i) => {
       const cls = (i <= leftN) ? ' class="l"' : "";
       return `<th${cls}>${esc(h)}</th>`;
     }).join("") + "</tr>";
-
     $("tbody").innerHTML = funds.map((f) => {
       const typeVal = f[meta.typeKey] || "—";
       const navDigits = strat ? 2 : 4;
@@ -260,6 +339,68 @@
     }).join("");
   }
 
+  function setTableUrl(id) {
+    const u = new URL(location.href);
+    if (view === "private") u.searchParams.set("view", "private");
+    else u.searchParams.delete("view");
+    if (id && id !== "absolute") u.searchParams.set("table", id);
+    else u.searchParams.delete("table");
+    history.replaceState(null, "", u.pathname + u.search + u.hash);
+  }
+
+  function renderTableSeg(tabs) {
+    const el = $("tableSeg");
+    if (view !== "private" || !tabs.length) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    el.hidden = false;
+    el.innerHTML = tabs.map((t) => {
+      const id = t.id;
+      const label = t.title || TABLE_LABEL[id] || id;
+      const n = Array.isArray(t.rows) ? t.rows.length : (t.rowCount || 0);
+      const active = id === activeTableId ? " active" : "";
+      return `<button type="button" role="tab" aria-selected="${id === activeTableId}" data-id="${esc(id)}" class="${active.trim()}">${esc(label)} · ${n}</button>`;
+    }).join("");
+    el.querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeTableId = btn.getAttribute("data-id");
+        setTableUrl(activeTableId);
+        render(cache.private);
+      });
+    });
+  }
+
+  function renderActivePrivateTable(d) {
+    const tabs = privateTables(d);
+    renderTableSeg(tabs);
+    if (!tabs.length) {
+      $("tblCap").hidden = true;
+      $("tblNote").hidden = true;
+      renderFundsFallback(d);
+      return;
+    }
+    let table = tabs.find((t) => t.id === activeTableId) || tabs[0];
+    activeTableId = table.id;
+    $("tblCap").hidden = false;
+    $("tblTitle").textContent = table.title || TABLE_LABEL[table.id] || table.id;
+    const metaBits = [];
+    if (table.rowCount != null || (table.rows && table.rows.length)) metaBits.push((table.rowCount != null ? table.rowCount : table.rows.length) + " 行");
+    if (table.asOf || d.asOf) metaBits.push("asOf " + (table.asOf || d.asOf));
+    if (table.unit) metaBits.push("单位 " + table.unit);
+    if (table.base != null) metaBits.push("基期 " + table.base);
+    $("tblMeta").textContent = metaBits.join(" · ");
+    if (table.note) {
+      $("tblNote").hidden = false;
+      $("tblNote").textContent = table.note;
+    } else {
+      $("tblNote").hidden = true;
+      $("tblNote").textContent = "";
+    }
+    renderGenericTable(table);
+  }
+
   function renderNote(d) {
     const el = $("footNote");
     if (!d.note) { el.hidden = true; el.textContent = ""; return; }
@@ -270,7 +411,14 @@
   function render(d) {
     renderSub(d);
     renderKpis(d);
-    renderTable(d);
+    if (view === "private") renderActivePrivateTable(d);
+    else {
+      $("tableSeg").hidden = true;
+      $("tableSeg").innerHTML = "";
+      $("tblCap").hidden = true;
+      $("tblNote").hidden = true;
+      renderFundsFallback(d);
+    }
     renderNote(d);
   }
 
@@ -286,6 +434,6 @@
 
   main();
 })();
-</script>
+  </script>
 </body>
 </html>
