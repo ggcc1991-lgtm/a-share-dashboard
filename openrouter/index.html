@@ -77,6 +77,72 @@
       .view-toggle button{font-size:11px;padding:7px 8px}
       .page-title .title-note{display:block;margin:.15em 0 0;font-size:.68em}
     }
+
+    /* additive v2 sections */
+    .scard{margin:0 0 12px;padding:10px 12px}
+    .scard > h2{margin:0 0 4px;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--bb)}
+    .scard > h2 .sub{font-weight:500;font-size:11px;color:var(--mu);letter-spacing:0;text-transform:none;margin-left:8px}
+    .scard .caveat{font:10px/1.45 var(--mono);color:var(--mu-2);margin:0 0 8px}
+    .scard .sec-meta{font:10px/1.4 var(--mono);color:var(--mu-3);margin:6px 0 0}
+    .mini-tabs{display:flex;gap:0;border:var(--hair);margin:0 0 8px}
+    .mini-tabs button{
+      flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
+      font:inherit;font-size:11px;padding:6px 8px;cursor:pointer;text-align:left
+    }
+    .mini-tabs button:last-child{border-right:0}
+    .mini-tabs button.on{background:#120c04;color:var(--bb);box-shadow:inset 0 -2px 0 var(--bb)}
+    .kpi-dense{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
+      border:var(--hair);margin:0 0 8px;background:var(--bd)
+    }
+    .kpi-dense .c{background:var(--bg-2);padding:6px 8px;min-width:0;border-right:var(--hair)}
+    .kpi-dense .c:last-child{border-right:0}
+    .kpi-dense .k{font-size:9px;color:var(--mu-2);letter-spacing:.05em;text-transform:uppercase}
+    .kpi-dense .v{font:700 13px/1.25 var(--mono);color:var(--bb);margin-top:2px;font-variant-numeric:tabular-nums}
+    .kpi-dense .d{font:9px/1.3 var(--mono);color:var(--mu-3);margin-top:1px}
+    .macro-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
+      border:var(--hair);margin:0 0 8px;background:var(--bd)
+    }
+    .macro-grid .c{background:#050505;padding:8px 10px;border-right:var(--hair);min-width:0}
+    .macro-grid .c:last-child{border-right:0}
+    .macro-grid .lab{font-size:11px;color:var(--tx);font-weight:650}
+    .macro-grid .nums{font:11px/1.4 var(--mono);color:var(--mu);margin-top:4px;font-variant-numeric:tabular-nums}
+    .macro-grid .nums b{color:var(--bb);font-weight:700}
+    .hbar-list{margin:0 0 8px}
+    .hbar-row{display:grid;grid-template-columns:52px 1fr 88px;gap:8px;align-items:center;margin:0 0 5px}
+    .hbar-row .lab{font:11px/1 var(--mono);color:var(--tx);font-variant-numeric:tabular-nums}
+    .hbar-track{height:12px;background:#121212;border:1px solid #222;position:relative;overflow:hidden}
+    .hbar-fill{height:100%;background:linear-gradient(90deg,#7a4a10,var(--bb));min-width:0}
+    .hbar-row .val{font:10px/1.2 var(--mono);color:var(--mu);text-align:right;font-variant-numeric:tabular-nums}
+    .bucket-detail{margin:0 0 6px;padding:6px 8px;border:1px solid #1a1a1a;background:#050505}
+    .bucket-detail summary{cursor:pointer;font:11px/1.3 var(--mono);color:var(--mu);list-style:none}
+    .bucket-detail summary::-webkit-details-marker{display:none}
+    .bucket-detail summary::before{content:"+ ";color:var(--bb)}
+    .bucket-detail[open] summary::before{content:"− "}
+    .bucket-detail ul{margin:6px 0 0;padding:0;list-style:none}
+    .bucket-detail li{font:10px/1.45 var(--mono);color:var(--mu-2);display:flex;justify-content:space-between;gap:8px;border-top:1px solid #141414;padding:3px 0}
+    .bucket-detail li span:first-child{color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%}
+    .apps-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    @media (min-width:900px){
+      .apps-grid.side{grid-template-columns:1fr 1fr}
+    }
+    .tbl-cap{font:10px/1.3 var(--mono);color:var(--mu-2);margin:0 0 4px}
+    .delta-pos{color:var(--pos)}.delta-neg{color:var(--neg)}.delta-neu{color:var(--mu)}
+    @media (max-width:980px){
+      .kpi-dense{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .kpi-dense .c:nth-child(2n){border-right:0}
+      .kpi-dense .c{border-bottom:var(--hair)}
+      .macro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .macro-grid .c:nth-child(2n){border-right:0}
+      .macro-grid .c{border-bottom:var(--hair)}
+    }
+    @media (max-width:719px){
+      .kpi-dense{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .macro-grid{grid-template-columns:1fr 1fr}
+      .hbar-row{grid-template-columns:44px 1fr 72px;gap:6px}
+      .mini-tabs button{font-size:10px;padding:6px}
+    }
   </style>
 </head>
 <body>
@@ -144,6 +210,74 @@
         </thead>
         <tbody></tbody>
       </table>
+    </div>
+
+
+    <div id="addSections">
+      <div class="panel scard" id="sec-apps" hidden>
+        <h2>App / Harness 周榜<span class="sub" id="appsSub"></span></h2>
+        <p class="caveat" id="appsCaveat"></p>
+        <div class="mini-tabs" id="appsTabs" role="tablist">
+          <button type="button" data-tab="popular" class="on" role="tab">Popular · 全站</button>
+          <button type="button" data-tab="coding" role="tab">Coding</button>
+          <button type="button" data-tab="trending" role="tab" id="appsTabTrending" hidden>Trending</button>
+        </div>
+        <div id="appsPane-popular" class="apps-pane"></div>
+        <div id="appsPane-coding" class="apps-pane" hidden></div>
+        <div id="appsPane-trending" class="apps-pane" hidden></div>
+      </div>
+
+      <div class="panel scard" id="sec-context" hidden>
+        <h2>上下文桶<span class="sub" id="ctxSub"></span></h2>
+        <p class="caveat" id="ctxCaveat"></p>
+        <div class="hbar-list" id="ctxBars"></div>
+        <div class="kpi-dense" id="ctxKpi" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+        <div id="ctxDetails"></div>
+      </div>
+
+      <div class="panel scard" id="sec-task" hidden>
+        <h2>任务结构 · 7d 采样<span class="sub" id="taskSub"></span></h2>
+        <p class="caveat" id="taskCaveat"></p>
+        <div class="macro-grid" id="taskMacro"></div>
+        <p class="tbl-cap">Classifications Top 12 · by token share</p>
+        <div class="tw"><table class="data" id="taskTbl"><thead>
+          <tr><th>Tag</th><th>Macro</th><th>Usage %</th><th>Token %</th></tr>
+        </thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="panel scard" id="sec-prog" hidden>
+        <h2>编程 vs 全站<span class="sub" id="progSub"></span></h2>
+        <p class="caveat" id="progCaveat"></p>
+        <div class="kpi-dense" id="progKpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+        <p class="tbl-cap">Providers · programming share vs all-site · Top 10</p>
+        <div class="tw"><table class="data" id="progProvTbl"><thead>
+          <tr><th>厂商</th><th>Prog %</th><th>全站 %</th><th>Δ pp</th></tr>
+        </thead><tbody></tbody></table></div>
+        <p class="tbl-cap" id="progModelCap" hidden>Top models · programming</p>
+        <div class="tw" id="progModelWrap" hidden><table class="data" id="progModelTbl"><thead>
+          <tr><th>#</th><th>Model</th><th>Token (T)</th></tr>
+        </thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="panel scard" id="sec-session" hidden>
+        <h2>会话成本 · 已发布 harness<span class="sub">非全站 ARPU</span></h2>
+        <p class="caveat" id="sessCaveat"></p>
+        <p class="tbl-cap" id="sessCoverage"></p>
+        <p class="tbl-cap">By turn range · median of medians (USD)</p>
+        <div class="tw"><table class="data" id="sessTurnTbl"><thead>
+          <tr><th>Turn range</th><th>Median</th><th>P25</th><th>P75</th></tr>
+        </thead><tbody></tbody></table></div>
+        <p class="tbl-cap">By app</p>
+        <div class="tw"><table class="data" id="sessAppTbl"><thead>
+          <tr><th>App</th><th>Median</th><th>P25</th><th>P75</th><th>nCells</th></tr>
+        </thead><tbody></tbody></table></div>
+      </div>
+
+      <div class="panel scard" id="sec-catalog" hidden>
+        <h2>Catalog 轻量<span class="sub" id="catSub"></span></h2>
+        <p class="caveat" id="catCaveat"></p>
+        <div class="kpi-dense" id="catKpi"></div>
+      </div>
     </div>
 
     <p class="foot-note" id="incNote" hidden></p>
@@ -404,6 +538,270 @@
       ` · <span style="color:var(--mu-3)">不进 headline KPI / 主图序列</span>`;
   }
 
+
+  function shortSlug(s, n = 36) {
+    const t = String(s || "");
+    if (t.length <= n) return t;
+    return t.slice(0, n - 1) + "…";
+  }
+  function fmtUsd(v) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    const n = +v;
+    if (n >= 10) return n.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+    if (n >= 1) return n.toLocaleString("en-US", { maximumFractionDigits: 3, minimumFractionDigits: 2 });
+    if (n >= 0.01) return n.toLocaleString("en-US", { maximumFractionDigits: 4, minimumFractionDigits: 2 });
+    return n.toLocaleString("en-US", { maximumFractionDigits: 4, minimumFractionDigits: 4 });
+  }
+  function fmtInt(v) {
+    if (v == null || Number.isNaN(+v)) return "—";
+    return Math.round(+v).toLocaleString("zh-CN");
+  }
+  function caveatLine(arrOrStr, citation) {
+    let c = "";
+    if (Array.isArray(arrOrStr) && arrOrStr.length) c = arrOrStr[0];
+    else if (typeof arrOrStr === "string") c = arrOrStr;
+    const cite = citation ? String(citation) : "";
+    if (c && cite) return esc(c) + " · " + esc(cite);
+    return esc(c || cite || "");
+  }
+  function deltaCls(v) {
+    if (v == null || Number.isNaN(+v)) return "delta-neu";
+    if (+v > 0) return "delta-pos";
+    if (+v < 0) return "delta-neg";
+    return "delta-neu";
+  }
+  function showSec(id, on) {
+    const el = $(id);
+    if (!el) return;
+    el.hidden = !on;
+  }
+
+  function appTableHtml(rows, totalN, limit) {
+    const slice = (rows || []).slice(0, limit);
+    const body = slice.map((r, i) => {
+      const rank = r.rank != null ? r.rank : (i + 1);
+      const tokReq = r.tok_per_req == null ? "—" : fmtNum(r.tok_per_req, 0);
+      return `<tr>
+        <td>${esc(rank)}</td>
+        <td class="nm">${esc(r.app_name || r.app_id || "—")}</td>
+        <td>${fmtNum(r.total_tokens_T, 3)}</td>
+        <td>${fmtInt(r.total_requests)}</td>
+        <td>${tokReq}</td>
+      </tr>`;
+    }).join("");
+    const cap = totalN != null
+      ? `<p class="tbl-cap">显示 Top ${slice.length} · 共 ${esc(totalN)}</p>`
+      : "";
+    return cap + `<div class="tw"><table class="data">
+      <thead><tr><th>#</th><th>名称</th><th>Token (T)</th><th>Requests</th><th>Tok/Req</th></tr></thead>
+      <tbody>${body || `<tr><td colspan="5">暂无</td></tr>`}</tbody>
+    </table></div>`;
+  }
+
+  function renderApps(aw) {
+    const sec = "sec-apps";
+    if (!aw) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("appsSub").textContent = (aw.weekStart || "") + " – " + (aw.weekEnd || "");
+    $("appsCaveat").innerHTML = caveatLine(aw.caveats, aw.citation);
+
+    $("appsPane-popular").innerHTML = appTableHtml(aw.popular, (aw.popular || []).length, 15);
+    $("appsPane-coding").innerHTML = appTableHtml(aw.coding, (aw.coding || []).length, 15);
+
+    const trend = aw.trendingTop || [];
+    const tabT = $("appsTabTrending");
+    const paneT = $("appsPane-trending");
+    if (trend.length) {
+      tabT.hidden = false;
+      let note = aw.trendingNote ? `<p class="tbl-cap">${esc(aw.trendingNote)}</p>` : "";
+      paneT.innerHTML = note + appTableHtml(trend, trend.length, 15);
+    } else {
+      tabT.hidden = true;
+      paneT.innerHTML = "";
+    }
+
+    const tabs = Array.from(document.querySelectorAll("#appsTabs button"));
+    const panes = {
+      popular: $("appsPane-popular"),
+      coding: $("appsPane-coding"),
+      trending: $("appsPane-trending"),
+    };
+    tabs.forEach((btn) => {
+      btn.onclick = () => {
+        if (btn.hidden) return;
+        const t = btn.getAttribute("data-tab");
+        tabs.forEach((b) => b.classList.toggle("on", b === btn));
+        Object.entries(panes).forEach(([k, el]) => { el.hidden = k !== t; });
+      };
+    });
+  }
+
+  function renderContext(cm) {
+    const sec = "sec-context";
+    if (!cm) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("ctxSub").textContent = (cm.weekStart || "") + " – " + (cm.weekEnd || "");
+    $("ctxCaveat").innerHTML = caveatLine(cm.caveats, cm.citation);
+
+    const buckets = cm.buckets || [];
+    const maxShare = Math.max(1, ...buckets.map((b) => +b.sharePct || 0));
+    $("ctxBars").innerHTML = buckets.map((b) => {
+      const w = Math.max(0, Math.min(100, ((+b.sharePct || 0) / maxShare) * 100));
+      return `<div class="hbar-row">
+        <div class="lab">${esc(b.bucket)}</div>
+        <div class="hbar-track"><div class="hbar-fill" style="width:${w.toFixed(1)}%"></div></div>
+        <div class="val">${fmtNum(b.sharePct, 1)}% · ${fmtNum(b.tokens_T, 3)}T</div>
+      </div>`;
+    }).join("");
+
+    $("ctxKpi").innerHTML = [
+      { k: "五桶合计 Token (T)", v: fmtNum(cm.totalTokens_T, 3) },
+      { k: "vs 全站 KPI", v: fmtNum(cm.vsAllSiteTokensPct, 1) + "%" },
+    ].map((x) => `<div class="c"><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div></div>`).join("");
+
+    $("ctxDetails").innerHTML = buckets.map((b) => {
+      const tops = (b.topModels || []).slice(0, 3);
+      const lis = tops.map((m) => {
+        const name = m.model_permaslug || m.id || "—";
+        return `<li><span title="${esc(name)}">${esc(shortSlug(name, 42))}</span><span>${fmtNum(m.tokens_T, 3)}T</span></li>`;
+      }).join("");
+      return `<details class="bucket-detail"><summary>${esc(b.bucket)} · top models</summary><ul>${lis || "<li>暂无</li>"}</ul></details>`;
+    }).join("");
+  }
+
+  function renderTask(tm) {
+    const sec = "sec-task";
+    if (!tm) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("taskSub").textContent = `window=${tm.window || "7d"} · as_of ${tm.as_of || "—"} · 采样，非完整周`;
+    $("taskCaveat").innerHTML = caveatLine(tm.caveats, tm.citation);
+
+    $("taskMacro").innerHTML = (tm.macroCategories || []).map((m) => `
+      <div class="c">
+        <div class="lab">${esc(m.label || m.key)}</div>
+        <div class="nums">usage <b>${fmtNum(m.usageSharePct, 1)}%</b><br>token <b>${fmtNum(m.tokenSharePct, 1)}%</b></div>
+      </div>`).join("");
+
+    const rows = (tm.classifications || []).slice().sort((a, b) => (+b.tokenSharePct || 0) - (+a.tokenSharePct || 0)).slice(0, 12);
+    const tb = $("taskTbl").querySelector("tbody");
+    tb.innerHTML = rows.map((r) => `
+      <tr>
+        <td class="nm">${esc(r.display_name || r.tag)}</td>
+        <td>${esc(r.macro_category || "—")}</td>
+        <td>${fmtNum(r.usageSharePct, 1)}%</td>
+        <td>${fmtNum(r.tokenSharePct, 1)}%</td>
+      </tr>`).join("") || `<tr><td colspan="4">暂无</td></tr>`;
+  }
+
+  function renderProg(ps) {
+    const sec = "sec-prog";
+    if (!ps) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("progSub").textContent = (ps.weekStart || "") + " – " + (ps.weekEnd || "");
+    $("progCaveat").innerHTML = caveatLine(ps.caveats, ps.citation);
+
+    $("progKpi").innerHTML = [
+      { k: "Programming (T)", v: fmtNum(ps.programmingTokens_T, 3) },
+      { k: "All-site (T)", v: fmtNum(ps.allSiteTokens_T, 3) },
+      { k: "Prog / All-site", v: fmtNum(ps.programmingOfAllSitePct, 1) + "%" },
+    ].map((x) => `<div class="c"><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div></div>`).join("");
+
+    const prov = (ps.providersProgramming || []).slice(0, 10);
+    $("progProvTbl").querySelector("tbody").innerHTML = prov.map((r) => {
+      const d = r.shareDeltaPp;
+      const ds = d == null || Number.isNaN(+d) ? "—" : ((+d > 0 ? "+" : "") + fmtNum(d, 1));
+      return `<tr>
+        <td class="nm">${esc(r.provider)}</td>
+        <td>${fmtNum(r.sharePct, 1)}%</td>
+        <td>${fmtNum(r.allSiteSharePct, 1)}%</td>
+        <td class="${deltaCls(d)}">${ds}</td>
+      </tr>`;
+    }).join("") || `<tr><td colspan="4">暂无</td></tr>`;
+
+    const models = (ps.topModelsProgramming || []).slice(0, 8);
+    const cap = $("progModelCap");
+    const wrap = $("progModelWrap");
+    if (models.length) {
+      cap.hidden = false;
+      wrap.hidden = false;
+      $("progModelTbl").querySelector("tbody").innerHTML = models.map((m, i) => `
+        <tr>
+          <td>${i + 1}</td>
+          <td class="nm" title="${esc(m.model_permaslug || "")}">${esc(shortSlug(m.model_permaslug, 40))}</td>
+          <td>${fmtNum(m.tokens_T, 3)}</td>
+        </tr>`).join("");
+    } else {
+      cap.hidden = true;
+      wrap.hidden = true;
+    }
+  }
+
+  function renderSession(sc) {
+    const sec = "sec-session";
+    if (!sc) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("sessCaveat").innerHTML = caveatLine(sc.caveats, sc.citation) +
+      " · <b style=\"color:var(--mu);font-weight:650\">非全站 ARPU；仅已发布 harness</b>";
+
+    const cov = sc.coverage || {};
+    const note = cov.note ? String(cov.note) : "";
+    const noteShort = note.length > 90 ? note.slice(0, 89) + "…" : note;
+    $("sessCoverage").textContent =
+      `nApps ${cov.nApps ?? "—"} · window ${cov.window_days ?? "—"}d · end ${cov.window_end_date || "—"}` +
+      (noteShort ? " · " + noteShort : "");
+
+    $("sessTurnTbl").querySelector("tbody").innerHTML = (sc.byTurnRange || []).map((r) => `
+      <tr>
+        <td class="nm">${esc(r.turn_range)}</td>
+        <td>$${fmtUsd(r.medianOfMedians_usd)}</td>
+        <td>$${fmtUsd(r.p25_usd)}</td>
+        <td>$${fmtUsd(r.p75_usd)}</td>
+      </tr>`).join("") || `<tr><td colspan="4">暂无</td></tr>`;
+
+    $("sessAppTbl").querySelector("tbody").innerHTML = (sc.byApp || []).map((r) => `
+      <tr>
+        <td class="nm">${esc(r.app_name)}</td>
+        <td>$${fmtUsd(r.medianOfMedians_usd)}</td>
+        <td>$${fmtUsd(r.p25_usd)}</td>
+        <td>$${fmtUsd(r.p75_usd)}</td>
+        <td>${fmtInt(r.nCells)}</td>
+      </tr>`).join("") || `<tr><td colspan="5">暂无</td></tr>`;
+  }
+
+  function renderCatalog(cd) {
+    const sec = "sec-catalog";
+    if (!cd) { showSec(sec, false); return; }
+    showSec(sec, true);
+    $("catSub").textContent = cd.asOfLocal || "";
+    const cav = Array.isArray(cd.caveats) ? cd.caveats[0] : (cd.caveats || "列表指标非流量加权");
+    $("catCaveat").textContent = cav;
+
+    const cp = cd.cachePricing || {};
+    const cacheTxt = cp.medianCacheReadToPromptRatio != null
+      ? `read ${fmtInt(cp.withInputCacheRead)} · write ${fmtInt(cp.withInputCacheWrite)} · med r/p ${fmtNum(cp.medianCacheReadToPromptRatio, 2)}`
+      : `read ${fmtInt(cp.withInputCacheRead)} · write ${fmtInt(cp.withInputCacheWrite)}`;
+
+    $("catKpi").innerHTML = [
+      { k: "Models", v: fmtInt(cd.nModels) },
+      { k: ":free", v: fmtInt(cd.freeSuffixCount) + " / " + fmtNum(cd.freeSuffixSharePct, 1) + "%" },
+      { k: "Zero price", v: fmtInt(cd.zeroPriceCount) },
+      { k: "HF id", v: fmtInt(cd.huggingFaceIdCount) + " / " + fmtNum(cd.huggingFaceIdSharePct, 1) + "%" },
+      { k: "Cache pricing", v: cacheTxt, span: true },
+    ].map((x) => {
+      const style = x.span ? ' style="grid-column:1/-1"' : "";
+      return `<div class="c"${style}><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div></div>`;
+    }).join("");
+  }
+
+  function renderAdditive() {
+    renderApps(D.appsWeekly);
+    renderContext(D.contextMix);
+    renderTask(D.taskMix7d);
+    renderProg(D.programmingShare);
+    renderSession(D.sessionCost);
+    renderCatalog(D.catalogDerived);
+  }
+
   function renderFoot() {
     const formula = (D.source && D.source.revenueFormula) || "";
     const rip = D.revenueIncompletePoint;
@@ -411,11 +809,18 @@
     if (rip) {
       extra = ` · 未满周单点 ${esc(rip.week_start || "")} ≈ $${esc(fmtNum(rip.totals_M, 2))} M（不进主图）`;
     }
+    const lic = (D.source && D.source.license) || "CC BY 4.0";
+    const cite = (D.source && D.source.citation) || "";
+    const srcBits = [];
+    if (cite) srcBits.push(cite);
+    else srcBits.push("Source: OpenRouter");
+    if (lic && (!cite || !String(cite).toUpperCase().includes("CC BY"))) srcBits.push(lic);
     $("pageFoot").innerHTML =
       `<span class="amber">asOf ${esc(D.asOf || "")}</span>` +
       ` · 拟合流水公式：${esc(formula)}` +
       ` · <b style="color:var(--mu-2);font-weight:650">拟合流水非官方披露</b>` +
-      ` · 仅研究用途` + extra;
+      ` · 仅研究用途` + extra +
+      `<br><span class="amber">${esc(srcBits.join(" · "))}</span>`;
   }
 
   function wireToggle() {
@@ -462,6 +867,7 @@
 
     renderKpis(k);
     renderTable(D.providersLatest || []);
+    renderAdditive();
     renderIncomplete(D.incompleteWeek);
     renderFoot();
     wireToggle();
