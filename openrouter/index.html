@@ -278,6 +278,14 @@
         <p class="caveat" id="catCaveat"></p>
         <div class="kpi-dense" id="catKpi"></div>
       </div>
+
+      <div class="panel scard" id="sec-gpu" hidden>
+        <h2>GPU租赁价格指数<span class="sub" id="gpuSub"></span></h2>
+        <p class="caveat" id="gpuCaveat"></p>
+        <div class="tw"><table class="data" id="gpuTbl"><thead>
+          <tr><th>名称</th><th>GPU</th><th>渠道</th><th>$/GPU-hr</th><th>asOf</th><th>7d %</th></tr>
+        </thead><tbody></tbody></table></div>
+      </div>
     </div>
 
     <p class="foot-note" id="incNote" hidden></p>
@@ -793,6 +801,36 @@
     }).join("");
   }
 
+
+  function renderGpu(g) {
+    const sec = "sec-gpu";
+    if (!g || !Array.isArray(g.rows) || !g.rows.length) { showSec(sec, false); return; }
+    showSec(sec, true);
+    const unit = g.unit || "$/GPU-hr";
+    $("gpuSub").textContent = (g.asOf ? ("asOf " + g.asOf) : "") + (g.windowDays != null ? (" · " + g.windowDays + "d") : "");
+    const src = typeof g.source === "string" ? g.source : ((g.source && g.source.name) || "Silicon Data");
+    const note = g.sourceNote || (g.source && g.source.note) || "";
+    $("gpuCaveat").textContent = [src, unit, note].filter(Boolean).join(" · ");
+    const segLabel = (s) => {
+      if (s === "neo" || s === "neo-cloud") return "Neo-cloud";
+      if (s === "hs" || s === "hyperscaler") return "Hyperscaler";
+      return s || "—";
+    };
+    $("gpuTbl").querySelector("tbody").innerHTML = g.rows.map((r) => {
+      const chg = r.chg7dPct != null ? r.chg7dPct : r.change7dPct;
+      const asOf = r.asOf || r.asOfDate || g.asOf || "—";
+      const channel = r.segment || r.channel;
+      return `<tr>
+        <td class="nm">${esc(r.name || (r.gpu + " " + (channel || "")))}</td>
+        <td>${esc(r.gpu || "—")}</td>
+        <td>${esc(segLabel(channel))}</td>
+        <td>${fmtNum(r.price, 2)}</td>
+        <td>${esc(asOf)}</td>
+        <td class="${wowCls(chg)}">${fmtSignedPct(chg, 2)}</td>
+      </tr>`;
+    }).join("");
+  }
+
   function renderAdditive() {
     renderApps(D.appsWeekly);
     renderContext(D.contextMix);
@@ -800,6 +838,7 @@
     renderProg(D.programmingShare);
     renderSession(D.sessionCost);
     renderCatalog(D.catalogDerived);
+    renderGpu(D.gpuRentalIndex);
   }
 
   function renderFoot() {

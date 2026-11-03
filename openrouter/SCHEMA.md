@@ -1,7 +1,7 @@
 # OpenRouter 周度数据 · schema
 
 站内约定路径：`openrouter/data/openrouter.json`  
-`schemaVersion`: **`openrouter-weekly-v2`**（相对 v1 增加 6 个附加截面；**原有** `kpis` / `token` / `revenue` / `providersLatest` 口径不变）
+`schemaVersion`: **`openrouter-weekly-v2.1`**（相对 v1 增加 6 个附加截面；**原有** `kpis` / `token` / `revenue` / `providersLatest` 口径不变）
 
 只读数据契约（本目录不放 API key）。UI 由「数据追踪UI」负责 `index.html` / 顶栏 / 总览卡。
 
@@ -31,7 +31,7 @@
 
 | 字段 | 类型 | 说明 | 空值 |
 |------|------|------|------|
-| `schemaVersion` | string | 固定 `openrouter-weekly-v2` | 否 |
+| `schemaVersion` | string | 固定 `openrouter-weekly-v2.1` | 否 |
 | `asOf` | string | 数据截止展示时间，Asia/Shanghai 文本 | 否 |
 | `updatedAt` | string | 本 JSON 生成/同步时间 | 否 |
 | `asOfUtc` | string\|null | UTC ISO | 可 null |
@@ -189,3 +189,21 @@ Caveats：catalog **列表**指标，**非**流量加权；HF id ≠ 法律开�
 4. 附加面板：`appsWeekly`（应用）、`contextMix`（上下文桶）、`taskMix7d`（任务结构）、`programmingShare`（编程流量厂商）、`sessionCost`（会话成本）、`catalogDerived`（供给面轻指标）。
 5. 页脚 / tooltip：`asOf` + 各截面 `citation` + `source.revenueFormula` 短注。
 6. 任一附加截面为 `null` 时隐藏对应面板，勿阻断主图。
+
+
+## `gpuRentalIndex`（v2.1）
+
+Silicon Data GPU 租赁价格指数。数据维护：**研究方法学委**。只读消费 `/workspace/silicon_gpu_index/gpu_rental_index_latest.json`，**不要**改 `series_30d.json`。
+
+| 字段 | 说明 |
+|------|------|
+| `asOf` | 价格截面日 `YYYY-MM-DD` |
+| `updatedAt` | 写入本 JSON 的 Asia/Shanghai 时间 |
+| `unit` | `$/GPU-hr` |
+| `source` | 固定 `Silicon Data` |
+| `windowDays` | 30（公开滚动窗） |
+| `refresh` | 源侧元数据（工作日、晚 UTC 常见） |
+| `rows[]` | 表：`name` · `segment`(`neo`/`hs`) · `gpu` · `price` · `chg7dPct` · `asOf` |
+| `history` | `{ dates[], series{name→number[]} }` 可选折线 |
+
+刷新：源文件更新后跑 `openrouter_replicate/scripts/sync_gpu_rental_index.py`；无新日可不推。
