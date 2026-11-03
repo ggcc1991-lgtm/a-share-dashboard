@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-02T23:09:46+08:00",
+ "updated": "2026-11-03T08:16:07+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -858,18 +858,20 @@
    "region": "US",
    "name": "ISM Manufacturing PMI",
    "releaseAt": "2026-11-02T23:00:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "55.5",
    "forecast": "54.5",
    "previous": "54.5",
-   "verdict": null,
-   "diff": null,
+   "verdict": "高于预期",
+   "diff": "+1.0",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "ISM 10月制造业PMI报告 / ForexFactory 周历(预期)",
+    "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/pmi/october/"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 1.8,
+   "note": "连续第10个月扩张；生产 59.0 为2021年11月以来最高，新订单 55.5，物价 75.2"
   },
   {
    "id": "ff-USD-202611032300-JOLTSJobOpenings",
