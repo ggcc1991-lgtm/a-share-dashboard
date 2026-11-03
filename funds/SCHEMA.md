@@ -130,6 +130,13 @@
 1. 默认 `/funds/` 加载 `mutual.json`；`/funds/?view=private` 加载 `private.json`（由 URL 决定，打开私募不闪公募）。
 2. 若 `universe === "strategy_index"`（或行均为 `kind: strategy_index`）：副标「私募·策略指数」。
 3. **私募优先**：若 `tables` 含 `absolute`/`excess`/`style`，用页内分段切换三张完整密表；KPI 条读 `kpis`。
-4. 若无 `tables`：回退单表渲染 `funds`（旧行为）。
-5. 副标：`generatedAtDisplay` / `asOf`；`sample:true` 显示「样例」。
-6. 页脚：`note` 一行；各表可用自身 `note`。
+4. **私募折线（仅 `view=private`）**：若存在非空 `series`，在 KPI 与密表之间（`tableSeg` 下方）渲染 ECharts 折线（本地 `../assets/echarts.min.js` + `DashTheme.echartsDark`）；公募不显示图。
+   - 与 `?table=` / 页内分段联动：`absolute` → `series.dates` × `series.absolute`；`excess` → `series.dates` × `series.excess`；`style` → `series.styleDates` × `series.style[页签]`。
+   - 风格页签默认 `300指增`（无则取第一个 key）：`300指增` / `500指增` / `1000指增` / `2000指增` / `A500指增`；切换只重画风格图，不改 table 分段。
+   - 区间切换（按 dates / styleDates 过滤，终点取序列末点 / asOf）：全样本 / 近3年 / 近1年 / 2024至今。
+   - 图例可点击显隐（默认全显）。业绩图用策略固定色（如 `300指增=#2F5BFF`）；风格持仓用中性色板，**不做涨跌红绿**。
+   - 点数过多时四周抽样（保留终点）以减轻卡顿；`setOption` 复用实例，监听 `resize`。
+   - 无 `series` 或对应段为空：隐藏图，不报错。密表仍只读 `tables`。
+5. 若无 `tables`：回退单表渲染 `funds`（旧行为）。
+6. 副标：`generatedAtDisplay` / `asOf`；`sample:true` 显示「样例」。
+7. 页脚：`note` 一行；各表可用自身 `note`。
