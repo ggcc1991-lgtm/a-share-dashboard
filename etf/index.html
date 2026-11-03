@@ -134,7 +134,13 @@
         <a href="../policy/" data-match="/policy">政策产业</a>
         <a href="../earnings/" data-match="/earnings">财报会议</a>
         <a href="../openrouter/" data-match="/openrouter">OpenRouter</a>
-        <a href="../funds/" data-match="/funds">基金数据</a>
+        <div class="nav-dd" data-match="/funds">
+          <button type="button" class="nav-dd-btn" aria-haspopup="true" aria-expanded="false" aria-controls="nav-dd-funds">基金数据<span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+          <div class="nav-dd-panel" id="nav-dd-funds" role="menu" aria-label="基金数据">
+            <a href="../funds/" role="menuitem">公募基金</a>
+            <a href="../funds/?view=private" role="menuitem">私募基金</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>

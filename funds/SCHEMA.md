@@ -5,7 +5,7 @@
 - 公募：`funds/data/mutual.json` · `schemaVersion`: **`funds-mutual-v1`**
 - 私募：`funds/data/private.json` · `schemaVersion`: **`funds-private-v1`**
 
-只读数据契约。UI：`funds/index.html`（公募 / 私募标签切换；无首页总览卡）。
+只读数据契约。UI：`funds/index.html`。顶栏「基金数据」下挂公募 / 私募（与 ETF 同款下拉）；私募 URL `funds/?view=private`；无页内 toggle、无首页总览卡。
 
 ## 刷新
 
@@ -69,8 +69,8 @@
 
 ## UI 消费
 
-1. 默认加载 `mutual.json`；切「私募基金」加载 `private.json`。
-2. 若 `universe === "strategy_index"`（或行均为 `kind: strategy_index`）：标题/副标标注「策略指数」，切换钮副文案「Wind策略指数」，密表用指数代码 + 点位列。
+1. 默认 `/funds/` 加载 `mutual.json`；`/funds/?view=private` 加载 `private.json`（由 URL 决定，打开私募不闪公募）。
+2. 若 `universe === "strategy_index"`（或行均为 `kind: strategy_index`）：副标「私募·策略指数」，密表用指数代码 + 点位列。
 3. KPI 条读当前文件 `kpis`；密表读 `funds`。
 4. 副标：`generatedAtDisplay` / `asOf`；`sample:true` 显示「样例」。
 5. 页脚：`note` 一行。

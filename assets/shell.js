@@ -187,20 +187,36 @@ window.DashMotion = {
   );
 })();
 
-/* == nav dropdown (ETF) == */
+/* == nav dropdown (ETF / 基金数据 …) == */
 (function navDropdown() {
   const desk = window.matchMedia("(min-width: 720px)");
   const path = location.pathname;
+  const curView = new URLSearchParams(location.search).get("view");
   document.querySelectorAll(".nav-dd").forEach((dd) => {
     const btn = dd.querySelector(".nav-dd-btn");
     const panel = dd.querySelector(".nav-dd-panel");
     if (!btn || !panel) return;
     const items = Array.from(panel.querySelectorAll("a"));
-    if (/\/(etf|sentiment|momentum)(\/|$|\/index\.html)/.test(path)) btn.classList.add("active");
+    const match = dd.getAttribute("data-match") || "";
+    let on = !!(match && path.includes(match));
+    // child pages under this dropdown (e.g. ETF → sentiment / momentum)
+    if (!on) {
+      on = items.some((a) => {
+        try {
+          const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");
+          return p === path.replace(/index\.html$/, "");
+        } catch (_) { return false; }
+      });
+    }
+    if (on) btn.classList.add("active");
     items.forEach((a) => {
       try {
-        const p = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");
-        if (p === path.replace(/index\.html$/, "")) { a.classList.add("current"); a.setAttribute("aria-current", "page"); }
+        const u = new URL(a.href, location.href);
+        const p = u.pathname.replace(/index\.html$/, "");
+        if (p !== path.replace(/index\.html$/, "")) return;
+        const linkView = u.searchParams.get("view");
+        const viewOk = linkView ? linkView === curView : !curView;
+        if (viewOk) { a.classList.add("current"); a.setAttribute("aria-current", "page"); }
       } catch (_) {}
     });
     const place = () => {
