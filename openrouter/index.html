@@ -74,7 +74,8 @@
       .kpi-bar2 .c{border-right:0;border-bottom:var(--hair)}
       .kpi-bar2 .c:last-child{border-bottom:0}
       .chart-el{height:250px}
-      .view-toggle button{font-size:11px;padding:7px 8px}
+      .view-toggle{flex-wrap:wrap}
+      .view-toggle button{font-size:11px;padding:7px 8px;flex:1 1 30%}
       .page-title .title-note{display:block;margin:.15em 0 0;font-size:.68em}
     }
 
@@ -178,6 +179,7 @@
     <div class="view-toggle" id="viewToggle" role="tablist" aria-label="图表切换">
       <button type="button" data-pane="token" class="on" role="tab" aria-selected="true">Token 周度<span class="sub">完整周堆积 · 开/闭源份额</span></button>
       <button type="button" data-pane="revenue" role="tab" aria-selected="false">Revenue 拟合流水<span class="sub">完整周 only · USD $M</span></button>
+      <button type="button" data-pane="gpu" id="tab-gpu" role="tab" aria-selected="false" hidden>GPU 租赁<span class="sub">价格指数 · $/GPU-hr</span></button>
     </div>
 
     <div class="chart-box pane on" id="pane-token">
@@ -196,20 +198,34 @@
       <div class="chart-el" id="chartRevenue"></div>
     </div>
 
-    <div class="bb-sec"><h2>最新完整周 · 厂商拆分</h2></div>
-    <div class="tw">
-      <table class="data" id="provTbl">
-        <thead>
-          <tr>
-            <th>厂商</th>
-            <th>Token (T)</th>
-            <th>Token %</th>
-            <th>Revenue ($M)</th>
-            <th>Rev %</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <div class="pane" id="pane-gpu" hidden>
+      <p class="caveat" id="gpuCaveat" style="margin:0 0 8px"></p>
+      <div class="chart-box" id="gpuChartBox" hidden>
+        <div class="chart-hd"><h3>GPU RENTAL · $/GPU-hr</h3><span class="sub" id="gpuHistMeta"></span></div>
+        <div class="chart-el" id="chartGpu"></div>
+      </div>
+      <div class="bb-sec" style="margin-top:10px"><h2>最新截面 · GPU租赁<span class="sub" id="gpuSub"></span></h2></div>
+      <div class="tw"><table class="data" id="gpuTbl"><thead>
+        <tr><th>名称</th><th>GPU</th><th>渠道</th><th>$/GPU-hr</th><th>asOf</th><th>7d %</th></tr>
+      </thead><tbody></tbody></table></div>
+    </div>
+
+    <div id="provBlock">
+      <div class="bb-sec"><h2>最新完整周 · 厂商拆分</h2></div>
+      <div class="tw">
+        <table class="data" id="provTbl">
+          <thead>
+            <tr>
+              <th>厂商</th>
+              <th>Token (T)</th>
+              <th>Token %</th>
+              <th>Revenue ($M)</th>
+              <th>Rev %</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
 
 
@@ -279,18 +295,6 @@
         <div class="kpi-dense" id="catKpi"></div>
       </div>
 
-      <div class="panel scard" id="sec-gpu" hidden>
-        <h2>GPU租赁价格指数<span class="sub" id="gpuSub"></span></h2>
-        <p class="caveat" id="gpuCaveat"></p>
-        <div class="chart-box" id="gpuChartBox" hidden>
-          <div class="chart-hd"><h3>HISTORY · $/GPU-hr</h3><span class="sub" id="gpuHistMeta"></span></div>
-          <div class="chart-el" id="chartGpu"></div>
-        </div>
-        <p class="tbl-cap">最新截面</p>
-        <div class="tw"><table class="data" id="gpuTbl"><thead>
-          <tr><th>名称</th><th>GPU</th><th>渠道</th><th>$/GPU-hr</th><th>asOf</th><th>7d %</th></tr>
-        </thead><tbody></tbody></table></div>
-      </div>
     </div>
 
     <p class="foot-note" id="incNote" hidden></p>
@@ -808,9 +812,14 @@
 
 
   function renderGpu(g) {
-    const sec = "sec-gpu";
-    if (!g || !Array.isArray(g.rows) || !g.rows.length) { showSec(sec, false); return; }
-    showSec(sec, true);
+    const tab = $("tab-gpu");
+    const pane = $("pane-gpu");
+    if (!g || !Array.isArray(g.rows) || !g.rows.length) {
+      if (tab) tab.hidden = true;
+      if (pane) pane.hidden = true;
+      return;
+    }
+    if (tab) tab.hidden = false;
     const unit = g.unit || "$/GPU-hr";
     const hist = g.history || {};
     const dates = hist.dates || [];
@@ -848,7 +857,6 @@
       const labels = dates.map((d) => (d && d.length >= 10 ? d.slice(5) : (d || "")));
       $("gpuHistMeta").textContent =
         `${dates[0] || "?"} → ${dates[nHist - 1] || "?"} · ${nHist} pts · full history`;
-      // Prefer row order for legend, then remaining keys
       const names = [];
       (g.rows || []).forEach((r) => {
         const k = r.name || r.seriesKey;
@@ -945,9 +953,11 @@
 
   function wireToggle() {
     const buttons = Array.from(document.querySelectorAll("#viewToggle button"));
-    const panes = { token: $("pane-token"), revenue: $("pane-revenue") };
+    const panes = { token: $("pane-token"), revenue: $("pane-revenue"), gpu: $("pane-gpu") };
+    const prov = $("provBlock");
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (btn.hidden) return;
         const pane = btn.getAttribute("data-pane");
         buttons.forEach((b) => {
           const on = b === btn;
@@ -955,11 +965,12 @@
           b.setAttribute("aria-selected", on ? "true" : "false");
         });
         Object.entries(panes).forEach(([k, el]) => {
+          if (!el) return;
           const on = k === pane;
           el.hidden = !on;
           el.classList.toggle("on", on);
         });
-        // resize visible chart
+        if (prov) prov.hidden = pane === "gpu";
         requestAnimationFrame(() => {
           charts.forEach((c) => { try { c.resize(); } catch (_) {} });
         });
