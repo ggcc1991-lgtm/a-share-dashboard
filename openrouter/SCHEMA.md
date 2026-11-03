@@ -1,7 +1,7 @@
 # OpenRouter 周度数据 · schema
 
 站内约定路径：`openrouter/data/openrouter.json`  
-`schemaVersion`: **`openrouter-weekly-v2.1`**（相对 v1 增加 6 个附加截面；**原有** `kpis` / `token` / `revenue` / `providersLatest` 口径不变）
+`schemaVersion`: **`openrouter-weekly-v2.1`**（相对 v2 增加 `gpuRentalIndex`；**原有** `kpis` / `token` / `revenue` / `providersLatest` 与 v2 附加截面口径不变）
 
 只读数据契约（本目录不放 API key）。UI 由「数据追踪UI」负责 `index.html` / 顶栏 / 总览卡。
 
@@ -12,12 +12,15 @@
 3. 将 Token/Revenue 结果写入本 JSON（或保留现有 `kpis`/`token`/`revenue`），再运行：
    `python3 /workspace/openrouter_replicate/scripts/enrich_dashboard.py`  
    拉取附加 Data API 截面并写回 `data/openrouter.json`（schema → v2）。
+3b. GPU 租赁价格指数：源文件更新后运行
+   `python3 /workspace/openrouter_replicate/scripts/sync_gpu_rental_index.py`（→ v2.1，仅增/刷 `gpuRentalIndex`）。
 4. **刷新节奏（跟原数据）**：OpenRouter `rankings-daily` 按 **UTC 日**更新；有新完整日截面后，重跑 replicate 聚合并写回本 JSON（incomplete trailing week 滚动）。headline KPI 仅用完整周（恰好 7 个 UTC 日）。无新日数据则可不推。
 5. 附加截面刷新建议：
    - `appsWeekly` / `contextMix` / `programmingShare`：对齐最新 **完整 Mon–Sun UTC 周**（与 `kpis.weekStart/weekEnd` 一致）。
    - `taskMix7d`：trailing **7d** 快照（采样；不一定对齐完整周）。
    - `sessionCost`：官方约 **周更**；窗口见 `meta.window_days` / `window_end_date`。
    - `catalogDerived`：随 `/models` catalog 快照更新。
+   - `gpuRentalIndex`：镜像 `/workspace/silicon_gpu_index/gpu_rental_index_latest.json`（研究方法学委 / Silicon Data）；跑 `python3 /workspace/openrouter_replicate/scripts/sync_gpu_rental_index.py`。
 6. 速率限制：Data API **30 rpm / 500 req/day/account**；enrich 脚本默认请求间隔 ~2.2s。
 7. **禁止**把 `openrouter_api_key.txt` 或任何 Bearer token 写入 `data-dashboard/`。
 
@@ -50,6 +53,7 @@
 | `programmingShare` | object\|null | programming 语言类型厂商份额 vs 全站 | 失败时可 null |
 | `sessionCost` | object\|null | 已发布 harness 会话成本中位数 | 失败时可 null |
 | `catalogDerived` | object\|null | `/models` 轻量派生指标 | 失败时可 null |
+| `gpuRentalIndex` | object\|null | Silicon Data GPU 租赁价格指数表（外部；非 OpenRouter） | 无本地源时可 null |
 
 `null` 约定：拉取失败或无数据时，对应附加截面可为 `null`；**不得**因此删除或改写 `kpis`/`token`/`revenue`。
 
@@ -186,7 +190,7 @@ Caveats：catalog **列表**指标，**非**流量加权；HF id ≠ 法律开�
 1. KPI 条读 `kpis.*`（Token/Revenue 不变）。
 2. 堆积图 / WoW / 开闭源读 `token` 或 `revenue`；不要把 `incompleteWeek` 混进主序列。
 3. 厂商表读 `providersLatest`。
-4. 附加面板：`appsWeekly`（应用）、`contextMix`（上下文桶）、`taskMix7d`（任务结构）、`programmingShare`（编程流量厂商）、`sessionCost`（会话成本）、`catalogDerived`（供给面轻指标）。
+4. 附加面板：`appsWeekly`（应用）、`contextMix`（上下文桶）、`taskMix7d`（任务结构）、`programmingShare`（编程流量厂商）、`sessionCost`（会话成本）、`catalogDerived`（供给面轻指标）、`gpuRentalIndex`（GPU 租赁 $/GPU-hr 表，外部 Silicon Data）。
 5. 页脚 / tooltip：`asOf` + 各截面 `citation` + `source.revenueFormula` 短注。
 6. 任一附加截面为 `null` 时隐藏对应面板，勿阻断主图。
 
@@ -205,5 +209,6 @@ Silicon Data GPU 租赁价格指数。数据维护：**研究方法学委**。�
 | `refresh` | 源侧元数据（工作日、晚 UTC 常见） |
 | `rows[]` | 表：`name` · `segment`(`neo`/`hs`) · `gpu` · `price` · `chg7dPct` · `asOf` |
 | `history` | `{ dates[], series{name→number[]} }` 可选折线 |
+| `citation` / `caveats` | 溯源与限制（脚本写入） |
 
-刷新：源文件更新后跑 `openrouter_replicate/scripts/sync_gpu_rental_index.py`；无新日可不推。
+刷新：源文件更新后跑 `openrouter_replicate/scripts/sync_gpu_rental_index.py`（`build_gpu_rental_index.py` 为同义别名）；无新日可不推。Caveats：OpenRouter **无**此指数；公开窗约 30 日；完整历史需 Pro/Bloomberg；勿改 `series_30d.json`。

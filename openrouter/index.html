@@ -282,6 +282,11 @@
       <div class="panel scard" id="sec-gpu" hidden>
         <h2>GPU租赁价格指数<span class="sub" id="gpuSub"></span></h2>
         <p class="caveat" id="gpuCaveat"></p>
+        <div class="chart-box" id="gpuChartBox" hidden>
+          <div class="chart-hd"><h3>HISTORY · $/GPU-hr</h3><span class="sub" id="gpuHistMeta"></span></div>
+          <div class="chart-el" id="chartGpu"></div>
+        </div>
+        <p class="tbl-cap">最新截面</p>
         <div class="tw"><table class="data" id="gpuTbl"><thead>
           <tr><th>名称</th><th>GPU</th><th>渠道</th><th>$/GPU-hr</th><th>asOf</th><th>7d %</th></tr>
         </thead><tbody></tbody></table></div>
@@ -807,10 +812,16 @@
     if (!g || !Array.isArray(g.rows) || !g.rows.length) { showSec(sec, false); return; }
     showSec(sec, true);
     const unit = g.unit || "$/GPU-hr";
-    $("gpuSub").textContent = (g.asOf ? ("asOf " + g.asOf) : "") + (g.windowDays != null ? (" · " + g.windowDays + "d") : "");
+    const hist = g.history || {};
+    const dates = hist.dates || [];
+    const seriesMap = hist.series || {};
+    const nHist = dates.length;
+    $("gpuSub").textContent =
+      (g.asOf ? ("asOf " + g.asOf) : "") +
+      (nHist ? (" · history " + nHist + "d") : (g.windowDays != null ? (" · window " + g.windowDays + "d") : ""));
     const src = typeof g.source === "string" ? g.source : ((g.source && g.source.name) || "Silicon Data");
     const note = g.sourceNote || (g.source && g.source.note) || "";
-    $("gpuCaveat").textContent = [src, unit, note].filter(Boolean).join(" · ");
+    $("gpuCaveat").textContent = [src, unit, note, "history 全长追加不截断"].filter(Boolean).join(" · ");
     const segLabel = (s) => {
       if (s === "neo" || s === "neo-cloud") return "Neo-cloud";
       if (s === "hs" || s === "hyperscaler") return "Hyperscaler";
@@ -829,6 +840,76 @@
         <td class="${wowCls(chg)}">${fmtSignedPct(chg, 2)}</td>
       </tr>`;
     }).join("");
+
+    const box = $("gpuChartBox");
+    const el = $("chartGpu");
+    if (box && el && nHist && Object.keys(seriesMap).length) {
+      box.hidden = false;
+      const labels = dates.map((d) => (d && d.length >= 10 ? d.slice(5) : (d || "")));
+      $("gpuHistMeta").textContent =
+        `${dates[0] || "?"} → ${dates[nHist - 1] || "?"} · ${nHist} pts · full history`;
+      // Prefer row order for legend, then remaining keys
+      const names = [];
+      (g.rows || []).forEach((r) => {
+        const k = r.name || r.seriesKey;
+        if (k && seriesMap[k] && !names.includes(k)) names.push(k);
+      });
+      Object.keys(seriesMap).forEach((k) => { if (!names.includes(k)) names.push(k); });
+      let ch = el._chart;
+      if (!ch && window.echarts) {
+        ch = initChart(el);
+        el._chart = ch;
+      }
+      if (ch) {
+        ch.setOption({
+          backgroundColor: "transparent",
+          color: PROVIDER_COLORS,
+          tooltip: {
+            trigger: "axis",
+            backgroundColor: "rgba(0,0,0,.92)",
+            borderColor: "#2b2b2b",
+            textStyle: { color: "#e8e8e8", fontSize: 11 },
+            confine: true,
+            valueFormatter: (v) => (v == null ? "—" : (+v).toFixed(2)),
+          },
+          legend: {
+            type: "scroll",
+            top: 0,
+            textStyle: { color: "#a0a0a0", fontSize: 10 },
+            pageTextStyle: { color: "#a0a0a0" },
+            pageIconColor: AMBER,
+            pageIconInactiveColor: "#555",
+          },
+          grid: { left: 8, right: 12, top: 42, bottom: 28, containLabel: true },
+          xAxis: {
+            type: "category",
+            data: labels,
+            axisLabel: { color: "#a0a0a0", fontSize: 10, hideOverlap: true },
+            axisLine: { lineStyle: { color: "#2b2b2b" } },
+            axisTick: { show: false },
+          },
+          yAxis: {
+            type: "value",
+            name: unit,
+            nameTextStyle: { color: "#787878", fontSize: 10 },
+            axisLabel: { color: "#a0a0a0", fontSize: 10 },
+            splitLine: { lineStyle: { color: "#1a1a1a" } },
+            axisLine: { show: false },
+          },
+          series: names.map((name) => ({
+            name,
+            type: "line",
+            showSymbol: nHist <= 40,
+            symbolSize: 4,
+            connectNulls: false,
+            lineStyle: { width: 1.6 },
+            data: (seriesMap[name] || []).map((v) => (v == null ? null : +v)),
+          })),
+        }, true);
+      }
+    } else if (box) {
+      box.hidden = true;
+    }
   }
 
   function renderAdditive() {

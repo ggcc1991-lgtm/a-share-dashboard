@@ -4454,6 +4454,13 @@
           2.76
         ]
       }
-    }
+    },
+    "citation": "Source: Silicon Data GPU Index (public ~30d / limited API), as of 2026-11-02. Local mirror /workspace/silicon_gpu_index/gpu_rental_index_latest.json.",
+    "caveats": [
+      "OpenRouter has no GPU rental index; external Silicon Data mirror.",
+      "neo=neo-cloud, hs=hyperscaler; USD per GPU-hour index levels.",
+      "Public window ~30d; full history needs Silicon Data Pro / Bloomberg (e.g. SDH100RT). Not in Wind.",
+      "Do not edit series_30d.json from dashboard scripts; owned by 研究方法学委."
+    ]
   }
 }
