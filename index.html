@@ -254,9 +254,22 @@
       document.getElementById("feedMeta").textContent = feed?.updated || "";
       const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
       document.getElementById("headlines").innerHTML = top.map((x) => {
-        const t = DashFmt.time(x.publishedAt).slice(11, 16) || "--:--";
+        let t = "--:--";
+        if (x.publishedAt) {
+          try {
+            const d = new Date(x.publishedAt);
+            if (!Number.isNaN(d.getTime())) {
+              t = new Intl.DateTimeFormat("zh-CN", {
+                timeZone: "Asia/Shanghai",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false,
+              }).format(d);
+            }
+          } catch (_) {}
+        }
         return `<a href="${x.url || "feed/"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>
-          <span class="mono" style="color:var(--mu-2)">${t}</span>
+          <span class="mono hl-time">${t}</span>
           <span class="t">${x.title}<em>${SRC[x.source] || x.source} · ${x.sourceName || ""}</em></span>
         </a>`;
       }).join("") || `<div class="empty">暂无</div>`;

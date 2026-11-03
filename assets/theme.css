@@ -251,11 +251,19 @@ table.data tr:hover td { background: #1c1c1c; }
 
 .headline-list { display: grid; gap: 0; }
 .headline-list a {
-  display: grid; grid-template-columns: 64px 1fr; gap: 8px;
+  display: grid; grid-template-columns: 4.75em 1fr; gap: 8px;
   padding: 7px 0; border-bottom: 1px solid var(--bd-2);
   font-size: 13px; color: var(--tx); text-decoration: none;
+  align-items: start;
 }
 .headline-list a:hover { color: var(--bb); }
+.headline-list .hl-time {
+  color: var(--mu-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  min-width: 4.75ch;
+  letter-spacing: 0;
+}
 .headline-list .t em {
   display: block; font-style: normal; color: var(--mu-3);
   font-size: 10px; margin-top: 2px; font-family: var(--mono);
@@ -716,9 +724,17 @@ table.data tr:hover td { background: #1c1c1c; }
 
   .stat-value { font-size: 18px; }
   .headline-list a {
-    grid-template-columns: 52px 1fr;
-    gap: 6px;
+    grid-template-columns: 5em 1fr;
+    gap: 8px;
     font-size: 12px;
+  }
+  .headline-list .hl-time {
+    min-width: 5ch;
+    font-size: 11px;
+  }
+  .bb-list .bd.headline-list {
+    padding-left: 14px;
+    padding-right: 10px;
   }
 
   .bb-sec h2 { font-size: 12px; }
