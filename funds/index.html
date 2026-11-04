@@ -672,9 +672,11 @@
     const dates = sec.dateLabels || sec.dates || [];
     const inds = sec.industries || [];
     const cells = (sec.cells || []).map((c) => [c[0], c[1], c[2] == null ? 0 : +c[2]]);
-    let maxV = 0;
-    cells.forEach((c) => { if (c[2] > maxV) maxV = c[2]; });
-    if (maxV < 8) maxV = 8;
+    const pos = cells.map((c) => c[2]).filter((v) => v > 0).sort((a, b) => a - b);
+    let maxV = pos.length ? pos[pos.length - 1] : 8;
+    const p90 = pos.length ? pos[Math.min(pos.length - 1, Math.floor(pos.length * 0.9))] : 6;
+    // 色轴封顶在约 p90，避免极值把中低权重压成同色；更高值仍映射到顶端红
+    const vMax = Math.max(6, Math.min(maxV, +(p90 * 1.2).toFixed(2)));
     const theme = (window.DashTheme && DashTheme.echartsDark) || {};
     return Object.assign({}, theme, {
       tooltip: {
@@ -687,56 +689,55 @@
           return ind + "<br/>" + d + " · " + (v == null ? "—" : (+v).toFixed(2) + "%");
         },
       },
-      grid: { left: 72, right: 18, top: 12, bottom: 52, containLabel: false },
+      grid: { left: 76, right: 18, top: 10, bottom: 64, containLabel: false },
       xAxis: {
         type: "category",
         data: dates,
-        splitArea: { show: true },
+        splitArea: { show: false },
         axisLabel: { color: "#a07040", fontSize: 10 },
       },
       yAxis: {
         type: "category",
         data: inds,
         inverse: true,
-        axisLabel: { color: "#c8c8c8", fontSize: 10, width: 64, overflow: "truncate" },
-        splitArea: { show: true },
+        axisLabel: { color: "#c8c8c8", fontSize: 10, width: 68, overflow: "truncate" },
+        splitArea: { show: false },
       },
       visualMap: {
-        // 按权重分档（样本中位数~1.5%、p75~3.5%），避免按 max 线性拉伸整片发绿
-        type: "piecewise",
+        type: "continuous",
+        min: 0,
+        max: vMax,
+        calculable: true,
         orient: "horizontal",
         left: "center",
-        bottom: 2,
-        itemWidth: 10,
-        itemHeight: 10,
-        textStyle: { color: "#888", fontSize: 9 },
-        pieces: [
-          { min: 0, max: 0.5, label: "<0.5%", color: "#1a1a1a" },
-          { min: 0.5, max: 1.5, label: "0.5–1.5", color: "#2e7d32" },
-          { min: 1.5, max: 3, label: "1.5–3", color: "#8bc34a" },
-          { min: 3, max: 5, label: "3–5", color: "#ffeb3b" },
-          { min: 5, max: 8, label: "5–8", color: "#ff9800" },
-          { min: 8, max: 15, label: "8–15", color: "#f4511e" },
-          { min: 15, label: "≥15%", color: "#e53935" },
-        ],
+        bottom: 6,
+        itemWidth: 14,
+        itemHeight: 120,
+        text: [vMax.toFixed(1) + "%", "0%"],
+        textStyle: { color: "#888", fontSize: 10 },
+        // ETF动量绿→黄→红，多档连续插值
+        inRange: {
+          color: ["#141414", "#1b5e20", "#2e7d32", "#7cb342", "#dce775", "#ffeb3b", "#ffb300", "#fb8c00", "#f4511e", "#e53935"],
+        },
       },
       series: [{
         type: "heatmap",
         data: cells,
         label: {
           show: true,
-          fontSize: 9,
+          fontSize: 10,
+          fontWeight: 600,
           color: "#fff",
-          textBorderColor: "rgba(0,0,0,.75)",
-          textBorderWidth: 2,
+          textBorderColor: "rgba(0,0,0,.85)",
+          textBorderWidth: 2.5,
           formatter: (p) => {
             if (!p || !p.data || p.data[2] == null) return "";
             const v = +p.data[2];
             if (!(v > 0)) return "";
-            return v >= 10 ? v.toFixed(0) : v.toFixed(1);
+            return v.toFixed(2);
           },
         },
-        itemStyle: { borderColor: "#111", borderWidth: 1 },
+        itemStyle: { borderColor: "#0a0a0a", borderWidth: 1 },
         emphasis: { itemStyle: { shadowBlur: 8, shadowColor: "rgba(255,160,40,.35)" } },
       }],
     });
@@ -749,7 +750,7 @@
     const dates = sec.dateLabels || sec.dates || [];
     const inds = sec.industries || [];
     chartEl.classList.add("heat");
-    chartEl.style.height = Math.max(480, 15 * inds.length + 90) + "px";
+    chartEl.style.height = Math.max(720, 28 * inds.length + 120) + "px";
     const bits = [];
     if (sec.asOf) bits.push("asOf " + sec.asOf);
     bits.push(dates.length + " 期");
