@@ -1,6 +1,6 @@
 {
   "schema": "earnings-calendar-v1",
-  "updated": "2026-11-04T08:20:00+08:00",
+  "updated": "2026-11-04T23:21:51+08:00",
   "meetings": [
     {
       "id": "fomc-2026-09",
@@ -373,23 +373,25 @@
       "start": "2026-11-03",
       "end": "2026-11-03",
       "decisionAt": null,
-      "status": "ongoing",
+      "status": "done",
       "expectation": null,
-      "result": "暂无（截至北京时间11-04 08:20，美东晚间计票刚开始，众院0/435、参院0/35未宣布；参院控制权或至周三乃至更晚才明朗）",
-      "verdict": null,
-      "note": "联邦法定选举日(2 U.S.C. §7)；参院33席常规+2席补选(俄亥俄/佛罗里达)。投票站关闭后各州开始计票，夜间结果为非官方。 选举日当天（美东上午仍在投票），结果/议席分布待夜间非官方出口民调与计票；本栏仅跟踪关键里程碑，不填州级计票细节。",
+      "result": "民主党获参院约54席(+7)、众院已召约228席（过半需218）；共和党参院约44、众院约139（截至北京时间11-04晚，Guardian/NPR/Ballotpedia等；部分议席仍未宣布）。七州参院翻盘：爱荷华、堪萨斯、缅因、北卡、俄亥俄（补选）、南卡、德州。",
+      "verdict": "民主党拿下参众两院",
+      "note": "联邦法定选举日(2 U.S.C. §7)；参院33席常规+2席补选。控制权已由多家决策台/媒体宣布；个别选区计票与认证仍在进行，席位数字可能微调。",
       "sources": [
         {
-          "name": "FEC 选举信息",
-          "url": "https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/"
+          "name": "NPR：民主党拿下参众两院",
+          "url": "https://www.npr.org/2026/11/03/g-s1-149526/2026-midterms-congress-balance-of-power",
+          "asOf": "2026-11-04"
         },
         {
-          "name": "CRS R46413 Election Day",
-          "url": "https://www.congress.gov/crs_external_products/R/HTML/R46413.web.html"
+          "name": "The Guardian 2026 midterms live results",
+          "url": "https://www.theguardian.com/us-news/ng-interactive/2026/nov/04/midterm-elections-full-results-senate-house-governor-races",
+          "asOf": "2026-11-04"
         },
         {
-          "name": "NBC News Decision Desk",
-          "url": "https://www.nbcnews.com/politics/2026-election/decision-desk-will-know-senate-house-control-rcna603038",
+          "name": "Ballotpedia News：Democrats win House and Senate",
+          "url": "https://news.ballotpedia.org/2026/11/04/democrats-win-u-s-house-and-senate-majorities/",
           "asOf": "2026-11-04"
         }
       ],
@@ -903,36 +905,40 @@
       "region": "US",
       "name": "Congressional Elections",
       "releaseAt": "2026-11-03T23:16:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "民主党控制参众两院（参院约54-44，众院已召约228-139）",
       "forecast": "暂无",
       "previous": "暂无",
-      "verdict": null,
-      "diff": null,
+      "verdict": "民主党获胜",
+      "diff": "暂无",
       "impact": "High",
       "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "NPR / Guardian 2026 midterms",
+        "url": "https://www.npr.org/2026/11/03/g-s1-149526/2026-midterms-congress-balance-of-power"
       },
-      "importance": 3
+      "importance": 3,
+      "surprisePct": null,
+      "note": "与会议条目 us-elec-2026-election-day 同步；席位以媒体决策台为准，认证前为非官方"
     },
     {
       "id": "ff-USD-202611042300-ISMServicesPMI",
       "region": "US",
       "name": "ISM Services PMI",
       "releaseAt": "2026-11-04T23:00:00+08:00",
-      "status": "upcoming",
-      "actual": null,
+      "status": "released",
+      "actual": "54.5",
       "forecast": "54.9",
       "previous": "54.9",
-      "verdict": null,
-      "diff": null,
+      "verdict": "不及预期",
+      "diff": "-0.4",
       "impact": "Medium",
       "source": {
-        "name": "ForexFactory 周历",
-        "url": "https://www.forexfactory.com/calendar"
+        "name": "ISM Services PMI® Report via PR Newswire",
+        "url": "https://www.prnewswire.com/news-releases/services-pmi-at-54-5-october-2026-ism-services-pmi-report-302928112.html"
       },
-      "importance": 1
+      "importance": 1,
+      "surprisePct": -0.7,
+      "note": "连续第28个月扩张；商业活动53.8、新订单55.9、就业51.4、供应交付56.7；物价73.0"
     },
     {
       "id": "ff-USD-202611052130-UnemploymentClaims",
