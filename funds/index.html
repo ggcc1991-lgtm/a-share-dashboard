@@ -65,27 +65,37 @@
     .chart-box .chart-hd h3{margin:0;font-size:12px;color:var(--bb);letter-spacing:.04em}
     .chart-box .chart-hd .sub{font-size:10px;color:var(--mu-2);font-family:var(--mono)}
     .chart-box .chart-hd .hd-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
-    .chart-box .style-seg{
+    .chart-box .style-seg,
+    .chart-box .chip-seg,
+    .chart-box .range-seg{
       display:flex;flex-wrap:wrap;gap:0;border:var(--hair);background:var(--bd);width:fit-content;max-width:100%
     }
-    .chart-box .style-seg button{
+    .chart-box .range-seg{margin:0 8px 6px;max-width:calc(100% - 16px)}
+    .chart-box .style-seg button,
+    .chart-box .chip-seg button,
+    .chart-box .range-seg button{
       appearance:none;border:0;border-right:var(--hair);background:#050505;color:var(--mu);
       font:650 10px/1 var(--mono);letter-spacing:.04em;padding:5px 9px;cursor:pointer
     }
-    .chart-box .style-seg button:last-child{border-right:0}
-    .chart-box .style-seg button.active{background:rgba(255,160,40,.12);color:var(--bb)}
-    .chart-box .style-seg button:hover{color:var(--tx)}
-    .chart-box .range-seg{
-      display:flex;flex-wrap:wrap;gap:0;border:var(--hair);margin:0 8px 6px;background:var(--bd);width:fit-content;max-width:calc(100% - 16px)
-    }
-    .chart-box .range-seg button{
-      appearance:none;border:0;border-right:var(--hair);background:#050505;color:var(--mu);
-      font:650 10px/1 var(--mono);letter-spacing:.04em;padding:5px 10px;cursor:pointer
-    }
+    .chart-box .style-seg button:last-child,
+    .chart-box .chip-seg button:last-child,
     .chart-box .range-seg button:last-child{border-right:0}
+    .chart-box .style-seg button.active,
+    .chart-box .chip-seg button.active,
     .chart-box .range-seg button.active{background:rgba(255,160,40,.12);color:var(--bb)}
+    .chart-box .style-seg button:hover,
+    .chart-box .chip-seg button:hover,
     .chart-box .range-seg button:hover{color:var(--tx)}
+    .chart-box .hint{font:10px/1.4 var(--mono);color:var(--mu-2);padding:0 8px 4px}
+    .chart-box .fine{font:10px/1.45 var(--mono);color:var(--mu-3);padding:4px 8px 8px}
     .chart-el{width:100%;height:320px}
+    .mutual-toc{
+      display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;font:11px/1 var(--mono)
+    }
+    .mutual-toc a{
+      color:var(--mu);text-decoration:none;border:var(--hair);padding:6px 10px;background:#050505
+    }
+    .mutual-toc a:hover{color:var(--bb);border-color:var(--bb)}
     @media (max-width:719px){
       .kpi-bar{grid-template-columns:1fr}
       .kpi-bar .c{border-right:0;border-bottom:var(--hair)}
@@ -99,8 +109,8 @@
       .seg{width:100%}
       .seg button{flex:1 1 auto;padding:8px 10px}
       .chart-el{height:250px}
-      .chart-box .style-seg{width:100%}
-      .chart-box .style-seg button{flex:1 1 auto;padding:6px 8px}
+      .chart-box .style-seg,.chart-box .chip-seg{width:100%}
+      .chart-box .style-seg button,.chart-box .chip-seg button{flex:1 1 auto;padding:6px 8px}
       .chart-box .range-seg{width:calc(100% - 16px);max-width:none}
       .chart-box .range-seg button{flex:1 1 auto;padding:6px 8px}
     }
@@ -142,6 +152,8 @@
 
     <div id="content">
       <div class="kpi-bar" id="kpiBar" aria-label="基金 KPI"></div>
+      <div class="mutual-toc" id="mutualToc" hidden></div>
+      <div id="mutualRoot" hidden></div>
       <div class="seg" id="tableSeg" hidden role="tablist" aria-label="私募三表"></div>
       <div class="chart-box" id="chartBox" hidden>
         <div class="chart-hd">
@@ -158,7 +170,7 @@
         <span class="t" id="tblTitle"></span>
         <span id="tblMeta"></span>
       </div>
-      <p class="scroll-hint">← 左右滑动查看更多列</p>
+      <p class="scroll-hint" id="scrollHint">← 左右滑动查看更多列</p>
       <div class="tw" id="tblWrap">
         <table class="data" id="tbl">
           <thead id="thead"></thead>
@@ -170,7 +182,7 @@
       <p class="foot-note" id="footNote" hidden></p>
     </div>
   </main>
-  <footer class="app-footer">RESEARCH ONLY · SAMPLE OR OBSERVATION POOL · GC DATA</footer>
+  <footer class="app-footer">RESEARCH ONLY · LXWFOF POSITION SERIES · GC DATA</footer>
 
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
@@ -191,21 +203,19 @@
   const RANGE_ORDER = ["all", "3y", "1y", "2024"];
   const RANGE_LABEL = { all: "全样本", "3y": "近3年", "1y": "近1年", "2024": "2024至今" };
 
-  // 贴近晨会 Canvas 固定色（300=#2F5BFF）；风格持仓另用中性色板
   const STRATEGY_COLORS = {
-    "300指增": "#2F5BFF",
-    "500指增": "#E53935",
-    "1000指增": "#43A047",
-    "2000指增": "#00897B",
-    "A500指增": "#5C6BC0",
-    "量选+小盘增强": "#FFA028",
-    "中性": "#AB47BC",
-    "宏观": "#29B6F6",
-    "套利": "#EC407A",
-    "量化CTA": "#9E9D24",
-    "主观多头": "#FF7043",
-    "主观公募": "#7E57C2",
-    "期权": "#26A69A",
+    "300指增": "#2F5BFF", "500指增": "#E53935", "1000指增": "#43A047",
+    "2000指增": "#00897B", "A500指增": "#5C6BC0", "量选+小盘增强": "#FFA028",
+    "中性": "#AB47BC", "宏观": "#29B6F6", "套利": "#EC407A", "量化CTA": "#9E9D24",
+    "主观多头": "#FF7043", "主观公募": "#7E57C2", "期权": "#26A69A",
+  };
+  const NAME_COLOR = {
+    "沪深300": "#64B5F6", "中证500": "#FFB74D", "中证1000": "#81C784",
+    "中证2000": "#E57373", "万得微盘": "#BA68C8",
+    "风格:红利": "#4DD0E1", "风格:双创": "#F06292", "风格:微盘": "#EF5350",
+    "小微盘": "#90A4AE",
+    "A股总仓位": "#FFA028", "港股": "#A1887F", "美股": "#78909C",
+    "总股票仓位": "#E0E0E0", "总仓位": "#E0E0E0", "其他": "#607D8B", "未拆分": "#546E7A",
   };
   const STYLE_NEUTRAL_COLORS = [
     "#FFA028", "#64B5F6", "#90A4AE", "#FFB74D", "#78909C",
@@ -214,7 +224,7 @@
   const PERF_FALLBACK = (window.DashTheme && DashTheme.colors) || [
     "#ffa028", "#ef5350", "#26a69a", "#ffb74d", "#64b5f6", "#a0a0a0",
   ];
-  const MAX_POINTS = 90; // 超过则四周抽样，保留终点
+  const MAX_POINTS = 220;
 
   const params = new URLSearchParams(location.search);
   const view = params.get("view") === "private" ? "private" : "mutual";
@@ -225,6 +235,8 @@
   let activeRange = "all";
   let chartInst = null;
   let chartResizeBound = false;
+  const mutualCharts = {};
+  const mutualState = {};
 
   function fmtNum(v, d = 2) {
     if (v == null || Number.isNaN(+v)) return "—";
@@ -279,10 +291,13 @@
     return TABLE_ORDER.map((id) => byId[id]).filter(Boolean);
   }
 
+  function mutualSections(d) {
+    return (d && Array.isArray(d.sections)) ? d.sections.filter((s) => s && s.id) : [];
+  }
+
   function hasSeries(series) {
     if (!series || typeof series !== "object") return false;
-    const keys = Object.keys(series);
-    return keys.length > 0;
+    return Object.keys(series).length > 0;
   }
 
   function seriesForTable(series, tableId) {
@@ -317,14 +332,8 @@
   function rangeStartMs(rangeId, endMs) {
     if (rangeId === "all" || endMs == null) return null;
     const d = new Date(endMs);
-    if (rangeId === "3y") {
-      d.setFullYear(d.getFullYear() - 3);
-      return d.getTime();
-    }
-    if (rangeId === "1y") {
-      d.setFullYear(d.getFullYear() - 1);
-      return d.getTime();
-    }
+    if (rangeId === "3y") { d.setFullYear(d.getFullYear() - 3); return d.getTime(); }
+    if (rangeId === "1y") { d.setFullYear(d.getFullYear() - 1); return d.getTime(); }
     if (rangeId === "2024") return Date.parse("2024-01-01");
     return null;
   }
@@ -340,10 +349,7 @@
       if (startMs != null && t != null && t < startMs) continue;
       idx.push(i);
     }
-    if (!idx.length) {
-      // 区间无点时至少保留终点
-      idx.push(n - 1);
-    }
+    if (!idx.length) idx.push(n - 1);
     const outDates = idx.map((i) => dates[i]);
     const outMap = {};
     Object.keys(seriesMap || {}).forEach((k) => {
@@ -354,7 +360,6 @@
     return { dates: outDates, map: outMap, idx };
   }
 
-  /** 四周抽样，始终保留首尾 */
   function downsample(dates, seriesMap, step) {
     const n = dates.length;
     if (n <= MAX_POINTS || step < 2) return { dates, map: seriesMap };
@@ -371,6 +376,13 @@
     return { dates: outDates, map: outMap };
   }
 
+  function colorForName(name, i) {
+    return NAME_COLOR[name] || STRATEGY_COLORS[name] || STYLE_NEUTRAL_COLORS[i % STYLE_NEUTRAL_COLORS.length] || PERF_FALLBACK[i % PERF_FALLBACK.length];
+  }
+  function colorForStrategy(name, i) {
+    return STRATEGY_COLORS[name] || PERF_FALLBACK[i % PERF_FALLBACK.length];
+  }
+
   function ensureChart() {
     const el = $("chartEl");
     if (!el || !window.echarts) return null;
@@ -378,8 +390,7 @@
       const base = (window.DashTheme && DashTheme.echartsDark) || {};
       try {
         echarts.registerTheme("funds-dark", Object.assign({}, base, {
-          color: PERF_FALLBACK,
-          backgroundColor: "transparent",
+          color: PERF_FALLBACK, backgroundColor: "transparent",
         }));
       } catch (_) {}
       chartInst = echarts.init(el, "funds-dark", { renderer: "canvas" });
@@ -388,6 +399,9 @@
       chartResizeBound = true;
       window.addEventListener("resize", () => {
         if (chartInst) chartInst.resize();
+        Object.keys(mutualCharts).forEach((id) => {
+          try { mutualCharts[id].resize(); } catch (_) {}
+        });
       });
     }
     return chartInst;
@@ -400,16 +414,22 @@
     if (rs) { rs.hidden = true; rs.innerHTML = ""; }
     const ss = $("styleSeg");
     if (ss) { ss.hidden = true; ss.innerHTML = ""; }
-    if (chartInst) {
-      try { chartInst.clear(); } catch (_) {}
-    }
+    if (chartInst) { try { chartInst.clear(); } catch (_) {} }
   }
 
-  function colorForStrategy(name, i) {
-    return STRATEGY_COLORS[name] || PERF_FALLBACK[i % PERF_FALLBACK.length];
+  function hideFundsTable() {
+    $("tblWrap").hidden = true;
+    $("tblCap").hidden = true;
+    $("tblNote").hidden = true;
+    $("emptyBox").hidden = true;
+    $("scrollHint").style.display = "none";
+    $("thead").innerHTML = "";
+    $("tbody").innerHTML = "";
   }
 
-  function buildLineOption({ title, dates, map, names, colors, yName, valueSuffix }) {
+  function buildLineOption({ dates, map, names, colors, yName, valueSuffix, defaultOff }) {
+    const selected = {};
+    (defaultOff || []).forEach((n) => { selected[n] = false; });
     const series = names.map((name, i) => ({
       name,
       type: "line",
@@ -417,11 +437,16 @@
       symbol: "circle",
       symbolSize: 6,
       sampling: "lttb",
+      connectNulls: true,
       lineStyle: { width: 1.6, color: colors[i] },
       itemStyle: { color: colors[i] },
       emphasis: { focus: "series" },
       data: (map[name] || []).map((v) => (v == null || Number.isNaN(+v) ? null : +v)),
     }));
+    let zoomStart;
+    if (dates.length && String(dates[0]) < "2023-01-01") {
+      zoomStart = dates.find((d) => String(d) >= "2023-01-01");
+    }
     return {
       backgroundColor: "transparent",
       color: colors,
@@ -434,40 +459,34 @@
         confine: true,
         valueFormatter: (v) => {
           if (v == null || Number.isNaN(+v)) return "—";
-          const n = +v;
-          const body = n.toLocaleString("zh-CN", { maximumFractionDigits: 2 });
+          const body = (+v).toLocaleString("zh-CN", { maximumFractionDigits: 2 });
           return valueSuffix ? body + valueSuffix : body;
         },
       },
       legend: {
-        type: "scroll",
-        top: 0,
-        selectedMode: true, // 点击显隐，默认全显
+        type: "scroll", top: 0, selectedMode: true,
+        selected: Object.keys(selected).length ? selected : undefined,
         textStyle: { color: "#a0a0a0", fontSize: 10 },
         pageTextStyle: { color: "#a0a0a0" },
-        pageIconColor: "#FFA028",
-        pageIconInactiveColor: "#555",
+        pageIconColor: "#FFA028", pageIconInactiveColor: "#555",
       },
-      grid: { left: 8, right: 12, top: 42, bottom: 28, containLabel: true },
+      grid: { left: 8, right: 12, top: 42, bottom: 52, containLabel: true },
+      dataZoom: [
+        { type: "inside", startValue: zoomStart, brushSelect: false },
+        { type: "slider", height: 18, bottom: 8, startValue: zoomStart, brushSelect: false,
+          borderColor: "#2b2b2b", fillerColor: "rgba(255,160,40,.18)",
+          handleStyle: { color: "#FFA028" }, textStyle: { color: "#787878", fontSize: 9 } },
+      ],
       xAxis: {
-        type: "category",
-        data: dates,
-        boundaryGap: false,
-        axisLabel: {
-          color: "#a0a0a0",
-          fontSize: 10,
-          hideOverlap: true,
-          formatter: (v) => (v ? String(v).slice(0, 10) : ""),
-        },
+        type: "category", data: dates, boundaryGap: false,
+        axisLabel: { color: "#a0a0a0", fontSize: 10, hideOverlap: true,
+          formatter: (v) => (v ? String(v).slice(0, 10) : "") },
         axisLine: { lineStyle: { color: "#2b2b2b" } },
-        axisTick: { show: false },
-        splitLine: { show: false },
+        axisTick: { show: false }, splitLine: { show: false },
       },
       yAxis: {
-        type: "value",
-        name: yName || "",
+        type: "value", name: yName || "", scale: true,
         nameTextStyle: { color: "#787878", fontSize: 10 },
-        scale: true,
         axisLabel: { color: "#a0a0a0", fontSize: 10 },
         splitLine: { lineStyle: { color: "#1a1a1a" } },
         axisLine: { show: false },
@@ -476,6 +495,7 @@
     };
   }
 
+  /* ---------- private chart (unchanged behaviour) ---------- */
   function renderRangeSeg() {
     const el = $("rangeSeg");
     if (!el) return;
@@ -499,11 +519,7 @@
     const keys = STYLE_TAB_ORDER.filter((k) => styleObj && styleObj[k]);
     const extra = Object.keys(styleObj || {}).filter((k) => !keys.includes(k));
     const tabs = keys.concat(extra);
-    if (!tabs.length) {
-      el.hidden = true;
-      el.innerHTML = "";
-      return;
-    }
+    if (!tabs.length) { el.hidden = true; el.innerHTML = ""; return; }
     if (!tabs.includes(activeStyleTab)) activeStyleTab = tabs.includes("300指增") ? "300指增" : tabs[0];
     el.hidden = false;
     el.innerHTML = tabs.map((k) => {
@@ -514,87 +530,265 @@
       btn.addEventListener("click", () => {
         activeStyleTab = btn.getAttribute("data-id") || activeStyleTab;
         const d = cache.private;
-        if (d) renderPrivateChart(d); // 只重画风格图，不改 table 分段
+        if (d) renderPrivateChart(d);
       });
     });
   }
 
   function renderPrivateChart(d) {
-    if (view !== "private") {
-      hideChart();
-      return;
-    }
+    if (view !== "private") { hideChart(); return; }
     const series = d && d.series;
     const pack = seriesForTable(series, activeTableId);
     const box = $("chartBox");
-    if (!pack) {
-      hideChart();
-      return;
-    }
+    if (!pack) { hideChart(); return; }
     box.hidden = false;
     renderRangeSeg();
-
-    let dates;
-    let map;
-    let names;
-    let colors;
-    let yName;
-    let valueSuffix = "";
-    let title = pack.title;
-    let metaBits = [];
-
+    let dates, map, names, colors, yName, valueSuffix = "", title = pack.title, metaBits = [];
     if (pack.kind === "style") {
       renderStyleSeg(pack.style);
       const tab = pack.style[activeStyleTab] || pack.style[Object.keys(pack.style)[0]];
       if (!tab) { hideChart(); return; }
       const filtered = filterByRange(pack.dates, tab, activeRange);
       const sampled = downsample(filtered.dates, filtered.map, 4);
-      dates = sampled.dates;
-      map = sampled.map;
-      names = Object.keys(map);
+      dates = sampled.dates; map = sampled.map; names = Object.keys(map);
       colors = names.map((_, i) => STYLE_NEUTRAL_COLORS[i % STYLE_NEUTRAL_COLORS.length]);
-      yName = "%";
-      valueSuffix = "%";
-      title = "风格持仓 · " + activeStyleTab;
+      yName = "%"; valueSuffix = "%"; title = "风格持仓 · " + activeStyleTab;
       metaBits.push(activeStyleTab);
     } else {
       const ss = $("styleSeg");
       if (ss) { ss.hidden = true; ss.innerHTML = ""; }
       const filtered = filterByRange(pack.dates, pack.map, activeRange);
       const sampled = downsample(filtered.dates, filtered.map, 4);
-      dates = sampled.dates;
-      map = sampled.map;
-      // 保持 JSON 键顺序
+      dates = sampled.dates; map = sampled.map;
       names = Object.keys(pack.map).filter((k) => map[k]);
       colors = names.map((n, i) => colorForStrategy(n, i));
       yName = pack.unit === "index" ? "点位" : "";
       if (series && series.base != null) metaBits.push("基期 " + series.base);
       if (series && series.baseDate) metaBits.push(series.baseDate);
     }
-
     metaBits.push(RANGE_LABEL[activeRange] || activeRange);
     if (dates.length) metaBits.push(dates[0] + "→" + dates[dates.length - 1]);
     metaBits.push(dates.length + " 点");
-    if (series && series.lookbackWeeks && activeTableId !== "style") {
-      /* optional silence */
-    }
-
     $("chartTitle").textContent = title;
     $("chartMeta").textContent = metaBits.join(" · ");
-
     const chart = ensureChart();
     if (!chart) return;
-    const option = buildLineOption({
-      title,
-      dates,
-      map,
+    chart.setOption(buildLineOption({ dates, map, names, colors, yName, valueSuffix }), true);
+    requestAnimationFrame(() => { try { chart.resize(); } catch (_) {} });
+  }
+
+  /* ---------- mutual multi-section ---------- */
+  function comboReweight(sec, selected) {
+    const dates = sec.dates || [];
+    const parts = sec.parts || {};
+    const scales = sec.scales || {};
+    const keys = Object.keys(parts[selected[0]] || sec.series || {});
+    const map = {};
+    keys.forEach((k) => {
+      map[k] = dates.map((_, i) => {
+        let acc = 0, w = 0;
+        selected.forEach((c) => {
+          const v = parts[c] && parts[c][k] ? parts[c][k][i] : null;
+          const s = scales[c] ? scales[c][i] : null;
+          if (v != null && s != null) { acc += s * v; w += s; }
+        });
+        return w > 0 ? +(acc / w).toFixed(2) : null;
+      });
+    });
+    return map;
+  }
+
+  function resolveMutualPack(sec, st) {
+    if (!sec) return null;
+    if (sec.kind === "combo") {
+      const chips = Array.isArray(st.chips) && st.chips.length ? st.chips : (sec.chips || []);
+      const all = (sec.chips || []).length;
+      const map = (chips.length === all) ? (sec.series || {}) : comboReweight(sec, chips);
+      return { dates: sec.dates || [], map, defaultOff: sec.defaultOff || [], title: sec.title };
+    }
+    if (sec.kind === "single") {
+      return { dates: sec.dates || [], map: sec.series || {}, defaultOff: sec.defaultOff || [], title: sec.title };
+    }
+    const tabs = sec.tabs || [];
+    const tab = tabs.find((t) => t.id === st.tab) || tabs[0];
+    if (!tab) return null;
+    return {
+      dates: tab.dates || [],
+      map: tab.series || {},
+      defaultOff: sec.defaultOff || [],
+      title: sec.title + " · " + (tab.label || tab.id),
+    };
+  }
+
+  function ensureMutualChart(secId, el) {
+    if (!window.echarts || !el) return null;
+    if (!mutualCharts[secId]) {
+      const base = (window.DashTheme && DashTheme.echartsDark) || {};
+      try {
+        echarts.registerTheme("funds-dark", Object.assign({}, base, {
+          color: PERF_FALLBACK, backgroundColor: "transparent",
+        }));
+      } catch (_) {}
+      mutualCharts[secId] = echarts.init(el, "funds-dark", { renderer: "canvas" });
+    }
+    if (!chartResizeBound) {
+      chartResizeBound = true;
+      window.addEventListener("resize", () => {
+        if (chartInst) chartInst.resize();
+        Object.keys(mutualCharts).forEach((id) => {
+          try { mutualCharts[id].resize(); } catch (_) {}
+        });
+      });
+    }
+    return mutualCharts[secId];
+  }
+
+  function paintMutualSection(sec) {
+    const st = mutualState[sec.id];
+    if (!st) return;
+    const pack = resolveMutualPack(sec, st);
+    const metaEl = document.getElementById("mmeta-" + sec.id);
+    const chartEl = document.getElementById("mchart-" + sec.id);
+    if (!pack || !chartEl) return;
+    const filtered = filterByRange(pack.dates, pack.map, st.range || "all");
+    const step = filtered.dates.length > 800 ? 4 : (filtered.dates.length > 400 ? 2 : 1);
+    const sampled = downsample(filtered.dates, filtered.map, step);
+    const names = Object.keys(pack.map).filter((k) => sampled.map[k]);
+    const colors = names.map((n, i) => colorForName(n, i));
+    const bits = [];
+    if (sec.asOf) bits.push("asOf " + sec.asOf);
+    bits.push(RANGE_LABEL[st.range] || st.range);
+    if (sampled.dates.length) bits.push(sampled.dates[0] + "→" + sampled.dates[sampled.dates.length - 1]);
+    bits.push(sampled.dates.length + " 点");
+    if (sec.kind === "combo" && st.chips) bits.push("成分 " + st.chips.join("+"));
+    if (metaEl) metaEl.textContent = bits.join(" · ");
+    const chart = ensureMutualChart(sec.id, chartEl);
+    if (!chart) return;
+    chart.setOption(buildLineOption({
+      dates: sampled.dates,
+      map: sampled.map,
       names,
       colors,
-      yName,
-      valueSuffix,
-    });
-    chart.setOption(option, true);
+      yName: "%",
+      valueSuffix: "%",
+      defaultOff: pack.defaultOff,
+    }), true);
     requestAnimationFrame(() => { try { chart.resize(); } catch (_) {} });
+  }
+
+  function renderMutual(d) {
+    const sections = mutualSections(d);
+    const root = $("mutualRoot");
+    const toc = $("mutualToc");
+    Object.keys(mutualCharts).forEach((id) => {
+      try { mutualCharts[id].dispose(); } catch (_) {}
+      delete mutualCharts[id];
+    });
+    if (!sections.length) {
+      root.hidden = true; root.innerHTML = "";
+      toc.hidden = true; toc.innerHTML = "";
+      return false;
+    }
+    hideChart();
+    hideFundsTable();
+    $("tableSeg").hidden = true;
+    $("tableSeg").innerHTML = "";
+    toc.hidden = false;
+    toc.innerHTML = sections.map((s) =>
+      `<a href="#${esc(s.anchor || s.id)}">${esc(s.title || s.id)}</a>`
+    ).join("");
+    root.hidden = false;
+    root.innerHTML = sections.map((sec) => {
+      const st = mutualState[sec.id] || (mutualState[sec.id] = {
+        range: "all",
+        tab: sec.defaultTab || (sec.tabs && sec.tabs[0] && sec.tabs[0].id) || null,
+        chips: (sec.chips || []).slice(),
+      });
+      let tabsHtml = "";
+      if (sec.kind === "combo") {
+        tabsHtml = `<div class="chip-seg" data-role="chips" data-sid="${esc(sec.id)}">${(sec.chips || []).map((c) => {
+          const on = st.chips.indexOf(c) >= 0;
+          return `<button type="button" data-chip="${esc(c)}" class="${on ? "active" : ""}" aria-pressed="${on}">${esc(c)}</button>`;
+        }).join("")}</div>`;
+      } else if (sec.tabs && sec.tabs.length) {
+        tabsHtml = `<div class="style-seg" data-role="tabs" data-sid="${esc(sec.id)}">${sec.tabs.map((t) => {
+          const on = t.id === st.tab;
+          return `<button type="button" data-tab="${esc(t.id)}" class="${on ? "active" : ""}" aria-selected="${on}">${esc(t.label || t.id)}</button>`;
+        }).join("")}</div>`;
+      }
+      const rangeHtml = `<div class="range-seg" data-role="range" data-sid="${esc(sec.id)}">${RANGE_ORDER.map((id) => {
+        const on = (st.range || "all") === id;
+        return `<button type="button" data-range="${esc(id)}" class="${on ? "active" : ""}">${esc(RANGE_LABEL[id])}</button>`;
+      }).join("")}</div>`;
+      const fine = [];
+      if (sec.hint) fine.push(sec.hint);
+      if (sec.accuracy && sec.accuracy.text) fine.push(sec.accuracy.text);
+      if (sec.note) fine.push(sec.note);
+      return `<section class="chart-box" id="${esc(sec.anchor || sec.id)}">
+        <div class="chart-hd">
+          <div class="hd-left">
+            <h3>${esc(sec.title || sec.id)}</h3>
+            ${tabsHtml}
+          </div>
+          <span class="sub" id="mmeta-${esc(sec.id)}"></span>
+        </div>
+        ${rangeHtml}
+        <div class="chart-el" id="mchart-${esc(sec.id)}"></div>
+        ${fine.length ? `<div class="fine">${esc(fine.join(" · "))}</div>` : ""}
+      </section>`;
+    }).join("");
+
+    root.querySelectorAll("[data-role=tabs] button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.parentElement.getAttribute("data-sid");
+        const sec = sections.find((s) => s.id === sid);
+        if (!sec) return;
+        mutualState[sid].tab = btn.getAttribute("data-tab");
+        btn.parentElement.querySelectorAll("button").forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        paintMutualSection(sec);
+      });
+    });
+    root.querySelectorAll("[data-role=chips] button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.parentElement.getAttribute("data-sid");
+        const sec = sections.find((s) => s.id === sid);
+        if (!sec) return;
+        const chip = btn.getAttribute("data-chip");
+        const arr = mutualState[sid].chips || [];
+        const i = arr.indexOf(chip);
+        if (i >= 0) {
+          if (arr.length === 1) return; // keep at least one
+          arr.splice(i, 1);
+          btn.classList.remove("active");
+          btn.setAttribute("aria-pressed", "false");
+        } else {
+          arr.push(chip);
+          btn.classList.add("active");
+          btn.setAttribute("aria-pressed", "true");
+        }
+        mutualState[sid].chips = arr;
+        paintMutualSection(sec);
+      });
+    });
+    root.querySelectorAll("[data-role=range] button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const sid = btn.parentElement.getAttribute("data-sid");
+        const sec = sections.find((s) => s.id === sid);
+        if (!sec) return;
+        mutualState[sid].range = btn.getAttribute("data-range") || "all";
+        btn.parentElement.querySelectorAll("button").forEach((b) => {
+          b.classList.toggle("active", b === btn);
+        });
+        paintMutualSection(sec);
+      });
+    });
+
+    sections.forEach((sec) => paintMutualSection(sec));
+    return true;
   }
 
   function renderSub(d) {
@@ -602,16 +796,14 @@
     if (d.generatedAtDisplay) bits.push("生成 " + d.generatedAtDisplay);
     if (d.asOf) bits.push("asOf " + d.asOf);
     if (isStrategyIndex(d)) bits.push("策略指数");
+    if (view === "mutual" && mutualSections(d).length) bits.push("仓位图 " + mutualSections(d).length);
     const tabs = privateTables(d);
     if (view === "private" && tabs.length) bits.push("三表 " + tabs.length);
     if (d.schemaVersion) bits.push(d.schemaVersion);
     $("sum").textContent = bits.join(" · ") || "—";
     const noteBits = [];
-    if (view === "private") {
-      noteBits.push(isStrategyIndex(d) ? "私募·策略指数" : "私募");
-    } else {
-      noteBits.push("公募");
-    }
+    if (view === "private") noteBits.push(isStrategyIndex(d) ? "私募·策略指数" : "私募");
+    else noteBits.push(d.universe === "lxwfof_position_pub" ? "公募·仓位" : "公募");
     if (d.asOf) noteBits.push("asOf " + d.asOf);
     $("titleNote").textContent = noteBits.length ? noteBits.join(" · ") : "";
     $("sampleBadge").hidden = !d.sample;
@@ -636,19 +828,13 @@
     const v = row[key];
     const fmt = col.format || "";
     const left = (col.align === "left") || key === "code" || key === "name" || key === "strategy" || key === "benchmark" || key === "fullName";
-    if (key === "code" || key === "thscode") {
-      return `<td class="code">${esc(v || "—")}</td>`;
-    }
-    if (key === "name" || key === "strategy") {
-      return `<td class="nm" title="${esc(row.fullName || row.name || "")}">${esc(v || "—")}</td>`;
-    }
+    if (key === "code" || key === "thscode") return `<td class="code">${esc(v || "—")}</td>`;
+    if (key === "name" || key === "strategy") return `<td class="nm" title="${esc(row.fullName || row.name || "")}">${esc(v || "—")}</td>`;
     if (fmt === "pct1" || /^(ret|mdd)/.test(key)) {
       const cls = key === "mdd1y" ? "neg" : retCls(v);
       return `<td class="${cls}">${fmtPct(v, 1)}</td>`;
     }
-    if (fmt === "num2" || key === "level" || key === "nav") {
-      return `<td>${fmtNum(v, 2)}</td>`;
-    }
+    if (fmt === "num2" || key === "level" || key === "nav") return `<td>${fmtNum(v, 2)}</td>`;
     if (left) return `<td class="l">${esc(v == null || v === "" ? "—" : v)}</td>`;
     if (typeof v === "number") return `<td>${fmtNum(v, 2)}</td>`;
     return `<td>${esc(v == null || v === "" ? "—" : v)}</td>`;
@@ -660,11 +846,11 @@
     const empty = !rows.length;
     $("tblWrap").hidden = empty;
     $("emptyBox").hidden = !empty;
+    $("scrollHint").style.display = "";
     $("tbl").classList.toggle("compact", table.id === "style" || rows.length <= 5);
     if (empty) {
       $("emptyBox").textContent = "暂无「" + (table.title || table.id) + "」数据";
-      $("thead").innerHTML = "";
-      $("tbody").innerHTML = "";
+      $("thead").innerHTML = ""; $("tbody").innerHTML = "";
       return;
     }
     $("thead").innerHTML = "<tr>" + cols.map((c) => {
@@ -681,11 +867,11 @@
     const empty = !funds.length;
     $("tblWrap").hidden = empty;
     $("emptyBox").hidden = !empty;
+    $("scrollHint").style.display = "";
     $("tbl").classList.remove("compact");
     if (empty) {
       $("emptyBox").textContent = "暂无" + (strat ? "策略指数" : meta.label) + "数据（funds 为空）";
-      $("thead").innerHTML = "";
-      $("tbody").innerHTML = "";
+      $("thead").innerHTML = ""; $("tbody").innerHTML = "";
       return;
     }
     const codeHead = strat ? "指数代码" : meta.codeHead;
@@ -749,9 +935,7 @@
   function renderTableSeg(tabs) {
     const el = $("tableSeg");
     if (view !== "private" || !tabs.length) {
-      el.hidden = true;
-      el.innerHTML = "";
-      return;
+      el.hidden = true; el.innerHTML = ""; return;
     }
     el.hidden = false;
     el.innerHTML = tabs.map((t) => {
@@ -775,8 +959,7 @@
     renderTableSeg(tabs);
     renderPrivateChart(d);
     if (!tabs.length) {
-      $("tblCap").hidden = true;
-      $("tblNote").hidden = true;
+      $("tblCap").hidden = true; $("tblNote").hidden = true;
       renderFundsFallback(d);
       return;
     }
@@ -790,13 +973,8 @@
     if (table.unit) metaBits.push("单位 " + table.unit);
     if (table.base != null) metaBits.push("基期 " + table.base);
     $("tblMeta").textContent = metaBits.join(" · ");
-    if (table.note) {
-      $("tblNote").hidden = false;
-      $("tblNote").textContent = table.note;
-    } else {
-      $("tblNote").hidden = true;
-      $("tblNote").textContent = "";
-    }
+    if (table.note) { $("tblNote").hidden = false; $("tblNote").textContent = table.note; }
+    else { $("tblNote").hidden = true; $("tblNote").textContent = ""; }
     renderGenericTable(table);
   }
 
@@ -810,14 +988,18 @@
   function render(d) {
     renderSub(d);
     renderKpis(d);
-    if (view === "private") renderActivePrivateTable(d);
-    else {
-      $("tableSeg").hidden = true;
-      $("tableSeg").innerHTML = "";
-      $("tblCap").hidden = true;
-      $("tblNote").hidden = true;
-      hideChart();
-      renderFundsFallback(d);
+    if (view === "private") {
+      $("mutualRoot").hidden = true; $("mutualRoot").innerHTML = "";
+      $("mutualToc").hidden = true; $("mutualToc").innerHTML = "";
+      renderActivePrivateTable(d);
+    } else {
+      const ok = renderMutual(d);
+      if (!ok) {
+        $("tableSeg").hidden = true; $("tableSeg").innerHTML = "";
+        $("tblCap").hidden = true; $("tblNote").hidden = true;
+        hideChart();
+        renderFundsFallback(d);
+      }
     }
     renderNote(d);
   }
@@ -834,7 +1016,6 @@
 
   main();
 })();
-
   </script>
 </body>
 </html>
