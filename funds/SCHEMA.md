@@ -114,6 +114,7 @@
 - **MCP** `user-lxwfof MCP` → `get_dataset(name=position)`：仅有私募侧 `subjective`/`styles4`/`zhizeng`/`text`（页头 asOf 约私募周频），**不含**公募四块 / ETF / 产品自助。
 - **公募主数据**：同源站点 `/api/position/pub`（`pub`/`blend`/`combo`/`accuracy*`）；ETF：`/api/position/etf`。
 - **未收录**：`#pos-pattr` 产品自助（需 `/api/position/ppos`）；`pubpri_excess` 属超额对比、不进本文件。
+- **顶层 `note`（页脚）**：只写主数据/ETF/MCP 溯源 + 合规句。**禁止**写入「产品自助拆分未入库。」；产品自助缺口只放在 `source.gaps`。
 - 合规：回答中须保留 MCP 返回末尾提示语（如「部分信息参考自lxwfof MCP」）。
 
 ### 公募 UI 消费（`view=mutual`）
