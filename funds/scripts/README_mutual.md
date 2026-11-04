@@ -21,7 +21,7 @@
 
 > 主数据 /api/position/pub（asOf=\<pub_asOf\>），ETF 来自 /api/position/etf；MCP dataset \`position\` 仅含私募侧（asOf=\<mcp_asOf\>），已另存 position-raw.json。部分信息参考自lxwfof MCP。
 
-**禁止**再写入「产品自助拆分未入库。」（用户要求页脚不出现）。产品自助 / ppos / pubpri_excess 只写在 `source.gaps`。
+**禁止**再写入「产品自助拆分未入库。」与「公募仓位重建自 lxwfof「公私募持仓统计」；」（用户要求页脚不出现）。产品自助 / ppos / pubpri_excess 只写在 `source.gaps`。
 
 同步目标：
 - `data-dashboard/funds/data/mutual.json`
