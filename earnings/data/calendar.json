@@ -1,6 +1,6 @@
 {
   "schema": "earnings-calendar-v1",
-  "updated": "2026-11-03T23:11:28+08:00",
+  "updated": "2026-11-04T08:20:00+08:00",
   "meetings": [
     {
       "id": "fomc-2026-09",
@@ -375,7 +375,7 @@
       "decisionAt": null,
       "status": "ongoing",
       "expectation": null,
-      "result": null,
+      "result": "暂无（截至北京时间11-04 08:20，美东晚间计票刚开始，众院0/435、参院0/35未宣布；参院控制权或至周三乃至更晚才明朗）",
       "verdict": null,
       "note": "联邦法定选举日(2 U.S.C. §7)；参院33席常规+2席补选(俄亥俄/佛罗里达)。投票站关闭后各州开始计票，夜间结果为非官方。 选举日当天（美东上午仍在投票），结果/议席分布待夜间非官方出口民调与计票；本栏仅跟踪关键里程碑，不填州级计票细节。",
       "sources": [
@@ -386,6 +386,11 @@
         {
           "name": "CRS R46413 Election Day",
           "url": "https://www.congress.gov/crs_external_products/R/HTML/R46413.web.html"
+        },
+        {
+          "name": "NBC News Decision Desk",
+          "url": "https://www.nbcnews.com/politics/2026-election/decision-desk-will-know-senate-house-control-rcna603038",
+          "asOf": "2026-11-04"
         }
       ],
       "importance": 3
@@ -881,13 +886,13 @@
       "status": "released",
       "actual": "7.523M",
       "forecast": "7.11M",
-      "previous": "7.190M",
+      "previous": "7.08M",
       "verdict": "高于预期",
       "diff": "+0.413M",
       "impact": "Medium",
       "source": {
-        "name": "BLS JOLTS September 2026",
-        "url": "https://www.bls.gov/news.release/jolts.nr0.htm"
+        "name": "ForexFactory 周历",
+        "url": "https://www.forexfactory.com/calendar"
       },
       "importance": 1,
       "surprisePct": 5.8,
