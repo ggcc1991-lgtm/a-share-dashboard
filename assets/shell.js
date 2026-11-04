@@ -245,9 +245,46 @@ window.DashMotion = {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && dd.classList.contains("open")) { close(); suppress = true; btn.focus(); setTimeout(() => { suppress = false; }, 0); }
     });
-    window.addEventListener("resize", close);
+    let lastW = window.innerWidth;
+    window.addEventListener("resize", () => {
+      if (window.innerWidth !== lastW) { lastW = window.innerWidth; close(); }
+      else if (dd.classList.contains("open")) place();
+    });
     window.addEventListener("scroll", () => { if (dd.classList.contains("open")) place(); }, { passive: true });
     const nav = dd.closest(".nav");
     if (nav) nav.addEventListener("scroll", () => { if (dd.classList.contains("open")) place(); }, { passive: true });
   });
+})();
+
+
+/* == mobile nav scroll edge fades == */
+(function navScrollFade() {
+  function enhance(nav) {
+    if (!nav || nav.dataset.navFade === "1") return;
+    nav.dataset.navFade = "1";
+    let wrap = nav.parentElement;
+    if (!wrap || !wrap.classList.contains("nav-scroll")) {
+      wrap = document.createElement("div");
+      wrap.className = "nav-scroll";
+      nav.parentNode.insertBefore(wrap, nav);
+      wrap.appendChild(nav);
+    }
+    const update = () => {
+      const max = Math.max(0, nav.scrollWidth - nav.clientWidth);
+      const sl = nav.scrollLeft;
+      const scrollable = max > 4;
+      wrap.classList.toggle("is-scrollable", scrollable);
+      wrap.classList.toggle("fade-left", scrollable && sl > 2);
+      wrap.classList.toggle("fade-right", scrollable && sl < max - 2);
+    };
+    nav.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    if (typeof ResizeObserver !== "undefined") {
+      try { new ResizeObserver(update).observe(nav); } catch (_) {}
+    }
+    update();
+    requestAnimationFrame(update);
+    setTimeout(update, 120);
+  }
+  document.querySelectorAll(".app-header .nav").forEach(enhance);
 })();

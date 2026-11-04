@@ -94,7 +94,30 @@
     function clsFlow(v) {
       return v > 0 ? "pos" : v < 0 ? "neg" : "";
     }
-
+    /** ISO / Date → Asia/Shanghai `YYYY-MM-DD HH:mm` (no raw ISO dump) */
+    function fmtShanghai(iso) {
+      if (!iso) return "";
+      try {
+        const d = new Date(iso);
+        if (Number.isNaN(d.getTime())) {
+          const s = String(iso);
+          // already human "2026-11-03 23:38 …"
+          const m = s.match(/^(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})/);
+          return m ? m[1] + " " + m[2] : s;
+        }
+        const parts = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Shanghai",
+          year: "numeric", month: "2-digit", day: "2-digit",
+          hour: "2-digit", minute: "2-digit", hour12: false,
+        }).formatToParts(d);
+        const g = (t) => (parts.find((x) => x.type === t) || {}).value || "";
+        let hh = g("hour");
+        if (hh === "24") hh = "00"; // some engines
+        return g("year") + "-" + g("month") + "-" + g("day") + " " + hh + ":" + g("minute");
+      } catch (_) {
+        return String(iso);
+      }
+    }
 
     let _scoreSparkPts = null;
     function disposeScoreChart() {
@@ -259,23 +282,10 @@
         </div>`;
       initScoreSpark();
 
-      document.getElementById("feedMeta").textContent = feed?.updated || "";
+      document.getElementById("feedMeta").textContent = fmtShanghai(feed?.updated) || "";
       const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
       document.getElementById("headlines").innerHTML = top.map((x) => {
-        let t = "--:--";
-        if (x.publishedAt) {
-          try {
-            const d = new Date(x.publishedAt);
-            if (!Number.isNaN(d.getTime())) {
-              t = new Intl.DateTimeFormat("zh-CN", {
-                timeZone: "Asia/Shanghai",
-                hour: "2-digit",
-                minute: "2-digit",
-                hour12: false,
-              }).format(d);
-            }
-          } catch (_) {}
-        }
+        const t = x.publishedAt ? (fmtShanghai(x.publishedAt) || "—") : "—";
         return `<a href="${x.url || "feed/"}" ${x.url && x.url !== "#" ? 'target="_blank" rel="noopener"' : ""}>
           <span class="mono hl-time">${t}</span>
           <span class="t">${x.title}<em>${SRC[x.source] || x.source} · ${x.sourceName || ""}</em></span>
@@ -314,7 +324,7 @@
           <div><div class="stat-label">20D</div><div class="stat-value ${clsFlow(flow20)}">${flow20 == null ? "—" : DashFmt.signed(flow20, 1)}</div></div>
           <div><div class="stat-label">汇金观察</div><div class="stat-value">${holderSum ? DashFmt.num(holderSum, 0) : "—"}</div></div>
         </div>
-        <div class="stat-hint">${etf?.updated || ""} · 亿</div>`;
+        <div class="stat-hint">${fmtShanghai(etf?.updated) || etf?.updated || ""} · 亿 · 交易日 ${etfDate}</div>`;
 
       document.getElementById("modules").innerHTML = `
         <a class="module-link" href="etf/"><strong>国家队 ETF</strong><div class="mu" style="font-size:11px;margin-top:4px">${(etf?.etfs || []).length} 只 · ${etf?.dates?.length || 0} 日</div><div class="go">OPEN</div></a>

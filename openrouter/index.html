@@ -23,15 +23,16 @@
     }
     .kpi-bar2 .c{background:#050505;padding:6px 10px;min-width:0;border-right:var(--hair)}
     .kpi-bar2 .c:last-child{border-right:0}
-    .kpi-bar2 .k{font-size:10px;color:var(--mu-2);letter-spacing:.05em}
+    .kpi-bar2 .k{font-size:10px;color:var(--mu-2);letter-spacing:.05em;word-break:keep-all}
     .kpi-bar2 .v{font:650 13px/1.25 var(--mono);color:var(--tx);margin-top:2px;font-variant-numeric:tabular-nums}
     .view-toggle{display:flex;gap:0;border:var(--hair);margin-bottom:10px}
     .view-toggle button{
       flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
-      font:inherit;font-size:12px;padding:8px 10px;cursor:pointer;text-align:left
+      font:inherit;font-size:12px;padding:8px 10px;cursor:pointer;text-align:left;
+      word-break:keep-all;overflow-wrap:normal;white-space:normal
     }
     .view-toggle button:last-child{border-right:0}
-    .view-toggle button .sub{display:block;font-size:10px;color:var(--mu-2);margin-top:2px;letter-spacing:.04em}
+    .view-toggle button .sub{display:block;font-size:10px;color:var(--mu-2);margin-top:2px;letter-spacing:.04em;word-break:keep-all}
     .view-toggle button.on{background:#120c04;color:var(--bb);box-shadow:inset 0 -2px 0 var(--bb)}
     .view-toggle button.on .sub{color:#a07040}
     .chart-box{
@@ -50,10 +51,18 @@
     table.data th:first-child,table.data td:first-child{text-align:left}
     table.data th{
       font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mu-2);
-      background:#050505;font-weight:650;position:sticky;top:0
+      background:#050505;font-weight:650;position:sticky;top:0;z-index:2;
+      min-width:3.2em
     }
+    table.data th:first-child,table.data td:first-child{
+      position:sticky;left:0;z-index:1;background:#0a0a0a;min-width:5.5em;max-width:12em;
+      overflow:hidden;text-overflow:ellipsis
+    }
+    table.data th:first-child{z-index:3;background:#050505}
     table.data tbody tr:nth-child(even) td{background:#0a0a0a}
+    table.data tbody tr:nth-child(even) td:first-child{background:#0a0a0a}
     table.data tbody tr:hover td{background:rgba(255,160,40,.05)}
+    table.data tbody tr:hover td:first-child{background:#16120a}
     table.data td.nm{font-family:var(--sans);font-weight:650;color:var(--tx)}
     .foot-note{font:11px/1.5 var(--mono);color:var(--mu-2);margin:0 0 8px;padding:8px 10px;border:var(--hair);background:#050505}
     .foot-note b{color:var(--mu);font-weight:650}
@@ -70,12 +79,13 @@
       .kpi-bar .c:nth-child(2n){border-right:0}
       .kpi-bar .c{border-bottom:var(--hair)}
       .kpi-bar .v{font-size:15px}
-      .kpi-bar2{grid-template-columns:1fr}
-      .kpi-bar2 .c{border-right:0;border-bottom:var(--hair)}
-      .kpi-bar2 .c:last-child{border-bottom:0}
+      /* keep 开源/闭源收入份额 as 2-up on mobile */
+      .kpi-bar2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .kpi-bar2 .c{border-right:var(--hair);border-bottom:0}
+      .kpi-bar2 .c:last-child{border-right:0}
       .chart-el{height:250px}
       .view-toggle{flex-wrap:wrap}
-      .view-toggle button{font-size:11px;padding:7px 8px;flex:1 1 30%}
+      .view-toggle button{font-size:11px;padding:7px 8px;flex:1 1 30%;word-break:keep-all;min-height:36px}
       .page-title .title-note{display:block;margin:.15em 0 0;font-size:.68em}
     }
 
@@ -88,7 +98,8 @@
     .mini-tabs{display:flex;gap:0;border:var(--hair);margin:0 0 8px}
     .mini-tabs button{
       flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
-      font:inherit;font-size:11px;padding:6px 8px;cursor:pointer;text-align:left
+      font:inherit;font-size:11px;padding:6px 8px;cursor:pointer;text-align:left;
+      word-break:keep-all;overflow-wrap:normal;white-space:normal
     }
     .mini-tabs button:last-child{border-right:0}
     .mini-tabs button.on{background:#120c04;color:var(--bb);box-shadow:inset 0 -2px 0 var(--bb)}
@@ -96,6 +107,8 @@
       display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
       border:var(--hair);margin:0 0 8px;background:var(--bd)
     }
+    .kpi-dense.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .kpi-dense.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .kpi-dense .c{background:var(--bg-2);padding:6px 8px;min-width:0;border-right:var(--hair)}
     .kpi-dense .c:last-child{border-right:0}
     .kpi-dense .k{font-size:9px;color:var(--mu-2);letter-spacing:.05em;text-transform:uppercase}
@@ -131,7 +144,8 @@
     .tbl-cap{font:10px/1.3 var(--mono);color:var(--mu-2);margin:0 0 4px}
     .delta-pos{color:var(--pos)}.delta-neg{color:var(--neg)}.delta-neu{color:var(--mu)}
     @media (max-width:980px){
-      .kpi-dense{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .kpi-dense,
+      .kpi-dense.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .kpi-dense .c:nth-child(2n){border-right:0}
       .kpi-dense .c{border-bottom:var(--hair)}
       .macro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -139,10 +153,20 @@
       .macro-grid .c{border-bottom:var(--hair)}
     }
     @media (max-width:719px){
-      .kpi-dense{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .kpi-dense,
+      .kpi-dense.cols-2,
+      .kpi-dense.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
       .macro-grid{grid-template-columns:1fr 1fr}
       .hbar-row{grid-template-columns:44px 1fr 72px;gap:6px}
-      .mini-tabs button{font-size:10px;padding:6px}
+      .mini-tabs button{font-size:10px;padding:8px 8px;min-height:36px}
+      .view-toggle button{min-height:36px}
+      .foot-note,.page-foot{overflow-wrap:anywhere;word-break:break-word}
+      .kpi-bar .c:nth-last-child(-n+2){border-bottom:0}
+    }
+    @media (max-width:480px){
+      .kpi-dense.cols-3{grid-template-columns:1fr}
+      .kpi-bar2{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .chart-el{height:220px}
     }
   </style>
 </head>
@@ -254,7 +278,7 @@
         <h2>上下文桶<span class="sub" id="ctxSub"></span></h2>
         <p class="caveat" id="ctxCaveat"></p>
         <div class="hbar-list" id="ctxBars"></div>
-        <div class="kpi-dense" id="ctxKpi" style="grid-template-columns:repeat(2,minmax(0,1fr))"></div>
+        <div class="kpi-dense cols-2" id="ctxKpi"></div>
         <div id="ctxDetails"></div>
       </div>
 
@@ -271,7 +295,7 @@
       <div class="panel scard" id="sec-prog" hidden>
         <h2>编程 vs 全站<span class="sub" id="progSub"></span></h2>
         <p class="caveat" id="progCaveat"></p>
-        <div class="kpi-dense" id="progKpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+        <div class="kpi-dense cols-3" id="progKpi"></div>
         <p class="tbl-cap">Providers · programming share vs all-site · Top 10</p>
         <div class="tw"><table class="data" id="progProvTbl"><thead>
           <tr><th>厂商</th><th>Prog %</th><th>全站 %</th><th>Δ pp</th></tr>
@@ -430,15 +454,29 @@
         textStyle: { color: "#e8e8e8", fontSize: 11 },
         confine: true,
       },
-      legend: {
-        type: "scroll",
-        top: 0,
-        textStyle: { color: "#a0a0a0", fontSize: 10 },
-        pageTextStyle: { color: "#a0a0a0" },
-        pageIconColor: AMBER,
-        pageIconInactiveColor: "#555",
-      },
-      grid: { left: 8, right: 10, top: 42, bottom: 28, containLabel: true },
+      legend: (function () {
+        const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
+        if (narrow) {
+          return {
+            type: "plain", orient: "horizontal", left: "center", bottom: 0,
+            width: "92%", itemGap: 6, itemWidth: 12, itemHeight: 8,
+            textStyle: { color: "#a0a0a0", fontSize: 10 },
+          };
+        }
+        return {
+          type: "scroll", top: 0,
+          textStyle: { color: "#a0a0a0", fontSize: 10 },
+          pageTextStyle: { color: "#a0a0a0" },
+          pageIconColor: AMBER,
+          pageIconInactiveColor: "#555",
+        };
+      })(),
+      grid: (function () {
+        const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
+        return narrow
+          ? { left: 8, right: 10, top: 28, bottom: 56, containLabel: true }
+          : { left: 8, right: 10, top: 42, bottom: 28, containLabel: true };
+      })(),
       xAxis: axisCat(labels),
       yAxis: [
         {
@@ -887,15 +925,29 @@
             confine: true,
             valueFormatter: (v) => (v == null ? "—" : (+v).toFixed(2)),
           },
-          legend: {
-            type: "scroll",
-            top: 0,
-            textStyle: { color: "#a0a0a0", fontSize: 10 },
-            pageTextStyle: { color: "#a0a0a0" },
-            pageIconColor: AMBER,
-            pageIconInactiveColor: "#555",
-          },
-          grid: { left: 8, right: 12, top: 42, bottom: 28, containLabel: true },
+          legend: (function () {
+            const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
+            if (narrow) {
+              return {
+                type: "plain", orient: "horizontal", left: "center", bottom: 0,
+                width: "92%", itemGap: 6, itemWidth: 12, itemHeight: 8,
+                textStyle: { color: "#a0a0a0", fontSize: 10 },
+              };
+            }
+            return {
+              type: "scroll", top: 0,
+              textStyle: { color: "#a0a0a0", fontSize: 10 },
+              pageTextStyle: { color: "#a0a0a0" },
+              pageIconColor: AMBER,
+              pageIconInactiveColor: "#555",
+            };
+          })(),
+          grid: (function () {
+            const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
+            return narrow
+              ? { left: 8, right: 12, top: 28, bottom: 56, containLabel: true }
+              : { left: 8, right: 12, top: 42, bottom: 28, containLabel: true };
+          })(),
           xAxis: {
             type: "category",
             data: labels,
