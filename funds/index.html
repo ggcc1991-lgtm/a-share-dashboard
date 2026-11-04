@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>基金数据 · GC的数据监控中心</title>
+  <title data-heat="table-v2">基金数据 · GC的数据监控中心</title>
   <link rel="stylesheet" href="../assets/theme.css" />
   <style>
     .page-title .title-note{font-weight:500;font-size:.72em;color:var(--mu);margin-left:.15em}
@@ -90,7 +90,40 @@
     .chart-box .hint{font:10px/1.4 var(--mono);color:var(--mu-2);padding:0 8px 4px}
     .chart-box .fine{font:10px/1.45 var(--mono);color:var(--mu-3);padding:4px 8px 8px}
     .chart-el{width:100%;height:320px}
-    .chart-el.heat{height:520px}
+
+    .chart-el.heat{height:auto!important;min-height:0;overflow:auto}
+    .ind-heat-wrap{overflow:auto;-webkit-overflow-scrolling:touch;max-height:min(78vh,920px)}
+    table.ind-heat{
+      width:max-content;min-width:100%;border-collapse:separate;border-spacing:0;
+      font:11px/1.2 var(--mono);font-variant-numeric:tabular-nums
+    }
+    table.ind-heat th,table.ind-heat td{
+      border-bottom:1px solid #1a1a1a;border-right:1px solid #1a1a1a;padding:0;background:#0a0a0a
+    }
+    table.ind-heat thead th{
+      position:sticky;top:0;z-index:3;background:#111;color:var(--mu-2);
+      font-size:10px;font-weight:700;letter-spacing:.03em;padding:6px 4px;text-align:center
+    }
+    table.ind-heat th.l,table.ind-heat td.l{
+      text-align:left;padding:6px 8px;position:sticky;left:0;z-index:2;background:#0e0e0e;
+      min-width:5.5em;max-width:7.5em;color:var(--tx);font-family:var(--sans);font-weight:650
+    }
+    table.ind-heat thead th.l{z-index:4;background:#111;color:var(--mu-2)}
+    table.ind-heat .cell{
+      min-width:64px;height:34px;display:flex;align-items:center;justify-content:center;
+      font-weight:700;border:1px solid rgba(0,0,0,.28)
+    }
+    table.ind-heat .legend{
+      display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;
+      padding:8px;font:10px/1.3 var(--mono);color:var(--mu-2)
+    }
+    table.ind-heat + .ind-heat-legend, .ind-heat-legend{
+      display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 4px 4px;
+      font:10px/1.3 var(--mono);color:var(--mu-2)
+    }
+    .ind-heat-legend i{
+      display:inline-block;width:14px;height:10px;border:1px solid #222;vertical-align:-1px;margin-right:4px
+    }
     .view-toggle{display:flex;gap:0;border:var(--hair);margin:0 0 10px;background:var(--bd);width:100%}
     .view-toggle button{
       flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
@@ -283,7 +316,7 @@
     const d = await r.json();
     if (key === "mutual") {
       try {
-        const ir = await fetch("data/industry_mutual.json", { cache: "no-store" });
+        const ir = await fetch("data/industry_mutual.json?v=heat2", { cache: "no-store" });
         if (ir.ok) {
           const ind = await ir.json();
           if (Array.isArray(ind.sections) && ind.sections.length) {
@@ -668,89 +701,55 @@
     return !!(sec && (sec.kind === "industry_heatmap" || sec.kind === "industry_top10_heatmap"));
   }
 
-  function buildHeatOption(sec) {
-    const dates = sec.dateLabels || sec.dates || [];
-    const inds = sec.industries || [];
-    const cells = (sec.cells || []).map((c) => [c[0], c[1], c[2] == null ? 0 : +c[2]]);
-    const pos = cells.map((c) => c[2]).filter((v) => v > 0).sort((a, b) => a - b);
-    let maxV = pos.length ? pos[pos.length - 1] : 8;
-    const p90 = pos.length ? pos[Math.min(pos.length - 1, Math.floor(pos.length * 0.9))] : 6;
-    // 色轴封顶在约 p90，避免极值把中低权重压成同色；更高值仍映射到顶端红
-    const vMax = Math.max(6, Math.min(maxV, +(p90 * 1.2).toFixed(2)));
-    const theme = (window.DashTheme && DashTheme.echartsDark) || {};
-    return Object.assign({}, theme, {
-      tooltip: {
-        position: "top",
-        formatter: (p) => {
-          if (!p || !p.data) return "";
-          const d = dates[p.data[0]] || "";
-          const ind = inds[p.data[1]] || "";
-          const v = p.data[2];
-          return ind + "<br/>" + d + " · " + (v == null ? "—" : (+v).toFixed(2) + "%");
-        },
-      },
-      grid: { left: 76, right: 18, top: 10, bottom: 64, containLabel: false },
-      xAxis: {
-        type: "category",
-        data: dates,
-        splitArea: { show: false },
-        axisLabel: { color: "#a07040", fontSize: 10 },
-      },
-      yAxis: {
-        type: "category",
-        data: inds,
-        inverse: true,
-        axisLabel: { color: "#c8c8c8", fontSize: 10, width: 68, overflow: "truncate" },
-        splitArea: { show: false },
-      },
-      visualMap: {
-        type: "continuous",
-        min: 0,
-        max: vMax,
-        calculable: true,
-        orient: "horizontal",
-        left: "center",
-        bottom: 6,
-        itemWidth: 14,
-        itemHeight: 120,
-        text: [vMax.toFixed(1) + "%", "0%"],
-        textStyle: { color: "#888", fontSize: 10 },
-        // ETF动量绿→黄→红，多档连续插值
-        inRange: {
-          color: ["#141414", "#1b5e20", "#2e7d32", "#7cb342", "#dce775", "#ffeb3b", "#ffb300", "#fb8c00", "#f4511e", "#e53935"],
-        },
-      },
-      series: [{
-        type: "heatmap",
-        data: cells,
-        label: {
-          show: true,
-          fontSize: 10,
-          fontWeight: 600,
-          color: "#fff",
-          textBorderColor: "rgba(0,0,0,.85)",
-          textBorderWidth: 2.5,
-          formatter: (p) => {
-            if (!p || !p.data || p.data[2] == null) return "";
-            const v = +p.data[2];
-            if (!(v > 0)) return "";
-            return v.toFixed(2);
-          },
-        },
-        itemStyle: { borderColor: "#0a0a0a", borderWidth: 1 },
-        emphasis: { itemStyle: { shadowBlur: 8, shadowColor: "rgba(255,160,40,.35)" } },
-      }],
-    });
+  function heatRgbStops() {
+    // ETF动量绿→黄→红，连续插值
+    return [
+      [0.00, [18, 18, 18]],
+      [0.10, [27, 94, 32]],
+      [0.22, [46, 125, 50]],
+      [0.38, [124, 179, 66]],
+      [0.52, [220, 231, 117]],
+      [0.65, [255, 235, 59]],
+      [0.78, [255, 167, 38]],
+      [0.90, [244, 81, 30]],
+      [1.00, [229, 57, 53]],
+    ];
   }
-
+  function lerpHeatColor(t) {
+    t = Math.max(0, Math.min(1, +t || 0));
+    const stops = heatRgbStops();
+    let i = 0;
+    while (i < stops.length - 1 && t > stops[i + 1][0]) i++;
+    const a = stops[i], b = stops[Math.min(i + 1, stops.length - 1)];
+    const span = b[0] - a[0] || 1;
+    const u = (t - a[0]) / span;
+    const rgb = a[1].map((v, k) => Math.round(v + (b[1][k] - v) * u));
+    const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+    return {
+      bg: "rgb(" + rgb.join(",") + ")",
+      text: lum > 0.62 ? "#1a1a1a" : "#ffffff",
+    };
+  }
+  function industryVMax(cells) {
+    const pos = cells.map((c) => +c[2] || 0).filter((v) => v > 0).sort((a, b) => a - b);
+    if (!pos.length) return 8;
+    const p90 = pos[Math.min(pos.length - 1, Math.floor(pos.length * 0.9))];
+    return Math.max(6, +(p90 * 1.15).toFixed(2));
+  }
   function paintIndustryHeat(sec) {
     const metaEl = document.getElementById("mmeta-" + sec.id);
     const chartEl = document.getElementById("mchart-" + sec.id);
     if (!chartEl) return;
+    if (mutualCharts[sec.id]) {
+      try { mutualCharts[sec.id].dispose(); } catch (_) {}
+      delete mutualCharts[sec.id];
+    }
     const dates = sec.dateLabels || sec.dates || [];
     const inds = sec.industries || [];
-    chartEl.classList.add("heat");
-    chartEl.style.height = Math.max(720, 28 * inds.length + 120) + "px";
+    const cells = sec.cells || [];
+    const grid = {};
+    cells.forEach((c) => { grid[c[0] + "|" + c[1]] = c[2]; });
+    const vMax = industryVMax(cells);
     const bits = [];
     if (sec.asOf) bits.push("asOf " + sec.asOf);
     bits.push(dates.length + " 期");
@@ -759,11 +758,29 @@
       bits.push("nFunds " + sec.nFundsByDate[sec.asOf]);
     }
     if (sec.weight) bits.push(sec.weight);
+    bits.push("色轴≈0–" + vMax.toFixed(1) + "%");
     if (metaEl) metaEl.textContent = bits.join(" · ");
-    const chart = ensureMutualChart(sec.id, chartEl);
-    if (!chart) return;
-    chart.setOption(buildHeatOption(sec), true);
-    requestAnimationFrame(() => { try { chart.resize(); } catch (_) {} });
+    chartEl.classList.add("heat");
+    chartEl.style.height = "auto";
+    const head = `<tr><th class="l">行业</th>${dates.map((d) => `<th>${esc(d)}</th>`).join("")}</tr>`;
+    const body = inds.map((name, yi) => {
+      const tds = dates.map((_, xi) => {
+        const raw = grid[xi + "|" + yi];
+        const v = raw == null ? null : +raw;
+        if (v == null || !(v > 0)) {
+          return `<td><div class="cell" style="background:#121212;color:#555">—</div></td>`;
+        }
+        const st = lerpHeatColor(v / vMax);
+        return `<td><div class="cell" style="background:${st.bg};color:${st.text}" title="${esc(name)} · ${esc(dates[xi])} · ${v.toFixed(2)}%">${v.toFixed(2)}</div></td>`;
+      }).join("");
+      return `<tr><td class="l">${esc(name)}</td>${tds}</tr>`;
+    }).join("");
+    const legendStops = [0, 0.2, 0.4, 0.6, 0.8, 1].map((t) => {
+      const st = lerpHeatColor(t);
+      const lab = (t * vMax).toFixed(1) + "%";
+      return `<span><i style="background:${st.bg}"></i>${lab}</span>`;
+    }).join("");
+    chartEl.innerHTML = `<div class="ind-heat-wrap"><table class="ind-heat"><thead>${head}</thead><tbody>${body}</tbody></table></div><div class="ind-heat-legend">${legendStops}<span style="margin-left:6px">（连续插值 · 封顶约九分位）</span></div>`;
   }
 
   function paintMutualSection(sec) {
