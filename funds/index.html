@@ -583,7 +583,7 @@
     requestAnimationFrame(() => { try { chart.resize(); } catch (_) {} });
   }
 
-  /* ---------- mutual multi-section ---------- */
+  /* ---------- position sections（公募 / 私募共用 view-toggle） ---------- */
   function comboReweight(sec, selected) {
     const dates = sec.dates || [];
     const parts = sec.parts || {};
@@ -699,6 +699,7 @@
     hideFundsTable();
     $("tableSeg").hidden = true;
     $("tableSeg").innerHTML = "";
+    toc.setAttribute("aria-label", view === "private" ? "私募仓位" : "公募仓位");
     const hash = (location.hash || "").replace(/^#/, "");
     const hashed = hash && sections.find((s) => s.anchor === hash || s.id === hash);
     if (hashed) activeMutualId = hashed.id;
@@ -826,13 +827,14 @@
   }
 
   function renderSub(d) {
+    const sections = mutualSections(d);
     const bits = [];
     if (d.generatedAtDisplay) bits.push("生成 " + d.generatedAtDisplay);
     if (d.asOf) bits.push("asOf " + d.asOf);
-    if (isStrategyIndex(d)) bits.push("策略指数");
-    if (view === "mutual" && mutualSections(d).length) bits.push("仓位图 " + mutualSections(d).length);
+    if (isStrategyIndex(d) && !sections.length) bits.push("策略指数");
+    if (sections.length) bits.push("仓位图 " + sections.length);
     const tabs = privateTables(d);
-    if (view === "private" && tabs.length) bits.push("三表 " + tabs.length);
+    if (view === "private" && !sections.length && tabs.length) bits.push("三表 " + tabs.length);
     if (d.schemaVersion) bits.push(d.schemaVersion);
     $("sum").textContent = bits.join(" · ") || "—";
     // 公募标题只留「基金数据」：不写 titleNote，也不因 sample 显示角标。
@@ -841,7 +843,7 @@
       $("sampleBadge").hidden = true;
       return;
     }
-    const noteBits = [isStrategyIndex(d) ? "私募·策略指数" : "私募"];
+    const noteBits = [sections.length ? "私募·仓位" : (isStrategyIndex(d) ? "私募·策略指数" : "私募")];
     if (d.asOf) noteBits.push("asOf " + d.asOf);
     $("titleNote").textContent = noteBits.join(" · ");
     $("sampleBadge").hidden = !d.sample;
@@ -1026,18 +1028,19 @@
   function render(d) {
     renderSub(d);
     renderKpis(d);
-    if (view === "private") {
+    // 有 sections 时公募、私募共用 renderMutual（页顶 view-toggle，同时只画一块）。
+    // 私募无 sections 才回退旧三表 / funds；公募无 sections 回退观察池密表。
+    if (mutualSections(d).length) {
+      renderMutual(d);
+    } else if (view === "private") {
       $("mutualRoot").hidden = true; $("mutualRoot").innerHTML = "";
       $("mutualToc").hidden = true; $("mutualToc").innerHTML = "";
       renderActivePrivateTable(d);
     } else {
-      const ok = renderMutual(d);
-      if (!ok) {
-        $("tableSeg").hidden = true; $("tableSeg").innerHTML = "";
-        $("tblCap").hidden = true; $("tblNote").hidden = true;
-        hideChart();
-        renderFundsFallback(d);
-      }
+      $("tableSeg").hidden = true; $("tableSeg").innerHTML = "";
+      $("tblCap").hidden = true; $("tblNote").hidden = true;
+      hideChart();
+      renderFundsFallback(d);
     }
     renderNote(d);
   }

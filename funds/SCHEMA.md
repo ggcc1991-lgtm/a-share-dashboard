@@ -3,7 +3,7 @@
 站内路径：
 
 - 公募：`funds/data/mutual.json` · `schemaVersion`: **`funds-mutual-v2`**
-- 私募：`funds/data/private.json` · `schemaVersion`: **`funds-private-v1`**
+- 私募：`funds/data/private.json` · `schemaVersion`: **`funds-private-v2`**
 
 只读数据契约。UI：`funds/index.html`。顶栏「基金数据」下挂公募 / 私募（与 ETF 同款下拉）；私募 URL `funds/?view=private`；公募默认 `funds/`（`view=mutual`）。无页内公私 toggle、无首页总览卡。
 
@@ -12,28 +12,33 @@
 | 类型 | 节奏 | 说明 |
 |------|------|------|
 | 公募（仓位多图） | **工作日 21:30**（Asia/Shanghai） | 有新 `asOf` 或字段变化再推；否则可不推 |
-| 私募（策略指数 · 三表） | **默认周五 21:30** | 绝对 / 超额 / 风格持仓；无新 `asOf` / 无字段变化可不推；空列表可推 `funds: []` 且 `tables` 可空 |
+| 私募（仓位多图 · v2） | **工作日或周频** | 与源站私募仓位对齐，常见周频，不限死周五。有新 `asOf` 或字段变化再推；否则可不推 |
+| 私募（旧策略指数三表） | 已降级 | 仅当 v2 `sections` 为空时 UI 才读；无新截面不必再推 |
 
 ## 空列表约定
 
 - **公募 v2**：以 `sections[]` 为主；`funds: []` 仅兼容旧观察池，**不再作为主 UX**。
-- **私募**：`funds: []`（或缺失）且无可用 `tables` 时：前端隐藏密表，展示「暂无数据」；KPI 仍可读（若有）。
+- **私募 v2**：以 `sections[]` 为主。正式文件 `funds: []`、`tables: []`，且不写 `series`。有非空 `sections` 时 UI **不**读旧三表，也不展示「暂无数据」空表。
+- **私募无 sections**（v1 降级）：`funds: []`（或缺失）且无可用 `tables` 时，前端隐藏密表，展示「暂无数据」；KPI 仍可读（若有）。
 
 ## 顶层字段（公募 / 私募共用元信息）
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `schemaVersion` | string | `funds-mutual-v2` / `funds-private-v1` |
+| `schemaVersion` | string | `funds-mutual-v2` / `funds-private-v2`（旧 `funds-private-v1` 仅无 sections 时降级） |
 | `generatedAt` | string | ISO 生成时间（含时区） |
 | `generatedAtDisplay` | string | 展示用北京时间文案 |
-| `asOf` | string | 截面日 `YYYY-MM-DD`（公募主 asOf 取主观公募绝对仓位末点） |
+| `asOf` | string | 截面日 `YYYY-MM-DD`（公募主 asOf 取主观公募绝对仓位末点；私募主 asOf 取主观私募绝对仓位末点） |
 | `timezone` | string | 固定 `Asia/Shanghai` |
 | `sample` | boolean? | 样例标记。私募标题在 `true` 时显示「样例」；公募标题不展示该角标 |
 | `note` | string? | 页脚一行说明 |
-| `universe` | string? | 公募仓位可为 `lxwfof_position_pub`；私募可为 `strategy_index` |
+| `universe` | string? | 公募仓位 `lxwfof_position_pub`；私募仓位 `lxwfof_position_pri`（旧策略指数为 `strategy_index`） |
 | `source` | object? | 溯源（MCP / API path / gaps） |
 | `kpis` | object[] | KPI 条 |
-| `funds` | object[] | **兼容**密表行；公募 v2 保持 `[]` |
+| `funds` | object[] | **兼容**密表行；公募 v2 与私募 v2 均保持 `[]` |
+| `sections` | object[]? | 仓位图区块。公募见下；私募 v2 顺序固定为 `pri_abs` / `pri_style` / `pri_quant` |
+| `tables` | object[]? | 仅私募旧三表。v2 为 `[]` |
+| `weeklyText` | object? | 私募可选周度文字（`asOf` / `summary` / `abs` / `styles4` / `zhizeng`）。当前 UI 不渲染 |
 
 ---
 
@@ -124,14 +129,53 @@
 
 ---
 
-## 私募扩展（`funds-private-v1`）
+## 私募 · `funds-private-v2`（lxwfof 持仓统计 · 私募侧）
+
+对应 `https://lxwfof.com/#/position` 私募锚点。主 UX 与公募相同：**页顶 `.view-toggle` 单块切换** + ECharts 折线。`kinds` 与公募 `tabs_abs` / `tabs_style` / `tabs_quant` 相同，复用 `renderMutual`。
+
+`universe`: `lxwfof_position_pri`。正式文件 `funds: []`、`tables: []`，不写 `series`（旧 Wind 策略指数三表已废弃）。
+
+### `sections[]` 顺序与字段
+
+共用字段与公募相同：`id` / `anchor` / `title` / `kind` / `asOf` / `unit`（`%`）/ `defaultOff` / `hint` / `note` / `accuracy`（`text`、`r2_*`、`n_funds` 等）。各 tab：`id` / `label` / `dates` / `series`；可选 `sample`（样本量序列，UI 当前不单独画）。
+
+| 顺序 | `id` | `anchor` | `kind` | 内容 |
+|------|------|----------|--------|------|
+| 1 | `pri_abs` | `pos-abs` | `tabs_abs` | 主观私募绝对仓位。`lineKeys` 固定 `A股总仓位` / `港股` / `总股票仓位`（源序列里的美股不进图，与公募绝对仓位对齐）。`tabs` 通常仅 `pri`（主观私募） |
+| 2 | `pri_style` | `pos-style` | `tabs_style` | 主观私募风格拆分。`defaultTab` 通常 `all`；`defaultOff` 含 `总股票仓位`。`tabs`：`all` 全部私募 / `价值` / `白马成长` / `均衡` / `科技成长`。线名：`总股票仓位` + 七风格（沪深300…风格:双创） |
+| 3 | `pri_quant` | `pos-quant` | `tabs_quant` | 量化私募风格拆分。`defaultTab` 通常 `500指增`；`defaultOff` 为 `总仓位` + `风格:微盘` + `小微盘`。`tabs`：`300/500/1000/2000/A500指增`。线名：`总仓位` + 九风格（含微盘/小微盘） |
+
+不含公募的 `combo` / `etf`，也没有独立 `pri_combo`。
+
+### v2 `kpis[]`
+
+仓位条，单位 `%`，不做涨跌色。当前截面示例：`a_share_pos`（主观私募·A股仓位）、`hk_pos`（港股）、`total_equity`（总股票仓位）。
+
+### 数据来源
+
+- **MCP** `get_dataset(name=position)`：`subjective` / `styles4` / `zhizeng` / `text`。
+- 准确度补自同源 `/api/position` 的 `accuracy` / `accuracy_zz`（MCP 不含这两项）。
+- `weeklyText` 为周度叙述，页内不展示；合规提示留在 `note` / `source.compliance`。
+
+### 私募 UI 消费（`view=private`）
+
+1. `sections` 非空 → 与公募同一套 view-toggle（同时只显示一段）；KPI 读 `kpis`。隐藏旧 `tableSeg`、策略指数 chart、密表，不出现「暂无数据」空表。
+2. tabs + 区间（全样本/近3年/近1年/2024至今）与公募相同；默认可视窗口可从 2023-01-01 起。
+3. `sections` 为空 → 降级到下方 v1：`tables` 三表 +（若有）`series`，再不行回退 `funds`。
+4. 有 sections 时 titleNote 为「私募·仓位」+ asOf（不写「策略指数」）。无 sections 时仍为「私募」或「私募·策略指数」+ asOf。`sample: true` 显示「样例」。
+
+---
+
+## 私募旧三表（`funds-private-v1`，仅降级）
+
+仅当 `sections` 缺失或为空时，UI 才读本节。v2 正式文件不再写这些表。
 
 对应晨会「金融资本盘点」私募三块（Page `659ceb59-1707-46db-9cd6-19962110e905` / slide 30–32）：
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `tables` | object[] | **三张完整表**：`absolute` / `excess` / `style`；UI 私募页优先按此渲染 |
-| `series` | object? | 完整时序（不截断）；图表/复核用，密表可不读 |
+| `tables` | object[] | **三张完整表**：`absolute` / `excess` / `style` |
+| `series` | object? | 完整时序（不截断）；降级路径下的折线，密表可不读 |
 
 ### `tables[]`
 
@@ -198,14 +242,16 @@
 
 可选：`thscode`, `fullName`, `ret1w`, `retSince`, `rankPeerSize`, `rankPeerPos`, `tags` 等。
 
-## `funds[]` · 私募 / 策略指数（兼容层）
+## `funds[]` · 私募 / 策略指数（兼容层，v2 为空）
+
+v2 保持 `funds: []`。下列只描述无 `sections` 时的旧策略指数行：
 
 - 用 **`strategy`** 代替 `category`；可无 `rank1y`。
-- 当前正式截面：`universe: "strategy_index"`，行 `kind: "strategy_index"`。
+- 旧截面：`universe: "strategy_index"`，行 `kind: "strategy_index"`。
   - `nav`：**指数点位**（非基金单位净值）；与 `tables[absolute].rows[].level` 同源
   - `aumYi`：可为 `null`（UI 显示 —；策略指数表默认不展示规模列）
   - `company`：多为 `Wind策略指数`；`manager` 可空
-- 有 `tables` 时：UI 渲染三表；`funds` 仍保留供旧客户端 / 绝对收益兜底。
+- 无 `sections` 且有 `tables` 时：UI 渲染三表；`funds` 供旧客户端 / 绝对收益兜底。
 - 其余收益 / 回撤字段与公募对齐。
 
 ## 数值口径
@@ -218,7 +264,7 @@
 ## UI 消费（总览）
 
 1. 默认 `/funds/` 加载 `mutual.json`；`/funds/?view=private` 加载 `private.json`。
-2. **公募**：有非空 `sections` → view-toggle 单块仓位图；否则回退 `funds` 密表。
-3. **私募**：若 `tables` 含三表，页内分段 +（若有）`series` 折线；否则回退 `funds`。
-4. 公募标题只保留「基金数据」（不写 titleNote、不显示「样例」）。页下说明仍用 `generatedAtDisplay` / `asOf`。私募 titleNote 为「私募」或「私募·策略指数」加 asOf；`sample:true` 显示「样例」。
+2. **公募、私募**：有非空 `sections` → 同一套 view-toggle 单块仓位图（`renderMutual`）；隐藏旧 tableSeg / 密表 / 策略指数 chart。
+3. **无 sections**：公募回退 `funds` 密表；私募回退 v1 三表，再不行回退 `funds`。
+4. 公募标题只保留「基金数据」（不写 titleNote、不显示「样例」）。页下说明仍用 `generatedAtDisplay` / `asOf`。私募有 sections 时 titleNote 为「私募·仓位」+ asOf；无 sections 时为「私募」或「私募·策略指数」+ asOf。`sample:true` 显示「样例」。
 5. 页脚：`note` 一行；各 section/表可用自身 `note`/`accuracy.text`。
