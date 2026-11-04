@@ -36,7 +36,7 @@
 | `source` | object? | 溯源（MCP / API path / gaps） |
 | `kpis` | object[] | KPI 条 |
 | `funds` | object[] | **兼容**密表行；公募 v2 与私募 v2 均保持 `[]` |
-| `sections` | object[]? | 仓位图区块。公募见下；私募 v2 顺序固定为 `pri_abs` / `pri_style` / `pri_quant` |
+| `sections` | object[]? | 仓位图区块。公募见下；私募 v2 顺序固定为 `pri_combo` / `pri_abs` / `pri_style` / `pri_quant` |
 | `tables` | object[]? | 仅私募旧三表。v2 为 `[]` |
 | `weeklyText` | object? | 私募可选周度文字（`asOf` / `summary` / `abs` / `styles4` / `zhizeng`）。当前 UI 不渲染 |
 
@@ -131,21 +131,22 @@
 
 ## 私募 · `funds-private-v2`（lxwfof 持仓统计 · 私募侧）
 
-对应 `https://lxwfof.com/#/position` 私募锚点。主 UX 与公募相同：**页顶 `.view-toggle` 单块切换** + ECharts 折线。`kinds` 与公募 `tabs_abs` / `tabs_style` / `tabs_quant` 相同，复用 `renderMutual`。
+对应 `https://lxwfof.com/#/position` 私募锚点。主 UX 与公募相同：**页顶 `.view-toggle` 单块切换** + ECharts 折线。`kinds` 含 `combo`（`pri_combo`）以及与公募相同的 `tabs_abs` / `tabs_style` / `tabs_quant`，复用 `renderMutual`。
 
 `universe`: `lxwfof_position_pri`。正式文件 `funds: []`、`tables: []`，不写 `series`（旧 Wind 策略指数三表已废弃）。
 
 ### `sections[]` 顺序与字段
 
-共用字段与公募相同：`id` / `anchor` / `title` / `kind` / `asOf` / `unit`（`%`）/ `defaultOff` / `hint` / `note` / `accuracy`（`text`、`r2_*`、`n_funds` 等）。各 tab：`id` / `label` / `dates` / `series`；可选 `sample`（样本量序列，UI 当前不单独画）。
+共用字段与公募相同：`id` / `anchor` / `title` / `kind` / `asOf` / `unit`（`%`）/ `defaultOff` / `hint` / `note` / `accuracy`（`text`、`r2_*`、`n_funds` 等）。各 tab：`id` / `label` / `dates` / `series`；可选 `sample`（样本量序列，UI 当前不单独画）。`kind: combo` 另含 `chips` / `chipDefault` / `parts` / `scales`（与公募 combo 同形）。
 
 | 顺序 | `id` | `anchor` | `kind` | 内容 |
 |------|------|----------|--------|------|
-| 1 | `pri_abs` | `pos-abs` | `tabs_abs` | 主观私募绝对仓位。`lineKeys` 固定 `A股总仓位` / `港股` / `总股票仓位`（源序列里的美股不进图，与公募绝对仓位对齐）。`tabs` 通常仅 `pri`（主观私募） |
-| 2 | `pri_style` | `pos-style` | `tabs_style` | 主观私募风格拆分。`defaultTab` 通常 `all`；`defaultOff` 含 `总股票仓位`。`tabs`：`all` 全部私募 / `价值` / `白马成长` / `均衡` / `科技成长`。线名：`总股票仓位` + 七风格（沪深300…风格:双创） |
-| 3 | `pri_quant` | `pos-quant` | `tabs_quant` | 量化私募风格拆分。`defaultTab` 通常 `500指增`；`defaultOff` 为 `总仓位` + `风格:微盘` + `小微盘`。`tabs`：`300/500/1000/2000/A500指增`。线名：`总仓位` + 九风格（含微盘/小微盘） |
+| 1 | `pri_combo` | `pos-pri-combo` | `combo` | **私募全风格合计**（仅私募）。`chips`/`chipDefault` 仅 `主动私募`/`量化私募`；`dates`+`series`+`parts`+`scales` 与公募 combo 同形（`parts`/`scales` 键=chips）；`series` 为两档规模加权；`defaultOff` 含 `A股总仓位`。**不含**主动公募/ETF。数据自同源 `/api/position/pub` combo（mutual.json）抽出私募两档 |
+| 2 | `pri_abs` | `pos-abs` | `tabs_abs` | 主观私募绝对仓位。`lineKeys` 固定 `A股总仓位` / `港股` / `总股票仓位`（源序列里的美股不进图，与公募绝对仓位对齐）。`tabs` 通常仅 `pri`（主观私募） |
+| 3 | `pri_style` | `pos-style` | `tabs_style` | 主观私募风格拆分。`defaultTab` 通常 `all`；`defaultOff` 含 `总股票仓位`。`tabs`：`all` 全部私募 / `价值` / `白马成长` / `均衡` / `科技成长`。线名：`总股票仓位` + 七风格（沪深300…风格:双创） |
+| 4 | `pri_quant` | `pos-quant` | `tabs_quant` | 量化私募风格拆分。`defaultTab` 通常 `500指增`；`defaultOff` 为 `总仓位` + `风格:微盘` + `小微盘`。`tabs`：`300/500/1000/2000/A500指增`。线名：`总仓位` + 九风格（含微盘/小微盘） |
 
-不含公募的 `combo` / `etf`，也没有独立 `pri_combo`。
+不含完整公私募四档 `combo`，也不含 `etf`；仅有独立 `pri_combo`（私募两档）。
 
 ### v2 `kpis[]`
 
@@ -155,7 +156,9 @@
 
 - **MCP** `get_dataset(name=position)`：`subjective` / `styles4` / `zhizeng` / `text`。
 - 准确度补自同源 `/api/position` 的 `accuracy` / `accuracy_zz`（MCP 不含这两项）。
+- **`pri_combo`**：自同源 `/api/position/pub` combo（已落盘 mutual.json）抽出 `主动私募`/`量化私募` 的 `parts`/`scales`，重算两档规模加权 `series`；不把主动公募/ETF 写入私募页。
 - `weeklyText` 为周度叙述，页内不展示；合规提示留在 `note` / `source.compliance`。
+- `source.gaps`：说明 MCP 无 combo、准确度外补、美股不进 pri_abs、以及 pri_combo 溯源（见 private.json）。
 
 ### 私募 UI 消费（`view=private`）
 
