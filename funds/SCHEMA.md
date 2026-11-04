@@ -50,17 +50,17 @@
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `sections` | object[] | **有序区块**：combo / pub_abs / pub_style / pub_quant /（可选）etf |
+| `sections` | object[] | **有序区块**：combo / pub_abs / pub_style / pub_quant /（可选）etf；行业热力另见 `industry_mutual.json`（运行时拼入） |
 | `funds` | `[]` | 旧观察池已清空；保留键以免旧客户端报错 |
 
 ### `sections[]` 共用字段
 
 | 字段 | 说明 |
 |------|------|
-| `id` | `combo` \| `pub_abs` \| `pub_style` \| `pub_quant` \| `etf` |
+| `id` | `combo` \| `pub_abs` \| `pub_style` \| `pub_quant` \| `etf` \| `pub_ind_sw1` \| `pub_ind_top10` |
 | `anchor` | 与源站一致：`pos-combo` / `pos-pub-abs` / `pos-pub-style` / `pos-pub-quant` / `pos-etf` |
 | `title` | 展示标题 |
-| `kind` | `combo` \| `tabs_abs` \| `tabs_style` \| `tabs_quant` \| `single` |
+| `kind` | `combo` \| `tabs_abs` \| `tabs_style` \| `tabs_quant` \| `single` \| `industry_heatmap` \| `industry_top10_heatmap` |
 | `asOf` | 本区块末点日期 |
 | `unit` | 通常 `%` |
 | `defaultOff` | 默认图例隐藏的线名 |
@@ -109,19 +109,55 @@
 | `dates` / `series` | 全历史日频；`defaultOff` 含 A股总仓位/总股票仓位/美股/未拆分 |
 | `note` | 源站口径说明 |
 
+#### 6. 行业配置热力（独立文件 `data/industry_mutual.json`）
+
+文件顶层 `schemaVersion: funds-mutual-v2`，`kind: industry_bundle`。UI 在加载 `mutual.json` 后 **额外 fetch** 本文件，把其 `sections[]` **追加**到公募 view-toggle（不改 mutual.json 仓位主文件）。**不使用 lxwfof MCP**。
+
+##### 6a. `pub_ind_sw1` · `kind: industry_heatmap`（主图）
+
+| 字段 | 说明 |
+|------|------|
+| `classification` | `SW2021_L1`（申万 2021 一级） |
+| `weight` | `pct_of_equity`（占股票市值%） |
+| `freq` | `semiannual`（中报/年报；季报无完整行业配置） |
+| `dates` / `dateLabels` | 报告期与轴标签（如 `2025Q4`） |
+| `industries` | Y 轴行业名（按末期末权重大小降序） |
+| `cells` | `[dateIdx, industryIdx, value]`，value 为 % |
+| `nFundsByDate` | 各报告期参与加权的样本基金数 |
+| `fundsSample` | 可选，样本代码/名称/规模备查 |
+| `filter` | 宇宙与剔除规则文档（普通股票型+偏股混合；剔指数/ETF/联接/明显行业主题偏科） |
+
+源：Wind `fund_get_industry_allocation`（`classificationType=10`）按基金取中/年报，AUM 加权聚合。样本约头部多元化主动权益（调用量约束下 ~8–11 只），**非全市场全组合**。
+
+##### 6b. `pub_ind_top10` · `kind: industry_top10_heatmap`（辅图）
+
+| 字段 | 说明 |
+|------|------|
+| `classification` | `SW2021_L1` |
+| `weight` | 前十大重仓市值映射申万一级后的占比聚合 |
+| `freq` | `quarterly`（尽量近 ~8 个季报/中年报节点） |
+| `dates` / `dateLabels` / `industries` / `cells` | 同主图形状 |
+| `coverage` | 脚注口径：仅前十大覆盖，非全组合 |
+| `note` | 须写明「仅前十大重仓」 |
+
+源：Wind analytics 重仓股→申万一级市场聚合（普通股票型+偏股混合）。可含 Q1/Q3；个别季度若聚合不可用则记入 `source.gaps`。
+
+可选未交付：`SW2` top30+其他 tab（主图二级行业）。
+
 ### 数据来源与缺口
 
 - **MCP** `user-lxwfof MCP` → `get_dataset(name=position)`：仅有私募侧 `subjective`/`styles4`/`zhizeng`/`text`（页头 asOf 约私募周频），**不含**公募四块 / ETF / 产品自助。
 - **公募主数据**：同源站点 `/api/position/pub`（`pub`/`blend`/`combo`/`accuracy*`）；ETF：`/api/position/etf`。
 - **未收录**：`#pos-pattr` 产品自助（需 `/api/position/ppos`）；`pubpri_excess` 属超额对比、不进本文件。
+- **行业热力**：见 `industry_mutual.json`（Wind，非 lxwfof）；缺口写在该文件 `source.gaps`。
 - **顶层 `note`（页脚）**：只写主数据/ETF/MCP 溯源 + 合规句。**禁止**写入「产品自助拆分未入库。」与「公募仓位重建自 lxwfof「公私募持仓统计」；」；产品自助缺口只放在 `source.gaps`。
 - 合规：回答中须保留 MCP 返回末尾提示语（如「部分信息参考自lxwfof MCP」）。
 
 ### 公募 UI 消费（`view=mutual`）
 
-1. 读 `sections[]`，用页顶 view-toggle 单块切换（同时只显示一段仓位图）；KPI 读 `kpis`。
-2. 每区独立 tabs/chips + 区间（全样本/近3年/近1年/2024至今）；默认可视窗口可从 2023-01-01 起（历史更早时）。
-3. ECharts：本地 `../assets/echarts.min.js` + `DashTheme.echartsDark`；仓位线用中性/固定名色，**不做涨跌红绿**。
+1. 读 `sections[]`，用页顶 view-toggle 单块切换（同时只显示一段仓位图）；KPI 读 `kpis`。另 fetch `data/industry_mutual.json` 并把其 sections 追加进 toggle。
+2. 仓位区：独立 tabs/chips + 区间（全样本/近3年/近1年/2024至今）；默认可视窗口可从 2023-01-01 起（历史更早时）。行业热力区无区间/tabs，画 ECharts `heatmap`（`industry_heatmap` / `industry_top10_heatmap`）。
+3. ECharts：本地 `../assets/echarts.min.js` + `DashTheme.echartsDark`；仓位线用中性/固定名色，**不做涨跌红绿**；热力用暖色 visualMap。
 4. `funds[]` 空时不渲染观察池密表；无 `sections` 时才回退旧 `funds` 表。
 
 ### 旧版 `funds-mutual-v1`（已废弃主路径）

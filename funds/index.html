@@ -90,6 +90,7 @@
     .chart-box .hint{font:10px/1.4 var(--mono);color:var(--mu-2);padding:0 8px 4px}
     .chart-box .fine{font:10px/1.45 var(--mono);color:var(--mu-3);padding:4px 8px 8px}
     .chart-el{width:100%;height:320px}
+    .chart-el.heat{height:520px}
     .view-toggle{display:flex;gap:0;border:var(--hair);margin:0 0 10px;background:var(--bd);width:100%}
     .view-toggle button{
       flex:1;background:#0a0a0a;color:var(--mu);border:0;border-right:var(--hair);
@@ -280,6 +281,20 @@
     const r = await fetch(meta.file, { cache: "no-store" });
     if (!r.ok) throw new Error(meta.label + " HTTP " + r.status);
     const d = await r.json();
+    if (key === "mutual") {
+      try {
+        const ir = await fetch("data/industry_mutual.json", { cache: "no-store" });
+        if (ir.ok) {
+          const ind = await ir.json();
+          if (Array.isArray(ind.sections) && ind.sections.length) {
+            d.sections = (Array.isArray(d.sections) ? d.sections : []).concat(ind.sections);
+            d._industry = ind;
+            d.source = d.source || {};
+            d.source.industry = ind.source || null;
+          }
+        }
+      } catch (_) {}
+    }
     cache[key] = d;
     return d;
   }
@@ -649,7 +664,97 @@
     return mutualCharts[secId];
   }
 
+  function isIndustryHeat(sec) {
+    return !!(sec && (sec.kind === "industry_heatmap" || sec.kind === "industry_top10_heatmap"));
+  }
+
+  function buildHeatOption(sec) {
+    const dates = sec.dateLabels || sec.dates || [];
+    const inds = sec.industries || [];
+    const cells = (sec.cells || []).map((c) => [c[0], c[1], c[2] == null ? 0 : +c[2]]);
+    let maxV = 0;
+    cells.forEach((c) => { if (c[2] > maxV) maxV = c[2]; });
+    if (maxV < 8) maxV = 8;
+    const theme = (window.DashTheme && DashTheme.echartsDark) || {};
+    return Object.assign({}, theme, {
+      tooltip: {
+        position: "top",
+        formatter: (p) => {
+          if (!p || !p.data) return "";
+          const d = dates[p.data[0]] || "";
+          const ind = inds[p.data[1]] || "";
+          const v = p.data[2];
+          return ind + "<br/>" + d + " · " + (v == null ? "—" : (+v).toFixed(2) + "%");
+        },
+      },
+      grid: { left: 72, right: 18, top: 12, bottom: 52, containLabel: false },
+      xAxis: {
+        type: "category",
+        data: dates,
+        splitArea: { show: true },
+        axisLabel: { color: "#a07040", fontSize: 10 },
+      },
+      yAxis: {
+        type: "category",
+        data: inds,
+        inverse: true,
+        axisLabel: { color: "#c8c8c8", fontSize: 10, width: 64, overflow: "truncate" },
+        splitArea: { show: true },
+      },
+      visualMap: {
+        min: 0,
+        max: Math.ceil(maxV),
+        calculable: true,
+        orient: "horizontal",
+        left: "center",
+        bottom: 4,
+        textStyle: { color: "#888", fontSize: 10 },
+        inRange: { color: ["#0b0b0b", "#3a2410", "#c45f00", "#ffb347"] },
+      },
+      series: [{
+        type: "heatmap",
+        data: cells,
+        label: {
+          show: true,
+          fontSize: 9,
+          color: "#ddd",
+          formatter: (p) => (p.data && p.data[2] >= 3 ? (+p.data[2]).toFixed(1) : ""),
+        },
+        itemStyle: { borderColor: "#111", borderWidth: 1 },
+        emphasis: { itemStyle: { shadowBlur: 8, shadowColor: "rgba(255,160,40,.35)" } },
+      }],
+    });
+  }
+
+  function paintIndustryHeat(sec) {
+    const metaEl = document.getElementById("mmeta-" + sec.id);
+    const chartEl = document.getElementById("mchart-" + sec.id);
+    if (!chartEl) return;
+    const dates = sec.dateLabels || sec.dates || [];
+    const inds = sec.industries || [];
+    chartEl.classList.add("heat");
+    chartEl.style.height = Math.max(480, 15 * inds.length + 90) + "px";
+    const bits = [];
+    if (sec.asOf) bits.push("asOf " + sec.asOf);
+    bits.push(dates.length + " 期");
+    bits.push(inds.length + " 行业");
+    if (sec.nFundsByDate && sec.asOf && sec.nFundsByDate[sec.asOf] != null) {
+      bits.push("nFunds " + sec.nFundsByDate[sec.asOf]);
+    }
+    if (sec.weight) bits.push(sec.weight);
+    if (metaEl) metaEl.textContent = bits.join(" · ");
+    const chart = ensureMutualChart(sec.id, chartEl);
+    if (!chart) return;
+    chart.setOption(buildHeatOption(sec), true);
+    requestAnimationFrame(() => { try { chart.resize(); } catch (_) {} });
+  }
+
   function paintMutualSection(sec) {
+    if (isIndustryHeat(sec)) {
+      paintIndustryHeat(sec);
+      return;
+    }
+
     const st = mutualState[sec.id];
     if (!st) return;
     const pack = resolveMutualPack(sec, st);
@@ -729,7 +834,8 @@
           return `<button type="button" data-tab="${esc(t.id)}" class="${on ? "active" : ""}" aria-selected="${on}">${esc(t.label || t.id)}</button>`;
         }).join("")}</div>`;
       }
-      const rangeHtml = `<div class="range-seg" data-role="range" data-sid="${esc(sec.id)}">${RANGE_ORDER.map((id) => {
+      const heat = isIndustryHeat(sec);
+      const rangeHtml = heat ? "" : `<div class="range-seg" data-role="range" data-sid="${esc(sec.id)}">${RANGE_ORDER.map((id) => {
         const on = (st.range || "all") === id;
         return `<button type="button" data-range="${esc(id)}" class="${on ? "active" : ""}">${esc(RANGE_LABEL[id])}</button>`;
       }).join("")}</div>`;
@@ -742,12 +848,12 @@
         <div class="chart-hd">
           <div class="hd-left">
             <h3>${esc(sec.title || sec.id)}</h3>
-            ${tabsHtml}
+            ${heat ? "" : tabsHtml}
           </div>
           <span class="sub" id="mmeta-${esc(sec.id)}"></span>
         </div>
         ${rangeHtml}
-        <div class="chart-el" id="mchart-${esc(sec.id)}"></div>
+        <div class="chart-el${heat ? " heat" : ""}" id="mchart-${esc(sec.id)}"></div>
         ${fine.length ? `<div class="fine">${esc(fine.join(" · "))}</div>` : ""}
       </section>`;
     }).join("");

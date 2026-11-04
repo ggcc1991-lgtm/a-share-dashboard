@@ -29,3 +29,8 @@
 - `ashd/funds/data/mutual.json`（GitHub Pages 源）
 
 推送约定：改完数据后由本 bot 或 github助手推 `ashd`；重生截面务必遵守上述 note 规则。
+
+
+## 行业配置热力（industry_mutual.json）
+
+独立于仓位主文件。`pub_ind_sw1`（中/年报 SW1 pct_of_equity 样本加权）+ `pub_ind_top10`（季报前十大→SW1 市场聚合）。UI fetch 后拼入公募 toggle。源 Wind；**不用 lxwfof**。同步同路径到 data-dashboard/funds 与 /workspace/funds。
