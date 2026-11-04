@@ -702,17 +702,23 @@
         splitArea: { show: true },
       },
       visualMap: {
-        min: 0,
-        max: Math.ceil(maxV),
-        calculable: true,
+        // 按权重分档（样本中位数~1.5%、p75~3.5%），避免按 max 线性拉伸整片发绿
+        type: "piecewise",
         orient: "horizontal",
         left: "center",
-        bottom: 4,
-        textStyle: { color: "#888", fontSize: 10 },
-        inRange: {
-          // ETF动量 P1→P10：绿弱→红强，拉大档差
-          color: ["#121212", "#2e7d32", "#8bc34a", "#ffeb3b", "#ff9800", "#f4511e", "#e53935"],
-        },
+        bottom: 2,
+        itemWidth: 10,
+        itemHeight: 10,
+        textStyle: { color: "#888", fontSize: 9 },
+        pieces: [
+          { min: 0, max: 0.5, label: "<0.5%", color: "#1a1a1a" },
+          { min: 0.5, max: 1.5, label: "0.5–1.5", color: "#2e7d32" },
+          { min: 1.5, max: 3, label: "1.5–3", color: "#8bc34a" },
+          { min: 3, max: 5, label: "3–5", color: "#ffeb3b" },
+          { min: 5, max: 8, label: "5–8", color: "#ff9800" },
+          { min: 8, max: 15, label: "8–15", color: "#f4511e" },
+          { min: 15, label: "≥15%", color: "#e53935" },
+        ],
       },
       series: [{
         type: "heatmap",
@@ -720,14 +726,15 @@
         label: {
           show: true,
           fontSize: 9,
-          color: "#111",
-          formatter: (p) => {
-            if (!p || !p.data || p.data[2] == null || +p.data[2] < 3) return "";
-            return (+p.data[2]).toFixed(1);
-          },
-          // dark text on mid/high; override via rich not available — use white shadow for low cells
-          textBorderColor: "rgba(255,255,255,.55)",
+          color: "#fff",
+          textBorderColor: "rgba(0,0,0,.75)",
           textBorderWidth: 2,
+          formatter: (p) => {
+            if (!p || !p.data || p.data[2] == null) return "";
+            const v = +p.data[2];
+            if (!(v > 0)) return "";
+            return v >= 10 ? v.toFixed(0) : v.toFixed(1);
+          },
         },
         itemStyle: { borderColor: "#111", borderWidth: 1 },
         emphasis: { itemStyle: { shadowBlur: 8, shadowColor: "rgba(255,160,40,.35)" } },
