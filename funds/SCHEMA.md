@@ -28,7 +28,7 @@
 | `generatedAtDisplay` | string | 展示用北京时间文案 |
 | `asOf` | string | 截面日 `YYYY-MM-DD`（公募主 asOf 取主观公募绝对仓位末点） |
 | `timezone` | string | 固定 `Asia/Shanghai` |
-| `sample` | boolean? | `true` 时 UI 显示「样例」角标 |
+| `sample` | boolean? | 样例标记。私募标题在 `true` 时显示「样例」；公募标题不展示该角标 |
 | `note` | string? | 页脚一行说明 |
 | `universe` | string? | 公募仓位可为 `lxwfof_position_pub`；私募可为 `strategy_index` |
 | `source` | object? | 溯源（MCP / API path / gaps） |
@@ -113,7 +113,7 @@
 
 ### 公募 UI 消费（`view=mutual`）
 
-1. 读 `sections[]` 按序渲染多张图；KPI 读 `kpis`。
+1. 读 `sections[]`，用页顶 view-toggle 单块切换（同时只显示一段仓位图）；KPI 读 `kpis`。
 2. 每区独立 tabs/chips + 区间（全样本/近3年/近1年/2024至今）；默认可视窗口可从 2023-01-01 起（历史更早时）。
 3. ECharts：本地 `../assets/echarts.min.js` + `DashTheme.echartsDark`；仓位线用中性/固定名色，**不做涨跌红绿**。
 4. `funds[]` 空时不渲染观察池密表；无 `sections` 时才回退旧 `funds` 表。
@@ -218,7 +218,7 @@
 ## UI 消费（总览）
 
 1. 默认 `/funds/` 加载 `mutual.json`；`/funds/?view=private` 加载 `private.json`。
-2. **公募**：有非空 `sections` → 多段仓位图；否则回退 `funds` 密表。
+2. **公募**：有非空 `sections` → view-toggle 单块仓位图；否则回退 `funds` 密表。
 3. **私募**：若 `tables` 含三表，页内分段 +（若有）`series` 折线；否则回退 `funds`。
-4. 副标：`generatedAtDisplay` / `asOf`；`sample:true` 显示「样例」。
+4. 公募标题只保留「基金数据」（不写 titleNote、不显示「样例」）。页下说明仍用 `generatedAtDisplay` / `asOf`。私募 titleNote 为「私募」或「私募·策略指数」加 asOf；`sample:true` 显示「样例」。
 5. 页脚：`note` 一行；各 section/表可用自身 `note`/`accuracy.text`。
