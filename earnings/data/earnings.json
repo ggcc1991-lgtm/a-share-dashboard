@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-05T06:24:19+08:00",
+ "updated": "2026-11-05T23:23:53+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-11-05",
  "companies": [
@@ -46,9 +46,11 @@
     "epsActual": 2.1,
     "epsEstimate": 1.98579,
     "epsSurprisePct": 0.0575,
-    "note": "FY26Q4 营收 1144.77 亿美元(+12%)，毛利率 47.9%；预期 EPS 1.986、营收约 1133.5 亿(Yahoo)"
+    "note": "FY26Q4 营收 1144.77 亿美元(+12%)，毛利率 47.9%；预期 EPS 1.986、营收约 1133.5 亿(Yahoo)",
+    "verdict": "超预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 5.8
   },
   {
    "symbol": "MSFT",
@@ -106,9 +108,11 @@
       "url": "https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "verdict": "超预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.4
   },
   {
    "symbol": "GOOGL",
@@ -164,7 +168,8 @@
       "url": "https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "verdict": "不及预期"
    },
    "note": "信息流·qinbafrank·2026-10-26：Q3总营收共识约1279亿美元（+25%），与面板Yahoo一致预期约1278亿美元基本一致；另摘云收入一致预期约291.6亿美元（+92%）、搜索约+15%、YouTube广告约+11%",
    "feedExtracts": [
@@ -187,7 +192,8 @@
      ]
     }
    ],
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -11.6
   },
   {
    "symbol": "AMZN",
@@ -243,9 +249,11 @@
       "url": "https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html",
       "asOf": "2026-10-30"
      }
-    ]
+    ],
+    "verdict": "不及预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -3.6
   },
   {
    "symbol": "META",
@@ -280,7 +288,8 @@
     "netIncome": 9860000000.0,
     "revenueYoY": 0.2607041099098395,
     "netIncomeYoY": 2.6397194536729423,
-    "reportDate": "2026-10-22T04:00:00+08:00"
+    "reportDate": "2026-10-22T04:00:00+08:00",
+    "verdict": "不及预期"
    },
    "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿",
    "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比",
@@ -291,7 +300,8 @@
     "note": "GAAP EPS 3.83 含州检察长和解约100亿美元法律费用，与5.75预期口径不可比",
     "guidance": "Q4营收指引730–760亿美元，中值745亿 vs LSEG预期737.3亿（高于预期）；全年capex收窄至1350–1450亿"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -29.3
   },
   {
    "symbol": "NVDA",
@@ -304,7 +314,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/nvda/earnings",
-     "asOf": "2026-11-05T06:20:37+08:00",
+     "asOf": "2026-11-05T23:17:47+08:00",
      "note": "已披露清空(reportDate=2026-08-27，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -333,9 +343,11 @@
     "netIncome": 59688000000.0,
     "revenueYoY": 1.0585114348672526,
     "netIncomeYoY": 1.2590265687684505,
-    "reportDate": "2026-08-27T04:00:00+08:00"
+    "reportDate": "2026-08-27T04:00:00+08:00",
+    "verdict": "超预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 6.2
   },
   {
    "symbol": "TSLA",
@@ -370,7 +382,8 @@
     "netIncome": 787000000.0,
     "revenueYoY": -0.0017440825769710067,
     "netIncomeYoY": -0.42680262199563,
-    "reportDate": "2026-10-22T04:00:00+08:00"
+    "reportDate": "2026-10-22T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "guidance": "暂无（未给出量化营收指引）",
    "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)",
@@ -381,7 +394,8 @@
     "note": "调整后EPS 0.48 vs LSEG 0.43；GAAP EPS 0.22，归母净利7.87亿美元(-29%)",
     "guidance": "暂无（未给出量化营收指引）"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 6.4
   },
   {
    "symbol": "TSM",
@@ -416,7 +430,8 @@
     "netIncome": 763064000000.0,
     "revenueYoY": 0.5094609048339684,
     "netIncomeYoY": 0.6870697021731793,
-    "reportDate": "2026-10-15T14:00:00+08:00"
+    "reportDate": "2026-10-15T14:00:00+08:00",
+    "verdict": "超预期"
    },
    "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
    "note": "EPS为每ADR美元口径（每股NT$29.43）；营收/净利为新台币；净利7630.6亿 vs LSEG SmartEstimate 7463.4亿(+2.2%)；台积电双上市：本条目为美股 ADR(TSM)；台股现股见 2330.TW。",
@@ -425,7 +440,8 @@
     "guidance": "Q3营收467.2亿美元超自身指引446–458亿；Q4指引523–543亿美元",
     "revEstimate": null
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 1.7
   },
   {
    "symbol": "AMD",
@@ -498,7 +514,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/avgo/earnings",
-     "asOf": "2026-11-05T06:20:49+08:00"
+     "asOf": "2026-11-05T23:18:00+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -526,9 +542,11 @@
     "netIncome": 13088000000.0,
     "revenueYoY": 0.8550025075225678,
     "netIncomeYoY": 2.161352657004831,
-    "reportDate": "2026-09-03T04:00:00+08:00"
+    "reportDate": "2026-09-03T04:00:00+08:00",
+    "verdict": "超预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 2.5
   },
   {
    "symbol": "0700.HK",
@@ -591,7 +609,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/baba/earnings",
-     "asOf": "2026-11-05T06:21:10+08:00"
+     "asOf": "2026-11-05T23:18:23+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -643,7 +661,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/bidu/earnings",
-     "asOf": "2026-11-05T06:21:21+08:00"
+     "asOf": "2026-11-05T23:18:37+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -688,13 +706,13 @@
    "name": "京东(ADR)",
    "region": "CN",
    "currency": null,
-   "nextDate": "2026-11-12",
+   "nextDate": "2026-11-17",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/jd/earnings",
-     "asOf": "2026-11-05T06:21:33+08:00"
+     "asOf": "2026-11-05T23:18:49+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -705,7 +723,7 @@
      }
     ]
    },
-   "nasdaqText": "JD.com, Inc. American Depositary Shares is estimated to report earnings on  11/12/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $0.95.  The reported EPS for the same quarter last year was $0.44.",
+   "nasdaqText": "JD.com, Inc. American Depositary Shares is expected* to report earnings on  11/17/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  2 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.95.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 5.95885,
     "epsLow": 5.00259,
@@ -796,7 +814,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-11-05T06:21:43+08:00"
+     "asOf": "2026-11-05T23:19:02+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -824,9 +842,11 @@
     "netIncome": 27182000000.0,
     "revenueYoY": 0.08052122902341674,
     "netIncomeYoY": -0.11614749300903948,
-    "reportDate": "2026-08-24T18:00:00+08:00"
+    "reportDate": "2026-08-24T18:00:00+08:00",
+    "verdict": "超预期"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 5.3
   },
   {
    "symbol": "1810.HK",
@@ -889,7 +909,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/ntes/earnings",
-     "asOf": "2026-11-05T06:22:03+08:00"
+     "asOf": "2026-11-05T23:19:28+08:00"
     },
     "consensus": [],
     "lastReported": [
@@ -940,9 +960,15 @@
     "nextDate": {
      "name": "HKEXnews 董事会会议通告(2026-10-30)",
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1030/2026103000818.pdf",
-     "asOf": "2026-11-05T06:22:15+08:00"
+     "asOf": "2026-11-05T23:19:39+08:00"
     },
-    "consensus": [],
+    "consensus": [
+     {
+      "name": "Tushare report_rc 688981.SH 2026Q4",
+      "url": "https://tushare.pro/document/2",
+      "asOf": "2026-11-05T23:19:40+08:00"
+     }
+    ],
     "lastReported": [
      {
       "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
@@ -977,8 +1003,7 @@
      "window": "2026-08-07~2026-11-05",
      "source": "Tushare report_rc 688981.SH",
      "asOf": "2026-09-18",
-     "unit": "CNY（np/op_rt 万元×1e4）",
-     "stale": true
+     "unit": "CNY（np/op_rt 万元×1e4）"
     },
     "epsAvg": 0.04929,
     "epsLow": 0.03,
@@ -1132,10 +1157,12 @@
     "netIncome": 763064000000.0,
     "revenueYoY": 0.5094609048339684,
     "netIncomeYoY": 0.6870697021731793,
-    "reportDate": "2026-10-15T14:00:00+08:00"
+    "reportDate": "2026-10-15T14:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "台积电台股现股；美股 ADR 见 TSM。Yahoo 下次日期已过（2026-10-15 估），未到新一期确认日前记为暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.4
   },
   {
    "symbol": "2454.TW",
@@ -1297,7 +1324,9 @@
       "url": "https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "epsActual": 11462,
+    "verdict": "不及预期"
    },
    "note": "原数据日期 2026-10-28 14:00 有误，官方为 10-29 10:00 KST(=北京时间 09:00)；官方确认Q3：营收195.25万亿韩元、营业利润107.44万亿（纪录，约超一致预期1.7%）、净利75.14万亿；EPS 11,462韩元。DS营业利润106.5万亿。",
    "importance": 3
@@ -1376,18 +1405,12 @@
    "name": "索尼(ADR)",
    "region": "JP",
    "currency": null,
-   "nextDate": "2026-11-05",
-   "dateStatus": "estimated",
+   "nextDate": null,
+   "dateStatus": "unknown",
    "sources": {
-    "nextDate": {
-     "name": "Nasdaq/Zacks 算法预估",
-     "url": "https://www.nasdaq.com/market-activity/stocks/sony/earnings",
-     "asOf": "2026-11-05T06:22:32+08:00"
-    },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Sony Group Corporation American Depositary Shares  is expected* to report earnings on  11/05/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  1 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.38.  The reported EPS for the same quarter last year was $0.35.",
    "consensus": {
     "epsAvg": 0.37859,
     "epsLow": 0.37859,
@@ -1542,10 +1565,12 @@
     "netIncome": 4960400000.0,
     "revenueYoY": 0.5516232038318254,
     "netIncomeYoY": 1.334855260061191,
-    "reportDate": "2026-10-14T13:00:00+08:00"
+    "reportDate": "2026-10-14T13:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "Yahoo 下次日期已过（2026-10-14），未到新一期确认日前记为暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 9.9
   },
   {
    "symbol": "SAP",
@@ -1580,10 +1605,12 @@
     "netIncome": 2249000000.0,
     "revenueYoY": 0.1315557514323491,
     "netIncomeYoY": 0.12225548902195604,
-    "reportDate": "2026-10-21T08:00:00+08:00"
+    "reportDate": "2026-10-21T08:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "Yahoo 下次日期已过（2026-10-22），未到新一期确认日前记为暂无。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": 1.7
   },
   {
    "symbol": "ENR.DE",
@@ -1661,10 +1688,12 @@
     "netIncome": 4669978000.0,
     "revenueYoY": 0.17066718068986186,
     "netIncomeYoY": 3.5246112885223537,
-    "reportDate": "2026-08-10T08:00:00+08:00"
+    "reportDate": "2026-08-10T08:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "手机镜头模组光学龙头（大立光）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -3.8
   },
   {
    "symbol": "6488.TWO",
@@ -1721,10 +1750,12 @@
       "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-globalwafers-q3-2026-revenue-hit-by-fire-outlook-brightens-93CH-4994084",
       "asOf": "2026-11-03"
      }
-    ]
+    ],
+    "verdict": "不及预期"
    },
    "note": "Q3营收受意大利Novara火灾拖累QoQ-2.3%；营业利益仍YoY+18.2%；净利QoQ大降主因Q2含Siltronic估值收益高基数。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -14.5
   },
   {
    "symbol": "2308.TW",
@@ -1812,10 +1843,12 @@
     "epsActual": 9.98,
     "epsEstimate": 9.56055,
     "epsSurprisePct": 0.043899998,
-    "reportDate": "2026-11-03T17:00:00+08:00"
+    "reportDate": "2026-11-03T17:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "面板驱动 IC 龙头（联咏）；Yahoo 下次日期已过→暂无。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": 4.4
   },
   {
    "symbol": "373220.KS",
@@ -2119,10 +2152,12 @@
     "netIncome": 46145000000.0,
     "revenueYoY": 0.36442273687430116,
     "netIncomeYoY": 0.43548186399552047,
-    "reportDate": "2026-10-22T15:00:00+08:00"
+    "reportDate": "2026-10-22T15:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "晶圆切割/研磨设备龙头（Disco）；Yahoo 下次日期已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -7.5
   },
   {
    "symbol": "6920.T",
@@ -2213,10 +2248,12 @@
     "epsActual": 85.32,
     "epsEstimate": 79.96882,
     "epsSurprisePct": 0.0669,
-    "reportDate": "2026-10-27T14:00:00+08:00"
+    "reportDate": "2026-10-27T14:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "半导体硅片与电子材料龙头（信越化学）；Yahoo 显示日已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 6.7
   },
   {
    "symbol": "6981.T",
@@ -2312,10 +2349,12 @@
     "netIncome": 423000000.0,
     "revenueYoY": 0.12634989200863922,
     "netIncomeYoY": 0.3868852459016394,
-    "reportDate": "2026-08-05T08:00:00+08:00"
+    "reportDate": "2026-08-05T08:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -0.6
   },
   {
    "symbol": "STM",
@@ -2357,13 +2396,20 @@
     "epsNonGaap": 0.37,
     "epsGaapBasis": "GAAP diluted EPS(USD)",
     "epsNonGaapBasis": "non-GAAP diluted EPS(USD)",
-    "epsCompareBasis": "Yahoo 预期对比口径=non-GAAP",
+    "epsCompareBasis": "Yahoo/MarketBeat 预期对比口径=non-GAAP",
     "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
-    "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37"
+    "note": "Q3 营收略超预期；GAAP EPS $0.31 / non-GAAP $0.37；Non-GAAP EPS 0.37 vs 一致预期约0.40（MarketBeat/Zacks）；营收37.57亿略超约37.2亿预期；Q4指引营收中值41.5亿/毛利率39%。",
+    "epsActual": 0.37,
+    "epsEstimate": 0.4,
+    "epsSurprisePct": -0.075,
+    "verdict": "不及预期",
+    "revEstimate": 3720000000,
+    "revSurprisePct": 0.0099
    },
    "guidance": "Q4 营收指引 $4.15B ±3.5%，毛利率 39.0% ±200bp",
    "note": "意法半导体（NYSE ADR STM）；MCU/功率器件。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -7.5
   },
   {
    "symbol": "ASM.AS",
@@ -2411,11 +2457,13 @@
     "epsGaapBasis": "IFRS 摊薄 EPS(欧元/股)",
     "epsCompareBasis": "epsEstimate 为 Yahoo Q3 一致预期(4家)；公告未单列调整后 EPS",
     "note": "营收11.59亿欧元创新高，高于 Yahoo 一致预期11.04亿约5%；毛利率52.0%，调整后经营利润率33.4%；Q4指引营收12.30亿欧元±5%，2027年营收预计超57亿欧元；新增最多3亿欧元回购。去年同期净利含一次性收益，故IFRS净利同比-20%，调整后净利同比+53%。",
-    "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn"
+    "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
+    "verdict": "超预期"
    },
    "guidance": "Q4 2026 营收 €1,230m ±5%（固定汇率）；2027 营收 >€5.7bn",
    "note": "原子层沉积（ALD）设备龙头；Yahoo 用 ASM.AS（ASMI.AS 404）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 0.2
   },
   {
    "symbol": "BESI.AS",
@@ -2448,10 +2496,12 @@
     "epsSurprisePct": 0.0189,
     "revenue": 283400000.0,
     "netIncome": 107193000.0,
-    "reportDate": "2026-10-22T12:00:00+08:00"
+    "reportDate": "2026-10-22T12:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "先进封装键合设备龙头（BESI）；Yahoo 下次日期已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 1.9
   },
   {
    "symbol": "ADYEN.AS",
@@ -2578,7 +2628,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/amat/earnings",
-     "asOf": "2026-11-05T06:22:59+08:00",
+     "asOf": "2026-11-05T23:20:25+08:00",
      "note": "已披露清空(reportDate=2026-08-14，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -2607,10 +2657,12 @@
     "netIncome": 2538000000.0,
     "revenueYoY": 0.2482881402355519,
     "netIncomeYoY": 0.4266441821247893,
-    "reportDate": "2026-08-14T04:00:00+08:00"
+    "reportDate": "2026-08-14T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "半导体前道设备龙头（应用材料）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.1
   },
   {
    "symbol": "LRCX",
@@ -2645,10 +2697,12 @@
     "netIncome": 2753138000.0,
     "revenueYoY": 0.5437924349941297,
     "netIncomeYoY": 0.7550890569020692,
-    "reportDate": "2026-10-22T04:00:00+08:00"
+    "reportDate": "2026-10-22T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "刻蚀/沉积设备龙头（拉姆研究）；Yahoo 下次日期已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 0.9
   },
   {
    "symbol": "KLAC",
@@ -2683,10 +2737,12 @@
     "netIncome": 1548588000.0,
     "revenueYoY": 0.28860022880671554,
     "netIncomeYoY": 0.3813851423678014,
-    "reportDate": "2026-10-29T04:00:00+08:00"
+    "reportDate": "2026-10-29T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "过程控制/量测设备龙头（科磊）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.5
   },
   {
    "symbol": "ADI",
@@ -2699,7 +2755,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/adi/earnings",
-     "asOf": "2026-11-05T06:23:06+08:00",
+     "asOf": "2026-11-05T23:20:37+08:00",
      "note": "已披露清空(reportDate=2026-08-19，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -2728,10 +2784,12 @@
     "netIncome": 1340090000.0,
     "revenueYoY": 0.3963239858517096,
     "netIncomeYoY": 1.5844618701761557,
-    "reportDate": "2026-08-19T19:00:00+08:00"
+    "reportDate": "2026-08-19T19:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "高性能模拟芯片龙头（亚德诺）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.3
   },
   {
    "symbol": "VRT",
@@ -2788,11 +2846,13 @@
       "url": "https://www.investing.com/news/earnings/vertiv-holdings-co-earnings-beat-by-039-revenue-topped-estimates-4978166",
       "asOf": "2026-10-29"
      }
-    ]
+    ],
+    "verdict": "超预期"
    },
    "guidance": "上调 FY2026 指引：营收 $14.45–14.85B，调整后 EPS $7.10–7.20",
    "note": "AI上游·数据中心液冷/电源与散热基础设施（Vertiv 维谛）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 21.4
   },
   {
    "symbol": "ETN",
@@ -2859,11 +2919,13 @@
       "url": "https://finance.yahoo.com/markets/stocks/articles/eaton-etn-q3-earnings-revenues-114502106.html",
       "asOf": "2026-11-03"
      }
-    ]
+    ],
+    "verdict": "超预期"
    },
    "guidance": "FY2026 调整后EPS $13.70–$13.80；Q4 $4.05–$4.15；有机增长13-15%",
    "note": "Q3调整后EPS $3.68超预期；营收创纪录，电气美洲/全球订单与积压强劲；宣布收购COL Group。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 4.0
   },
   {
    "symbol": "SU.PA",
@@ -2985,7 +3047,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/dell/earnings",
-     "asOf": "2026-11-05T06:23:19+08:00",
+     "asOf": "2026-11-05T23:20:49+08:00",
      "note": "已披露清空(reportDate=2026-09-02，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -3014,10 +3076,12 @@
     "netIncome": 4133000000.0,
     "revenueYoY": 0.5774785061794734,
     "netIncomeYoY": 2.5506872852233675,
-    "reportDate": "2026-09-02T04:00:00+08:00"
+    "reportDate": "2026-09-02T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI上游·AI 服务器与企业存储（戴尔）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 43.1
   },
   {
    "symbol": "ANET",
@@ -3090,13 +3154,13 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/csco/earnings",
-     "asOf": "2026-11-05T06:23:25+08:00",
+     "asOf": "2026-11-05T23:20:55+08:00",
      "note": "已披露清空(reportDate=2026-08-13，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Cisco Systems, Inc. Common Stock (DE) is estimated to report earnings on  11/11/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  8 analysts' forecasts, the consensus EPS forecast for the quarter is $1.15.  The reported EPS for the same quarter last year was $0.81.",
+   "nasdaqText": "Cisco Systems, Inc. Common Stock (DE) is expected* to report earnings on  11/12/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.15.  The reported EPS for the same quarter last year was $0.81.",
    "consensus": {
     "epsAvg": 1.32432,
     "epsLow": 1.30992,
@@ -3119,10 +3183,12 @@
     "netIncome": 3859000000.0,
     "revenueYoY": 0.17576501056362015,
     "netIncomeYoY": 0.5133333333333334,
-    "reportDate": "2026-08-13T04:00:00+08:00"
+    "reportDate": "2026-08-13T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI上游·网络设备与数据中心互联（思科）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 4.4
   },
   {
    "symbol": "2382.TW",
@@ -3157,10 +3223,12 @@
     "netIncome": 28651473000.0,
     "revenueYoY": 1.0562352517245182,
     "netIncomeYoY": 0.699311117490202,
-    "reportDate": "2026-08-13T17:00:00+08:00"
+    "reportDate": "2026-08-13T17:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI上游·AI 服务器 ODM（广达）；Yahoo 下次日期已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 16.0
   },
   {
    "symbol": "3231.TW",
@@ -3195,10 +3263,12 @@
     "netIncome": 14827483000.0,
     "revenueYoY": 0.6242635621788375,
     "netIncomeYoY": 1.2797875670675758,
-    "reportDate": "2026-08-06T08:00:00+08:00"
+    "reportDate": "2026-08-06T08:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI上游·AI 服务器 ODM（纬创）；Yahoo 下次日期已过→暂无。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 16.2
   },
   {
    "symbol": "2317.TW",
@@ -3238,10 +3308,12 @@
     "netIncome": 59973771000.0,
     "revenueYoY": 0.40838552358573765,
     "netIncomeYoY": 0.3519616006633641,
-    "reportDate": "2026-08-12T19:00:00+08:00"
+    "reportDate": "2026-08-12T19:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 4.4
   },
   {
    "symbol": "ARM",
@@ -3308,7 +3380,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/mrvl/earnings",
-     "asOf": "2026-11-05T06:23:32+08:00"
+     "asOf": "2026-11-05T23:21:04+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3336,10 +3408,12 @@
     "netIncome": 308000000.0,
     "revenueYoY": 0.3654852699267235,
     "netIncomeYoY": 0.5811088295687885,
-    "reportDate": "2026-08-28T04:00:00+08:00"
+    "reportDate": "2026-08-28T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI芯片·数据中心定制加速/互联（Marvell）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 1.0
   },
   {
    "symbol": "ALAB",
@@ -3412,7 +3486,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-11-05T06:23:36+08:00"
+     "asOf": "2026-11-05T23:21:09+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3440,10 +3514,12 @@
     "netIncome": 129425000.0,
     "revenueYoY": 1.1472829643974647,
     "netIncomeYoY": 1.0414359847947128,
-    "reportDate": "2026-09-02T04:00:00+08:00"
+    "reportDate": "2026-09-02T04:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "AI芯片·高速串行连接与 AEC（Credo）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 2.7
   },
   {
    "symbol": "COHR",
@@ -3532,10 +3608,12 @@
     "netIncome": 277000000.0,
     "revenueYoY": 0.20516583504549457,
     "netIncomeYoY": -0.4482071713147411,
-    "reportDate": "2026-10-29T04:00:00+08:00"
+    "reportDate": "2026-10-29T04:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "AI下游·企业工作流/AI agent 平台（ServiceNow）。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": -2.3
   },
   {
    "symbol": "PLTR",
@@ -3581,10 +3659,12 @@
     "epsActual": 0.44,
     "epsEstimate": 0.40705,
     "epsSurprisePct": 0.0809,
-    "note": "营收 23.13 亿美元(+96%) vs LSEG 预期 21.8 亿；上调 FY26 营收指引至约 85.3 亿；美国商业收入首超政府"
+    "note": "营收 23.13 亿美元(+96%) vs LSEG 预期 21.8 亿；上调 FY26 营收指引至约 85.3 亿；美国商业收入首超政府",
+    "verdict": "超预期"
    },
    "note": "AI下游·数据分析与 Ontology 平台（Palantir）。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": 8.1
   },
   {
    "symbol": "SNOW",
@@ -3597,7 +3677,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/snow/earnings",
-     "asOf": "2026-11-05T06:23:44+08:00"
+     "asOf": "2026-11-05T23:21:22+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3641,12 +3721,12 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crwd/earnings",
-     "asOf": "2026-11-05T06:23:48+08:00"
+     "asOf": "2026-11-05T23:21:24+08:00"
     },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "CrowdStrike Holdings, Inc. Class A Common Stock is estimated to report earnings on  12/01/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  13 analysts' forecasts, the consensus EPS forecast for the quarter is $0.  The reported EPS for the same quarter last year was $0.",
+   "nasdaqText": "CrowdStrike Holdings, Inc. Class A Common Stock is expected* to report earnings on  12/01/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.  The reported EPS for the same quarter last year was $0.",
    "consensus": {
     "epsAvg": 0.31145,
     "epsLow": 0.30946,
@@ -3738,7 +3818,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/adbe/earnings",
-     "asOf": "2026-11-05T06:23:53+08:00",
+     "asOf": "2026-11-05T23:21:29+08:00",
      "note": "已披露清空(reportDate=2026-09-11，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [],
@@ -3783,7 +3863,7 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-11-05T06:23:57+08:00"
+     "asOf": "2026-11-05T23:21:32+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -3881,11 +3961,13 @@
       "url": "https://www.investing.com/news/earnings/shopify-tanks-19-premarket-as-q3-gmv-subscription-revenue-miss-estimates-4994809",
       "asOf": "2026-11-03"
      }
-    ]
+    ],
+    "verdict": "超预期"
    },
    "guidance": "Q4营收同比低三十个百分点增速；毛利美元高二十个百分点增速；opex约29-30%营收；FCF margin与去年Q4大致一致",
    "note": "营收+32%大致符合预期，但GMV与订阅收入略低于部分华尔街预期，盘前大跌；调整后EPS略超预期。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": 6.5
   },
   {
    "symbol": "MELI",
@@ -4644,10 +4726,12 @@
     "netIncome": 1403610679.47,
     "revenueYoY": null,
     "netIncomeYoY": null,
-    "reportDate": "2026-10-23T21:00:00+08:00"
+    "reportDate": "2026-10-23T21:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "A股·AI 芯片设计（寒武纪）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -9.6
   },
   {
    "symbol": "688041.SS",
@@ -4713,10 +4797,12 @@
     "epsSurprisePct": -0.1458,
     "revenue": 5855689454.32,
     "netIncome": 1048040894.63,
-    "reportDate": "2026-10-19T22:00:00+08:00"
+    "reportDate": "2026-10-19T22:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "A股·DCU/CPU（海光信息）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -14.6
   },
   {
    "symbol": "603986.SS",
@@ -5078,10 +5164,12 @@
     "epsSurprisePct": 0.0377,
     "revenue": 11425106255.72,
     "netIncome": 772691876.23,
-    "reportDate": "2026-10-22T22:00:00+08:00"
+    "reportDate": "2026-10-22T22:00:00+08:00",
+    "verdict": "超预期"
    },
    "note": "A股·先进封装（长电科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 3.8
   },
   {
    "symbol": "002463.SZ",
@@ -5843,10 +5931,12 @@
     "epsSurprisePct": -0.0251,
     "revenue": 1932998920.94,
     "netIncome": 183891805.33,
-    "reportDate": "2026-10-27T02:00:00+08:00"
+    "reportDate": "2026-10-27T02:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "A股·液冷/温控（英维克）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
-   "importance": 3
+   "importance": 3,
+   "surprisePct": -2.5
   },
   {
    "symbol": "688111.SS",
@@ -5996,10 +6086,12 @@
     "epsSurprisePct": -1.9457,
     "revenue": 6564463508.59,
     "netIncome": 225728040.54,
-    "reportDate": "2026-10-19T20:00:00+08:00"
+    "reportDate": "2026-10-19T20:00:00+08:00",
+    "verdict": "不及预期"
    },
    "note": "A股·语音 AI（科大讯飞）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
-   "importance": 2
+   "importance": 2,
+   "surprisePct": -194.6
   }
  ]
 }
