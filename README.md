@@ -20,6 +20,7 @@ Bloomberg 终端风格的静态站：总览 + ETF + 信息流 + 抄底红线 + �
     etf.json               # 来自 etf 追踪 data.json
     feed.json              # 聚合订阅增量（当前为字段样例）
     bottom.json            # 抄底 latest 快照
+  .cursor/skills/xiafan-invest-method/SKILL.md  # 夏凡投资方法论（蒸馏框架，非投资建议）
 ```
 
 ## 主题令牌
