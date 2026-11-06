@@ -1,64 +1,64 @@
 {
-  "generated_at": "2026-11-05T15:21:17+08:00",
-  "as_of": "2026-11-05",
+  "generated_at": "2026-11-06T12:06:01+08:00",
+  "as_of": "2026-11-06",
   "timezone": "Asia/Shanghai",
-  "triggered_count": 4,
+  "triggered_count": 6,
   "total": 12,
   "indicators": [
     {
       "id": "csi1000_vix",
       "name": "中证1000 VIX",
-      "value": 33.47,
+      "value": 37.73,
       "unit": "",
       "threshold": 35,
-      "status": "watching",
-      "note": "官方QVIX源(optbbs)不可达(HTTPError)；用 mo2611（15天到期）平值期权隐含波动率作代理（Black-76，隐含远期 6644.7，asOf 2026-11-05）。此为代理非官方QVIX，勿与官方值混用。",
+      "status": "triggered",
+      "note": "官方QVIX源(optbbs)不可达(HTTPError)；用 mo2611（14天到期）平值期权隐含波动率作代理（Black-76，隐含远期 6542.6，asOf 2026-11-06）。此为代理非官方QVIX，勿与官方值混用。",
       "source": "新浪 CFFEX MO期权 → ATM IV 代理",
       "meta": {
         "kind": "atm_iv_proxy",
         "contract": "mo2611",
-        "forward": 6644.7,
-        "as_of": "2026-11-05",
+        "forward": 6542.6,
+        "as_of": "2026-11-06",
         "proxy": true
       },
-      "updated_at": "2026-11-05T15:20:45+08:00"
+      "updated_at": "2026-11-06T12:05:39+08:00"
     },
     {
       "id": "margin_balance",
       "name": "融资余额",
-      "value": 2.2644,
+      "value": 2.271,
       "threshold": 2.45,
       "status": "triggered",
-      "note": "沪+深两市合计，数据日 2026-11-04；空仓阈值2.45万亿 / 备选2.48万亿；红线≤阈值",
+      "note": "沪+深两市合计，数据日 2026-11-05；空仓阈值2.45万亿 / 备选2.48万亿；红线≤阈值",
       "source": "akshare.macro_china_market_margin_sh+sz",
       "unit": "万亿",
       "meta": {
         "threshold_empty": 2.45,
         "threshold_alt": 2.48,
-        "date": "2026-11-04",
-        "sse": 1.1776,
-        "szse": 1.0867
+        "date": "2026-11-05",
+        "sse": 1.1808,
+        "szse": 1.0902
       },
-      "updated_at": "2026-11-05T15:20:21+08:00"
+      "updated_at": "2026-11-06T12:05:22+08:00"
     },
     {
       "id": "im_basis",
       "name": "IM贴水",
-      "value": 45.1,
+      "value": 38.7,
       "threshold": 160,
       "status": "watching",
-      "note": "约定：贴水=现货(中证1000 6650.1@2026-11-05) − IM连续 6605.0；正数=期货贴水；恐慌≥160点；【纠偏未触发】日线与asOf已对齐",
+      "note": "约定：贴水=现货(中证1000 6542.3@2026-11-06) − IM连续 6503.6；正数=期货贴水；恐慌≥160点；【纠偏未触发】日线与asOf已对齐",
       "source": "akshare.stock_zh_index_daily(sh000852)+sina_live_overlay + sina.nf_IM0",
       "unit": "点",
       "meta": {
-        "index": 6650.14,
-        "futures": 6605.0,
+        "index": 6542.3,
+        "futures": 6503.6,
         "convention": "index - futures",
-        "as_of": "2026-11-05",
+        "as_of": "2026-11-06",
         "correction": false,
         "align_note": ""
       },
-      "updated_at": "2026-11-05T15:20:22+08:00"
+      "updated_at": "2026-11-06T12:05:22+08:00"
     },
     {
       "id": "three_yin",
@@ -66,7 +66,7 @@
       "value": "5根大阴",
       "threshold": "波段内≥3根跌≥2.0%",
       "status": "watching",
-      "note": "下跌波段：2026-10-09 高点 7156 → 现 6650（-7.1%）。波段内跌≥2.0%的阴线：10-15(-3.28%)、10-22(-2.98%)、10-27(-3.07%)、10-29(-3.03%)、10-30(-3.41%)。前3根中第1根是最大 → 不满足（不要求连续）。",
+      "note": "下跌波段：2026-10-13 高点 7023 → 现 6542（-6.8%）。波段内跌≥2.0%的阴线：10-15(-3.28%)、10-22(-2.98%)、10-27(-3.07%)、10-29(-3.03%)、10-30(-3.41%)。前3根中第1根是最大 → 不满足（不要求连续）。",
       "source": "akshare.stock_zh_index_daily(sh000852)+sina_live_overlay",
       "unit": "",
       "meta": {
@@ -74,7 +74,7 @@
         "confidence": "low",
         "thr_chg": 2.15,
         "hits": null,
-        "wave_peak": "2026-10-09",
+        "wave_peak": "2026-10-13",
         "big_yin": [
           {
             "d": "2026-10-15",
@@ -99,7 +99,7 @@
         ],
         "rule": "v2"
       },
-      "updated_at": "2026-11-05T15:21:17+08:00"
+      "updated_at": "2026-11-06T12:06:01+08:00"
     },
     {
       "id": "vol_shrink_expand",
@@ -111,23 +111,23 @@
       "source": "akshare.stock_zh_index_daily(sh000852)+sina_live_overlay",
       "unit": "",
       "meta": {
-        "last_chg": 2.12,
+        "last_chg": -1.62,
         "vol_vs_prev": 1.0,
         "rule": "v2"
       },
-      "updated_at": "2026-11-05T15:21:17+08:00"
+      "updated_at": "2026-11-06T12:06:01+08:00"
     },
     {
       "id": "large_small_ratio",
       "name": "大盘小盘比 MAX",
-      "value": 0.6185,
+      "value": 0.6194,
       "threshold": "近90日触250日极值(粘性)",
       "status": "triggered",
-      "note": "比值=沪深300/中证1000，当前 0.6185，250日最高 0.6646（2026-07-24）。近90日触及：2026-07-17(大盘/小盘 250日最高 0.6318)、2026-07-20(大盘/小盘 250日最高 0.6602)、2026-07-24(大盘/小盘 250日最高 0.6646) 粘性：曾于 2026-07-24 触发，按规则持续有效。",
+      "note": "比值=沪深300/中证1000，当前 0.6194，250日最高 0.6646（2026-07-24）。近90日触及：2026-07-17(大盘/小盘 250日最高 0.6318)、2026-07-20(大盘/小盘 250日最高 0.6602)、2026-07-24(大盘/小盘 250日最高 0.6646) 粘性：曾于 2026-07-24 触发，按规则持续有效。",
       "source": "akshare.stock_zh_index_daily(sh000300)+sina_live_overlay|akshare.stock_zh_index_daily(sh000852)+sina_live_overlay",
       "unit": "",
       "meta": {
-        "percentile_250": 0.76,
+        "percentile_250": 0.772,
         "max_250": 0.6646,
         "hit_recent_60d": false,
         "extreme_now": false,
@@ -137,44 +137,44 @@
         "value": 0.6646,
         "rule": "v2"
       },
-      "updated_at": "2026-11-05T15:21:17+08:00"
+      "updated_at": "2026-11-06T12:06:01+08:00"
     },
     {
       "id": "hike_prob",
       "name": "加息概率提升",
-      "value": 78.2,
+      "value": 66.1,
       "unit": "%",
       "threshold": "≥50% 且30日+10pp",
       "status": "watching",
-      "note": "Fed Decision in December? 加息概率 78.2%；Fed Decision in January? 加息概率 19.1%｜最高:Fed Decision in December? 78.2%，30日前基线 77.5% ，变化 +0.7pp。 触发规则：取未来两次FOMC中『任何加息(25bp+50bp+)』的最高概率 P；P≥50% 且较30日前基线提升≥10个百分点 → 红线（'加息概率提升'）；否则观察。触发后若回落仍应持续监控。",
+      "note": "Fed Decision in December? 加息概率 66.1%；Fed Decision in January? 加息概率 18.1%｜最高:Fed Decision in December? 66.1%，30日前基线 77.5% ，变化 -11.4pp。 触发规则：取未来两次FOMC中『任何加息(25bp+50bp+)』的最高概率 P；P≥50% 且较30日前基线提升≥10个百分点 → 红线（'加息概率提升'）；否则观察。触发后若回落仍应持续监控。",
       "source": "Polymarket Gamma/CLOB API",
       "meta": {
         "meetings": [
           {
             "title": "Fed Decision in December?",
             "url": "https://polymarket.com/event/fed-decision-in-december-20260729232808632",
-            "hike": 78.2
+            "hike": 66.1
           },
           {
             "title": "Fed Decision in January?",
             "url": "https://polymarket.com/event/fed-decision-in-january-20260729233815502",
-            "hike": 19.1
+            "hike": 18.1
           }
         ],
         "baseline_30d": 77.5,
-        "rise_pp": 0.7,
+        "rise_pp": -11.4,
         "link": "https://polymarket.com/event/fed-decision-in-december-20260729232808632"
       },
-      "updated_at": "2026-11-05T15:20:39+08:00"
+      "updated_at": "2026-11-06T12:05:37+08:00"
     },
     {
       "id": "im_level",
       "name": "IM指数点位",
-      "value": 6605.0,
+      "value": 6503.6,
       "threshold": 6600,
-      "status": "watching",
+      "status": "triggered",
       "note": "IM连续；红线≤6600；观察带6400–6700",
-      "source": "sina.nf_IM0@2026-11-05",
+      "source": "sina.nf_IM0@2026-11-06",
       "unit": "点",
       "meta": {
         "range": [
@@ -182,12 +182,12 @@
           6700
         ]
       },
-      "updated_at": "2026-11-05T15:20:25+08:00"
+      "updated_at": "2026-11-06T12:05:24+08:00"
     },
     {
       "id": "star50",
       "name": "科创50",
-      "value": 1286.67,
+      "value": 1259.84,
       "threshold": 1250,
       "status": "watching",
       "note": "000688；红线≤1250；观察带1200–1300",
@@ -199,16 +199,16 @@
           1300
         ]
       },
-      "updated_at": "2026-11-05T15:20:25+08:00"
+      "updated_at": "2026-11-06T12:05:25+08:00"
     },
     {
       "id": "jiuquan_sentiment",
       "name": "韭圈情绪指数",
-      "value": 12.05,
+      "value": 14.56,
       "unit": "",
       "threshold": 3,
       "status": "triggered",
-      "note": "韭圈儿·恐惧贪婪指数 12.05（2026-11-4）。红线≤3；曾于 2026-10-22 触及 2.07，按规则仍计『曾触发』（即使回升>10）。 获取方式：页面解密数据(JSON.parse截获)。",
+      "note": "韭圈儿·恐惧贪婪指数 14.56（2026-11-5）。红线≤3；曾于 2026-10-22 触及 2.07，按规则仍计『曾触发』（即使回升>10）。 获取方式：页面解密数据(JSON.parse截获)。",
       "source": "韭圈儿 fear_greed 页面 (playwright) https://app.jiucaishuo.com/pages/other/share?share_type=3&f_id=71&tool_id=8",
       "meta": {
         "ever": true,
@@ -218,7 +218,7 @@
         "last_low_value": 2.07,
         "method": "页面解密数据(JSON.parse截获)"
       },
-      "updated_at": "2026-11-05T15:21:14+08:00"
+      "updated_at": "2026-11-06T12:05:58+08:00"
     },
     {
       "id": "pcr_3of4",
@@ -226,7 +226,7 @@
       "value": "1/4极端(目标4腿)",
       "threshold": "可得目标腿中≥3/4极端(阈值PCR≥1.0)；缺腿=unknown不虚增",
       "status": "watching",
-      "note": "目标腿PCR(持仓Put/Call)：{沪深300:0.674, 中证1000:1.036, 中证500:0.755, 科创:0.653}；参考腿：{上证50:0.347}；缺失目标腿=无（标unknown，不计入触发分母）。启发式≥1.0为偏极端；当前可得4/4，极端1，需≥3才触发。中证500/科创为ETF期权代理(510500/588000)，非CFFEX指数期权。",
+      "note": "目标腿PCR(持仓Put/Call)：{沪深300:0.674, 中证1000:1.036, 中证500:0.734, 科创:0.651}；参考腿：{上证50:0.347}；缺失目标腿=无（标unknown，不计入触发分母）。启发式≥1.0为偏极端；当前可得4/4，极端1，需≥3才触发。中证500/科创为ETF期权代理(510500/588000)，非CFFEX指数期权。",
       "source": "cffex_sina+sse_etf_sina",
       "unit": "",
       "meta": {
@@ -234,8 +234,8 @@
           "沪深300": 0.674,
           "中证1000": 1.036,
           "上证50": 0.347,
-          "中证500": 0.755,
-          "科创": 0.653
+          "中证500": 0.734,
+          "科创": 0.651
         },
         "sources": {
           "沪深300": "cffex_sina",
@@ -268,24 +268,24 @@
         "rule": "≥3/4 of available target legs; missing=unknown no inflate",
         "etf_detail": {
           "中证500": {
-            "pcr": 0.755,
-            "call_oi": 801742.0,
-            "put_oi": 605260.0,
+            "pcr": 0.734,
+            "call_oi": 804653.0,
+            "put_oi": 590981.0,
             "n_call": 46,
             "n_put": 46,
             "underlying": "510500"
           },
           "科创": {
-            "pcr": 0.653,
-            "call_oi": 1721587.0,
-            "put_oi": 1124910.0,
+            "pcr": 0.651,
+            "call_oi": 1716919.0,
+            "put_oi": 1117752.0,
             "n_call": 52,
             "n_put": 52,
             "underlying": "588000"
           }
         }
       },
-      "updated_at": "2026-11-05T15:20:38+08:00"
+      "updated_at": "2026-11-06T12:05:36+08:00"
     },
     {
       "id": "tech_six",
@@ -294,56 +294,56 @@
       "unit": "",
       "threshold": "CPO/半导体≥2/3 回撤≥25%",
       "status": "triggered",
-      "note": "国证芯片 12446.792 距120日高 -51.5%；CSSW电子 5260.129 距120日高 -51.6%；通信设备ETF(CPO代理) 1.093 距120日高 -49.6%；半导体设备ETF 0.481 距120日高 -52.1%；半导体ETF 0.772 距120日高 -49.7%；创业板AI ETF 0.873 距120日高 -45.3%。规则(启发式)：CPO+半导体核心代理中≥2/3 距120日高回撤≥25% 视为到位；作者的具体点位如有可手动覆盖。",
+      "note": "国证芯片 12671.635 距120日高 -50.7%；CSSW电子 5316.875 距120日高 -51.1%；通信设备ETF(CPO代理) 1.076 距120日高 -50.4%；半导体设备ETF 0.525 距120日高 -47.7%；半导体ETF 0.799 距120日高 -47.9%；创业板AI ETF 0.878 距120日高 -45.0%。规则(启发式)：CPO+半导体核心代理中≥2/3 距120日高回撤≥25% 视为到位；作者的具体点位如有可手动覆盖。",
       "source": "akshare/sina 日线(指数/ETF；tushare软回退)",
       "meta": {
         "proxies": {
           "国证芯片": {
-            "price": 12446.792,
+            "price": 12671.635,
             "high120": 25683.004,
-            "dd": 51.5
+            "dd": 50.7
           },
           "CSSW电子": {
-            "price": 5260.129,
+            "price": 5316.875,
             "high120": 10865.219,
-            "dd": 51.6
+            "dd": 51.1
           },
           "通信设备ETF(CPO代理)": {
-            "price": 1.093,
+            "price": 1.076,
             "high120": 2.169,
-            "dd": 49.6
+            "dd": 50.4
           },
           "半导体设备ETF": {
-            "price": 0.481,
+            "price": 0.525,
             "high120": 1.004,
-            "dd": 52.1
+            "dd": 47.7
           },
           "半导体ETF": {
-            "price": 0.772,
+            "price": 0.799,
             "high120": 1.535,
-            "dd": 49.7
+            "dd": 47.9
           },
           "创业板AI ETF": {
-            "price": 0.873,
+            "price": 0.878,
             "high120": 1.595,
-            "dd": 45.3
+            "dd": 45.0
           }
         }
       },
-      "updated_at": "2026-11-05T15:20:49+08:00"
+      "updated_at": "2026-11-06T12:05:44+08:00"
     }
   ],
   "correction": {
     "triggered": true,
     "log": [
-      "sh000852 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新6650.14",
-      "sh000852 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新6650.14",
-      "sh000852 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新6650.14",
-      "sh000300 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新4113.41",
-      "sh000852 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新6650.14",
-      "sh000688 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新1286.67",
-      "sh000852 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新6650.14",
-      "sh000300 纠偏:日线停在2026-11-04，sina追加2026-11-05收盘/最新4113.41"
+      "sh000852 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新6542.30",
+      "sh000852 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新6542.30",
+      "sh000852 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新6542.30",
+      "sh000300 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新4052.48",
+      "sh000852 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新6542.30",
+      "sh000688 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新1259.84",
+      "sh000852 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新6542.30",
+      "sh000300 纠偏:日线停在2026-11-05，sina追加2026-11-06收盘/最新4052.48"
     ]
   },
   "strategy": {
@@ -377,47 +377,47 @@
   },
   "disclaimer": "仅供学习研究，不构成投资建议；市场有风险",
   "verdict": {
-    "generated_at": "2026-11-05T15:21:17+08:00",
-    "score": 4,
+    "generated_at": "2026-11-06T12:06:01+08:00",
+    "score": 6,
     "total": 12,
     "band": {
-      "key": "wait",
-      "label": "观望",
-      "color": "#8b9bb4",
-      "rule": "0–5 根：观望",
-      "next": 6,
-      "headline": "观望 —— 红线 4/12",
-      "sub": "0–5 根：观望；距下一档（6 根）还差 2 根",
-      "gap_next": 2
+      "key": "probe",
+      "label": "空仓可分批试探",
+      "color": "#f5a623",
+      "rule": "6–8 根：空仓者可考虑分批",
+      "next": 9,
+      "headline": "空仓可分批试探 —— 红线 6/12",
+      "sub": "6–8 根：空仓者可考虑分批；距下一档（9 根）还差 3 根",
+      "gap_next": 3
     },
-    "summary": "已触发：融资余额、大盘小盘比 MAX、韭圈情绪指数、6大科技点位。最接近触发：IM指数点位（0.08%）、科创50（2.93%）、中证1000 VIX（4.37%）。若IM指数点位触发，红线将升至 5 根（观望）。",
+    "summary": "已触发：中证1000 VIX、融资余额、大盘小盘比 MAX、IM指数点位、韭圈情绪指数、6大科技点位。最接近触发：科创50（0.79%）、IM贴水（75.81%）、加息概率提升（214.00%）。若科创50触发，红线将升至 7 根（空仓可分批试探）。",
     "groups": [
       {
         "name": "价格位置",
-        "triggered": 1,
+        "triggered": 2,
         "total": 3,
         "items": [
           {
             "id": "im_level",
             "name": "IM指数点位",
-            "status": "watching",
-            "status_cn": "观察",
-            "value_text": "6605点",
+            "status": "triggered",
+            "status_cn": "红线",
+            "value_text": "6503.6点",
             "threshold_text": "≤6600",
-            "dist_text": "距红线 5点（需再降 0.08%）",
-            "dist_pct": 0.08,
-            "progress": 0.999
+            "dist_text": "已越过红线（6503.6 vs 6600）",
+            "dist_pct": 0.0,
+            "progress": 1.0
           },
           {
             "id": "star50",
             "name": "科创50",
             "status": "watching",
             "status_cn": "观察",
-            "value_text": "1286.7",
+            "value_text": "1259.8",
             "threshold_text": "≤1250",
-            "dist_text": "距红线 36.67（需再降 2.93%）",
-            "dist_pct": 2.93,
-            "progress": 0.972
+            "dist_text": "距红线 9.84（需再降 0.79%）",
+            "dist_pct": 0.79,
+            "progress": 0.992
           },
           {
             "id": "tech_six",
@@ -431,44 +431,44 @@
             "progress": 1.0
           }
         ],
-        "read": "价格接近但未全面到位：IM 6605 距 6600 仅差 5 点（0.08%）；科创50 1286.7 仍高于 1250 约 2.9%；科技板块回撤已到位（4/4 回撤≥25%）"
+        "read": "价格接近但未全面到位：IM 6503.6 已跌破 6600；科创50 1259.8 仍高于 1250 约 0.8%；科技板块回撤已到位（4/4 回撤≥25%）"
       },
       {
         "name": "恐慌程度",
-        "triggered": 1,
+        "triggered": 2,
         "total": 4,
         "items": [
           {
             "id": "csi1000_vix",
             "name": "中证1000 VIX",
-            "status": "watching",
-            "status_cn": "观察",
-            "value_text": "33.47",
+            "status": "triggered",
+            "status_cn": "红线",
+            "value_text": "37.73",
             "threshold_text": "≥35",
-            "dist_text": "距红线 1.53（需再升 4.37%）",
-            "dist_pct": 4.37,
-            "progress": 0.956
+            "dist_text": "已越过红线（37.73 vs 35）",
+            "dist_pct": 0.0,
+            "progress": 1.0
           },
           {
             "id": "im_basis",
             "name": "IM贴水",
             "status": "watching",
             "status_cn": "观察",
-            "value_text": "45.1点",
+            "value_text": "38.7点",
             "threshold_text": "≥160",
-            "dist_text": "距红线 114.9点（需再升 71.81%）",
-            "dist_pct": 71.81,
-            "progress": 0.282
+            "dist_text": "距红线 121.3点（需再升 75.81%）",
+            "dist_pct": 75.81,
+            "progress": 0.242
           },
           {
             "id": "jiuquan_sentiment",
             "name": "韭圈情绪指数",
             "status": "triggered",
             "status_cn": "红线",
-            "value_text": "12.05",
+            "value_text": "14.56",
             "threshold_text": "≤3",
             "dist_text": "已触发（粘性/曾触发）",
-            "dist_pct": 301.67,
+            "dist_pct": 385.33,
             "progress": 1.0
           },
           {
@@ -483,7 +483,7 @@
             "progress": 0.333
           }
         ],
-        "read": "恐慌升温但未到极致：贴水仅 45.1 点（红线 160）；VIX(代理) 33.47（红线 35）；韭圈情绪 12.05，已处极端恐惧；PCR 1/4极端(目标4腿)"
+        "read": "恐慌较明显：贴水仅 38.7 点（红线 160）；VIX(代理) 37.73（红线 35）；韭圈情绪 14.56，已处极端恐惧；PCR 1/4极端(目标4腿)"
       },
       {
         "name": "杠杆资金",
@@ -495,14 +495,14 @@
             "name": "融资余额",
             "status": "triggered",
             "status_cn": "红线",
-            "value_text": "2.2644万亿",
+            "value_text": "2.271万亿",
             "threshold_text": "≤2.45",
-            "dist_text": "已越过红线（2.2644 vs 2.45）",
+            "dist_text": "已越过红线（2.271 vs 2.45）",
             "dist_pct": 0.0,
             "progress": 1.0
           }
         ],
-        "read": "杠杆已明显出清：融资余额 2.2644 万亿（数据日 2026-11-04），已跌破 2.45 主门槛"
+        "read": "杠杆已明显出清：融资余额 2.271 万亿（数据日 2026-11-05），已跌破 2.45 主门槛"
       },
       {
         "name": "形态",
@@ -536,7 +536,7 @@
             "name": "大盘小盘比 MAX",
             "status": "triggered",
             "status_cn": "红线",
-            "value_text": "0.6185",
+            "value_text": "0.6194",
             "threshold_text": "近90日触250日极值(粘性)",
             "dist_text": "已触发",
             "dist_pct": null,
@@ -555,110 +555,138 @@
             "name": "加息概率提升",
             "status": "watching",
             "status_cn": "观察",
-            "value_text": "78.2%",
+            "value_text": "66.1%",
             "threshold_text": "≥50% 且30日+10pp",
-            "dist_text": "概率 78.2% 已≥50%，30日升幅 +0.7pp，距 +10pp 还差 9.3pp",
-            "dist_pct": 93.0,
-            "progress": 0.07
+            "dist_text": "概率 66.1% 已≥50%，30日升幅 +-11.4pp，距 +10pp 还差 21.4pp",
+            "dist_pct": 214.0,
+            "progress": 0
           }
         ],
-        "read": "外部压力存在但未达红线：未来两次 FOMC 最高加息概率 78.2%，30日变化 +0.7pp（基线 77.5%）"
+        "read": "外部压力存在但未达红线：未来两次 FOMC 最高加息概率 66.1%，30日变化 -11.4pp（基线 77.5%）"
       }
     ],
     "nearest": [
       {
-        "id": "im_level",
-        "name": "IM指数点位",
-        "dist_pct": 0.08,
-        "dist_text": "距红线 5点（需再降 0.08%）",
-        "value_text": "6605点",
-        "threshold_text": "≤6600",
-        "progress": 0.999
-      },
-      {
         "id": "star50",
         "name": "科创50",
-        "dist_pct": 2.93,
-        "dist_text": "距红线 36.67（需再降 2.93%）",
-        "value_text": "1286.7",
+        "dist_pct": 0.79,
+        "dist_text": "距红线 9.84（需再降 0.79%）",
+        "value_text": "1259.8",
         "threshold_text": "≤1250",
-        "progress": 0.972
+        "progress": 0.992
       },
       {
-        "id": "csi1000_vix",
-        "name": "中证1000 VIX",
-        "dist_pct": 4.37,
-        "dist_text": "距红线 1.53（需再升 4.37%）",
-        "value_text": "33.47",
-        "threshold_text": "≥35",
-        "progress": 0.956
+        "id": "im_basis",
+        "name": "IM贴水",
+        "dist_pct": 75.81,
+        "dist_text": "距红线 121.3点（需再升 75.81%）",
+        "value_text": "38.7点",
+        "threshold_text": "≥160",
+        "progress": 0.242
+      },
+      {
+        "id": "hike_prob",
+        "name": "加息概率提升",
+        "dist_pct": 214.0,
+        "dist_text": "概率 66.1% 已≥50%，30日升幅 +-11.4pp，距 +10pp 还差 21.4pp",
+        "value_text": "66.1%",
+        "threshold_text": "≥50% 且30日+10pp",
+        "progress": 0
       }
     ],
     "changes": {
-      "prev_at": "2026-11-05T12:08:49+08:00",
-      "score_prev": 5,
-      "score_delta": -1,
+      "prev_at": "2026-11-05T15:21:17+08:00",
+      "score_prev": 4,
+      "score_delta": 2,
       "flipped": [
+        {
+          "id": "csi1000_vix",
+          "name": "中证1000 VIX",
+          "from": "观察",
+          "to": "红线",
+          "dir": "up"
+        },
         {
           "id": "im_level",
           "name": "IM指数点位",
-          "from": "红线",
-          "to": "观察",
-          "dir": "down"
+          "from": "观察",
+          "to": "红线",
+          "dir": "up"
         }
       ],
       "moves": [
         {
           "id": "csi1000_vix",
           "name": "中证1000 VIX",
-          "prev": 34.11,
-          "now": 33.47,
-          "delta": -0.64
+          "prev": 33.47,
+          "now": 37.73,
+          "delta": 4.26
+        },
+        {
+          "id": "margin_balance",
+          "name": "融资余额",
+          "prev": 2.2644,
+          "now": 2.271,
+          "delta": 0.0066
         },
         {
           "id": "im_basis",
           "name": "IM贴水",
-          "prev": 50.7,
-          "now": 45.1,
-          "delta": -5.6
+          "prev": 45.1,
+          "now": 38.7,
+          "delta": -6.4
         },
         {
           "id": "large_small_ratio",
           "name": "大盘小盘比 MAX",
-          "prev": 0.619,
-          "now": 0.6185,
-          "delta": -0.0005
+          "prev": 0.6185,
+          "now": 0.6194,
+          "delta": 0.0009
+        },
+        {
+          "id": "hike_prob",
+          "name": "加息概率提升",
+          "prev": 78.2,
+          "now": 66.1,
+          "delta": -12.1
         },
         {
           "id": "im_level",
           "name": "IM指数点位",
-          "prev": 6598.4,
-          "now": 6605.0,
-          "delta": 6.6
+          "prev": 6605.0,
+          "now": 6503.6,
+          "delta": -101.4
         },
         {
           "id": "star50",
           "name": "科创50",
-          "prev": 1292.12,
-          "now": 1286.67,
-          "delta": -5.45
+          "prev": 1286.67,
+          "now": 1259.84,
+          "delta": -26.83
+        },
+        {
+          "id": "jiuquan_sentiment",
+          "name": "韭圈情绪指数",
+          "prev": 12.05,
+          "now": 14.56,
+          "delta": 2.51
         }
       ],
-      "text": "红线 5 → 4（-1）；状态翻转：IM指数点位 红线→观察"
+      "text": "红线 4 → 6（+2）；状态翻转：中证1000 VIX 观察→红线；IM指数点位 观察→红线"
     },
     "advice": {
       "empty": [
-        "红线仅 4 根（<6），以观望为主，不急于出手",
-        "可提前准备买入清单与资金计划，盯住最接近触发的指标"
+        "红线 6 根，处于 6–8 根区间：空仓者可考虑小仓位分批试探",
+        "每增加一根红线再加一档，未触发前保留大部分现金"
       ],
       "holding": [
-        "已持仓者不宜在此区间加仓，也不必因恐慌情绪割肉",
-        "保持耐心，等待更多红线出现（规则：红线越多胜率越高）"
+        "已持仓者暂不加仓，耐心等待红线增至 9–10 根",
+        "控制仓位，不因短期波动频繁操作"
       ]
     },
     "risks": [
       "红线多只代表胜率提高，不代表立刻见底；触发后仍可能继续下跌",
-      "IM指数点位距红线不足 1%，下一次刷新可能翻转，红线数随时变化",
+      "科创50距红线不足 1%，下一次刷新可能翻转，红线数随时变化",
       "规则强调耐心：0 根≠见底，未达档位前不要因『感觉便宜』提前出手",
       "部分指标为自定义阈值或代理数据（见下方说明），可能与原作者口径不同",
       "看板中手动覆盖（localStorage）不计入本段，本段仅基于 refresh_data.py 快照"
@@ -673,7 +701,7 @@
       "proxy": [
         "中证1000 VIX：官方QVIX不可达，使用 mo2611 平值期权隐含波动率代理，非官方值",
         "科技点位：ETF/行业指数代理，非完整6大点位",
-        "融资余额为 T-1 披露数据（数据日 2026-11-04）"
+        "融资余额为 T-1 披露数据（数据日 2026-11-05）"
       ]
     },
     "basis": "本段由 verdict.py 按固定规则从当前快照自动生成（红线越多胜率越高；0–5 观望、6–8 空仓可分批、9 作者出手线、≥10 持仓者也可加仓；强调耐心），仅供学习研究，不构成投资建议。"
