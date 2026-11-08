@@ -1,8 +1,8 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-06T23:23:15+08:00",
+ "updated": "2026-11-09T06:16:06+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-11-06",
+ "consensusAsOf": "2026-11-09",
  "companies": [
   {
    "symbol": "AAPL",
@@ -16,7 +16,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AAPL/analysis",
-      "asOf": "2026-11-06T23:18:09+08:00"
+      "asOf": "2026-11-09T06:10:56+08:00"
      }
     ],
     "lastReported": [
@@ -28,16 +28,16 @@
     ]
    },
    "consensus": {
-    "epsAvg": 2.90354,
-    "epsLow": 2.87,
-    "epsHigh": 2.94202,
-    "epsAnalysts": 26.0,
+    "epsAvg": 2.91805,
+    "epsLow": 2.83,
+    "epsHigh": 3.18,
+    "epsAnalysts": 27.0,
     "epsYearAgo": 1.85,
-    "revAvg": 155568783890.0,
-    "revLow": 138455000000.0,
-    "revHigh": 159565000000.0,
-    "revAnalysts": 15.0,
-    "revGrowth": 0.082200006,
+    "revAvg": 156459329920.0,
+    "revLow": 154257600000.0,
+    "revHigh": 158132000000.0,
+    "revAnalysts": 22.0,
+    "revGrowth": 0.0884,
     "currency": "USD"
    },
    "lastReported": {
@@ -69,7 +69,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MSFT/analysis",
-      "asOf": "2026-11-06T23:18:11+08:00"
+      "asOf": "2026-11-09T06:11:00+08:00"
      }
     ],
     "lastReported": [
@@ -81,7 +81,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MSFT/analysis",
-      "asOf": "2026-11-06T23:18:11+08:00"
+      "asOf": "2026-11-09T06:11:00+08:00"
      }
     ]
    },
@@ -91,11 +91,11 @@
     "epsHigh": 4.97073,
     "epsAnalysts": 24.0,
     "epsYearAgo": 4.14,
-    "revAvg": 96699555770.0,
+    "revAvg": 96691687890.0,
     "revLow": 95582000000.0,
     "revHigh": 97868000000.0,
-    "revAnalysts": 35.0,
-    "revGrowth": 0.1898,
+    "revAnalysts": 37.0,
+    "revGrowth": 0.18969999,
     "currency": "USD"
    },
    "lastReported": {
@@ -141,7 +141,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
-      "asOf": "2026-11-06T23:18:14+08:00"
+      "asOf": "2026-11-09T06:11:04+08:00"
      }
     ],
     "lastReported": [
@@ -153,7 +153,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/GOOGL/analysis",
-      "asOf": "2026-11-06T23:18:14+08:00"
+      "asOf": "2026-11-09T06:11:05+08:00"
      }
     ]
    },
@@ -232,7 +232,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMZN/analysis",
-      "asOf": "2026-11-06T23:18:18+08:00"
+      "asOf": "2026-11-09T06:11:07+08:00"
      }
     ],
     "lastReported": [
@@ -244,21 +244,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMZN/analysis",
-      "asOf": "2026-11-06T23:18:19+08:00"
+      "asOf": "2026-11-09T06:11:07+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 2.41135,
+    "epsAvg": 2.39876,
     "epsLow": 2.13,
     "epsHigh": 2.67,
-    "epsAnalysts": 42.0,
+    "epsAnalysts": 43.0,
     "epsYearAgo": 1.95,
-    "revAvg": 244738159990.0,
+    "revAvg": 244838490660.0,
     "revLow": 240000000000.0,
     "revHigh": 247611000000.0,
-    "revAnalysts": 43.0,
-    "revGrowth": 0.1469,
+    "revAnalysts": 45.0,
+    "revGrowth": 0.14739999,
     "currency": "USD"
    },
    "lastReported": {
@@ -302,14 +302,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/META/analysis",
-      "asOf": "2026-11-06T23:18:21+08:00"
+      "asOf": "2026-11-09T06:11:10+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/META/analysis",
-      "asOf": "2026-11-06T23:18:22+08:00"
+      "asOf": "2026-11-09T06:11:10+08:00"
      }
     ]
    },
@@ -360,21 +360,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-     "asOf": "2026-11-06T23:18:22+08:00",
+     "asOf": "2026-11-09T06:11:11+08:00",
      "note": "已披露清空(reportDate=2026-08-27，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-      "asOf": "2026-11-06T23:18:24+08:00"
+      "asOf": "2026-11-09T06:11:12+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-      "asOf": "2026-11-06T23:18:25+08:00"
+      "asOf": "2026-11-09T06:11:13+08:00"
      }
     ]
    },
@@ -418,14 +418,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSLA/analysis",
-      "asOf": "2026-11-06T23:18:28+08:00"
+      "asOf": "2026-11-09T06:11:17+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSLA/analysis",
-      "asOf": "2026-11-06T23:18:29+08:00"
+      "asOf": "2026-11-09T06:11:17+08:00"
      }
     ]
    },
@@ -477,14 +477,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSM/analysis",
-      "asOf": "2026-11-06T23:18:32+08:00"
+      "asOf": "2026-11-09T06:11:19+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/TSM/analysis",
-      "asOf": "2026-11-06T23:18:32+08:00"
+      "asOf": "2026-11-09T06:11:19+08:00"
      }
     ]
    },
@@ -540,7 +540,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMD/analysis",
-      "asOf": "2026-11-06T23:18:34+08:00"
+      "asOf": "2026-11-09T06:11:23+08:00"
      }
     ],
     "lastReported": [
@@ -552,16 +552,16 @@
     ]
    },
    "consensus": {
-    "epsAvg": 2.93982,
-    "epsLow": 2.92,
-    "epsHigh": 2.99,
-    "epsAnalysts": 11.0,
+    "epsAvg": 2.92729,
+    "epsLow": 2.72,
+    "epsHigh": 3.05,
+    "epsAnalysts": 37.0,
     "epsYearAgo": 1.53,
-    "revAvg": 16356599390.0,
-    "revLow": 13292000000.0,
-    "revHigh": 17479000000.0,
-    "revAnalysts": 33.0,
-    "revGrowth": 0.5927,
+    "revAvg": 17056045360.0,
+    "revLow": 16985000000.0,
+    "revHigh": 17369000000.0,
+    "revAnalysts": 35.0,
+    "revGrowth": 0.66080004,
     "currency": "USD"
    },
    "lastReported": {
@@ -599,20 +599,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-     "asOf": "2026-11-06T23:18:35+08:00"
+     "asOf": "2026-11-09T06:11:25+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-      "asOf": "2026-11-06T23:18:38+08:00"
+      "asOf": "2026-11-09T06:11:26+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AVGO/analysis",
-      "asOf": "2026-11-06T23:18:39+08:00"
+      "asOf": "2026-11-09T06:11:26+08:00"
      }
     ]
    },
@@ -661,7 +661,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
-      "asOf": "2026-11-06T23:18:51+08:00"
+      "asOf": "2026-11-09T06:11:39+08:00"
      }
     ],
     "lastReported": [
@@ -673,7 +673,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0700.HK/analysis",
-      "asOf": "2026-11-06T23:18:51+08:00"
+      "asOf": "2026-11-09T06:11:40+08:00"
      }
     ]
    },
@@ -683,11 +683,11 @@
     "epsHigh": 7.82,
     "epsAnalysts": 12.0,
     "epsYearAgo": 7.575,
-    "revAvg": 210364772310.0,
+    "revAvg": 210393737200.0,
     "revLow": 206627133500.0,
     "revHigh": 213679000000.0,
-    "revAnalysts": 21.0,
-    "revGrowth": 0.0907,
+    "revAnalysts": 22.0,
+    "revGrowth": 0.090900004,
     "currency": "CNY"
    },
    "lastReported": {
@@ -719,13 +719,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/BABA/analysis",
-     "asOf": "2026-11-06T23:19:00+08:00"
+     "asOf": "2026-11-09T06:11:49+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BABA/analysis",
-      "asOf": "2026-11-06T23:19:01+08:00"
+      "asOf": "2026-11-09T06:11:51+08:00"
      }
     ],
     "lastReported": [
@@ -737,18 +737,18 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BABA/analysis",
-      "asOf": "2026-11-06T23:19:02+08:00"
+      "asOf": "2026-11-09T06:11:51+08:00"
      }
     ]
    },
    "nasdaqText": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share is estimated to report earnings on  11/24/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  3 analysts' forecasts, the consensus EPS forecast for the quarter is $1.31.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
-    "epsAvg": 10.96064,
+    "epsAvg": 10.97231,
     "epsLow": 8.59,
     "epsHigh": 14.191,
     "epsAnalysts": 18.0,
     "epsYearAgo": 4.36,
-    "revAvg": 269828043889.0,
+    "revAvg": 269829145600.0,
     "revLow": 265137000000.0,
     "revHigh": 273561000000.0,
     "revAnalysts": 21.0,
@@ -785,13 +785,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-     "asOf": "2026-11-06T23:19:14+08:00"
+     "asOf": "2026-11-09T06:12:03+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-      "asOf": "2026-11-06T23:19:16+08:00"
+      "asOf": "2026-11-09T06:12:05+08:00"
      }
     ],
     "lastReported": [
@@ -803,7 +803,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-      "asOf": "2026-11-06T23:19:16+08:00"
+      "asOf": "2026-11-09T06:12:06+08:00"
      }
     ]
    },
@@ -814,11 +814,11 @@
     "epsHigh": 10.385,
     "epsAnalysts": 15.0,
     "epsYearAgo": 11.12,
-    "revAvg": 30585507870.0,
+    "revAvg": 30598757870.0,
     "revLow": 24853000000.0,
     "revHigh": 31842000000.0,
     "revAnalysts": 20.0,
-    "revGrowth": -0.0189,
+    "revGrowth": -0.0185,
     "currency": "CNY"
    },
    "lastReported": {
@@ -850,13 +850,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/JD/analysis",
-     "asOf": "2026-11-06T23:19:27+08:00"
+     "asOf": "2026-11-09T06:12:20+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/JD/analysis",
-      "asOf": "2026-11-06T23:19:30+08:00"
+      "asOf": "2026-11-09T06:12:23+08:00"
      }
     ],
     "lastReported": [
@@ -868,7 +868,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/JD/analysis",
-      "asOf": "2026-11-06T23:19:31+08:00"
+      "asOf": "2026-11-09T06:12:24+08:00"
      }
     ]
    },
@@ -917,7 +917,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-11-06T23:19:40+08:00"
+      "asOf": "2026-11-09T06:12:31+08:00"
      }
     ],
     "lastReported": [
@@ -929,7 +929,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-11-06T23:19:40+08:00"
+      "asOf": "2026-11-09T06:12:32+08:00"
      }
     ]
    },
@@ -977,20 +977,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-11-06T23:19:43+08:00"
+     "asOf": "2026-11-09T06:12:35+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PDD/analysis",
-      "asOf": "2026-11-06T23:19:43+08:00"
+      "asOf": "2026-11-09T06:12:35+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PDD/analysis",
-      "asOf": "2026-11-06T23:19:43+08:00"
+      "asOf": "2026-11-09T06:12:35+08:00"
      }
     ]
    },
@@ -1039,7 +1039,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
-      "asOf": "2026-11-06T23:19:55+08:00"
+      "asOf": "2026-11-09T06:12:46+08:00"
      }
     ],
     "lastReported": [
@@ -1051,21 +1051,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1810.HK/analysis",
-      "asOf": "2026-11-06T23:19:55+08:00"
+      "asOf": "2026-11-09T06:12:47+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.19758,
+    "epsAvg": 0.19528,
     "epsLow": 0.16,
     "epsHigh": 0.23,
-    "epsAnalysts": 11.0,
+    "epsAnalysts": 12.0,
     "epsYearAgo": 0.4213,
-    "revAvg": 106171562050.0,
+    "revAvg": 106109696850.0,
     "revLow": 102405676450.0,
     "revHigh": 110605000000.0,
-    "revAnalysts": 14.0,
-    "revGrowth": -0.0614,
+    "revAnalysts": 15.0,
+    "revGrowth": -0.062,
     "currency": "CNY"
    },
    "lastReported": {
@@ -1097,13 +1097,13 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/NTES/analysis",
-     "asOf": "2026-11-06T23:20:04+08:00"
+     "asOf": "2026-11-09T06:12:58+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NTES/analysis",
-      "asOf": "2026-11-06T23:20:06+08:00"
+      "asOf": "2026-11-09T06:13:01+08:00"
      }
     ],
     "lastReported": [
@@ -1115,7 +1115,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NTES/analysis",
-      "asOf": "2026-11-06T23:20:07+08:00"
+      "asOf": "2026-11-09T06:13:02+08:00"
      }
     ]
    },
@@ -1162,18 +1162,18 @@
     "nextDate": {
      "name": "HKEXnews 董事会会议通告(2026-10-30)",
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1030/2026103000818.pdf",
-     "asOf": "2026-11-06T23:20:22+08:00"
+     "asOf": "2026-11-09T06:13:14+08:00"
     },
     "consensus": [
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-11-06T23:20:23+08:00"
+      "asOf": "2026-11-09T06:13:15+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
-      "asOf": "2026-11-06T23:20:24+08:00"
+      "asOf": "2026-11-09T06:13:15+08:00"
      }
     ],
     "lastReported": [
@@ -1185,7 +1185,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/0981.HK/analysis",
-      "asOf": "2026-11-06T23:20:24+08:00"
+      "asOf": "2026-11-09T06:13:16+08:00"
      }
     ]
    },
@@ -1212,7 +1212,7 @@
       "n": 6
      },
      "orgs": 7,
-     "window": "2026-08-08~2026-11-06",
+     "window": "2026-08-11~2026-11-09",
      "source": "Tushare report_rc 688981.SH",
      "asOf": "2026-09-18",
      "unit": "CNY（np/op_rt 万元×1e4）"
@@ -1264,7 +1264,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/1211.HK/analysis",
-      "asOf": "2026-11-06T23:20:40+08:00"
+      "asOf": "2026-11-09T06:13:29+08:00"
      }
     ],
     "lastReported": [
@@ -1358,14 +1358,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
-      "asOf": "2026-11-06T23:20:41+08:00"
+      "asOf": "2026-11-09T06:13:30+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2330.TW/analysis",
-      "asOf": "2026-11-06T23:20:42+08:00"
+      "asOf": "2026-11-09T06:13:31+08:00"
      }
     ]
    },
@@ -1414,7 +1414,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
-      "asOf": "2026-11-06T23:20:42+08:00"
+      "asOf": "2026-11-09T06:13:32+08:00"
      }
     ],
     "lastReported": [
@@ -1426,21 +1426,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2454.TW/analysis",
-      "asOf": "2026-11-06T23:20:43+08:00"
+      "asOf": "2026-11-09T06:13:32+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 25.34489,
+    "epsAvg": 25.40523,
     "epsLow": 23.2,
     "epsHigh": 26.74,
-    "epsAnalysts": 14.0,
+    "epsAnalysts": 15.0,
     "epsYearAgo": 14.39,
-    "revAvg": 219184368550.0,
+    "revAvg": 219606158010.0,
     "revLow": 211061000000.0,
-    "revHigh": 223246622460.0,
-    "revAnalysts": 15.0,
-    "revGrowth": 0.4594,
+    "revHigh": 225933000000.0,
+    "revAnalysts": 16.0,
+    "revGrowth": 0.46220002,
     "currency": "TWD"
    },
    "lastReported": {
@@ -1486,7 +1486,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
-      "asOf": "2026-11-06T23:20:43+08:00"
+      "asOf": "2026-11-09T06:13:33+08:00"
      }
     ],
     "lastReported": [
@@ -1498,7 +1498,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3711.TW/analysis",
-      "asOf": "2026-11-06T23:20:44+08:00"
+      "asOf": "2026-11-09T06:13:34+08:00"
      }
     ]
    },
@@ -1558,7 +1558,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
-      "asOf": "2026-11-06T23:20:44+08:00"
+      "asOf": "2026-11-09T06:13:34+08:00"
      }
     ],
     "lastReported": [
@@ -1570,7 +1570,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/005930.KS/analysis",
-      "asOf": "2026-11-06T23:20:45+08:00"
+      "asOf": "2026-11-09T06:13:35+08:00"
      }
     ]
    },
@@ -1580,11 +1580,11 @@
     "epsHigh": 19142.0,
     "epsAnalysts": 10.0,
     "epsYearAgo": 2909.0,
-    "revAvg": 225333797330000.0,
+    "revAvg": 224573054730000.0,
     "revLow": 212400000000000.0,
     "revHigh": 257970000000000.0,
-    "revAnalysts": 19.0,
-    "revGrowth": 1.4013001,
+    "revAnalysts": 21.0,
+    "revGrowth": 1.3932,
     "currency": "KRW"
    },
    "lastReported": {
@@ -1637,7 +1637,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000660.KS/analysis",
-      "asOf": "2026-11-06T23:20:45+08:00"
+      "asOf": "2026-11-09T06:13:35+08:00"
      }
     ],
     "lastReported": [
@@ -1654,11 +1654,11 @@
     "epsHigh": 133655.0,
     "epsAnalysts": 10.0,
     "epsYearAgo": 21522.0,
-    "revAvg": 131674554719999.0,
+    "revAvg": 131521972530000.0,
     "revLow": 124000000000000.0,
     "revHigh": 151041000000000.0,
-    "revAnalysts": 24.0,
-    "revGrowth": 3.0112,
+    "revAnalysts": 25.0,
+    "revGrowth": 3.0066001,
     "currency": "KRW"
    },
    "lastReported": {
@@ -1700,21 +1700,26 @@
    "name": "索尼(ADR)",
    "region": "JP",
    "currency": "JPY",
-   "nextDate": null,
-   "dateStatus": "unknown",
+   "nextDate": "2027-02-04T21:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SONY/analysis",
+     "asOf": "2026-11-09T06:13:37+08:00"
+    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SONY/analysis",
-      "asOf": "2026-11-06T23:20:50+08:00"
+      "asOf": "2026-11-09T06:13:38+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SONY/analysis",
-      "asOf": "2026-11-06T23:20:50+08:00"
+      "asOf": "2026-11-09T06:13:38+08:00"
      }
     ]
    },
@@ -1736,6 +1741,10 @@
     "epsActual": 0.48481,
     "epsEstimate": 0.37859,
     "epsSurprisePct": 0.28059998,
+    "revenue": 3429446000000.0,
+    "netIncome": 449603000000.0,
+    "revenueYoY": 0.1034583724673872,
+    "netIncomeYoY": 0.24210703708615133,
     "reportDate": "2026-11-05T14:00:00+08:00"
    },
    "note": "索尼双上市：本条目为美股 ADR(SONY)；东京现股 6758.T。",
@@ -1758,7 +1767,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/8035.T/analysis",
-      "asOf": "2026-11-06T23:20:51+08:00"
+      "asOf": "2026-11-09T06:13:39+08:00"
      }
     ],
     "lastReported": [
@@ -1770,7 +1779,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/8035.T/analysis",
-      "asOf": "2026-11-06T23:20:51+08:00"
+      "asOf": "2026-11-09T06:13:40+08:00"
      }
     ]
    },
@@ -1830,14 +1839,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/9984.T/analysis",
-      "asOf": "2026-11-06T23:20:52+08:00"
+      "asOf": "2026-11-09T06:13:40+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/9984.T/analysis",
-      "asOf": "2026-11-06T23:20:52+08:00"
+      "asOf": "2026-11-09T06:13:41+08:00"
      }
     ]
    },
@@ -1875,21 +1884,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ASML/analysis",
-     "asOf": "2026-11-06T23:20:53+08:00",
+     "asOf": "2026-11-09T06:13:41+08:00",
      "note": "已披露清空(reportDate=2026-10-14，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASML/analysis",
-      "asOf": "2026-11-06T23:20:56+08:00"
+      "asOf": "2026-11-09T06:13:44+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASML/analysis",
-      "asOf": "2026-11-06T23:20:56+08:00"
+      "asOf": "2026-11-09T06:13:44+08:00"
      }
     ]
    },
@@ -1932,21 +1941,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/SAP/analysis",
-     "asOf": "2026-11-06T23:20:57+08:00",
+     "asOf": "2026-11-09T06:13:45+08:00",
      "note": "已披露清空(reportDate=2026-10-21，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SAP/analysis",
-      "asOf": "2026-11-06T23:21:00+08:00"
+      "asOf": "2026-11-09T06:13:48+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SAP/analysis",
-      "asOf": "2026-11-06T23:21:01+08:00"
+      "asOf": "2026-11-09T06:13:48+08:00"
      }
     ]
    },
@@ -1995,14 +2004,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
-      "asOf": "2026-11-06T23:21:01+08:00"
+      "asOf": "2026-11-09T06:13:49+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ENR.DE/analysis",
-      "asOf": "2026-11-06T23:21:02+08:00"
+      "asOf": "2026-11-09T06:13:50+08:00"
      }
     ]
    },
@@ -2012,11 +2021,11 @@
     "epsHigh": 1.59,
     "epsAnalysts": 2.0,
     "epsYearAgo": 0.3172,
-    "revAvg": 12728444880.0,
-    "revLow": 12488000000.0,
+    "revAvg": 12664773310.0,
+    "revLow": 12464000000.0,
     "revHigh": 13187180000.0,
-    "revAnalysts": 4.0,
-    "revGrowth": 0.2206,
+    "revAnalysts": 5.0,
+    "revGrowth": 0.21450001,
     "currency": "EUR"
    },
    "lastReported": {
@@ -2045,7 +2054,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3008.TW/analysis",
-      "asOf": "2026-11-06T23:21:02+08:00"
+      "asOf": "2026-11-09T06:13:50+08:00"
      }
     ],
     "lastReported": []
@@ -2091,7 +2100,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
-      "asOf": "2026-11-06T23:21:03+08:00"
+      "asOf": "2026-11-09T06:13:51+08:00"
      }
     ],
     "lastReported": [
@@ -2099,20 +2108,25 @@
       "name": "GlobalWafers Q3 2026 company profile PDF",
       "url": "https://www.sas-globalwafers.com/wp-content/uploads/2026/11/GWC_company_profile_20261103-EN.pdf",
       "asOf": "2026-11-03"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/6488.TWO/analysis",
+      "asOf": "2026-11-09T06:13:52+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 3.52127,
-    "epsLow": 1.91,
-    "epsHigh": 4.89,
-    "epsAnalysts": 9.0,
-    "epsYearAgo": 4.12,
-    "revAvg": 15791821040.0,
-    "revLow": 14870753000.0,
-    "revHigh": 16681000000.0,
-    "revAnalysts": 8.0,
-    "revGrowth": 0.0896,
+    "epsAvg": 3.84178,
+    "epsLow": 2.36,
+    "epsHigh": 6.26,
+    "epsAnalysts": 10.0,
+    "epsYearAgo": 4.6,
+    "revAvg": 16170263160.0,
+    "revLow": 15118006680.0,
+    "revHigh": 18664000000.0,
+    "revAnalysts": 9.0,
+    "revGrowth": 0.115,
     "currency": "TWD"
    },
    "lastReported": {
@@ -2153,7 +2167,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
-      "asOf": "2026-11-06T23:21:04+08:00"
+      "asOf": "2026-11-09T06:13:52+08:00"
      }
     ],
     "lastReported": [
@@ -2165,7 +2179,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2308.TW/analysis",
-      "asOf": "2026-11-06T23:21:05+08:00"
+      "asOf": "2026-11-09T06:13:53+08:00"
      }
     ]
    },
@@ -2222,21 +2236,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
-     "asOf": "2026-11-06T23:21:05+08:00",
+     "asOf": "2026-11-09T06:13:53+08:00",
      "note": "已披露清空(reportDate=2026-11-03，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
-      "asOf": "2026-11-06T23:21:05+08:00"
+      "asOf": "2026-11-09T06:13:53+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3034.TW/analysis",
-      "asOf": "2026-11-06T23:21:06+08:00"
+      "asOf": "2026-11-09T06:13:54+08:00"
      }
     ]
    },
@@ -2281,7 +2295,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/373220.KS/analysis",
-      "asOf": "2026-11-06T23:21:07+08:00"
+      "asOf": "2026-11-09T06:13:55+08:00"
      }
     ],
     "lastReported": [
@@ -2293,16 +2307,16 @@
     ]
    },
    "consensus": {
-    "epsAvg": 800.52844,
+    "epsAvg": 732.3523,
     "epsLow": 35.289,
     "epsHigh": 1565.768,
-    "epsAnalysts": 2.0,
+    "epsAnalysts": 3.0,
     "epsYearAgo": -3747.0,
-    "revAvg": 10332410380000.0,
-    "revLow": 10238000000000.0,
-    "revHigh": 10505000000000.0,
-    "revAnalysts": 4.0,
-    "revGrowth": 0.6824,
+    "revAvg": 9732482820000.0,
+    "revLow": 8006000000000.0,
+    "revHigh": 10738000000000.0,
+    "revAnalysts": 16.0,
+    "revGrowth": 0.5847,
     "currency": "KRW"
    },
    "lastReported": {
@@ -2360,7 +2374,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/207940.KS/analysis",
-      "asOf": "2026-11-06T23:21:08+08:00"
+      "asOf": "2026-11-09T06:13:56+08:00"
      }
     ],
     "lastReported": [
@@ -2424,14 +2438,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
-      "asOf": "2026-11-06T23:21:09+08:00"
+      "asOf": "2026-11-09T06:13:57+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/035420.KS/analysis",
-      "asOf": "2026-11-06T23:21:09+08:00"
+      "asOf": "2026-11-09T06:13:58+08:00"
      }
     ]
    },
@@ -2474,7 +2488,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6861.T/analysis",
-      "asOf": "2026-11-06T23:21:10+08:00"
+      "asOf": "2026-11-09T06:13:58+08:00"
      }
     ],
     "lastReported": [
@@ -2486,7 +2500,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6861.T/analysis",
-      "asOf": "2026-11-06T23:21:11+08:00"
+      "asOf": "2026-11-09T06:13:59+08:00"
      }
     ]
    },
@@ -2549,7 +2563,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6857.T/analysis",
-      "asOf": "2026-11-06T23:21:11+08:00"
+      "asOf": "2026-11-09T06:14:00+08:00"
      }
     ],
     "lastReported": [
@@ -2561,7 +2575,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6857.T/analysis",
-      "asOf": "2026-11-06T23:21:12+08:00"
+      "asOf": "2026-11-09T06:14:00+08:00"
      }
     ]
    },
@@ -2605,14 +2619,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6146.T/analysis",
-      "asOf": "2026-11-06T23:21:12+08:00"
+      "asOf": "2026-11-09T06:14:01+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6146.T/analysis",
-      "asOf": "2026-11-06T23:21:13+08:00"
+      "asOf": "2026-11-09T06:14:02+08:00"
      }
     ]
    },
@@ -2661,7 +2675,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6920.T/analysis",
-      "asOf": "2026-11-06T23:21:13+08:00"
+      "asOf": "2026-11-09T06:14:02+08:00"
      }
     ],
     "lastReported": [
@@ -2673,7 +2687,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6920.T/analysis",
-      "asOf": "2026-11-06T23:21:14+08:00"
+      "asOf": "2026-11-09T06:14:03+08:00"
      }
     ]
    },
@@ -2731,14 +2745,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/4063.T/analysis",
-      "asOf": "2026-11-06T23:21:14+08:00"
+      "asOf": "2026-11-09T06:14:03+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/4063.T/analysis",
-      "asOf": "2026-11-06T23:21:15+08:00"
+      "asOf": "2026-11-09T06:14:04+08:00"
      }
     ]
    },
@@ -2783,7 +2797,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6981.T/analysis",
-      "asOf": "2026-11-06T23:21:15+08:00"
+      "asOf": "2026-11-09T06:14:05+08:00"
      }
     ],
     "lastReported": [
@@ -2795,7 +2809,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/6981.T/analysis",
-      "asOf": "2026-11-06T23:21:16+08:00"
+      "asOf": "2026-11-09T06:14:05+08:00"
      }
     ]
    },
@@ -2853,28 +2867,28 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
-      "asOf": "2026-11-06T23:21:17+08:00"
+      "asOf": "2026-11-09T06:14:06+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/IFX.DE/analysis",
-      "asOf": "2026-11-06T23:21:17+08:00"
+      "asOf": "2026-11-09T06:14:06+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.62326,
+    "epsAvg": 0.62636,
     "epsLow": 0.59,
-    "epsHigh": 0.64263,
-    "epsAnalysts": 12.0,
+    "epsHigh": 0.7,
+    "epsAnalysts": 14.0,
     "epsYearAgo": 0.34,
-    "revAvg": 4714937230.0,
+    "revAvg": 4715257930.0,
     "revLow": 4693000000.0,
-    "revHigh": 4755919000.0,
-    "revAnalysts": 13.0,
-    "revGrowth": 0.1958,
+    "revHigh": 4791766000.0,
+    "revAnalysts": 14.0,
+    "revGrowth": 0.19590001,
     "currency": "EUR"
    },
    "lastReported": {
@@ -2903,14 +2917,14 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/STM/analysis",
-     "asOf": "2026-11-06T23:21:18+08:00",
+     "asOf": "2026-11-09T06:14:07+08:00",
      "note": "已披露清空(reportDate=2026-10-29，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/STM/analysis",
-      "asOf": "2026-11-06T23:21:22+08:00"
+      "asOf": "2026-11-09T06:14:09+08:00"
      }
     ],
     "lastReported": [
@@ -2922,7 +2936,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/STM/analysis",
-      "asOf": "2026-11-06T23:21:22+08:00"
+      "asOf": "2026-11-09T06:14:10+08:00"
      }
     ]
    },
@@ -2976,7 +2990,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
-      "asOf": "2026-11-06T23:21:23+08:00"
+      "asOf": "2026-11-09T06:14:10+08:00"
      }
     ],
     "lastReported": [
@@ -2988,7 +3002,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ASM.AS/analysis",
-      "asOf": "2026-11-06T23:21:23+08:00"
+      "asOf": "2026-11-09T06:14:11+08:00"
      }
     ]
    },
@@ -3040,14 +3054,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
-      "asOf": "2026-11-06T23:21:24+08:00"
+      "asOf": "2026-11-09T06:14:11+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/BESI.AS/analysis",
-      "asOf": "2026-11-06T23:21:24+08:00"
+      "asOf": "2026-11-09T06:14:12+08:00"
      }
     ]
    },
@@ -3094,7 +3108,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADYEN.AS/analysis",
-      "asOf": "2026-11-06T23:21:25+08:00"
+      "asOf": "2026-11-09T06:14:13+08:00"
      }
     ],
     "lastReported": [
@@ -3111,11 +3125,11 @@
     "epsHigh": 22.68,
     "epsAnalysts": 1.0,
     "epsYearAgo": null,
-    "revAvg": 736000000.0,
+    "revAvg": 735500000.0,
     "revLow": 731000000.0,
     "revHigh": 740000000.0,
-    "revAnalysts": 3.0,
-    "revGrowth": 0.2299,
+    "revAnalysts": 2.0,
+    "revGrowth": 0.2291,
     "currency": "EUR"
    },
    "lastReported": {
@@ -3155,7 +3169,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVO/analysis",
-      "asOf": "2026-11-06T23:21:29+08:00"
+      "asOf": "2026-11-09T06:14:17+08:00"
      }
     ],
     "lastReported": [
@@ -3167,7 +3181,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NVO/analysis",
-      "asOf": "2026-11-06T23:21:30+08:00"
+      "asOf": "2026-11-09T06:14:18+08:00"
      }
     ]
    },
@@ -3177,11 +3191,11 @@
     "epsHigh": 4.36,
     "epsAnalysts": 2.0,
     "epsYearAgo": 6.04,
-    "revAvg": 76226285930.0,
+    "revAvg": 79107613110.0,
     "revLow": 72179000000.0,
-    "revHigh": 78756000000.0,
-    "revAnalysts": 9.0,
-    "revGrowth": -0.0369,
+    "revHigh": 83178661020.0,
+    "revAnalysts": 8.0,
+    "revGrowth": -0.0005,
     "currency": "DKK"
    },
    "lastReported": {
@@ -3219,21 +3233,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-     "asOf": "2026-11-06T23:21:30+08:00",
+     "asOf": "2026-11-09T06:14:18+08:00",
      "note": "已披露清空(reportDate=2026-08-14，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-      "asOf": "2026-11-06T23:21:32+08:00"
+      "asOf": "2026-11-09T06:14:22+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-      "asOf": "2026-11-06T23:21:33+08:00"
+      "asOf": "2026-11-09T06:14:22+08:00"
      }
     ]
    },
@@ -3278,14 +3292,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/LRCX/analysis",
-      "asOf": "2026-11-06T23:21:35+08:00"
+      "asOf": "2026-11-09T06:14:26+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/LRCX/analysis",
-      "asOf": "2026-11-06T23:21:35+08:00"
+      "asOf": "2026-11-09T06:14:27+08:00"
      }
     ]
    },
@@ -3329,14 +3343,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/KLAC/analysis",
-      "asOf": "2026-11-06T23:21:37+08:00"
+      "asOf": "2026-11-09T06:14:28+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/KLAC/analysis",
-      "asOf": "2026-11-06T23:21:37+08:00"
+      "asOf": "2026-11-09T06:14:29+08:00"
      }
     ]
    },
@@ -3379,21 +3393,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ADI/analysis",
-     "asOf": "2026-11-06T23:21:38+08:00",
+     "asOf": "2026-11-09T06:14:29+08:00",
      "note": "已披露清空(reportDate=2026-08-19，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADI/analysis",
-      "asOf": "2026-11-06T23:21:40+08:00"
+      "asOf": "2026-11-09T06:14:32+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADI/analysis",
-      "asOf": "2026-11-06T23:21:40+08:00"
+      "asOf": "2026-11-09T06:14:32+08:00"
      }
     ]
    },
@@ -3438,7 +3452,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/VRT/analysis",
-      "asOf": "2026-11-06T23:21:44+08:00"
+      "asOf": "2026-11-09T06:14:35+08:00"
      }
     ],
     "lastReported": [
@@ -3450,7 +3464,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/VRT/analysis",
-      "asOf": "2026-11-06T23:21:45+08:00"
+      "asOf": "2026-11-09T06:14:35+08:00"
      }
     ]
    },
@@ -3516,7 +3530,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ETN/analysis",
-      "asOf": "2026-11-06T23:21:49+08:00"
+      "asOf": "2026-11-09T06:14:37+08:00"
      }
     ],
     "lastReported": [
@@ -3528,21 +3542,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ETN/analysis",
-      "asOf": "2026-11-06T23:21:49+08:00"
+      "asOf": "2026-11-09T06:14:38+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 4.12723,
-    "epsLow": 4.05,
+    "epsAvg": 4.14115,
+    "epsLow": 4.09,
     "epsHigh": 4.3,
-    "epsAnalysts": 18.0,
+    "epsAnalysts": 21.0,
     "epsYearAgo": 3.33,
-    "revAvg": 8844090570.0,
-    "revLow": 8696000000.0,
-    "revHigh": 8989052840.0,
-    "revAnalysts": 5.0,
-    "revGrowth": 0.2536,
+    "revAvg": 8813765950.0,
+    "revLow": 8463000000.0,
+    "revHigh": 9142000000.0,
+    "revAnalysts": 18.0,
+    "revGrowth": 0.2493,
     "currency": "USD"
    },
    "lastReported": {
@@ -3602,7 +3616,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SU.PA/analysis",
-      "asOf": "2026-11-06T23:21:50+08:00"
+      "asOf": "2026-11-09T06:14:38+08:00"
      }
     ],
     "lastReported": [
@@ -3657,7 +3671,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SMCI/analysis",
-      "asOf": "2026-11-06T23:21:53+08:00"
+      "asOf": "2026-11-09T06:14:41+08:00"
      }
     ],
     "lastReported": [
@@ -3669,21 +3683,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SMCI/analysis",
-      "asOf": "2026-11-06T23:21:53+08:00"
+      "asOf": "2026-11-09T06:14:41+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 1.22279,
-    "epsLow": 0.85,
-    "epsHigh": 1.774,
-    "epsAnalysts": 16.0,
+    "epsAvg": 1.71991,
+    "epsLow": 0.88,
+    "epsHigh": 1.85,
+    "epsAnalysts": 17.0,
     "epsYearAgo": 0.69,
-    "revAvg": 18102682930.0,
-    "revLow": 15922670000.0,
-    "revHigh": 21500000000.0,
-    "revAnalysts": 11.0,
-    "revGrowth": 0.42740002,
+    "revAvg": 20419001720.0,
+    "revLow": 19500000000.0,
+    "revHigh": 21127601920.0,
+    "revAnalysts": 14.0,
+    "revGrowth": 0.61,
     "currency": "USD"
    },
    "lastReported": {
@@ -3721,21 +3735,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/DELL/analysis",
-     "asOf": "2026-11-06T23:21:54+08:00",
+     "asOf": "2026-11-09T06:14:42+08:00",
      "note": "已披露清空(reportDate=2026-09-02，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DELL/analysis",
-      "asOf": "2026-11-06T23:21:55+08:00"
+      "asOf": "2026-11-09T06:14:43+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DELL/analysis",
-      "asOf": "2026-11-06T23:21:55+08:00"
+      "asOf": "2026-11-09T06:14:43+08:00"
      }
     ]
    },
@@ -3786,7 +3800,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ANET/analysis",
-      "asOf": "2026-11-06T23:21:59+08:00"
+      "asOf": "2026-11-09T06:14:45+08:00"
      }
     ],
     "lastReported": [
@@ -3798,21 +3812,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ANET/analysis",
-      "asOf": "2026-11-06T23:22:00+08:00"
+      "asOf": "2026-11-09T06:14:46+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 1.30511,
-    "epsLow": 1.28,
+    "epsAvg": 1.28855,
+    "epsLow": 1.27,
     "epsHigh": 1.37,
-    "epsAnalysts": 7.0,
+    "epsAnalysts": 23.0,
     "epsYearAgo": 0.82,
-    "revAvg": 4006144050.0,
-    "revLow": 3950000000.0,
+    "revAvg": 3977226420.0,
+    "revLow": 3941000000.0,
     "revHigh": 4130708000.0,
-    "revAnalysts": 6.0,
-    "revGrowth": 0.6103,
+    "revAnalysts": 21.0,
+    "revGrowth": 0.5987,
     "currency": "USD"
    },
    "lastReported": {
@@ -3850,21 +3864,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-     "asOf": "2026-11-06T23:22:00+08:00",
+     "asOf": "2026-11-09T06:14:46+08:00",
      "note": "已披露清空(reportDate=2026-08-13，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-      "asOf": "2026-11-06T23:22:02+08:00"
+      "asOf": "2026-11-09T06:14:47+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-      "asOf": "2026-11-06T23:22:03+08:00"
+      "asOf": "2026-11-09T06:14:48+08:00"
      }
     ]
    },
@@ -3909,14 +3923,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
-      "asOf": "2026-11-06T23:22:03+08:00"
+      "asOf": "2026-11-09T06:14:49+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2382.TW/analysis",
-      "asOf": "2026-11-06T23:22:04+08:00"
+      "asOf": "2026-11-09T06:14:49+08:00"
      }
     ]
    },
@@ -3960,14 +3974,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
-      "asOf": "2026-11-06T23:22:04+08:00"
+      "asOf": "2026-11-09T06:14:50+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
-      "asOf": "2026-11-06T23:22:05+08:00"
+      "asOf": "2026-11-09T06:14:50+08:00"
      }
     ]
    },
@@ -4016,22 +4030,22 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
-      "asOf": "2026-11-06T23:22:06+08:00"
+      "asOf": "2026-11-09T06:14:51+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/2317.TW/analysis",
-      "asOf": "2026-11-06T23:22:06+08:00"
+      "asOf": "2026-11-09T06:14:52+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 5.01322,
-    "epsLow": 4.44,
+    "epsAvg": 4.94367,
+    "epsLow": 4.12,
     "epsHigh": 5.47,
-    "epsAnalysts": 14.0,
+    "epsAnalysts": 15.0,
     "epsYearAgo": 4.15,
     "revAvg": 2870847106010.0,
     "revLow": 2726816000000.0,
@@ -4067,7 +4081,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ARM/analysis",
-      "asOf": "2026-11-06T23:22:09+08:00"
+      "asOf": "2026-11-09T06:14:54+08:00"
      }
     ],
     "lastReported": [
@@ -4079,21 +4093,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ARM/analysis",
-      "asOf": "2026-11-06T23:22:09+08:00"
+      "asOf": "2026-11-09T06:14:55+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.55102,
+    "epsAvg": 0.55966,
     "epsLow": 0.47,
-    "epsHigh": 0.67,
-    "epsAnalysts": 29.0,
+    "epsHigh": 0.58517,
+    "epsAnalysts": 31.0,
     "epsYearAgo": 0.43,
-    "revAvg": 1523936480.0,
-    "revLow": 1431000000.0,
-    "revHigh": 1659000000.0,
-    "revAnalysts": 28.0,
-    "revGrowth": 0.22700001,
+    "revAvg": 1536058080.0,
+    "revLow": 1476000000.0,
+    "revHigh": 1570810000.0,
+    "revAnalysts": 30.0,
+    "revGrowth": 0.2368,
     "currency": "USD"
    },
    "lastReported": {
@@ -4131,20 +4145,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/MRVL/analysis",
-     "asOf": "2026-11-06T23:22:10+08:00"
+     "asOf": "2026-11-09T06:14:55+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MRVL/analysis",
-      "asOf": "2026-11-06T23:22:13+08:00"
+      "asOf": "2026-11-09T06:14:57+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MRVL/analysis",
-      "asOf": "2026-11-06T23:22:13+08:00"
+      "asOf": "2026-11-09T06:14:58+08:00"
      }
     ]
    },
@@ -4195,7 +4209,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ALAB/analysis",
-      "asOf": "2026-11-06T23:22:17+08:00"
+      "asOf": "2026-11-09T06:15:00+08:00"
      }
     ],
     "lastReported": [
@@ -4207,21 +4221,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ALAB/analysis",
-      "asOf": "2026-11-06T23:22:17+08:00"
+      "asOf": "2026-11-09T06:15:00+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 1.47999,
-    "epsLow": 1.35,
-    "epsHigh": 1.65,
-    "epsAnalysts": 18.0,
+    "epsAvg": 1.64479,
+    "epsLow": 1.62,
+    "epsHigh": 1.72971,
+    "epsAnalysts": 21.0,
     "epsYearAgo": 0.58,
-    "revAvg": 682080620.0,
-    "revLow": 630000000.0,
-    "revHigh": 750000000.0,
-    "revAnalysts": 17.0,
-    "revGrowth": 1.5208,
+    "revAvg": 741439340.0,
+    "revLow": 731000000.0,
+    "revHigh": 765000000.0,
+    "revAnalysts": 19.0,
+    "revGrowth": 1.7402,
     "currency": "USD"
    },
    "lastReported": {
@@ -4259,20 +4273,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-11-06T23:22:20+08:00"
+     "asOf": "2026-11-09T06:15:03+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRDO/analysis",
-      "asOf": "2026-11-06T23:22:20+08:00"
+      "asOf": "2026-11-09T06:15:03+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRDO/analysis",
-      "asOf": "2026-11-06T23:22:21+08:00"
+      "asOf": "2026-11-09T06:15:04+08:00"
      }
     ]
    },
@@ -4317,7 +4331,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/COHR/analysis",
-      "asOf": "2026-11-06T23:22:23+08:00"
+      "asOf": "2026-11-09T06:15:06+08:00"
      }
     ],
     "lastReported": [
@@ -4329,21 +4343,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/COHR/analysis",
-      "asOf": "2026-11-06T23:22:24+08:00"
+      "asOf": "2026-11-09T06:15:07+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 2.20924,
-    "epsLow": 1.9,
-    "epsHigh": 2.48,
-    "epsAnalysts": 21.0,
+    "epsAvg": 2.40016,
+    "epsLow": 2.31,
+    "epsHigh": 2.52,
+    "epsAnalysts": 20.0,
     "epsYearAgo": 1.29,
-    "revAvg": 2542018210.0,
-    "revLow": 2430100000.0,
-    "revHigh": 2668000000.0,
-    "revAnalysts": 18.0,
-    "revGrowth": 0.50810003,
+    "revAvg": 2647325910.0,
+    "revLow": 2535900000.0,
+    "revHigh": 2711551910.0,
+    "revAnalysts": 17.0,
+    "revGrowth": 0.57060003,
     "currency": "USD"
    },
    "lastReported": {
@@ -4382,14 +4396,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NOW/analysis",
-      "asOf": "2026-11-06T23:22:25+08:00"
+      "asOf": "2026-11-09T06:15:09+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/NOW/analysis",
-      "asOf": "2026-11-06T23:22:26+08:00"
+      "asOf": "2026-11-09T06:15:10+08:00"
      }
     ]
    },
@@ -4433,7 +4447,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PLTR/analysis",
-      "asOf": "2026-11-06T23:22:29+08:00"
+      "asOf": "2026-11-09T06:15:13+08:00"
      }
     ],
     "lastReported": [
@@ -4445,7 +4459,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/PLTR/analysis",
-      "asOf": "2026-11-06T23:22:30+08:00"
+      "asOf": "2026-11-09T06:15:13+08:00"
      }
     ]
    },
@@ -4455,11 +4469,11 @@
     "epsHigh": 0.45,
     "epsAnalysts": 25.0,
     "epsYearAgo": 0.21,
-    "revAvg": 2674769500.0,
+    "revAvg": 2670136910.0,
     "revLow": 2650100000.0,
     "revHigh": 2771399940.0,
-    "revAnalysts": 18.0,
-    "revGrowth": 0.90129995,
+    "revAnalysts": 23.0,
+    "revGrowth": 0.898,
     "currency": "USD"
    },
    "lastReported": {
@@ -4493,20 +4507,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/SNOW/analysis",
-     "asOf": "2026-11-06T23:22:30+08:00"
+     "asOf": "2026-11-09T06:15:14+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SNOW/analysis",
-      "asOf": "2026-11-06T23:22:32+08:00"
+      "asOf": "2026-11-09T06:15:17+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SNOW/analysis",
-      "asOf": "2026-11-06T23:22:32+08:00"
+      "asOf": "2026-11-09T06:15:18+08:00"
      }
     ]
    },
@@ -4533,7 +4547,7 @@
     "netIncome": -191720000.0,
     "revenueYoY": 0.3509474929015546,
     "netIncomeYoY": null,
-    "reportDate": "2026-09-03T04:00:00+08:00"
+    "reportDate": "2026-05-28T04:00:00+08:00"
    },
    "note": "AI下游·云数据平台（Snowflake）。",
    "importance": 2
@@ -4549,20 +4563,20 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/CRWD/analysis",
-     "asOf": "2026-11-06T23:22:32+08:00"
+     "asOf": "2026-11-09T06:15:18+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRWD/analysis",
-      "asOf": "2026-11-06T23:22:34+08:00"
+      "asOf": "2026-11-09T06:15:21+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRWD/analysis",
-      "asOf": "2026-11-06T23:22:34+08:00"
+      "asOf": "2026-11-09T06:15:22+08:00"
      }
     ]
    },
@@ -4606,7 +4620,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DDOG/analysis",
-      "asOf": "2026-11-06T23:22:36+08:00"
+      "asOf": "2026-11-09T06:15:24+08:00"
      }
     ],
     "lastReported": [
@@ -4618,21 +4632,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DDOG/analysis",
-      "asOf": "2026-11-06T23:22:36+08:00"
+      "asOf": "2026-11-09T06:15:24+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.63869,
-    "epsLow": 0.59,
-    "epsHigh": 0.66,
+    "epsAvg": 0.69219,
+    "epsLow": 0.62635,
+    "epsHigh": 0.71074,
     "epsAnalysts": 38.0,
     "epsYearAgo": 0.59,
-    "revAvg": 1203621850.0,
-    "revLow": 1186500000.0,
-    "revHigh": 1339174000.0,
-    "revAnalysts": 39.0,
-    "revGrowth": 0.2627,
+    "revAvg": 1199874680.0,
+    "revLow": 1191500000.0,
+    "revHigh": 1255871000.0,
+    "revAnalysts": 38.0,
+    "revGrowth": 0.2588,
     "currency": "USD"
    },
    "lastReported": {
@@ -4652,7 +4666,8 @@
     "epsCompareBasis": "预期对比口径=Non-GAAP 摊薄 EPS；预期取发布前 Yahoo 一致预期快照",
     "guidance": "Q4营收11.9–12.0亿美元；Non-GAAP EPS 0.69–0.71；全年营收45.15–45.25亿美元",
     "verdict": "超预期",
-    "note": "Q3营收11.97亿美元(+35%)超预期约11.47亿；Non-GAAP EPS 0.81 vs 预期0.641；GAAP净利润1.183亿。Q4营收指引近乎持平，盘前大跌约13%。"
+    "note": "Q3营收11.97亿美元(+35%)超预期约11.47亿；Non-GAAP EPS 0.81 vs 预期0.641；GAAP净利润1.183亿。Q4营收指引近乎持平，盘前大跌约13%。",
+    "netIncomeYoY": 2.491692489302051
    },
    "guidance": "Q4营收11.9–12.0亿美元；Non-GAAP EPS 0.69–0.71；全年营收45.15–45.25亿美元",
    "note": "AI下游·可观测性/监控（Datadog）。",
@@ -4669,21 +4684,21 @@
     "nextDate": {
      "name": "Yahoo Finance(yfinance)",
      "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-     "asOf": "2026-11-06T23:22:37+08:00",
+     "asOf": "2026-11-09T06:15:25+08:00",
      "note": "已披露清空(reportDate=2026-09-11，原预约 nextDate 已清空，reason=early-release)"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-      "asOf": "2026-11-06T23:22:40+08:00"
+      "asOf": "2026-11-09T06:15:27+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/ADBE/analysis",
-      "asOf": "2026-11-06T23:22:40+08:00"
+      "asOf": "2026-11-09T06:15:28+08:00"
      }
     ]
    },
@@ -4726,20 +4741,20 @@
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-11-06T23:22:44+08:00"
+     "asOf": "2026-11-09T06:15:29+08:00"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRM/analysis",
-      "asOf": "2026-11-06T23:22:44+08:00"
+      "asOf": "2026-11-09T06:15:29+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/CRM/analysis",
-      "asOf": "2026-11-06T23:22:45+08:00"
+      "asOf": "2026-11-09T06:15:30+08:00"
      }
     ]
    },
@@ -4788,7 +4803,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SHOP/analysis",
-      "asOf": "2026-11-06T23:22:46+08:00"
+      "asOf": "2026-11-09T06:15:34+08:00"
      }
     ],
     "lastReported": [
@@ -4800,20 +4815,20 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/SHOP/analysis",
-      "asOf": "2026-11-06T23:22:47+08:00"
+      "asOf": "2026-11-09T06:15:35+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 0.62914,
-    "epsLow": 0.5,
+    "epsAvg": 0.61937,
+    "epsLow": 0.49,
     "epsHigh": 0.78,
     "epsAnalysts": 33.0,
     "epsYearAgo": 0.48,
-    "revAvg": 4815711600.0,
-    "revLow": 4768400000.0,
+    "revAvg": 4815751140.0,
+    "revLow": 4768231000.0,
     "revHigh": 4897000000.0,
-    "revAnalysts": 27.0,
+    "revAnalysts": 39.0,
     "revGrowth": 0.31149998,
     "currency": "USD"
    },
@@ -4867,7 +4882,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MELI/analysis",
-      "asOf": "2026-11-06T23:22:49+08:00"
+      "asOf": "2026-11-09T06:15:37+08:00"
      }
     ],
     "lastReported": [
@@ -4879,21 +4894,21 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/MELI/analysis",
-      "asOf": "2026-11-06T23:22:49+08:00"
+      "asOf": "2026-11-09T06:15:38+08:00"
      }
     ]
    },
    "consensus": {
-    "epsAvg": 11.16442,
-    "epsLow": 9.16,
-    "epsHigh": 12.57,
-    "epsAnalysts": 10.0,
+    "epsAvg": 10.2,
+    "epsLow": 9.31,
+    "epsHigh": 10.69,
+    "epsAnalysts": 5.0,
     "epsYearAgo": 11.03,
-    "revAvg": 11959603190.0,
-    "revLow": 11565000000.0,
-    "revHigh": 12330000000.0,
+    "revAvg": 12042858640.0,
+    "revLow": 11688900000.0,
+    "revHigh": 12234000000.0,
     "revAnalysts": 11.0,
-    "revGrowth": 0.36540002,
+    "revGrowth": 0.3749,
     "currency": "USD"
    },
    "lastReported": {
@@ -4938,7 +4953,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
-      "asOf": "2026-11-06T23:22:50+08:00"
+      "asOf": "2026-11-09T06:15:39+08:00"
      }
     ],
     "lastReported": [
@@ -4950,7 +4965,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
-      "asOf": "2026-11-06T23:22:50+08:00"
+      "asOf": "2026-11-09T06:15:39+08:00"
      },
      {
       "name": "同花顺 MCP income 002371.SZ",
@@ -5053,7 +5068,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
-      "asOf": "2026-11-06T23:22:51+08:00"
+      "asOf": "2026-11-09T06:15:40+08:00"
      }
     ],
     "lastReported": [
@@ -5065,7 +5080,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688012.SS/analysis",
-      "asOf": "2026-11-06T23:22:52+08:00"
+      "asOf": "2026-11-09T06:15:41+08:00"
      }
     ]
    },
@@ -5150,7 +5165,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
-      "asOf": "2026-11-06T23:22:52+08:00"
+      "asOf": "2026-11-09T06:15:41+08:00"
      }
     ],
     "lastReported": [
@@ -5162,7 +5177,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688072.SS/analysis",
-      "asOf": "2026-11-06T23:22:53+08:00"
+      "asOf": "2026-11-09T06:15:42+08:00"
      }
     ]
    },
@@ -5250,7 +5265,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
-      "asOf": "2026-11-06T23:22:53+08:00"
+      "asOf": "2026-11-09T06:15:42+08:00"
      }
     ],
     "lastReported": [
@@ -5262,7 +5277,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688120.SS/analysis",
-      "asOf": "2026-11-06T23:22:54+08:00"
+      "asOf": "2026-11-09T06:15:43+08:00"
      }
     ]
    },
@@ -5347,7 +5362,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
-      "asOf": "2026-11-06T23:22:54+08:00"
+      "asOf": "2026-11-09T06:15:43+08:00"
      }
     ],
     "lastReported": [
@@ -5359,7 +5374,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
-      "asOf": "2026-11-06T23:22:55+08:00"
+      "asOf": "2026-11-09T06:15:44+08:00"
      },
      {
       "name": "同花顺 MCP income 688082.SH",
@@ -5462,7 +5477,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
-      "asOf": "2026-11-06T23:22:56+08:00"
+      "asOf": "2026-11-09T06:15:45+08:00"
      }
     ],
     "lastReported": [
@@ -5474,7 +5489,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688126.SS/analysis",
-      "asOf": "2026-11-06T23:22:56+08:00"
+      "asOf": "2026-11-09T06:15:45+08:00"
      }
     ]
    },
@@ -5564,7 +5579,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
-      "asOf": "2026-11-06T23:22:57+08:00"
+      "asOf": "2026-11-09T06:15:46+08:00"
      }
     ],
     "lastReported": [
@@ -5576,7 +5591,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688019.SS/analysis",
-      "asOf": "2026-11-06T23:22:57+08:00"
+      "asOf": "2026-11-09T06:15:47+08:00"
      }
     ]
    },
@@ -5661,14 +5676,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
-      "asOf": "2026-11-06T23:22:58+08:00"
+      "asOf": "2026-11-09T06:15:47+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688256.SS/analysis",
-      "asOf": "2026-11-06T23:22:58+08:00"
+      "asOf": "2026-11-09T06:15:48+08:00"
      }
     ]
    },
@@ -5744,14 +5759,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
-      "asOf": "2026-11-06T23:22:59+08:00"
+      "asOf": "2026-11-09T06:15:48+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688041.SS/analysis",
-      "asOf": "2026-11-06T23:22:59+08:00"
+      "asOf": "2026-11-09T06:15:49+08:00"
      }
     ]
    },
@@ -5830,7 +5845,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
-      "asOf": "2026-11-06T23:23:00+08:00"
+      "asOf": "2026-11-09T06:15:50+08:00"
      }
     ],
     "lastReported": [
@@ -5842,7 +5857,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
-      "asOf": "2026-11-06T23:23:00+08:00"
+      "asOf": "2026-11-09T06:15:50+08:00"
      },
      {
       "name": "同花顺 MCP income 603986.SH",
@@ -5940,7 +5955,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
-      "asOf": "2026-11-06T23:23:01+08:00"
+      "asOf": "2026-11-09T06:15:51+08:00"
      }
     ],
     "lastReported": [
@@ -5952,7 +5967,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
-      "asOf": "2026-11-06T23:23:01+08:00"
+      "asOf": "2026-11-09T06:15:51+08:00"
      },
      {
       "name": "同花顺 MCP income 603501.SH",
@@ -6048,7 +6063,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
-      "asOf": "2026-11-06T23:23:02+08:00"
+      "asOf": "2026-11-09T06:15:52+08:00"
      }
     ],
     "lastReported": [
@@ -6060,7 +6075,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
-      "asOf": "2026-11-06T23:23:03+08:00"
+      "asOf": "2026-11-09T06:15:53+08:00"
      },
      {
       "name": "同花顺 MCP income 688008.SH",
@@ -6158,14 +6173,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
-      "asOf": "2026-11-06T23:23:03+08:00"
+      "asOf": "2026-11-09T06:15:53+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600584.SS/analysis",
-      "asOf": "2026-11-06T23:23:04+08:00"
+      "asOf": "2026-11-09T06:15:54+08:00"
      }
     ]
    },
@@ -6239,7 +6254,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
-      "asOf": "2026-11-06T23:23:04+08:00"
+      "asOf": "2026-11-09T06:15:54+08:00"
      }
     ],
     "lastReported": [
@@ -6251,7 +6266,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002463.SZ/analysis",
-      "asOf": "2026-11-06T23:23:05+08:00"
+      "asOf": "2026-11-09T06:15:55+08:00"
      }
     ]
    },
@@ -6341,7 +6356,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
-      "asOf": "2026-11-06T23:23:05+08:00"
+      "asOf": "2026-11-09T06:15:55+08:00"
      }
     ],
     "lastReported": [
@@ -6353,7 +6368,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
-      "asOf": "2026-11-06T23:23:06+08:00"
+      "asOf": "2026-11-09T06:15:56+08:00"
      },
      {
       "name": "同花顺 MCP income 600183.SH",
@@ -6461,7 +6476,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
-      "asOf": "2026-11-06T23:23:06+08:00"
+      "asOf": "2026-11-09T06:15:57+08:00"
      }
     ],
     "lastReported": [
@@ -6473,7 +6488,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
-      "asOf": "2026-11-06T23:23:07+08:00"
+      "asOf": "2026-11-09T06:15:57+08:00"
      },
      {
       "name": "同花顺 MCP income 300308.SZ",
@@ -6576,7 +6591,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
-      "asOf": "2026-11-06T23:23:07+08:00"
+      "asOf": "2026-11-09T06:15:58+08:00"
      }
     ],
     "lastReported": [
@@ -6588,7 +6603,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
-      "asOf": "2026-11-06T23:23:08+08:00"
+      "asOf": "2026-11-09T06:15:59+08:00"
      },
      {
       "name": "同花顺 MCP income 300502.SZ",
@@ -6686,7 +6701,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
-      "asOf": "2026-11-06T23:23:08+08:00"
+      "asOf": "2026-11-09T06:15:59+08:00"
      }
     ],
     "lastReported": [
@@ -6698,7 +6713,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
-      "asOf": "2026-11-06T23:23:09+08:00"
+      "asOf": "2026-11-09T06:16:00+08:00"
      },
      {
       "name": "同花顺 MCP income 300394.SZ",
@@ -6801,7 +6816,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
-      "asOf": "2026-11-06T23:23:09+08:00"
+      "asOf": "2026-11-09T06:16:00+08:00"
      }
     ],
     "lastReported": [
@@ -6813,7 +6828,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
-      "asOf": "2026-11-06T23:23:10+08:00"
+      "asOf": "2026-11-09T06:16:01+08:00"
      },
      {
       "name": "同花顺 MCP income 601138.SH",
@@ -6911,7 +6926,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
-      "asOf": "2026-11-06T23:23:11+08:00"
+      "asOf": "2026-11-09T06:16:02+08:00"
      }
     ],
     "lastReported": [
@@ -6923,7 +6938,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
-      "asOf": "2026-11-06T23:23:11+08:00"
+      "asOf": "2026-11-09T06:16:02+08:00"
      },
      {
       "name": "同花顺 MCP income 000977.SZ",
@@ -6965,11 +6980,11 @@
     "epsHigh": 1.0,
     "epsAnalysts": 1.0,
     "epsYearAgo": 0.5,
-    "revAvg": 62439218000.0,
-    "revLow": 62439218000.0,
+    "revAvg": 56937016640.0,
+    "revLow": 51462000000.0,
     "revHigh": 62439218000.0,
-    "revAnalysts": 1.0,
-    "revGrowth": 0.4154,
+    "revAnalysts": 4.0,
+    "revGrowth": 0.2907,
     "currency": "CNY"
    },
    "lastReported": {
@@ -7021,14 +7036,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
-      "asOf": "2026-11-06T23:23:12+08:00"
+      "asOf": "2026-11-09T06:16:03+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002837.SZ/analysis",
-      "asOf": "2026-11-06T23:23:12+08:00"
+      "asOf": "2026-11-09T06:16:03+08:00"
      }
     ]
    },
@@ -7102,7 +7117,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
-      "asOf": "2026-11-06T23:23:13+08:00"
+      "asOf": "2026-11-09T06:16:04+08:00"
      }
     ],
     "lastReported": [
@@ -7114,7 +7129,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/688111.SS/analysis",
-      "asOf": "2026-11-06T23:23:13+08:00"
+      "asOf": "2026-11-09T06:16:05+08:00"
      }
     ]
    },
@@ -7199,14 +7214,14 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
-      "asOf": "2026-11-06T23:23:14+08:00"
+      "asOf": "2026-11-09T06:16:05+08:00"
      }
     ],
     "lastReported": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/002230.SZ/analysis",
-      "asOf": "2026-11-06T23:23:14+08:00"
+      "asOf": "2026-11-09T06:16:06+08:00"
      }
     ]
    },
