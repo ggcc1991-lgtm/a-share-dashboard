@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-09T06:16:06+08:00",
+ "updated": "2026-11-09T23:19:46+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -848,17 +848,19 @@
    "region": "CN",
    "name": "CPI / PPI 同比（10月）",
    "releaseAt": "2026-11-09T09:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "CPI 0.7% / PPI 5.7%",
    "forecast": "CPI 0.8% / PPI 5.4%（Wind一致预期）",
    "previous": "CPI 0.9% / PPI 5.0%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "CPI低于预期、PPI高于预期",
+   "diff": "CPI -0.1pp / PPI +0.3pp",
    "source": {
-    "name": "TradingEconomics 日程 / Wind一致预期",
-    "url": "https://zh.tradingeconomics.com/china/calendar"
+    "name": "国家统计局 / Wind一致预期",
+    "url": "https://www.stats.gov.cn/sj/zxfb/202611/t20261109_1965795.html"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": null,
+   "note": "核心CPI同比+0.8%（较上月回落0.2个百分点）；CPI环比持平，PPI环比+0.7%。食品同比-2.9%，非食品+1.5%。"
   },
   {
    "id": "ff-USD-202611101700-FOMCMemberWallerSpea",
