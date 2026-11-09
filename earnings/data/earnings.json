@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-09T06:16:06+08:00",
+ "updated": "2026-11-10T06:25:31+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-11-09",
  "companies": [
@@ -354,14 +354,14 @@
    "name": "英伟达",
    "region": "US",
    "currency": "USD",
-   "nextDate": null,
-   "dateStatus": "reported",
+   "nextDate": "2026-11-18T06:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/NVDA/analysis",
-     "asOf": "2026-11-09T06:11:11+08:00",
-     "note": "已披露清空(reportDate=2026-08-27，原预约 nextDate 已清空，reason=early-release)"
+     "name": "NVIDIA IR Events: 3rd Quarter FY27 Financial Results",
+     "url": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/",
+     "asOf": "2026-11-10",
+     "note": "官方IR：2026-11-17 17:00 EST（北京时间 11-18 06:00）公布 FY27Q3 业绩"
     },
     "consensus": [
      {
@@ -3227,14 +3227,14 @@
    "name": "应用材料",
    "region": "US",
    "currency": "USD",
-   "nextDate": null,
-   "dateStatus": "reported",
+   "nextDate": "2026-11-13T05:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/AMAT/analysis",
-     "asOf": "2026-11-09T06:14:18+08:00",
-     "note": "已披露清空(reportDate=2026-08-14，原预约 nextDate 已清空，reason=early-release)"
+     "name": "Applied Materials IR: Q4 FY2026 earnings call Nov. 12, 4:30 p.m. ET",
+     "url": "https://investor.appliedmaterials.com/news-releases/news-release-details/applied-materials-report-fourth-quarter-and-fiscal-2026-results/",
+     "asOf": "2026-11-10",
+     "note": "官方新闻稿（2026-10-22）：2026-11-12 16:30 ET 召开 FY26Q4 业绩电话会（北京时间 11-13 05:30）；盘后发布"
     },
     "consensus": [
      {
@@ -3387,14 +3387,14 @@
    "name": "亚德诺",
    "region": "US",
    "currency": "USD",
-   "nextDate": null,
-   "dateStatus": "reported",
+   "nextDate": "2026-11-24T20:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/ADI/analysis",
-     "asOf": "2026-11-09T06:14:29+08:00",
-     "note": "已披露清空(reportDate=2026-08-19，原预约 nextDate 已清空，reason=early-release)"
+     "name": "Analog Devices newsroom: Q4 FY2026 results Nov. 24, 7:00 a.m. ET",
+     "url": "https://www.analog.com/en/newsroom/press-releases/2026/10-22-2026-adi-report-4q-fy2026-financial-results.html",
+     "asOf": "2026-11-10",
+     "note": "官方新闻稿（2026-10-22）：2026-11-24 07:00 ET 发布 FY26Q4 业绩（北京时间 11-24 20:00）；电话会同日 10:00 ET"
     },
     "consensus": [
      {
@@ -3729,14 +3729,14 @@
    "name": "戴尔",
    "region": "US",
    "currency": "USD",
-   "nextDate": null,
-   "dateStatus": "reported",
+   "nextDate": "2026-11-25T05:30:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/DELL/analysis",
-     "asOf": "2026-11-09T06:14:42+08:00",
-     "note": "已披露清空(reportDate=2026-09-02，原预约 nextDate 已清空，reason=early-release)"
+     "name": "Dell Technologies IR Events: FY2027 Q3 Results",
+     "url": "https://investors.delltechnologies.com/news-events/events",
+     "asOf": "2026-11-10",
+     "note": "官方IR日程：2026-11-24 15:30 CST（美国中部，北京时间 11-25 05:30）公布 FY27Q3 业绩"
     },
     "consensus": [
      {
@@ -3858,14 +3858,14 @@
    "name": "思科",
    "region": "US",
    "currency": "USD",
-   "nextDate": null,
-   "dateStatus": "reported",
+   "nextDate": "2026-11-13T05:00:00+08:00",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/CSCO/analysis",
-     "asOf": "2026-11-09T06:14:46+08:00",
-     "note": "已披露清空(reportDate=2026-08-13，原预约 nextDate 已清空，reason=early-release)"
+     "name": "Cisco IR: Q1 FY2027 results after close Nov. 12",
+     "url": "https://investor.cisco.com/news/news-details/2026/Cisco-Schedules-Conference-Call-for-Q1-Fiscal-Year-2027-Financial-Results/default.aspx",
+     "asOf": "2026-11-10",
+     "note": "官方新闻稿（2026-11-03）：2026-11-12 美股收盘后发布 FY27Q1 业绩（截至 10-24）；电话会 16:30 ET（北京时间 11-13 05:30）。日历按收盘后发布记为 11-13 05:00 +08"
     },
     "consensus": [
      {
