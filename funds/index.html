@@ -271,6 +271,8 @@
   const STYLE_TAB_ORDER = ["300指增", "500指增", "1000指增", "2000指增", "A500指增"];
   const RANGE_ORDER = ["all", "3y", "1y", "2024"];
   const RANGE_LABEL = { all: "全样本", "3y": "近3年", "1y": "近1年", "2024": "2024至今" };
+  const TAB_LABEL = { pub: "纯公募", blend: "公募+私募", all: "全部公募" };
+  const tabLabel = (t) => (t && (t.label || TAB_LABEL[t.id] || t.id)) || "";
 
   const STRATEGY_COLORS = {
     "300指增": "#2F5BFF", "500指增": "#E53935", "1000指增": "#43A047",
@@ -726,7 +728,7 @@
       dates: tab.dates || [],
       map: tab.series || {},
       defaultOff: sec.defaultOff || [],
-      title: sec.title + " · " + (tab.label || tab.id),
+      title: sec.title + " · " + tabLabel(tab),
     };
   }
 
@@ -921,7 +923,7 @@
       } else if (sec.tabs && sec.tabs.length) {
         tabsHtml = `<div class="style-seg" data-role="tabs" data-sid="${esc(sec.id)}">${sec.tabs.map((t) => {
           const on = t.id === st.tab;
-          return `<button type="button" data-tab="${esc(t.id)}" class="${on ? "active" : ""}" aria-selected="${on}">${esc(t.label || t.id)}</button>`;
+          return `<button type="button" data-tab="${esc(t.id)}" class="${on ? "active" : ""}" aria-selected="${on}">${esc(tabLabel(t))}</button>`;
         }).join("")}</div>`;
       }
       const heat = isIndustryHeat(sec);

@@ -57,16 +57,28 @@ def pick_series(src, keys):
     return {k: src[k] for k in keys if k in src}
 
 
+
+TAB_LABEL = {"pub": "纯公募", "blend": "公募+私募", "all": "全部公募"}
+
+
+def with_tab_label(tab):
+    label = tab.get("label") or TAB_LABEL.get(tab["id"])
+    if label:
+        tab = dict(tab)
+        tab["label"] = label
+    return tab
+
+
 def style_tab_from_styles4(tab_id, block):
     series = {"总股票仓位": block["total"]}
     series.update(block["series"])
     ordered = {k: series[k] for k in STYLE_KEYS if k in series}
-    return {"id": tab_id, "dates": block["dates"], "series": ordered}
+    return with_tab_label({"id": tab_id, "dates": block["dates"], "series": ordered})
 
 
 def style_tab_from_subjective(tab_id, subj):
     ordered = {k: subj["series"][k] for k in STYLE_KEYS if k in subj["series"]}
-    return {"id": tab_id, "dates": subj["dates"], "series": ordered}
+    return with_tab_label({"id": tab_id, "dates": subj["dates"], "series": ordered})
 
 
 def quant_tab(tab_id, block):
@@ -74,7 +86,7 @@ def quant_tab(tab_id, block):
     for k in QUANT_STYLE:
         if k in block["series"]:
             series[k] = block["series"][k]
-    return {"id": tab_id, "dates": block["dates"], "series": series}
+    return with_tab_label({"id": tab_id, "dates": block["dates"], "series": series})
 
 
 def last_asof(dates):
@@ -123,8 +135,8 @@ def rebuild(pub_wrap, etf_wrap, mcp_asof: str, mcp_keys: list[str], now: datetim
         "hint": "持仓校准版（真实持仓锚定）",
         "lineKeys": ABS_KEYS,
         "tabs": [
-            {"id": "pub", "dates": pub_subj["dates"], "series": pick_series(pub_subj["series"], ABS_KEYS)},
-            {"id": "blend", "dates": blend_subj["dates"], "series": pick_series(blend_subj["series"], ABS_KEYS)},
+            with_tab_label({"id": "pub", "dates": pub_subj["dates"], "series": pick_series(pub_subj["series"], ABS_KEYS)}),
+            with_tab_label({"id": "blend", "dates": blend_subj["dates"], "series": pick_series(blend_subj["series"], ABS_KEYS)}),
         ],
         "accuracy": pub["accuracy"],
     }
