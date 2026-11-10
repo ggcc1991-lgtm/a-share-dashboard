@@ -112,6 +112,14 @@
      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
      "asOf": "2026-10-27"
     }
+   },
+   "nextDate": "2026-11-27",
+   "dateStatus": "estimated",
+   "dateSource": {
+    "name": "TradingEconomics 估 2026-11-27 公布 2026Q3（官方IR尚未发董事会会议通告）",
+    "url": "https://zh.tradingeconomics.com/3690:hk",
+    "asOf": "2026-11-11",
+    "note": "美团官网投资者关系截至2026-11-11仍无Q3董事会会议通告；花旗10-26研报仅称「11月下旬」。日期为第三方估计，非公司确认。"
    }
   },
   "1810.HK": {
@@ -1548,14 +1556,14 @@
    }
   },
   "ENR.DE": {
-   "nextDate": "2026-11-12T00:30:00+08:00",
+   "nextDate": "2026-11-11T14:00:00+08:00",
    "dateStatus": "confirmed",
    "dateSource": {
-    "name": "恢复被 Yahoo 空值覆盖的预约日：西门子能源 FYQ4 预约",
-    "url": "",
-    "asOf": "2026-10-30"
-   },
-   "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。"
+    "name": "Siemens Energy IR：FY2026/Q4 财报于 2026-11-11 07:00 CET 发布",
+    "url": "https://www.siemens-energy.com/global/en/home/press-releases/annual-press-conference-2026.html",
+    "asOf": "2026-11-11",
+    "note": "官方年会页写明 11月11日 07:00 AM CET（北京时间 14:00）发布2025/2026财年业绩；分析师会 11:00 CET。原日历 11-12 00:30+08 为错误预约，已按官方时间更正。截至北京时间11-11 06:20 结果尚未发布。"
+   }
   },
   "373220.KS": {
    "nextDate": null,
@@ -2134,13 +2142,48 @@
    }
   },
   "3008.TW": {
+   "nextDate": null,
+   "dateStatus": "reported",
+   "dateSource": {
+    "name": "大立光官网／2026年第3季法人说明会（2026-10-08 14:30）",
+    "url": "https://www.largan.com.tw/",
+    "asOf": "2026-11-11",
+    "note": "已披露清空预约日；2026-10-08 14:30 法说会公布Q3"
+   },
+   "guidance": "公司未给数值指引；法说会称11月拉货动能转弱",
    "lastReported": {
-    "verdict": "不及预期",
-    "epsActual": 35.61,
-    "epsEstimate": 37.00454,
-    "epsSurprisePct": -0.0377,
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-10T08:00:00+08:00"
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-10-08T14:30:00+08:00",
+    "revenue": 15650820000,
+    "revenueYoY": -0.1146,
+    "netIncome": 5182451000,
+    "netIncomeYoY": -0.268,
+    "epsGaap": 39.62,
+    "epsGaapBasis": "基本EPS（新台币/股）；稀释EPS 39.51",
+    "epsActual": 39.62,
+    "epsEstimate": 43.41,
+    "epsSurprisePct": -0.0873,
+    "surprisePct": -8.73,
+    "epsCompareBasis": "基本EPS vs Yahoo Finance Earnings History 一致预期（Q3 FY26 EPS Est. 43.41，Surprise -8.73%）",
+    "note": "Q3营收156.5082亿新台币（同比-11.5%、环比+14.5%），归母净利51.82451亿，基本EPS 39.62（稀释39.51），低于Yahoo一致预期43.41（意外-8.73%）。毛利率42.21%。前三季营收448.59658亿（同比+2%），归母净利159.75633亿，EPS 121.98。公司未公布数值指引；法说会表示11月拉货动能转弱。",
+    "source": {
+     "name": "公开资讯观测站综合损益表（MoneyDJ转载，2026-11-04）／大立光2026Q3法说会（2026-10-08）",
+     "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=06e0bfe5-cf98-4ab1-8ddb-e72c76d93100",
+     "asOf": "2026-11-11"
+    },
+    "consensusSources": [
+     {
+      "name": "Yahoo Finance Earnings History",
+      "url": "https://finance.yahoo.com/quote/3008.TW/analysis/",
+      "asOf": "2026-11-11"
+     },
+     {
+      "name": "公开资讯观测站综合损益表（MoneyDJ转载，2026-11-04）",
+      "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=06e0bfe5-cf98-4ab1-8ddb-e72c76d93100",
+      "asOf": "2026-11-11"
+     }
+    ],
+    "verdict": "不及预期"
    }
   },
   "3034.TW": {
@@ -2282,7 +2325,19 @@
     "epsEstimate": 6.10597,
     "epsSurprisePct": 0.1595,
     "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13T17:00:00+08:00"
+    "reportDate": "2026-08-13T17:00:00+08:00",
+    "revenue": 1036592712000.0,
+    "netIncome": 28651473000.0,
+    "revenueYoY": 1.0562352517245182,
+    "netIncomeYoY": 0.699311117490202
+   },
+   "nextDate": "2026-11-11T15:30:00+08:00",
+   "dateStatus": "confirmed",
+   "dateSource": {
+    "name": "公开资讯观测站重大讯息：广达115年第三季营运成果线上电话说明会",
+    "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=4a517226-2a4e-447c-b165-e4ee83cc2326",
+    "asOf": "2026-11-11",
+    "note": "MOPS公告：2026-11-11 15:30 线上电话会议，主题为115年第三季营运成果（受Macquarie邀请）"
    }
   },
   "3231.TW": {
@@ -2376,5 +2431,5 @@
    }
   }
  },
- "updated": "2026-11-10T23:19:10+08:00"
+ "updated": "2026-11-11T06:22:04+08:00"
 }
