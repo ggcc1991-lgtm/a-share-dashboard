@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-09T23:19:46+08:00",
+ "updated": "2026-11-10T23:19:28+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -867,8 +867,8 @@
    "region": "US",
    "name": "FOMC Member Waller Speaks",
    "releaseAt": "2026-11-10T17:00:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "暂无",
    "forecast": "暂无",
    "previous": "暂无",
    "verdict": null,
@@ -878,43 +878,49 @@
     "name": "ForexFactory 周历",
     "url": "https://www.forexfactory.com/calendar"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": null,
+   "note": "演讲类事件，无数值结果。"
   },
   {
    "id": "ff-USD-202611102130-CoreCPImm",
    "region": "US",
    "name": "Core CPI m/m",
    "releaseAt": "2026-11-10T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "0.3%",
    "forecast": "0.2%",
    "previous": "0.3%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "高于预期",
+   "diff": "+0.1pp",
    "impact": "High",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "BLS CPI 新闻稿 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
+    "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 50.0,
+   "note": "BLS：10月季调核心CPI（除食品能源）环比+0.3%，与8月、9月相同；因2025年10月拨款空窗，同比未公布。"
   },
   {
    "id": "ff-USD-202611102130-CPImm",
    "region": "US",
    "name": "CPI m/m",
    "releaseAt": "2026-11-10T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "0.4%",
    "forecast": "0.3%",
    "previous": "0.6%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "高于预期",
+   "diff": "+0.1pp",
    "impact": "High",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "BLS CPI 新闻稿 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
+    "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 33.3,
+   "note": "BLS：10月季调CPI环比+0.4%（9月为+0.6%）；食品+0.5%，能源+0.7%，住房+0.3%（占本月涨幅逾三成）。因2025年10月拨款空窗未采集数据，多数分项无法公布同比。"
   },
   {
    "id": "ff-USD-202611122130-UnemploymentClaims",
