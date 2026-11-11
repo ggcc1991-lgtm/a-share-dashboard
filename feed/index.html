@@ -446,7 +446,12 @@
       let html = `<div class="fa-prose">`;
       for (const b of blocks) {
         if (b.kind === "lead") {
-          html += `<p class="fa-prose-lead">${esc(b.text)}</p>`;
+          const parts = String(b.text || "").split(/\n+/).map((t) => t.trim()).filter(Boolean);
+          if (parts.length > 1) {
+            html += `<div class="fa-prose-lead-list">${parts.map((t) => `<p class="fa-prose-lead">${esc(t)}</p>`).join("")}</div>`;
+          } else if (parts.length === 1) {
+            html += `<p class="fa-prose-lead">${esc(parts[0])}</p>`;
+          }
         } else if (b.kind === "note") {
           html += `<p class="fa-prose-note">${esc(b.text)}</p>`;
         } else if (b.kind === "opportunities") {
