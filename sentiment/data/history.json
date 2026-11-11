@@ -1,6 +1,6 @@
 {
   "algoVersion": "market-emotion-eod-v3",
-  "exportedAt": "2026-11-10T07:35:00.000Z",
+  "exportedAt": "2026-11-11T07:31:00.000Z",
   "source": "sina/tencent (eastmoney provider; EM push2 skipped on box)",
   "days": [
     {
@@ -12036,11 +12036,113 @@
           "rawValue": "炸板 27 + 跌停 2 * 2 = 31"
         }
       ]
+    },
+    {
+      "date": "20261111",
+      "emotionScore": 74.2,
+      "regime": "strong",
+      "regimeLabel": "Risk-On (进攻)",
+      "suggestedPosition": 60,
+      "positionTier": "标准仓",
+      "allowOpen": true,
+      "hs300Close": 4075.71,
+      "hs300ChangePct": 0.41,
+      "volumeRatio": 0.92,
+      "banReasons": [],
+      "gates": [
+        {
+          "key": "emotion",
+          "label": "情绪阈值",
+          "current": "74.2",
+          "threshold": ">= 54",
+          "passed": true
+        },
+        {
+          "key": "volume",
+          "label": "量能阈值",
+          "current": "0.92",
+          "threshold": ">= 0.55",
+          "passed": true
+        },
+        {
+          "key": "hs300",
+          "label": "HS300 涨跌幅",
+          "current": "0.41%",
+          "threshold": ">= -3.00%",
+          "passed": true
+        }
+      ],
+      "factors": [
+        {
+          "id": "hs300_trend",
+          "name": "沪深300趋势",
+          "score": 70,
+          "weight": 0.2,
+          "contribution": 14,
+          "rawValue": "4075.71 / MA5 4071.72 / MA20 4083.34"
+        },
+        {
+          "id": "volume",
+          "name": "量能健康度",
+          "score": 37.83,
+          "weight": 0.15,
+          "contribution": 5.67,
+          "rawValue": "当日成交额 4421.28 亿\n60日均额 4826.21 亿\n量能比 0.92"
+        },
+        {
+          "id": "volume_trend",
+          "name": "量能趋势",
+          "score": 43.66,
+          "weight": 0.05,
+          "contribution": 2.18,
+          "rawValue": "20日均额 4581.54 亿\n60日均额 4826.21 亿\n20/60趋势 0.95"
+        },
+        {
+          "id": "market_breadth",
+          "name": "市场宽度",
+          "score": 100,
+          "weight": 0.15,
+          "contribution": 15,
+          "rawValue": "上涨 2748\n下跌 1062\n平盘 1219\n上涨占比 54.6%"
+        },
+        {
+          "id": "advance_decline",
+          "name": "涨跌比",
+          "score": 70,
+          "weight": 0.15,
+          "contribution": 10.5,
+          "rawValue": "2748 / 1062 = 2.59"
+        },
+        {
+          "id": "limit_up_down",
+          "name": "涨跌停比",
+          "score": 100,
+          "weight": 0.15,
+          "contribution": 15,
+          "rawValue": "84 / 1 = 84"
+        },
+        {
+          "id": "max_height",
+          "name": "连板高度",
+          "score": 80,
+          "weight": 0.1,
+          "contribution": 8,
+          "rawValue": "最高连板 4"
+        },
+        {
+          "id": "panic_factor",
+          "name": "恐慌因子",
+          "score": 76,
+          "weight": 0.05,
+          "contribution": 3.8,
+          "rawValue": "炸板 32 + 跌停 1 * 2 = 34"
+        }
+      ]
     }
   ],
   "failed": [],
   "notes": [
     "成交额单位已统一为亿元（部分日期原始为错位单位，已/1000 修正；量能比不受影响）",
-    "2026-11-10 收盘 EOD 快照（覆盖午盘）"
+    "2026-11-11 收盘 EOD 快照（覆盖午盘）"
   ]
 }
