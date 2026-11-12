@@ -1,7 +1,7 @@
 {
   "schemaVersion": "openrouter-weekly-v2.1",
   "asOf": "2026-11-12 08:49 Asia/Shanghai",
-  "updatedAt": "2026-11-12 08:49 Asia/Shanghai",
+  "updatedAt": "2026-11-12 20:41 Asia/Shanghai",
   "asOfUtc": "2026-11-12T00:49:29Z",
   "source": {
     "name": "OpenRouter",
@@ -4983,8 +4983,8 @@
     "asOfLocal": "2026-11-12 08:49 Asia/Shanghai"
   },
   "gpuRentalIndex": {
-    "asOf": "2026-11-10",
-    "updatedAt": "2026-11-11 21:01 Asia/Shanghai",
+    "asOf": "2026-11-11",
+    "updatedAt": "2026-11-12 20:41 Asia/Shanghai",
     "unit": "$/GPU-hr",
     "source": "Silicon Data",
     "sourceNote": "Rolling window ~30d. Cumulative history: history_all.json / gpu_rental_history.jsonl",
@@ -4992,7 +4992,7 @@
     "historyStore": "/workspace/silicon_gpu_index/gpu_rental_history.jsonl",
     "historyAll": "/workspace/silicon_gpu_index/history_all.json",
     "windowDays": 30,
-    "historyDays": 57,
+    "historyDays": 58,
     "historyCumulative": true,
     "refresh": {
       "cadence": "weekdays after 20:00 Asia/Shanghai",
@@ -5007,7 +5007,7 @@
         "gpu": "H100",
         "price": 3.06,
         "chg7dPct": 3.38,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       },
       {
         "name": "H100 hs",
@@ -5015,7 +5015,7 @@
         "gpu": "H100",
         "price": 7.1,
         "chg7dPct": -0.28,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       },
       {
         "name": "A100 neo",
@@ -5023,7 +5023,7 @@
         "gpu": "A100",
         "price": 1.59,
         "chg7dPct": 0.63,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       },
       {
         "name": "A100 hs",
@@ -5031,31 +5031,31 @@
         "gpu": "A100",
         "price": 3.92,
         "chg7dPct": 0.0,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       },
       {
         "name": "B200 neo",
         "segment": "neo",
         "gpu": "B200",
-        "price": 6.97,
-        "chg7dPct": 6.57,
-        "asOf": "2026-11-10"
+        "price": 6.84,
+        "chg7dPct": 4.75,
+        "asOf": "2026-11-11"
       },
       {
         "name": "B300 neo",
         "segment": "neo",
         "gpu": "B300",
-        "price": 7.68,
-        "chg7dPct": 1.72,
-        "asOf": "2026-11-10"
+        "price": 7.67,
+        "chg7dPct": 1.59,
+        "asOf": "2026-11-11"
       },
       {
         "name": "H200 neo",
         "segment": "neo",
         "gpu": "H200",
-        "price": 3.48,
+        "price": 3.47,
         "chg7dPct": -1.14,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       },
       {
         "name": "MI300X neo",
@@ -5063,7 +5063,7 @@
         "gpu": "MI300X",
         "price": 2.77,
         "chg7dPct": 0.36,
-        "asOf": "2026-11-10"
+        "asOf": "2026-11-11"
       }
     ],
     "history": {
@@ -5124,7 +5124,8 @@
         "2026-11-07",
         "2026-11-08",
         "2026-11-09",
-        "2026-11-10"
+        "2026-11-10",
+        "2026-11-11"
       ],
       "series": {
         "H100 neo": [
@@ -5184,6 +5185,7 @@
           3.04,
           3.0,
           3.01,
+          3.06,
           3.06
         ],
         "H100 hs": [
@@ -5243,6 +5245,7 @@
           7.12,
           7.12,
           7.1,
+          7.1,
           7.1
         ],
         "A100 neo": [
@@ -5298,6 +5301,7 @@
           1.58,
           1.58,
           1.58,
+          1.59,
           1.59,
           1.59,
           1.59,
@@ -5361,6 +5365,7 @@
           3.91,
           3.92,
           3.92,
+          3.92,
           3.92
         ],
         "B200 neo": [
@@ -5420,7 +5425,8 @@
           6.8,
           6.81,
           6.84,
-          6.97
+          6.97,
+          6.84
         ],
         "B300 neo": [
           null,
@@ -5479,7 +5485,8 @@
           7.69,
           7.69,
           7.68,
-          7.68
+          7.68,
+          7.67
         ],
         "H200 neo": [
           null,
@@ -5538,7 +5545,8 @@
           3.53,
           3.55,
           3.48,
-          3.48
+          3.48,
+          3.47
         ],
         "MI300X neo": [
           null,
@@ -5596,6 +5604,7 @@
           2.76,
           2.76,
           2.76,
+          2.77,
           2.77,
           2.77
         ]
