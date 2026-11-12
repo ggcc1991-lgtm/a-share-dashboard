@@ -172,22 +172,45 @@
   "0981.HK": {
    "currency": "USD",
    "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 3005600000,
-    "revenueYoY": 0.3606,
-    "netIncome": 479197000,
-    "netIncomeYoY": 2.617,
-    "epsGaap": 0.06,
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12",
+    "revenue": 3190038000,
+    "revenueYoY": 0.339,
+    "netIncome": 428405000,
+    "netIncomeYoY": 1.234,
+    "epsGaap": 0.05,
     "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
-    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
-    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
+    "epsActual": 0.05,
+    "epsEstimate": 0.04929,
+    "epsSurprisePct": 0.0144,
+    "revSurprisePct": 0.0309,
+    "epsCompareBasis": "基本/摊薄 EPS $0.05 vs Yahoo 一致预期 $0.04929（9家）",
+    "manual": {
+     "revEstimate": 3094389490.0,
+     "revSource": "Yahoo 一致预期（11家，刷新时已在 earnings.json）",
+     "grossMargin": 0.299,
+     "waferShipments": 3033683,
+     "utilization": 0.973,
+     "priorGuidance": "Q3 营收环比 +2%–4%，毛利率 26%–28%（公司 Q2 业绩公告指引）"
+    },
+    "guidance": "Q4：收入预计环比增长 4%–6%，毛利率指引 26%–28%。",
+    "note": "Q3 营收 31.90038 亿美元（同比 +33.9%，环比 +6.1%），高于 Yahoo 一致预期约 30.94 亿美元（+3.1%），亦高于公司此前指引（环比 +2%–4%）；毛利率 29.9%（同比 22.0%/环比 25.3%），高于公司指引 26%–28%。归母净利润 4.28405 亿美元（同比 +123.4%，环比 -10.6%）。基本/摊薄 EPS 0.05 美元，对比 Yahoo 一致预期 0.04929 美元基本符合。产能利用率 97.3%，晶圆销量 303.4 万片（折合 8 吋）。",
     "source": {
-     "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
-     "asOf": "2026-10-27"
-    }
-   }
+     "name": "中芯国际截至 2026年9月30日止三個月未經審核業績公佈（HKEXnews）",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200683_c.pdf",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "营收超预期、EPS符合预期"
+   },
+   "nextDate": null,
+   "dateStatus": "reported",
+   "dateSource": {
+    "name": "中芯国际 2026Q3 业绩公告(HKEXnews)",
+    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200683_c.pdf",
+    "asOf": "2026-11-12",
+    "note": "已于 2026-11-12 发布，清空原预约 nextDate"
+   },
+   "guidance": "Q4：收入预计环比增长 4%–6%，毛利率指引 26%–28%。"
   },
   "1211.HK": {
    "lastReported": {
@@ -1458,32 +1481,84 @@
    }
   },
   "035420.KS": {
-   "nextDate": "2026-11-12T14:00:00+08:00",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "dateSource": {
-    "name": "恢复被 Yahoo 空值覆盖的预约日：NAVER Q3 预约",
-    "url": "",
-    "asOf": "2026-10-30"
-   },
-   "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。"
-  },
-  "2317.TW": {
-   "nextDate": "2026-11-12T13:30:00+08:00",
-   "dateStatus": "confirmed",
-   "dateSource": {
-    "name": "恢复被 Yahoo 空值覆盖的预约日：鸿海 Q3 预约",
-    "url": "",
-    "asOf": "2026-10-30"
+    "name": "NAVER 3Q26 Earnings IR",
+    "url": "https://www.navercorp.com/api/article/download/5424bdee-8b0f-4f03-b38f-a308a9381eb9",
+    "asOf": "2026-11-12",
+    "note": "已于 2026-11-12 发布（韩国交易所公平披露于当日上午，预约电话会 14:00+08），清空原预约 nextDate"
    },
    "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
    "lastReported": {
-    "verdict": "超预期",
-    "epsActual": 4.24,
-    "epsEstimate": 4.06192,
-    "epsSurprisePct": 0.0438,
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-12T19:00:00+08:00"
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12T14:00:00+08:00",
+    "revenue": 3472400000000,
+    "revenueYoY": 0.107,
+    "netIncome": 402500000000,
+    "netIncomeYoY": -0.452,
+    "epsActual": null,
+    "revSurprisePct": -0.0123,
+    "epsCompareBasis": "官方业绩材料未列示 EPS，暂无；判断依据为营业利润 vs 연합인포맥스 一致预期，以及营收 vs Yahoo 一致预期",
+    "manual": {
+     "revEstimate": 3515775620000.0,
+     "revSource": "Yahoo 一致预期（18家，刷新时已在 earnings.json）",
+     "operatingProfit": 451300000000,
+     "opEstimate": 489600000000,
+     "opSource": "연합뉴스转引연합인포맥스市场展望值 4,896亿韩元",
+     "opSurprisePct": -0.0782
+    },
+    "note": "官方IR：Q3 营收 3.4724 万亿韩元（同比 +10.7%，环比 +2.5%），略低于 Yahoo 一致预期约 3.5158 万亿（-1.2%）；营业利润 4,513 亿韩元（同比 -20.9%，环比 -13.3%），低于연합인포맥스一致预期 4,896 亿（-7.8%）；净利润 4,025 亿韩元（同比 -45.2%）。EPS 官方材料未列示，暂无。",
+    "source": {
+     "name": "NAVER 2026년 3분기 실적발표 IR 资料",
+     "url": "https://www.navercorp.com/api/article/download/5424bdee-8b0f-4f03-b38f-a308a9381eb9",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "不及预期"
    }
+  },
+  "2317.TW": {
+   "nextDate": null,
+   "dateStatus": "reported",
+   "dateSource": {
+    "name": "鸿海 2026年第三季法人说明会 / 官方业绩演示",
+    "url": "https://www.honhai.com/zh-tw/investor-relations/investor-relations-activities/investor-conference/108",
+    "asOf": "2026-11-12",
+    "note": "已于北京时间 2026-11-12 13:30 前后发布，清空原预约 nextDate"
+   },
+   "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
+   "lastReported": {
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12T13:30:00+08:00",
+    "revenue": 3015634000000,
+    "revenueYoY": 0.4646,
+    "netIncome": 77524000000,
+    "netIncomeYoY": 0.3442,
+    "epsGaap": 5.51,
+    "epsGaapBasis": "基本每股盈餘（新台幣元，歸屬母公司業主）",
+    "epsActual": 5.51,
+    "epsEstimate": 4.94367,
+    "epsSurprisePct": 0.1146,
+    "revSurprisePct": 0.0504,
+    "epsCompareBasis": "基本EPS 5.51 vs Yahoo 一致预期 4.94367（15家）",
+    "manual": {
+     "revEstimate": 2870847106010.0,
+     "revSource": "Yahoo 一致预期（14家，刷新时已在 earnings.json）",
+     "operatingProfit": 115350000000,
+     "grossMargin": 0.0602,
+     "operatingMargin": 0.0383,
+     "nineMonthRevenue": 7661062000000,
+     "nineMonthEps": 13.35
+    },
+    "note": "Q3 营业收入新台币 3,015,634 百万元（同比 +46%，环比 +19%），高于 Yahoo 一致预期约 2.8708 兆元（+5.0%）；归母净利 77,524 百万元（同比 +34%，环比 +29%），基本 EPS 5.51 元 vs 一致预期 4.94367 元（+11.5%），营收与 EPS 均创单季新高。毛利率 6.02%，营业利益 115,350 百万元（同比 +64%）。前三季营收 7,661,062 百万元、EPS 13.35 元。",
+    "source": {
+     "name": "鸿海 2026年第三季法人说明会演示文稿（中文）",
+     "url": "https://image.honhai.com/upload/202611/law_talk/Hon Hai 3Q26 Results_Chinese_20261112_2728.pdf",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "超预期"
+   },
+   "guidance": "4Q26 季对季及年对年皆强劲成长；全年展望上修（公司法说，分部量化指引见演示文稿图表，此处不转写未提取到的图内数字）。"
   },
   "9984.T": {
    "nextDate": null,
@@ -2481,5 +2556,5 @@
    }
   }
  },
- "updated": "2026-11-11T23:30:00+08:00"
+ "updated": "2026-11-12T23:21:44+08:00"
 }

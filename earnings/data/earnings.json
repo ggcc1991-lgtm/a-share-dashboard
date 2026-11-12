@@ -1,14 +1,14 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-11T23:27:54+08:00",
+ "updated": "2026-11-12T23:21:44+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-11-11",
+ "consensusAsOf": "2026-11-12",
  "companies": [
   {
    "symbol": "AAPL",
    "name": "苹果",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -55,7 +55,7 @@
    "symbol": "MSFT",
    "name": "微软",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -116,7 +116,7 @@
    "symbol": "GOOGL",
    "name": "谷歌(Alphabet)",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -196,7 +196,7 @@
    "symbol": "AMZN",
    "name": "亚马逊",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -255,7 +255,7 @@
    "symbol": "META",
    "name": "Meta",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -302,7 +302,7 @@
    "symbol": "NVDA",
    "name": "英伟达",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-11-18T06:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -347,7 +347,7 @@
    "symbol": "TSLA",
    "name": "特斯拉",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -394,7 +394,7 @@
    "symbol": "TSM",
    "name": "台积电(ADR)",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -439,7 +439,7 @@
    "symbol": "AMD",
    "name": "AMD",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -499,7 +499,7 @@
    "symbol": "AVGO",
    "name": "博通",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-10T05:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -543,7 +543,7 @@
    "symbol": "0700.HK",
    "name": "腾讯控股",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-18",
    "dateStatus": "confirmed",
    "sources": {
@@ -596,7 +596,7 @@
    "symbol": "BABA",
    "name": "阿里巴巴(ADR)",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-19T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -614,7 +614,7 @@
      }
     ]
    },
-   "nasdaqText": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share is expected* to report earnings on  11/19/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  3 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.31.  The reported EPS for the same quarter last year was $0.44.",
+   "nasdaqText": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share is expected* to report earnings on  11/19/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  2 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.56.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 10.97231,
     "epsLow": 8.59,
@@ -651,7 +651,7 @@
    "symbol": "BIDU",
    "name": "百度(ADR)",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-16T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -705,7 +705,7 @@
    "symbol": "JD",
    "name": "京东(ADR)",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-17T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -723,7 +723,7 @@
      }
     ]
    },
-   "nasdaqText": "JD.com, Inc. American Depositary Shares is expected* to report earnings on  11/17/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  2 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.95.  The reported EPS for the same quarter last year was $0.44.",
+   "nasdaqText": "JD.com, Inc. American Depositary Shares is expected* to report earnings on  11/17/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  2 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.88.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 5.9199,
     "epsLow": 5.00259,
@@ -760,29 +760,24 @@
    "symbol": "3690.HK",
    "name": "美团",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-27",
    "dateStatus": "estimated",
    "sources": {
+    "nextDate": {
+     "name": "TradingEconomics 估 2026-11-27 公布 2026Q3（官方IR尚未发董事会会议通告）",
+     "url": "https://zh.tradingeconomics.com/3690:hk",
+     "asOf": "2026-11-11",
+     "note": "美团官网投资者关系截至2026-11-11仍无Q3董事会会议通告；花旗10-26研报仅称「11月下旬」。日期为第三方估计，非公司确认。"
+    },
     "consensus": [],
     "lastReported": [
      {
       "name": "美团 2026Q2 业绩公告(HKEXnews)",
       "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
       "asOf": "2026-10-27"
-     },
-     {
-      "name": "美团 2026Q2 业绩公告(HKEXnews)",
-      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0828/2026082800435.pdf",
-      "asOf": "2026-10-27"
      }
-    ],
-    "nextDate": {
-     "name": "TradingEconomics 估 2026-11-27 公布 2026Q3（官方IR尚未发董事会会议通告）",
-     "url": "https://zh.tradingeconomics.com/3690:hk",
-     "asOf": "2026-11-11",
-     "note": "美团官网投资者关系截至2026-11-11仍无Q3董事会会议通告；花旗10-26研报仅称「11月下旬」。日期为第三方估计，非公司确认。"
-    }
+    ]
    },
    "consensus": {
     "epsAvg": 0.302,
@@ -821,19 +816,19 @@
    "symbol": "PDD",
    "name": "拼多多",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-17",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/pdd/earnings",
-     "asOf": "2026-11-11T06:20:19+08:00"
+     "asOf": "2026-11-12T23:17:19+08:00"
     },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "PDD Holdings Inc. American Depositary Shares is estimated to report earnings on  11/17/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $2.6.  The reported EPS for the same quarter last year was $2.77.",
+   "nasdaqText": "PDD Holdings Inc. American Depositary Shares is estimated to report earnings on  11/17/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  2 analysts' forecasts, the consensus EPS forecast for the quarter is $2.61.  The reported EPS for the same quarter last year was $2.77.",
    "consensus": {
     "epsAvg": 18.84143,
     "epsLow": 16.789,
@@ -865,7 +860,7 @@
    "symbol": "1810.HK",
    "name": "小米集团",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-24",
    "dateStatus": "confirmed",
    "sources": {
@@ -918,7 +913,7 @@
    "symbol": "NTES",
    "name": "网易(ADR)",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": "2026-11-19T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -973,28 +968,29 @@
    "name": "中芯国际",
    "region": "CN",
    "currency": "USD",
-   "nextDate": "2026-11-12",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
-    "nextDate": {
-     "name": "HKEXnews 董事会会议通告(2026-10-30)",
-     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1030/2026103000818.pdf",
-     "asOf": "2026-11-11T06:20:58+08:00"
-    },
     "consensus": [
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-11-11T06:21:00+08:00"
+      "asOf": "2026-11-12T23:18:00+08:00"
      }
     ],
     "lastReported": [
      {
-      "name": "中芯国际 2026Q2 业绩公告(HKEXnews)",
-      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0813/2026081300353.pdf",
-      "asOf": "2026-10-27"
+      "name": "中芯国际截至 2026年9月30日止三個月未經審核業績公佈（HKEXnews）",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200683_c.pdf",
+      "asOf": "2026-11-12"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "中芯国际 2026Q3 业绩公告(HKEXnews)",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200683_c.pdf",
+     "asOf": "2026-11-12",
+     "note": "已于 2026-11-12 发布，清空原预约 nextDate"
+    }
    },
    "consensus": {
     "ashareAnnual": {
@@ -1019,7 +1015,7 @@
       "n": 6
      },
      "orgs": 7,
-     "window": "2026-08-13~2026-11-11",
+     "window": "2026-08-14~2026-11-12",
      "source": "Tushare report_rc 688981.SH",
      "asOf": "2026-09-18",
      "unit": "CNY（np/op_rt 万元×1e4）"
@@ -1037,19 +1033,35 @@
     "currency": "USD"
    },
    "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-13",
-    "revenue": 3005600000,
-    "revenueYoY": 0.3606,
-    "netIncome": 479197000,
-    "netIncomeYoY": 2.617,
-    "epsGaap": 0.06,
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12",
+    "revenue": 3190038000,
+    "revenueYoY": 0.339,
+    "netIncome": 428405000,
+    "netIncomeYoY": 1.234,
+    "epsGaap": 0.05,
     "epsGaapBasis": "IFRS 基本/摊薄 EPS(美元/股)",
-    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
-    "note": "营收同比按 30.056亿 vs 22.091亿美元计算",
-    "epsActual": 0.06,
-    "epsEstimate": 0.03482,
-    "epsSurprisePct": 0.72309995
+    "epsActual": 0.05,
+    "epsEstimate": 0.04929,
+    "epsSurprisePct": 0.0144,
+    "revSurprisePct": 0.0309,
+    "epsCompareBasis": "基本/摊薄 EPS $0.05 vs Yahoo 一致预期 $0.04929（9家）",
+    "manual": {
+     "revEstimate": 3094389490.0,
+     "revSource": "Yahoo 一致预期（11家，刷新时已在 earnings.json）",
+     "grossMargin": 0.299,
+     "waferShipments": 3033683,
+     "utilization": 0.973,
+     "priorGuidance": "Q3 营收环比 +2%–4%，毛利率 26%–28%（公司 Q2 业绩公告指引）"
+    },
+    "guidance": "Q4：收入预计环比增长 4%–6%，毛利率指引 26%–28%。",
+    "note": "Q3 营收 31.90038 亿美元（同比 +33.9%，环比 +6.1%），高于 Yahoo 一致预期约 30.94 亿美元（+3.1%），亦高于公司此前指引（环比 +2%–4%）；毛利率 29.9%（同比 22.0%/环比 25.3%），高于公司指引 26%–28%。归母净利润 4.28405 亿美元（同比 +123.4%，环比 -10.6%）。基本/摊薄 EPS 0.05 美元，对比 Yahoo 一致预期 0.04929 美元基本符合。产能利用率 97.3%，晶圆销量 303.4 万片（折合 8 吋）。",
+    "source": {
+     "name": "中芯国际截至 2026年9月30日止三個月未經審核業績公佈（HKEXnews）",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1112/2026111200683_c.pdf",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "营收超预期、EPS符合预期"
    },
    "guidance": "Q3 营收环比 +2%~4%（公司指引）",
    "importance": 3
@@ -1058,7 +1070,7 @@
    "symbol": "1211.HK",
    "name": "比亚迪股份",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1152,7 +1164,7 @@
    "symbol": "2330.TW",
    "name": "台积电(现股)",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1191,7 +1203,7 @@
    "symbol": "2454.TW",
    "name": "联发科",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1257,7 +1269,7 @@
    "symbol": "3711.TW",
    "name": "日月光投控",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1318,7 +1330,7 @@
    "symbol": "005930.KS",
    "name": "三星电子",
    "region": "KR",
-   "currency": "KRW",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1380,7 +1392,7 @@
    "symbol": "000660.KS",
    "name": "SK海力士",
    "region": "KR",
-   "currency": "KRW",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1450,7 +1462,7 @@
    "symbol": "SONY",
    "name": "索尼(ADR)",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": "2027-02-04T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -1493,7 +1505,7 @@
    "symbol": "8035.T",
    "name": "东京电子",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1612,7 +1624,7 @@
    "symbol": "ASML",
    "name": "ASML",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1657,7 +1669,7 @@
    "symbol": "SAP",
    "name": "SAP",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1766,10 +1778,16 @@
    "symbol": "3008.TW",
    "name": "大立光",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
+    "nextDate": {
+     "name": "大立光官网／2026年第3季法人说明会（2026-10-08 14:30）",
+     "url": "https://www.largan.com.tw/",
+     "asOf": "2026-11-11",
+     "note": "已披露清空预约日；2026-10-08 14:30 法说会公布Q3"
+    },
     "consensus": [],
     "lastReported": [
      {
@@ -1777,13 +1795,7 @@
       "url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=06e0bfe5-cf98-4ab1-8ddb-e72c76d93100",
       "asOf": "2026-11-11"
      }
-    ],
-    "nextDate": {
-     "name": "大立光官网／2026年第3季法人说明会（2026-10-08 14:30）",
-     "url": "https://www.largan.com.tw/",
-     "asOf": "2026-11-11",
-     "note": "已披露清空预约日；2026-10-08 14:30 法说会公布Q3"
-    }
+    ]
    },
    "consensus": {
     "epsAvg": 44.06043,
@@ -1827,15 +1839,15 @@
     ],
     "verdict": "不及预期"
    },
+   "guidance": "公司未给数值指引；法说会称11月拉货动能转弱",
    "note": "手机镜头模组光学龙头（大立光）。",
-   "importance": 3,
-   "guidance": "公司未给数值指引；法说会称11月拉货动能转弱"
+   "importance": 3
   },
   {
    "symbol": "6488.TWO",
    "name": "环球晶圆",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1896,7 +1908,7 @@
    "symbol": "2308.TW",
    "name": "台达电",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -1955,7 +1967,7 @@
    "symbol": "3034.TW",
    "name": "联咏",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -1996,7 +2008,7 @@
    "symbol": "373220.KS",
    "name": "LG新能源",
    "region": "KR",
-   "currency": "KRW",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2068,7 +2080,7 @@
    "symbol": "207940.KS",
    "name": "三星生物",
    "region": "KR",
-   "currency": "KRW",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2127,17 +2139,24 @@
    "symbol": "035420.KS",
    "name": "NAVER",
    "region": "KR",
-   "currency": "KRW",
-   "nextDate": "2026-11-12T14:00:00+08:00",
-   "dateStatus": "confirmed",
+   "currency": null,
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
-    "nextDate": {
-     "name": "恢复被 Yahoo 空值覆盖的预约日：NAVER Q3 预约",
-     "url": "",
-     "asOf": "2026-10-30"
-    },
     "consensus": [],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "NAVER 2026년 3분기 실적발표 IR 资料",
+      "url": "https://www.navercorp.com/api/article/download/5424bdee-8b0f-4f03-b38f-a308a9381eb9",
+      "asOf": "2026-11-12"
+     }
+    ],
+    "nextDate": {
+     "name": "NAVER 3Q26 Earnings IR",
+     "url": "https://www.navercorp.com/api/article/download/5424bdee-8b0f-4f03-b38f-a308a9381eb9",
+     "asOf": "2026-11-12",
+     "note": "已于 2026-11-12 发布（韩国交易所公平披露于当日上午，预约电话会 14:00+08），清空原预约 nextDate"
+    }
    },
    "consensus": {
     "epsAvg": 3273.0234,
@@ -2153,15 +2172,30 @@
     "currency": "KRW"
    },
    "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "epsActual": 4635.0,
-    "epsEstimate": 3734.7153,
-    "epsSurprisePct": 0.24110001,
-    "revenue": 3388755080300.0,
-    "netIncome": 698619542970.0,
-    "revenueYoY": 0.16248926359144877,
-    "netIncomeYoY": 0.4293100207099483,
-    "reportDate": "2026-08-14T14:00:00+08:00"
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12T14:00:00+08:00",
+    "revenue": 3472400000000,
+    "revenueYoY": 0.107,
+    "netIncome": 402500000000,
+    "netIncomeYoY": -0.452,
+    "epsActual": null,
+    "revSurprisePct": -0.0123,
+    "epsCompareBasis": "官方业绩材料未列示 EPS，暂无；判断依据为营业利润 vs 연합인포맥스 一致预期，以及营收 vs Yahoo 一致预期",
+    "manual": {
+     "revEstimate": 3515775620000.0,
+     "revSource": "Yahoo 一致预期（18家，刷新时已在 earnings.json）",
+     "operatingProfit": 451300000000,
+     "opEstimate": 489600000000,
+     "opSource": "연합뉴스转引연합인포맥스市场展望值 4,896亿韩元",
+     "opSurprisePct": -0.0782
+    },
+    "note": "官方IR：Q3 营收 3.4724 万亿韩元（同比 +10.7%，环比 +2.5%），略低于 Yahoo 一致预期约 3.5158 万亿（-1.2%）；营业利润 4,513 亿韩元（同比 -20.9%，环比 -13.3%），低于연합인포맥스一致预期 4,896 亿（-7.8%）；净利润 4,025 亿韩元（同比 -45.2%）。EPS 官方材料未列示，暂无。",
+    "source": {
+     "name": "NAVER 2026년 3분기 실적발표 IR 资料",
+     "url": "https://www.navercorp.com/api/article/download/5424bdee-8b0f-4f03-b38f-a308a9381eb9",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "不及预期"
    },
    "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
    "importance": 2
@@ -2170,7 +2204,7 @@
    "symbol": "6861.T",
    "name": "基恩士",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2234,7 +2268,7 @@
    "symbol": "6857.T",
    "name": "爱德万测试",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2279,7 +2313,7 @@
    "symbol": "6146.T",
    "name": "Disco",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2318,7 +2352,7 @@
    "symbol": "6920.T",
    "name": "Lasertec",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2382,7 +2416,7 @@
    "symbol": "4063.T",
    "name": "信越化学",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2417,7 +2451,7 @@
    "symbol": "6981.T",
    "name": "村田制作所",
    "region": "JP",
-   "currency": "JPY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2536,7 +2570,7 @@
    "symbol": "STM",
    "name": "意法半导体",
    "region": "EU",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2597,7 +2631,7 @@
    "symbol": "ASM.AS",
    "name": "ASM International",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2650,7 +2684,7 @@
    "symbol": "BESI.AS",
    "name": "BE半导体",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2687,7 +2721,7 @@
    "symbol": "ADYEN.AS",
    "name": "Adyen",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": "2027-02-11",
    "dateStatus": "confirmed",
    "sources": {
@@ -2747,7 +2781,7 @@
    "symbol": "NVO",
    "name": "诺和诺德(ADR)",
    "region": "EU",
-   "currency": "DKK",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -2801,7 +2835,7 @@
    "symbol": "AMAT",
    "name": "应用材料",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-11-13T05:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -2814,7 +2848,6 @@
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Applied Materials, Inc. Common Stock is expected* to report earnings on  11/12/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $4.06.  The reported EPS for the same quarter last year was $2.17.",
    "consensus": {
     "epsAvg": 4.05577,
     "epsLow": 4.02,
@@ -2847,7 +2880,7 @@
    "symbol": "LRCX",
    "name": "拉姆研究",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2886,7 +2919,7 @@
    "symbol": "KLAC",
    "name": "科磊",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -2925,7 +2958,7 @@
    "symbol": "ADI",
    "name": "亚德诺",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-11-24T20:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -2971,7 +3004,7 @@
    "symbol": "VRT",
    "name": "维谛 Vertiv",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -3033,7 +3066,7 @@
    "symbol": "ETN",
    "name": "伊顿",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3107,7 +3140,7 @@
    "symbol": "SU.PA",
    "name": "施耐德电气",
    "region": "EU",
-   "currency": "EUR",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3156,7 +3189,7 @@
    "symbol": "SMCI",
    "name": "超微电脑",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3216,7 +3249,7 @@
    "symbol": "DELL",
    "name": "戴尔",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-11-25T05:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3229,7 +3262,7 @@
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Dell Technologies Inc. Class C Common Stock  is estimated to report earnings on  11/24/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  8 analysts' forecasts, the consensus EPS forecast for the quarter is $6.41.  The reported EPS for the same quarter last year was $2.35.",
+   "nasdaqText": "Dell Technologies Inc. Class C Common Stock  is expected* to report earnings on  11/24/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $6.41.  The reported EPS for the same quarter last year was $2.35.",
    "consensus": {
     "epsAvg": 6.55373,
     "epsLow": 6.34,
@@ -3262,7 +3295,7 @@
    "symbol": "ANET",
    "name": "Arista",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3322,7 +3355,7 @@
    "symbol": "CSCO",
    "name": "思科",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-11-13T05:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3335,7 +3368,6 @@
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Cisco Systems, Inc. Common Stock (DE) is expected* to report earnings on  11/12/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.15.  The reported EPS for the same quarter last year was $0.81.",
    "consensus": {
     "epsAvg": 1.32432,
     "epsLow": 1.30992,
@@ -3432,7 +3464,7 @@
    "symbol": "3231.TW",
    "name": "纬创",
    "region": "TW",
-   "currency": "TWD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -3471,17 +3503,24 @@
    "symbol": "2317.TW",
    "name": "鸿海",
    "region": "TW",
-   "currency": "TWD",
-   "nextDate": "2026-11-12T13:30:00+08:00",
-   "dateStatus": "confirmed",
+   "currency": null,
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
-    "nextDate": {
-     "name": "恢复被 Yahoo 空值覆盖的预约日：鸿海 Q3 预约",
-     "url": "",
-     "asOf": "2026-10-30"
-    },
     "consensus": [],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "鸿海 2026年第三季法人说明会演示文稿（中文）",
+      "url": "https://image.honhai.com/upload/202611/law_talk/Hon Hai 3Q26 Results_Chinese_20261112_2728.pdf",
+      "asOf": "2026-11-12"
+     }
+    ],
+    "nextDate": {
+     "name": "鸿海 2026年第三季法人说明会 / 官方业绩演示",
+     "url": "https://www.honhai.com/zh-tw/investor-relations/investor-relations-activities/investor-conference/108",
+     "asOf": "2026-11-12",
+     "note": "已于北京时间 2026-11-12 13:30 前后发布，清空原预约 nextDate"
+    }
    },
    "consensus": {
     "epsAvg": 4.94367,
@@ -3497,16 +3536,35 @@
     "currency": "TWD"
    },
    "lastReported": {
-    "verdict": "超预期",
-    "epsActual": 4.24,
-    "epsEstimate": 4.06192,
-    "epsSurprisePct": 0.0438,
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-12T19:00:00+08:00",
-    "revenue": 2525894433000.0,
-    "netIncome": 59973771000.0,
-    "revenueYoY": 0.40838552358573765,
-    "netIncomeYoY": 0.3519616006633641
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-12T13:30:00+08:00",
+    "revenue": 3015634000000,
+    "revenueYoY": 0.4646,
+    "netIncome": 77524000000,
+    "netIncomeYoY": 0.3442,
+    "epsGaap": 5.51,
+    "epsGaapBasis": "基本每股盈餘（新台幣元，歸屬母公司業主）",
+    "epsActual": 5.51,
+    "epsEstimate": 4.94367,
+    "epsSurprisePct": 0.1146,
+    "revSurprisePct": 0.0504,
+    "epsCompareBasis": "基本EPS 5.51 vs Yahoo 一致预期 4.94367（15家）",
+    "manual": {
+     "revEstimate": 2870847106010.0,
+     "revSource": "Yahoo 一致预期（14家，刷新时已在 earnings.json）",
+     "operatingProfit": 115350000000,
+     "grossMargin": 0.0602,
+     "operatingMargin": 0.0383,
+     "nineMonthRevenue": 7661062000000,
+     "nineMonthEps": 13.35
+    },
+    "note": "Q3 营业收入新台币 3,015,634 百万元（同比 +46%，环比 +19%），高于 Yahoo 一致预期约 2.8708 兆元（+5.0%）；归母净利 77,524 百万元（同比 +34%，环比 +29%），基本 EPS 5.51 元 vs 一致预期 4.94367 元（+11.5%），营收与 EPS 均创单季新高。毛利率 6.02%，营业利益 115,350 百万元（同比 +64%）。前三季营收 7,661,062 百万元、EPS 13.35 元。",
+    "source": {
+     "name": "鸿海 2026年第三季法人说明会演示文稿（中文）",
+     "url": "https://image.honhai.com/upload/202611/law_talk/Hon Hai 3Q26 Results_Chinese_20261112_2728.pdf",
+     "asOf": "2026-11-12"
+    },
+    "verdict": "超预期"
    },
    "note": "refresh_earnings 因 Yahoo nextDate=None 误清未来预约日；以 BEFORE 快照恢复。",
    "importance": 3
@@ -3515,7 +3573,7 @@
    "symbol": "ARM",
    "name": "Arm",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3569,7 +3627,7 @@
    "symbol": "MRVL",
    "name": "Marvell",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-02T05:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3614,7 +3672,7 @@
    "symbol": "ALAB",
    "name": "Astera Labs",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3674,19 +3732,19 @@
    "symbol": "CRDO",
    "name": "Credo",
    "region": "US",
-   "currency": "USD",
-   "nextDate": "2026-12-07",
+   "currency": null,
+   "nextDate": "2026-12-01",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crdo/earnings",
-     "asOf": "2026-11-11T06:22:10+08:00"
+     "asOf": "2026-11-12T23:19:14+08:00"
     },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Credo Technology Group Holding Ltd Ordinary Shares is estimated to report earnings on  12/07/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  6 analysts' forecasts, the consensus EPS forecast for the quarter is $1.03.  The reported EPS for the same quarter last year was $0.44.",
+   "nasdaqText": "Credo Technology Group Holding Ltd Ordinary Shares is expected* to report earnings on  12/01/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  6 analysts'  forecasts, the consensus EPS forecast for the quarter is $1.03.  The reported EPS for the same quarter last year was $0.44.",
    "consensus": {
     "epsAvg": 1.2835,
     "epsLow": 1.22,
@@ -3719,7 +3777,7 @@
    "symbol": "COHR",
    "name": "Coherent",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3773,7 +3831,7 @@
    "symbol": "NOW",
    "name": "ServiceNow",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -3812,7 +3870,7 @@
    "symbol": "PLTR",
    "name": "Palantir",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -3862,7 +3920,7 @@
    "symbol": "SNOW",
    "name": "Snowflake",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-03T05:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3906,7 +3964,7 @@
    "symbol": "CRWD",
    "name": "CrowdStrike",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-02T05:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
@@ -3950,7 +4008,7 @@
    "symbol": "DDOG",
    "name": "Datadog",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4004,14 +4062,14 @@
    "symbol": "ADBE",
    "name": "Adobe",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-09",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/adbe/earnings",
-     "asOf": "2026-11-11T06:22:26+08:00"
+     "asOf": "2026-11-12T23:19:27+08:00"
     },
     "consensus": [],
     "lastReported": []
@@ -4048,19 +4106,19 @@
    "symbol": "CRM",
    "name": "Salesforce",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": "2026-12-02",
    "dateStatus": "estimated",
    "sources": {
     "nextDate": {
      "name": "Nasdaq/Zacks 算法预估",
      "url": "https://www.nasdaq.com/market-activity/stocks/crm/earnings",
-     "asOf": "2026-11-11T06:22:29+08:00"
+     "asOf": "2026-11-12T23:19:31+08:00"
     },
     "consensus": [],
     "lastReported": []
    },
-   "nasdaqText": "Salesforce, Inc. Common Stock is estimated to report earnings on  12/02/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  13 analysts' forecasts, the consensus EPS forecast for the quarter is $2.41.  The reported EPS for the same quarter last year was $2.66.",
+   "nasdaqText": "Salesforce, Inc. Common Stock is expected* to report earnings on  12/02/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.41.  The reported EPS for the same quarter last year was $2.66.",
    "consensus": {
     "epsAvg": 3.4463,
     "epsLow": 3.39,
@@ -4092,7 +4150,7 @@
    "symbol": "SHOP",
    "name": "Shopify",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4165,7 +4223,7 @@
    "symbol": "MELI",
    "name": "MercadoLibre",
    "region": "US",
-   "currency": "USD",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4215,7 +4273,7 @@
    "symbol": "002371.SZ",
    "name": "北方华创",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4320,7 +4378,7 @@
    "symbol": "688012.SS",
    "name": "中微公司",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4412,7 +4470,7 @@
    "symbol": "688072.SS",
    "name": "拓荆科技",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4497,7 +4555,7 @@
    "symbol": "688120.SS",
    "name": "华海清科",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4589,7 +4647,7 @@
    "symbol": "688082.SS",
    "name": "盛美上海",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4689,7 +4747,7 @@
    "symbol": "688126.SS",
    "name": "沪硅产业",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4780,7 +4838,7 @@
    "symbol": "688019.SS",
    "name": "安集科技",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -4872,7 +4930,7 @@
    "symbol": "688256.SS",
    "name": "寒武纪",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -4942,7 +5000,7 @@
    "symbol": "688041.SS",
    "name": "海光信息",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5012,7 +5070,7 @@
    "symbol": "603986.SS",
    "name": "兆易创新",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5117,7 +5175,7 @@
    "symbol": "603501.SS",
    "name": "韦尔股份",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5210,7 +5268,7 @@
    "symbol": "688008.SS",
    "name": "澜起科技",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5313,7 +5371,7 @@
    "symbol": "600584.SS",
    "name": "长电科技",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5383,7 +5441,7 @@
    "symbol": "002463.SZ",
    "name": "沪电股份",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5470,7 +5528,7 @@
    "symbol": "600183.SS",
    "name": "生益科技",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5580,7 +5638,7 @@
    "symbol": "300308.SZ",
    "name": "中际旭创",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5685,7 +5743,7 @@
    "symbol": "300502.SZ",
    "name": "新易盛",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5790,7 +5848,7 @@
    "symbol": "300394.SZ",
    "name": "天孚通信",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -5890,7 +5948,7 @@
    "symbol": "601138.SS",
    "name": "工业富联",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
@@ -5995,7 +6053,7 @@
    "symbol": "000977.SZ",
    "name": "浪潮信息",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -6095,7 +6153,7 @@
    "symbol": "002837.SZ",
    "name": "英维克",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -6165,7 +6223,7 @@
    "symbol": "688111.SS",
    "name": "金山办公",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {
@@ -6252,7 +6310,7 @@
    "symbol": "002230.SZ",
    "name": "科大讯飞",
    "region": "CN",
-   "currency": "CNY",
+   "currency": null,
    "nextDate": null,
    "dateStatus": "unknown",
    "sources": {

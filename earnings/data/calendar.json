@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-10T23:19:28+08:00",
+ "updated": "2026-11-12T23:22:05+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -879,7 +879,6 @@
     "url": "https://www.forexfactory.com/calendar"
    },
    "importance": 1,
-   "surprisePct": null,
    "note": "演讲类事件，无数值结果。"
   },
   {
@@ -927,18 +926,20 @@
    "region": "US",
    "name": "Unemployment Claims",
    "releaseAt": "2026-11-12T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "200K",
    "forecast": "194K",
-   "previous": "189K",
-   "verdict": null,
-   "diff": null,
+   "previous": "191K",
+   "verdict": "高于预期",
+   "diff": "+6K",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "美国劳工部 ETA 周度申领新闻稿 USDL 26-1694-NAT / 预期来自 ForexFactory 周历（Reuters 调查为 195K）",
+    "url": "https://www.dol.gov/ui/data.pdf"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 3.1,
+   "note": "截至 11/7 当周季调初请失业金 20.0 万，较修订后前值 19.1 万增加 0.9 万（前值由 18.9 万上修至 19.1 万）；四周均值 19.525 万持平。持续申领（截至 10/31）169.7 万，较修订后前值 171.7 万减少 2.0 万。劳工部新闻稿未给市场预期；本列沿用发布前 ForexFactory 预期 194K（路透调查为 195K），二者均指向高于预期。"
   },
   {
    "id": "ff-USD-202611132130-CorePPImm",
