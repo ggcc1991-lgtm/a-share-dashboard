@@ -594,7 +594,7 @@
       const root = document.getElementById("feed-deepreads");
       if (!root) return;
       const items = Array.isArray(d && d.items) ? d.items : [];
-      const valid = items.filter((x) => x && x.title && x.broker && x.url && x.deepRead).slice(0, 2);
+      const valid = items.filter((x) => x && x.title && x.broker && x.url && x.deepRead);
       if (!valid.length) {
         hideDeepreads();
         return;
