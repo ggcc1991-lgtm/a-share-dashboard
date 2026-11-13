@@ -236,12 +236,12 @@
   const HEAT_LABEL={policy:"政策热度",marketAttention:"市场关注",marketTrading:"交易热度"};
   const CHANNEL_LABEL={policy:"权威政策",media:"权威媒体",market_attention:"即时关注"};
   function channelLabel(ch){return CHANNEL_LABEL[ch]||ch||"—";}
-  const DYN_TYPE_LABEL={broad_internal_move:"内部普动",relative_weakness:"相对偏弱",counter_trend:"逆势异动",cross_section_outlier:"截面异动"};
+  const DYN_TYPE_LABEL={broad_internal_move:"内部普动",relative_weakness:"相对偏弱",relative_resilience:"相对抗跌",counter_trend:"逆势异动",cross_section_outlier:"截面异动"};
   function dynTypeLabel(t){return DYN_TYPE_LABEL[t]||t||"—";}
   const SIGNAL_LABEL={new_signal:"新增",multi_source:"多源",strengthening:"走强",steady:"走稳",pressure:"承压",negative_pressure:"承压",weakening:"走弱"};
   function signalLabel(s){return SIGNAL_LABEL[s]||s||"—";}
   const REL_LABEL={stronger:"偏强",weaker:"偏弱",inline:"持平"};
-  const ABS_LABEL={positive:"上涨",negative:"下跌",flat:"平盘"};
+  const ABS_LABEL={positive:"上涨",negative:"下跌",flat:"平盘",neutral:"平盘"};
   function relAbsLabel(r,a){return (REL_LABEL[r]||r||"—")+"/"+(ABS_LABEL[a]||a||"—");}
   const HEAT_KEYS=["policy","marketAttention","marketTrading"];
   const LAYER_TABS=[
