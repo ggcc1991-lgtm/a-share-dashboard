@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-13T23:19:14+08:00",
+ "updated": "2026-11-16T06:30:37+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -863,48 +863,47 @@
    "note": "核心CPI同比+0.8%（较上月回落0.2个百分点）；CPI环比持平，PPI环比+0.7%。食品同比-2.9%，非食品+1.5%。"
   },
   {
-   "id": "ff-USD-202611101700-FOMCMemberWallerSpea",
+   "id": "us-nfp-2026-10",
    "region": "US",
-   "name": "FOMC Member Waller Speaks",
-   "releaseAt": "2026-11-10T17:00:00+08:00",
+   "name": "非农就业人数（10月）",
+   "releaseAt": "2026-11-06T21:30:00+08:00",
    "status": "released",
-   "actual": "暂无",
-   "forecast": "暂无",
-   "previous": "暂无",
-   "verdict": null,
-   "diff": null,
-   "impact": "Medium",
-   "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
-   },
-   "importance": 1,
-   "note": "演讲类事件，无数值结果。"
-  },
-  {
-   "id": "ff-USD-202611102130-CoreCPImm",
-   "region": "US",
-   "name": "Core CPI m/m",
-   "releaseAt": "2026-11-10T21:30:00+08:00",
-   "status": "released",
-   "actual": "0.3%",
-   "forecast": "0.2%",
-   "previous": "0.3%",
+   "actual": "+16.5万",
+   "forecast": "+5.9万",
+   "previous": "+6.0万（9月修正，初值+2.9万）",
    "verdict": "高于预期",
-   "diff": "+0.1pp",
-   "impact": "High",
+   "diff": "+10.6万",
    "source": {
-    "name": "BLS CPI 新闻稿 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
-    "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
+    "name": "BLS / CNBC(道琼斯预期)",
+    "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
    },
    "importance": 3,
-   "surprisePct": 50.0,
-   "note": "BLS：10月季调核心CPI（除食品能源）环比+0.3%，与8月、9月相同；因2025年10月拨款空窗，同比未公布。"
+   "surprisePct": 179.7,
+   "note": "BLS USDL-26-1632：10月非农就业+16.5万（远高于近12个月月均+4.8万）；失业率4.1%。8月由+13.3万上修至+18.6万、9月由+2.9万上修至+6.0万，两月合计上修+8.4万。平均时薪环比+0.4%至38.00美元、同比+3.1%。专业和商业服务、医疗、运输仓储为主要增岗来源。"
   },
   {
-   "id": "ff-USD-202611102130-CPImm",
+   "id": "us-ur-2026-10",
    "region": "US",
-   "name": "CPI m/m",
+   "name": "失业率（10月）",
+   "releaseAt": "2026-11-06T21:30:00+08:00",
+   "status": "released",
+   "actual": "4.1%",
+   "forecast": "4.2%",
+   "previous": "4.2%",
+   "verdict": "低于预期",
+   "diff": "-0.1pp",
+   "source": {
+    "name": "BLS / CNBC(道琼斯预期)",
+    "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
+   },
+   "importance": 1,
+   "surprisePct": -2.4,
+   "note": "失业率自3月以来在4.1%–4.3%窄幅波动；劳动参与率61.9%、就业人口比59.3%，均大体持平。U-6升至7.9%。"
+  },
+  {
+   "id": "us-cpi-2026-10",
+   "region": "US",
+   "name": "CPI 环比（10月）",
    "releaseAt": "2026-11-10T21:30:00+08:00",
    "status": "released",
    "actual": "0.4%",
@@ -912,7 +911,6 @@
    "previous": "0.6%",
    "verdict": "高于预期",
    "diff": "+0.1pp",
-   "impact": "High",
    "source": {
     "name": "BLS CPI 新闻稿 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
     "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
@@ -922,29 +920,47 @@
    "note": "BLS：10月季调CPI环比+0.4%（9月为+0.6%）；食品+0.5%，能源+0.7%，住房+0.3%（占本月涨幅逾三成）。因2025年10月拨款空窗未采集数据，多数分项无法公布同比。"
   },
   {
-   "id": "ff-USD-202611122130-UnemploymentClaims",
+   "id": "us-ccpi-2026-10",
    "region": "US",
-   "name": "Unemployment Claims",
-   "releaseAt": "2026-11-12T21:30:00+08:00",
+   "name": "核心CPI 环比（10月）",
+   "releaseAt": "2026-11-10T21:30:00+08:00",
    "status": "released",
-   "actual": "200K",
-   "forecast": "194K",
-   "previous": "191K",
+   "actual": "0.3%",
+   "forecast": "0.2%",
+   "previous": "0.3%",
    "verdict": "高于预期",
-   "diff": "+6K",
-   "impact": "Medium",
+   "diff": "+0.1pp",
    "source": {
-    "name": "美国劳工部 ETA 周度申领新闻稿 USDL 26-1694-NAT / 预期来自 ForexFactory 周历（Reuters 调查为 195K）",
-    "url": "https://www.dol.gov/ui/data.pdf"
+    "name": "BLS CPI 新闻稿 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
+    "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
    },
-   "importance": 1,
-   "surprisePct": 3.1,
-   "note": "截至 11/7 当周季调初请失业金 20.0 万，较修订后前值 19.1 万增加 0.9 万（前值由 18.9 万上修至 19.1 万）；四周均值 19.525 万持平。持续申领（截至 10/31）169.7 万，较修订后前值 171.7 万减少 2.0 万。劳工部新闻稿未给市场预期；本列沿用发布前 ForexFactory 预期 194K（路透调查为 195K），二者均指向高于预期。"
+   "importance": 3,
+   "surprisePct": 50.0,
+   "note": "BLS：10月季调核心CPI（除食品能源）环比+0.3%，与8月、9月相同；因2025年10月拨款空窗，同比未公布。"
   },
   {
-   "id": "ff-USD-202611132130-CorePPImm",
+   "id": "us-ppi-2026-10",
    "region": "US",
-   "name": "Core PPI m/m",
+   "name": "PPI 环比（10月）",
+   "releaseAt": "2026-11-13T21:30:00+08:00",
+   "status": "released",
+   "actual": "0.3%",
+   "forecast": "0.4%",
+   "previous": "1.4%",
+   "verdict": "低于预期",
+   "diff": "-0.1pp",
+   "source": {
+    "name": "BLS PPI 新闻稿 USDL 26-1687 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
+    "url": "https://www.bls.gov/news.release/ppi.nr0.htm"
+   },
+   "importance": 3,
+   "surprisePct": -25.0,
+   "note": "BLS：10月季调最终需求PPI环比+0.3%（预期0.4%）；9月由+1.3%上修至+1.4%。同比+6.5%，为2022年11月以来最大升幅。商品+0.5%（食品+1.3%，能源-0.1%），服务+0.2%（其中运输仓储+2.0%，货运卡车运输+3.9%）。"
+  },
+  {
+   "id": "us-cppi-2026-10",
+   "region": "US",
+   "name": "核心PPI 环比（10月）",
    "releaseAt": "2026-11-13T21:30:00+08:00",
    "status": "released",
    "actual": "0.3%",
@@ -952,7 +968,6 @@
    "previous": "0.8%",
    "verdict": "符合预期",
    "diff": "0.0pp",
-   "impact": "High",
    "source": {
     "name": "BLS PPI 新闻稿 Table 1（FD 49104） / 预期来自 ForexFactory（与CNBC报道一致）",
     "url": "https://www.bls.gov/news.release/ppi.t01.htm"
@@ -962,24 +977,352 @@
    "note": "BLS：10月季调核心PPI（最终需求除食品和能源，FD49104）环比+0.3%，符合预期；9月由+0.7%上修至+0.8%。同比+5.0%，与9月持平。另：最终需求除食品、能源和贸易服务环比+0.5%。"
   },
   {
-   "id": "ff-USD-202611132130-PPImm",
+   "id": "us-claims-2026-11-07",
    "region": "US",
-   "name": "PPI m/m",
-   "releaseAt": "2026-11-13T21:30:00+08:00",
+   "name": "初请失业金（截至11/7当周）",
+   "releaseAt": "2026-11-12T21:30:00+08:00",
    "status": "released",
-   "actual": "0.3%",
-   "forecast": "0.4%",
-   "previous": "1.4%",
+   "actual": "200K",
+   "forecast": "194K",
+   "previous": "191K",
+   "verdict": "高于预期",
+   "diff": "+6K",
+   "source": {
+    "name": "美国劳工部 ETA 周度申领新闻稿 USDL 26-1694-NAT / 预期来自 ForexFactory 周历（Reuters 调查为 195K）",
+    "url": "https://www.dol.gov/ui/data.pdf"
+   },
+   "importance": 1,
+   "surprisePct": 3.1,
+   "note": "截至 11/7 当周季调初请失业金 20.0 万，较修订后前值 19.1 万增加 0.9 万（前值由 18.9 万上修至 19.1 万）；四周均值 19.525 万持平。持续申领（截至 10/31）169.7 万，较修订后前值 171.7 万减少 2.0 万。劳工部新闻稿未给市场预期；本列沿用发布前 ForexFactory 预期 194K（路透调查为 195K），二者均指向高于预期。"
+  },
+  {
+   "id": "cn-ex-2026-10",
+   "region": "CN",
+   "name": "出口 同比·美元（10月）",
+   "releaseAt": "2026-11-10T10:00:00+08:00",
+   "status": "released",
+   "actual": "35.2%",
+   "forecast": "33.25%（Wind一致预期）",
+   "previous": "36.3%",
+   "verdict": "高于预期",
+   "diff": "+1.95pp",
+   "source": {
+    "name": "海关总署 / Wind一致预期",
+    "url": "http://english.customs.gov.cn/Statics/a0e840e1-2108-4b9d-9914-d668c02500ab.html"
+   },
+   "importance": 1,
+   "surprisePct": 5.9,
+   "note": "美元口径：出口4123.3亿美元，同比+35.2%、环比-7.8%；进口3070.5亿美元，同比+41.6%；顺差1052.8亿美元。人民币口径出口同比+28.7%、进口+34.7%。"
+  },
+  {
+   "id": "cn-im-2026-10",
+   "region": "CN",
+   "name": "进口 同比·美元（10月）",
+   "releaseAt": "2026-11-10T10:00:00+08:00",
+   "status": "released",
+   "actual": "41.6%",
+   "forecast": "32%（路透调查）",
+   "previous": "31.0%",
+   "verdict": "高于预期",
+   "diff": "+9.6pp",
+   "source": {
+    "name": "海关总署 / 路透调查(预期)",
+    "url": "http://english.customs.gov.cn/Statics/a0e840e1-2108-4b9d-9914-d668c02500ab.html"
+   },
+   "importance": 1,
+   "surprisePct": 30.0,
+   "note": "路透11月9日调查：进口同比预期+32%（9月实际+31.0%）。Wind进口一致预期均值为积分不足未取到，故预期引用路透调查；实际值来自海关总署美元口径。"
+  },
+  {
+   "id": "cn-tsf-2026-10",
+   "region": "CN",
+   "name": "新增社融（10月）",
+   "releaseAt": "2026-11-13T17:00:00+08:00",
+   "status": "released",
+   "actual": "1.14万亿",
+   "forecast": "1.33万亿（Wind一致预期）",
+   "previous": "3.55万亿",
+   "verdict": "低于预期",
+   "diff": "-0.19万亿",
+   "source": {
+    "name": "中国人民银行 / Wind一致预期",
+    "url": "https://www.chinanews.com.cn/cj/2026/11-13/10731606.shtml"
+   },
+   "note": "发布时间为约数。央行/Wind当月值11429亿元；同比多增3251亿元；10月末社融存量469.16万亿元，同比增长7.2%。政府债券和企业债券为主要支撑。",
+   "importance": 2,
+   "surprisePct": -14.3
+  },
+  {
+   "id": "cn-loan-2026-10",
+   "region": "CN",
+   "name": "新增人民币贷款（10月）",
+   "releaseAt": "2026-11-13T17:00:00+08:00",
+   "status": "released",
+   "actual": "-1000亿",
+   "forecast": "591亿（Wind一致预期）",
+   "previous": "1.08万亿",
+   "verdict": "低于预期",
+   "diff": "-1591亿",
+   "source": {
+    "name": "中国人民银行 / Wind一致预期",
+    "url": "https://www.chinanews.com.cn/cj/2026/11-13/10731606.shtml"
+   },
+   "note": "发布时间为约数。同比多减3200亿元；前十个月人民币贷款增加11.42万亿元，同比少增3.55万亿元。",
+   "importance": 1,
+   "surprisePct": -269.2
+  },
+  {
+   "id": "cn-m2-2026-10",
+   "region": "CN",
+   "name": "M2 同比（10月）",
+   "releaseAt": "2026-11-13T17:00:00+08:00",
+   "status": "released",
+   "actual": "7.1%",
+   "forecast": "7.2%（Wind一致预期）",
+   "previous": "7.2%",
    "verdict": "低于预期",
    "diff": "-0.1pp",
+   "source": {
+    "name": "中国人民银行 / Wind一致预期",
+    "url": "https://www.chinanews.com.cn/cj/2026/11-13/10731606.shtml"
+   },
+   "note": "发布时间为约数。10月末M2余额359.06万亿元，同比+7.1%；M1同比+4.4%；M0同比+10.7%。",
+   "importance": 1,
+   "surprisePct": -1.4
+  },
+  {
+   "id": "cn-ip-2026-10",
+   "region": "CN",
+   "name": "规上工业增加值 同比（10月）",
+   "releaseAt": "2026-11-16T10:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "5.3%（第一财经首席调研）",
+   "previous": "5.5%",
+   "verdict": null,
+   "diff": null,
+   "source": {
+    "name": "国家统计局（日程） / 第一财经首席调研(预期)",
+    "url": "https://www.stats.gov.cn/sj/"
+   },
+   "importance": 1,
+   "surprisePct": null
+  },
+  {
+   "id": "cn-retail-2026-10",
+   "region": "CN",
+   "name": "社零 同比（10月）",
+   "releaseAt": "2026-11-16T10:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "1.07%（Wind一致预期）",
+   "previous": "1.1%",
+   "verdict": null,
+   "diff": null,
+   "source": {
+    "name": "国家统计局（日程） / Wind一致预期",
+    "url": "https://www.stats.gov.cn/sj/"
+   },
+   "importance": 1,
+   "surprisePct": null
+  },
+  {
+   "id": "cn-fai-2026-10",
+   "region": "CN",
+   "name": "固定资产投资 累计同比（1–10月）",
+   "releaseAt": "2026-11-16T10:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "-7%（第一财经首席调研）",
+   "previous": "-7.2%",
+   "verdict": null,
+   "diff": null,
+   "source": {
+    "name": "国家统计局（日程） / 第一财经首席调研(预期)",
+    "url": "https://www.stats.gov.cn/sj/"
+   },
+   "importance": 1,
+   "surprisePct": null
+  },
+  {
+   "id": "cn-ur-2026-10",
+   "region": "CN",
+   "name": "城镇调查失业率（10月）",
+   "releaseAt": "2026-11-16T10:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "暂无",
+   "previous": "5.2%",
+   "verdict": null,
+   "diff": null,
+   "source": {
+    "name": "国家统计局（日程）",
+    "url": "https://www.stats.gov.cn/sj/"
+   },
+   "importance": 1,
+   "surprisePct": null
+  },
+  {
+   "id": "ff-USD-202611170100-FedChairmanWarshSpea",
+   "region": "US",
+   "name": "Fed Chairman Warsh Speaks",
+   "releaseAt": "2026-11-17T01:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "暂无",
+   "previous": "暂无",
+   "verdict": null,
+   "diff": null,
    "impact": "High",
    "source": {
-    "name": "BLS PPI 新闻稿 USDL 26-1687 / 预期来自 ForexFactory（与CNBC道琼斯调查一致）",
-    "url": "https://www.bls.gov/news.release/ppi.nr0.htm"
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
    },
-   "importance": 3,
-   "surprisePct": -25.0,
-   "note": "BLS：10月季调最终需求PPI环比+0.3%（预期0.4%）；9月由+1.3%上修至+1.4%。同比+6.5%，为2022年11月以来最大升幅。商品+0.5%（食品+1.3%，能源-0.1%），服务+0.2%（其中运输仓储+2.0%，货运卡车运输+3.9%）。"
+   "importance": 3
+  },
+  {
+   "id": "ff-USD-202611172130-CoreRetailSalesmm",
+   "region": "US",
+   "name": "Core Retail Sales m/m",
+   "releaseAt": "2026-11-17T21:30:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "0.4%",
+   "previous": "0.9%",
+   "verdict": null,
+   "diff": null,
+   "impact": "High",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 3
+  },
+  {
+   "id": "ff-USD-202611172130-RetailSalesmm",
+   "region": "US",
+   "name": "Retail Sales m/m",
+   "releaseAt": "2026-11-17T21:30:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "0.2%",
+   "previous": "0.8%",
+   "verdict": null,
+   "diff": null,
+   "impact": "High",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 3
+  },
+  {
+   "id": "ff-USD-202611190300-FOMCMeetingMinutes",
+   "region": "US",
+   "name": "FOMC Meeting Minutes",
+   "releaseAt": "2026-11-19T03:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "暂无",
+   "previous": "暂无",
+   "verdict": null,
+   "diff": null,
+   "impact": "High",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 3
+  },
+  {
+   "id": "ff-USD-202611192130-PhillyFedManufacturi",
+   "region": "US",
+   "name": "Philly Fed Manufacturing Index",
+   "releaseAt": "2026-11-19T21:30:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "19.2",
+   "previous": "20.9",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
+  },
+  {
+   "id": "ff-USD-202611192130-UnemploymentClaims",
+   "region": "US",
+   "name": "Unemployment Claims",
+   "releaseAt": "2026-11-19T21:30:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "199K",
+   "previous": "200K",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
+  },
+  {
+   "id": "ff-USD-202611202125-FOMCMemberWallerSpea",
+   "region": "US",
+   "name": "FOMC Member Waller Speaks",
+   "releaseAt": "2026-11-20T21:25:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "暂无",
+   "previous": "暂无",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
+  },
+  {
+   "id": "ff-USD-202611202300-RevisedUoMConsumerSe",
+   "region": "US",
+   "name": "Revised UoM Consumer Sentiment",
+   "releaseAt": "2026-11-20T23:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "52.1",
+   "previous": "51.0",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
+  },
+  {
+   "id": "ff-USD-202611202300-RevisedUoMInflationE",
+   "region": "US",
+   "name": "Revised UoM Inflation Expectations",
+   "releaseAt": "2026-11-20T23:00:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "暂无",
+   "previous": "4.3%",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
   }
  ]
 }
