@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-16T06:31:20+08:00",
+ "updated": "2026-11-16T23:23:25+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-11-16",
  "companies": [
@@ -779,13 +779,14 @@
    "name": "百度(ADR)",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-16T21:30:00+08:00",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-     "asOf": "2026-11-16T06:27:22+08:00"
+     "name": "百度 IR：2026年第三季度业绩公告",
+     "url": "https://ir.baidu.com/news-releases/news-release-details/baidu-announces-third-quarter-2026-results/",
+     "asOf": "2026-11-16",
+     "note": "官方：港股收市后、美股开盘前公布；业绩电话会北京时间 2026-11-16 20:30（美东 7:30）。已于 2026-11-16 发布，见 lastReported。"
     },
     "consensus": [
      {
@@ -796,18 +797,12 @@
     ],
     "lastReported": [
      {
-      "name": "百度 2026Q2 业绩公告(HKEXnews)",
-      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0818/2026081801092.pdf",
-      "asOf": "2026-10-27"
-     },
-     {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/BIDU/analysis",
-      "asOf": "2026-11-16T06:27:24+08:00"
+      "name": "百度 2026Q3 业绩公告(HKEXnews / IR)",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1116/2026111600626.pdf",
+      "asOf": "2026-11-16"
      }
     ]
    },
-   "nasdaqText": "Baidu, Inc. ADS is expected* to report earnings on  11/16/2026 before market open.  The report will be for the fiscal Quarter ending Sep 2026.  According to Zacks Investment Research, based on  2 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.57.  The reported EPS for the same quarter last year was $1.23.",
    "consensus": {
     "epsAvg": 6.16243,
     "epsLow": 4.58,
@@ -822,20 +817,23 @@
     "currency": "CNY"
    },
    "lastReported": {
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-18",
-    "revenue": 31300000000,
-    "revenueYoY": -0.04,
-    "netIncome": 2300000000,
-    "epsGaap": 5.74,
-    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
-    "epsNonGaap": 7.22,
-    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
-    "epsCompareBasis": "Yahoo 预期对比口径=Non-GAAP/ADS",
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-16T21:30:00+08:00",
+    "revenue": 30807000000,
+    "revenueYoY": -0.0118,
+    "netIncome": 1395000000,
     "netIncomeYoY": null,
-    "epsActual": 7.22,
-    "epsEstimate": 9.83686,
-    "epsSurprisePct": -0.266
+    "epsGaap": 4.35,
+    "epsGaapBasis": "GAAP 摊薄 EPS/ADS(人民币)",
+    "epsNonGaap": 6.78,
+    "epsNonGaapBasis": "Non-GAAP 摊薄 EPS/ADS(人民币)",
+    "epsActual": 6.78,
+    "epsEstimate": 6.16243,
+    "verdict": "超预期",
+    "note": "Q3营收308.07亿元（同比-1%）略超预期约306.30亿；Non-GAAP摊薄EPS/ADS 6.78元 vs 预期6.162；GAAP摊薄EPS/ADS 4.35元，GAAP归母净利13.95亿元（上年同期因长期资产减值亏损112.32亿元，同比不具备可比性）。百度核心AI业务占通用业务收入53%；AI云基础设施收入82亿元（同比+94%），其中GPU云同比+191%、环比+43%；在线营销收入119亿元（同比-22%）。公告未给出下季量化指引。",
+    "epsSurprisePct": 0.1002,
+    "revSurprisePct": 0.0058,
+    "epsCompareBasis": "预期对比口径=Non-GAAP 摊薄 EPS/ADS(人民币)；预期取 11-16 06:31 刷新时 Yahoo 一致预期快照"
    },
    "importance": 3
   },
