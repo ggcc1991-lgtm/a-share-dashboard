@@ -1,8 +1,8 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-16T23:23:25+08:00",
+ "updated": "2026-11-17T06:33:08+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-11-16",
+ "consensusAsOf": "2026-11-17",
  "companies": [
   {
    "symbol": "AAPL",
@@ -378,7 +378,7 @@
      }
     ]
    },
-   "nasdaqText": "NVIDIA Corporation Common Stock is expected* to report earnings on  11/17/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.49.  The reported EPS for the same quarter last year was $1.24.",
+   "nasdaqText": "NVIDIA Corporation Common Stock is expected* to report earnings on  11/17/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  14 analysts'  forecasts, the consensus EPS forecast for the quarter is $2.49.  The reported EPS for the same quarter last year was $1.24.",
    "consensus": {
     "epsAvg": 2.47121,
     "epsLow": 2.25754,
@@ -713,13 +713,14 @@
    "name": "阿里巴巴(ADR)",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-19T21:30:00+08:00",
+   "nextDate": "2026-11-19T20:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/BABA/analysis",
-     "asOf": "2026-11-16T06:27:06+08:00"
+     "name": "阿里巴巴 IR：将于 2026-11-19 公布 2026 年 9 月季度业绩",
+     "url": "https://www.alibabagroup.com/en-US/document-2054756418245885952",
+     "asOf": "2026-11-17",
+     "note": "官方：美股开盘前公布 FY27Q2（截至 2026-09-30）；业绩电话会北京时间 2026-11-19 20:00（美东 7:00）"
     },
     "consensus": [
      {
@@ -842,13 +843,14 @@
    "name": "京东(ADR)",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-17T21:30:00+08:00",
+   "nextDate": "2026-11-17T20:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/JD/analysis",
-     "asOf": "2026-11-16T06:27:37+08:00"
+     "name": "京东 IR：将于 2026-11-17 公布第三季度业绩",
+     "url": "https://jdcominc.gcs-web.com/news-releases/news-release-details/jdcom-report-third-quarter-2026-financial-results-november-17",
+     "asOf": "2026-11-17",
+     "note": "官方：美股开盘前公布；业绩电话会北京时间 2026-11-17 20:00（美东 7:00）"
     },
     "consensus": [
      {
@@ -975,13 +977,14 @@
    "name": "拼多多",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-19T21:30:00+08:00",
+   "nextDate": "2026-11-19T20:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/PDD/analysis",
-     "asOf": "2026-11-16T06:27:47+08:00"
+     "name": "拼多多 / PDD Holdings：将于 2026-11-19 公布第三季度业绩",
+     "url": "https://www.globenewswire.com/news-release/2026/11/12/3401573/0/en/pdd-holdings-to-report-third-quarter-2026-unaudited-financial-results-on-november-19-2026.html",
+     "asOf": "2026-11-17",
+     "note": "官方（2026-11-12）：美股开盘前公布；业绩电话会北京时间 2026-11-19 20:30（美东 7:30）"
     },
     "consensus": [
      {
@@ -1095,13 +1098,14 @@
    "name": "网易(ADR)",
    "region": "CN",
    "currency": "CNY",
-   "nextDate": "2026-11-19T21:30:00+08:00",
+   "nextDate": "2026-11-19T20:00:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/NTES/analysis",
-     "asOf": "2026-11-16T06:28:12+08:00"
+     "name": "网易 IR：将于 2026-11-19 公布第三季度业绩",
+     "url": "https://netease.gcs-web.com/news-releases/news-release-details/netease-report-third-quarter-2026-financial-results-november-19",
+     "asOf": "2026-11-17",
+     "note": "官方：美股开盘前公布；业绩电话会北京时间 2026-11-19 20:00（美东 7:00）"
     },
     "consensus": [
      {
@@ -1220,7 +1224,8 @@
      "window": "2026-08-18~2026-11-16",
      "source": "Tushare report_rc 688981.SH",
      "asOf": "2026-11-14",
-     "unit": "CNY（np/op_rt 万元×1e4）"
+     "unit": "CNY（np/op_rt 万元×1e4）",
+     "stale": true
     },
     "epsAvg": 0.05535,
     "epsLow": 0.05,
@@ -1275,7 +1280,7 @@
      {
       "name": "Wind MCP fundamentals 002594.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -1316,7 +1321,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 002594.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.55,
@@ -1719,11 +1724,6 @@
    "nextDate": "2027-02-04T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
-    "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/SONY/analysis",
-     "asOf": "2026-11-16T06:28:47+08:00"
-    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
@@ -1737,7 +1737,12 @@
       "url": "https://finance.yahoo.com/quote/SONY/analysis",
       "asOf": "2026-11-16T06:28:50+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SONY/analysis",
+     "asOf": "2026-11-16T06:28:47+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.39418,
@@ -1915,11 +1920,6 @@
    "nextDate": "2027-01-27T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
-    "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/ASML/analysis",
-     "asOf": "2026-11-16T06:28:53+08:00"
-    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
@@ -1933,7 +1933,12 @@
       "url": "https://finance.yahoo.com/quote/ASML/analysis",
       "asOf": "2026-11-16T06:28:55+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/ASML/analysis",
+     "asOf": "2026-11-16T06:28:53+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 15.38838,
@@ -1971,11 +1976,6 @@
    "nextDate": "2027-01-28T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
-    "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/SAP/analysis",
-     "asOf": "2026-11-16T06:28:55+08:00"
-    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
@@ -1989,7 +1989,12 @@
       "url": "https://finance.yahoo.com/quote/SAP/analysis",
       "asOf": "2026-11-16T06:28:57+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/SAP/analysis",
+     "asOf": "2026-11-16T06:28:55+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 2.18214,
@@ -3039,11 +3044,6 @@
    "nextDate": "2027-01-28T21:30:00+08:00",
    "dateStatus": "confirmed",
    "sources": {
-    "nextDate": {
-     "name": "Yahoo Finance(yfinance)",
-     "url": "https://finance.yahoo.com/quote/STM/analysis",
-     "asOf": "2026-11-16T06:29:16+08:00"
-    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
@@ -3062,7 +3062,12 @@
       "url": "https://finance.yahoo.com/quote/STM/analysis",
       "asOf": "2026-11-16T06:29:20+08:00"
      }
-    ]
+    ],
+    "nextDate": {
+     "name": "Yahoo Finance(yfinance)",
+     "url": "https://finance.yahoo.com/quote/STM/analysis",
+     "asOf": "2026-11-16T06:29:16+08:00"
+    }
    },
    "consensus": {
     "epsAvg": 0.56227,
@@ -4871,7 +4876,7 @@
      }
     ]
    },
-   "nasdaqText": "Adobe Inc. Common Stock is estimated to report earnings on  12/09/2026. The upcoming earnings date is derived from an algorithm based on a company's historical reporting dates. Our vendor, Zacks Investment Research, might revise this date in the future, once the company announces the actual earnings date. According to Zacks Investment Research, based on  12 analysts' forecasts, the consensus EPS forecast for the quarter is $5.11.  The reported EPS for the same quarter last year was $4.55.",
+   "nasdaqText": "Adobe Inc. Common Stock is expected* to report earnings on  12/09/2026 after market close.  The report will be for the fiscal Quarter ending Nov 2026.  According to Zacks Investment Research, based on  12 analysts'  forecasts, the consensus EPS forecast for the quarter is $5.11.  The reported EPS for the same quarter last year was $4.55.",
    "consensus": {
     "epsAvg": 6.32884,
     "epsLow": 6.27,
@@ -5117,7 +5122,7 @@
      {
       "name": "Wind MCP fundamentals 002371.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5132,14 +5137,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
-      "asOf": "2026-11-16T06:30:52+08:00"
-     },
-     {
       "name": "同花顺 MCP income 002371.SZ",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/002371.SZ/analysis",
+      "asOf": "2026-11-16T06:30:52+08:00"
      }
     ]
    },
@@ -5168,7 +5173,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 002371.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.93,
@@ -5201,8 +5206,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 2.84407,
-    "epsSurprisePct": -0.0436,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -5210,7 +5213,9 @@
      "netIncome": 5391953807.41,
      "epsGaap": 7.4351,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 2.84407,
+    "epsSurprisePct": -0.0436
    },
    "note": "A股·半导体刻蚀/薄膜等设备龙头（北方华创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -5232,7 +5237,7 @@
      {
       "name": "Wind MCP fundamentals 688012.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5278,7 +5283,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688012.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.44,
@@ -5329,7 +5334,7 @@
      {
       "name": "Wind MCP fundamentals 688072.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5375,7 +5380,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688072.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.14,
@@ -5429,7 +5434,7 @@
      {
       "name": "Wind MCP fundamentals 688120.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5475,7 +5480,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688120.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.9,
@@ -5526,7 +5531,7 @@
      {
       "name": "Wind MCP fundamentals 688082.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5541,14 +5546,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
-      "asOf": "2026-11-16T06:30:57+08:00"
-     },
-     {
       "name": "同花顺 MCP income 688082.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688082.SS/analysis",
+      "asOf": "2026-11-16T06:30:57+08:00"
      }
     ]
    },
@@ -5577,7 +5582,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688082.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.65043,
@@ -5609,9 +5614,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsActual": 0.16,
-    "epsEstimate": 0.91588,
-    "epsSurprisePct": -0.8253,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -5619,7 +5621,10 @@
      "netIncome": 1070487678.72,
      "epsGaap": 2.23,
      "note": "THS 累计前三季（非单季）"
-    }
+    },
+    "epsActual": 0.16,
+    "epsEstimate": 0.91588,
+    "epsSurprisePct": -0.8253
    },
    "note": "A股·湿法清洗/电镀设备（盛美上海）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -5641,7 +5646,7 @@
      {
       "name": "Wind MCP fundamentals 688126.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5687,14 +5692,13 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688126.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": -0.12,
     "epsLow": -0.12,
     "epsHigh": -0.12,
     "epsAnalysts": 1.0,
-    "epsYearAgo": null,
     "revAvg": 1430000000.0,
     "revLow": 1430000000.0,
     "revHigh": 1430000000.0,
@@ -5743,7 +5747,7 @@
      {
       "name": "Wind MCP fundamentals 688019.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5789,7 +5793,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688019.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.4,
@@ -5840,7 +5844,7 @@
      {
       "name": "Wind MCP fundamentals 688256.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5881,7 +5885,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688256.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 2.765,
@@ -5923,7 +5927,7 @@
      {
       "name": "Wind MCP fundamentals 688041.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -5964,7 +5968,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688041.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.49,
@@ -6009,7 +6013,7 @@
      {
       "name": "Wind MCP fundamentals 603986.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6024,14 +6028,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
-      "asOf": "2026-11-16T06:31:04+08:00"
-     },
-     {
       "name": "同花顺 MCP income 603986.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603986.SS/analysis",
+      "asOf": "2026-11-16T06:31:04+08:00"
      }
     ]
    },
@@ -6060,7 +6064,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 603986.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 5.23,
@@ -6093,8 +6097,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 6.05,
-    "epsSurprisePct": 0.0579,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -6102,7 +6104,9 @@
      "netIncome": 11065687391.96,
      "epsGaap": 15.83,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 6.05,
+    "epsSurprisePct": 0.0579
    },
    "note": "A股·存储芯片设计（兆易创新）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 2
@@ -6119,7 +6123,7 @@
      {
       "name": "Wind MCP fundamentals 603501.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6134,14 +6138,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
-      "asOf": "2026-11-16T06:31:05+08:00"
-     },
-     {
       "name": "同花顺 MCP income 603501.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/603501.SS/analysis",
+      "asOf": "2026-11-16T06:31:05+08:00"
      }
     ]
    },
@@ -6170,7 +6174,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 603501.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.94434,
@@ -6195,9 +6199,6 @@
     "epsGaap": 0.87,
     "epsGaapBasis": "基本 EPS(人民币/股)",
     "note": "Q3 单季（豪威集团）；前三季营收221.49亿、归母净利22.99亿。修正此前 Yahoo 仍挂 QE 2026-06-30",
-    "epsActual": 0.87,
-    "epsEstimate": 0.91766,
-    "epsSurprisePct": -0.0519,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -6205,7 +6206,10 @@
      "netIncome": 2298795688.38,
      "epsGaap": 1.84,
      "note": "THS 累计前三季（非单季）"
-    }
+    },
+    "epsActual": 0.87,
+    "epsEstimate": 0.91766,
+    "epsSurprisePct": -0.0519
    },
    "note": "A股·CIS 图像传感器（韦尔股份）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 2
@@ -6227,7 +6231,7 @@
      {
       "name": "Wind MCP fundamentals 688008.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6242,14 +6246,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
-      "asOf": "2026-11-16T06:31:06+08:00"
-     },
-     {
       "name": "同花顺 MCP income 688008.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/688008.SS/analysis",
+      "asOf": "2026-11-16T06:31:06+08:00"
      }
     ]
    },
@@ -6278,7 +6282,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688008.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.00507,
@@ -6311,8 +6315,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": null,
-    "epsSurprisePct": null,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -6320,7 +6322,9 @@
      "netIncome": 3237117611.82,
      "epsGaap": 2.71,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": null,
+    "epsSurprisePct": null
    },
    "note": "A股·内存接口芯片（澜起科技）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -6337,7 +6341,7 @@
      {
       "name": "Wind MCP fundamentals 600584.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6378,7 +6382,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 600584.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.6097,
@@ -6418,7 +6422,7 @@
      {
       "name": "Wind MCP fundamentals 002463.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6464,7 +6468,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 002463.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.19,
@@ -6520,7 +6524,7 @@
      {
       "name": "Wind MCP fundamentals 600183.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6535,14 +6539,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
-      "asOf": "2026-11-16T06:31:10+08:00"
-     },
-     {
       "name": "同花顺 MCP income 600183.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/600183.SS/analysis",
+      "asOf": "2026-11-16T06:31:10+08:00"
      }
     ]
    },
@@ -6571,7 +6575,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 600183.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.61,
@@ -6609,8 +6613,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 0.77,
-    "epsSurprisePct": 0.8571,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -6618,7 +6620,9 @@
      "netIncome": 6727389219.18,
      "epsGaap": 2.8,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 0.77,
+    "epsSurprisePct": 0.8571
    },
    "note": "预约披露日写在 10-30 零点，实际 10-29 晚已发；refresh 应立刻写入，勿因日历未到而跳过。",
    "importance": 3
@@ -6640,7 +6644,7 @@
      {
       "name": "Wind MCP fundamentals 300308.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6655,14 +6659,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
-      "asOf": "2026-11-16T06:31:11+08:00"
-     },
-     {
       "name": "同花顺 MCP income 300308.SZ",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300308.SZ/analysis",
+      "asOf": "2026-11-16T06:31:11+08:00"
      }
     ]
    },
@@ -6691,7 +6695,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 300308.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 8.44,
@@ -6724,8 +6728,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 7.84,
-    "epsSurprisePct": -0.111,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -6733,7 +6735,9 @@
      "netIncome": 22237939006.75,
      "epsGaap": 19.78,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 7.84,
+    "epsSurprisePct": -0.111
    },
    "note": "A股·光模块（中际旭创）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -6755,7 +6759,7 @@
      {
       "name": "Wind MCP fundamentals 300502.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6770,14 +6774,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
-      "asOf": "2026-11-16T06:31:13+08:00"
-     },
-     {
       "name": "同花顺 MCP income 300502.SZ",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300502.SZ/analysis",
+      "asOf": "2026-11-16T06:31:13+08:00"
      }
     ]
    },
@@ -6806,7 +6810,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 300502.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 4.89,
@@ -6839,8 +6843,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 4.49,
-    "epsSurprisePct": -0.4209,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -6848,7 +6850,9 @@
      "netIncome": 11372330534.73,
      "epsGaap": 8.16,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 4.49,
+    "epsSurprisePct": -0.4209
    },
    "note": "A股·光模块（新易盛）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -6865,7 +6869,7 @@
      {
       "name": "Wind MCP fundamentals 300394.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6880,14 +6884,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
-      "asOf": "2026-11-16T06:31:14+08:00"
-     },
-     {
       "name": "同花顺 MCP income 300394.SZ",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/300394.SZ/analysis",
+      "asOf": "2026-11-16T06:31:14+08:00"
      }
     ]
    },
@@ -6916,7 +6920,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 300394.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.90222,
@@ -6948,9 +6952,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsActual": 0.8045,
-    "epsEstimate": 1.16064,
-    "epsSurprisePct": -0.3068,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-28",
@@ -6958,7 +6959,10 @@
      "netIncome": 2083459571.46,
      "epsGaap": 1.9119,
      "note": "THS 累计前三季（非单季）"
-    }
+    },
+    "epsActual": 0.8045,
+    "epsEstimate": 1.16064,
+    "epsSurprisePct": -0.3068
    },
    "note": "A股·光器件（天孚通信）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -6980,7 +6984,7 @@
      {
       "name": "Wind MCP fundamentals 601138.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -6995,14 +6999,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
-      "asOf": "2026-11-16T06:31:15+08:00"
-     },
-     {
       "name": "同花顺 MCP income 601138.SH",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/601138.SS/analysis",
+      "asOf": "2026-11-16T06:31:15+08:00"
      }
     ]
    },
@@ -7031,7 +7035,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 601138.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.99,
@@ -7064,8 +7068,6 @@
       "asOf": "2026-10-29"
      }
     ],
-    "epsEstimate": 0.81,
-    "epsSurprisePct": 0.026400002,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -7073,7 +7075,9 @@
      "netIncome": 40374611000.0,
      "epsGaap": 2.04,
      "note": "THS/Wind 累计前三季（非单季）；单季见 overrides"
-    }
+    },
+    "epsEstimate": 0.81,
+    "epsSurprisePct": 0.026400002
    },
    "note": "A股·服务器/算力代工（工业富联）。；Yahoo 下次财报日均已过期，nextDate 暂无（不编造）。",
    "importance": 3
@@ -7090,7 +7094,7 @@
      {
       "name": "Wind MCP fundamentals 000977.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -7105,14 +7109,14 @@
       "asOf": "2026-10-29"
      },
      {
-      "name": "Yahoo Finance(yfinance)",
-      "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
-      "asOf": "2026-11-16T06:31:16+08:00"
-     },
-     {
       "name": "同花顺 MCP income 000977.SZ",
       "url": "https://www.10jqka.com.cn/",
       "asOf": "2026-10-29T23:35:00+08:00"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/000977.SZ/analysis",
+      "asOf": "2026-11-16T06:31:16+08:00"
      }
     ]
    },
@@ -7141,7 +7145,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 000977.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.0,
@@ -7174,8 +7178,6 @@
      }
     ],
     "epsActual": null,
-    "epsEstimate": 0.92,
-    "epsSurprisePct": -0.24360001,
     "ashareYtd": {
      "quarterEnd": "2026-09-30",
      "reportDate": "2026-10-29",
@@ -7183,7 +7185,9 @@
      "netIncome": 3932120372.78,
      "epsGaap": 2.6777,
      "note": "THS 累计前三季（非单季）"
-    }
+    },
+    "epsEstimate": 0.92,
+    "epsSurprisePct": -0.24360001
    },
    "note": "三季报单季：营收449.5亿元(+11.05%)、归母净利9.8亿元(+43.46%)（公告/Wind新闻）；单季EPS暂无（Wind未返回）。前三季累计EPS 2.6777见 ashareYtd/THS。",
    "importance": 2
@@ -7200,7 +7204,7 @@
      {
       "name": "Wind MCP fundamentals 002837.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -7241,7 +7245,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 002837.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.35398,
@@ -7281,7 +7285,7 @@
      {
       "name": "Wind MCP fundamentals 688111.SH",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -7327,7 +7331,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 688111.SH",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 1.30497,
@@ -7378,7 +7382,7 @@
      {
       "name": "Wind MCP fundamentals 002230.SZ",
       "url": "https://www.wind.com.cn/",
-      "asOf": "2026-10-30T23:30:00+08:00"
+      "asOf": "2026-11-16T06:30:37+08:00"
      },
      {
       "name": "Yahoo Finance(yfinance)",
@@ -7419,7 +7423,7 @@
      "orgs": null,
      "window": null,
      "source": "Wind 一致预期 002230.SZ",
-     "asOf": "2026-10-30",
+     "asOf": "2026-11-16",
      "unit": "CNY（营收/净利原单位亿元×1e8；EPS 元）"
     },
     "epsAvg": 0.11643,
