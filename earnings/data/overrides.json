@@ -2,12 +2,13 @@
   "_doc": "人工核对的公司公告/IR 数据，优先级最高（见 scripts/sources.json）。每项必须带 source.url 与 asOf。 规则：预约日写在次日零点但当晚已发的，立刻写入 lastReported，并将 nextDate 置 null / dateStatus=reported，勿因日历未到跳过。",
   "companies": {
     "0700.HK": {
-      "nextDate": "2026-11-18",
+      "nextDate": "2026-11-18T20:00:00+08:00",
       "dateStatus": "confirmed",
       "dateSource": {
-        "name": "HKEXnews 董事会会议通告(2026-09-24)",
-        "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf",
-        "asOf": "2026-10-27"
+        "name": "腾讯投资者关系：2026年第三季度业绩公布",
+        "url": "https://www.tencent.com/zh-cn/investors/",
+        "asOf": "2026-11-18",
+        "note": "官方IR日历：2026-11-18 20:00 公布2026年第三季度业绩。董事会会议通告见 HKEXnews 2026-09-24（https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0924/2026092401585.pdf）。"
       },
       "lastReported": {
         "quarterEnd": "2026-06-30",
@@ -2203,22 +2204,40 @@
       }
     },
     "NVDA": {
-      "lastReported": {
-        "verdict": "超预期",
-        "epsActual": 2.22,
-        "epsEstimate": 2.09113,
-        "epsSurprisePct": 0.0616,
-        "quarterEnd": "2026-07-31",
-        "reportDate": "2026-08-27T04:00:00+08:00"
-      },
-      "nextDate": "2026-11-18T06:00:00+08:00",
-      "dateStatus": "confirmed",
+      "nextDate": null,
+      "dateStatus": "reported",
       "dateSource": {
-        "name": "NVIDIA IR Events: 3rd Quarter FY27 Financial Results",
-        "url": "https://investor.nvidia.com/events-and-presentations/events-and-presentations/",
-        "asOf": "2026-11-10",
-        "note": "官方IR：2026-11-17 17:00 EST（北京时间 11-18 06:00）公布 FY27Q3 业绩"
-      }
+        "name": "NVIDIA Q3 FY2027 业绩新闻稿（SEC）",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+        "asOf": "2026-11-18",
+        "note": "官方新闻稿：FY27Q3（截至 2026-10-25）已于 2026-11-17 约 13:20 PT（北京时间 11-18 05:20–06:00）公布，见 lastReported。原 IR 预约为 2026-11-17 17:00 EST。"
+      },
+      "lastReported": {
+        "quarterEnd": "2026-10-25",
+        "reportDate": "2026-11-18T06:00:00+08:00",
+        "revenue": 115844000000,
+        "revenueYoY": 1.032136968038452,
+        "netIncome": 65287000000,
+        "netIncomeYoY": 1.0459730492008774,
+        "epsGaap": 2.7,
+        "epsGaapBasis": "GAAP 摊薄 EPS",
+        "epsNonGaap": 2.68,
+        "epsNonGaapBasis": "Non-GAAP 摊薄 EPS",
+        "epsActual": 2.68,
+        "epsEstimate": 2.47071,
+        "guidance": "Q4 FY27营收1300亿美元±3%（该季含额外一周），GAAP及Non-GAAP毛利率71.0%–72.0%，GAAP营业费用约110亿美元、Non-GAAP约107亿美元；指引未计入任何来自中国的数据中心计算收入",
+        "verdict": "超预期",
+        "note": "FY27Q3（截至2026-10-25）营收1158.44亿美元（同比+103%）超预期约1087.11亿；Non-GAAP摊薄EPS 2.68 vs 预期2.471；GAAP净利652.87亿美元（同比+105%），GAAP摊薄EPS 2.70。数据中心收入1076亿美元（同比+110%）；GAAP/Non-GAAP毛利率74.8%/74.9%。Q4指引营收1300亿美元±3%，并明确指引未计入任何来自中国的数据中心计算收入。",
+        "epsSurprisePct": 0.0847,
+        "revSurprisePct": 0.0656,
+        "epsCompareBasis": "预期对比口径=Non-GAAP 摊薄 EPS；预期取 11-17 23:29 刷新时 Yahoo 一致预期快照",
+        "source": {
+          "name": "NVIDIA Q3 FY2027 业绩新闻稿（SEC）",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm",
+          "asOf": "2026-11-18"
+        }
+      },
+      "guidance": "Q4 FY27营收1300亿美元±3%（该季含额外一周），GAAP及Non-GAAP毛利率71.0%–72.0%，GAAP营业费用约110亿美元、Non-GAAP约107亿美元；指引未计入任何来自中国的数据中心计算收入"
     },
     "TSLA": {
       "lastReported": {
@@ -2643,5 +2662,5 @@
       }
     }
   },
-  "updated": "2026-11-17"
+  "updated": "2026-11-18"
 }
