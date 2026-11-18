@@ -8,7 +8,7 @@
   "meta": {
     "snapshotId": "0284e0ce7d4b1a40867d",
     "asOf": "2026-11-18",
-    "fetchedAt": "2026-11-18T18:26:44+08:00",
+    "fetchedAt": "2026-11-18T21:22:05+08:00",
     "timezone": "Asia/Shanghai",
     "route": "/policy/",
     "navLabel": "政策产业观察",
@@ -3637,15 +3637,15 @@
           "kind": "rolling",
           "duration": "6h",
           "timezone": "Asia/Shanghai",
-          "start": "2026-11-18T12:26:51+08:00",
-          "end": "2026-11-18T18:26:51+08:00",
-          "previous_start": "2026-11-18T06:26:51+08:00",
-          "previous_end": "2026-11-18T12:26:51+08:00"
+          "start": "2026-11-18T15:22:09+08:00",
+          "end": "2026-11-18T21:22:09+08:00",
+          "previous_start": "2026-11-18T09:22:09+08:00",
+          "previous_end": "2026-11-18T15:22:09+08:00"
         },
         "summary": {
-          "material_count": 33,
-          "policy_material_count": 3,
-          "media_material_count": 13,
+          "material_count": 32,
+          "policy_material_count": 1,
+          "media_material_count": 14,
           "market_attention_material_count": 17,
           "sector_count": 15,
           "new_signal_sector_count": 1,
@@ -3661,13 +3661,13 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 4.003,
+            "attention": 4.0762,
             "policyScore": 0.5265,
-            "mediaScore": 1.429,
-            "marketAttentionScore": 2.0475,
-            "delta": 1.3672,
+            "mediaScore": 1.3793,
+            "marketAttentionScore": 2.1704,
+            "delta": 2.2406,
             "materialCount": 16,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
           },
           {
             "sectorId": "xw-db3895062f15",
@@ -3676,29 +3676,28 @@
             "signals": [
               "multi_source"
             ],
-            "attention": 2.4788,
-            "policyScore": 0.7254,
-            "mediaScore": 0.8775,
-            "marketAttentionScore": 0.8759,
-            "delta": -1.8736,
+            "attention": 2.729,
+            "policyScore": 0.5265,
+            "mediaScore": 1.429,
+            "marketAttentionScore": 0.7735,
+            "delta": 0.2954,
             "materialCount": 11,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
-            "sectorId": "xw-a13d65288762",
-            "name": "金融与产业服务",
-            "layer": "own_l1",
+            "sectorId": "xw-584cc9e8ba4e",
+            "name": "具身智能",
+            "layer": "dynamic",
             "signals": [
-              "strengthening",
-              "multi_source"
+              "strengthening"
             ],
-            "attention": 2.3254,
-            "policyScore": 0.5265,
-            "mediaScore": 1.717,
-            "marketAttentionScore": 0.0819,
-            "delta": 0.469,
-            "materialCount": 8,
-            "latestSignalAt": "2026-11-18T17:27:42+08:00"
+            "attention": 1.615,
+            "policyScore": 0.0,
+            "mediaScore": 1.615,
+            "marketAttentionScore": 0.0,
+            "delta": 0.445,
+            "materialCount": 2,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-e8c29e7c597e",
@@ -3712,7 +3711,7 @@
             "policyScore": 0.5265,
             "mediaScore": 0.1989,
             "marketAttentionScore": 0.4095,
-            "delta": 0.664,
+            "delta": 0.9477,
             "materialCount": 4,
             "latestSignalAt": "2026-11-18T18:21:51+08:00"
           },
@@ -3723,43 +3722,134 @@
             "signals": [
               "multi_source"
             ],
-            "attention": 0.9386,
+            "attention": 1.1037,
             "policyScore": 0.0,
-            "mediaScore": 0.4973,
-            "marketAttentionScore": 0.4414,
-            "delta": -2.2516,
+            "mediaScore": 0.9945,
+            "marketAttentionScore": 0.1092,
+            "delta": -0.3825,
             "materialCount": 5,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-9cdb283a5860",
+            "name": "智能装备与先进制造",
+            "layer": "own_l1",
+            "signals": [
+              "steady"
+            ],
+            "attention": 0.9945,
+            "policyScore": 0.0,
+            "mediaScore": 0.9945,
+            "marketAttentionScore": 0.0,
+            "delta": 0.143,
+            "materialCount": 2,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-a13d65288762",
+            "name": "金融与产业服务",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 0.9477,
+            "policyScore": 0.0,
+            "mediaScore": 0.8658,
+            "marketAttentionScore": 0.0819,
+            "delta": -1.3065,
+            "materialCount": 6,
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
+          },
+          {
+            "sectorId": "xw-3a97c6ae506e",
+            "name": "算力与通信基础设施",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 0.8528,
+            "policyScore": 0.0,
+            "mediaScore": 0.4843,
+            "marketAttentionScore": 0.3686,
+            "delta": -0.155,
+            "materialCount": 4,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-905312bdd3aa",
+            "name": "低空航空产业",
+            "layer": "dynamic",
+            "signals": [
+              "steady"
+            ],
+            "attention": 0.85,
+            "policyScore": 0.0,
+            "mediaScore": 0.85,
+            "marketAttentionScore": 0.0,
+            "delta": 0.105,
+            "materialCount": 1,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-355bbba8934b",
+            "name": "生命科学与医疗健康",
+            "layer": "own_l1",
+            "signals": [
+              "new_signal"
+            ],
+            "attention": 0.6962,
+            "policyScore": 0.0,
+            "mediaScore": 0.6962,
+            "marketAttentionScore": 0.0,
+            "delta": 0.6962,
+            "materialCount": 2,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-116c65f0af50",
+            "name": "第六代移动通信",
+            "layer": "dynamic",
+            "signals": [
+              "strengthening",
+              "multi_source"
+            ],
+            "attention": 0.6885,
+            "policyScore": 0.0,
+            "mediaScore": 0.405,
+            "marketAttentionScore": 0.2835,
+            "delta": 0.3735,
+            "materialCount": 2,
+            "latestSignalAt": "2026-11-18T18:56:46+08:00"
+          },
+          {
+            "sectorId": "xw-c99061324693",
+            "name": "交通物流与贸易服务",
+            "layer": "own_l1",
+            "signals": [
+              "steady"
+            ],
+            "attention": 0.6685,
+            "policyScore": 0.0,
+            "mediaScore": 0.6685,
+            "marketAttentionScore": 0.0,
+            "delta": -0.1255,
+            "materialCount": 2,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-c9f3e79274a5",
             "name": "汽车与智能交通装备",
             "layer": "own_l1",
             "signals": [
-              "multi_source"
-            ],
-            "attention": 0.8099,
-            "policyScore": 0.0,
-            "mediaScore": 0.7735,
-            "marketAttentionScore": 0.0364,
-            "delta": -1.7817,
-            "materialCount": 3,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
-            "sectorId": "xw-584cc9e8ba4e",
-            "name": "具身智能",
-            "layer": "dynamic",
-            "signals": [
               "steady"
             ],
-            "attention": 0.765,
+            "attention": 0.6409,
             "policyScore": 0.0,
-            "mediaScore": 0.765,
+            "mediaScore": 0.6409,
             "marketAttentionScore": 0.0,
-            "delta": -1.1115,
-            "materialCount": 1,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "delta": -1.3403,
+            "materialCount": 3,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-b3b50e3d3ba8",
@@ -3772,117 +3862,117 @@
             "policyScore": 0.0,
             "mediaScore": 0.5852,
             "marketAttentionScore": 0.0,
-            "delta": 0.1798,
+            "delta": 0.2409,
             "materialCount": 1,
             "latestSignalAt": "2026-11-18T16:53:57+08:00"
-          },
-          {
-            "sectorId": "xw-3a97c6ae506e",
-            "name": "算力与通信基础设施",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 0.5441,
-            "policyScore": 0.0,
-            "mediaScore": 0.3803,
-            "marketAttentionScore": 0.1638,
-            "delta": -1.2551,
-            "materialCount": 4,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
-          },
-          {
-            "sectorId": "xw-9cdb283a5860",
-            "name": "智能装备与先进制造",
-            "layer": "own_l1",
-            "signals": [
-              "steady"
-            ],
-            "attention": 0.4973,
-            "policyScore": 0.0,
-            "mediaScore": 0.4973,
-            "marketAttentionScore": 0.0,
-            "delta": -1.4352,
-            "materialCount": 1,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
-            "sectorId": "xw-116c65f0af50",
-            "name": "第六代移动通信",
-            "layer": "dynamic",
-            "signals": [
-              "steady"
-            ],
-            "attention": 0.405,
-            "policyScore": 0.0,
-            "mediaScore": 0.405,
-            "marketAttentionScore": 0.0,
-            "delta": -0.225,
-            "materialCount": 1,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
-          },
-          {
-            "sectorId": "xw-c99061324693",
-            "name": "交通物流与贸易服务",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 0.2733,
-            "policyScore": 0.0,
-            "mediaScore": 0.2369,
-            "marketAttentionScore": 0.0364,
-            "delta": -0.8499,
-            "materialCount": 2,
-            "latestSignalAt": "2026-11-18T14:43:12+08:00"
           },
           {
             "sectorId": "xw-338f0026bf3d",
             "name": "消费与社会服务",
             "layer": "own_l1",
             "signals": [
-              "steady"
+              "multi_source"
             ],
-            "attention": 0.2369,
+            "attention": 0.4475,
             "policyScore": 0.0,
-            "mediaScore": 0.2369,
+            "mediaScore": 0.4475,
             "marketAttentionScore": 0.0,
-            "delta": -1.9686,
+            "delta": -0.9536,
             "materialCount": 1,
-            "latestSignalAt": "2026-11-18T14:07:28+08:00"
-          },
-          {
-            "sectorId": "xw-4fbc23718588",
-            "name": "数据流通与治理",
-            "layer": "own_l2",
-            "signals": [
-              "new_signal"
-            ],
-            "attention": 0.153,
-            "policyScore": 0.0,
-            "mediaScore": 0.153,
-            "marketAttentionScore": 0.0,
-            "delta": 0.153,
-            "materialCount": 1,
-            "latestSignalAt": "2026-11-18T14:43:12+08:00"
-          },
-          {
-            "sectorId": "xw-a790876fe01a",
-            "name": "城市建设与环境治理",
-            "layer": "own_l1",
-            "signals": [
-              "steady"
-            ],
-            "attention": 0.091,
-            "policyScore": 0.0,
-            "mediaScore": 0.0,
-            "marketAttentionScore": 0.091,
-            "delta": -1.8876,
-            "materialCount": 1,
-            "latestSignalAt": "2026-11-18T14:51:47+08:00"
+            "latestSignalAt": "2026-11-18T20:03:27+08:00"
           }
         ],
         "materials": [
+          {
+            "materialId": "bbc45f87996795bcf772",
+            "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+            "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T21:16:15+08:00",
+            "sectorCount": 11
+          },
+          {
+            "materialId": "323390ba1447a7572890",
+            "title": "腾讯高管谈最新收紧限制对AI影响：短期算力与训练承压，长期将加速国产供应链建设",
+            "url": "https://api3.cls.cn/a/2538253",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T21:01:16+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "cb466d8e25ea581e868b",
+            "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "55fc6c8e08ab8a01f2fb",
+            "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "469518000528f1c4ace2",
+            "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+            "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T20:46:13+08:00",
+            "sectorCount": 6
+          },
+          {
+            "materialId": "0c64ab94b81afe49a037",
+            "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+            "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:36:05+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "bb5b2aae91a5ea20b2de",
+            "title": "2026现代服务业高质量发展大会聚焦“品牌培育”",
+            "url": "https://www.news.cn/fortune/20261118/89507881faaf49deb461a0f0ccb1a842/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T19:56:24+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "2b6f9b193d591a360629",
+            "title": "江苏：持续完善全省一体化算力监测调度平台功能 强化长三角算力枢纽节点功能",
+            "url": "https://api3.cls.cn/a/2538141",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T19:06:06+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "88547740ead7e50e704a",
+            "title": "江苏：推进5G-A网络部署、万兆光网建设和工业5G专网建设 前瞻布局第六代移动通信技术",
+            "url": "https://api3.cls.cn/a/2538130",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:56:09+08:00",
+            "sectorCount": 4
+          },
+          {
+            "materialId": "dbdb9e635e2a535a129c",
+            "title": "国家能源局：加强全国流域水风光一体化发展工作统筹",
+            "url": "https://api3.cls.cn/a/2538097",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:26:12+08:00",
+            "sectorCount": 2
+          },
           {
             "materialId": "c39028d2e08221e1ebcd",
             "title": "国家能源局：探索以新能源为电量主体的水风光电力直接供应算力设施 大力发展适应水风光出力特性的“柔性算力”",
@@ -4062,118 +4152,28 @@
             "source": "上海证券报·官网要闻",
             "publishedAt": "2026-11-18T16:12:59+08:00",
             "sectorCount": 1
-          },
-          {
-            "materialId": "8eb973d88f31c65da80d",
-            "title": "今日投资舆情热点",
-            "url": "https://api3.cls.cn/a/2537840",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-17T16:16:12+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "09ee429a7707ba2e9e9f",
-            "title": "11月18日连板股分析：连板股晋级率不足二成 国产算力板块持续发酵",
-            "url": "https://api3.cls.cn/a/2537835",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T15:36:02+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "37a84d4fd56968e76547",
-            "title": "财联社11月18日电，三星高管表示，HBM4E正由一家主要合作伙伴进行评估，进展极为顺利。",
-            "url": "https://api3.cls.cn/a/2537742",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:56:04+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "9335edf587de5226db19",
-            "title": "首届中澳钢铁减碳政策对话在堪培拉举行 双方同意推进在铁矿石利用与加工等领域合作",
-            "url": "https://api3.cls.cn/a/2537738",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:51:12+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "8ac548433c8969613fd1",
-            "title": "习近平会见韩国总统李在明",
-            "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086520.htm",
-            "channel": "policy",
-            "source": "国务院常务会议通稿",
-            "publishedAt": "2026-11-18T14:46:16+08:00",
-            "sectorCount": 1
-          },
-          {
-            "materialId": "46c9735dc51c0a2f98d1",
-            "title": "300场会议之后，亚太在为何而谈——写在亚太经合组织第三十三次领导人非正式会议举行之际",
-            "url": "https://www.stcn.com/article/detail/4341744.html",
-            "channel": "media",
-            "source": "证券时报·要闻",
-            "publishedAt": "2026-11-18T14:41:54+08:00",
-            "sectorCount": 7
-          },
-          {
-            "materialId": "ac1dcfd2a180bfaefdb2",
-            "title": "通讯丨从“卖车”走向“共建产业”——中国与东南亚新能源汽车合作迈向新高度",
-            "url": "https://www.news.cn/fortune/20261118/ee6a1f57f1dd48feacc9ba7cd84b9802/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T14:26:20+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "73be479a10cebc80b4ec",
-            "title": "《中加金融工作组工作规范》签署",
-            "url": "https://www.news.cn/fortune/20261118/587994f457f94ce4894af5347da7de44/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T11:28:05+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "067e9d3ecb14d74daed8",
-            "title": "中国养老金融发展报告建议：加快养老设施REITs与资产证券化立法",
-            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138573.html",
-            "channel": "media",
-            "source": "中国证券报·要闻",
-            "publishedAt": "2026-11-18T14:06:02+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "86af1ceeb29cbb91cc2a",
-            "title": "证监会称“基金公司上报全部产品AI敞口”不属实",
-            "url": "https://www.news.cn/fortune/20261118/5387f516637d4c7285565f9a5fda7632/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T13:51:17+08:00",
-            "sectorCount": 1
           }
         ],
-        "generatedAt": "2026-11-18T18:26:51+08:00"
+        "generatedAt": "2026-11-18T21:22:09+08:00"
       },
       "24h": {
         "window": {
           "kind": "rolling",
           "duration": "24h",
           "timezone": "Asia/Shanghai",
-          "start": "2026-11-17T18:26:55+08:00",
-          "end": "2026-11-18T18:26:55+08:00",
-          "previous_start": "2026-11-16T18:26:55+08:00",
-          "previous_end": "2026-11-17T18:26:55+08:00"
+          "start": "2026-11-17T21:22:12+08:00",
+          "end": "2026-11-18T21:22:12+08:00",
+          "previous_start": "2026-11-16T21:22:12+08:00",
+          "previous_end": "2026-11-17T21:22:12+08:00"
         },
         "summary": {
-          "material_count": 109,
-          "policy_material_count": 12,
-          "media_material_count": 54,
-          "market_attention_material_count": 43,
+          "material_count": 98,
+          "policy_material_count": 10,
+          "media_material_count": 52,
+          "market_attention_material_count": 36,
           "sector_count": 24,
           "new_signal_sector_count": 3,
-          "multi_source_sector_count": 17,
+          "multi_source_sector_count": 16,
           "pressure_sector_count": 0
         },
         "sectors": [
@@ -4185,29 +4185,28 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 9.5033,
-            "policyScore": 2.7849,
-            "mediaScore": 5.2852,
-            "marketAttentionScore": 1.4333,
-            "delta": 1.7936,
-            "materialCount": 42,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+            "attention": 9.8062,
+            "policyScore": 2.3374,
+            "mediaScore": 5.9537,
+            "marketAttentionScore": 1.5151,
+            "delta": 1.8655,
+            "materialCount": 44,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-5f2c5119475e",
             "name": "清洁能源与电力系统",
             "layer": "own_l1",
             "signals": [
-              "strengthening",
               "multi_source"
             ],
-            "attention": 8.101,
-            "policyScore": 2.0625,
-            "mediaScore": 3.2334,
-            "marketAttentionScore": 2.8051,
-            "delta": 1.613,
-            "materialCount": 36,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+            "attention": 7.5543,
+            "policyScore": 1.8636,
+            "mediaScore": 3.2747,
+            "marketAttentionScore": 2.4161,
+            "delta": 0.3091,
+            "materialCount": 33,
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
           },
           {
             "sectorId": "xw-44df3a7133d1",
@@ -4216,43 +4215,13 @@
             "signals": [
               "multi_source"
             ],
-            "attention": 6.2904,
+            "attention": 5.8763,
             "policyScore": 1.5005,
             "mediaScore": 3.1519,
-            "marketAttentionScore": 1.638,
-            "delta": -1.4423,
-            "materialCount": 28,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
-            "sectorId": "xw-a790876fe01a",
-            "name": "城市建设与环境治理",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 5.2283,
-            "policyScore": 0.4199,
-            "mediaScore": 3.7551,
-            "marketAttentionScore": 1.0533,
-            "delta": -2.6526,
-            "materialCount": 21,
-            "latestSignalAt": "2026-11-18T14:51:47+08:00"
-          },
-          {
-            "sectorId": "xw-c9f3e79274a5",
-            "name": "汽车与智能交通装备",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 5.0512,
-            "policyScore": 0.4973,
-            "mediaScore": 3.0843,
-            "marketAttentionScore": 1.4697,
-            "delta": -0.7777,
-            "materialCount": 24,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "marketAttentionScore": 1.224,
+            "delta": -2.1619,
+            "materialCount": 26,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-a13d65288762",
@@ -4262,13 +4231,43 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 4.7873,
+            "attention": 4.6673,
             "policyScore": 1.2448,
-            "mediaScore": 3.1853,
+            "mediaScore": 3.0654,
             "marketAttentionScore": 0.3572,
-            "delta": 1.365,
+            "delta": 1.6604,
             "materialCount": 20,
-            "latestSignalAt": "2026-11-18T17:27:42+08:00"
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
+          },
+          {
+            "sectorId": "xw-c9f3e79274a5",
+            "name": "汽车与智能交通装备",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 4.1139,
+            "policyScore": 0.4973,
+            "mediaScore": 3.0069,
+            "marketAttentionScore": 0.6097,
+            "delta": -2.2155,
+            "materialCount": 20,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-3a97c6ae506e",
+            "name": "算力与通信基础设施",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 3.9361,
+            "policyScore": 0.7768,
+            "mediaScore": 1.8489,
+            "marketAttentionScore": 1.3104,
+            "delta": -1.2938,
+            "materialCount": 20,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-338f0026bf3d",
@@ -4278,73 +4277,13 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 3.6007,
-            "policyScore": 1.7712,
-            "mediaScore": 1.6088,
+            "attention": 3.551,
+            "policyScore": 1.274,
+            "mediaScore": 2.0563,
             "marketAttentionScore": 0.2207,
-            "delta": 2.3998,
+            "delta": 1.9348,
             "materialCount": 14,
-            "latestSignalAt": "2026-11-18T14:07:28+08:00"
-          },
-          {
-            "sectorId": "xw-3a97c6ae506e",
-            "name": "算力与通信基础设施",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 3.3465,
-            "policyScore": 0.7768,
-            "mediaScore": 1.6279,
-            "marketAttentionScore": 0.9419,
-            "delta": -2.394,
-            "materialCount": 17,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
-          },
-          {
-            "sectorId": "xw-e8c29e7c597e",
-            "name": "资源材料与基础工业",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 3.212,
-            "policyScore": 0.7254,
-            "mediaScore": 1.638,
-            "marketAttentionScore": 0.8486,
-            "delta": 0.4615,
-            "materialCount": 15,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
-          },
-          {
-            "sectorId": "xw-9cdb283a5860",
-            "name": "智能装备与先进制造",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 3.0176,
-            "policyScore": 0.9448,
-            "mediaScore": 1.4654,
-            "marketAttentionScore": 0.6074,
-            "delta": -3.4057,
-            "materialCount": 14,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
-            "sectorId": "xw-355bbba8934b",
-            "name": "生命科学与医疗健康",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 2.9702,
-            "policyScore": 1.2243,
-            "mediaScore": 1.7459,
-            "marketAttentionScore": 0.0,
-            "delta": 0.4427,
-            "materialCount": 9,
-            "latestSignalAt": "2026-11-18T09:12:38+08:00"
+            "latestSignalAt": "2026-11-18T20:03:27+08:00"
           },
           {
             "sectorId": "xw-584cc9e8ba4e",
@@ -4353,13 +4292,74 @@
             "signals": [
               "multi_source"
             ],
-            "attention": 2.925,
+            "attention": 3.4915,
             "policyScore": 0.765,
-            "mediaScore": 1.8765,
-            "marketAttentionScore": 0.2835,
-            "delta": -0.784,
+            "mediaScore": 2.7265,
+            "marketAttentionScore": 0.0,
+            "delta": -0.1365,
             "materialCount": 7,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-355bbba8934b",
+            "name": "生命科学与医疗健康",
+            "layer": "own_l1",
+            "signals": [
+              "strengthening",
+              "multi_source"
+            ],
+            "attention": 3.4294,
+            "policyScore": 1.2243,
+            "mediaScore": 2.2051,
+            "marketAttentionScore": 0.0,
+            "delta": 0.8755,
+            "materialCount": 10,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-9cdb283a5860",
+            "name": "智能装备与先进制造",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 3.1259,
+            "policyScore": 0.9448,
+            "mediaScore": 1.9627,
+            "marketAttentionScore": 0.2184,
+            "delta": -2.8106,
+            "materialCount": 13,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-e8c29e7c597e",
+            "name": "资源材料与基础工业",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 2.419,
+            "policyScore": 0.5265,
+            "mediaScore": 1.4011,
+            "marketAttentionScore": 0.4914,
+            "delta": -0.6272,
+            "materialCount": 10,
+            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+          },
+          {
+            "sectorId": "xw-a790876fe01a",
+            "name": "城市建设与环境治理",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 2.21,
+            "policyScore": 0.221,
+            "mediaScore": 1.6933,
+            "marketAttentionScore": 0.2958,
+            "delta": -7.4672,
+            "materialCount": 11,
+            "latestSignalAt": "2026-11-18T14:51:47+08:00"
           },
           {
             "sectorId": "xw-c99061324693",
@@ -4368,29 +4368,13 @@
             "signals": [
               "multi_source"
             ],
-            "attention": 2.4086,
+            "attention": 2.0651,
             "policyScore": 0.7183,
-            "mediaScore": 1.6175,
+            "mediaScore": 1.274,
             "marketAttentionScore": 0.0728,
-            "delta": -2.1742,
-            "materialCount": 10,
-            "latestSignalAt": "2026-11-18T14:43:12+08:00"
-          },
-          {
-            "sectorId": "xw-b3b50e3d3ba8",
-            "name": "新型储能",
-            "layer": "own_l2",
-            "signals": [
-              "strengthening",
-              "multi_source"
-            ],
-            "attention": 1.5292,
-            "policyScore": 0.0,
-            "mediaScore": 0.9907,
-            "marketAttentionScore": 0.5385,
-            "delta": 0.7965,
-            "materialCount": 5,
-            "latestSignalAt": "2026-11-18T16:53:57+08:00"
+            "delta": -2.5415,
+            "materialCount": 9,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-116c65f0af50",
@@ -4400,44 +4384,59 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 1.44,
+            "attention": 1.7235,
             "policyScore": 0.0,
             "mediaScore": 0.81,
-            "marketAttentionScore": 0.63,
-            "delta": 0.405,
-            "materialCount": 4,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
-          },
-          {
-            "sectorId": "xw-1db613f6416e",
-            "name": "创新药与生物制品",
-            "layer": "own_l2",
-            "signals": [
-              "strengthening",
-              "multi_source"
-            ],
-            "attention": 0.9601,
-            "policyScore": 0.0,
-            "mediaScore": 0.9601,
-            "marketAttentionScore": 0.0,
-            "delta": 0.8989,
-            "materialCount": 2,
-            "latestSignalAt": "2026-11-17T22:12:14+08:00"
+            "marketAttentionScore": 0.9135,
+            "delta": 0.6885,
+            "materialCount": 5,
+            "latestSignalAt": "2026-11-18T18:56:46+08:00"
           },
           {
             "sectorId": "xw-905312bdd3aa",
             "name": "低空航空产业",
             "layer": "dynamic",
             "signals": [
+              "strengthening",
               "multi_source"
             ],
-            "attention": 0.745,
+            "attention": 1.595,
             "policyScore": 0.34,
-            "mediaScore": 0.405,
+            "mediaScore": 1.255,
             "marketAttentionScore": 0.0,
-            "delta": 0.0095,
-            "materialCount": 2,
-            "latestSignalAt": "2026-11-18T11:48:13+08:00"
+            "delta": 1.224,
+            "materialCount": 3,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-b3b50e3d3ba8",
+            "name": "新型储能",
+            "layer": "own_l2",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 0.9907,
+            "policyScore": 0.0,
+            "mediaScore": 0.9907,
+            "marketAttentionScore": 0.0,
+            "delta": -0.2805,
+            "materialCount": 3,
+            "latestSignalAt": "2026-11-18T16:53:57+08:00"
+          },
+          {
+            "sectorId": "xw-1db613f6416e",
+            "name": "创新药与生物制品",
+            "layer": "own_l2",
+            "signals": [
+              "strengthening"
+            ],
+            "attention": 0.6502,
+            "policyScore": 0.0,
+            "mediaScore": 0.6502,
+            "marketAttentionScore": 0.0,
+            "delta": 0.3404,
+            "materialCount": 1,
+            "latestSignalAt": "2026-11-17T22:12:14+08:00"
           },
           {
             "sectorId": "xw-5c99b7879a92",
@@ -4450,7 +4449,7 @@
             "policyScore": 0.0,
             "mediaScore": 0.5265,
             "marketAttentionScore": 0.0,
-            "delta": -0.3555,
+            "delta": -0.072,
             "materialCount": 2,
             "latestSignalAt": "2026-11-18T09:28:13+08:00"
           },
@@ -4487,6 +4486,96 @@
         ],
         "materials": [
           {
+            "materialId": "bbc45f87996795bcf772",
+            "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+            "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T21:16:15+08:00",
+            "sectorCount": 11
+          },
+          {
+            "materialId": "323390ba1447a7572890",
+            "title": "腾讯高管谈最新收紧限制对AI影响：短期算力与训练承压，长期将加速国产供应链建设",
+            "url": "https://api3.cls.cn/a/2538253",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T21:01:16+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "cb466d8e25ea581e868b",
+            "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "55fc6c8e08ab8a01f2fb",
+            "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "469518000528f1c4ace2",
+            "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+            "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T20:46:13+08:00",
+            "sectorCount": 6
+          },
+          {
+            "materialId": "0c64ab94b81afe49a037",
+            "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+            "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:36:05+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "bb5b2aae91a5ea20b2de",
+            "title": "2026现代服务业高质量发展大会聚焦“品牌培育”",
+            "url": "https://www.news.cn/fortune/20261118/89507881faaf49deb461a0f0ccb1a842/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T19:56:24+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "2b6f9b193d591a360629",
+            "title": "江苏：持续完善全省一体化算力监测调度平台功能 强化长三角算力枢纽节点功能",
+            "url": "https://api3.cls.cn/a/2538141",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T19:06:06+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "88547740ead7e50e704a",
+            "title": "江苏：推进5G-A网络部署、万兆光网建设和工业5G专网建设 前瞻布局第六代移动通信技术",
+            "url": "https://api3.cls.cn/a/2538130",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:56:09+08:00",
+            "sectorCount": 4
+          },
+          {
+            "materialId": "dbdb9e635e2a535a129c",
+            "title": "国家能源局：加强全国流域水风光一体化发展工作统筹",
+            "url": "https://api3.cls.cn/a/2538097",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:26:12+08:00",
+            "sectorCount": 2
+          },
+          {
             "materialId": "c39028d2e08221e1ebcd",
             "title": "国家能源局：探索以新能源为电量主体的水风光电力直接供应算力设施 大力发展适应水风光出力特性的“柔性算力”",
             "url": "https://api3.cls.cn/a/2538094",
@@ -4665,117 +4754,27 @@
             "source": "上海证券报·官网要闻",
             "publishedAt": "2026-11-18T16:12:59+08:00",
             "sectorCount": 1
-          },
-          {
-            "materialId": "8eb973d88f31c65da80d",
-            "title": "今日投资舆情热点",
-            "url": "https://api3.cls.cn/a/2537840",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-16T15:31:25+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "09ee429a7707ba2e9e9f",
-            "title": "11月18日连板股分析：连板股晋级率不足二成 国产算力板块持续发酵",
-            "url": "https://api3.cls.cn/a/2537835",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T15:36:02+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "37a84d4fd56968e76547",
-            "title": "财联社11月18日电，三星高管表示，HBM4E正由一家主要合作伙伴进行评估，进展极为顺利。",
-            "url": "https://api3.cls.cn/a/2537742",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:56:04+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "9335edf587de5226db19",
-            "title": "首届中澳钢铁减碳政策对话在堪培拉举行 双方同意推进在铁矿石利用与加工等领域合作",
-            "url": "https://api3.cls.cn/a/2537738",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:51:12+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "8ac548433c8969613fd1",
-            "title": "习近平会见韩国总统李在明",
-            "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086520.htm",
-            "channel": "policy",
-            "source": "国务院常务会议通稿",
-            "publishedAt": "2026-11-18T14:46:16+08:00",
-            "sectorCount": 1
-          },
-          {
-            "materialId": "46c9735dc51c0a2f98d1",
-            "title": "300场会议之后，亚太在为何而谈——写在亚太经合组织第三十三次领导人非正式会议举行之际",
-            "url": "https://www.stcn.com/article/detail/4341744.html",
-            "channel": "media",
-            "source": "证券时报·要闻",
-            "publishedAt": "2026-11-18T14:41:54+08:00",
-            "sectorCount": 7
-          },
-          {
-            "materialId": "ac1dcfd2a180bfaefdb2",
-            "title": "通讯丨从“卖车”走向“共建产业”——中国与东南亚新能源汽车合作迈向新高度",
-            "url": "https://www.news.cn/fortune/20261118/ee6a1f57f1dd48feacc9ba7cd84b9802/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T14:26:20+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "73be479a10cebc80b4ec",
-            "title": "《中加金融工作组工作规范》签署",
-            "url": "https://www.news.cn/fortune/20261118/587994f457f94ce4894af5347da7de44/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T11:28:05+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "067e9d3ecb14d74daed8",
-            "title": "中国养老金融发展报告建议：加快养老设施REITs与资产证券化立法",
-            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138573.html",
-            "channel": "media",
-            "source": "中国证券报·要闻",
-            "publishedAt": "2026-11-18T14:06:02+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "86af1ceeb29cbb91cc2a",
-            "title": "证监会称“基金公司上报全部产品AI敞口”不属实",
-            "url": "https://www.news.cn/fortune/20261118/5387f516637d4c7285565f9a5fda7632/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T13:51:17+08:00",
-            "sectorCount": 1
           }
         ],
-        "generatedAt": "2026-11-18T18:26:55+08:00"
+        "generatedAt": "2026-11-18T21:22:12+08:00"
       },
       "3d": {
         "window": {
           "kind": "rolling",
           "duration": "3d",
           "timezone": "Asia/Shanghai",
-          "start": "2026-11-15T18:27:03+08:00",
-          "end": "2026-11-18T18:27:03+08:00",
-          "previous_start": "2026-11-12T18:27:03+08:00",
-          "previous_end": "2026-11-15T18:27:03+08:00"
+          "start": "2026-11-15T21:22:18+08:00",
+          "end": "2026-11-18T21:22:18+08:00",
+          "previous_start": "2026-11-12T21:22:18+08:00",
+          "previous_end": "2026-11-15T21:22:18+08:00"
         },
         "summary": {
-          "material_count": 350,
-          "policy_material_count": 31,
-          "media_material_count": 166,
-          "market_attention_material_count": 153,
+          "material_count": 311,
+          "policy_material_count": 26,
+          "media_material_count": 140,
+          "market_attention_material_count": 145,
           "sector_count": 30,
-          "new_signal_sector_count": 8,
+          "new_signal_sector_count": 7,
           "multi_source_sector_count": 23,
           "pressure_sector_count": 0
         },
@@ -4785,16 +4784,15 @@
             "name": "数字技术与智能系统",
             "layer": "own_l1",
             "signals": [
-              "strengthening",
               "multi_source"
             ],
-            "attention": 25.7709,
-            "policyScore": 6.5806,
-            "mediaScore": 13.2434,
-            "marketAttentionScore": 5.9469,
-            "delta": 4.4717,
-            "materialCount": 114,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
+            "attention": 22.7858,
+            "policyScore": 4.8679,
+            "mediaScore": 11.7049,
+            "marketAttentionScore": 6.213,
+            "delta": -0.6227,
+            "materialCount": 106,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-5f2c5119475e",
@@ -4804,29 +4802,13 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 19.8325,
-            "policyScore": 5.0635,
-            "mediaScore": 8.7607,
+            "attention": 19.2826,
+            "policyScore": 4.1187,
+            "mediaScore": 9.1556,
             "marketAttentionScore": 6.0083,
-            "delta": 6.5491,
-            "materialCount": 80,
-            "latestSignalAt": "2026-11-18T18:21:51+08:00"
-          },
-          {
-            "sectorId": "xw-a790876fe01a",
-            "name": "城市建设与环境治理",
-            "layer": "own_l1",
-            "signals": [
-              "strengthening",
-              "multi_source"
-            ],
-            "attention": 17.6556,
-            "policyScore": 3.2019,
-            "mediaScore": 8.582,
-            "marketAttentionScore": 5.8718,
-            "delta": 8.9709,
-            "materialCount": 67,
-            "latestSignalAt": "2026-11-18T14:51:47+08:00"
+            "delta": 5.239,
+            "materialCount": 79,
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
           },
           {
             "sectorId": "xw-44df3a7133d1",
@@ -4836,28 +4818,45 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 17.3693,
-            "policyScore": 3.2718,
-            "mediaScore": 8.7354,
-            "marketAttentionScore": 5.3622,
-            "delta": 6.7285,
-            "materialCount": 74,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "attention": 17.0287,
+            "policyScore": 3.0508,
+            "mediaScore": 8.5794,
+            "marketAttentionScore": 5.3986,
+            "delta": 6.5637,
+            "materialCount": 73,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
-            "sectorId": "xw-a13d65288762",
-            "name": "金融与产业服务",
+            "sectorId": "xw-a790876fe01a",
+            "name": "城市建设与环境治理",
             "layer": "own_l1",
             "signals": [
+              "strengthening",
               "multi_source"
             ],
-            "attention": 15.9959,
-            "policyScore": 2.2451,
-            "mediaScore": 11.0799,
-            "marketAttentionScore": 2.6709,
-            "delta": -9.7383,
-            "materialCount": 63,
-            "latestSignalAt": "2026-11-18T17:27:42+08:00"
+            "attention": 16.2965,
+            "policyScore": 2.4837,
+            "mediaScore": 8.032,
+            "marketAttentionScore": 5.7808,
+            "delta": 6.7369,
+            "materialCount": 62,
+            "latestSignalAt": "2026-11-18T14:51:47+08:00"
+          },
+          {
+            "sectorId": "xw-9cdb283a5860",
+            "name": "智能装备与先进制造",
+            "layer": "own_l1",
+            "signals": [
+              "strengthening",
+              "multi_source"
+            ],
+            "attention": 13.5155,
+            "policyScore": 2.729,
+            "mediaScore": 7.6492,
+            "marketAttentionScore": 3.1372,
+            "delta": 3.2117,
+            "materialCount": 56,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-c99061324693",
@@ -4867,13 +4866,28 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 14.1021,
-            "policyScore": 3.0888,
-            "mediaScore": 8.3652,
-            "marketAttentionScore": 2.6481,
-            "delta": 4.5208,
-            "materialCount": 50,
-            "latestSignalAt": "2026-11-18T14:43:12+08:00"
+            "attention": 13.3432,
+            "policyScore": 2.8899,
+            "mediaScore": 8.4195,
+            "marketAttentionScore": 2.0339,
+            "delta": 3.095,
+            "materialCount": 46,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-a13d65288762",
+            "name": "金融与产业服务",
+            "layer": "own_l1",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 13.2113,
+            "policyScore": 2.2451,
+            "mediaScore": 8.7048,
+            "marketAttentionScore": 2.2614,
+            "delta": -14.5762,
+            "materialCount": 53,
+            "latestSignalAt": "2026-11-18T20:56:56+08:00"
           },
           {
             "sectorId": "xw-c9f3e79274a5",
@@ -4883,28 +4897,13 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 13.7173,
-            "policyScore": 3.1883,
-            "mediaScore": 7.0187,
+            "attention": 12.5284,
+            "policyScore": 2.691,
+            "mediaScore": 6.3271,
             "marketAttentionScore": 3.5103,
-            "delta": 8.8881,
-            "materialCount": 61,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
-            "sectorId": "xw-9cdb283a5860",
-            "name": "智能装备与先进制造",
-            "layer": "own_l1",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 13.4862,
-            "policyScore": 2.729,
-            "mediaScore": 7.62,
-            "marketAttentionScore": 3.1372,
-            "delta": 2.0241,
-            "materialCount": 57,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
+            "delta": 6.2543,
+            "materialCount": 59,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-3a97c6ae506e",
@@ -4914,29 +4913,44 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 13.1264,
-            "policyScore": 3.5165,
-            "mediaScore": 5.8903,
-            "marketAttentionScore": 3.7196,
-            "delta": 7.4961,
-            "materialCount": 59,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
+            "attention": 12.0487,
+            "policyScore": 2.3563,
+            "mediaScore": 5.6043,
+            "marketAttentionScore": 4.0882,
+            "delta": 5.054,
+            "materialCount": 56,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-355bbba8934b",
             "name": "生命科学与医疗健康",
             "layer": "own_l1",
             "signals": [
+              "multi_source"
+            ],
+            "attention": 9.1072,
+            "policyScore": 1.7215,
+            "mediaScore": 6.0047,
+            "marketAttentionScore": 1.3809,
+            "delta": -3.8636,
+            "materialCount": 32,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
+          },
+          {
+            "sectorId": "xw-584cc9e8ba4e",
+            "name": "具身智能",
+            "layer": "dynamic",
+            "signals": [
               "strengthening",
               "multi_source"
             ],
-            "attention": 12.4826,
-            "policyScore": 1.7215,
-            "mediaScore": 8.1517,
-            "marketAttentionScore": 2.6094,
-            "delta": 3.0862,
-            "materialCount": 47,
-            "latestSignalAt": "2026-11-18T09:12:38+08:00"
+            "attention": 8.213,
+            "policyScore": 1.665,
+            "mediaScore": 4.4095,
+            "marketAttentionScore": 2.1385,
+            "delta": 4.4745,
+            "materialCount": 21,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-e8c29e7c597e",
@@ -4954,51 +4968,35 @@
             "latestSignalAt": "2026-11-18T18:21:51+08:00"
           },
           {
-            "sectorId": "xw-584cc9e8ba4e",
-            "name": "具身智能",
-            "layer": "dynamic",
-            "signals": [
-              "strengthening",
-              "multi_source"
-            ],
-            "attention": 7.363,
-            "policyScore": 1.665,
-            "mediaScore": 3.5595,
-            "marketAttentionScore": 2.1385,
-            "delta": 3.0575,
-            "materialCount": 20,
-            "latestSignalAt": "2026-11-18T18:13:39+08:00"
-          },
-          {
             "sectorId": "xw-338f0026bf3d",
             "name": "消费与社会服务",
             "layer": "own_l1",
             "signals": [
               "multi_source"
             ],
-            "attention": 7.2381,
+            "attention": 6.5741,
             "policyScore": 2.2685,
-            "mediaScore": 3.8639,
+            "mediaScore": 3.2,
             "marketAttentionScore": 1.1057,
-            "delta": -1.1105,
-            "materialCount": 30,
-            "latestSignalAt": "2026-11-18T14:07:28+08:00"
+            "delta": -1.3166,
+            "materialCount": 28,
+            "latestSignalAt": "2026-11-18T20:03:27+08:00"
           },
           {
             "sectorId": "xw-116c65f0af50",
             "name": "第六代移动通信",
             "layer": "dynamic",
             "signals": [
-              "new_signal",
+              "strengthening",
               "multi_source"
             ],
-            "attention": 3.015,
+            "attention": 2.7585,
             "policyScore": 0.0,
-            "mediaScore": 1.755,
-            "marketAttentionScore": 1.26,
-            "delta": 3.015,
+            "mediaScore": 1.215,
+            "marketAttentionScore": 1.5435,
+            "delta": 2.2185,
             "materialCount": 8,
-            "latestSignalAt": "2026-11-18T17:26:53+08:00"
+            "latestSignalAt": "2026-11-18T18:56:46+08:00"
           },
           {
             "sectorId": "xw-b3b50e3d3ba8",
@@ -5016,36 +5014,6 @@
             "latestSignalAt": "2026-11-18T16:53:57+08:00"
           },
           {
-            "sectorId": "xw-4fbc23718588",
-            "name": "数据流通与治理",
-            "layer": "own_l2",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 1.9928,
-            "policyScore": 0.6502,
-            "mediaScore": 1.0748,
-            "marketAttentionScore": 0.2677,
-            "delta": -0.9639,
-            "materialCount": 6,
-            "latestSignalAt": "2026-11-18T14:43:12+08:00"
-          },
-          {
-            "sectorId": "xw-1db613f6416e",
-            "name": "创新药与生物制品",
-            "layer": "own_l2",
-            "signals": [
-              "multi_source"
-            ],
-            "attention": 1.7098,
-            "policyScore": 0.0,
-            "mediaScore": 1.7098,
-            "marketAttentionScore": 0.0,
-            "delta": 0.0689,
-            "materialCount": 5,
-            "latestSignalAt": "2026-11-17T22:12:14+08:00"
-          },
-          {
             "sectorId": "xw-905312bdd3aa",
             "name": "低空航空产业",
             "layer": "dynamic",
@@ -5053,13 +5021,13 @@
               "strengthening",
               "multi_source"
             ],
-            "attention": 1.4805,
+            "attention": 2.3305,
             "policyScore": 0.34,
-            "mediaScore": 0.7695,
+            "mediaScore": 1.6195,
             "marketAttentionScore": 0.371,
-            "delta": 0.8155,
-            "materialCount": 5,
-            "latestSignalAt": "2026-11-18T11:48:13+08:00"
+            "delta": 1.6655,
+            "materialCount": 6,
+            "latestSignalAt": "2026-11-18T21:17:15+08:00"
           },
           {
             "sectorId": "xw-5c99b7879a92",
@@ -5075,6 +5043,36 @@
             "delta": -0.045,
             "materialCount": 5,
             "latestSignalAt": "2026-11-18T09:28:13+08:00"
+          },
+          {
+            "sectorId": "xw-4fbc23718588",
+            "name": "数据流通与治理",
+            "layer": "own_l2",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 1.3426,
+            "policyScore": 0.0,
+            "mediaScore": 1.0748,
+            "marketAttentionScore": 0.2677,
+            "delta": -1.6141,
+            "materialCount": 5,
+            "latestSignalAt": "2026-11-18T14:43:12+08:00"
+          },
+          {
+            "sectorId": "xw-1db613f6416e",
+            "name": "创新药与生物制品",
+            "layer": "own_l2",
+            "signals": [
+              "multi_source"
+            ],
+            "attention": 1.0213,
+            "policyScore": 0.0,
+            "mediaScore": 1.0213,
+            "marketAttentionScore": 0.0,
+            "delta": -1.3081,
+            "materialCount": 3,
+            "latestSignalAt": "2026-11-17T22:12:14+08:00"
           },
           {
             "sectorId": "xw-bfa28c93ca1e",
@@ -5095,6 +5093,96 @@
         ],
         "materials": [
           {
+            "materialId": "bbc45f87996795bcf772",
+            "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+            "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T21:16:15+08:00",
+            "sectorCount": 11
+          },
+          {
+            "materialId": "323390ba1447a7572890",
+            "title": "腾讯高管谈最新收紧限制对AI影响：短期算力与训练承压，长期将加速国产供应链建设",
+            "url": "https://api3.cls.cn/a/2538253",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T21:01:16+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "cb466d8e25ea581e868b",
+            "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "55fc6c8e08ab8a01f2fb",
+            "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:56:12+08:00",
+            "sectorCount": 2
+          },
+          {
+            "materialId": "469518000528f1c4ace2",
+            "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+            "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T20:46:13+08:00",
+            "sectorCount": 6
+          },
+          {
+            "materialId": "0c64ab94b81afe49a037",
+            "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+            "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
+            "channel": "media",
+            "source": "中国证券报·要闻",
+            "publishedAt": "2026-11-18T20:36:05+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "bb5b2aae91a5ea20b2de",
+            "title": "2026现代服务业高质量发展大会聚焦“品牌培育”",
+            "url": "https://www.news.cn/fortune/20261118/89507881faaf49deb461a0f0ccb1a842/c.html",
+            "channel": "media",
+            "source": "新华网·财经滚动",
+            "publishedAt": "2026-11-18T19:56:24+08:00",
+            "sectorCount": 1
+          },
+          {
+            "materialId": "2b6f9b193d591a360629",
+            "title": "江苏：持续完善全省一体化算力监测调度平台功能 强化长三角算力枢纽节点功能",
+            "url": "https://api3.cls.cn/a/2538141",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T19:06:06+08:00",
+            "sectorCount": 3
+          },
+          {
+            "materialId": "88547740ead7e50e704a",
+            "title": "江苏：推进5G-A网络部署、万兆光网建设和工业5G专网建设 前瞻布局第六代移动通信技术",
+            "url": "https://api3.cls.cn/a/2538130",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:56:09+08:00",
+            "sectorCount": 4
+          },
+          {
+            "materialId": "dbdb9e635e2a535a129c",
+            "title": "国家能源局：加强全国流域水风光一体化发展工作统筹",
+            "url": "https://api3.cls.cn/a/2538097",
+            "channel": "market_attention",
+            "source": "财联社·电报快讯",
+            "publishedAt": "2026-11-18T18:26:12+08:00",
+            "sectorCount": 2
+          },
+          {
             "materialId": "c39028d2e08221e1ebcd",
             "title": "国家能源局：探索以新能源为电量主体的水风光电力直接供应算力设施 大力发展适应水风光出力特性的“柔性算力”",
             "url": "https://api3.cls.cn/a/2538094",
@@ -5273,118 +5361,28 @@
             "source": "上海证券报·官网要闻",
             "publishedAt": "2026-11-18T16:12:59+08:00",
             "sectorCount": 1
-          },
-          {
-            "materialId": "8eb973d88f31c65da80d",
-            "title": "今日投资舆情热点",
-            "url": "https://api3.cls.cn/a/2537840",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-11T16:02:37+08:00",
-            "sectorCount": 8
-          },
-          {
-            "materialId": "09ee429a7707ba2e9e9f",
-            "title": "11月18日连板股分析：连板股晋级率不足二成 国产算力板块持续发酵",
-            "url": "https://api3.cls.cn/a/2537835",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T15:36:02+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "37a84d4fd56968e76547",
-            "title": "财联社11月18日电，三星高管表示，HBM4E正由一家主要合作伙伴进行评估，进展极为顺利。",
-            "url": "https://api3.cls.cn/a/2537742",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:56:04+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "9335edf587de5226db19",
-            "title": "首届中澳钢铁减碳政策对话在堪培拉举行 双方同意推进在铁矿石利用与加工等领域合作",
-            "url": "https://api3.cls.cn/a/2537738",
-            "channel": "market_attention",
-            "source": "财联社·电报快讯",
-            "publishedAt": "2026-11-18T14:51:12+08:00",
-            "sectorCount": 3
-          },
-          {
-            "materialId": "8ac548433c8969613fd1",
-            "title": "习近平会见韩国总统李在明",
-            "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086520.htm",
-            "channel": "policy",
-            "source": "国务院常务会议通稿",
-            "publishedAt": "2026-11-18T14:46:16+08:00",
-            "sectorCount": 1
-          },
-          {
-            "materialId": "46c9735dc51c0a2f98d1",
-            "title": "300场会议之后，亚太在为何而谈——写在亚太经合组织第三十三次领导人非正式会议举行之际",
-            "url": "https://www.stcn.com/article/detail/4341744.html",
-            "channel": "media",
-            "source": "证券时报·要闻",
-            "publishedAt": "2026-11-18T14:41:54+08:00",
-            "sectorCount": 7
-          },
-          {
-            "materialId": "ac1dcfd2a180bfaefdb2",
-            "title": "通讯丨从“卖车”走向“共建产业”——中国与东南亚新能源汽车合作迈向新高度",
-            "url": "https://www.news.cn/fortune/20261118/ee6a1f57f1dd48feacc9ba7cd84b9802/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T14:26:20+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "73be479a10cebc80b4ec",
-            "title": "《中加金融工作组工作规范》签署",
-            "url": "https://www.news.cn/fortune/20261118/587994f457f94ce4894af5347da7de44/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T11:28:05+08:00",
-            "sectorCount": 2
-          },
-          {
-            "materialId": "067e9d3ecb14d74daed8",
-            "title": "中国养老金融发展报告建议：加快养老设施REITs与资产证券化立法",
-            "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138573.html",
-            "channel": "media",
-            "source": "中国证券报·要闻",
-            "publishedAt": "2026-11-18T14:06:02+08:00",
-            "sectorCount": 4
-          },
-          {
-            "materialId": "86af1ceeb29cbb91cc2a",
-            "title": "证监会称“基金公司上报全部产品AI敞口”不属实",
-            "url": "https://www.news.cn/fortune/20261118/5387f516637d4c7285565f9a5fda7632/c.html",
-            "channel": "media",
-            "source": "新华网·财经滚动",
-            "publishedAt": "2026-11-18T13:51:17+08:00",
-            "sectorCount": 1
           }
         ],
-        "generatedAt": "2026-11-18T18:27:03+08:00"
+        "generatedAt": "2026-11-18T21:22:18+08:00"
       }
     },
     "window": {
       "kind": "rolling",
       "duration": "24h",
       "timezone": "Asia/Shanghai",
-      "start": "2026-11-17T18:26:55+08:00",
-      "end": "2026-11-18T18:26:55+08:00",
-      "previous_start": "2026-11-16T18:26:55+08:00",
-      "previous_end": "2026-11-17T18:26:55+08:00"
+      "start": "2026-11-17T21:22:12+08:00",
+      "end": "2026-11-18T21:22:12+08:00",
+      "previous_start": "2026-11-16T21:22:12+08:00",
+      "previous_end": "2026-11-17T21:22:12+08:00"
     },
     "summary": {
-      "material_count": 109,
-      "policy_material_count": 12,
-      "media_material_count": 54,
-      "market_attention_material_count": 43,
+      "material_count": 98,
+      "policy_material_count": 10,
+      "media_material_count": 52,
+      "market_attention_material_count": 36,
       "sector_count": 24,
       "new_signal_sector_count": 3,
-      "multi_source_sector_count": 17,
+      "multi_source_sector_count": 16,
       "pressure_sector_count": 0
     },
     "sectors": [
@@ -5396,29 +5394,28 @@
           "strengthening",
           "multi_source"
         ],
-        "attention": 9.5033,
-        "policyScore": 2.7849,
-        "mediaScore": 5.2852,
-        "marketAttentionScore": 1.4333,
-        "delta": 1.7936,
-        "materialCount": 42,
-        "latestSignalAt": "2026-11-18T18:21:51+08:00"
+        "attention": 9.8062,
+        "policyScore": 2.3374,
+        "mediaScore": 5.9537,
+        "marketAttentionScore": 1.5151,
+        "delta": 1.8655,
+        "materialCount": 44,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
       },
       {
         "sectorId": "xw-5f2c5119475e",
         "name": "清洁能源与电力系统",
         "layer": "own_l1",
         "signals": [
-          "strengthening",
           "multi_source"
         ],
-        "attention": 8.101,
-        "policyScore": 2.0625,
-        "mediaScore": 3.2334,
-        "marketAttentionScore": 2.8051,
-        "delta": 1.613,
-        "materialCount": 36,
-        "latestSignalAt": "2026-11-18T18:21:51+08:00"
+        "attention": 7.5543,
+        "policyScore": 1.8636,
+        "mediaScore": 3.2747,
+        "marketAttentionScore": 2.4161,
+        "delta": 0.3091,
+        "materialCount": 33,
+        "latestSignalAt": "2026-11-18T20:56:56+08:00"
       },
       {
         "sectorId": "xw-44df3a7133d1",
@@ -5427,43 +5424,13 @@
         "signals": [
           "multi_source"
         ],
-        "attention": 6.2904,
+        "attention": 5.8763,
         "policyScore": 1.5005,
         "mediaScore": 3.1519,
-        "marketAttentionScore": 1.638,
-        "delta": -1.4423,
-        "materialCount": 28,
-        "latestSignalAt": "2026-11-18T18:13:39+08:00"
-      },
-      {
-        "sectorId": "xw-a790876fe01a",
-        "name": "城市建设与环境治理",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 5.2283,
-        "policyScore": 0.4199,
-        "mediaScore": 3.7551,
-        "marketAttentionScore": 1.0533,
-        "delta": -2.6526,
-        "materialCount": 21,
-        "latestSignalAt": "2026-11-18T14:51:47+08:00"
-      },
-      {
-        "sectorId": "xw-c9f3e79274a5",
-        "name": "汽车与智能交通装备",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 5.0512,
-        "policyScore": 0.4973,
-        "mediaScore": 3.0843,
-        "marketAttentionScore": 1.4697,
-        "delta": -0.7777,
-        "materialCount": 24,
-        "latestSignalAt": "2026-11-18T18:13:39+08:00"
+        "marketAttentionScore": 1.224,
+        "delta": -2.1619,
+        "materialCount": 26,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
       },
       {
         "sectorId": "xw-a13d65288762",
@@ -5473,13 +5440,43 @@
           "strengthening",
           "multi_source"
         ],
-        "attention": 4.7873,
+        "attention": 4.6673,
         "policyScore": 1.2448,
-        "mediaScore": 3.1853,
+        "mediaScore": 3.0654,
         "marketAttentionScore": 0.3572,
-        "delta": 1.365,
+        "delta": 1.6604,
         "materialCount": 20,
-        "latestSignalAt": "2026-11-18T17:27:42+08:00"
+        "latestSignalAt": "2026-11-18T20:56:56+08:00"
+      },
+      {
+        "sectorId": "xw-c9f3e79274a5",
+        "name": "汽车与智能交通装备",
+        "layer": "own_l1",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 4.1139,
+        "policyScore": 0.4973,
+        "mediaScore": 3.0069,
+        "marketAttentionScore": 0.6097,
+        "delta": -2.2155,
+        "materialCount": 20,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
+      },
+      {
+        "sectorId": "xw-3a97c6ae506e",
+        "name": "算力与通信基础设施",
+        "layer": "own_l1",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 3.9361,
+        "policyScore": 0.7768,
+        "mediaScore": 1.8489,
+        "marketAttentionScore": 1.3104,
+        "delta": -1.2938,
+        "materialCount": 20,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
       },
       {
         "sectorId": "xw-338f0026bf3d",
@@ -5489,73 +5486,13 @@
           "strengthening",
           "multi_source"
         ],
-        "attention": 3.6007,
-        "policyScore": 1.7712,
-        "mediaScore": 1.6088,
+        "attention": 3.551,
+        "policyScore": 1.274,
+        "mediaScore": 2.0563,
         "marketAttentionScore": 0.2207,
-        "delta": 2.3998,
+        "delta": 1.9348,
         "materialCount": 14,
-        "latestSignalAt": "2026-11-18T14:07:28+08:00"
-      },
-      {
-        "sectorId": "xw-3a97c6ae506e",
-        "name": "算力与通信基础设施",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 3.3465,
-        "policyScore": 0.7768,
-        "mediaScore": 1.6279,
-        "marketAttentionScore": 0.9419,
-        "delta": -2.394,
-        "materialCount": 17,
-        "latestSignalAt": "2026-11-18T17:26:53+08:00"
-      },
-      {
-        "sectorId": "xw-e8c29e7c597e",
-        "name": "资源材料与基础工业",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 3.212,
-        "policyScore": 0.7254,
-        "mediaScore": 1.638,
-        "marketAttentionScore": 0.8486,
-        "delta": 0.4615,
-        "materialCount": 15,
-        "latestSignalAt": "2026-11-18T18:21:51+08:00"
-      },
-      {
-        "sectorId": "xw-9cdb283a5860",
-        "name": "智能装备与先进制造",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 3.0176,
-        "policyScore": 0.9448,
-        "mediaScore": 1.4654,
-        "marketAttentionScore": 0.6074,
-        "delta": -3.4057,
-        "materialCount": 14,
-        "latestSignalAt": "2026-11-18T18:13:39+08:00"
-      },
-      {
-        "sectorId": "xw-355bbba8934b",
-        "name": "生命科学与医疗健康",
-        "layer": "own_l1",
-        "signals": [
-          "multi_source"
-        ],
-        "attention": 2.9702,
-        "policyScore": 1.2243,
-        "mediaScore": 1.7459,
-        "marketAttentionScore": 0.0,
-        "delta": 0.4427,
-        "materialCount": 9,
-        "latestSignalAt": "2026-11-18T09:12:38+08:00"
+        "latestSignalAt": "2026-11-18T20:03:27+08:00"
       },
       {
         "sectorId": "xw-584cc9e8ba4e",
@@ -5564,13 +5501,74 @@
         "signals": [
           "multi_source"
         ],
-        "attention": 2.925,
+        "attention": 3.4915,
         "policyScore": 0.765,
-        "mediaScore": 1.8765,
-        "marketAttentionScore": 0.2835,
-        "delta": -0.784,
+        "mediaScore": 2.7265,
+        "marketAttentionScore": 0.0,
+        "delta": -0.1365,
         "materialCount": 7,
-        "latestSignalAt": "2026-11-18T18:13:39+08:00"
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
+      },
+      {
+        "sectorId": "xw-355bbba8934b",
+        "name": "生命科学与医疗健康",
+        "layer": "own_l1",
+        "signals": [
+          "strengthening",
+          "multi_source"
+        ],
+        "attention": 3.4294,
+        "policyScore": 1.2243,
+        "mediaScore": 2.2051,
+        "marketAttentionScore": 0.0,
+        "delta": 0.8755,
+        "materialCount": 10,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
+      },
+      {
+        "sectorId": "xw-9cdb283a5860",
+        "name": "智能装备与先进制造",
+        "layer": "own_l1",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 3.1259,
+        "policyScore": 0.9448,
+        "mediaScore": 1.9627,
+        "marketAttentionScore": 0.2184,
+        "delta": -2.8106,
+        "materialCount": 13,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
+      },
+      {
+        "sectorId": "xw-e8c29e7c597e",
+        "name": "资源材料与基础工业",
+        "layer": "own_l1",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 2.419,
+        "policyScore": 0.5265,
+        "mediaScore": 1.4011,
+        "marketAttentionScore": 0.4914,
+        "delta": -0.6272,
+        "materialCount": 10,
+        "latestSignalAt": "2026-11-18T18:21:51+08:00"
+      },
+      {
+        "sectorId": "xw-a790876fe01a",
+        "name": "城市建设与环境治理",
+        "layer": "own_l1",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 2.21,
+        "policyScore": 0.221,
+        "mediaScore": 1.6933,
+        "marketAttentionScore": 0.2958,
+        "delta": -7.4672,
+        "materialCount": 11,
+        "latestSignalAt": "2026-11-18T14:51:47+08:00"
       },
       {
         "sectorId": "xw-c99061324693",
@@ -5579,29 +5577,13 @@
         "signals": [
           "multi_source"
         ],
-        "attention": 2.4086,
+        "attention": 2.0651,
         "policyScore": 0.7183,
-        "mediaScore": 1.6175,
+        "mediaScore": 1.274,
         "marketAttentionScore": 0.0728,
-        "delta": -2.1742,
-        "materialCount": 10,
-        "latestSignalAt": "2026-11-18T14:43:12+08:00"
-      },
-      {
-        "sectorId": "xw-b3b50e3d3ba8",
-        "name": "新型储能",
-        "layer": "own_l2",
-        "signals": [
-          "strengthening",
-          "multi_source"
-        ],
-        "attention": 1.5292,
-        "policyScore": 0.0,
-        "mediaScore": 0.9907,
-        "marketAttentionScore": 0.5385,
-        "delta": 0.7965,
-        "materialCount": 5,
-        "latestSignalAt": "2026-11-18T16:53:57+08:00"
+        "delta": -2.5415,
+        "materialCount": 9,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
       },
       {
         "sectorId": "xw-116c65f0af50",
@@ -5611,44 +5593,59 @@
           "strengthening",
           "multi_source"
         ],
-        "attention": 1.44,
+        "attention": 1.7235,
         "policyScore": 0.0,
         "mediaScore": 0.81,
-        "marketAttentionScore": 0.63,
-        "delta": 0.405,
-        "materialCount": 4,
-        "latestSignalAt": "2026-11-18T17:26:53+08:00"
-      },
-      {
-        "sectorId": "xw-1db613f6416e",
-        "name": "创新药与生物制品",
-        "layer": "own_l2",
-        "signals": [
-          "strengthening",
-          "multi_source"
-        ],
-        "attention": 0.9601,
-        "policyScore": 0.0,
-        "mediaScore": 0.9601,
-        "marketAttentionScore": 0.0,
-        "delta": 0.8989,
-        "materialCount": 2,
-        "latestSignalAt": "2026-11-17T22:12:14+08:00"
+        "marketAttentionScore": 0.9135,
+        "delta": 0.6885,
+        "materialCount": 5,
+        "latestSignalAt": "2026-11-18T18:56:46+08:00"
       },
       {
         "sectorId": "xw-905312bdd3aa",
         "name": "低空航空产业",
         "layer": "dynamic",
         "signals": [
+          "strengthening",
           "multi_source"
         ],
-        "attention": 0.745,
+        "attention": 1.595,
         "policyScore": 0.34,
-        "mediaScore": 0.405,
+        "mediaScore": 1.255,
         "marketAttentionScore": 0.0,
-        "delta": 0.0095,
-        "materialCount": 2,
-        "latestSignalAt": "2026-11-18T11:48:13+08:00"
+        "delta": 1.224,
+        "materialCount": 3,
+        "latestSignalAt": "2026-11-18T21:17:15+08:00"
+      },
+      {
+        "sectorId": "xw-b3b50e3d3ba8",
+        "name": "新型储能",
+        "layer": "own_l2",
+        "signals": [
+          "multi_source"
+        ],
+        "attention": 0.9907,
+        "policyScore": 0.0,
+        "mediaScore": 0.9907,
+        "marketAttentionScore": 0.0,
+        "delta": -0.2805,
+        "materialCount": 3,
+        "latestSignalAt": "2026-11-18T16:53:57+08:00"
+      },
+      {
+        "sectorId": "xw-1db613f6416e",
+        "name": "创新药与生物制品",
+        "layer": "own_l2",
+        "signals": [
+          "strengthening"
+        ],
+        "attention": 0.6502,
+        "policyScore": 0.0,
+        "mediaScore": 0.6502,
+        "marketAttentionScore": 0.0,
+        "delta": 0.3404,
+        "materialCount": 1,
+        "latestSignalAt": "2026-11-17T22:12:14+08:00"
       },
       {
         "sectorId": "xw-5c99b7879a92",
@@ -5661,7 +5658,7 @@
         "policyScore": 0.0,
         "mediaScore": 0.5265,
         "marketAttentionScore": 0.0,
-        "delta": -0.3555,
+        "delta": -0.072,
         "materialCount": 2,
         "latestSignalAt": "2026-11-18T09:28:13+08:00"
       },
@@ -5697,6 +5694,96 @@
       }
     ],
     "materials": [
+      {
+        "materialId": "bbc45f87996795bcf772",
+        "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+        "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
+        "channel": "media",
+        "source": "新华网·财经滚动",
+        "publishedAt": "2026-11-18T21:16:15+08:00",
+        "sectorCount": 11
+      },
+      {
+        "materialId": "323390ba1447a7572890",
+        "title": "腾讯高管谈最新收紧限制对AI影响：短期算力与训练承压，长期将加速国产供应链建设",
+        "url": "https://api3.cls.cn/a/2538253",
+        "channel": "market_attention",
+        "source": "财联社·电报快讯",
+        "publishedAt": "2026-11-18T21:01:16+08:00",
+        "sectorCount": 3
+      },
+      {
+        "materialId": "cb466d8e25ea581e868b",
+        "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
+        "channel": "media",
+        "source": "中国证券报·要闻",
+        "publishedAt": "2026-11-18T20:56:12+08:00",
+        "sectorCount": 2
+      },
+      {
+        "materialId": "55fc6c8e08ab8a01f2fb",
+        "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
+        "channel": "media",
+        "source": "中国证券报·要闻",
+        "publishedAt": "2026-11-18T20:56:12+08:00",
+        "sectorCount": 2
+      },
+      {
+        "materialId": "469518000528f1c4ace2",
+        "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+        "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
+        "channel": "media",
+        "source": "新华网·财经滚动",
+        "publishedAt": "2026-11-18T20:46:13+08:00",
+        "sectorCount": 6
+      },
+      {
+        "materialId": "0c64ab94b81afe49a037",
+        "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+        "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
+        "channel": "media",
+        "source": "中国证券报·要闻",
+        "publishedAt": "2026-11-18T20:36:05+08:00",
+        "sectorCount": 1
+      },
+      {
+        "materialId": "bb5b2aae91a5ea20b2de",
+        "title": "2026现代服务业高质量发展大会聚焦“品牌培育”",
+        "url": "https://www.news.cn/fortune/20261118/89507881faaf49deb461a0f0ccb1a842/c.html",
+        "channel": "media",
+        "source": "新华网·财经滚动",
+        "publishedAt": "2026-11-18T19:56:24+08:00",
+        "sectorCount": 1
+      },
+      {
+        "materialId": "2b6f9b193d591a360629",
+        "title": "江苏：持续完善全省一体化算力监测调度平台功能 强化长三角算力枢纽节点功能",
+        "url": "https://api3.cls.cn/a/2538141",
+        "channel": "market_attention",
+        "source": "财联社·电报快讯",
+        "publishedAt": "2026-11-18T19:06:06+08:00",
+        "sectorCount": 3
+      },
+      {
+        "materialId": "88547740ead7e50e704a",
+        "title": "江苏：推进5G-A网络部署、万兆光网建设和工业5G专网建设 前瞻布局第六代移动通信技术",
+        "url": "https://api3.cls.cn/a/2538130",
+        "channel": "market_attention",
+        "source": "财联社·电报快讯",
+        "publishedAt": "2026-11-18T18:56:09+08:00",
+        "sectorCount": 4
+      },
+      {
+        "materialId": "dbdb9e635e2a535a129c",
+        "title": "国家能源局：加强全国流域水风光一体化发展工作统筹",
+        "url": "https://api3.cls.cn/a/2538097",
+        "channel": "market_attention",
+        "source": "财联社·电报快讯",
+        "publishedAt": "2026-11-18T18:26:12+08:00",
+        "sectorCount": 2
+      },
       {
         "materialId": "c39028d2e08221e1ebcd",
         "title": "国家能源局：探索以新能源为电量主体的水风光电力直接供应算力设施 大力发展适应水风光出力特性的“柔性算力”",
@@ -5876,101 +5963,44 @@
         "source": "上海证券报·官网要闻",
         "publishedAt": "2026-11-18T16:12:59+08:00",
         "sectorCount": 1
-      },
-      {
-        "materialId": "8eb973d88f31c65da80d",
-        "title": "今日投资舆情热点",
-        "url": "https://api3.cls.cn/a/2537840",
-        "channel": "market_attention",
-        "source": "财联社·电报快讯",
-        "publishedAt": "2026-11-16T15:31:25+08:00",
-        "sectorCount": 4
-      },
-      {
-        "materialId": "09ee429a7707ba2e9e9f",
-        "title": "11月18日连板股分析：连板股晋级率不足二成 国产算力板块持续发酵",
-        "url": "https://api3.cls.cn/a/2537835",
-        "channel": "market_attention",
-        "source": "财联社·电报快讯",
-        "publishedAt": "2026-11-18T15:36:02+08:00",
-        "sectorCount": 3
-      },
-      {
-        "materialId": "37a84d4fd56968e76547",
-        "title": "财联社11月18日电，三星高管表示，HBM4E正由一家主要合作伙伴进行评估，进展极为顺利。",
-        "url": "https://api3.cls.cn/a/2537742",
-        "channel": "market_attention",
-        "source": "财联社·电报快讯",
-        "publishedAt": "2026-11-18T14:56:04+08:00",
-        "sectorCount": 4
-      },
-      {
-        "materialId": "9335edf587de5226db19",
-        "title": "首届中澳钢铁减碳政策对话在堪培拉举行 双方同意推进在铁矿石利用与加工等领域合作",
-        "url": "https://api3.cls.cn/a/2537738",
-        "channel": "market_attention",
-        "source": "财联社·电报快讯",
-        "publishedAt": "2026-11-18T14:51:12+08:00",
-        "sectorCount": 3
-      },
-      {
-        "materialId": "8ac548433c8969613fd1",
-        "title": "习近平会见韩国总统李在明",
-        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086520.htm",
-        "channel": "policy",
-        "source": "国务院常务会议通稿",
-        "publishedAt": "2026-11-18T14:46:16+08:00",
-        "sectorCount": 1
-      },
-      {
-        "materialId": "46c9735dc51c0a2f98d1",
-        "title": "300场会议之后，亚太在为何而谈——写在亚太经合组织第三十三次领导人非正式会议举行之际",
-        "url": "https://www.stcn.com/article/detail/4341744.html",
-        "channel": "media",
-        "source": "证券时报·要闻",
-        "publishedAt": "2026-11-18T14:41:54+08:00",
-        "sectorCount": 7
-      },
-      {
-        "materialId": "ac1dcfd2a180bfaefdb2",
-        "title": "通讯丨从“卖车”走向“共建产业”——中国与东南亚新能源汽车合作迈向新高度",
-        "url": "https://www.news.cn/fortune/20261118/ee6a1f57f1dd48feacc9ba7cd84b9802/c.html",
-        "channel": "media",
-        "source": "新华网·财经滚动",
-        "publishedAt": "2026-11-18T14:26:20+08:00",
-        "sectorCount": 2
-      },
-      {
-        "materialId": "73be479a10cebc80b4ec",
-        "title": "《中加金融工作组工作规范》签署",
-        "url": "https://www.news.cn/fortune/20261118/587994f457f94ce4894af5347da7de44/c.html",
-        "channel": "media",
-        "source": "新华网·财经滚动",
-        "publishedAt": "2026-11-18T11:28:05+08:00",
-        "sectorCount": 2
-      },
-      {
-        "materialId": "067e9d3ecb14d74daed8",
-        "title": "中国养老金融发展报告建议：加快养老设施REITs与资产证券化立法",
-        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138573.html",
-        "channel": "media",
-        "source": "中国证券报·要闻",
-        "publishedAt": "2026-11-18T14:06:02+08:00",
-        "sectorCount": 4
-      },
-      {
-        "materialId": "86af1ceeb29cbb91cc2a",
-        "title": "证监会称“基金公司上报全部产品AI敞口”不属实",
-        "url": "https://www.news.cn/fortune/20261118/5387f516637d4c7285565f9a5fda7632/c.html",
-        "channel": "media",
-        "source": "新华网·财经滚动",
-        "publishedAt": "2026-11-18T13:51:17+08:00",
-        "sectorCount": 1
       }
     ]
   },
   "materials": {
     "policy": [
+      {
+        "materialId": "3d5fbb9b02a88bde7607",
+        "title": "2026年APEC工商领导人峰会发布深圳倡议",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086571.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "b7d21ac13289566a419d",
+        "title": "习近平在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上的祝酒辞（全文）",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086574.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
+      {
+        "materialId": "31489bf017afeca540cf",
+        "title": "丁薛祥在江西调研时强调 立足特色和优势加快壮大新动能 推动高质量发展不断取得新成效",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086557.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy",
+        "source": "国务院常务会议通稿"
+      },
       {
         "materialId": "795356ca51f34597b4a2",
         "title": "国家能源局关于加快推动流域水风光一体化发展的指导意见",
@@ -6138,6 +6168,281 @@
       }
     ],
     "media": [
+      {
+        "materialId": "bbc45f87996795bcf772",
+        "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+        "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "279d8123734bb3b709ed",
+        "title": "盘好 “任务账”！国资委：重点难点任务须及早部署推动",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138633.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "55fc6c8e08ab8a01f2fb",
+        "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "cb466d8e25ea581e868b",
+        "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "516792556db413914e36",
+        "title": "习近平在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上的祝酒辞（全文）",
+        "url": "https://www.stcn.com/article/detail/4342683.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "证券时报·要闻"
+      },
+      {
+        "materialId": "469518000528f1c4ace2",
+        "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+        "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "4139860fb27dfd5f0c2e",
+        "title": "2025年全球专利申请量创新高　中国大幅领先",
+        "url": "https://www.news.cn/fortune/20261118/9a3006470c19465cb910c67fa50d8098/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "0c64ab94b81afe49a037",
+        "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+        "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "8022231ac45641314a78",
+        "title": "高油价推动英国通胀率创一年来新高",
+        "url": "https://www.news.cn/fortune/20261118/e7b6961656674d0c99ec9fa93d7b386c/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "8cc08842359817f169ea",
+        "title": "“中国品牌全球行·匠心服务计划”在渝启动",
+        "url": "https://www.news.cn/fortune/20261118/8d969b72d844439d82e5eb91a4ca64e8/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "6eb8727fc56d3af61c66",
+        "title": "维宏股份机器人业务受关注 明年储备产能约100万个电机和模组",
+        "url": "https://www.cnstock.com/commonDetail/830194",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "bb5b2aae91a5ea20b2de",
+        "title": "2026现代服务业高质量发展大会聚焦“品牌培育”",
+        "url": "https://www.news.cn/fortune/20261118/89507881faaf49deb461a0f0ccb1a842/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "a6238122a64ffcbc2f4d",
+        "title": "稳准智能完成数亿元A轮及A+轮融资",
+        "url": "https://www.cnstock.com/commonDetail/830186",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "2f2657d94131144ef9be",
+        "title": "小马智行三季度营收增长75.2%至2.99亿元 创单季新高",
+        "url": "https://www.cnstock.com/commonDetail/830093",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "1da05470bf265070fdc4",
+        "title": "新华社快讯：习近平和彭丽媛为出席亚太经合组织第三十三次领导人非正式会议的来宾举行欢迎宴会",
+        "url": "https://www.cnstock.com/commonDetail/830238",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "87c484f619498d6df82d",
+        "title": "丁薛祥在江西调研时强调 立足特色和优势加快壮大新动能 推动高质量发展不断取得新成效",
+        "url": "https://www.cnstock.com/commonDetail/830195",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "a3b36eb4c6a0791e70f0",
+        "title": "水利部出台新规加强评标专家管理",
+        "url": "https://www.cnstock.com/commonDetail/830205",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "8da010aee02fde891c86",
+        "title": "出清低效产能 优化产业布局 冠豪高新关停太平厂区加速结构转型",
+        "url": "https://www.cnstock.com/commonDetail/830214",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "27920ae1577eb8db1bdf",
+        "title": "北京市场迎来今冬首批台湾渔产品",
+        "url": "https://www.news.cn/fortune/20261118/c911754e31c74ef090e17d5a3ffebe60/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
+      {
+        "materialId": "88a64567f37609c19f11",
+        "title": "赵乐际在云南调研时强调 深入学习贯彻党的二十届五中全会精神 提高人大党建和工作质量",
+        "url": "https://www.cnstock.com/commonDetail/830236",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "8f14d3c6e1b4d9f87eaa",
+        "title": "英伟达，美股盘前大涨",
+        "url": "https://www.cnstock.com/commonDetail/830223",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "28e274697d49d5a1ea9b",
+        "title": "源杰科技：积极推进新项目建设，保障产能有序释放",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138590.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "8a0d8e355e2218011808",
+        "title": "【答疑室】九安医疗：将坚持在现有战略方向上开展科创投资",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138617.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "中国证券报·要闻"
+      },
+      {
+        "materialId": "8bf2ac2ba590e89b95b9",
+        "title": "聚焦APEC｜习近平迎接美国总统特朗普",
+        "url": "https://www.cnstock.com/commonDetail/830126",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "上海证券报·官网要闻"
+      },
+      {
+        "materialId": "4db85907744c5e600ef8",
+        "title": "我国民营船企完成大型LNG船批量建造",
+        "url": "https://www.news.cn/fortune/20261118/ff10cdd85a0446abb0f62f48d2118ea6/c.html",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "media",
+        "source": "新华网·财经滚动"
+      },
       {
         "materialId": "5761b1e91a4fb8c0ee7c",
         "title": "多只沪深300ETF尾盘大幅放量",
@@ -7613,8 +7918,8 @@
         "source": "新华网·财经滚动"
       }
     ],
-    "policyTotal": 15,
-    "mediaTotal": 134
+    "policyTotal": 18,
+    "mediaTotal": 159
   },
   "snapshots": {
     "note": "仅列表，当前钉住 latest；切换历史未整包嵌入",
@@ -51466,6 +51771,33 @@
     "description": "若将来合进信息流，单条用 title/url/publishedAt/summary/tags/industry/channel；默认不合进 /feed",
     "items": [
       {
+        "title": "2026年APEC工商领导人峰会发布深圳倡议",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086571.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy"
+      },
+      {
+        "title": "习近平在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上的祝酒辞（全文）",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086574.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy"
+      },
+      {
+        "title": "丁薛祥在江西调研时强调 立足特色和优势加快壮大新动能 推动高质量发展不断取得新成效",
+        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086557.htm",
+        "publishedAt": "2026-11-18",
+        "summary": "",
+        "tags": [],
+        "industry": "",
+        "channel": "policy"
+      },
+      {
         "title": "国家能源局关于加快推动流域水风光一体化发展的指导意见",
         "url": "https://www.nea.gov.cn/20261118/86aabd24d92d4eeb93dafb535f819650/c.html",
         "publishedAt": "2026-11-18",
@@ -51529,35 +51861,8 @@
         "channel": "policy"
       },
       {
-        "title": "习近平出席亚太经合组织工商领导人峰会开幕式并发表主旨演讲",
-        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086497.htm",
-        "publishedAt": "2026-11-18",
-        "summary": "",
-        "tags": [],
-        "industry": "",
-        "channel": "policy"
-      },
-      {
-        "title": "为中国式现代化提供更加有力司法保障——习近平总书记重要指示激励法院队伍在新征程上砥砺前行",
-        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086475.htm",
-        "publishedAt": "2026-11-18",
-        "summary": "",
-        "tags": [],
-        "industry": "",
-        "channel": "policy"
-      },
-      {
-        "title": "陈文清：深化党建引领基层治理和基层政权建设",
-        "url": "https://www.gov.cn/yaowen/liebiao/202611/content_7086474.htm",
-        "publishedAt": "2026-11-18",
-        "summary": "",
-        "tags": [],
-        "industry": "",
-        "channel": "policy"
-      },
-      {
-        "title": "多只沪深300ETF尾盘大幅放量",
-        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138613.html",
+        "title": "财经深一度丨金融“活水”赋能制造业产业升级",
+        "url": "https://www.news.cn/fortune/20261118/605c44a8b3a34d88a1200400a3f8c695/c.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51565,8 +51870,8 @@
         "channel": "media"
       },
       {
-        "title": "财经观察丨政产学研协同发力 香港加速布局具身智能新赛道",
-        "url": "https://www.news.cn/fortune/20261118/50e88c74ff89457db9009de5d36af3c1/c.html",
+        "title": "盘好 “任务账”！国资委：重点难点任务须及早部署推动",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138633.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51574,8 +51879,8 @@
         "channel": "media"
       },
       {
-        "title": "福建落地首宗亿元取水权不动产抵押登记",
-        "url": "https://www.news.cn/fortune/20261118/a5cb11df4e3648bab4f13f9bffab106d/c.html",
+        "title": "国家能源局：推动具备条件的水风光一体化项目整体参与市场交易",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138634.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51583,8 +51888,8 @@
         "channel": "media"
       },
       {
-        "title": "证监会批复同意！“东方证券+上海证券”正式进入实施阶段",
-        "url": "https://www.cnstock.com/commonDetail/830083",
+        "title": "2026年中央金融机构注资特别国债（二期）完成招标，票面利率为1.40%",
+        "url": "https://jnzstatic.cs.com.cn/zzb/htmlInfo/138631.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51592,8 +51897,8 @@
         "channel": "media"
       },
       {
-        "title": "8个省份入选 6G创新发展部省协同试点名单公布",
-        "url": "https://www.cs.com.cn/xwzx/01/2026/11/18/detail_2026111810053029.html",
+        "title": "习近平在亚太经合组织第三十三次领导人非正式会议欢迎晚宴上的祝酒辞（全文）",
+        "url": "https://www.stcn.com/article/detail/4342683.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51601,8 +51906,8 @@
         "channel": "media"
       },
       {
-        "title": "禾赛科技樊鹏：收入结构转向多元 物理AI打开激光雷达新空间",
-        "url": "https://www.cnstock.com/commonDetail/830036",
+        "title": "聚焦APEC丨2026年亚太经合组织工商领导人峰会深圳倡议",
+        "url": "https://www.news.cn/fortune/20261118/d9542ce2650f40fcb02a4c63b7860a41/c.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51610,8 +51915,8 @@
         "channel": "media"
       },
       {
-        "title": "海目星：生发激光设备已进入临床试验阶段",
-        "url": "https://www.cnstock.com/commonDetail/830070",
+        "title": "2025年全球专利申请量创新高　中国大幅领先",
+        "url": "https://www.news.cn/fortune/20261118/9a3006470c19465cb910c67fa50d8098/c.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51619,8 +51924,8 @@
         "channel": "media"
       },
       {
-        "title": "佰维存储：宇树Go2智能机器狗已应用公司存储产品",
-        "url": "https://www.cnstock.com/commonDetail/830071",
+        "title": "证监会批复同意！“东方证券+上海证券”进入实施阶段",
+        "url": "https://mp.weixin.qq.com/s/4dReVJf5BUc5YlTOTZZ6HQ",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51628,8 +51933,8 @@
         "channel": "media"
       },
       {
-        "title": "主品牌稳盘，子品牌爆发！贝泰妮双11全线告捷",
-        "url": "https://www.cnstock.com/commonDetail/830068",
+        "title": "高油价推动英国通胀率创一年来新高",
+        "url": "https://www.news.cn/fortune/20261118/e7b6961656674d0c99ec9fa93d7b386c/c.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
@@ -51637,8 +51942,8 @@
         "channel": "media"
       },
       {
-        "title": "电科芯片：卫星导航抗干扰芯片在多个场景稳定出货",
-        "url": "https://www.cnstock.com/commonDetail/830072",
+        "title": "“中国品牌全球行·匠心服务计划”在渝启动",
+        "url": "https://www.news.cn/fortune/20261118/8d969b72d844439d82e5eb91a4ca64e8/c.html",
         "publishedAt": "2026-11-18",
         "summary": "",
         "tags": [],
