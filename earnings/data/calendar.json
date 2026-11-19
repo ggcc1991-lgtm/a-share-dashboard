@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-19T06:25:23+08:00",
+ "updated": "2026-11-19T23:22:46+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -1242,36 +1242,38 @@
    "region": "US",
    "name": "Philly Fed Manufacturing Index",
    "releaseAt": "2026-11-19T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "6.3",
    "forecast": "19.2",
    "previous": "20.9",
-   "verdict": null,
-   "diff": null,
+   "verdict": "低于预期",
+   "diff": "-12.9",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "费城联储 Manufacturing Business Outlook Survey（2026年11月，2026-11-19 8:30 ET）",
+    "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-11"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": -67.2
   },
   {
    "id": "ff-USD-202611192130-UnemploymentClaims",
    "region": "US",
    "name": "Unemployment Claims",
    "releaseAt": "2026-11-19T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "203K",
    "forecast": "199K",
-   "previous": "200K",
-   "verdict": null,
-   "diff": null,
+   "previous": "202K（前值修正，初值200K）",
+   "verdict": "高于预期",
+   "diff": "+4K",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "美国劳工部 Unemployment Insurance Weekly Claims（USDL 26-1722-NAT，2026-11-19）",
+    "url": "https://www.dol.gov/ui/data.pdf"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 2.0
   },
   {
    "id": "ff-USD-202611202300-RevisedUoMConsumerSe",
