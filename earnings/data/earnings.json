@@ -1,8 +1,8 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-19T23:24:56+08:00",
+ "updated": "2026-11-20T06:26:28+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-11-19",
+ "consensusAsOf": "2026-11-20",
  "companies": [
   {
    "symbol": "AAPL",
@@ -930,19 +930,19 @@
    "region": "CN",
    "currency": "CNY",
    "nextDate": "2026-11-27",
-   "dateStatus": "estimated",
+   "dateStatus": "confirmed",
    "sources": {
     "nextDate": {
-     "name": "TradingEconomics 估 2026-11-27 公布 2026Q3（官方IR尚未发董事会会议通告）",
-     "url": "https://zh.tradingeconomics.com/3690:hk",
-     "asOf": "2026-11-11",
-     "note": "美团官网投资者关系截至2026-11-11仍无Q3董事会会议通告；花旗10-26研报仅称「11月下旬」。日期为第三方估计，非公司确认。"
+     "name": "港交所：董事会会议召开日期（2026-11-17）；美团IR：2026-11-27闭市后公布2026Q3，电话会港时19:00",
+     "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1117/2026111700395_c.pdf",
+     "asOf": "2026-11-20",
+     "note": "公司已于2026-11-17刊发董事会会议通告，确认11月27日举行董事会会议以审议并公布2026年第三季度未经审核财务业绩。美团投资者关系称将于当日闭市后公布，业绩电话会香港时间11月27日下午7点（美国东部时间上午6点）。原TradingEconomics估期与官方日期一致，现改为公司确认。"
     },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-11-19T23:20:27+08:00"
+      "asOf": "2026-11-20T06:26:26+08:00"
      }
     ],
     "lastReported": [
@@ -954,7 +954,7 @@
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3690.HK/analysis",
-      "asOf": "2026-11-19T23:20:28+08:00"
+      "asOf": "2026-11-20T06:26:26+08:00"
      }
     ]
    },
@@ -4178,16 +4178,33 @@
    "region": "TW",
    "currency": "TWD",
    "nextDate": null,
-   "dateStatus": "unknown",
+   "dateStatus": "reported",
    "sources": {
+    "nextDate": {
+     "name": "纬创官网新闻：董事会通过115年度第三季财务报表（2026-11-11）",
+     "url": "https://www.wistron.com/cn/Newsroom/2026-11-11",
+     "asOf": "2026-11-20",
+     "note": "官方新闻稿称11月11日召开董事会并通过第三季财务报表。Yahoo 此前未给出下次预约日，看板一直停留在2026Q2，本次补录Q3实绩并清空日历。"
+    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
-      "asOf": "2026-11-19T23:22:57+08:00"
+      "asOf": "2026-11-20T06:26:27+08:00"
      }
     ],
-    "lastReported": []
+    "lastReported": [
+     {
+      "name": "纬创官网新闻：董事会通过115年度第三季财务报表（2026-11-11）／Yahoo Finance 季度利润表与 Earnings History",
+      "url": "https://www.wistron.com/cn/Newsroom/2026-11-11",
+      "asOf": "2026-11-20"
+     },
+     {
+      "name": "Yahoo Finance(yfinance)",
+      "url": "https://finance.yahoo.com/quote/3231.TW/analysis",
+      "asOf": "2026-11-20T06:26:28+08:00"
+     }
+    ]
    },
    "consensus": {
     "epsAvg": 5.75181,
@@ -4203,14 +4220,40 @@
     "currency": "TWD"
    },
    "lastReported": {
-    "verdict": "超预期",
-    "epsActual": 4.72,
-    "epsEstimate": 4.0622,
-    "epsSurprisePct": 0.1619,
-    "quarterEnd": "2026-06-30",
-    "reportDate": "2026-08-06T08:00:00+08:00"
+    "quarterEnd": "2026-09-30",
+    "reportDate": "2026-11-11",
+    "revenue": 1149090429000,
+    "revenueYoY": 1.0237,
+    "operatingProfit": 48671931000,
+    "operatingProfitYoY": 0.7932,
+    "netIncome": 18401661000,
+    "netIncomeYoY": 1.4846,
+    "epsGaap": 5.74,
+    "epsGaapBasis": "基本每股盈餘（新台幣元，歸屬母公司業主）；稀释EPS 5.32",
+    "epsActual": 5.74,
+    "epsEstimate": 4.78406,
+    "epsSurprisePct": 0.1998,
+    "surprisePct": 19.98,
+    "epsCompareBasis": "基本EPS 5.74 vs Yahoo Finance Earnings History 一致预期 4.78406（Surprise +19.98%）",
+    "manual": {
+     "nineMonthRevenue": 2890000000000,
+     "nineMonthOperatingProfit": 111256000000,
+     "nineMonthPretax": 97060000000,
+     "nineMonthNetIncome": 42860000000,
+     "nineMonthEps": 13.54,
+     "nineMonthSource": "纬创官网新闻（官方约数）"
+    },
+    "note": "Q3（截至2026-09-30）合并营收新台币1,149,090,429千元（官网约数1.15兆），同比+102.4%、环比+28.3%，单季营收首度突破兆元；营业净利486.72亿元、税前净利424.69亿元、归母净利184.02亿元（同比+148.5%），基本EPS 5.74元 vs Yahoo一致预期4.78406（+20.0%）。前三季（公司公告约数）：营收2.89兆、营业净利1,112.56亿、税前净利970.6亿、税后净利428.6亿、EPS 13.54元。董事会另通过台南及新竹资本支出约119亿元与9.39亿元、墨西哥子公司1,776万美元扩产，以及新竹不动产使用权资产不超过28亿元。营收精确值取Yahoo季度利润表（与官网1.15兆约数相符）；同比按Yahoo 2025Q3营收5,678.05亿、归母净利74.06亿计算。",
+    "consensusSources": [
+     {
+      "name": "Yahoo Finance Earnings History",
+      "url": "https://finance.yahoo.com/quote/3231.TW/analysis/",
+      "asOf": "2026-11-20"
+     }
+    ],
+    "verdict": "超预期"
    },
-   "note": "AI上游·AI 服务器 ODM（纬创）；Yahoo 下次日期已过→暂无。",
+   "note": "AI上游·AI 服务器 ODM（纬创）；2026Q3已于2026-11-11披露。",
    "importance": 3
   },
   {
