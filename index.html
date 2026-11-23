@@ -68,6 +68,7 @@
 
   <footer class="app-footer">RESEARCH ONLY · NOT INVESTMENT ADVICE · GC DATA</footer>
   <script src="assets/shell.js"></script>
+  <script src="assets/score-series.js"></script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
     document.getElementById("clock").textContent =
@@ -177,13 +178,17 @@
       el.style.width = "100%";
       el.style.minHeight = "96px";
       if (!el.style.height) el.style.height = "128px";
-      let hist = null;
-      try { hist = await loadJSON("data/history.json"); } catch (_) {}
-      const series = Array.isArray(hist?.score) ? hist.score : [];
-      const pts = series
-        .filter((x) => x && x.d != null && x.v != null && !Number.isNaN(+x.v) && String(x.d) >= "2026-01-01");
+      const pair = await Promise.all([
+        loadJSON("data/score_history.json").catch(() => null),
+        loadJSON("data/history.json").catch(() => null),
+      ]);
+      const picked = window.ScoreSeries
+        ? ScoreSeries.selectYtdScorePoints(pair[0], pair[1])
+        : { points: [] };
+      const pts = picked.points;
       if (!pts.length) {
-        el.innerHTML = `<div class="bb-spark-empty">待抄底写入 history.score</div>`;
+        const label = (window.ScoreSeries && ScoreSeries.EMPTY_LABEL) || "待抄底写入 score_history.points";
+        el.innerHTML = `<div class="bb-spark-empty">${label}</div>`;
         return;
       }
       _scoreSparkPts = pts;
