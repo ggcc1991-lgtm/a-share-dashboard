@@ -1,19 +1,19 @@
 {
   "schemaVersion": "openrouter-weekly-v2.1",
-  "asOf": "2026-11-22 08:46 Asia/Shanghai",
-  "updatedAt": "2026-11-22 08:46 Asia/Shanghai",
-  "asOfUtc": "2026-11-22T00:46:35Z",
+  "asOf": "2026-11-23 08:43 Asia/Shanghai",
+  "updatedAt": "2026-11-23 08:43 Asia/Shanghai",
+  "asOfUtc": "2026-11-23T00:43:10Z",
   "source": {
     "name": "OpenRouter",
     "path": "/workspace/openrouter_replicate",
     "endpoint": "https://openrouter.ai/api/v1/datasets/rankings-daily",
     "window": {
       "dataStart": "2025-10-01",
-      "dataEnd": "2026-11-21"
+      "dataEnd": "2026-11-22"
     },
     "revenueFormula": "tokens * (0.9*0.5*input + 0.1*output) $/token; :free/stealth/typesafe=0; other/unmatched=0.5*day_VWAP",
     "notes": "Fitted revenue + additive Data API sections. No API keys in this artifact. See SCHEMA.md and /workspace/openrouter_replicate/methodology_notes.md",
-    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-22T00:46:35Z.",
+    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-23T00:43:10Z.",
     "license": "CC BY 4.0 (Data API aggregated datasets); cite OpenRouter when republishing.",
     "endpoints": [
       "https://openrouter.ai/api/v1/datasets/rankings-daily",
@@ -38,24 +38,18 @@
     "Other"
   ],
   "kpis": {
-    "weekStart": "2026-11-09",
-    "weekEnd": "2026-11-15",
-    "tokens_T": 211.27,
-    "tokensWowPct": 0.84,
-    "revenue_M": 54.38,
-    "revenueWowPct": -0.74,
-    "openTokenSharePct": 73.0,
-    "closedTokenSharePct": 18.19,
-    "openRevenueSharePct": 37.14,
-    "closedRevenueSharePct": 59.4
-  },
-  "incompleteWeek": {
     "weekStart": "2026-11-16",
-    "nDays": 6,
-    "tokens_T": 283.03,
-    "revenue_M": 47.7,
-    "note": "Trailing UTC week with fewer than 7 days; excluded from headline KPIs and complete series charts."
+    "weekEnd": "2026-11-22",
+    "tokens_T": 314.86,
+    "tokensWowPct": 49.04,
+    "revenue_M": 53.12,
+    "revenueWowPct": -2.33,
+    "openTokenSharePct": 81.08,
+    "closedTokenSharePct": 12.57,
+    "openRevenueSharePct": 35.38,
+    "closedRevenueSharePct": 61.92
   },
+  "incompleteWeek": null,
   "token": {
     "unit": "tokens_trillions",
     "labels": [
@@ -116,7 +110,8 @@
       "10-19",
       "",
       "",
-      "11-09"
+      "11-09",
+      "11-16"
     ],
     "starts": [
       "2025-10-06",
@@ -176,7 +171,8 @@
       "2026-10-19",
       "2026-10-26",
       "2026-11-02",
-      "2026-11-09"
+      "2026-11-09",
+      "2026-11-16"
     ],
     "series": {
       "DeepSeek": [
@@ -237,7 +233,8 @@
         59.978,
         70.952,
         80.572,
-        81.499
+        81.499,
+        86.208
       ],
       "OpenAI": [
         0.611,
@@ -297,7 +294,8 @@
         14.63,
         19.78,
         16.139,
-        15.141
+        15.141,
+        14.806
       ],
       "Anthropic": [
         0.818,
@@ -357,7 +355,8 @@
         14.723,
         12.755,
         12.368,
-        13.436
+        13.436,
+        13.325
       ],
       "Google": [
         0.918,
@@ -417,7 +416,8 @@
         5.0,
         4.954,
         4.829,
-        4.975
+        4.975,
+        7.163
       ],
       "Meta": [
         0.051,
@@ -477,7 +477,8 @@
         2.766,
         2.592,
         2.798,
-        3.465
+        3.465,
+        4.075
       ],
       "智谱": [
         0.155,
@@ -537,7 +538,8 @@
         19.257,
         20.154,
         17.767,
-        16.65
+        16.65,
+        16.563
       ],
       "腾讯": [
         0.0,
@@ -597,7 +599,8 @@
         12.024,
         12.135,
         18.773,
-        20.173
+        20.173,
+        115.779
       ],
       "阶跃星辰": [
         0.0,
@@ -657,7 +660,8 @@
         3.67,
         6.747,
         7.355,
-        6.41
+        6.41,
+        3.216
       ],
       "Kimi": [
         0.01,
@@ -717,7 +721,8 @@
         2.618,
         3.994,
         6.275,
-        4.62
+        4.62,
+        5.062
       ],
       "小米": [
         0.0,
@@ -777,7 +782,8 @@
         7.779,
         4.316,
         3.403,
-        5.164
+        5.164,
+        4.515
       ],
       "Other": [
         2.099,
@@ -837,7 +843,8 @@
         45.595,
         35.214,
         39.219,
-        39.732
+        39.732,
+        44.149
       ]
     },
     "totals": [
@@ -898,7 +905,8 @@
       188.04,
       193.59,
       209.5,
-      211.27
+      211.27,
+      314.86
     ],
     "wowPct": [
       38.18,
@@ -958,7 +966,8 @@
       14.63,
       2.95,
       8.22,
-      0.84
+      0.84,
+      49.04
     ],
     "openSharePct": [
       24.96,
@@ -1018,7 +1027,8 @@
       72.1,
       70.39,
       71.66,
-      73.0
+      73.0,
+      81.08
     ],
     "closedSharePct": [
       68.93,
@@ -1078,7 +1088,8 @@
       19.27,
       20.91,
       18.53,
-      18.19
+      18.19,
+      12.57
     ],
     "otherSharePct": [
       6.11,
@@ -1138,7 +1149,8 @@
       8.63,
       8.69,
       9.81,
-      8.82
+      8.82,
+      6.35
     ]
   },
   "revenue": {
@@ -1201,7 +1213,8 @@
       "10-19",
       "",
       "",
-      "11-09"
+      "11-09",
+      "11-16"
     ],
     "starts": [
       "2025-10-06",
@@ -1261,7 +1274,8 @@
       "2026-10-19",
       "2026-10-26",
       "2026-11-02",
-      "2026-11-09"
+      "2026-11-09",
+      "2026-11-16"
     ],
     "series": {
       "DeepSeek": [
@@ -1322,7 +1336,8 @@
         3.306,
         3.435,
         3.712,
-        3.661
+        3.661,
+        3.833
       ],
       "OpenAI": [
         0.273,
@@ -1382,7 +1397,8 @@
         6.064,
         6.8,
         6.048,
-        4.676
+        4.676,
+        4.456
       ],
       "Anthropic": [
         1.541,
@@ -1403,7 +1419,7 @@
         3.888,
         4.153,
         4.587,
-        5.513,
+        5.514,
         6.352,
         7.077,
         7.633,
@@ -1442,22 +1458,23 @@
         21.229,
         16.855,
         16.566,
-        19.58
+        19.58,
+        18.579
       ],
       "Google": [
         0.458,
         0.48,
-        0.503,
-        0.58,
-        0.573,
-        0.569,
-        0.587,
+        0.502,
+        0.579,
+        0.572,
+        0.568,
+        0.586,
         0.612,
         0.656,
-        0.655,
+        0.654,
         0.611,
-        0.531,
-        0.515,
+        0.53,
+        0.516,
         0.623,
         1.19,
         0.714,
@@ -1465,7 +1482,7 @@
         0.722,
         0.74,
         0.797,
-        0.985,
+        0.984,
         1.086,
         1.103,
         1.125,
@@ -1502,7 +1519,8 @@
         1.82,
         1.986,
         1.941,
-        2.265
+        2.265,
+        4.515
       ],
       "Meta": [
         0.015,
@@ -1562,7 +1580,8 @@
         2.732,
         2.559,
         2.763,
-        2.999
+        2.999,
+        3.176
       ],
       "智谱": [
         0.052,
@@ -1576,33 +1595,33 @@
         0.047,
         0.043,
         0.042,
-        0.043,
         0.054,
-        0.068,
-        0.051,
-        0.051,
-        0.065,
-        0.064,
-        0.539,
-        0.666,
-        0.436,
-        0.27,
-        0.275,
-        1.193,
-        1.213,
-        0.952,
-        0.956,
-        1.01,
-        0.747,
-        0.646,
-        0.621,
-        0.519,
-        0.455,
-        0.465,
-        0.425,
+        0.07,
+        0.091,
+        0.066,
+        0.067,
+        0.087,
+        0.087,
+        0.559,
+        0.683,
+        0.453,
+        0.283,
+        0.287,
+        1.205,
+        1.222,
+        0.961,
+        0.965,
+        1.02,
+        0.752,
+        0.653,
+        0.629,
+        0.543,
+        0.475,
+        0.488,
+        0.434,
         0.628,
         1.354,
-        0.865,
+        0.871,
         0.92,
         1.134,
         1.132,
@@ -1622,7 +1641,8 @@
         1.731,
         1.542,
         1.361,
-        1.388
+        1.388,
+        1.29
       ],
       "腾讯": [
         0.0,
@@ -1682,7 +1702,8 @@
         5.98,
         6.043,
         6.486,
-        5.915
+        5.915,
+        5.223
       ],
       "阶跃星辰": [
         0.0,
@@ -1742,7 +1763,8 @@
         2.62,
         4.601,
         5.216,
-        4.615
+        4.615,
+        2.316
       ],
       "Kimi": [
         0.005,
@@ -1802,7 +1824,8 @@
         4.765,
         5.356,
         7.296,
-        5.015
+        5.015,
+        5.106
       ],
       "小米": [
         0.0,
@@ -1825,14 +1848,14 @@
         0.025,
         0.027,
         0.035,
-        0.036,
+        0.037,
         0.032,
-        0.168,
-        1.112,
-        2.529,
-        2.07,
+        0.169,
+        1.113,
+        2.53,
+        2.071,
         0.441,
-        0.809,
+        0.81,
         0.409,
         0.149,
         0.099,
@@ -1862,7 +1885,8 @@
         1.049,
         0.642,
         0.531,
-        0.649
+        0.649,
+        0.567
       ],
       "Other": [
         0.764,
@@ -1870,46 +1894,46 @@
         0.888,
         1.049,
         1.042,
-        1.142,
-        1.075,
+        1.141,
+        1.074,
         0.964,
         0.97,
         0.834,
         0.789,
-        0.692,
-        0.638,
-        0.888,
-        1.048,
-        0.991,
-        1.001,
-        0.984,
-        1.327,
-        1.342,
-        1.476,
-        1.474,
-        1.469,
-        1.626,
-        2.072,
-        2.148,
+        0.694,
+        0.641,
+        0.892,
+        1.051,
+        0.994,
+        1.004,
+        0.987,
+        1.33,
+        1.343,
+        1.478,
+        1.475,
+        1.47,
+        1.627,
+        2.073,
+        2.149,
         2.339,
-        2.481,
-        2.699,
-        2.596,
-        2.812,
-        2.431,
-        2.075,
-        2.261,
+        2.482,
+        2.7,
+        2.597,
+        2.813,
+        2.433,
+        2.077,
+        2.263,
         2.478,
         2.951,
         2.581,
-        2.64,
+        2.641,
         2.846,
         3.222,
-        3.404,
+        3.403,
         3.16,
         2.535,
-        2.417,
-        3.037,
+        2.416,
+        3.032,
         3.133,
         2.751,
         2.827,
@@ -1917,12 +1941,13 @@
         3.118,
         2.954,
         2.688,
-        3.528,
-        3.146,
+        3.526,
+        3.109,
         3.379,
-        3.003,
+        2.999,
         2.869,
-        3.619
+        3.619,
+        4.055
       ]
     },
     "totals": [
@@ -1930,47 +1955,47 @@
       3.36,
       3.43,
       4.03,
-      4.1,
+      4.09,
       4.04,
       3.67,
       3.88,
       4.39,
       4.39,
       4.41,
-      3.73,
-      3.55,
-      5.53,
-      7.79,
-      6.29,
-      7.04,
-      7.78,
-      9.67,
-      10.56,
-      11.39,
-      12.26,
-      13.16,
-      16.24,
-      18.41,
-      17.35,
-      17.57,
-      20.46,
-      22.42,
-      20.63,
-      23.22,
-      25.06,
-      27.71,
-      31.72,
-      31.03,
+      3.74,
+      3.57,
+      5.56,
+      7.81,
+      6.31,
+      7.06,
+      7.8,
+      9.69,
+      10.58,
+      11.41,
+      12.28,
+      13.17,
+      16.25,
+      18.43,
+      17.36,
+      17.58,
+      20.47,
+      22.43,
+      20.64,
+      23.23,
+      25.09,
+      27.73,
+      31.75,
+      31.04,
       40.59,
       43.25,
-      42.45,
+      42.46,
       45.68,
       46.29,
       49.33,
       39.91,
       30.5,
-      31.96,
-      38.64,
+      31.95,
+      38.63,
       37.4,
       36.96,
       45.31,
@@ -1979,59 +2004,60 @@
       43.25,
       41.94,
       56.1,
-      55.11,
+      55.07,
       54.68,
       52.82,
       54.79,
-      54.38
+      54.38,
+      53.12
     ],
     "wow": [
-      78.67,
+      78.69,
       6.01,
       2.11,
-      17.45,
-      1.62,
+      17.46,
+      1.61,
       -1.29,
-      -9.29,
+      -9.28,
       5.72,
       13.36,
       -0.04,
-      0.29,
-      -15.3,
-      -4.8,
-      55.79,
-      40.76,
-      -19.25,
-      11.85,
-      10.51,
-      24.38,
-      9.21,
+      0.3,
+      -14.99,
+      -4.6,
+      55.69,
+      40.39,
+      -19.2,
+      11.93,
+      10.47,
+      24.26,
+      9.14,
       7.82,
-      7.66,
-      7.33,
-      23.39,
-      13.4,
+      7.6,
+      7.31,
+      23.37,
+      13.38,
       -5.76,
       1.23,
       16.46,
-      9.6,
-      -7.98,
+      9.56,
+      -7.97,
       12.56,
-      7.9,
-      10.57,
+      7.97,
+      10.54,
       14.49,
-      -2.18,
-      30.79,
+      -2.23,
+      30.75,
       6.57,
-      -1.86,
-      7.6,
+      -1.84,
+      7.59,
       1.36,
       6.56,
       -19.09,
       -23.58,
-      4.77,
-      20.91,
-      -3.19,
+      4.76,
+      20.9,
+      -3.18,
       -1.19,
       22.6,
       7.99,
@@ -2039,58 +2065,59 @@
       -14.89,
       -3.04,
       33.76,
-      -1.76,
-      -0.79,
-      -3.39,
-      3.73,
-      -0.74
+      -1.82,
+      -0.72,
+      -3.4,
+      3.74,
+      -0.74,
+      -2.33
     ],
     "openSharePct": [
-      5.35,
-      4.49,
-      4.93,
-      4.37,
-      5.22,
-      6.84,
-      7.05,
-      6.84,
+      5.33,
+      4.47,
+      4.91,
+      4.35,
+      5.19,
+      6.81,
+      7.03,
+      6.83,
+      5.87,
       5.88,
-      5.9,
-      4.93,
-      6.52,
-      7.51,
-      5.47,
-      3.58,
-      4.56,
-      5.83,
-      6.38,
-      13.22,
-      14.07,
-      10.98,
-      8.33,
-      8.59,
-      18.8,
-      26.38,
-      23.58,
-      14.96,
-      15.1,
-      11.25,
-      11.0,
-      10.63,
-      11.07,
-      10.04,
-      11.39,
-      14.47,
+      4.92,
+      6.77,
+      7.92,
+      5.85,
+      3.76,
+      4.8,
+      6.13,
+      6.65,
+      13.4,
+      14.2,
+      11.11,
+      8.43,
+      8.67,
+      18.86,
+      26.42,
+      23.62,
+      15.0,
+      15.14,
+      11.27,
+      11.03,
+      10.66,
+      11.16,
+      10.11,
+      11.45,
+      14.49,
       14.14,
       15.28,
-      14.46,
+      14.47,
       13.87,
       15.11,
       16.15,
       22.25,
       23.74,
       23.04,
-      20.59,
+      20.58,
       26.66,
       31.78,
       36.97,
@@ -2098,59 +2125,60 @@
       36.67,
       34.93,
       28.25,
-      39.05,
-      43.77,
+      39.04,
+      43.73,
       33.23,
       37.87,
       38.71,
-      37.14
+      37.14,
+      35.38
     ],
     "closedSharePct": [
-      90.55,
-      90.79,
-      90.43,
-      91.27,
-      90.22,
-      88.28,
-      87.84,
-      87.53,
-      87.96,
-      88.22,
-      88.61,
-      87.25,
-      86.29,
-      88.67,
-      91.81,
-      90.12,
-      89.19,
-      89.19,
-      83.11,
-      82.45,
-      84.77,
-      87.12,
-      86.39,
-      76.24,
-      69.09,
-      71.56,
-      79.16,
-      78.95,
-      82.14,
-      81.48,
-      82.06,
-      82.67,
-      84.19,
-      83.63,
-      81.06,
+      90.56,
+      90.81,
+      90.45,
+      91.29,
+      90.24,
+      88.31,
+      87.86,
+      87.54,
+      87.97,
+      88.23,
+      88.62,
+      86.99,
+      85.88,
+      88.29,
+      91.62,
+      89.88,
+      88.89,
+      88.91,
+      82.93,
+      82.32,
+      84.63,
+      87.02,
+      86.31,
+      76.18,
+      69.04,
+      71.51,
+      79.12,
+      78.9,
+      82.12,
+      81.45,
+      82.03,
+      82.58,
+      84.13,
+      83.57,
+      81.03,
       81.89,
       81.22,
-      82.09,
+      82.07,
       82.53,
       81.0,
       80.0,
       73.63,
       71.84,
-      73.44,
-      75.77,
+      73.45,
+      75.78,
       69.56,
       64.67,
       59.53,
@@ -2159,11 +2187,12 @@
       60.71,
       67.18,
       57.14,
-      52.26,
+      52.3,
       62.95,
-      58.68,
+      58.69,
       58.2,
-      59.4
+      59.4,
+      61.92
     ],
     "otherSharePct": [
       4.1,
@@ -2223,108 +2252,88 @@
       3.82,
       3.44,
       3.09,
-      3.46
+      3.46,
+      2.7
     ]
   },
-  "revenueIncompletePoint": {
-    "week_start": "2026-11-16",
-    "label": "11-16*",
-    "n_days": 6,
-    "totals_M": 47.7,
-    "series": {
-      "DeepSeek": 3.337,
-      "OpenAI": 4.006,
-      "Anthropic": 16.95,
-      "Google": 3.788,
-      "Meta": 2.709,
-      "智谱": 1.122,
-      "腾讯": 4.892,
-      "阶跃星辰": 2.178,
-      "Kimi": 4.454,
-      "小米": 0.51,
-      "Other": 3.756
-    },
-    "openSharePct": 81.19,
-    "closedSharePct": 12.51,
-    "otherSharePct": 6.3
-  },
+  "revenueIncompletePoint": null,
   "providersLatest": [
     {
+      "provider": "腾讯",
+      "tokens_T": 115.779,
+      "tokenSharePct": 36.77,
+      "revenue_M": 5.223,
+      "revSharePct": 9.83
+    },
+    {
       "provider": "DeepSeek",
-      "tokens_T": 81.499,
-      "tokenSharePct": 38.58,
-      "revenue_M": 3.661,
-      "revSharePct": 6.73
+      "tokens_T": 86.208,
+      "tokenSharePct": 27.38,
+      "revenue_M": 3.833,
+      "revSharePct": 7.22
     },
     {
       "provider": "Other",
-      "tokens_T": 39.732,
-      "tokenSharePct": 18.81,
-      "revenue_M": 3.619,
-      "revSharePct": 6.65
-    },
-    {
-      "provider": "腾讯",
-      "tokens_T": 20.173,
-      "tokenSharePct": 9.55,
-      "revenue_M": 5.915,
-      "revSharePct": 10.88
+      "tokens_T": 44.149,
+      "tokenSharePct": 14.02,
+      "revenue_M": 4.055,
+      "revSharePct": 7.63
     },
     {
       "provider": "智谱",
-      "tokens_T": 16.65,
-      "tokenSharePct": 7.88,
-      "revenue_M": 1.388,
-      "revSharePct": 2.55
+      "tokens_T": 16.563,
+      "tokenSharePct": 5.26,
+      "revenue_M": 1.29,
+      "revSharePct": 2.43
     },
     {
       "provider": "OpenAI",
-      "tokens_T": 15.141,
-      "tokenSharePct": 7.17,
-      "revenue_M": 4.676,
-      "revSharePct": 8.6
+      "tokens_T": 14.806,
+      "tokenSharePct": 4.7,
+      "revenue_M": 4.456,
+      "revSharePct": 8.39
     },
     {
       "provider": "Anthropic",
-      "tokens_T": 13.436,
-      "tokenSharePct": 6.36,
-      "revenue_M": 19.58,
-      "revSharePct": 36.0
-    },
-    {
-      "provider": "阶跃星辰",
-      "tokens_T": 6.41,
-      "tokenSharePct": 3.03,
-      "revenue_M": 4.615,
-      "revSharePct": 8.49
-    },
-    {
-      "provider": "小米",
-      "tokens_T": 5.164,
-      "tokenSharePct": 2.44,
-      "revenue_M": 0.649,
-      "revSharePct": 1.19
+      "tokens_T": 13.325,
+      "tokenSharePct": 4.23,
+      "revenue_M": 18.579,
+      "revSharePct": 34.98
     },
     {
       "provider": "Google",
-      "tokens_T": 4.975,
-      "tokenSharePct": 2.35,
-      "revenue_M": 2.265,
-      "revSharePct": 4.16
+      "tokens_T": 7.163,
+      "tokenSharePct": 2.27,
+      "revenue_M": 4.515,
+      "revSharePct": 8.5
     },
     {
       "provider": "Kimi",
-      "tokens_T": 4.62,
-      "tokenSharePct": 2.19,
-      "revenue_M": 5.015,
-      "revSharePct": 9.22
+      "tokens_T": 5.062,
+      "tokenSharePct": 1.61,
+      "revenue_M": 5.106,
+      "revSharePct": 9.61
+    },
+    {
+      "provider": "小米",
+      "tokens_T": 4.515,
+      "tokenSharePct": 1.43,
+      "revenue_M": 0.567,
+      "revSharePct": 1.07
     },
     {
       "provider": "Meta",
-      "tokens_T": 3.465,
-      "tokenSharePct": 1.64,
-      "revenue_M": 2.999,
-      "revSharePct": 5.51
+      "tokens_T": 4.075,
+      "tokenSharePct": 1.29,
+      "revenue_M": 3.176,
+      "revSharePct": 5.98
+    },
+    {
+      "provider": "阶跃星辰",
+      "tokens_T": 3.216,
+      "tokenSharePct": 1.02,
+      "revenue_M": 2.316,
+      "revSharePct": 4.36
     }
   ],
   "meta": {
@@ -2344,233 +2353,233 @@
     ]
   },
   "appsWeekly": {
-    "weekStart": "2026-11-09",
-    "weekEnd": "2026-11-15",
+    "weekStart": "2026-11-16",
+    "weekEnd": "2026-11-22",
     "popular": [
       {
         "rank": 1,
         "app_id": 3067167,
         "app_name": "Hermes Agent",
-        "total_tokens": 13019873429724,
-        "total_tokens_T": 13.02,
-        "total_requests": 111488273,
-        "tok_per_req": 116782.4
+        "total_tokens": 14151337319627,
+        "total_tokens_T": 14.151,
+        "total_requests": 119870234,
+        "tok_per_req": 118055.5
       },
       {
         "rank": 2,
         "app_id": 2627404,
         "app_name": "Claude Code",
-        "total_tokens": 10801304230223,
-        "total_tokens_T": 10.801,
-        "total_requests": 107939799,
-        "tok_per_req": 100067.9
+        "total_tokens": 11468281242969,
+        "total_tokens_T": 11.468,
+        "total_requests": 117909785,
+        "tok_per_req": 97263.2
       },
       {
         "rank": 3,
         "app_id": 2262242,
         "app_name": "Kilo Code",
-        "total_tokens": 7032085560016,
-        "total_tokens_T": 7.032,
-        "total_requests": 66575392,
-        "tok_per_req": 105625.9
+        "total_tokens": 8707707439735,
+        "total_tokens_T": 8.708,
+        "total_requests": 79419281,
+        "tok_per_req": 109642.2
       },
       {
         "rank": 4,
         "app_id": 2853275,
         "app_name": "pi",
-        "total_tokens": 3998402734063,
-        "total_tokens_T": 3.998,
-        "total_requests": 39449275,
-        "tok_per_req": 101355.5
+        "total_tokens": 5833836732547,
+        "total_tokens_T": 5.834,
+        "total_requests": 64645251,
+        "tok_per_req": 90243.9
       },
       {
         "rank": 5,
-        "app_id": 2668297,
-        "app_name": "Codex",
-        "total_tokens": 3378580658123,
-        "total_tokens_T": 3.379,
-        "total_requests": 55159487,
-        "tok_per_req": 61251.1
+        "app_id": 3003505,
+        "app_name": "Strix",
+        "total_tokens": 3290670646565,
+        "total_tokens_T": 3.291,
+        "total_requests": 32003243,
+        "tok_per_req": 102823.0
       },
       {
         "rank": 6,
-        "app_id": 2725608,
-        "app_name": "OpenClaw",
-        "total_tokens": 2689572836403,
-        "total_tokens_T": 2.69,
-        "total_requests": 22240912,
-        "tok_per_req": 120929.1
+        "app_id": 2668297,
+        "app_name": "Codex",
+        "total_tokens": 3222866239511,
+        "total_tokens_T": 3.223,
+        "total_requests": 40414987,
+        "tok_per_req": 79744.3
       },
       {
         "rank": 7,
-        "app_id": 3003505,
-        "app_name": "Strix",
-        "total_tokens": 2556249412658,
-        "total_tokens_T": 2.556,
-        "total_requests": 24893817,
-        "tok_per_req": 102686.1
+        "app_id": 169295,
+        "app_name": "Portkey AI",
+        "total_tokens": 2967445537626,
+        "total_tokens_T": 2.967,
+        "total_requests": 95890760,
+        "tok_per_req": 30946.1
       },
       {
         "rank": 8,
         "app_id": 4706207,
         "app_name": "DeepSeek Harness",
-        "total_tokens": 2351171287824,
-        "total_tokens_T": 2.351,
-        "total_requests": 14199610,
-        "tok_per_req": 165580.0
+        "total_tokens": 2238194098219,
+        "total_tokens_T": 2.238,
+        "total_requests": 13341540,
+        "tok_per_req": 167761.3
       },
       {
         "rank": 9,
         "app_id": 3682314,
         "app_name": "omp",
-        "total_tokens": 2130039247862,
-        "total_tokens_T": 2.13,
-        "total_requests": 14351538,
-        "tok_per_req": 148418.9
+        "total_tokens": 2193605425816,
+        "total_tokens_T": 2.194,
+        "total_requests": 21161099,
+        "tok_per_req": 103662.2
       },
       {
         "rank": 10,
-        "app_id": 4913981,
-        "app_name": "Minds by Authentic Intelligence",
-        "total_tokens": 1679847550769,
-        "total_tokens_T": 1.68,
-        "total_requests": 43536547,
-        "tok_per_req": 38584.8
+        "app_id": 2725608,
+        "app_name": "OpenClaw",
+        "total_tokens": 1763654142532,
+        "total_tokens_T": 1.764,
+        "total_requests": 18685271,
+        "tok_per_req": 94387.4
       },
       {
         "rank": 11,
         "app_id": 189563,
         "app_name": "OpenHands",
-        "total_tokens": 1003988190407,
-        "total_tokens_T": 1.004,
-        "total_requests": 10069768,
-        "tok_per_req": 99703.2
+        "total_tokens": 986045739293,
+        "total_tokens_T": 0.986,
+        "total_requests": 9148320,
+        "tok_per_req": 107784.4
       },
       {
         "rank": 12,
-        "app_id": 169295,
-        "app_name": "Portkey AI",
-        "total_tokens": 970137064340,
-        "total_tokens_T": 0.97,
-        "total_requests": 98192267,
-        "tok_per_req": 9880.0
+        "app_id": 2699842,
+        "app_name": "ISEKAI ZERO",
+        "total_tokens": 790408393862,
+        "total_tokens_T": 0.79,
+        "total_requests": 10466876,
+        "tok_per_req": 75515.2
       },
       {
         "rank": 13,
-        "app_id": 2699842,
-        "app_name": "ISEKAI ZERO",
-        "total_tokens": 695359444432,
-        "total_tokens_T": 0.695,
-        "total_requests": 9695094,
-        "tok_per_req": 71722.8
+        "app_id": 4913981,
+        "app_name": "Minds by Authentic Intelligence",
+        "total_tokens": 747557204131,
+        "total_tokens_T": 0.748,
+        "total_requests": 22059926,
+        "tok_per_req": 33887.6
       },
       {
         "rank": 14,
-        "app_id": 4137556,
-        "app_name": "Freebuff",
-        "total_tokens": 611897783629,
-        "total_tokens_T": 0.612,
-        "total_requests": 5842451,
-        "tok_per_req": 104733.1
+        "app_id": 4132065,
+        "app_name": "Hello Minds, powered by Ethoswarm",
+        "total_tokens": 538556074020,
+        "total_tokens_T": 0.539,
+        "total_requests": 6970306,
+        "tok_per_req": 77264.3
       },
       {
         "rank": 15,
-        "app_id": 4132065,
-        "app_name": "Hello Minds, powered by Ethoswarm",
-        "total_tokens": 560308186556,
-        "total_tokens_T": 0.56,
-        "total_requests": 7616315,
-        "tok_per_req": 73566.8
+        "app_id": 4580044,
+        "app_name": "HighLevel",
+        "total_tokens": 499400339384,
+        "total_tokens_T": 0.499,
+        "total_requests": 8379035,
+        "tok_per_req": 59601.2
       },
       {
         "rank": 16,
-        "app_id": 4580044,
-        "app_name": "HighLevel",
-        "total_tokens": 489948107886,
-        "total_tokens_T": 0.49,
-        "total_requests": 8244158,
-        "tok_per_req": 59429.7
+        "app_id": 2938662,
+        "app_name": "Nous Research API",
+        "total_tokens": 486644238572,
+        "total_tokens_T": 0.487,
+        "total_requests": 7836796,
+        "tok_per_req": 62097.3
       },
       {
         "rank": 17,
-        "app_id": 3124093,
-        "app_name": "Fleet Dashboard Post Helper",
-        "total_tokens": 476976731886,
-        "total_tokens_T": 0.477,
-        "total_requests": 2820388,
-        "tok_per_req": 169117.4
+        "app_id": 4137556,
+        "app_name": "Freebuff",
+        "total_tokens": 439654665774,
+        "total_tokens_T": 0.44,
+        "total_requests": 5285199,
+        "tok_per_req": 83186.0
       },
       {
         "rank": 18,
-        "app_id": 2524738,
-        "app_name": "LangChain",
-        "total_tokens": 452148996378,
-        "total_tokens_T": 0.452,
-        "total_requests": 10759718,
-        "tok_per_req": 42022.4
+        "app_id": 2308106,
+        "app_name": "Descript",
+        "total_tokens": 410817509771,
+        "total_tokens_T": 0.411,
+        "total_requests": 6462286,
+        "tok_per_req": 63571.5
       },
       {
         "rank": 19,
         "app_id": 190604,
         "app_name": "Cline",
-        "total_tokens": 414880726654,
-        "total_tokens_T": 0.415,
-        "total_requests": 3897709,
-        "tok_per_req": 106442.2
+        "total_tokens": 381172393441,
+        "total_tokens_T": 0.381,
+        "total_requests": 3373902,
+        "tok_per_req": 112976.7
       },
       {
         "rank": 20,
-        "app_id": 2308106,
-        "app_name": "Descript",
-        "total_tokens": 384342903062,
-        "total_tokens_T": 0.384,
-        "total_requests": 6253744,
-        "tok_per_req": 61458.0
+        "app_id": 171054,
+        "app_name": "HackerAI",
+        "total_tokens": 322608340109,
+        "total_tokens_T": 0.323,
+        "total_requests": 3189326,
+        "tok_per_req": 101152.5
       },
       {
         "rank": 21,
-        "app_id": 4780809,
-        "app_name": "CodeGPT",
-        "total_tokens": 343359693120,
-        "total_tokens_T": 0.343,
-        "total_requests": 2046797,
-        "tok_per_req": 167754.6
+        "app_id": 4749832,
+        "app_name": "Aura",
+        "total_tokens": 313187668431,
+        "total_tokens_T": 0.313,
+        "total_requests": 2336002,
+        "tok_per_req": 134069.9
       },
       {
         "rank": 22,
-        "app_id": 4749832,
-        "app_name": "Aura",
-        "total_tokens": 331699186196,
-        "total_tokens_T": 0.332,
-        "total_requests": 2483470,
-        "tok_per_req": 133562.8
+        "app_id": 4780809,
+        "app_name": "CodeGPT",
+        "total_tokens": 309717082784,
+        "total_tokens_T": 0.31,
+        "total_requests": 1863576,
+        "tok_per_req": 166195.0
       },
       {
         "rank": 23,
         "app_id": 2237546,
         "app_name": "Cursor",
-        "total_tokens": 323324919372,
-        "total_tokens_T": 0.323,
-        "total_requests": 2285383,
-        "tok_per_req": 141475.2
+        "total_tokens": 295231899409,
+        "total_tokens_T": 0.295,
+        "total_requests": 2079376,
+        "tok_per_req": 141981.0
       },
       {
         "rank": 24,
-        "app_id": 171054,
-        "app_name": "HackerAI",
-        "total_tokens": 296758696359,
-        "total_tokens_T": 0.297,
-        "total_requests": 3586724,
-        "tok_per_req": 82738.1
+        "app_id": 2823243,
+        "app_name": "ZCode",
+        "total_tokens": 292191234973,
+        "total_tokens_T": 0.292,
+        "total_requests": 1167486,
+        "tok_per_req": 250273.9
       },
       {
         "rank": 25,
         "app_id": 2637375,
         "app_name": "Lemonade",
-        "total_tokens": 280212511474,
-        "total_tokens_T": 0.28,
-        "total_requests": 4984740,
-        "tok_per_req": 56214.1
+        "total_tokens": 286479822228,
+        "total_tokens_T": 0.286,
+        "total_requests": 5120102,
+        "tok_per_req": 55952.0
       }
     ],
     "coding": [
@@ -2578,136 +2587,136 @@
         "rank": 1,
         "app_id": 3067167,
         "app_name": "Hermes Agent",
-        "total_tokens": 13019873429724,
-        "total_tokens_T": 13.02,
-        "total_requests": 111488273,
-        "tok_per_req": 116782.4
+        "total_tokens": 14151337319627,
+        "total_tokens_T": 14.151,
+        "total_requests": 119870234,
+        "tok_per_req": 118055.5
       },
       {
         "rank": 2,
         "app_id": 2627404,
         "app_name": "Claude Code",
-        "total_tokens": 10801304230223,
-        "total_tokens_T": 10.801,
-        "total_requests": 107939799,
-        "tok_per_req": 100067.9
+        "total_tokens": 11468281242969,
+        "total_tokens_T": 11.468,
+        "total_requests": 117909785,
+        "tok_per_req": 97263.2
       },
       {
         "rank": 3,
         "app_id": 2262242,
         "app_name": "Kilo Code",
-        "total_tokens": 7032085560016,
-        "total_tokens_T": 7.032,
-        "total_requests": 66575392,
-        "tok_per_req": 105625.9
+        "total_tokens": 8707707439735,
+        "total_tokens_T": 8.708,
+        "total_requests": 79419281,
+        "tok_per_req": 109642.2
       },
       {
         "rank": 4,
         "app_id": 2853275,
         "app_name": "pi",
-        "total_tokens": 3998402734063,
-        "total_tokens_T": 3.998,
-        "total_requests": 39449275,
-        "tok_per_req": 101355.5
+        "total_tokens": 5833836732547,
+        "total_tokens_T": 5.834,
+        "total_requests": 64645251,
+        "tok_per_req": 90243.9
       },
       {
         "rank": 5,
-        "app_id": 2668297,
-        "app_name": "Codex",
-        "total_tokens": 3423610443808,
-        "total_tokens_T": 3.424,
-        "total_requests": 55481819,
-        "tok_per_req": 61706.9
+        "app_id": 3003505,
+        "app_name": "Strix",
+        "total_tokens": 3290670646565,
+        "total_tokens_T": 3.291,
+        "total_requests": 32003243,
+        "tok_per_req": 102823.0
       },
       {
         "rank": 6,
-        "app_id": 2725608,
-        "app_name": "OpenClaw",
-        "total_tokens": 2689572836403,
-        "total_tokens_T": 2.69,
-        "total_requests": 22240912,
-        "tok_per_req": 120929.1
+        "app_id": 2668297,
+        "app_name": "Codex",
+        "total_tokens": 3222866239511,
+        "total_tokens_T": 3.223,
+        "total_requests": 40414987,
+        "tok_per_req": 79744.3
       },
       {
         "rank": 7,
-        "app_id": 3003505,
-        "app_name": "Strix",
-        "total_tokens": 2556249412658,
-        "total_tokens_T": 2.556,
-        "total_requests": 24893817,
-        "tok_per_req": 102686.1
+        "app_id": 169295,
+        "app_name": "Portkey AI",
+        "total_tokens": 2967445537626,
+        "total_tokens_T": 2.967,
+        "total_requests": 95890760,
+        "tok_per_req": 30946.1
       },
       {
         "rank": 8,
         "app_id": 3682314,
         "app_name": "omp",
-        "total_tokens": 2130039247862,
-        "total_tokens_T": 2.13,
-        "total_requests": 14351538,
-        "tok_per_req": 148418.9
+        "total_tokens": 2193605425816,
+        "total_tokens_T": 2.194,
+        "total_requests": 21161099,
+        "tok_per_req": 103662.2
       },
       {
         "rank": 9,
-        "app_id": 189563,
-        "app_name": "OpenHands",
-        "total_tokens": 1003988190407,
-        "total_tokens_T": 1.004,
-        "total_requests": 10069768,
-        "tok_per_req": 99703.2
+        "app_id": 2725608,
+        "app_name": "OpenClaw",
+        "total_tokens": 1763654142532,
+        "total_tokens_T": 1.764,
+        "total_requests": 18685271,
+        "tok_per_req": 94387.4
       },
       {
         "rank": 10,
-        "app_id": 169295,
-        "app_name": "Portkey AI",
-        "total_tokens": 970137064340,
-        "total_tokens_T": 0.97,
-        "total_requests": 98192267,
-        "tok_per_req": 9880.0
+        "app_id": 189563,
+        "app_name": "OpenHands",
+        "total_tokens": 986045739293,
+        "total_tokens_T": 0.986,
+        "total_requests": 9148320,
+        "tok_per_req": 107784.4
       },
       {
         "rank": 11,
         "app_id": 190604,
         "app_name": "Cline",
-        "total_tokens": 414880726654,
-        "total_tokens_T": 0.415,
-        "total_requests": 3897709,
-        "tok_per_req": 106442.2
+        "total_tokens": 381172393441,
+        "total_tokens_T": 0.381,
+        "total_requests": 3373902,
+        "tok_per_req": 112976.7
       },
       {
         "rank": 12,
-        "app_id": 4780809,
-        "app_name": "CodeGPT",
-        "total_tokens": 343359693120,
-        "total_tokens_T": 0.343,
-        "total_requests": 2046797,
-        "tok_per_req": 167754.6
+        "app_id": 4749832,
+        "app_name": "Aura",
+        "total_tokens": 313187668431,
+        "total_tokens_T": 0.313,
+        "total_requests": 2336002,
+        "tok_per_req": 134069.9
       },
       {
         "rank": 13,
-        "app_id": 4749832,
-        "app_name": "Aura",
-        "total_tokens": 331699186196,
-        "total_tokens_T": 0.332,
-        "total_requests": 2483470,
-        "tok_per_req": 133562.8
+        "app_id": 4780809,
+        "app_name": "CodeGPT",
+        "total_tokens": 309717082784,
+        "total_tokens_T": 0.31,
+        "total_requests": 1863576,
+        "tok_per_req": 166195.0
       },
       {
         "rank": 14,
         "app_id": 2237546,
         "app_name": "Cursor",
-        "total_tokens": 323324919372,
-        "total_tokens_T": 0.323,
-        "total_requests": 2285383,
-        "tok_per_req": 141475.2
+        "total_tokens": 295231899409,
+        "total_tokens_T": 0.295,
+        "total_requests": 2079376,
+        "tok_per_req": 141981.0
       },
       {
         "rank": 15,
-        "app_id": 2637375,
-        "app_name": "Lemonade",
-        "total_tokens": 280212511474,
-        "total_tokens_T": 0.28,
-        "total_requests": 4984740,
-        "tok_per_req": 56214.1
+        "app_id": 2823243,
+        "app_name": "ZCode",
+        "total_tokens": 292191234973,
+        "total_tokens_T": 0.292,
+        "total_requests": 1167486,
+        "tok_per_req": 250273.9
       }
     ],
     "trendingTop": [
@@ -2715,115 +2724,115 @@
         "rank": 1,
         "app_id": 2262242,
         "app_name": "Kilo Code",
-        "total_tokens": 7032085560016,
-        "total_tokens_T": 7.032,
-        "total_requests": 66575392,
-        "tok_per_req": 105625.9
+        "total_tokens": 8707707439735,
+        "total_tokens_T": 8.708,
+        "total_requests": 79419281,
+        "tok_per_req": 109642.2
       },
       {
         "rank": 2,
-        "app_id": 4913981,
-        "app_name": "Minds by Authentic Intelligence",
-        "total_tokens": 1679847550769,
-        "total_tokens_T": 1.68,
-        "total_requests": 43536547,
-        "tok_per_req": 38584.8
+        "app_id": 2853275,
+        "app_name": "pi",
+        "total_tokens": 5833836732547,
+        "total_tokens_T": 5.834,
+        "total_requests": 64645251,
+        "tok_per_req": 90243.9
       },
       {
         "rank": 3,
-        "app_id": 3003505,
-        "app_name": "Strix",
-        "total_tokens": 2556249412658,
-        "total_tokens_T": 2.556,
-        "total_requests": 24893817,
-        "tok_per_req": 102686.1
+        "app_id": 3067167,
+        "app_name": "Hermes Agent",
+        "total_tokens": 14151337319627,
+        "total_tokens_T": 14.151,
+        "total_requests": 119870234,
+        "tok_per_req": 118055.5
       },
       {
         "rank": 4,
-        "app_id": 3124093,
-        "app_name": "Fleet Dashboard Post Helper",
-        "total_tokens": 476976731886,
-        "total_tokens_T": 0.477,
-        "total_requests": 2820388,
-        "tok_per_req": 169117.4
+        "app_id": 3003505,
+        "app_name": "Strix",
+        "total_tokens": 3290670646565,
+        "total_tokens_T": 3.291,
+        "total_requests": 32003243,
+        "tok_per_req": 102823.0
       },
       {
         "rank": 5,
-        "app_id": 3067167,
-        "app_name": "Hermes Agent",
-        "total_tokens": 13019873429724,
-        "total_tokens_T": 13.02,
-        "total_requests": 111488273,
-        "tok_per_req": 116782.4
+        "app_id": 169295,
+        "app_name": "Portkey AI",
+        "total_tokens": 2967445537626,
+        "total_tokens_T": 2.967,
+        "total_requests": 95890760,
+        "tok_per_req": 30946.1
       },
       {
         "rank": 6,
-        "app_id": 2308106,
-        "app_name": "Descript",
-        "total_tokens": 384342903062,
-        "total_tokens_T": 0.384,
-        "total_requests": 6253744,
-        "tok_per_req": 61458.0
+        "app_id": 2627404,
+        "app_name": "Claude Code",
+        "total_tokens": 11468281242969,
+        "total_tokens_T": 11.468,
+        "total_requests": 117909785,
+        "tok_per_req": 97263.2
       },
       {
         "rank": 7,
-        "app_id": 189563,
-        "app_name": "OpenHands",
-        "total_tokens": 1003988190407,
-        "total_tokens_T": 1.004,
-        "total_requests": 10069768,
-        "tok_per_req": 99703.2
+        "app_id": 2938662,
+        "app_name": "Nous Research API",
+        "total_tokens": 486644238572,
+        "total_tokens_T": 0.487,
+        "total_requests": 7836796,
+        "tok_per_req": 62097.3
       },
       {
         "rank": 8,
-        "app_id": 2699842,
-        "app_name": "ISEKAI ZERO",
-        "total_tokens": 695359444432,
-        "total_tokens_T": 0.695,
-        "total_requests": 9695094,
-        "tok_per_req": 71722.8
+        "app_id": 2308106,
+        "app_name": "Descript",
+        "total_tokens": 410817509771,
+        "total_tokens_T": 0.411,
+        "total_requests": 6462286,
+        "tok_per_req": 63571.5
       },
       {
         "rank": 9,
-        "app_id": 2524738,
-        "app_name": "LangChain",
-        "total_tokens": 452148996378,
-        "total_tokens_T": 0.452,
-        "total_requests": 10759718,
-        "tok_per_req": 42022.4
+        "app_id": 171054,
+        "app_name": "HackerAI",
+        "total_tokens": 322608340109,
+        "total_tokens_T": 0.323,
+        "total_requests": 3189326,
+        "tok_per_req": 101152.5
       },
       {
         "rank": 10,
-        "app_id": 4580044,
-        "app_name": "HighLevel",
-        "total_tokens": 489948107886,
-        "total_tokens_T": 0.49,
-        "total_requests": 8244158,
-        "tok_per_req": 59429.7
+        "app_id": 189563,
+        "app_name": "OpenHands",
+        "total_tokens": 986045739293,
+        "total_tokens_T": 0.986,
+        "total_requests": 9148320,
+        "tok_per_req": 107784.4
       }
     ],
-    "trendingNote": "Trending #1 (excess growth vs prior equal windows): Kilo Code (7.03T tokens in window).",
+    "trendingNote": "Trending #1 (excess growth vs prior equal windows): Kilo Code (8.71T tokens in window).",
     "meta": {
       "popular": {
-        "as_of": "2026-11-22T00:46:37.380Z",
+        "as_of": "2026-11-23T00:43:13.591Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "coding": {
-        "as_of": "2026-11-22T00:46:39.966Z",
+        "as_of": "2026-11-23T00:43:16.077Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "trending": {
-        "as_of": "2026-11-22T00:46:42.473Z",
+        "as_of": "2026-11-23T00:43:18.852Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       }
     },
-    "citation": "Source: OpenRouter (openrouter.ai/apps), as of 2026-11-22T00:46:37.380Z.",
+    "citation": "Source: OpenRouter (openrouter.ai/apps), as of 2026-11-23T00:43:13.591Z.",
     "caveats": [
       "Public apps marketplace only; hidden/private apps excluded; aliases merged.",
       "Tokenizers differ by upstream provider; cross-app token compares are approximate.",
@@ -2831,147 +2840,147 @@
     ]
   },
   "contextMix": {
-    "weekStart": "2026-11-09",
-    "weekEnd": "2026-11-15",
+    "weekStart": "2026-11-16",
+    "weekEnd": "2026-11-22",
     "period": "week",
     "buckets": [
       {
         "bucket": "1K",
-        "tokens": 1315262981579,
-        "tokens_T": 1.315,
-        "sharePct": 0.6,
+        "tokens": 1324293703390,
+        "tokens_T": 1.324,
+        "sharePct": 0.4,
         "topModels": [
           {
             "model_permaslug": "typesafe/jev-1.13-20260917",
-            "tokens_T": 0.178
-          },
-          {
-            "model_permaslug": "perplexity/pplx-decider-v1.2-20261016",
-            "tokens_T": 0.102
+            "tokens_T": 0.162
           },
           {
             "model_permaslug": "typesafe/jev-1.14-20261014",
-            "tokens_T": 0.094
+            "tokens_T": 0.112
+          },
+          {
+            "model_permaslug": "perplexity/pplx-decider-v1.2-20261016",
+            "tokens_T": 0.083
           }
         ]
       },
       {
         "bucket": "10K",
-        "tokens": 14886789183987,
-        "tokens_T": 14.887,
-        "sharePct": 7.0,
+        "tokens": 15530467672636,
+        "tokens_T": 15.53,
+        "sharePct": 4.9,
         "topModels": [
           {
             "model_permaslug": "typesafe/jev-1.13-20260917",
-            "tokens_T": 1.693
+            "tokens_T": 1.666
           },
           {
             "model_permaslug": "typesafe/jev-1.14-20261014",
-            "tokens_T": 1.197
+            "tokens_T": 1.339
           },
           {
             "model_permaslug": "openai/gpt-6-luna-20260922",
-            "tokens_T": 1.128
+            "tokens_T": 1.261
           }
         ]
       },
       {
         "bucket": "100K",
-        "tokens": 65306936413943,
-        "tokens_T": 65.307,
-        "sharePct": 30.9,
+        "tokens": 88420072385727,
+        "tokens_T": 88.42,
+        "sharePct": 28.1,
         "topModels": [
           {
+            "model_permaslug": "tencent/hy4-flash-20261116",
+            "tokens_T": 24.924
+          },
+          {
             "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
-            "tokens_T": 17.759
+            "tokens_T": 16.999
           },
           {
             "model_permaslug": "z-ai/glm-5.3-flash-20260826",
-            "tokens_T": 5.453
-          },
-          {
-            "model_permaslug": "deepseek/deepseek-v4.1-flash-20260910",
-            "tokens_T": 5.298
+            "tokens_T": 5.803
           }
         ]
       },
       {
         "bucket": "1M",
-        "tokens": 129552890736796,
-        "tokens_T": 129.553,
-        "sharePct": 61.3,
+        "tokens": 209324880593029,
+        "tokens_T": 209.325,
+        "sharePct": 66.5,
         "topModels": [
           {
-            "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
-            "tokens_T": 40.393
+            "model_permaslug": "tencent/hy4-flash-20261116",
+            "tokens_T": 84.498
           },
           {
-            "model_permaslug": "tencent/hy4-20261104",
-            "tokens_T": 15.315
+            "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
+            "tokens_T": 46.899
           },
           {
             "model_permaslug": "deepseek/deepseek-v4.1-flash-20260910",
-            "tokens_T": 9.414
+            "tokens_T": 9.429
           }
         ]
       },
       {
         "bucket": "10M",
-        "tokens": 214750568068,
-        "tokens_T": 0.215,
+        "tokens": 271892914637,
+        "tokens_T": 0.272,
         "sharePct": 0.1,
         "topModels": [
           {
             "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
-            "tokens_T": 0.055
+            "tokens_T": 0.147
           },
           {
             "model_permaslug": "deepseek/deepseek-v4.1-flash-20260910",
-            "tokens_T": 0.054
+            "tokens_T": 0.038
           },
           {
             "model_permaslug": "moonshotai/kimi-k3.1-pro-20261023",
-            "tokens_T": 0.019
+            "tokens_T": 0.013
           }
         ]
       }
     ],
-    "totalTokens": 211276629884373,
-    "totalTokens_T": 211.277,
+    "totalTokens": 314871607269419,
+    "totalTokens_T": 314.872,
     "vsAllSiteTokensPct": 100.0,
     "metaByBucket": {
       "1K": {
-        "as_of": "2026-11-22T00:46:44.944Z",
+        "as_of": "2026-11-23T00:43:21.374Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "10K": {
-        "as_of": "2026-11-22T00:46:47.401Z",
+        "as_of": "2026-11-23T00:43:23.855Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "100K": {
-        "as_of": "2026-11-22T00:46:49.851Z",
+        "as_of": "2026-11-23T00:43:26.259Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "1M": {
-        "as_of": "2026-11-22T00:46:52.258Z",
+        "as_of": "2026-11-23T00:43:28.678Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "10M": {
-        "as_of": "2026-11-22T00:46:54.620Z",
+        "as_of": "2026-11-23T00:43:31.174Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       }
     },
-    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-22T00:46:35Z.",
+    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-23T00:43:10Z.",
     "caveats": [
       "Exact context_bucket slices (1K/10K/100K/1M/10M); cannot combine with category/language_type.",
       "Each slice is top-50 models + other within that bucket; shares are among returned bucket totals.",
@@ -2981,39 +2990,39 @@
   "taskMix7d": {
     "window": "7d",
     "window_days": 7,
-    "as_of": "2026-11-21",
+    "as_of": "2026-11-22",
     "macroCategories": [
       {
         "key": "code",
         "label": "Code",
         "usage_share": 0.129,
-        "token_share": 0.316,
+        "token_share": 0.321,
         "usageSharePct": 12.9,
-        "tokenSharePct": 31.6
+        "tokenSharePct": 32.1
       },
       {
         "key": "data",
         "label": "Data",
-        "usage_share": 0.137,
+        "usage_share": 0.138,
         "token_share": 0.064,
-        "usageSharePct": 13.7,
+        "usageSharePct": 13.8,
         "tokenSharePct": 6.4
       },
       {
         "key": "agent",
         "label": "Agent",
-        "usage_share": 0.165,
-        "token_share": 0.351,
-        "usageSharePct": 16.5,
-        "tokenSharePct": 35.1
+        "usage_share": 0.162,
+        "token_share": 0.349,
+        "usageSharePct": 16.2,
+        "tokenSharePct": 34.9
       },
       {
         "key": "general",
         "label": "General",
-        "usage_share": 0.57,
-        "token_share": 0.269,
-        "usageSharePct": 57.0,
-        "tokenSharePct": 26.9
+        "usage_share": 0.571,
+        "token_share": 0.267,
+        "usageSharePct": 57.1,
+        "tokenSharePct": 26.7
       }
     ],
     "classifications": [
@@ -3021,32 +3030,32 @@
         "tag": "classification_tagging",
         "display_name": "Classification",
         "macro_category": "general",
-        "usage_share": 0.326,
+        "usage_share": 0.322,
         "token_share": 0.099,
-        "usageSharePct": 32.6,
+        "usageSharePct": 32.2,
         "tokenSharePct": 9.9,
-        "category_usage_share": 0.572,
-        "category_token_share": 0.369,
+        "category_usage_share": 0.565,
+        "category_token_share": 0.37,
         "topModels": [
           {
             "id": "typesafe/jev-1.13-20260917",
-            "tag_usage_share": 0.176,
-            "tag_token_share": 0.111
+            "tag_usage_share": 0.175,
+            "tag_token_share": 0.12
           },
           {
             "id": "typesafe/jev-1.14-20261014",
             "tag_usage_share": 0.128,
-            "tag_token_share": 0.084
+            "tag_token_share": 0.083
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.079,
+            "tag_usage_share": 0.08,
             "tag_token_share": 0.042
           },
           {
             "id": "perplexity/pplx-decider-v1.2-20261016",
-            "tag_usage_share": 0.047,
-            "tag_token_share": 0.063
+            "tag_usage_share": 0.048,
+            "tag_token_share": 0.065
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
@@ -3059,37 +3068,37 @@
         "tag": "data:extraction",
         "display_name": "Data Extraction",
         "macro_category": "data",
-        "usage_share": 0.108,
-        "token_share": 0.045,
-        "usageSharePct": 10.8,
-        "tokenSharePct": 4.5,
-        "category_usage_share": 0.794,
-        "category_token_share": 0.697,
+        "usage_share": 0.109,
+        "token_share": 0.044,
+        "usageSharePct": 10.9,
+        "tokenSharePct": 4.4,
+        "category_usage_share": 0.793,
+        "category_token_share": 0.694,
         "topModels": [
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.09,
+            "tag_usage_share": 0.089,
             "tag_token_share": 0.048
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.081,
-            "tag_token_share": 0.162
+            "tag_usage_share": 0.079,
+            "tag_token_share": 0.169
           },
           {
             "id": "mistralai/mistral-nemo",
-            "tag_usage_share": 0.06,
-            "tag_token_share": 0.013
+            "tag_usage_share": 0.064,
+            "tag_token_share": 0.015
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.049,
-            "tag_token_share": 0.316
+            "tag_usage_share": 0.046,
+            "tag_token_share": 0.307
           },
           {
             "id": "typesafe/jev-1.13-20260917",
             "tag_usage_share": 0.042,
-            "tag_token_share": 0.01
+            "tag_token_share": 0.009
           }
         ]
       },
@@ -3097,37 +3106,37 @@
         "tag": "agent:workflow_execution",
         "display_name": "Workflow Execution",
         "macro_category": "agent",
-        "usage_share": 0.108,
-        "token_share": 0.247,
-        "usageSharePct": 10.8,
-        "tokenSharePct": 24.7,
-        "category_usage_share": 0.656,
-        "category_token_share": 0.705,
+        "usage_share": 0.106,
+        "token_share": 0.245,
+        "usageSharePct": 10.6,
+        "tokenSharePct": 24.5,
+        "category_usage_share": 0.654,
+        "category_token_share": 0.703,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.283,
-            "tag_token_share": 0.414
+            "tag_usage_share": 0.273,
+            "tag_token_share": 0.406
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.196,
-            "tag_token_share": 0.205
+            "tag_usage_share": 0.201,
+            "tag_token_share": 0.212
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.056,
-            "tag_token_share": 0.034
+            "tag_usage_share": 0.059,
+            "tag_token_share": 0.036
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.055,
+            "tag_usage_share": 0.056,
             "tag_token_share": 0.047
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.042,
-            "tag_token_share": 0.023
+            "tag_usage_share": 0.041,
+            "tag_token_share": 0.022
           }
         ]
       },
@@ -3135,37 +3144,37 @@
         "tag": "roleplay_fiction",
         "display_name": "Roleplay & Fiction",
         "macro_category": "general",
-        "usage_share": 0.057,
+        "usage_share": 0.06,
         "token_share": 0.021,
-        "usageSharePct": 5.7,
+        "usageSharePct": 6.0,
         "tokenSharePct": 2.1,
-        "category_usage_share": 0.101,
-        "category_token_share": 0.077,
+        "category_usage_share": 0.105,
+        "category_token_share": 0.081,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4-flash-20260731",
-            "tag_usage_share": 0.129,
-            "tag_token_share": 0.053
+            "tag_usage_share": 0.128,
+            "tag_token_share": 0.054
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.109,
-            "tag_token_share": 0.07
+            "tag_usage_share": 0.108,
+            "tag_token_share": 0.069
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.091,
-            "tag_token_share": 0.148
+            "tag_usage_share": 0.087,
+            "tag_token_share": 0.143
           },
           {
             "id": "google/gemma-4-26b-a4b-it-20260403",
-            "tag_usage_share": 0.063,
-            "tag_token_share": 0.041
+            "tag_usage_share": 0.071,
+            "tag_token_share": 0.046
           },
           {
             "id": "deepseek/deepseek-v4-flash-20260423",
-            "tag_usage_share": 0.061,
-            "tag_token_share": 0.045
+            "tag_usage_share": 0.064,
+            "tag_token_share": 0.048
           }
         ]
       },
@@ -3173,37 +3182,37 @@
         "tag": "content_writing",
         "display_name": "Content Writing",
         "macro_category": "general",
-        "usage_share": 0.049,
-        "token_share": 0.031,
-        "usageSharePct": 4.9,
-        "tokenSharePct": 3.1,
-        "category_usage_share": 0.086,
-        "category_token_share": 0.115,
+        "usage_share": 0.052,
+        "token_share": 0.03,
+        "usageSharePct": 5.2,
+        "tokenSharePct": 3.0,
+        "category_usage_share": 0.091,
+        "category_token_share": 0.114,
         "topModels": [
           {
             "id": "qwen/qwen3.6-35b-a3b-20260415",
-            "tag_usage_share": 0.146,
-            "tag_token_share": 0.019
+            "tag_usage_share": 0.183,
+            "tag_token_share": 0.026
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.097,
-            "tag_token_share": 0.507
+            "tag_usage_share": 0.086,
+            "tag_token_share": 0.498
           },
           {
             "id": "deepseek/deepseek-v4-flash-20260731",
-            "tag_usage_share": 0.089,
+            "tag_usage_share": 0.084,
             "tag_token_share": 0.02
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.084,
-            "tag_token_share": 0.112
+            "tag_usage_share": 0.078,
+            "tag_token_share": 0.116
           },
           {
-            "id": "openai/gpt-6-luna-20260922",
+            "id": "qwen/qwen3.8-27b-20260814",
             "tag_usage_share": 0.051,
-            "tag_token_share": 0.023
+            "tag_token_share": 0.008
           }
         ]
       },
@@ -3215,33 +3224,33 @@
         "token_share": 0.076,
         "usageSharePct": 3.5,
         "tokenSharePct": 7.6,
-        "category_usage_share": 0.216,
-        "category_token_share": 0.216,
+        "category_usage_share": 0.217,
+        "category_token_share": 0.217,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.226,
-            "tag_token_share": 0.255
+            "tag_usage_share": 0.231,
+            "tag_token_share": 0.261
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.193,
-            "tag_token_share": 0.318
+            "tag_usage_share": 0.188,
+            "tag_token_share": 0.316
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.051,
-            "tag_token_share": 0.052
-          },
-          {
-            "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.051,
-            "tag_token_share": 0.025
+            "tag_usage_share": 0.05,
+            "tag_token_share": 0.051
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
             "tag_usage_share": 0.049,
             "tag_token_share": 0.036
+          },
+          {
+            "id": "openai/gpt-6-luna-20260922",
+            "tag_usage_share": 0.048,
+            "tag_token_share": 0.024
           }
         ]
       },
@@ -3249,37 +3258,37 @@
         "tag": "code:general_impl",
         "display_name": "Code Generation",
         "macro_category": "code",
-        "usage_share": 0.034,
-        "token_share": 0.096,
-        "usageSharePct": 3.4,
-        "tokenSharePct": 9.6,
-        "category_usage_share": 0.261,
-        "category_token_share": 0.304,
+        "usage_share": 0.033,
+        "token_share": 0.098,
+        "usageSharePct": 3.3,
+        "tokenSharePct": 9.8,
+        "category_usage_share": 0.258,
+        "category_token_share": 0.305,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.321,
-            "tag_token_share": 0.387
+            "tag_usage_share": 0.31,
+            "tag_token_share": 0.372
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.224,
-            "tag_token_share": 0.227
+            "tag_usage_share": 0.237,
+            "tag_token_share": 0.243
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.046,
+            "tag_usage_share": 0.045,
             "tag_token_share": 0.039
-          },
-          {
-            "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.034,
-            "tag_token_share": 0.026
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
             "tag_usage_share": 0.033,
-            "tag_token_share": 0.026
+            "tag_token_share": 0.025
+          },
+          {
+            "id": "openai/gpt-6-luna-20260922",
+            "tag_usage_share": 0.033,
+            "tag_token_share": 0.025
           }
         ]
       },
@@ -3287,37 +3296,37 @@
         "tag": "qa_knowledge",
         "display_name": "Q&A & Knowledge",
         "macro_category": "general",
-        "usage_share": 0.03,
-        "token_share": 0.024,
-        "usageSharePct": 3.0,
-        "tokenSharePct": 2.4,
-        "category_usage_share": 0.053,
-        "category_token_share": 0.09,
+        "usage_share": 0.029,
+        "token_share": 0.023,
+        "usageSharePct": 2.9,
+        "tokenSharePct": 2.3,
+        "category_usage_share": 0.051,
+        "category_token_share": 0.087,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
             "tag_usage_share": 0.09,
-            "tag_token_share": 0.154
+            "tag_token_share": 0.162
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.084,
-            "tag_token_share": 0.036
+            "tag_usage_share": 0.082,
+            "tag_token_share": 0.038
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.079,
-            "tag_token_share": 0.315
-          },
-          {
-            "id": "typesafe/jev-1.13-20260917",
-            "tag_usage_share": 0.064,
-            "tag_token_share": 0.006
+            "tag_usage_share": 0.077,
+            "tag_token_share": 0.316
           },
           {
             "id": "typesafe/jev-1.14-20261014",
-            "tag_usage_share": 0.063,
-            "tag_token_share": 0.007
+            "tag_usage_share": 0.064,
+            "tag_token_share": 0.008
+          },
+          {
+            "id": "typesafe/jev-1.13-20260917",
+            "tag_usage_share": 0.062,
+            "tag_token_share": 0.006
           }
         ]
       },
@@ -3325,37 +3334,37 @@
         "tag": "data:transformation",
         "display_name": "Data Transformation",
         "macro_category": "data",
-        "usage_share": 0.028,
+        "usage_share": 0.029,
         "token_share": 0.019,
-        "usageSharePct": 2.8,
+        "usageSharePct": 2.9,
         "tokenSharePct": 1.9,
-        "category_usage_share": 0.206,
-        "category_token_share": 0.303,
+        "category_usage_share": 0.207,
+        "category_token_share": 0.306,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.125,
-            "tag_token_share": 0.528
+            "tag_usage_share": 0.116,
+            "tag_token_share": 0.503
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.099,
-            "tag_token_share": 0.154
+            "tag_usage_share": 0.101,
+            "tag_token_share": 0.173
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.077,
-            "tag_token_share": 0.023
+            "tag_usage_share": 0.078,
+            "tag_token_share": 0.022
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.058,
+            "tag_usage_share": 0.057,
             "tag_token_share": 0.028
           },
           {
             "id": "deepseek/deepseek-v4-flash-20260731",
-            "tag_usage_share": 0.057,
-            "tag_token_share": 0.021
+            "tag_usage_share": 0.055,
+            "tag_token_share": 0.02
           }
         ]
       },
@@ -3363,37 +3372,37 @@
         "tag": "code:file_read_write",
         "display_name": "File I/O",
         "macro_category": "code",
-        "usage_share": 0.027,
+        "usage_share": 0.026,
         "token_share": 0.063,
-        "usageSharePct": 2.7,
+        "usageSharePct": 2.6,
         "tokenSharePct": 6.3,
         "category_usage_share": 0.205,
-        "category_token_share": 0.198,
+        "category_token_share": 0.196,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.385,
-            "tag_token_share": 0.494
-          },
-          {
-            "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.165,
-            "tag_token_share": 0.179
+            "tag_usage_share": 0.366,
+            "tag_token_share": 0.476
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.161,
-            "tag_token_share": 0.043
+            "tag_usage_share": 0.176,
+            "tag_token_share": 0.048
+          },
+          {
+            "id": "deepseek/deepseek-v4.1-flash-20261017",
+            "tag_usage_share": 0.171,
+            "tag_token_share": 0.19
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.039,
-            "tag_token_share": 0.039
+            "tag_usage_share": 0.037,
+            "tag_token_share": 0.037
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.021,
-            "tag_token_share": 0.013
+            "tag_usage_share": 0.022,
+            "tag_token_share": 0.014
           }
         ]
       },
@@ -3402,36 +3411,36 @@
         "display_name": "Debugging",
         "macro_category": "code",
         "usage_share": 0.023,
-        "token_share": 0.056,
+        "token_share": 0.057,
         "usageSharePct": 2.3,
-        "tokenSharePct": 5.6,
-        "category_usage_share": 0.177,
-        "category_token_share": 0.177,
+        "tokenSharePct": 5.7,
+        "category_usage_share": 0.181,
+        "category_token_share": 0.179,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.249,
-            "tag_token_share": 0.357
+            "tag_usage_share": 0.236,
+            "tag_token_share": 0.347
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.186,
-            "tag_token_share": 0.052
+            "tag_usage_share": 0.2,
+            "tag_token_share": 0.056
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.172,
-            "tag_token_share": 0.218
+            "tag_usage_share": 0.182,
+            "tag_token_share": 0.23
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.042,
-            "tag_token_share": 0.042
+            "tag_usage_share": 0.045,
+            "tag_token_share": 0.044
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.034,
-            "tag_token_share": 0.029
+            "tag_usage_share": 0.031,
+            "tag_token_share": 0.026
           }
         ]
       },
@@ -3444,32 +3453,32 @@
         "usageSharePct": 2.0,
         "tokenSharePct": 2.7,
         "category_usage_share": 0.035,
-        "category_token_share": 0.101,
+        "category_token_share": 0.1,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.216,
-            "tag_token_share": 0.511
+            "tag_usage_share": 0.206,
+            "tag_token_share": 0.498
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
             "tag_usage_share": 0.114,
-            "tag_token_share": 0.12
+            "tag_token_share": 0.124
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
             "tag_usage_share": 0.061,
-            "tag_token_share": 0.042
+            "tag_token_share": 0.043
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.051,
-            "tag_token_share": 0.019
+            "tag_usage_share": 0.052,
+            "tag_token_share": 0.02
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.033,
-            "tag_token_share": 0.024
+            "tag_usage_share": 0.034,
+            "tag_token_share": 0.025
           }
         ]
       },
@@ -3486,28 +3495,28 @@
         "topModels": [
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.328,
-            "tag_token_share": 0.153
+            "tag_usage_share": 0.322,
+            "tag_token_share": 0.15
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.081,
-            "tag_token_share": 0.176
+            "tag_usage_share": 0.08,
+            "tag_token_share": 0.175
           },
           {
             "id": "google/gemini-2.5-flash",
-            "tag_usage_share": 0.071,
-            "tag_token_share": 0.018
-          },
-          {
-            "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.042,
-            "tag_token_share": 0.063
+            "tag_usage_share": 0.072,
+            "tag_token_share": 0.019
           },
           {
             "id": "anthropic/claude-haiku-5.5-20261007",
+            "tag_usage_share": 0.042,
+            "tag_token_share": 0.042
+          },
+          {
+            "id": "deepseek/deepseek-v4.1-flash-20260910",
             "tag_usage_share": 0.041,
-            "tag_token_share": 0.041
+            "tag_token_share": 0.062
           }
         ]
       },
@@ -3515,37 +3524,37 @@
         "tag": "code:review_security",
         "display_name": "Code Review",
         "macro_category": "code",
-        "usage_share": 0.017,
-        "token_share": 0.028,
-        "usageSharePct": 1.7,
-        "tokenSharePct": 2.8,
-        "category_usage_share": 0.135,
-        "category_token_share": 0.089,
+        "usage_share": 0.018,
+        "token_share": 0.029,
+        "usageSharePct": 1.8,
+        "tokenSharePct": 2.9,
+        "category_usage_share": 0.139,
+        "category_token_share": 0.09,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.252,
-            "tag_token_share": 0.378
+            "tag_usage_share": 0.239,
+            "tag_token_share": 0.367
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.204,
-            "tag_token_share": 0.11
+            "tag_usage_share": 0.224,
+            "tag_token_share": 0.124
           },
           {
             "id": "typesafe/jev-1.13-20260917",
-            "tag_usage_share": 0.107,
+            "tag_usage_share": 0.108,
             "tag_token_share": 0.006
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.08,
+            "tag_usage_share": 0.078,
             "tag_token_share": 0.144
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.049,
-            "tag_token_share": 0.054
+            "tag_usage_share": 0.056,
+            "tag_token_share": 0.067
           }
         ]
       },
@@ -3554,36 +3563,36 @@
         "display_name": "Summarization",
         "macro_category": "general",
         "usage_share": 0.016,
-        "token_share": 0.012,
+        "token_share": 0.011,
         "usageSharePct": 1.6,
-        "tokenSharePct": 1.2,
-        "category_usage_share": 0.028,
-        "category_token_share": 0.045,
+        "tokenSharePct": 1.1,
+        "category_usage_share": 0.029,
+        "category_token_share": 0.042,
         "topModels": [
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.091,
-            "tag_token_share": 0.032
+            "tag_usage_share": 0.089,
+            "tag_token_share": 0.034
           },
           {
             "id": "mistralai/mistral-nemo",
-            "tag_usage_share": 0.081,
-            "tag_token_share": 0.011
-          },
-          {
-            "id": "google/gemma-4-26b-a4b-it-20260403",
-            "tag_usage_share": 0.071,
-            "tag_token_share": 0.007
+            "tag_usage_share": 0.086,
+            "tag_token_share": 0.013
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
+            "tag_usage_share": 0.071,
+            "tag_token_share": 0.083
+          },
+          {
+            "id": "google/gemma-4-26b-a4b-it-20260403",
             "tag_usage_share": 0.068,
-            "tag_token_share": 0.071
+            "tag_token_share": 0.008
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.056,
-            "tag_token_share": 0.172
+            "tag_usage_share": 0.051,
+            "tag_token_share": 0.18
           }
         ]
       },
@@ -3600,28 +3609,28 @@
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.118,
-            "tag_token_share": 0.085
+            "tag_usage_share": 0.115,
+            "tag_token_share": 0.084
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.101,
-            "tag_token_share": 0.049
+            "tag_usage_share": 0.103,
+            "tag_token_share": 0.052
           },
           {
             "id": "google/gemini-2.5-flash-lite",
-            "tag_usage_share": 0.072,
-            "tag_token_share": 0.016
+            "tag_usage_share": 0.071,
+            "tag_token_share": 0.017
+          },
+          {
+            "id": "deepseek/deepseek-v4-flash-20260423",
+            "tag_usage_share": 0.049,
+            "tag_token_share": 0.022
           },
           {
             "id": "google/gemma-4-26b-a4b-it-20260403",
-            "tag_usage_share": 0.048,
-            "tag_token_share": 0.009
-          },
-          {
-            "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.047,
-            "tag_token_share": 0.043
+            "tag_usage_share": 0.049,
+            "tag_token_share": 0.01
           }
         ]
       },
@@ -3634,16 +3643,16 @@
         "usageSharePct": 1.3,
         "tokenSharePct": 0.4,
         "category_usage_share": 0.022,
-        "category_token_share": 0.013,
+        "category_token_share": 0.014,
         "topModels": [
           {
             "id": "nace-ai/drex-max-20261016",
-            "tag_usage_share": 0.267,
-            "tag_token_share": 0.008
+            "tag_usage_share": 0.278,
+            "tag_token_share": 0.009
           },
           {
             "id": "nace-ai/drex-v1.5-20261009",
-            "tag_usage_share": 0.265,
+            "tag_usage_share": 0.267,
             "tag_token_share": 0.008
           },
           {
@@ -3653,13 +3662,51 @@
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.04,
-            "tag_token_share": 0.235
+            "tag_usage_share": 0.038,
+            "tag_token_share": 0.23
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.035,
-            "tag_token_share": 0.097
+            "tag_usage_share": 0.032,
+            "tag_token_share": 0.091
+          }
+        ]
+      },
+      {
+        "tag": "code:shell_execution",
+        "display_name": "Shell Execution",
+        "macro_category": "code",
+        "usage_share": 0.011,
+        "token_share": 0.023,
+        "usageSharePct": 1.1,
+        "tokenSharePct": 2.3,
+        "category_usage_share": 0.085,
+        "category_token_share": 0.073,
+        "topModels": [
+          {
+            "id": "tencent/hy4-flash-20261116",
+            "tag_usage_share": 0.209,
+            "tag_token_share": 0.308
+          },
+          {
+            "id": "z-ai/glm-5.3-flash-20260826",
+            "tag_usage_share": 0.199,
+            "tag_token_share": 0.061
+          },
+          {
+            "id": "deepseek/deepseek-v4.1-flash-20261017",
+            "tag_usage_share": 0.198,
+            "tag_token_share": 0.236
+          },
+          {
+            "id": "deepseek/deepseek-v4.1-flash-20260910",
+            "tag_usage_share": 0.047,
+            "tag_token_share": 0.046
+          },
+          {
+            "id": "z-ai/glm-5.3-20260816",
+            "tag_usage_share": 0.031,
+            "tag_token_share": 0.03
           }
         ]
       },
@@ -3672,27 +3719,27 @@
         "usageSharePct": 1.1,
         "tokenSharePct": 2.2,
         "category_usage_share": 0.019,
-        "category_token_share": 0.081,
+        "category_token_share": 0.082,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.528,
-            "tag_token_share": 0.632
+            "tag_usage_share": 0.539,
+            "tag_token_share": 0.638
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.089,
+            "tag_usage_share": 0.088,
             "tag_token_share": 0.099
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.064,
-            "tag_token_share": 0.064
+            "tag_usage_share": 0.062,
+            "tag_token_share": 0.063
           },
           {
             "id": "z-ai/glm-5.3-20260816",
-            "tag_usage_share": 0.043,
-            "tag_token_share": 0.044
+            "tag_usage_share": 0.041,
+            "tag_token_share": 0.041
           },
           {
             "id": "typesafe/jev-1.13-20260917",
@@ -3702,63 +3749,25 @@
         ]
       },
       {
-        "tag": "code:shell_execution",
-        "display_name": "Shell Execution",
-        "macro_category": "code",
-        "usage_share": 0.011,
-        "token_share": 0.022,
-        "usageSharePct": 1.1,
-        "tokenSharePct": 2.2,
-        "category_usage_share": 0.083,
-        "category_token_share": 0.071,
-        "topModels": [
-          {
-            "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.223,
-            "tag_token_share": 0.324
-          },
-          {
-            "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.196,
-            "tag_token_share": 0.234
-          },
-          {
-            "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.19,
-            "tag_token_share": 0.059
-          },
-          {
-            "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.04,
-            "tag_token_share": 0.04
-          },
-          {
-            "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.028,
-            "tag_token_share": 0.026
-          }
-        ]
-      },
-      {
         "tag": "code:frontend_ui",
         "display_name": "Frontend & UI",
         "macro_category": "code",
-        "usage_share": 0.01,
-        "token_share": 0.031,
-        "usageSharePct": 1.0,
-        "tokenSharePct": 3.1,
-        "category_usage_share": 0.076,
-        "category_token_share": 0.099,
+        "usage_share": 0.009,
+        "token_share": 0.03,
+        "usageSharePct": 0.9,
+        "tokenSharePct": 3.0,
+        "category_usage_share": 0.073,
+        "category_token_share": 0.095,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.505,
-            "tag_token_share": 0.561
+            "tag_usage_share": 0.501,
+            "tag_token_share": 0.557
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.099,
-            "tag_token_share": 0.109
+            "tag_usage_share": 0.101,
+            "tag_token_share": 0.115
           },
           {
             "id": "openai/gpt-6-luna-20260922",
@@ -3767,13 +3776,13 @@
           },
           {
             "id": "meta/muse-spark-1.3-contributor-20260902",
-            "tag_usage_share": 0.033,
-            "tag_token_share": 0.033
+            "tag_usage_share": 0.036,
+            "tag_token_share": 0.036
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.031,
-            "tag_token_share": 0.029
+            "tag_usage_share": 0.034,
+            "tag_token_share": 0.03
           }
         ]
       },
@@ -3781,37 +3790,37 @@
         "tag": "agent:tool_dispatch",
         "display_name": "Tool Dispatch",
         "macro_category": "agent",
-        "usage_share": 0.009,
+        "usage_share": 0.008,
         "token_share": 0.013,
-        "usageSharePct": 0.9,
+        "usageSharePct": 0.8,
         "tokenSharePct": 1.3,
         "category_usage_share": 0.052,
         "category_token_share": 0.037,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.256,
-            "tag_token_share": 0.306
+            "tag_usage_share": 0.261,
+            "tag_token_share": 0.314
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.104,
-            "tag_token_share": 0.219
+            "tag_usage_share": 0.101,
+            "tag_token_share": 0.214
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.089,
-            "tag_token_share": 0.051
+            "tag_usage_share": 0.09,
+            "tag_token_share": 0.053
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.053,
+            "tag_usage_share": 0.052,
             "tag_token_share": 0.031
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.052,
-            "tag_token_share": 0.057
+            "tag_usage_share": 0.051,
+            "tag_token_share": 0.056
           }
         ]
       },
@@ -3823,33 +3832,33 @@
         "token_share": 0.006,
         "usageSharePct": 0.7,
         "tokenSharePct": 0.6,
-        "category_usage_share": 0.04,
+        "category_usage_share": 0.041,
         "category_token_share": 0.017,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4-flash-20260731",
-            "tag_usage_share": 0.192,
-            "tag_token_share": 0.028
+            "tag_usage_share": 0.201,
+            "tag_token_share": 0.029
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.159,
-            "tag_token_share": 0.125
+            "tag_usage_share": 0.167,
+            "tag_token_share": 0.132
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.094,
-            "tag_token_share": 0.148
+            "tag_usage_share": 0.093,
+            "tag_token_share": 0.145
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.072,
-            "tag_token_share": 0.215
+            "tag_usage_share": 0.068,
+            "tag_token_share": 0.212
           },
           {
             "id": "deepseek/deepseek-v4-flash-20260423",
-            "tag_usage_share": 0.046,
-            "tag_token_share": 0.021
+            "tag_usage_share": 0.048,
+            "tag_token_share": 0.02
           }
         ]
       },
@@ -3861,32 +3870,32 @@
         "token_share": 0.009,
         "usageSharePct": 0.6,
         "tokenSharePct": 0.9,
-        "category_usage_share": 0.037,
-        "category_token_share": 0.026,
+        "category_usage_share": 0.036,
+        "category_token_share": 0.025,
         "topModels": [
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.236,
-            "tag_token_share": 0.229
+            "tag_usage_share": 0.223,
+            "tag_token_share": 0.219
           },
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.173,
-            "tag_token_share": 0.378
+            "tag_usage_share": 0.172,
+            "tag_token_share": 0.382
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.128,
-            "tag_token_share": 0.046
+            "tag_usage_share": 0.123,
+            "tag_token_share": 0.045
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.049,
-            "tag_token_share": 0.05
+            "tag_usage_share": 0.047,
+            "tag_token_share": 0.049
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.031,
+            "tag_usage_share": 0.03,
             "tag_token_share": 0.027
           }
         ]
@@ -3899,33 +3908,33 @@
         "token_share": 0.012,
         "usageSharePct": 0.6,
         "tokenSharePct": 1.2,
-        "category_usage_share": 0.011,
+        "category_usage_share": 0.01,
         "category_token_share": 0.045,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.294,
-            "tag_token_share": 0.503
+            "tag_usage_share": 0.29,
+            "tag_token_share": 0.49
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.138,
-            "tag_token_share": 0.156
+            "tag_usage_share": 0.137,
+            "tag_token_share": 0.157
           },
           {
             "id": "openai/gpt-6-luna-20260922",
-            "tag_usage_share": 0.099,
-            "tag_token_share": 0.029
+            "tag_usage_share": 0.092,
+            "tag_token_share": 0.03
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
             "tag_usage_share": 0.053,
-            "tag_token_share": 0.025
+            "tag_token_share": 0.026
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.032,
-            "tag_token_share": 0.034
+            "tag_usage_share": 0.034,
+            "tag_token_share": 0.033
           }
         ]
       },
@@ -3933,37 +3942,37 @@
         "tag": "math",
         "display_name": "Math",
         "macro_category": "general",
-        "usage_share": 0.006,
-        "token_share": 0.002,
-        "usageSharePct": 0.6,
-        "tokenSharePct": 0.2,
+        "usage_share": 0.005,
+        "token_share": 0.003,
+        "usageSharePct": 0.5,
+        "tokenSharePct": 0.3,
         "category_usage_share": 0.01,
-        "category_token_share": 0.009,
+        "category_token_share": 0.01,
         "topModels": [
           {
-            "id": "deepseek/deepseek-v4-flash-20260423",
-            "tag_usage_share": 0.147,
-            "tag_token_share": 0.04
+            "id": "deepseek/deepseek-v4.1-flash-20261017",
+            "tag_usage_share": 0.145,
+            "tag_token_share": 0.382
           },
           {
-            "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.138,
-            "tag_token_share": 0.356
+            "id": "deepseek/deepseek-v4-flash-20260423",
+            "tag_usage_share": 0.134,
+            "tag_token_share": 0.032
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
             "tag_usage_share": 0.082,
-            "tag_token_share": 0.08
-          },
-          {
-            "id": "typesafe/jev-1.13-20260917",
-            "tag_usage_share": 0.063,
-            "tag_token_share": 0.02
+            "tag_token_share": 0.101
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.061,
-            "tag_token_share": 0.043
+            "tag_usage_share": 0.06,
+            "tag_token_share": 0.038
+          },
+          {
+            "id": "typesafe/jev-1.13-20260917",
+            "tag_usage_share": 0.058,
+            "tag_token_share": 0.016
           }
         ]
       },
@@ -3975,33 +3984,33 @@
         "token_share": 0.011,
         "usageSharePct": 0.5,
         "tokenSharePct": 1.1,
-        "category_usage_share": 0.036,
+        "category_usage_share": 0.035,
         "category_token_share": 0.034,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.391,
-            "tag_token_share": 0.419
+            "tag_usage_share": 0.376,
+            "tag_token_share": 0.405
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.169,
+            "tag_usage_share": 0.166,
             "tag_token_share": 0.199
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.137,
-            "tag_token_share": 0.049
+            "tag_usage_share": 0.149,
+            "tag_token_share": 0.054
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.037,
-            "tag_token_share": 0.037
+            "tag_usage_share": 0.036,
+            "tag_token_share": 0.036
           },
           {
             "id": "xiaomi/mimo-v2.6-flash-20260921",
-            "tag_usage_share": 0.019,
-            "tag_token_share": 0.017
+            "tag_usage_share": 0.018,
+            "tag_token_share": 0.016
           }
         ]
       },
@@ -4013,32 +4022,32 @@
         "token_share": 0.004,
         "usageSharePct": 0.2,
         "tokenSharePct": 0.4,
-        "category_usage_share": 0.014,
+        "category_usage_share": 0.013,
         "category_token_share": 0.013,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.291,
-            "tag_token_share": 0.427
+            "tag_usage_share": 0.289,
+            "tag_token_share": 0.415
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.149,
-            "tag_token_share": 0.174
+            "tag_usage_share": 0.158,
+            "tag_token_share": 0.176
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.058,
+            "tag_usage_share": 0.063,
             "tag_token_share": 0.034
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.056,
-            "tag_token_share": 0.026
+            "tag_usage_share": 0.054,
+            "tag_token_share": 0.027
           },
           {
             "id": "openai/gpt-5.6-luna-20260709",
-            "tag_usage_share": 0.031,
+            "tag_usage_share": 0.03,
             "tag_token_share": 0.003
           }
         ]
@@ -4056,28 +4065,28 @@
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.386,
-            "tag_token_share": 0.422
+            "tag_usage_share": 0.374,
+            "tag_token_share": 0.417
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.139,
-            "tag_token_share": 0.183
+            "tag_usage_share": 0.148,
+            "tag_token_share": 0.193
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.069,
-            "tag_token_share": 0.03
+            "tag_usage_share": 0.075,
+            "tag_token_share": 0.034
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.048,
+            "tag_usage_share": 0.049,
             "tag_token_share": 0.058
           },
           {
             "id": "nvidia/nemotron-3.5-super-vl-20261015:free",
-            "tag_usage_share": 0.021,
-            "tag_token_share": 0.036
+            "tag_usage_share": 0.022,
+            "tag_token_share": 0.035
           }
         ]
       },
@@ -4090,37 +4099,37 @@
         "usageSharePct": 0.2,
         "tokenSharePct": 0.5,
         "category_usage_share": 0.012,
-        "category_token_share": 0.015,
+        "category_token_share": 0.014,
         "topModels": [
           {
             "id": "tencent/hy4-flash-20261116",
-            "tag_usage_share": 0.346,
-            "tag_token_share": 0.376
+            "tag_usage_share": 0.343,
+            "tag_token_share": 0.379
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20261017",
-            "tag_usage_share": 0.157,
-            "tag_token_share": 0.154
+            "tag_usage_share": 0.18,
+            "tag_token_share": 0.176
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-20260910",
-            "tag_usage_share": 0.043,
-            "tag_token_share": 0.042
+            "tag_usage_share": 0.04,
+            "tag_token_share": 0.039
           },
           {
             "id": "nvidia/nemotron-3.5-super-vl-20261015:free",
-            "tag_usage_share": 0.038,
-            "tag_token_share": 0.044
+            "tag_usage_share": 0.034,
+            "tag_token_share": 0.039
           },
           {
             "id": "z-ai/glm-5.3-flash-20260826",
-            "tag_usage_share": 0.031,
-            "tag_token_share": 0.029
+            "tag_usage_share": 0.03,
+            "tag_token_share": 0.026
           }
         ]
       }
     ],
-    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-21.",
+    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-22.",
     "caveats": [
       "Sampled classifications; absolute volumes not exposed — shares of classified traffic only.",
       "Unclassified 'other' excluded from denominator; shares sum to ~1 across classifications.",
@@ -4128,222 +4137,222 @@
     ]
   },
   "programmingShare": {
-    "weekStart": "2026-11-09",
-    "weekEnd": "2026-11-15",
+    "weekStart": "2026-11-16",
+    "weekEnd": "2026-11-22",
     "period": "week",
     "filter": "language_type=programming",
-    "programmingTokens": 22187371321502,
-    "programmingTokens_T": 22.187,
-    "allSiteTokens": 211280142506486,
-    "allSiteTokens_T": 211.28,
-    "programmingOfAllSitePct": 10.5,
+    "programmingTokens": 75142838088334,
+    "programmingTokens_T": 75.143,
+    "allSiteTokens": 314875292194024,
+    "allSiteTokens_T": 314.875,
+    "programmingOfAllSitePct": 23.9,
     "providersProgramming": [
       {
+        "provider": "腾讯",
+        "tokens": 24276180666666,
+        "tokens_T": 24.276,
+        "sharePct": 32.3,
+        "allSiteSharePct": 36.8,
+        "shareDeltaPp": -4.5
+      },
+      {
         "provider": "DeepSeek",
-        "tokens": 6793586742667,
-        "tokens_T": 6.794,
-        "sharePct": 30.6,
-        "allSiteSharePct": 38.6,
-        "shareDeltaPp": -8.0
+        "tokens": 17679555032000,
+        "tokens_T": 17.68,
+        "sharePct": 23.5,
+        "allSiteSharePct": 27.4,
+        "shareDeltaPp": -3.9
       },
       {
         "provider": "Other",
-        "tokens": 5350720901500,
-        "tokens_T": 5.351,
-        "sharePct": 24.1,
-        "allSiteSharePct": 19.0,
-        "shareDeltaPp": 5.1
-      },
-      {
-        "provider": "OpenAI",
-        "tokens": 2609358130667,
-        "tokens_T": 2.609,
-        "sharePct": 11.8,
-        "allSiteSharePct": 7.2,
-        "shareDeltaPp": 4.6
+        "tokens": 14602584624334,
+        "tokens_T": 14.603,
+        "sharePct": 19.4,
+        "allSiteSharePct": 14.2,
+        "shareDeltaPp": 5.2
       },
       {
         "provider": "智谱",
-        "tokens": 1876590764000,
-        "tokens_T": 1.877,
-        "sharePct": 8.5,
-        "allSiteSharePct": 7.9,
-        "shareDeltaPp": 0.6
-      },
-      {
-        "provider": "腾讯",
-        "tokens": 1511954445333,
-        "tokens_T": 1.512,
+        "tokens": 5143203938668,
+        "tokens_T": 5.143,
         "sharePct": 6.8,
-        "allSiteSharePct": 9.5,
-        "shareDeltaPp": -2.7
+        "allSiteSharePct": 5.3,
+        "shareDeltaPp": 1.5
       },
       {
-        "provider": "阶跃星辰",
-        "tokens": 1299973426667,
-        "tokens_T": 1.3,
-        "sharePct": 5.9,
-        "allSiteSharePct": 3.0,
-        "shareDeltaPp": 2.9
-      },
-      {
-        "provider": "Anthropic",
-        "tokens": 840374864001,
-        "tokens_T": 0.84,
-        "sharePct": 3.8,
-        "allSiteSharePct": 6.2,
-        "shareDeltaPp": -2.4
+        "provider": "OpenAI",
+        "tokens": 5033455520000,
+        "tokens_T": 5.033,
+        "sharePct": 6.7,
+        "allSiteSharePct": 4.7,
+        "shareDeltaPp": 2.0
       },
       {
         "provider": "Google",
-        "tokens": 817692457332,
-        "tokens_T": 0.818,
-        "sharePct": 3.7,
-        "allSiteSharePct": 2.3,
-        "shareDeltaPp": 1.4
+        "tokens": 2553963696000,
+        "tokens_T": 2.554,
+        "sharePct": 3.4,
+        "allSiteSharePct": 2.1,
+        "shareDeltaPp": 1.3
       },
       {
-        "provider": "小米",
-        "tokens": 493540600001,
-        "tokens_T": 0.494,
-        "sharePct": 2.2,
-        "allSiteSharePct": 2.4,
-        "shareDeltaPp": -0.2
+        "provider": "Anthropic",
+        "tokens": 2219024149333,
+        "tokens_T": 2.219,
+        "sharePct": 3.0,
+        "allSiteSharePct": 4.2,
+        "shareDeltaPp": -1.2
       },
       {
         "provider": "Kimi",
-        "tokens": 365126000001,
-        "tokens_T": 0.365,
-        "sharePct": 1.6,
-        "allSiteSharePct": 2.2,
-        "shareDeltaPp": -0.6
+        "tokens": 1087499560000,
+        "tokens_T": 1.087,
+        "sharePct": 1.4,
+        "allSiteSharePct": 1.6,
+        "shareDeltaPp": -0.2
+      },
+      {
+        "provider": "小米",
+        "tokens": 916875018667,
+        "tokens_T": 0.917,
+        "sharePct": 1.2,
+        "allSiteSharePct": 1.4,
+        "shareDeltaPp": -0.2
       },
       {
         "provider": "Meta",
-        "tokens": 228452989333,
-        "tokens_T": 0.228,
+        "tokens": 895193816000,
+        "tokens_T": 0.895,
+        "sharePct": 1.2,
+        "allSiteSharePct": 1.3,
+        "shareDeltaPp": -0.1
+      },
+      {
+        "provider": "阶跃星辰",
+        "tokens": 735302066666,
+        "tokens_T": 0.735,
         "sharePct": 1.0,
-        "allSiteSharePct": 1.7,
-        "shareDeltaPp": -0.7
+        "allSiteSharePct": 1.0,
+        "shareDeltaPp": 0.0
       }
     ],
     "providersAllSite": [
       {
+        "provider": "腾讯",
+        "tokens": 115828242362774,
+        "tokens_T": 115.828,
+        "sharePct": 36.8
+      },
+      {
         "provider": "DeepSeek",
-        "tokens": 81498461482028,
-        "tokens_T": 81.498,
-        "sharePct": 38.6
+        "tokens": 86208301882594,
+        "tokens_T": 86.208,
+        "sharePct": 27.4
       },
       {
         "provider": "Other",
-        "tokens": 40066706296048,
-        "tokens_T": 40.067,
-        "sharePct": 19.0
-      },
-      {
-        "provider": "腾讯",
-        "tokens": 20171858617745,
-        "tokens_T": 20.172,
-        "sharePct": 9.5
+        "tokens": 44819148774003,
+        "tokens_T": 44.819,
+        "sharePct": 14.2
       },
       {
         "provider": "智谱",
-        "tokens": 16649547318445,
-        "tokens_T": 16.65,
-        "sharePct": 7.9
+        "tokens": 16563040640738,
+        "tokens_T": 16.563,
+        "sharePct": 5.3
       },
       {
         "provider": "OpenAI",
-        "tokens": 15114591402878,
-        "tokens_T": 15.115,
-        "sharePct": 7.2
+        "tokens": 14665565902297,
+        "tokens_T": 14.666,
+        "sharePct": 4.7
       },
       {
         "provider": "Anthropic",
-        "tokens": 13143789307395,
-        "tokens_T": 13.144,
-        "sharePct": 6.2
-      },
-      {
-        "provider": "阶跃星辰",
-        "tokens": 6410275896570,
-        "tokens_T": 6.41,
-        "sharePct": 3.0
-      },
-      {
-        "provider": "小米",
-        "tokens": 5164035550632,
-        "tokens_T": 5.164,
-        "sharePct": 2.4
+        "tokens": 13324658446641,
+        "tokens_T": 13.325,
+        "sharePct": 4.2
       },
       {
         "provider": "Google",
-        "tokens": 4893231184950,
-        "tokens_T": 4.893,
-        "sharePct": 2.3
+        "tokens": 6583161101225,
+        "tokens_T": 6.583,
+        "sharePct": 2.1
       },
       {
         "provider": "Kimi",
-        "tokens": 4619818202517,
-        "tokens_T": 4.62,
-        "sharePct": 2.2
+        "tokens": 5061618208783,
+        "tokens_T": 5.062,
+        "sharePct": 1.6
+      },
+      {
+        "provider": "小米",
+        "tokens": 4515294218205,
+        "tokens_T": 4.515,
+        "sharePct": 1.4
       },
       {
         "provider": "Meta",
-        "tokens": 3547827247278,
-        "tokens_T": 3.548,
-        "sharePct": 1.7
+        "tokens": 4074584294196,
+        "tokens_T": 4.075,
+        "sharePct": 1.3
+      },
+      {
+        "provider": "阶跃星辰",
+        "tokens": 3231676362568,
+        "tokens_T": 3.232,
+        "sharePct": 1.0
       }
     ],
     "topModelsProgramming": [
       {
-        "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
-        "tokens_T": 4.471
+        "model_permaslug": "tencent/hy4-flash-20261116",
+        "tokens_T": 23.27
       },
       {
-        "model_permaslug": "deepseek/deepseek-v4.1-flash-20260910",
-        "tokens_T": 1.395
+        "model_permaslug": "deepseek/deepseek-v4.1-flash-20261017",
+        "tokens_T": 11.971
       },
       {
         "model_permaslug": "z-ai/glm-5.3-flash-20260826",
-        "tokens_T": 1.374
+        "tokens_T": 3.919
       },
       {
-        "model_permaslug": "stepfun/step-5-preview-20261008",
-        "tokens_T": 1.3
-      },
-      {
-        "model_permaslug": "tencent/hy4-20261104",
-        "tokens_T": 1.299
+        "model_permaslug": "deepseek/deepseek-v4.1-flash-20260910",
+        "tokens_T": 3.627
       },
       {
         "model_permaslug": "openai/gpt-6-luna-20260922",
-        "tokens_T": 1.223
+        "tokens_T": 2.917
       },
       {
         "model_permaslug": "typesafe/jev-1.14-20261014",
-        "tokens_T": 0.572
+        "tokens_T": 1.454
       },
       {
         "model_permaslug": "typesafe/jev-1.13-20260917",
-        "tokens_T": 0.569
+        "tokens_T": 1.258
+      },
+      {
+        "model_permaslug": "deepseek/deepseek-v4-flash-20260731",
+        "tokens_T": 1.011
       }
     ],
     "meta": {
       "programming": {
-        "as_of": "2026-11-22T00:46:59.489Z",
+        "as_of": "2026-11-23T00:43:35.904Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       },
       "allSite": {
-        "as_of": "2026-11-22T00:47:02.189Z",
+        "as_of": "2026-11-23T00:43:38.353Z",
         "version": "v1",
-        "start_date": "2026-11-09",
-        "end_date": "2026-11-15"
+        "start_date": "2026-11-16",
+        "end_date": "2026-11-22"
       }
     },
-    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-22T00:46:59.489Z.",
+    "citation": "Source: OpenRouter (openrouter.ai/rankings), as of 2026-11-23T00:43:35.904Z.",
     "caveats": [
       "language_type uses sampled/upsampled weekly-grain estimates; not exact day totals.",
       "Cannot combine language_type with context_bucket/category/modality; period=day rejected.",
@@ -5016,7 +5025,7 @@
     ],
     "source": "Source: OpenRouter (/api/v1/models)",
     "catalogPath": "/workspace/openrouter_replicate/models_catalog.json",
-    "asOfLocal": "2026-11-22 08:46 Asia/Shanghai"
+    "asOfLocal": "2026-11-23 08:43 Asia/Shanghai"
   },
   "gpuRentalIndex": {
     "asOf": "2026-11-19",
