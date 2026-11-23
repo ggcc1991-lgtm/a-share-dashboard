@@ -67,12 +67,13 @@
   </main>
 
   <footer class="app-footer">RESEARCH ONLY · NOT INVESTMENT ADVICE · GC DATA</footer>
+  <script src="assets/present.js"></script>
   <script src="assets/shell.js"></script>
   <script src="assets/score-series.js"></script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
     document.getElementById("clock").textContent =
-      new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" });
+      "现在 " + new Date().toLocaleString("zh-CN", { hour12: false, timeZone: "Asia/Shanghai" });
 
     async function loadJSON(url) {
       const r = await fetch(url);
@@ -80,6 +81,7 @@
       return r.json();
     }
     function band(n, bottom) {
+      if (n == null) return ["—", ""];
       const v = bottom?.verdict?.band;
       if (v?.label) return [v.label, n >= 10 ? "hot" : n >= 6 ? "warn" : ""];
       if (n >= 10) return ["高度警戒抄底区", "hot"];
@@ -88,9 +90,12 @@
       return ["观望", ""];
     }
     function fmtIndVal(x) {
-      if (x == null || x === "") return "—";
+      if (window.DashPresent ? DashPresent.isMissing(x) : (x == null || x === "")) return "—";
       if (typeof x === "number") return DashFmt.num(x, 2);
       return String(x);
+    }
+    function escText(s) {
+      return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
     function clsFlow(v) {
       return v > 0 ? "pos" : v < 0 ? "neg" : "";
@@ -146,6 +151,9 @@
           `<text x="${padL - 4}" y="${y + 3}" text-anchor="end" fill="#787878" font-size="9" font-family="ui-monospace,monospace">${v}</text>`;
       }).join("");
       const linePts = pts.map((p, i) => `${xAt(i).toFixed(2)},${yAt(p.v).toFixed(2)}`).join(" ");
+      const liveDots = pts.map((p, i) => p && p.live
+        ? `<circle cx="${xAt(i).toFixed(2)}" cy="${yAt(p.v).toFixed(2)}" r="2.6" fill="#FFA028" stroke="#000" stroke-width="0.6"><title>${p.d} 实值 ${p.v}</title></circle>`
+        : "").join("");
       const areaPts = `${xAt(0).toFixed(2)},${(padT + plotH).toFixed(2)} ${linePts} ${xAt(n - 1).toFixed(2)},${(padT + plotH).toFixed(2)}`;
       const labelIdx = (() => {
         if (n <= 1) return [0];
@@ -166,6 +174,7 @@
         grid +
         `<polygon points="${areaPts}" fill="rgba(255,160,40,0.08)" stroke="none"/>` +
         `<polyline points="${linePts}" fill="none" stroke="#FFA028" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>` +
+        liveDots +
         labels +
         `</svg>`;
     }
@@ -185,6 +194,13 @@
       const picked = window.ScoreSeries
         ? ScoreSeries.selectYtdScorePoints(pair[0], pair[1])
         : { points: [] };
+      const noteEl = document.getElementById("scoreSparkNote");
+      if (noteEl && window.ScoreSeries) {
+        const srcObj = picked.source === "history.score"
+          ? { note: pair[1] && pair[1].score_meta && pair[1].score_meta.note, points: pair[1] && pair[1].score }
+          : pair[0];
+        noteEl.textContent = ScoreSeries.describeScoreSeries(srcObj, picked.source);
+      }
       const pts = picked.points;
       if (!pts.length) {
         const label = (window.ScoreSeries && ScoreSeries.EMPTY_LABEL) || "待抄底写入 score_history.points";
@@ -218,7 +234,9 @@
       if (etf?.series && etf?.dates?.length) {
         const dates = etf.dates;
         etfDate = dates.at(-1);
-        const sumAt = (i) => Object.values(etf.series).reduce((s, x) => s + (x.flow?.[i] ?? 0), 0);
+        const sumAt = (i) => (window.DashPresent
+          ? DashPresent.sumNamedSeries(etf.series, "flow", i)
+          : null);
         const win = (n) => {
           let s = 0, any = false;
           for (let i = Math.max(0, dates.length - n); i < dates.length; i++) {
@@ -228,13 +246,13 @@
         };
         flow1 = win(1); flow5 = win(5); flow20 = win(20);
       }
-      const trig = bottom?.triggered_count ?? 0;
+      const trig = (bottom && !DashPresent.isMissing(bottom.triggered_count)) ? +bottom.triggered_count : null;
       const total = bottom?.total ?? 12;
       const [label, hot] = band(trig, bottom);
       const items = feed?.items || [];
 
       document.getElementById("strip").innerHTML = `<div class="inner">
-        <span><span class="k">信号</span><span class="v ${trig >= 6 ? "pos" : ""}">${trig}/${total}</span></span>
+        <span><span class="k">信号</span><span class="v ${trig != null && trig >= 6 ? "pos" : ""}">${trig == null ? "—" : trig + "/" + total}</span></span>
         <span class="sep">|</span>
         <span><span class="k">ETF日流入</span><span class="v ${clsFlow(flow1)}">${flow1 == null ? "—" : DashFmt.signed(flow1, 1)}亿</span></span>
         <span class="sep">|</span>
@@ -249,7 +267,10 @@
         <span><span class="k">交易日</span><span class="v">${etfDate}</span></span>
       </div>`;
 
-      const inds = bottom?.indicators || [];
+      if (!bottom) {
+        document.getElementById("bottomBox").innerHTML = `<div class="mu" style="padding:12px">抄底数据未加载，其他栏目不受影响</div>`;
+      } else {
+      const inds = bottom.indicators || [];
       const watchN = inds.filter((x) => x.status === "watching").length;
       const ticks = Array.from({ length: total }, (_, i) => {
         const on = i < trig;
@@ -269,7 +290,7 @@
 
       document.getElementById("bottomBox").innerHTML = `
         <div class="bb-ind-top">
-          <div class="ratio ${hot}" id="heroBig">${trig}<span style="font-size:13px;color:#666">/${total}</span></div>
+          <div class="ratio ${hot}" id="heroBig">${trig == null ? "—" : trig}<span style="font-size:13px;color:#666">/${total}</span></div>
           <div class="bb-ind-top-main">
             <div class="band">${label}${sub ? `<small>${sub}</small>` : ""}</div>
             <div class="ticks">${ticks}</div>
@@ -278,14 +299,17 @@
         <div class="bb-spark" id="scoreSparkWrap">
           <div class="bb-spark-title">今年以来信号变化</div>
           <div class="bb-spark-chart" id="scoreSpark"></div>
+          <div class="bb-spark-note" id="scoreSparkNote"></div>
         </div>
         <div class="bb-ind-hd"><span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span><span style="text-align:right">状态</span></div>
         ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}
         <div class="bb-ind-foot">
-          <span>触发 ${trig} · 观察 ${watchN}</span>
-          <span class="mono">${bottom?.generated_at || bottom?.verdict?.generated_at || "—"}</span>
-        </div>`;
+          <span>触发 ${trig == null ? "—" : trig} · 观察 ${watchN}</span>
+          <span class="mono">截面 ${escText(bottom?.as_of || "—")} · 生成 ${escText(fmtShanghai(bottom?.generated_at) || "—")}</span>
+        </div>
+        ${(window.DashPresent ? DashPresent.bottomCaveats(bottom) : []).map((t) => `<div class="bb-caveat">${escText(t)}</div>`).join("")}`;
       initScoreSpark();
+      }
 
       document.getElementById("feedMeta").textContent = fmtShanghai(feed?.updated) || "";
       const top = [...items].sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt))).slice(0, 12);
@@ -320,14 +344,19 @@
       }
 
       const holders = etf?.baseline?.holders || [];
-      const holderSum = holders.reduce((s, h) => s + (h.shares_yi || 0), 0);
+      let holderSum = null;
+      holders.forEach((h) => {
+        const n = window.DashPresent ? DashPresent.toFinite(h && h.shares_yi) : (h && h.shares_yi);
+        if (n == null || Number.isNaN(+n)) return;
+        holderSum = (holderSum == null ? 0 : holderSum) + +n;
+      });
       document.getElementById("etfBox").innerHTML = `
         <div class="lab">NET FLOW · ${etfDate}</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
           <div><div class="stat-label">1D</div><div class="stat-value ${clsFlow(flow1)}">${flow1 == null ? "—" : DashFmt.signed(flow1, 1)}</div></div>
           <div><div class="stat-label">5D</div><div class="stat-value ${clsFlow(flow5)}">${flow5 == null ? "—" : DashFmt.signed(flow5, 1)}</div></div>
           <div><div class="stat-label">20D</div><div class="stat-value ${clsFlow(flow20)}">${flow20 == null ? "—" : DashFmt.signed(flow20, 1)}</div></div>
-          <div><div class="stat-label">汇金观察</div><div class="stat-value">${holderSum ? DashFmt.num(holderSum, 0) : "—"}</div></div>
+          <div><div class="stat-label">汇金观察</div><div class="stat-value">${holderSum == null ? "—" : DashFmt.num(holderSum, 0)}</div></div>
         </div>
         <div class="stat-hint">${fmtShanghai(etf?.updated) || etf?.updated || ""} · 亿 · 交易日 ${etfDate}</div>`;
 
@@ -335,7 +364,7 @@
         <a class="module-link" href="etf/"><strong>国家队 ETF</strong><div class="mu" style="font-size:11px;margin-top:4px">${(etf?.etfs || []).length} 只 · ${etf?.dates?.length || 0} 日</div><div class="go">OPEN</div></a>
         <a class="module-link" href="feed/" style="border-top:1px solid var(--bd)"><strong>信息聚合</strong><div class="mu" style="font-size:11px;margin-top:4px">${items.length} 条增量</div><div class="go">OPEN</div></a>
         <a class="module-link" href="policy/" style="border-top:1px solid var(--bd)"><strong>政策产业</strong><div class="mu" style="font-size:11px;margin-top:4px" id="policyModHint">—</div><div class="go">OPEN</div></a>
-        <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底信号</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig}/${total} · ${label}</div><div class="go">OPEN</div></a>`;
+        <a class="module-link" href="bottom/" style="border-top:1px solid var(--bd)"><strong>抄底信号</strong><div class="mu" style="font-size:11px;margin-top:4px">${trig == null ? "—" : trig + "/" + total} · ${label}</div><div class="go">OPEN</div></a>`;
     })();
   </script>
 </body>

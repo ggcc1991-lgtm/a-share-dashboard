@@ -55,10 +55,36 @@
     return { points: fromHist, source: "history.score" };
   }
 
+  /**
+   * Say what the published series actually is. Does not rewrite points.
+   * Historical days stay the publisher's reconstruction; only live:true points
+   * are called out as the bottom.json value.
+   */
+  function describeScoreSeries(scoreHistory, source) {
+    if (!scoreHistory || typeof scoreHistory !== "object") return "";
+    var parts = [];
+    if (typeof scoreHistory.note === "string" && scoreHistory.note.trim()) parts.push(scoreHistory.note.trim());
+    var pts = Array.isArray(scoreHistory.points) ? scoreHistory.points : [];
+    var live = [];
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i];
+      if (!p || p.live !== true || p.d == null || p.v == null || Number.isNaN(+p.v)) continue;
+      live.push(String(p.d) + " " + (+p.v));
+    }
+    if (live.length) {
+      parts.push("标为实值的日期 " + live.join("、") + "；其余日期保持发布原值，不用该实值回填");
+    } else if (pts.length) {
+      parts.push("没有 live 标记，全部按发布原值绘制");
+    }
+    if (source) parts.push("来源 " + source);
+    return parts.join("。 ");
+  }
+
   return {
     YTD_START: YTD_START,
     EMPTY_LABEL: EMPTY_LABEL,
     normalizeScorePoints: normalizeScorePoints,
     selectYtdScorePoints: selectYtdScorePoints,
+    describeScoreSeries: describeScoreSeries,
   };
 });

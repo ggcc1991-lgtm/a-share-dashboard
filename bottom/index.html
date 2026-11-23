@@ -177,6 +177,7 @@
     <h2 class="page-title">抄底信号</h2>
     <p class="page-sub">由GC制作</p>
     <p class="page-sub mono" id="meta" style="margin-top:-8px">加载 data/bottom.json …</p>
+    <p class="page-sub" id="caveat" hidden></p>
 
     <div class="bb-ind hero" id="hero">加载中…</div>
 
@@ -210,6 +211,7 @@
     <div class="sec-box" id="verdict"></div>
   </main>
   <footer class="app-footer" id="foot">仅供学习研究，不构成投资建议</footer>
+  <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script>
     function esc(s) {
@@ -266,8 +268,15 @@
         const inds = d.indicators || [];
         const watchN = inds.filter(x => x.status === "watching").length;
 
+        const gen = (window.DashPresent && DashPresent.formatShanghai(d.generated_at)) || fmtTime(d.generated_at);
         document.getElementById("meta").textContent =
-          `asOf ${d.as_of || fmtTime(d.generated_at || d.verdict?.generated_at)} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
+          `截面 ${d.as_of || "—"} · 生成 ${gen || "—"} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
+        const caveats = window.DashPresent ? DashPresent.bottomCaveats(d) : [];
+        const caveatEl = document.getElementById("caveat");
+        if (caveatEl) {
+          caveatEl.hidden = !caveats.length;
+          caveatEl.textContent = caveats.join(" · ");
+        }
 
         const ticks = Array.from({ length: total }, (_, i) => {
           const on = i < trig;
@@ -379,6 +388,7 @@
           const pct = total ? trig / total : 0;
           g.setOption({
             backgroundColor: "transparent",
+            animation: false,
             series: [{
               type: "gauge",
               startAngle: 210, endAngle: -30,
@@ -402,8 +412,9 @@
               axisLabel: { color: MU, fontSize: 9, distance: 12 },
               anchor: { show: true, size: 8, itemStyle: { color: BB } },
               title: { show: true, offsetCenter: [0, "68%"], color: MU, fontSize: 11 },
+              animation: false,
               detail: {
-                valueAnimation: true,
+                valueAnimation: false,
                 formatter: `{value}/${total}`,
                 color: BB, fontSize: 22, fontWeight: 700,
                 fontFamily: "SF Mono, Menlo, Consolas, monospace",

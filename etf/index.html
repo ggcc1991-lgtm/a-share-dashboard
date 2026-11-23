@@ -270,7 +270,7 @@
 
   const $ = (id) => document.getElementById(id);
   const fmt = (v, d = 1, sign = false) => {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (v == null || v === "" || typeof v === "boolean" || Number.isNaN(+v)) return "—";
     const n = +v;
     const s = sign && n > 0 ? "+" : "";
     return s + n.toLocaleString("zh-CN", { minimumFractionDigits: d, maximumFractionDigits: d });

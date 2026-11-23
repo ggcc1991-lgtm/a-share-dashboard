@@ -52,6 +52,7 @@
     <div id="list"></div>
   </main>
   <footer class="app-footer">字段：source / sourceName / title / url / publishedAt / summary · 分析：data/feed-analysis.json · 精读：data/feed-research-deepreads.json</footer>
+  <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
   <script>
@@ -313,7 +314,7 @@
         const rev = keywordBars.slice().reverse();
         initChart(kwEl, hBarOption(
           rev.map((x) => x.label || ""),
-          rev.map((x) => +x.value || 0),
+          rev.map((x) => (window.DashPresent ? DashPresent.toFinite(x.value) : (x.value == null || x.value === "" ? null : +x.value))),
           rev.map((x) => x.strength || x.value)
         ));
       }
@@ -322,7 +323,7 @@
       if (confEl && confidenceDonut.length) {
         initChart(confEl, pieOption(confidenceDonut.map((x) => ({
           name: x.label,
-          value: +x.value || 0,
+          value: window.DashPresent ? DashPresent.toFinite(x.value) : (x.value == null || x.value === "" ? null : +x.value),
         })), { donut: true }));
       }
 
@@ -331,7 +332,7 @@
         const rev = opportunityScores.slice().reverse();
         initChart(oppEl, hBarOption(
           rev.map((x) => x.label || ""),
-          rev.map((x) => +x.value || 0),
+          rev.map((x) => (window.DashPresent ? DashPresent.toFinite(x.value) : (x.value == null || x.value === "" ? null : +x.value))),
           rev.map((x) => x.confidence || x.value)
         ));
       }
@@ -568,7 +569,8 @@
     }
 
     function updateMeta(feedUpdated, n) {
-      const parts = [`${feedUpdated || "—"} · ${n} 条`];
+      const shown = (window.DashPresent && DashPresent.formatShanghai(feedUpdated)) || feedUpdated || "—";
+      const parts = [`生成 ${shown} · ${n} 条`];
       if (analysisUpdated) parts.push(`分析 ${analysisUpdated}`);
       document.getElementById("meta").textContent = parts.join(" · ");
     }
