@@ -10,15 +10,18 @@ permissions:
   pages: write
   id-token: write
 
+# Do not cancel a deploy that is already uploading. A cancelled run
+# leaves the next lookup racing an artifact that was just finalized.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Upload finishes, and the job ends, before deploy lists artifacts.
+  # deploy-pages lists once in-process. In the same job that list has
+  # come back empty for an artifact finalized under a second earlier
+  # (actions/deploy-pages#451). A later job sees the artifact.
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,6 +32,13 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
