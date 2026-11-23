@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-23T06:26:17+08:00",
+ "updated": "2026-11-23T23:33:02+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -1348,36 +1348,38 @@
    "region": "US",
    "name": "Flash Manufacturing PMI",
    "releaseAt": "2026-11-23T22:45:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "54.5",
    "forecast": "54.5",
-   "previous": "56.0",
-   "verdict": null,
-   "diff": null,
+   "previous": "54.9",
+   "verdict": "符合预期",
+   "diff": "0.0",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "S&P Global Flash US PMI（2026年11月初值，官方新闻稿 2026-11-23 09:45 ET）",
+    "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/18abd879261e464fbcc1bc22d4ea64eb"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 0.0
   },
   {
    "id": "ff-USD-202611232245-FlashServicesPMI",
    "region": "US",
    "name": "Flash Services PMI",
    "releaseAt": "2026-11-23T22:45:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "54.7",
    "forecast": "55.6",
-   "previous": "57.9",
-   "verdict": null,
-   "diff": null,
+   "previous": "56.1",
+   "verdict": "低于预期",
+   "diff": "-0.9",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "S&P Global Flash US PMI（2026年11月初值，官方新闻稿 2026-11-23 09:45 ET）",
+    "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/18abd879261e464fbcc1bc22d4ea64eb"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": -1.6
   },
   {
    "id": "ff-USD-202611242300-CBConsumerConfidence",
@@ -1416,24 +1418,6 @@
    "importance": 3
   },
   {
-   "id": "ff-USD-202611252130-PrelimGDPPriceIndexq",
-   "region": "US",
-   "name": "Prelim GDP Price Index q/q",
-   "releaseAt": "2026-11-25T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
-   "forecast": "2.3%",
-   "previous": "2.3%",
-   "verdict": null,
-   "diff": null,
-   "impact": "Medium",
-   "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
-   },
-   "importance": 1
-  },
-  {
    "id": "ff-USD-202611252130-PrelimGDPqq",
    "region": "US",
    "name": "Prelim GDP q/q",
@@ -1450,6 +1434,24 @@
     "url": "https://www.forexfactory.com/calendar"
    },
    "importance": 3
+  },
+  {
+   "id": "ff-USD-202611252130-PrelimGDPPriceIndexq",
+   "region": "US",
+   "name": "Prelim GDP Price Index q/q",
+   "releaseAt": "2026-11-25T21:30:00+08:00",
+   "status": "upcoming",
+   "actual": null,
+   "forecast": "2.3%",
+   "previous": "2.3%",
+   "verdict": null,
+   "diff": null,
+   "impact": "Medium",
+   "source": {
+    "name": "ForexFactory 周历",
+    "url": "https://www.forexfactory.com/calendar"
+   },
+   "importance": 1
   },
   {
    "id": "ff-USD-202611252130-UnemploymentClaims",
