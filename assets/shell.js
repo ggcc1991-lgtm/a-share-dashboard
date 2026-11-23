@@ -40,11 +40,13 @@ window.DashTheme = {
 
 window.DashFmt = {
   num(v, d = 2) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent) return DashPresent.formatNum(v, d);
+    if (v == null || v === "" || typeof v === "boolean" || Number.isNaN(+v)) return "—";
     return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: 0 });
   },
   signed(v, d = 2) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent) return DashPresent.formatSigned(v, d);
+    if (v == null || v === "" || typeof v === "boolean" || Number.isNaN(+v)) return "—";
     const n = +v;
     const s = n > 0 ? "+" : "";
     return s + n.toLocaleString("zh-CN", { maximumFractionDigits: d });
@@ -61,6 +63,43 @@ window.DashFmt = {
 };
 
 
+(function patchCharts() {
+  function install() {
+    if (!window.echarts || echarts.__dashChartPatch || typeof echarts.init !== "function") return;
+    var orig = echarts.init;
+    echarts.init = function (dom, theme, opts) {
+      var chart = orig.call(this, dom, theme, opts);
+      var origSet = chart.setOption;
+      chart.setOption = function (option) {
+        var reduce = false;
+        try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (_) {}
+        if (option && typeof option === "object" && !Array.isArray(option)) {
+          if (window.DashPresent) DashPresent.applyChartDefaults(option, reduce);
+          else {
+            if (reduce) option.animation = false;
+            var tip = option.tooltip;
+            if (tip && typeof tip === "object" && !Array.isArray(tip) && tip.confine == null) tip.confine = true;
+          }
+        }
+        return origSet.apply(chart, arguments);
+      };
+      if (dom && typeof ResizeObserver !== "undefined") {
+        try {
+          var ro = new ResizeObserver(function () {
+            try { chart.resize(); } catch (_) {}
+          });
+          ro.observe(dom);
+        } catch (_) {}
+      }
+      return chart;
+    };
+    echarts.__dashChartPatch = true;
+  }
+  window.DashCharts = { install: install };
+  install();
+  document.addEventListener("DOMContentLoaded", install);
+})();
+
 (function motion() {
   const header = document.querySelector(".app-header");
   if (!header) return;
@@ -71,28 +110,15 @@ window.DashFmt = {
 
 
 window.DashMotion = {
-  countTo(el, target, { duration = 700, decimals = 0, prefix = "", suffix = "" } = {}) {
-    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      if (el) el.textContent = prefix + target + suffix;
-      return;
-    }
-    const start = performance.now();
-    const from = 0;
+  /** Writes the final figure. Does not count up from 0 (that flashes a false value). */
+  countTo(el, target, { decimals = 0, prefix = "", suffix = "" } = {}) {
+    if (!el) return;
     const to = Number(target);
     if (!Number.isFinite(to)) { el.textContent = prefix + target + suffix; return; }
-    el.classList.add("is-counting");
-    const tick = (now) => {
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      const v = from + (to - from) * eased;
-      el.textContent = prefix + v.toLocaleString("zh-CN", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-      else el.classList.remove("is-counting");
-    };
-    requestAnimationFrame(tick);
+    el.textContent = prefix + to.toLocaleString("zh-CN", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }) + suffix;
   },
 };
 

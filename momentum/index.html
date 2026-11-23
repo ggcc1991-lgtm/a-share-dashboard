@@ -241,11 +241,11 @@
   let byHeat = {};
 
   function fmtNum(v, d) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (v == null || v === "" || typeof v === "boolean" || Number.isNaN(+v)) return "—";
     return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d });
   }
   function fmtMom(v, d) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (v == null || v === "" || typeof v === "boolean" || Number.isNaN(+v)) return "—";
     const n = +v;
     const s = n > 0 ? "+" : "";
     return s + n.toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: Math.min(1, d) });

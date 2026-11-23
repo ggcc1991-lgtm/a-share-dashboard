@@ -253,8 +253,10 @@
   </main>
   <footer class="app-footer">RESEARCH ONLY · LXWFOF POSITION SERIES · GC DATA</footer>
 
+  <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
+  <script>DashCharts.install()</script>
   <script>
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -313,11 +315,13 @@
   let activeMutualId = null;
 
   function fmtNum(v, d = 2) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent ? DashPresent.isMissing(v) : (v == null || v === "")) return "—";
+    if (Number.isNaN(+v)) return "—";
     return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d });
   }
   function fmtPct(v, d = 1) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent ? DashPresent.isMissing(v) : (v == null || v === "")) return "—";
+    if (Number.isNaN(+v)) return "—";
     const n = +v;
     const s = n > 0 ? "+" : "";
     return s + n.toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d }) + "%";
@@ -1044,6 +1048,7 @@
       return;
     }
     const noteBits = [sections.length ? "私募·仓位" : (isStrategyIndex(d) ? "私募·策略指数" : "私募")];
+    noteBits.push("周频截面，非盘中");
     if (d.asOf) noteBits.push("asOf " + d.asOf);
     $("titleNote").textContent = noteBits.join(" · ");
     $("sampleBadge").hidden = !d.sample;

@@ -177,6 +177,7 @@
     <h2 class="page-title">抄底信号</h2>
     <p class="page-sub">由GC制作</p>
     <p class="page-sub mono" id="meta" style="margin-top:-8px">加载 data/bottom.json …</p>
+    <p class="page-sub" id="caveat" hidden></p>
 
     <div class="bb-ind hero" id="hero">加载中…</div>
 
@@ -210,6 +211,7 @@
     <div class="sec-box" id="verdict"></div>
   </main>
   <footer class="app-footer" id="foot">仅供学习研究，不构成投资建议</footer>
+  <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script>
     function esc(s) {
@@ -266,8 +268,15 @@
         const inds = d.indicators || [];
         const watchN = inds.filter(x => x.status === "watching").length;
 
+        const gen = (window.DashPresent && DashPresent.formatShanghai(d.generated_at)) || fmtTime(d.generated_at);
         document.getElementById("meta").textContent =
-          `asOf ${d.as_of || fmtTime(d.generated_at || d.verdict?.generated_at)} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
+          `截面 ${d.as_of || "—"} · 生成 ${gen || "—"} · ${d.timezone || "Asia/Shanghai"} · 红线 ${trig}/${total}`;
+        const caveats = window.DashPresent ? DashPresent.bottomCaveats(d) : [];
+        const caveatEl = document.getElementById("caveat");
+        if (caveatEl) {
+          caveatEl.hidden = !caveats.length;
+          caveatEl.textContent = caveats.join(" · ");
+        }
 
         const ticks = Array.from({ length: total }, (_, i) => {
           const on = i < trig;
@@ -379,6 +388,7 @@
           const pct = total ? trig / total : 0;
           g.setOption({
             backgroundColor: "transparent",
+            animation: false,
             series: [{
               type: "gauge",
               startAngle: 210, endAngle: -30,
@@ -402,8 +412,9 @@
               axisLabel: { color: MU, fontSize: 9, distance: 12 },
               anchor: { show: true, size: 8, itemStyle: { color: BB } },
               title: { show: true, offsetCenter: [0, "68%"], color: MU, fontSize: 11 },
+              animation: false,
               detail: {
-                valueAnimation: true,
+                valueAnimation: false,
                 formatter: `{value}/${total}`,
                 color: BB, fontSize: 22, fontWeight: 700,
                 fontFamily: "SF Mono, Menlo, Consolas, monospace",
@@ -418,6 +429,7 @@
         if (cg && groups.length) {
           cg.setOption({
             backgroundColor: "transparent",
+            tooltip: { trigger: "axis", confine: true, axisPointer: { type: "shadow" } },
             grid: { left: 72, right: 24, top: 16, bottom: 28 },
             xAxis: {
               type: "value", max: Math.max(...groups.map(x => x.total || 0), 1),
@@ -453,6 +465,7 @@
           const vals = near.map(x => Math.round((x.progress ?? 0) * 1000) / 10).reverse();
           cn.setOption({
             backgroundColor: "transparent",
+            tooltip: { trigger: "axis", confine: true, axisPointer: { type: "shadow" } },
             grid: { left: 88, right: 40, top: 16, bottom: 28 },
             xAxis: {
               type: "value", min: 0, max: 100,
@@ -540,9 +553,11 @@
               grid: { left: 52, right: 16, top: 20, bottom: 28 },
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 axisPointer: { type: "cross", lineStyle: { color: "#333" } },
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal({ scale: true }),
               series: [{
@@ -581,8 +596,10 @@
               grid: markGrid,
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal(),
               series: [{
@@ -611,8 +628,10 @@
               grid: markGrid,
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal(),
               series: [{

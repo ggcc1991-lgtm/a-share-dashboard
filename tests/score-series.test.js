@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
-const { selectYtdScorePoints, normalizeScorePoints, YTD_START } = require("../assets/score-series.js");
+const { selectYtdScorePoints, normalizeScorePoints, describeScoreSeries, YTD_START } = require("../assets/score-series.js");
 
 const root = path.join(__dirname, "..");
 
@@ -180,6 +180,19 @@ test("same start with a shorter score_history keeps the longer history.score", (
     ["2026-04-01", 2],
     ["2026-11-20", 6],
   ]);
+});
+
+test("describeScoreSeries names the reconstruction and the live point without rewriting values", () => {
+  const scoreHist = readJSON("data/score_history.json");
+  const text = describeScoreSeries(scoreHist, "score_history.points");
+  assert.match(text, /近似重建/);
+  assert.match(text, /标为实值的日期 2026-11-23 9/);
+  assert.match(text, /不用该实值回填/);
+  assert.match(text, /score_history\.points/);
+  assert.equal(text.includes("2026-11-20 9"), false);
+  const picked = selectYtdScorePoints(scoreHist, readJSON("data/history.json"));
+  assert.equal(picked.points.find((p) => p.d === "2026-11-20").v, 6);
+  assert.equal(picked.points.at(-1).live, true);
 });
 
 test("duplicate dates keep the later published value and sort chronologically", () => {

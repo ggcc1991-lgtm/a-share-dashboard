@@ -16,8 +16,8 @@
   --bd-2: #222;
   --tx: #e8e8e8;  /* body; amber reserved for labels */
   --mu: #a0a0a0;
-  --mu-2: #787878;
-  --mu-3: #5c5c5c;
+  --mu-2: #8f8f8f;
+  --mu-3: #8a8a8a;
   --bb: #ffa028;          /* Terminal amber — titles / chrome */
   --pos: #ef5350;         /* 涨 */
   --neg: #26a69a;         /* 跌 */
@@ -46,6 +46,10 @@ body {
 }
 a { color: var(--tx); text-decoration: none; }
 a:hover { color: var(--bb); }
+:focus-visible {
+  outline: 2px solid var(--bb);
+  outline-offset: 2px;
+}
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 .mu { color: var(--mu); }
 
@@ -388,11 +392,6 @@ table.data tr:hover td { background: #1c1c1c; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes bb-flash {
-    0% { background: rgba(255,100,0,.18); }
-    100% { background: transparent; }
-  }
-  .stat-value.is-counting { animation: bb-flash .6s ease; }
   .nav a.active { transition: border-color .15s linear; }
 
   /* VT root crossfade + slight Y — 180ms, ease-out */
@@ -601,6 +600,14 @@ table.data tr:hover td { background: #1c1c1c; }
   color: var(--mu-2);
   letter-spacing: 0.04em;
 }
+.bb-spark-note, .bb-caveat {
+  font-size: 10px;
+  line-height: 1.45;
+  color: var(--mu);
+  padding: 4px 8px 6px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 /* —— Mobile ≤719px (phone-first fixes; desktop ≥720 unchanged) —— */
 .table-scroll,
@@ -620,7 +627,7 @@ table.data tr:hover td { background: #1c1c1c; }
 
 @media (max-width: 719px) {
   /* prevent page-level horizontal blowout; nested .table-scroll still scrolls */
-  body { overflow-x: clip; }
+  html, body { overflow-x: clip; max-width: 100%; }
   .wrap {
     padding: 10px 10px 40px;
     max-width: 100%;
@@ -656,12 +663,12 @@ table.data tr:hover td { background: #1c1c1c; }
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .nav {
+  .app-header .nav {
     flex: 0 0 auto;
     width: 100%;
     min-width: 0;
     max-width: 100%;
-    height: 36px;
+    height: 44px;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -670,8 +677,9 @@ table.data tr:hover td { background: #1c1c1c; }
     gap: 0;
   }
   .nav::-webkit-scrollbar { display: none; }
-  .nav a {
+  .nav a, .nav-dd-btn {
     flex: 0 0 auto;
+    min-height: 44px;
     padding: 0 12px;
     white-space: nowrap;
     font-size: 12px;

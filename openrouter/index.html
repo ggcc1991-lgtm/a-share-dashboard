@@ -333,8 +333,10 @@
   </main>
   <footer class="app-footer">RESEARCH ONLY · FITTED REVENUE NOT OFFICIAL · GC DATA</footer>
 
+  <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
+  <script>DashCharts.install()</script>
   <script>
 (function () {
   const AMBER = "#FFA028";
@@ -357,11 +359,13 @@
     return "neu";
   }
   function fmtNum(v, d = 2) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent) return DashPresent.formatNum(v, d);
+    if (v == null || v === "" || Number.isNaN(+v)) return "—";
     return (+v).toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: 0 });
   }
   function fmtSignedPct(v, d = 2) {
-    if (v == null || Number.isNaN(+v)) return "—";
+    if (window.DashPresent ? DashPresent.isMissing(v) : (v == null || v === "")) return "—";
+    if (Number.isNaN(+v)) return "—";
     const n = +v;
     const s = n > 0 ? "+" : "";
     return s + n.toLocaleString("zh-CN", { maximumFractionDigits: d, minimumFractionDigits: d }) + "%";
@@ -454,6 +458,7 @@
         textStyle: { color: "#e8e8e8", fontSize: 11 },
         confine: true,
       },
+      dataZoom: [{ type: "inside", start: 0, end: 100 }],
       legend: (function () {
         const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
         if (narrow) {
@@ -506,8 +511,8 @@
     const items = [
       { k: "Token (T)", v: fmtNum(k.tokens_T, 2), d: k.weekStart + " → " + k.weekEnd, cls: "neu" },
       { k: "Token WoW", v: fmtSignedPct(k.tokensWowPct, 2), d: "vs 上一完整周", cls: wowCls(k.tokensWowPct) },
-      { k: "Revenue ($M)", v: fmtNum(k.revenue_M, 2), d: "fitted", cls: "neu" },
-      { k: "Revenue WoW", v: fmtSignedPct(k.revenueWowPct, 2), d: "vs 上一完整周", cls: wowCls(k.revenueWowPct) },
+      { k: "Revenue ($M)", v: fmtNum(k.revenue_M, 2), d: "拟合估计 · 非实际收入 · 完整周", cls: "neu" },
+      { k: "Revenue WoW", v: fmtSignedPct(k.revenueWowPct, 2), d: "拟合 · vs 上一完整周", cls: wowCls(k.revenueWowPct) },
       { k: "开源 Token 份额", v: fmtNum(k.openTokenSharePct, 1) + "%", d: "完整周", cls: "neu" },
       { k: "闭源 Token 份额", v: fmtNum(k.closedTokenSharePct, 1) + "%", d: "完整周", cls: "neu" },
     ];
@@ -515,10 +520,10 @@
       `<div class="c"><div class="k">${esc(x.k)}</div><div class="v ${x.cls}">${esc(x.v)}</div><div class="d">${esc(x.d)}</div></div>`
     ).join("");
     $("kpiBar2").innerHTML = [
-      { k: "开源收入份额", v: fmtNum(k.openRevenueSharePct, 1) + "%" },
-      { k: "闭源收入份额", v: fmtNum(k.closedRevenueSharePct, 1) + "%" },
+      { k: "开源收入份额", v: fmtNum(k.openRevenueSharePct, 1) + "%", d: "拟合" },
+      { k: "闭源收入份额", v: fmtNum(k.closedRevenueSharePct, 1) + "%", d: "拟合" },
     ].map((x) =>
-      `<div class="c"><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div></div>`
+      `<div class="c"><div class="k">${esc(x.k)}</div><div class="v">${esc(x.v)}</div><div class="d">${esc(x.d)}</div></div>`
     ).join("");
   }
 
@@ -875,7 +880,8 @@
       (nHist ? (" · history " + nHist + "d") : (g.windowDays != null ? (" · window " + g.windowDays + "d") : ""));
     const src = typeof g.source === "string" ? g.source : ((g.source && g.source.name) || "Silicon Data");
     const note = g.sourceNote || (g.source && g.source.note) || "";
-    $("gpuCaveat").textContent = [src, unit, note, "history 全长追加不截断"].filter(Boolean).join(" · ");
+    const histHasGap = Object.keys(seriesMap).some((k) => Array.isArray(seriesMap[k]) && seriesMap[k].some((v) => v == null));
+    $("gpuCaveat").textContent = [src, unit, note, "history 全长追加不截断", histHasGap ? "历史空值保持缺失，不补 0" : ""].filter(Boolean).join(" · ");
     const segLabel = (s) => {
       if (s === "neo" || s === "neo-cloud") return "Neo-cloud";
       if (s === "hs" || s === "hyperscaler") return "Hyperscaler";
@@ -925,6 +931,7 @@
             confine: true,
             valueFormatter: (v) => (v == null ? "—" : (+v).toFixed(2)),
           },
+          dataZoom: [{ type: "inside", start: 0, end: 100 }],
           legend: (function () {
             const narrow = window.matchMedia("(max-width: 719px)").matches || window.innerWidth < 500;
             if (narrow) {
