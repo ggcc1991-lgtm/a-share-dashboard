@@ -1,34 +1,50 @@
 # 公募 mutual.json 再生（funds-mutual-v2）
 
-源：
-- 主数据：lxwfof `/api/position/pub`（combo / pub_abs / pub_style / pub_quant + accuracy）
-- ETF：`/api/position/etf`
-- MCP `user-lxwfof MCP` → `get_dataset(name=position)` **仅私募**，公募四块不在此；可另存 `position-raw.json` 备查
+源（lxwfof MCP，不登录网页）：
+
+- 主数据：`get_dataset(name=position_pub)` → combo / pub_abs / pub_style / pub_quant + accuracy
+- ETF：`get_dataset(name=position_etf)`
 - 对照页：https://lxwfof.com/#/position
+- 私募 dataset `position` 不是本次公募取数。`--mcp-summary` 与 `--mcp-asof` 若仍被传入，只打印警告并忽略，不写入 `note` / `source`
+
+输入包装（二选一，载荷字段相同）：
+
+- MCP dataset：`{name,desc,kb,data}`，`name` 必须分别是 `position_pub` / `position_etf`
+- 旧接口同形：`{ok:true,data}`；`data` 本身还可以再是一层 MCP dataset。`ok!=true`、数据集名称不符、序列长度不齐、非数值、日期不递增、声明 `asof` 与末点不一致，一律拒绝且不写输出文件
+- JSON 后若只有合规尾注一行，可以读入；尾部再出现对象或凭证则拒绝
+
+```bash
+python3 funds/scripts/rebuild_mutual_from_api.py \
+  --pub position_pub.json \
+  --etf position_etf.json \
+  --out funds/data/mutual.json
+```
+
+成功时标准输出记录 `generatedAt`、两个 dataset 的 envelope 与 asOf、五区块页签长度和末点，并以 `validate ok` 结束。失败时退出码 1。生成时间用 Asia/Shanghai 的当前时间。区块日期只来自数据里的序列末点。
 
 产出 `sections[]`：
+
 1. `combo` · 公私募全风格合计（chips 含主动/量化公募与主动/量化私募；私募侧详情不在本文件重复）
 2. `pub_abs` · 主观公募绝对仓位
 3. `pub_style` · 主观公募风格拆分
 4. `pub_quant` · 量化公募风格拆分
-5. `etf` · ETF 持仓拆分（可选）
+5. `etf` · ETF 持仓拆分
 
-`universe: lxwfof_position_pub`；`funds` 置空。
+`universe: lxwfof_position_pub`；`funds` 置空；`sample: false`。紧凑 JSON，一行加末尾换行。
 
 ## 顶层 `note`（页脚）规则
 
-模板（按实际 asOf 填）：
+模板（asOf 用数据里的日期，不要猜）：
 
-> 主数据 /api/position/pub（asOf=\<pub_asOf\>），ETF 来自 /api/position/etf；MCP dataset \`position\` 仅含私募侧（asOf=\<mcp_asOf\>），已另存 position-raw.json。部分信息参考自lxwfof MCP。
+> lxwfof MCP position_pub（asOf=\<pub_asOf\>），position_etf（asOf=\<etf_asOf\>）。【部分信息参考自lxwfof MCP】
 
-**禁止**再写入「产品自助拆分未入库。」与「公募仓位重建自 lxwfof「公私募持仓统计」；」（用户要求页脚不出现）。产品自助 / ppos / pubpri_excess 只写在 `source.gaps`。
+来源写在 `source.mcp`：`namespace` 为 `lxwfof MCP`，`datasets` 为 `position_pub` 与 `position_etf`。不要再写网页登录接口路径，也不要把私募 `position` 摘要当成当次取数。
 
-同步目标：
-- `data-dashboard/funds/data/mutual.json`
-- `/workspace/funds/data/mutual.json`
-- `ashd/funds/data/mutual.json`（GitHub Pages 源）
+**禁止**出现「产品自助拆分未入库。」与「公募仓位重建自 lxwfof…」。产品自助 / ppos / pubpri_excess 只写在 `source.gaps`。合规尾注必须原样保留 `【部分信息参考自lxwfof MCP】`（`note` 末尾和 `source.compliance`）。
 
-推送约定：改完数据后由本 bot 或 github助手推 `ashd`；重生截面务必遵守上述 note 规则。
+本仓库产出：`funds/data/mutual.json`。日更调度在 Grok Bot；本脚本只消费已经取好的两份 JSON。合并进 `main` 后由 Pages 工作流发布。
+
+校验：`python3 -m unittest tests/test_rebuild_mutual.py`
 
 
 ## 行业配置热力（industry_mutual.json）
