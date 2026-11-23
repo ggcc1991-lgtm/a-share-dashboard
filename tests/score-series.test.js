@@ -78,6 +78,8 @@ test("homepage wires the spark to score_history and does not paint bottom.json",
   assert.doesNotMatch(spark, /triggered_count/);
   assert.doesNotMatch(spark, /bottom\.json/);
   assert.match(html, /今年以来信号变化/);
+  assert.doesNotMatch(html, /scoreSparkNote/);
+  assert.doesNotMatch(html, /describeScoreSeries/);
   assert.match(fs.readFileSync(path.join(root, "bottom/index.html"), "utf8"), /由GC制作/);
 });
 

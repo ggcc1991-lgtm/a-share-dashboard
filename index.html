@@ -194,13 +194,6 @@
       const picked = window.ScoreSeries
         ? ScoreSeries.selectYtdScorePoints(pair[0], pair[1])
         : { points: [] };
-      const noteEl = document.getElementById("scoreSparkNote");
-      if (noteEl && window.ScoreSeries) {
-        const srcObj = picked.source === "history.score"
-          ? { note: pair[1] && pair[1].score_meta && pair[1].score_meta.note, points: pair[1] && pair[1].score }
-          : pair[0];
-        noteEl.textContent = ScoreSeries.describeScoreSeries(srcObj, picked.source);
-      }
       const pts = picked.points;
       if (!pts.length) {
         const label = (window.ScoreSeries && ScoreSeries.EMPTY_LABEL) || "待抄底写入 score_history.points";
@@ -299,7 +292,6 @@
         <div class="bb-spark" id="scoreSparkWrap">
           <div class="bb-spark-title">今年以来信号变化</div>
           <div class="bb-spark-chart" id="scoreSpark"></div>
-          <div class="bb-spark-note" id="scoreSparkNote"></div>
         </div>
         <div class="bb-ind-hd"><span>#</span><span>INDICATOR</span><span style="text-align:right">VALUE</span><span style="text-align:right">状态</span></div>
         ${rows || `<div class="mu" style="padding:8px 10px">暂无指标</div>`}
