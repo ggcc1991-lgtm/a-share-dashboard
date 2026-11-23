@@ -114,11 +114,13 @@
 
   /**
    * Chart option defaults. Does not change series data.
-   * Reduced motion turns animation off. Tooltips stay inside the plot.
+   * Animation is left alone unless the caller passes reduce=true,
+   * which is only for an actual prefers-reduced-motion match.
+   * Tooltips stay inside the plot either way.
    */
   function applyChartDefaults(option, reduce) {
     if (!option || typeof option !== "object" || Array.isArray(option)) return option;
-    if (reduce) {
+    if (reduce === true) {
       option.animation = false;
       option.animationDuration = 0;
       var series = option.series;

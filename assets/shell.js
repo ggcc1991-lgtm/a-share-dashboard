@@ -85,8 +85,22 @@ window.DashFmt = {
       };
       if (dom && typeof ResizeObserver !== "undefined") {
         try {
+          var lastW = null;
+          var lastH = null;
           var ro = new ResizeObserver(function () {
-            try { chart.resize(); } catch (_) {}
+            var w = dom.clientWidth || 0;
+            var h = dom.clientHeight || 0;
+            if (lastW === null) {
+              lastW = w;
+              lastH = h;
+              return;
+            }
+            if (w === lastW && h === lastH) return;
+            lastW = w;
+            lastH = h;
+            if (w > 0 && h > 0) {
+              try { chart.resize(); } catch (_) {}
+            }
           });
           ro.observe(dom);
         } catch (_) {}
@@ -110,15 +124,35 @@ window.DashFmt = {
 
 
 window.DashMotion = {
-  /** Writes the final figure. Does not count up from 0 (that flashes a false value). */
-  countTo(el, target, { decimals = 0, prefix = "", suffix = "" } = {}) {
-    if (!el) return;
+  countTo(el, target, { duration = 700, decimals = 0, prefix = "", suffix = "" } = {}) {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!el || reduce) {
+      if (el) el.textContent = prefix + target + suffix;
+      return;
+    }
+    const start = performance.now();
+    const from = 0;
     const to = Number(target);
     if (!Number.isFinite(to)) { el.textContent = prefix + target + suffix; return; }
-    el.textContent = prefix + to.toLocaleString("zh-CN", {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals,
-    }) + suffix;
+    el.classList.add("is-counting");
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = from + (to - from) * eased;
+      el.textContent = prefix + v.toLocaleString("zh-CN", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else {
+        el.textContent = prefix + to.toLocaleString("zh-CN", {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals,
+        }) + suffix;
+        el.classList.remove("is-counting");
+      }
+    };
+    requestAnimationFrame(tick);
   },
 };
 
