@@ -392,6 +392,11 @@ table.data tr:hover td { background: #1c1c1c; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes bb-flash {
+    0% { background: rgba(255,100,0,.18); }
+    100% { background: transparent; }
+  }
+  .stat-value.is-counting { animation: bb-flash .6s ease; }
   .nav a.active { transition: border-color .15s linear; }
 
   /* VT root crossfade + slight Y — 180ms, ease-out */

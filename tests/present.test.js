@@ -54,10 +54,16 @@ test("chart defaults confine tooltips and stop motion without touching series va
   assert.equal(option.series[0].detail.valueAnimation, false);
   assert.equal(option.tooltip.confine, true);
   assert.deepEqual(option.series[0].data, [null, 0, 6, 9]);
-  const keep = { tooltip: { trigger: "item", confine: false }, series: [{ type: "bar", data: [0] }] };
+  const keep = {
+    animation: true,
+    tooltip: { trigger: "item", confine: false },
+    series: [{ type: "gauge", data: [9], detail: { valueAnimation: true } }],
+  };
   P.applyChartDefaults(keep, false);
   assert.equal(keep.tooltip.confine, false);
-  assert.equal(keep.animation, undefined);
+  assert.equal(keep.animation, true);
+  assert.equal(keep.series[0].detail.valueAnimation, true);
+  assert.equal(keep.series[0].animation, undefined);
 });
 
 test("bottom caveats come from the snapshot and do not change the score", () => {

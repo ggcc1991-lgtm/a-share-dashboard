@@ -388,7 +388,6 @@
           const pct = total ? trig / total : 0;
           g.setOption({
             backgroundColor: "transparent",
-            animation: false,
             series: [{
               type: "gauge",
               startAngle: 210, endAngle: -30,
@@ -412,9 +411,8 @@
               axisLabel: { color: MU, fontSize: 9, distance: 12 },
               anchor: { show: true, size: 8, itemStyle: { color: BB } },
               title: { show: true, offsetCenter: [0, "68%"], color: MU, fontSize: 11 },
-              animation: false,
               detail: {
-                valueAnimation: false,
+                valueAnimation: true,
                 formatter: `{value}/${total}`,
                 color: BB, fontSize: 22, fontWeight: 700,
                 fontFamily: "SF Mono, Menlo, Consolas, monospace",
