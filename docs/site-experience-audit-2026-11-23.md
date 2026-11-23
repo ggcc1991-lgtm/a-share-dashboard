@@ -1,6 +1,48 @@
 # 站点体验审计 2026-11-23（UI-2）
 
-只读审计加一轮可合并的展示修复。没有改 `data/`、`funds/data/`、`openrouter/data/`、`sentiment/data/` 或任何生成脚本。分数阈值和投资建议文案没有改。PR 未合并。
+展示修复，没有改行情 JSON，没有改分数阈值，没有改投资建议。PR 未合并。
+
+## 第二轮补齐（同一 PR）
+
+上一轮留下的缺口在这一轮做完，并用浏览器动作核对，不是只看截图。
+
+### 已补上的缺陷
+
+- `/policy/` 在 375 和 390 宽的横向溢出是关闭的侧栏 `#drawer`。它 `position:fixed` 且比视口宽 2px，关着的时候仍算进 `scrollWidth`。关闭时宽度改为 0；打开时（点 `[data-sid]`）宽 375、溢出 0，正文能读到。375 和 390 的溢出都量到 **0**。
+- `/etf/` 期货图初始化前把面板设成 `display:""`，样式表里的 `display:none` 又把它藏起来，图是 0×0。改为 `display:block` 后再 init。375 宽下 `chartFut` 为 327×194，有 tooltip、图例和 dataZoom。
+- ETF / 抄底 / 信息流柱状图的 tooltip 原先不 `confine`，窄屏会画出画布。现在关在图内。信息流关键词和机会条补了 axis tooltip。
+- 抄底 K 线、IM 贴水、融资余额，以及 OpenRouter 周图和 GPU 图，加了 `inside` dataZoom（不改数据，默认仍是 0–100 全区间）。ETF 和基金本来就有 inside + slider。
+- `shell.js` 在 `echarts.init` 上包一层：`prefers-reduced-motion: reduce` 时 `animation: false` 且仪表盘 `valueAnimation: false`；tooltip 缺省 `confine: true`；容器用 ResizeObserver。用 Chrome 模拟 reduce 后，抄底 6 张图的 `animation` 都是 false。
+- `legacy/index.html` 和 `bottom/full.html` 补了窄屏：`.grp .rd` 不再 `min-width:260px`，`overflow-x:clip`，按钮最小高度 44，备注不再被 3.2em 裁掉，减少动效，焦点环。嵌入的分数快照没有改。375 宽溢出 0，「由GC制作」还在，16 张图有宽度。
+
+### 交互矩阵
+
+Headless Chrome。图上的动作是 `dispatchAction`：`showTip`、`legendToggleSelect`、`dataZoom` 到 30–70 再回到 0–100。页签是真实 `click`。N/A 表示页面没有这种控件。
+
+| 路由 | 宽 | 溢出 | tooltip | 图例开关 | dataZoom | 页签/点击 | 备注 |
+|---|---|---|---|---|---|---|---|
+| `/` | 1280、375 | 0 | SVG `title`，214 点 | N/A | N/A | 导航 ArrowDown 把 `aria-expanded` 设为 true | 说明含「近似重建」，tooltip `2026-11-23  红线 9/12` |
+| `/etf/` | 1280、375 | 0 | 3 张图 showTip 成功，confine true | 成功后恢复 | 成功后回到 0–100 | 期货面板现在可见 | `chartFut` 不再是 0×0 |
+| `/sentiment/` | 1280、375 | 0 | SVG `<title>` | N/A | N/A | 点 `[data-d]` 后格子带 `.sel`；1280 也能点到带「情绪」的格子 | 无 ECharts。手机藏长文案，短状态还在 |
+| `/momentum/` | 1280、375 | 0 | N/A | N/A | N/A | 热力表，无图实例 | 未改排序逻辑 |
+| `/feed/` | 1280、375 | 0 | 3 张图，含新的柱状 tooltip | 饼图图例可关 | N/A（分类条，不是时间轴） | 无页签 | |
+| `/bottom/` | 1280、375 | 0 | K 线/贴水/融资/分组/进度 confine | 时间序列无多图例，记 N/A | 3 条时间序列 inside zoom 成功 | 仪表盘无 zoom，记 N/A | reduce 下 animation false |
+| `/policy/` | 1280、375、390 | 0 | SVG spark 在抽屉里 | N/A | N/A | 点筛选按钮；点 `data-sid` 打开抽屉，宽等于视口 | |
+| `/earnings/` | 1280、375 | 0 | N/A | N/A | N/A | 倒计时卡片，无 ECharts | 未改倒计时 |
+| `/openrouter/` | 1280、375 | 0 | 3 张图 confine | 图例可关 | inside zoom 成功 | 点「拟合流水」后 `chartRevenue` 宽 350（375 视口） | 隐藏页签在点开前宽度为 0，属预期 |
+| `/funds/` | 1280、375 | 0 | confine | 可关 | inside+slider 成功 | 第二个区块按钮可点 | 公募 |
+| `/funds/?view=private` 与 `?tab=private` | 1280、375 | 0 | confine | 第一项常是 defaultOff，开关会把它打开，状态有变化 | 成功 | 标题含「周频截面，非盘中」和 asOf 2026-11-13 | 两个 query 都进私募 |
+| `/legacy/`、`/bottom/full.html` | 375 | 0 | 15 张有 tooltip 且 confine；仪表盘无 tooltip，记 N/A | 迷你图无图例，记 N/A | K 线有 inside zoom | 无主导航页签 | 嵌入快照未改 |
+
+Resize：把视口从 1280 改到 900、从 375 改到更宽之后，ETF / 抄底 / 信息流图的 `getWidth()` 跟着变。OpenRouter 和基金里先量到的 100px 是尚未点开的隐藏画布，点开页签后收入图为 350。
+
+控制台：上一轮 10 条路由在 390 宽没有 `exceptionThrown` 或 `console.error`。这一轮的 tooltip / zoom / 页签动作没有抛异常。
+
+### 仍然没做
+
+- 没有用手指在真机上捏合 dataZoom。桌面和 headless 用的是 `dispatchAction`，等价于组件收到缩放，不是触摸手势本身。
+- 动量热力表和财报倒计时没有图例可点。
+- 没有把每张图都改成同一套 slider 样式。时间序列能缩放；分类条不加一条无意义的缩放轴。
 
 ## 方法
 
@@ -58,19 +100,16 @@
 - OpenRouter 不完整周与完整周 KPI 本来就是分开的。
 - 各主图已有 `resize` 监听：总览 spark、ETF、基金、OpenRouter、信息流、抄底。没有再包一层。
 
-### 未做
+### 未做（第一轮；第二轮已补的见文首）
 
-- `/policy/` 手机横向溢出 2px。改前改后都量到 2。`body` 在窄屏已有 `overflow-x: clip`。没有为 2px 去改政策页网格。
-- 每张图的 tooltip、图例点击、dataZoom 没有逐项点过。
-- 财报筛选芯片在桌面量到约 22 个高度小于 32px 的控件。这次没有把所有芯片改成 44px，避免打乱密表。
-- `legacy/` 与 `bottom/full.html` 不在主导航里，未改样式。
-- 没有在浏览器里强制 `prefers-reduced-motion: reduce` 再截一张对照图。
+- 财报筛选芯片在桌面仍有一批高度小于 32px 的控件。没有把所有芯片改成 44px，避免打乱密表。手机上的主导航已经是 44px。
+- 基金折线 `connectNulls: true` 会跨过空点连线，但不会把空点画成 0。这次没有改这个既有画法。
 
 ## 测试
 
 `node --test tests/present.test.js tests/score-series.test.js`
 
-16 项，16 通过，0 失败。覆盖：空值与 0、上海时间（含 6 位小数和 `+08:00`）、流入缺失不为 0、抄底口径来自当前 `bottom.json` 且不改 `triggered_count`、YTD 序列仍是发布值（2026-11-20 为 6，2026-11-23 为 9 且 `live`）、说明文字不把 11-20 写成 9。
+17 项，17 通过，0 失败。原有 16 项都在。新增：`applyChartDefaults` 在减少动效时关掉 animation / valueAnimation、给 tooltip 加 confine，且不改 series 数据（null 和 0 都留着）。其余仍覆盖空值与 0、上海时间、流入缺失不为 0、抄底口径、YTD 发布值（2026-11-20 为 6，2026-11-23 为 9 且 `live`）。
 
 ## 本地测量（不是生产 CDN）
 
@@ -84,5 +123,5 @@ Headless Chrome，`127.0.0.1:8080`。
 
 - 说明文字直接引用发布 note，句子偏长。它是口径，不是新的分数。
 - 无时区的时间字符串按上海墙钟解析。带 `Z` 或 `+08:00` 的仍按瞬时时间再换到上海。
-- 政策页 2px 溢出还在。
-- 其他机器人会继续改 `main` 上的 JSON。这个分支不包含那些文件，合并时不应覆盖它们。
+- 政策页关闭时的 2px 溢出已在第二轮去掉。打开抽屉时宽等于视口。
+- 本分支已并入当时的 `main`（ETF / 财报 JSON 由其他发布写入）。后续合并不要用旧快照覆盖这些文件。

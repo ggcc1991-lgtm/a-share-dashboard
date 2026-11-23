@@ -429,6 +429,7 @@
         if (cg && groups.length) {
           cg.setOption({
             backgroundColor: "transparent",
+            tooltip: { trigger: "axis", confine: true, axisPointer: { type: "shadow" } },
             grid: { left: 72, right: 24, top: 16, bottom: 28 },
             xAxis: {
               type: "value", max: Math.max(...groups.map(x => x.total || 0), 1),
@@ -464,6 +465,7 @@
           const vals = near.map(x => Math.round((x.progress ?? 0) * 1000) / 10).reverse();
           cn.setOption({
             backgroundColor: "transparent",
+            tooltip: { trigger: "axis", confine: true, axisPointer: { type: "shadow" } },
             grid: { left: 88, right: 40, top: 16, bottom: 28 },
             xAxis: {
               type: "value", min: 0, max: 100,
@@ -551,9 +553,11 @@
               grid: { left: 52, right: 16, top: 20, bottom: 28 },
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 axisPointer: { type: "cross", lineStyle: { color: "#333" } },
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal({ scale: true }),
               series: [{
@@ -592,8 +596,10 @@
               grid: markGrid,
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal(),
               series: [{
@@ -622,8 +628,10 @@
               grid: markGrid,
               tooltip: {
                 trigger: "axis",
+                confine: true,
                 backgroundColor: "#0a0a0a", borderColor: "#333", textStyle: { color: "#e8e8e8", fontSize: 11 },
               },
+              dataZoom: [{ type: "inside", start: 0, end: 100 }],
               xAxis: axisCat(dates),
               yAxis: axisVal(),
               series: [{

@@ -372,6 +372,7 @@
       backgroundColor: "transparent",
       tooltip: {
         trigger: "axis",
+        confine: true,
         axisPointer: { type: "cross" },
         valueFormatter: (v) => fmt(v, 1, true) + " 亿元",
       },
@@ -415,7 +416,7 @@
       ch2.setOption(
         {
           backgroundColor: "transparent",
-          tooltip: { trigger: "axis", axisPointer: { type: "cross" } },
+          tooltip: { trigger: "axis", confine: true, axisPointer: { type: "cross" } },
           legend: { data: ["份额(亿份)", "净流入(亿元)"], top: 0, textStyle: { color: "#8b9bb4" } },
           grid: { left: 10, right: 10, top: 36, bottom: 50, containLabel: true },
           xAxis: { type: "category", data: dates, axisLabel, axisLine },
@@ -509,8 +510,8 @@
     // Futures
     const F = D.futures;
     if (F && F.latest && F.latest.date && F.series) {
-      $("futPanel").style.display = "";
-      $("futTblPanel").style.display = "";
+      $("futPanel").style.display = "block";
+      $("futTblPanel").style.display = "block";
       const member = F.member || "中信期货";
       $("futTitle").childNodes[0].textContent = member + "股指期货持仓走势";
       if (F.latest.date && F.latest.date !== dates[L - 1]) {
@@ -524,6 +525,7 @@
         backgroundColor: "transparent",
         tooltip: {
           trigger: "axis",
+          confine: true,
           valueFormatter: (v) => (v == null ? "—" : Math.round(v).toLocaleString("zh-CN") + " 手"),
         },
         legend: {

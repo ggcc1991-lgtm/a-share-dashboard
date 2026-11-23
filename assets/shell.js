@@ -63,6 +63,43 @@ window.DashFmt = {
 };
 
 
+(function patchCharts() {
+  function install() {
+    if (!window.echarts || echarts.__dashChartPatch || typeof echarts.init !== "function") return;
+    var orig = echarts.init;
+    echarts.init = function (dom, theme, opts) {
+      var chart = orig.call(this, dom, theme, opts);
+      var origSet = chart.setOption;
+      chart.setOption = function (option) {
+        var reduce = false;
+        try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (_) {}
+        if (option && typeof option === "object" && !Array.isArray(option)) {
+          if (window.DashPresent) DashPresent.applyChartDefaults(option, reduce);
+          else {
+            if (reduce) option.animation = false;
+            var tip = option.tooltip;
+            if (tip && typeof tip === "object" && !Array.isArray(tip) && tip.confine == null) tip.confine = true;
+          }
+        }
+        return origSet.apply(chart, arguments);
+      };
+      if (dom && typeof ResizeObserver !== "undefined") {
+        try {
+          var ro = new ResizeObserver(function () {
+            try { chart.resize(); } catch (_) {}
+          });
+          ro.observe(dom);
+        } catch (_) {}
+      }
+      return chart;
+    };
+    echarts.__dashChartPatch = true;
+  }
+  window.DashCharts = { install: install };
+  install();
+  document.addEventListener("DOMContentLoaded", install);
+})();
+
 (function motion() {
   const header = document.querySelector(".app-header");
   if (!header) return;

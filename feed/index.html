@@ -55,6 +55,7 @@
   <script src="../assets/present.js"></script>
   <script src="../assets/shell.js"></script>
   <script src="../assets/echarts.min.js"></script>
+  <script>DashCharts.install()</script>
   <script>
     const SRC = { mp: "公众号", x: "X", zsxq: "星球", rss: "RSS", feishu: "飞书" };
     let items = [];
@@ -241,6 +242,7 @@
       const muted = axisMuted();
       return {
         color: colors,
+        tooltip: { trigger: "axis", confine: true, axisPointer: { type: "shadow" } },
         grid: { left: 4, right: 36, top: 4, bottom: 2, containLabel: true },
         xAxis: Object.assign({ type: "value", axisLabel: { show: false }, axisLine: { show: false }, axisTick: { show: false }, splitLine: muted.splitLine }, {}),
         yAxis: {

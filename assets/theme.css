@@ -605,6 +605,8 @@ table.data tr:hover td { background: #1c1c1c; }
   line-height: 1.45;
   color: var(--mu);
   padding: 4px 8px 6px;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* —— Mobile ≤719px (phone-first fixes; desktop ≥720 unchanged) —— */
@@ -625,7 +627,7 @@ table.data tr:hover td { background: #1c1c1c; }
 
 @media (max-width: 719px) {
   /* prevent page-level horizontal blowout; nested .table-scroll still scrolls */
-  body { overflow-x: clip; }
+  html, body { overflow-x: clip; max-width: 100%; }
   .wrap {
     padding: 10px 10px 40px;
     max-width: 100%;

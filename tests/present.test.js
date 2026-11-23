@@ -42,6 +42,24 @@ test("flow sum skips nulls and does not invent a zero day", () => {
   assert.equal(P.sumNamedSeries(null, "flow", 0), null);
 });
 
+test("chart defaults confine tooltips and stop motion without touching series values", () => {
+  const option = {
+    animation: true,
+    tooltip: { trigger: "axis" },
+    series: [{ type: "line", data: [null, 0, 6, 9], detail: { valueAnimation: true } }],
+  };
+  P.applyChartDefaults(option, true);
+  assert.equal(option.animation, false);
+  assert.equal(option.series[0].animation, false);
+  assert.equal(option.series[0].detail.valueAnimation, false);
+  assert.equal(option.tooltip.confine, true);
+  assert.deepEqual(option.series[0].data, [null, 0, 6, 9]);
+  const keep = { tooltip: { trigger: "item", confine: false }, series: [{ type: "bar", data: [0] }] };
+  P.applyChartDefaults(keep, false);
+  assert.equal(keep.tooltip.confine, false);
+  assert.equal(keep.animation, undefined);
+});
+
 test("bottom caveats come from the snapshot and do not change the score", () => {
   const bottom = JSON.parse(fs.readFileSync(path.join(root, "data/bottom.json"), "utf8"));
   const lines = P.bottomCaveats(bottom);

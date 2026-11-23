@@ -112,6 +112,31 @@
     return out;
   }
 
+  /**
+   * Chart option defaults. Does not change series data.
+   * Reduced motion turns animation off. Tooltips stay inside the plot.
+   */
+  function applyChartDefaults(option, reduce) {
+    if (!option || typeof option !== "object" || Array.isArray(option)) return option;
+    if (reduce) {
+      option.animation = false;
+      option.animationDuration = 0;
+      var series = option.series;
+      if (series && !Array.isArray(series)) series = [series];
+      if (Array.isArray(series)) {
+        for (var i = 0; i < series.length; i++) {
+          var s = series[i];
+          if (!s || typeof s !== "object") continue;
+          s.animation = false;
+          if (s.detail && typeof s.detail === "object") s.detail.valueAnimation = false;
+        }
+      }
+    }
+    var tip = option.tooltip;
+    if (tip && typeof tip === "object" && !Array.isArray(tip) && tip.confine == null) tip.confine = true;
+    return option;
+  }
+
   return {
     isMissing: isMissing,
     toFinite: toFinite,
@@ -121,5 +146,6 @@
     formatShanghai: formatShanghai,
     sumNamedSeries: sumNamedSeries,
     bottomCaveats: bottomCaveats,
+    applyChartDefaults: applyChartDefaults,
   };
 });
