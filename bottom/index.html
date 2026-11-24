@@ -261,9 +261,8 @@
       .then(([d, hist]) => {
         const trig = d.triggered_count ?? d.verdict?.score ?? 0;
         const total = d.total ?? d.verdict?.total ?? 12;
-        const band = d.verdict?.band || {};
-        const label = band.label || "—";
-        const sub = band.rule || band.sub || "";
+        const signal = (window.DashPresent && DashPresent.bottomSignal(trig, total)) || { text: "—", tier: "" };
+        const label = signal.text;
         const hot = bandCls(trig);
         const inds = d.indicators || [];
         const watchN = inds.filter(x => x.status === "watching").length;
@@ -287,7 +286,7 @@
           <div class="bb-ind-top">
             <div class="ratio ${hot}">${trig}<span style="font-size:13px;color:#666">/${total}</span></div>
             <div class="bb-ind-top-main">
-              <div class="band">${esc(label)}${sub ? `<small>${esc(sub)}</small>` : ""}</div>
+              <div class="band">${esc(label)}</div>
               <div class="ticks">${ticks}</div>
             </div>
           </div>
@@ -299,13 +298,14 @@
         const rows = inds.map(x => {
           const on = x.status === "triggered";
           const unit = x.unit ? ` ${x.unit}` : "";
-          return `<div class="bb-ind-row ${on ? "is-on" : ""}" title="${esc(x.note || "")}">
+          const note = (window.DashPresent && DashPresent.neutralSignalNote(x.note)) || x.note || "";
+          return `<div class="bb-ind-row ${on ? "is-on" : ""}" title="${esc(note)}">
             <span class="dot"></span>
             <span class="nm">${esc(x.name || "—")}</span>
             <span class="val">${esc(fmtVal(x.value))}${esc(unit)}</span>
             <span class="thr" title="${esc(fmtThr(x.threshold))}">${esc(fmtThr(x.threshold))}</span>
             <span class="st">${on ? "红线" : "观察"}</span>
-            <span class="note" title="${esc(x.note || "")}">${esc(shortNote(x.note, 80))}</span>
+            <span class="note" title="${esc(note)}">${esc(shortNote(note, 80))}</span>
           </div>`;
         }).join("");
 
@@ -359,18 +359,10 @@
         document.getElementById("changes").innerHTML = chHtml;
 
         const v = d.verdict || {};
-        const adv = v.advice || {};
-        const empty = adv.empty || [];
-        const holding = adv.holding || [];
-        const strat = d.strategy?.summary || "";
+        const strat = (window.DashPresent && DashPresent.bottomSignalNote()) || "";
         document.getElementById("verdict").innerHTML = `
+          <div class="verdict-body">${esc(label)}</div>
           <div class="verdict-body">${esc(v.summary || "—")}</div>
-          <div class="adv-block">
-            <h4>空仓</h4>
-            ${empty.map(t => `<div class="adv-li">${esc(t)}</div>`).join("") || `<div class="mu" style="padding:6px 10px">—</div>`}
-            <h4>持仓</h4>
-            ${holding.map(t => `<div class="adv-li">${esc(t)}</div>`).join("") || `<div class="mu" style="padding:6px 10px">—</div>`}
-          </div>
           ${strat ? `<div class="strat">${esc(strat)}</div>` : ""}`;
 
 
