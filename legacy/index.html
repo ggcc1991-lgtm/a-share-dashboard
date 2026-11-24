@@ -57,9 +57,9 @@ footer{text-align:center;color:#66788f;font-size:.75rem;margin-top:20px}
 </head><body><div class="wrap">
 <div class="top">
  <div class="panel"><h1>大A<b>抄底</b>红线监控</h1><div class="mu" style="margin:2px 0 6px;font-size:13px;opacity:.75">由GC制作</div><div class="mu mono" id="meta"></div><div id="gauge"></div><div class="band" id="band"></div>
- <div class="legend"><span style="color:#8b9bb4">0–5 观望</span><span style="color:#f5a623">6–8 空仓可考虑</span><span style="color:#4c8dff">9 持仓耐心等</span><span style="color:#ff3b4a">10–12 抄底区</span></div></div>
+ <div class="legend"><span style="color:#8b9bb4">0–5 信号较少</span><span style="color:#f5a623">6–8 信号增多</span><span style="color:#4c8dff">9 信号较强</span><span style="color:#ff3b4a">10–12 信号高度集中</span></div></div>
  <div class="panel"><div id="kline" style="height:300px"></div>
- <ul class="strat"><li>红线越多 → 胜率越高；<b>0 根≠见底</b>，强调耐心</li><li><b>空仓</b>：6–8 根开始考虑分批；<b>已有仓位</b>：等向 10 根；作者等约 <b>9</b> 根</li></ul></div>
+ <ul class="strat"><li>综合信号按触发项数分四档：<b>0–5 信号较少</b>，<b>6–8 信号增多</b>，<b>9 信号较强</b>，<b>10–12 信号高度集中</b></li><li>档位只描述触发了多少项，<b>不表示胜率更高</b></li></ul></div>
 </div>
 <div class="tools"><button id="btnRefresh" style="background:#1a3a2a;border-color:#3dd6c6;color:#3dd6c6;font-weight:700">刷新行情</button><button onclick="location.reload()">重新加载页面</button><button onclick="print()">打印</button><button onclick="localStorage.removeItem(LS);render()">清除手动覆盖</button>
 <label class="mu"><input type="checkbox" id="mt"> 融资门槛用 2.48 万亿（默认 2.45）</label><span class="mu" id="refreshHint">点「刷新行情」会重新拉数据（约1–2分钟）</span></div>
@@ -130,7 +130,9 @@ function eff(r){const o=ov()[r.id],i={...r,meta:{...(r.meta||{})}};if(o){if(o.va
  if(i.id==="large_small_ratio")i.threshold=i.meta.max_250||i.threshold;
  if(i.id==="jiuquan_sentiment"&&i.meta.ever)i.status="triggered";
  if(o&&!o.status&&typeof i.value==="number"&&typeof i.threshold==="number"&&CFG[i.id].dir){i.status=(CFG[i.id].dir==="ge"?i.value>=i.threshold:i.value<=i.threshold)?"triggered":"watching"}return i}
-function band(n){return n>=10?["抄底区 · 高度警戒",RED]:n>=9?["持仓耐心等",  "#4c8dff"]:n>=6?["空仓可考虑",AMB]:["观望",MU]}
+function signalPhrase(n){const tier=n>=10?"信号高度集中":n>=9?"信号较强":n>=6?"信号增多":"信号较少";return tier+"（"+n+"/12项触发）"}
+function clipCopy(s){return String(s||"").replace(/作者的具体点位/g,"具体点位").replace(/作者具体点位/g,"具体点位").replace(/可能与原作者口径不同/g,"口径见各指标备注").replace(/（观望）/g,"（信号较少）")}
+function band(n){return [signalPhrase(n), n>=10?RED:n>=9?"#4c8dff":n>=6?AMB:MU]}
 function prog(i){const c=CFG[i.id];if(c.dir&&typeof i.value==="number"&&typeof i.threshold==="number"){const v=i.value,t=i.threshold;
  const p=c.dir==="ge"?v/t:t/v;const d=c.dir==="ge"?t-v:v-t;return{p:Math.max(0,Math.min(1,p)),txt:d<=0?"已越过红线":`距红线 ${Math.abs(d).toFixed(Math.abs(d)<10?3:1)}（${(Math.abs(d)/t*100).toFixed(1)}%）`}}
  return{p:i.status==="triggered"?1:i.status==="watching"?.5:0,txt:i.status==="triggered"?"已触发":i.status==="watching"?"定性观察中":"待手动录入"}}
@@ -158,16 +160,16 @@ function renderVerdict(nLive){const el=document.getElementById("verdict"),V=LATE
  const mv=(C.moves||[]).filter(m=>m.delta!=null).slice(0,8).map(m=>`${esc(m.name)} ${m.prev}→${m.now}（${m.delta>0?"+":""}${m.delta}）`).join("；");
  const ow=nLive!==V.score?`<div class="ovw">⚠ 当前看板含手动覆盖/门槛切换，卡片计数为 ${nLive}/12；下方「整体判断」仍按快照 ${V.score}/12 生成。</div>`:"";
  el.innerHTML=`<div class="hb" style="background:linear-gradient(90deg,${tone},transparent 70%);border-left:6px solid ${c}">
-  <div><div class="mu" style="margin-bottom:4px">整体判断 · 结论</div><div class="hl" style="color:${c}">${esc(B.label)}</div><div class="sub">${esc(B.sub)}</div></div>
+  <div><div class="mu" style="margin-bottom:4px">整体判断 · 结论</div><div class="hl" style="color:${c}">${esc(signalPhrase(V.score))}</div><div class="sub">档位只描述触发项数，不表示胜率更高</div></div>
   <div class="sc" style="color:${c}">${V.score}<small>/${V.total}</small></div><div class="ladder" title="红线计数">${lad}</div></div>
- <div class="bd">${ow}<div class="sum">${esc(V.summary)}</div>
+ <div class="bd">${ow}<div class="sum">${esc(clipCopy(V.summary))}</div>
   <div><h4>市场判断</h4>${grp}</div>
   <div class="two"><div><h4>最接近触发（按距红线 %）</h4>${nr}</div>
    <div><h4>变化（较上次刷新）</h4><div class="chg"><div>${esc(C.text)}</div><div class="mu" style="margin:4px 0">${C.prev_at?"上次快照 "+esc(C.prev_at)+" → 本次 "+esc(V.generated_at):""}</div>${fl}${mv?`<div class="mu" style="margin-top:6px">数值变动：${mv}</div>`:""}</div></div></div>
-  <div><h4>操作建议（规则化，偏保守）</h4><div class="two"><div class="adv"><h5>🟦 空仓者</h5><ul>${V.advice.empty.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div class="adv"><h5>🟧 已持仓者</h5><ul>${V.advice.holding.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div></div>
-  <div><h4>风险提示</h4><ul class="rk">${V.risks.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
-  <div class="nt"><b>自定义阈值：</b>${V.notes.self_defined.map(esc).join("；")}<br><b>代理/滞后数据：</b>${V.notes.proxy.map(esc).join("；")}</div>
-  <div class="basis">${esc(V.basis)}</div></div>`}
+  <div><h4>综合信号</h4><div class="sum">${esc(signalPhrase(V.score))}。该描述只统计越过各自阈值的项数，不对应具体仓位，也不表示胜率更高。</div></div>
+  <div><h4>说明</h4><ul class="rk">${(V.risks||[]).map(clipCopy).filter(x=>!/胜率越高|胜率提高|作者|出手|空仓|持仓|加仓|仓位|分批|割肉|耐心|观望|抄底区|高度警戒/.test(x)).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+  <div class="nt"><b>自定义阈值：</b>${V.notes.self_defined.map(x=>esc(clipCopy(x))).join("；")}<br><b>代理/滞后数据：</b>${V.notes.proxy.map(esc).join("；")}</div>
+  <div class="basis">综合信号按触发项数分档（0–5 信号较少、6–8 信号增多、9 信号较强、10–12 信号高度集中）。档位只统计越过阈值的项数，不表示胜率更高。仅供学习研究，不构成投资建议。</div></div>`}
 let editing=null;
 function render(){charts.splice(0).forEach(c=>c.dispose());const inds=LATEST.indicators.map(eff),n=inds.filter(i=>i.status==="triggered").length,[bl,bc]=band(n);
  document.getElementById("mt").checked=mthr()===2.48;
@@ -182,7 +184,7 @@ function render(){charts.splice(0).forEach(c=>c.dispose());const inds=LATEST.ind
   const d=document.createElement("div");d.className="card "+i.status;
   d.innerHTML=`${i._ov?'<span class="flag">手动</span>':""}<div class="hd"><h3>${k+1}. ${i.name}</h3><span class="chip ${i.status}">${{triggered:"红线",watching:"观察",unknown:"未知",manual:"手动"}[i.status]}</span></div>
   <div class="vr"><span class="val">${fmt(i)}</span><span class="thr">${CFG[i.id].rule}${typeof i.threshold==="number"?" · "+i.threshold:""}</span></div>
-  <div class="bar"><i style="width:${(p.p*100).toFixed(0)}%;background:${col}"></i><em></em></div><div class="dist">${p.txt}</div><div class="spark"></div><div class="note">${i.note||""}</div>`;
+  <div class="bar"><i style="width:${(p.p*100).toFixed(0)}%;background:${col}"></i><em></em></div><div class="dist">${p.txt}</div><div class="spark"></div><div class="note">${clipCopy(i.note)}</div>`;
   d.onclick=()=>{editing=i.id;mt_t.textContent="编辑 · "+i.name;m_v.value=i.value??"";m_s.value=i.status;m_n.value=i.note||"";m_e.checked=!!i.meta.ever;mb.classList.add("open")};
   g.appendChild(d);spark(d.querySelector(".spark"),i)});
  drawK();drawBig(inds);renderVerdict(n)}

@@ -91,6 +91,32 @@
   }
 
   /**
+   * Comprehensive signal copy. Counts only; does not rank win rate or suggest a position.
+   * 0–5 信号较少, 6–8 信号增多, 9 信号较强, 10–12 信号高度集中.
+   */
+  function bottomSignal(count, total) {
+    var n = toFinite(count);
+    var t = toFinite(total);
+    if (t == null) t = 12;
+    if (n == null) return { count: null, total: t, tier: "", text: "—" };
+    var tier = n >= 10 ? "信号高度集中" : n >= 9 ? "信号较强" : n >= 6 ? "信号增多" : "信号较少";
+    return { count: n, total: t, tier: tier, text: tier + "（" + n + "/" + t + "项触发）" };
+  }
+
+  function bottomSignalNote() {
+    return "综合信号按触发项数分四档：0–5 信号较少，6–8 信号增多，9 信号较强，10–12 信号高度集中。档位只描述触发了多少项，不表示胜率更高。";
+  }
+
+  /** Display-only. Leaves thresholds and market numbers alone. */
+  function neutralSignalNote(s) {
+    return String(s == null ? "" : s)
+      .replace(/作者的具体点位/g, "具体点位")
+      .replace(/作者具体点位/g, "具体点位")
+      .replace(/可能与原作者口径不同/g, "口径见各指标备注")
+      .replace(/（观望）/g, "（信号较少）");
+  }
+
+  /**
    * Short caveats already present on the snapshot. Does not change thresholds.
    */
   function bottomCaveats(bottom) {
@@ -148,6 +174,9 @@
     formatShanghai: formatShanghai,
     sumNamedSeries: sumNamedSeries,
     bottomCaveats: bottomCaveats,
+    bottomSignal: bottomSignal,
+    bottomSignalNote: bottomSignalNote,
+    neutralSignalNote: neutralSignalNote,
     applyChartDefaults: applyChartDefaults,
   };
 });

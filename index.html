@@ -82,12 +82,11 @@
     }
     function band(n, bottom) {
       if (n == null) return ["—", ""];
-      const v = bottom?.verdict?.band;
-      if (v?.label) return [v.label, n >= 10 ? "hot" : n >= 6 ? "warn" : ""];
-      if (n >= 10) return ["高度警戒抄底区", "hot"];
-      if (n >= 9) return ["持仓耐心等", "warn"];
-      if (n >= 6) return ["空仓可考虑", "warn"];
-      return ["观望", ""];
+      const total = bottom?.total ?? 12;
+      const helper = window.DashPresent && DashPresent.bottomSignal(n, total);
+      const tier = n >= 10 ? "信号高度集中" : n >= 9 ? "信号较强" : n >= 6 ? "信号增多" : "信号较少";
+      const text = (helper && helper.text) || (tier + "（" + n + "/" + total + "项触发）");
+      return [text, n >= 10 ? "hot" : n >= 6 ? "warn" : ""];
     }
     function fmtIndVal(x) {
       if (window.DashPresent ? DashPresent.isMissing(x) : (x == null || x === "")) return "—";
@@ -269,7 +268,6 @@
         const on = i < trig;
         return `<i class="${on ? (trig >= 10 ? "on" : "soft") : ""}"></i>`;
       }).join("");
-      const sub = bottom?.verdict?.band?.rule || bottom?.verdict?.band?.sub || "";
       const rows = inds.map((x) => {
         const on = x.status === "triggered";
         const unit = x.unit ? ` ${x.unit}` : "";
@@ -285,7 +283,7 @@
         <div class="bb-ind-top">
           <div class="ratio ${hot}" id="heroBig">${trig == null ? "—" : trig}<span style="font-size:13px;color:#666">/${total}</span></div>
           <div class="bb-ind-top-main">
-            <div class="band">${label}${sub ? `<small>${sub}</small>` : ""}</div>
+            <div class="band">${label}</div>
             <div class="ticks">${ticks}</div>
           </div>
         </div>
