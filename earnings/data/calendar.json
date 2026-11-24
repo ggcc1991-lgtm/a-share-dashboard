@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-23T23:33:02+08:00",
+ "updated": "2026-11-24T23:29:55+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -1386,18 +1386,20 @@
    "region": "US",
    "name": "CB Consumer Confidence",
    "releaseAt": "2026-11-24T23:00:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "103.3",
    "forecast": "92.1",
-   "previous": "91.7",
-   "verdict": null,
-   "diff": null,
+   "previous": "91.9",
+   "verdict": "高于预期",
+   "diff": "+11.2",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "The Conference Board 官方新闻稿（2026-11-24 10:00 ET）",
+    "url": "https://www.conference-board.org/topics/consumer-confidence/"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": 12.2,
+   "note": "官方：11月消费者信心指数103.3（1985=100），较10月修订后的91.9上升11.4点；现状指数132.8，预期指数83.6。日历原前值91.7已按官方修订为91.9。与ForexFactory一致预期92.1相比高出11.2点。PR：https://www.prnewswire.com/news-releases/us-consumer-confidence-surged-in-november-302949447.html"
   },
   {
    "id": "ff-USD-202611252130-CorePCEPriceIndexmm",
