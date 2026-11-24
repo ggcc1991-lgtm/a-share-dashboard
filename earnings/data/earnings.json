@@ -1,6 +1,6 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-24T23:29:55+08:00",
+ "updated": "2026-11-25T06:26:07+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
  "consensusAsOf": "2026-11-24",
  "companies": [
@@ -3930,14 +3930,14 @@
    "name": "戴尔",
    "region": "US",
    "currency": "USD",
-   "nextDate": "2026-11-25T05:30:00+08:00",
-   "dateStatus": "confirmed",
+   "nextDate": null,
+   "dateStatus": "reported",
    "sources": {
     "nextDate": {
-     "name": "Dell Technologies IR Events: FY2027 Q3 Results",
-     "url": "https://investors.delltechnologies.com/news-events/events",
-     "asOf": "2026-11-10",
-     "note": "官方IR日程：2026-11-24 15:30 CST（美国中部，北京时间 11-25 05:30）公布 FY27Q3 业绩"
+     "name": "Dell Technologies 官网新闻稿：FY27Q3业绩（2026-11-24 16:05 ET）",
+     "url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results",
+     "asOf": "2026-11-25",
+     "note": "官方已于北京时间2026-11-25 05:05发布，见 lastReported。原IR日程为2026-11-24 15:30 CST（北京时间 11-25 05:30）。"
     },
     "consensus": [
      {
@@ -3947,6 +3947,26 @@
      }
     ],
     "lastReported": [
+     {
+      "name": "Dell Technologies 官网新闻稿：FY27Q3业绩（2026-11-24 16:05 ET）",
+      "url": "https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results",
+      "asOf": "2026-11-25"
+     },
+     {
+      "name": "Dell Technologies FY27Q3 Financial Tables",
+      "url": "https://investors.delltechnologies.com/_assets/_ac8eb2555e5a0153972bd8852ad15163/delltechnologies/db/3595/34778/financial_tables/Q3_FY27_Financial_Tables.pdf",
+      "asOf": "2026-11-25"
+     },
+     {
+      "name": "Dell Technologies Q3 FY27 Performance Review",
+      "url": "https://investors.delltechnologies.com/_assets/_0f9cfb12d02468203f5253ccbb5d12d8/delltechnologies/db/3576/34781/pdf/Q3_FY27_Performance_Review.pdf",
+      "asOf": "2026-11-25"
+     },
+     {
+      "name": "CNBC：Dell earnings report Q3 2027（LSEG一致预期）",
+      "url": "https://www.cnbc.com/2026/11/24/dell-earnings-report-q3-2027.html",
+      "asOf": "2026-11-25"
+     },
      {
       "name": "Yahoo Finance(yfinance)",
       "url": "https://finance.yahoo.com/quote/DELL/analysis",
@@ -3968,20 +3988,28 @@
     "currency": "USD"
    },
    "lastReported": {
+    "quarterEnd": "2026-10-30",
+    "reportDate": "2026-11-25T05:05:00+08:00",
+    "revenue": 54937000000,
+    "revenueYoY": 1.0343,
+    "netIncome": 5673000000,
+    "netIncomeYoY": 2.6647,
+    "epsGaap": 8.82,
+    "epsGaapBasis": "GAAP 摊薄 EPS",
+    "epsNonGaap": 9.45,
+    "epsNonGaapBasis": "调整后摊薄 EPS（Non-GAAP）",
+    "epsActual": 9.45,
+    "epsEstimate": 6.55221,
+    "epsSurprisePct": 0.4423,
+    "revSurprisePct": 0.1149,
+    "epsCompareBasis": "预期对比口径=调整后摊薄EPS；预期取 11-24 23:29 刷新时 Yahoo 一致预期快照 6.55221（24位分析师；Zacks 8位分析师共识6.55）。CNBC援引LSEG一致预期调整后EPS 6.59、营收493.2亿美元。",
     "verdict": "超预期",
-    "epsActual": 7.04,
-    "epsEstimate": 4.91833,
-    "epsSurprisePct": 0.4314,
-    "quarterEnd": "2026-07-31",
-    "reportDate": "2026-09-02T04:00:00+08:00",
-    "revenue": 46971000000.0,
-    "netIncome": 4133000000.0,
-    "revenueYoY": 0.5774785061794734,
-    "netIncomeYoY": 2.5506872852233675
+    "guidance": "Q4FY27指引：营收563亿美元（业绩评述材料为562.5亿美元±5亿美元，同比约+69%）；GAAP摊薄EPS 7.90美元（同比+134%），调整后摊薄EPS 8.40美元±0.10美元（同比约+116%）。全年FY27指引上调：营收2020亿美元±5亿美元（前次1920亿美元，同比+78%），AI优化服务器营收780亿美元（前次740亿美元，同比+216%），GAAP摊薄EPS 28.24美元（前次24.37美元，同比+225%），调整后摊薄EPS 29.68美元±0.10美元（前次25.50美元，同比+188%）。董事会批准新增250亿美元C类普通股回购授权。",
+    "note": "FY27Q3（截至2026-10-30）营收549.37亿美元（同比+103%）超刷新前Yahoo一致预期约492.74亿美元（+11.49%）；调整后摊薄EPS 9.45美元 vs 预期6.55221，超预期约44.23%；GAAP摊薄EPS 8.82美元（同比+287%），GAAP净利润56.73亿美元（同比+266%）。调整后经营利润78.26亿美元（同比+213%）。ISG营收419.74亿美元（同比+198%），其中AI优化服务器220.31亿美元（同比+291%），传统服务器与网络150.13亿美元（同比+235%），存储49.30亿美元（同比+24%）；ISG经营利润71.18亿美元（同比+308%）。CSG营收128.86亿美元（同比+3%；CNBC援引LSEG预期143.3亿美元，该分部低于预期），其中商业业务113.00亿美元（同比+6%）、消费业务15.86亿美元（同比-15%），经营利润7.04亿美元（同比-6%）。当季经营现金流44.59亿美元，向股东返还49亿美元；AI服务器订单602亿美元，期末积压1323亿美元。全年迄今（九个月）营收1457.50亿美元（同比+82%），调整后摊薄EPS 21.32美元。Q4指引营收563亿美元、调整后EPS 8.40美元，CNBC援引LSEG预期为营收536.1亿美元、EPS 7.50美元；路透称全年营收指引2020亿美元高于LSEG预期1944.8亿美元。官网：https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results"
    },
    "note": "AI上游·AI 服务器与企业存储（戴尔）。",
    "importance": 3,
-   "nasdaqText": "Dell Technologies Inc. Class C Common Stock  is expected* to report earnings on  11/24/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  8 analysts'  forecasts, the consensus EPS forecast for the quarter is $6.55.  The reported EPS for the same quarter last year was $2.35."
+   "guidance": "Q4FY27指引：营收563亿美元（业绩评述材料为562.5亿美元±5亿美元，同比约+69%）；GAAP摊薄EPS 7.90美元（同比+134%），调整后摊薄EPS 8.40美元±0.10美元（同比约+116%）。全年FY27指引上调：营收2020亿美元±5亿美元（前次1920亿美元，同比+78%），AI优化服务器营收780亿美元（前次740亿美元，同比+216%），GAAP摊薄EPS 28.24美元（前次24.37美元，同比+225%），调整后摊薄EPS 29.68美元±0.10美元（前次25.50美元，同比+188%）。董事会批准新增250亿美元C类普通股回购授权。"
   },
   {
    "symbol": "ANET",
