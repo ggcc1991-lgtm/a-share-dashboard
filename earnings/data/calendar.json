@@ -1,6 +1,6 @@
 {
  "schema": "earnings-calendar-v1",
- "updated": "2026-11-25T06:26:07+08:00",
+ "updated": "2026-11-25T23:29:16+08:00",
  "meetings": [
   {
    "id": "fomc-2026-09",
@@ -1406,72 +1406,80 @@
    "region": "US",
    "name": "Core PCE Price Index m/m",
    "releaseAt": "2026-11-25T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "0.3%",
    "forecast": "0.3%",
    "previous": "0.3%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "符合预期",
+   "diff": "0.0pp",
    "impact": "High",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "BEA Personal Income and Outlays, October 2026（预期来自 ForexFactory）",
+    "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-october-2026"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 0.0,
+   "note": "BEA（2026-11-25 08:30 EST）：10月核心PCE（除食品和能源）环比+0.3%，与9月及一致预期持平；同比+3.3%（9月为+3.1%）。整体PCE环比+0.3%、同比+3.8%。个人收入环比+0.7%，个人消费支出+0.3%，储蓄率4.1%。"
   },
   {
    "id": "ff-USD-202611252130-PrelimGDPqq",
    "region": "US",
    "name": "Prelim GDP q/q",
    "releaseAt": "2026-11-25T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "4.3%",
    "forecast": "3.5%",
    "previous": "3.4%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "高于预期",
+   "diff": "+0.8pp",
    "impact": "High",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "BEA GDP (Second Estimate) and Corporate Profits, 3rd Quarter 2026（预期来自 ForexFactory）",
+    "url": "https://www.bea.gov/news/2026/gdp-second-estimate-and-corporate-profits-3rd-quarter-2026"
    },
-   "importance": 3
+   "importance": 3,
+   "surprisePct": 22.9,
+   "note": "BEA二估（2026-11-25 08:30 EST）：2026Q3实际GDP环比折年+4.3%（初值+3.4%），上修0.9个百分点，高于一致预期+3.5%。上修主要来自投资（软件等知识产权产品）和消费。Q2为+2.2%。对私人国内采购的实际最终销售+5.8%。"
   },
   {
    "id": "ff-USD-202611252130-PrelimGDPPriceIndexq",
    "region": "US",
    "name": "Prelim GDP Price Index q/q",
    "releaseAt": "2026-11-25T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "1.8%",
    "forecast": "2.3%",
    "previous": "2.3%",
-   "verdict": null,
-   "diff": null,
+   "verdict": "低于预期",
+   "diff": "-0.5pp",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "BEA / FRED A191RI1Q225SBEA（Table 1.1.7 GDP隐含价格指数；预期来自 ForexFactory）",
+    "url": "https://fred.stlouisfed.org/series/A191RI1Q225SBEA"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": -21.7,
+   "note": "FRED（BEA Table 1.1.7，2026-11-25 07:55 CST更新）：2026Q3 GDP平减指数（隐含价格指数，SAAR）+1.8%，低于一致预期+2.3%；Q2为+6.1%。日历前值2.3%为初值/FF前值，予以保留。同期国内购买价格指数二估+2.7%（初值+3.0%）；PCE价格指数+2.1%、核心PCE（季）+2.5%，与初值相同。"
   },
   {
    "id": "ff-USD-202611252130-UnemploymentClaims",
    "region": "US",
    "name": "Unemployment Claims",
    "releaseAt": "2026-11-25T21:30:00+08:00",
-   "status": "upcoming",
-   "actual": null,
+   "status": "released",
+   "actual": "189K",
    "forecast": "201K",
-   "previous": "203K",
-   "verdict": null,
-   "diff": null,
+   "previous": "202K（前值修正，初值203K）",
+   "verdict": "低于预期",
+   "diff": "-12K",
    "impact": "Medium",
    "source": {
-    "name": "ForexFactory 周历",
-    "url": "https://www.forexfactory.com/calendar"
+    "name": "美国劳工部 Unemployment Insurance Weekly Claims（2026-11-25 08:30 ET；预期来自 ForexFactory）",
+    "url": "https://www.dol.gov/ui/data.pdf"
    },
-   "importance": 1
+   "importance": 1,
+   "surprisePct": -6.0,
+   "note": "劳工部：截至11月21日当周季调初请失业金18.9万，低于一致预期20.1万，较前值下修后的20.2万减少1.3万；前值由20.3万下修1千至20.2万。四周均值19.6万。因感恩节，本周提前至周三发布。"
   }
  ]
 }

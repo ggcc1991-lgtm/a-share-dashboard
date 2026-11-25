@@ -1,8 +1,8 @@
 {
  "schema": "earnings-v2",
- "updated": "2026-11-25T06:26:07+08:00",
+ "updated": "2026-11-25T23:30:01+08:00",
  "consensusSource": "一致预期：A股年度 ashareAnnual 优先 Tushare report_rc / Wind 一致预期，季度仍 Yahoo；日期优先 overrides / Wind 预约披露 / Tushare disclosure_date / HKEXnews > Yahoo > Nasdaq/Zacks。早发/过期规则：importance≥2 或 nextDate∈now±36h，或 nextDate<今天且 lastReported 已覆盖该期时，清空 nextDate（dateStatus=reported）；overrides 不得回填已过期 nextDate。不编造、不抹 importance/旧 overrides。优先 Wind/THS 缓存，Tushare soft-fallback。",
- "consensusAsOf": "2026-11-24",
+ "consensusAsOf": "2026-11-25",
  "companies": [
   {
    "symbol": "AAPL",
@@ -1218,7 +1218,7 @@
      {
       "name": "Tushare report_rc 688981.SH 2026Q4",
       "url": "https://tushare.pro/document/2",
-      "asOf": "2026-11-24T23:25:56+08:00"
+      "asOf": "2026-11-25T23:23:57+08:00"
      }
     ],
     "lastReported": [
@@ -1239,27 +1239,27 @@
      "fiscalYear": 2026,
      "basis": "年度预测（非季度）",
      "eps": {
-      "avg": 0.92,
+      "avg": 0.94,
       "high": 1.25,
       "low": 0.19,
       "n": 7
      },
      "netProfit": {
-      "avg": 8408567142.8571,
+      "avg": 8582995714.2857,
       "high": 10717000000.0,
       "low": 1619000000.0,
       "n": 7
      },
      "revenue": {
-      "avg": 73539857142.8571,
+      "avg": 73673714285.7143,
       "high": 88010000000.0,
       "low": 12133000000.0,
       "n": 7
      },
      "orgs": 8,
-     "window": "2026-08-26~2026-11-24",
+     "window": "2026-08-27~2026-11-25",
      "source": "Tushare report_rc 688981.SH",
-     "asOf": "2026-11-23",
+     "asOf": "2026-11-24",
      "unit": "CNY（np/op_rt 万元×1e4）"
     },
     "epsAvg": 0.05287,
@@ -3577,6 +3577,12 @@
    "nextDate": null,
    "dateStatus": "reported",
    "sources": {
+    "nextDate": {
+     "name": "Analog Devices 官网新闻稿：FY26Q4及全年业绩（2026-11-24 07:01 ET）",
+     "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-record-fourth-quarter-and-fiscal-2026",
+     "asOf": "2026-11-24",
+     "note": "官方已于北京时间2026-11-24 20:01发布，见 lastReported。"
+    },
     "consensus": [
      {
       "name": "Yahoo Finance(yfinance)",
@@ -3595,13 +3601,7 @@
       "url": "https://finance.yahoo.com/quote/ADI/analysis",
       "asOf": "2026-11-24T06:28:48+08:00"
      }
-    ],
-    "nextDate": {
-     "name": "Analog Devices 官网新闻稿：FY26Q4及全年业绩（2026-11-24 07:01 ET）",
-     "url": "https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-record-fourth-quarter-and-fiscal-2026",
-     "asOf": "2026-11-24",
-     "note": "官方已于北京时间2026-11-24 20:01发布，见 lastReported。"
-    }
+    ]
    },
    "consensus": {
     "epsAvg": 3.8894,
@@ -3636,10 +3636,9 @@
     "guidance": "FY27Q1营收44亿美元±1.5亿美元；对应中值下，GAAP经营利润率约40.3%±150bps，调整后经营利润率约50.5%±100bps；GAAP EPS 3.02美元±0.20美元，调整后EPS 3.82美元±0.20美元。董事会宣布季度股息1.10美元/股，股权登记日2026-12-07，派息日2026-12-21。",
     "note": "FY26Q4（截至2026-10-31）营收43.7342亿美元（同比+42%）超刷新前Yahoo一致预期约43.2454亿美元（+1.13%）；调整后摊薄EPS 4.06美元 vs 预期3.8894，超预期约4.39%；GAAP摊薄EPS 3.40美元（同比+113%），GAAP净利润16.50159亿美元（同比+109.5%）。调整后经营利润率52.3%。FY26全年营收151.79亿美元（同比+38%），调整后摊薄EPS 13.05美元。FY27Q1指引：营收44亿美元±1.5亿美元，调整后EPS 3.82美元±0.20美元；Yahoo财经援引彭博称调整后EPS指引低于一致预期，盘前下跌。官网：https://investor.analog.com/news-releases/news-release-details/analog-devices-reports-record-fourth-quarter-and-fiscal-2026"
    },
+   "guidance": "FY27Q1营收44亿美元±1.5亿美元；对应中值下，GAAP经营利润率约40.3%±150bps，调整后经营利润率约50.5%±100bps；GAAP EPS 3.02美元±0.20美元，调整后EPS 3.82美元±0.20美元。董事会宣布季度股息1.10美元/股，股权登记日2026-12-07，派息日2026-12-21。",
    "note": "高性能模拟芯片龙头（亚德诺）。",
-   "importance": 3,
-   "nasdaqText": "Analog Devices, Inc. Common Stock is expected* to report earnings on  11/24/2026 before market open.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  10 analysts'  forecasts, the consensus EPS forecast for the quarter is $3.89.  The reported EPS for the same quarter last year was $2.26.",
-   "guidance": "FY27Q1营收44亿美元±1.5亿美元；对应中值下，GAAP经营利润率约40.3%±150bps，调整后经营利润率约50.5%±100bps；GAAP EPS 3.02美元±0.20美元，调整后EPS 3.82美元±0.20美元。董事会宣布季度股息1.10美元/股，股权登记日2026-12-07，派息日2026-12-21。"
+   "importance": 3
   },
   {
    "symbol": "VRT",
@@ -4007,9 +4006,9 @@
     "guidance": "Q4FY27指引：营收563亿美元（业绩评述材料为562.5亿美元±5亿美元，同比约+69%）；GAAP摊薄EPS 7.90美元（同比+134%），调整后摊薄EPS 8.40美元±0.10美元（同比约+116%）。全年FY27指引上调：营收2020亿美元±5亿美元（前次1920亿美元，同比+78%），AI优化服务器营收780亿美元（前次740亿美元，同比+216%），GAAP摊薄EPS 28.24美元（前次24.37美元，同比+225%），调整后摊薄EPS 29.68美元±0.10美元（前次25.50美元，同比+188%）。董事会批准新增250亿美元C类普通股回购授权。",
     "note": "FY27Q3（截至2026-10-30）营收549.37亿美元（同比+103%）超刷新前Yahoo一致预期约492.74亿美元（+11.49%）；调整后摊薄EPS 9.45美元 vs 预期6.55221，超预期约44.23%；GAAP摊薄EPS 8.82美元（同比+287%），GAAP净利润56.73亿美元（同比+266%）。调整后经营利润78.26亿美元（同比+213%）。ISG营收419.74亿美元（同比+198%），其中AI优化服务器220.31亿美元（同比+291%），传统服务器与网络150.13亿美元（同比+235%），存储49.30亿美元（同比+24%）；ISG经营利润71.18亿美元（同比+308%）。CSG营收128.86亿美元（同比+3%；CNBC援引LSEG预期143.3亿美元，该分部低于预期），其中商业业务113.00亿美元（同比+6%）、消费业务15.86亿美元（同比-15%），经营利润7.04亿美元（同比-6%）。当季经营现金流44.59亿美元，向股东返还49亿美元；AI服务器订单602亿美元，期末积压1323亿美元。全年迄今（九个月）营收1457.50亿美元（同比+82%），调整后摊薄EPS 21.32美元。Q4指引营收563亿美元、调整后EPS 8.40美元，CNBC援引LSEG预期为营收536.1亿美元、EPS 7.50美元；路透称全年营收指引2020亿美元高于LSEG预期1944.8亿美元。官网：https://investors.delltechnologies.com/news-events/press-releases/detail/1665/dell-technologies-delivers-third-quarter-fiscal-2027-financial-results"
    },
+   "guidance": "Q4FY27指引：营收563亿美元（业绩评述材料为562.5亿美元±5亿美元，同比约+69%）；GAAP摊薄EPS 7.90美元（同比+134%），调整后摊薄EPS 8.40美元±0.10美元（同比约+116%）。全年FY27指引上调：营收2020亿美元±5亿美元（前次1920亿美元，同比+78%），AI优化服务器营收780亿美元（前次740亿美元，同比+216%），GAAP摊薄EPS 28.24美元（前次24.37美元，同比+225%），调整后摊薄EPS 29.68美元±0.10美元（前次25.50美元，同比+188%）。董事会批准新增250亿美元C类普通股回购授权。",
    "note": "AI上游·AI 服务器与企业存储（戴尔）。",
-   "importance": 3,
-   "guidance": "Q4FY27指引：营收563亿美元（业绩评述材料为562.5亿美元±5亿美元，同比约+69%）；GAAP摊薄EPS 7.90美元（同比+134%），调整后摊薄EPS 8.40美元±0.10美元（同比约+116%）。全年FY27指引上调：营收2020亿美元±5亿美元（前次1920亿美元，同比+78%），AI优化服务器营收780亿美元（前次740亿美元，同比+216%），GAAP摊薄EPS 28.24美元（前次24.37美元，同比+225%），调整后摊薄EPS 29.68美元±0.10美元（前次25.50美元，同比+188%）。董事会批准新增250亿美元C类普通股回购授权。"
+   "importance": 3
   },
   {
    "symbol": "ANET",
@@ -4937,8 +4936,7 @@
    },
    "guidance": "Q4 FY27营收16.381–16.441亿美元，Non-GAAP摊薄EPS 0.36美元；FY27全年营收60.781–60.841亿美元，Non-GAAP摊薄EPS 1.28美元；期末ARR指引67.122–67.162亿美元。上调FY27净新增ARR增速指引中值至同比+45%（上调1060个基点）。另宣布以全股票交易收购Zscaler，估值约439亿美元（每股Zscaler兑换1.135股CrowdStrike）。",
    "note": "AI下游·云端网络安全（CrowdStrike）。",
-   "importance": 2,
-   "nasdaqText": "CrowdStrike Holdings, Inc. Class A Common Stock is expected* to report earnings on  12/01/2026 after market close.  The report will be for the fiscal Quarter ending Oct 2026.  According to Zacks Investment Research, based on  13 analysts'  forecasts, the consensus EPS forecast for the quarter is $0.  The reported EPS for the same quarter last year was $0."
+   "importance": 2
   },
   {
    "symbol": "DDOG",
