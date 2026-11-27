@@ -11,7 +11,7 @@
 
 | 类型 | 节奏 | 说明 |
 |------|------|------|
-| 公募（仓位多图） | **工作日 21:30**（Asia/Shanghai） | 有新 `asOf` 或字段变化再推；否则可不推 |
+| 公募（仓位多图） | **工作日 21:30**（Asia/Shanghai，时刻由 Grok Bot 调度） | 仓库脚本不登录网页、不自己排程。`funds/scripts/rebuild_mutual_from_api.py` 读取 lxwfof MCP `position_pub` 与 `position_etf`（也接受旧 `{ok:true,data}` 包装），校验后写 `funds/data/mutual.json`。有新 `asOf` 或字段变化再推；否则可不推 |
 | 私募（仓位多图 · v2） | **工作日或周频** | 与源站私募仓位对齐，常见周频，不限死周五。有新 `asOf` 或字段变化再推；否则可不推 |
 | 私募（旧策略指数三表） | 已降级 | 仅当 v2 `sections` 为空时 UI 才读；无新截面不必再推 |
 
@@ -146,12 +146,13 @@
 
 ### 数据来源与缺口
 
-- **MCP** `user-lxwfof MCP` → `get_dataset(name=position)`：仅有私募侧 `subjective`/`styles4`/`zhizeng`/`text`（页头 asOf 约私募周频），**不含**公募四块 / ETF / 产品自助。
-- **公募主数据**：同源站点 `/api/position/pub`（`pub`/`blend`/`combo`/`accuracy*`）；ETF：`/api/position/etf`。
-- **未收录**：`#pos-pattr` 产品自助（需 `/api/position/ppos`）；`pubpri_excess` 属超额对比、不进本文件。
-- **行业热力**：见 `industry_mutual.json`（Wind，非 lxwfof）；缺口写在该文件 `source.gaps`。
-- **顶层 `note`（页脚）**：只写主数据/ETF/MCP 溯源 + 合规句。**禁止**写入「产品自助拆分未入库。」与「公募仓位重建自 lxwfof「公私募持仓统计」；」；产品自助缺口只放在 `source.gaps`。
-- 合规：回答中须保留 MCP 返回末尾提示语（如「部分信息参考自lxwfof MCP」）。
+- **公募主数据**：lxwfof MCP `get_dataset(name=position_pub)`（`combo` / `pub` / `blend` / `accuracy*` / `zhizeng`）。**ETF**：lxwfof MCP `get_dataset(name=position_etf)`。各区块 `asOf` 取该区块序列末点（或与之相同的数据内 `asof`），不按生成时钟猜测。
+- 重建脚本接受 MCP dataset 包装 `{name,desc,kb,data}`，也接受同载荷的旧包装 `{ok:true,data}`（含再包一层 MCP dataset）。写入文件的来源是 `lxwfof MCP` 的 `position_pub` / `position_etf`，`source.mcp.*.envelope` 只记录包装形态。不把本轮写成网页登录接口。
+- 私募 dataset `position` 的摘要不是本文件的当次取数。命令行若仍带 `--mcp-summary` / `--mcp-asof`，脚本忽略它们，不写入 `note` 或 `source`。
+- **未收录**（只写在 `source.gaps`）：`#pos-pattr` 产品自助（逐产品 ppos）；`pubpri_excess` 属超额对比、不进本文件。
+- **行业热力**：见 `industry_mutual.json`（Wind，非 lxwfof）；缺口写在该文件 `source.gaps`。公募仓位重建不改该文件。
+- **顶层 `note`（页脚）**：短溯源，形如 `lxwfof MCP position_pub（asOf=<数据 asof>），position_etf（asOf=<数据 asof>）。【部分信息参考自lxwfof MCP】`。**禁止**出现「产品自助拆分未入库。」与「公募仓位重建自 lxwfof…」。
+- 合规尾注必须原样为 `【部分信息参考自lxwfof MCP】`，同时写在 `note` 末尾与 `source.compliance`。
 
 ### 公募 UI 消费（`view=mutual`）
 
